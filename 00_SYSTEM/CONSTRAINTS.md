@@ -35,15 +35,51 @@ This document outlines constraints, limitations, and boundaries that must be res
 
 ## Security Constraints
 
+### ⚠️ Critical Security Rules
+
+> **🚨 DO NOT store secrets, tokens, credentials, or customer PII in this repository.**
+>
+> **When uncertain about sensitivity, mark as `[REDACT_NEEDED]` and stop.**
+
+#### What Must Never Be Committed
+- [ ] Secrets
+- [ ] Tokens
+- [ ] Credentials
+- [ ] Customer PII (Personally Identifiable Information)
+
+#### Redaction Requirements
+The following must be redacted before committing:
+- [ ] Email addresses
+- [ ] Plan participant data
+- [ ] Access URLs that are sensitive
+- [ ] Internal-only identifiers (if required)
+
+#### Content Standards
+- Keep all content **enterprise-safe** and **audit-friendly**
+- When uncertain about sensitivity, mark as `[REDACT_NEEDED]` and stop
+- Review all content before committing
+
 ### Data Handling
 - No production data in test environments
 - PII/PHI redaction requirements (see `02_STANDARDS/SECURITY_AND_DATA.md`)
 - Credential management policies
+- **Never commit sensitive data to version control**
 
 ### Access Control
 - Role-based access restrictions
 - Network security policies
 - Compliance requirements (SOX, HIPAA, etc.)
+
+### Security Checklist
+
+Before committing any content:
+- [ ] No secrets, tokens, or credentials
+- [ ] No customer PII
+- [ ] Emails redacted (if applicable)
+- [ ] Sensitive URLs redacted
+- [ ] Internal identifiers redacted (if required)
+- [ ] Content is enterprise-safe
+- [ ] Content is audit-friendly
 
 ## Quality Constraints
 
