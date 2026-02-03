@@ -1,0 +1,3 @@
+core.exception.ValidationException: Database results are empty
+	at core.backoffice.ValidationStepDefs.validateDatabaseToTestCase(ValidationStepDefs.java:75)
+	at ✽.validate database to test case Enrollment of Individual Account with BYO and Rollover Contribution Option(file:///builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature:140)

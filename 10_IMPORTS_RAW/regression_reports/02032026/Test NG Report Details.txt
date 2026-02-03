@@ -1,0 +1,63 @@
+Reporter output for Universal Enrollment Regression Test Suite - Stage1 Environment
+runScenario("Single Universal Enrollment using Bank Funding with Enrollment of Individual Account with KIS and O...)
+Starting scenario file: /builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature
+Starting scenario: Single Universal Enrollment using Bank Funding with Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Traunch for Single Universal Enrollment using Bank Funding with Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option is mdd
+load test cases (PASSED)
+starting "ueenrollment" URL for "UE" (PASSED)
+Obtaining browser from resource manager
+using browser (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User completes the account owner information for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User completes the tell us about yourself section for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User completes the Account Owner Address section for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User completes the Account Owner Identification section for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+User completes the who you are saving section for "Child" for "Higher Education Expenses" for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User completes the beneficiary information section for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User selects funding method as "bank" for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User selects keep it simple as investment Options for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User selects Upromise modal for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User selects AO basics Edit from review page for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User selects Bene DOB Edit from review page for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+User verifies review page for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+Executing query:
+SELECT tl.USERNAME as USERNAME, ta.NV_KICKSTART_PARTICIPATION FROM TU_PERSON tp, TU_MEMBER tm, TU_ACCT ta, TU_BENE tb ,TA_LOGIN tl,TA_APP_CONTEXT tac where ta.UII_MEMBER_ID = tm.UII_MEMBER_ID and ta.SEQ_PART_ID = tp.SEQ_PERSON_ID and ta.SEQ_BENE_ID = tb.SEQ_BENE_ID and tm.UII_MEMBER_ID = tac.APP_MEMBER_ID and tac.LOGIN_ID = tl.LOGIN_ID AND tl.USERNAME = 'MicBuc4033'
+Schema: null
+Query executed
+Executing query:
+SELECT tl.USERNAME as USERNAME, ta.NV_KICKSTART_PARTICIPATION FROM TU_PERSON tp, TU_MEMBER tm, TU_ACCT ta, TU_BENE tb ,TA_LOGIN tl,TA_APP_CONTEXT tac where ta.UII_MEMBER_ID = tm.UII_MEMBER_ID and ta.SEQ_PART_ID = tp.SEQ_PERSON_ID and ta.SEQ_BENE_ID = tb.SEQ_BENE_ID and tm.UII_MEMBER_ID = tac.APP_MEMBER_ID and tac.LOGIN_ID = tl.LOGIN_ID AND tl.USERNAME = 'MicBuc4033'
+Schema: null
+Query executed
+Executing query:
+SELECT tl.USERNAME as USERNAME, ta.NV_KICKSTART_PARTICIPATION FROM TU_PERSON tp, TU_MEMBER tm, TU_ACCT ta, TU_BENE tb ,TA_LOGIN tl,TA_APP_CONTEXT tac where ta.UII_MEMBER_ID = tm.UII_MEMBER_ID and ta.SEQ_PART_ID = tp.SEQ_PERSON_ID and ta.SEQ_BENE_ID = tb.SEQ_BENE_ID and tm.UII_MEMBER_ID = tac.APP_MEMBER_ID and tac.LOGIN_ID = tl.LOGIN_ID AND tl.USERNAME = 'MicBuc4033'
+Schema: null
+Query executed
+pull database data for Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option with "enrollment.get.ue.accountownerinfo" using: (PASSED)
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+validate database to test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option (FAILED)
+source
+exception
+Getting test case Enrollment of Individual Account with KIS and One-Time Bank and Payroll Contrib Option
+testcase information
+Releasing test case resources
