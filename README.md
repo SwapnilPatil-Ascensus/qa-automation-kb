@@ -36,6 +36,7 @@ qa-automation-kb/
 2. **Need a template?** → Check `06_TEMPLATES/`
 3. **Looking for standards?** → See `02_STANDARDS/`
 4. **Understanding architecture?** → Read `03_ARCHITECTURE/OVERVIEW.md`
+5. **Bug report or leadership update?** → `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and prompts in `00_SYSTEM/PROMPTS.md`
 
 ## Maintenance
 

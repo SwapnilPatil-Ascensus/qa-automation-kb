@@ -12,6 +12,7 @@ This document serves as an index to key knowledge transfer topics and where to f
 - **Access Setup**: `05_ONBOARDING/ACCESS_SETUP.md`
 - **First Tasks**: `05_ONBOARDING/FIRST_5_TASKS.md`
 - **Common Failures**: `05_ONBOARDING/COMMON_FAILURES.md`
+- **How to Use Repetitive Tasks (Bug + Leadership Update)**: `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` — templates, prompts, step-by-step
 
 ### Understanding the System
 - **Current State**: `01_CONTEXT/CURRENT_STATE.md`

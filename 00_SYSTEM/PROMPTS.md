@@ -11,6 +11,8 @@ This document provides copy/paste-ready Cursor prompts for QA automation tasks. 
 3. Replace any `[PLACEHOLDER]` values with your specific information
 4. Execute the prompt
 
+**Step-by-step for repetitive tasks (bug report, leadership update):** See `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` for locations, templates, and plain-English steps.
+
 ---
 
 ## A) One-Time "Project Bootstrap" Prompt
@@ -180,6 +182,51 @@ Given this evidence (logs/failed tests summary pasted below), produce:
 Then update 04_EXECUTION/RCA_PROCESS.md if a new pattern is discovered.
 
 [PASTE EVIDENCE BELOW]
+```
+
+---
+
+## H) "Bug Report: JIRA + Email + Teams" Prompt
+
+**Use when:** A regression or test failure occurs and you need to log a bug and notify leads/dev. You have (or will put) failure artifacts in a date folder under `10_IMPORTS_RAW/regression_reports/[MMDDYYYY]/`.
+
+**Templates to follow:**  
+- Failure email: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug Is Found or Regression Fails (QA Automation).pdf`  
+- Resolution email: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`  
+- Bug doc structure: existing bug docs in `10_IMPORTS_RAW/regression_reports/` (e.g. `02032026_UniversalEnrollment_BadSqlGrammarException.md`)
+
+**Copy this prompt, then replace the placeholders and paste your details:**
+
+```
+Bug report task: create one markdown file that contains JIRA copy-paste content, failure email draft, and Teams message.
+
+**Inputs (provide below):**
+- Date (MMDDYYYY), e.g. 02032026
+- Feature/area name (e.g. Universal Enrollment, IDP Login)
+- Short summary of what failed and the main error (paste exact exception if available)
+- TestNG or CI report URL (if any)
+- Folder path where artifacts are saved, e.g. 10_IMPORTS_RAW/regression_reports/02032026/
+- List of files in that folder (screenshots, exception .txt, test data, etc.)
+
+**Output:**
+1. Create ONE file in that folder, named: [MMDDYYYY]_[FeatureName]_[IssueType].md (e.g. 02032026_UniversalEnrollment_BadSqlGrammarException.md).
+2. File must include:
+   - Context/Background, Issue Summary, Steps to Reproduce, Error Message (exact), JIRA Bug link placeholder
+   - **JIRA block (copy-paste ready):** Summary, Description, Steps, Expected/Actual, Environment, Priority/Severity, Attachments/Links, Test Data, Labels, Components
+   - **Email draft (failure):** To/Cc per Bug Handling PDF "1. Handling Process...". Subject, body with Bug Summary (error, JIRA, report link, exception, screenshot, test data, env, priority), Change Set placeholder, CI/CD policy line. Concise.
+   - **Teams message:** Short summary, links (JIRA, report, screenshot), priority/env, call-to-action
+   - **Resolution section (placeholder):** Empty "Resolution Email Draft" for when the bug is fixed (use template from "1b. Automation Bug Resolution Follow-Up..." PDF)
+3. Follow the structure and tone of existing bug docs in 10_IMPORTS_RAW/regression_reports/ (e.g. 02032026 or 02022026). Be concise; no long paragraphs.
+4. Naming: [MMDDYYYY]_[FeatureName]_[IssueType].md — e.g. 02032026_UniversalEnrollment_BadSqlGrammarException.md
+
+---
+
+**Date (MMDDYYYY):** [FILL]
+**Feature/area:** [FILL]
+**Summary of failure + main error:** [FILL or paste exception]
+**Report URL:** [FILL]
+**Artifacts folder path:** [FILL]
+**Files in folder:** [FILL – list screenshots, .txt, etc.]
 ```
 
 ---
