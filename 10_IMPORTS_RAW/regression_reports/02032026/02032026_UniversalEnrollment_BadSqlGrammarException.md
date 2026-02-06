@@ -157,7 +157,7 @@ https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automati
 ## Email Draft (Bug Handling Template)
 
 **To:** AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk  
-**Cc:** Henry.Dittmer@ascensus.com, Phuong.Huynh@ascensus.com  
+**Cc:** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>  
 *Note: If Brian Danilczyk is out of office, Valerie Gallegos will coordinate follow-up actions.*
 
 **Subject:** Daily Regression Failed – Universal Enrollment (BadSqlGrammarException – Semantic Validation) | Stage 1
@@ -229,7 +229,7 @@ QA Automation Team
 ## Resolution Email Draft (Bug Resolution Follow-Up Template)
 
 **To:** AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk  
-**Cc:** Henry.Dittmer@ascensus.com, Phuong.Huynh@ascensus.com  
+**Cc:** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>  
 *Note: If Brian Danilczyk is out of office, Valerie Gallegos will coordinate follow-up actions.*
 
 **Subject:** Resolved – Daily Regression Passed | Universal Enrollment (BadSqlGrammarException – Semantic Validation) | Stage 1

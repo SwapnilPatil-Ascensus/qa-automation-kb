@@ -1,0 +1,3 @@
+ORA-01035: ORACLE only available to users with RESTRICTED SESSION privilege
+
+Impact: Stage 1 database is in restricted mode. Automation regression cannot connect; all DB-dependent tests fail.

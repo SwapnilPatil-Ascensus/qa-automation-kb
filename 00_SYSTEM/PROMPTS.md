@@ -213,9 +213,9 @@ Bug report task: create one markdown file that contains JIRA copy-paste content,
 2. File must include:
    - Context/Background, Issue Summary, Steps to Reproduce, Error Message (exact), JIRA Bug link placeholder
    - **JIRA block (copy-paste ready):** Summary, Description, Steps, Expected/Actual, Environment, Priority/Severity, Attachments/Links, Test Data, Labels, Components
-   - **Email draft (failure):** To/Cc per Bug Handling PDF "1. Handling Process...". Subject, body with Bug Summary (error, JIRA, report link, exception, screenshot, test data, env, priority), Change Set placeholder, CI/CD policy line. Concise.
+   - **Email draft (failure):** To: AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk. **Cc (always):** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>. Subject, body with Bug Summary (error, JIRA, report link, exception, screenshot, test data, env, priority), Change Set placeholder, CI/CD policy line. Concise.
    - **Teams message:** Short summary, links (JIRA, report, screenshot), priority/env, call-to-action
-   - **Resolution section (placeholder):** Empty "Resolution Email Draft" for when the bug is fixed (use template from "1b. Automation Bug Resolution Follow-Up..." PDF)
+   - **Resolution section (placeholder):** Empty "Resolution Email Draft" for when the bug is fixed (use template from "1b. Automation Bug Resolution Follow-Up..." PDF). **Cc (same as failure, always):** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>
 3. Follow the structure and tone of existing bug docs in 10_IMPORTS_RAW/regression_reports/ (e.g. 02032026 or 02022026). Be concise; no long paragraphs.
 4. Naming: [MMDDYYYY]_[FeatureName]_[IssueType].md — e.g. 02032026_UniversalEnrollment_BadSqlGrammarException.md
 

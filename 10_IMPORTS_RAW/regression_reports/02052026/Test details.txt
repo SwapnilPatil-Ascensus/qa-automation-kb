@@ -1,0 +1,20 @@
+
+ksd_member_login_url=https://lqd.stage1.acs529.com/lqdtpl/al/list.cs
+ 
+Automation path:/qa-automation/unite/testsuite/frontoffice/common/login/feature/Legacy_Login_Registered_Account.feature:31
+ 
+
+
+runScenario("User Login for Forgot Password", "User Forgot Password - Positive")
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/login/feature/T101_ForgotPasswordPositive.feature:46
+Starting scenario: User Login for Forgot Password
+snapshot
+exception
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "login" URL for "member" (PASSED)
+using browser (FAILED)
+user gets the account owner details from temporary file and database for "forgotpwd" for Forgot Password (SKIPPED)
+get account username and email id from database for Forgot Password (SKIPPED)
+user clicks on Forgot password for Forgot Password (SKIPPED)
+user checks Forgot password Non-MFA flow for Forgot Password (SKIPPED)

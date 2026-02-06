@@ -57,6 +57,15 @@ Contact: @[Name] / @[Name]
 
 ---
 
+## Communication – Standard CC (all emails)
+
+**Use for both failure and resolution emails:**  
+**Cc (always):** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>
+
+*(See BUG_REPORTING_PROCESS.md for full recipient guidance.)*
+
+---
+
 **Reported By:** [Name]  
 **Date:** [MM/DD/YYYY]  
 **Environment:** [Environment Name]

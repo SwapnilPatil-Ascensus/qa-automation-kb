@@ -108,10 +108,23 @@ Each bug documentation should include:
 
 ## Communication
 
+### Standard Email Recipients (Use for All Bug Emails)
+
+**To:** AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk  
+
+**Cc (always include):**
+- Rajib Akhter <Rajib.Akhter@ascensus.com>
+- Henry Dittmer <Henry.Dittmer@ascensus.com>
+- Phuong Huynh <Phuong.Huynh@ascensus.com>
+- Automation.Squad <Automation.Squad@ascensus.com>
+
+*Note: If Brian Danilczyk is out of office, Valerie Gallegos will coordinate follow-up actions.*
+
 ### Email/Teams Format
 - Use same concise format as bug documentation
 - Subject: `[Priority] [Feature] - [Issue Type]`
 - Include: Context, Summary, Steps, Error, JIRA link
+- **Always use the standard Cc list above** for failure and resolution emails
 
 ### JIRA Format
 - Use bug documentation content
