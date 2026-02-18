@@ -1,0 +1,45 @@
+I would like to bring to your attention an issue I encountered while testing the “Forgot Username” functionality on the IDP login page.
+
+Steps to Reproduce:
+
+Navigate to the IDP login page:
+https://njd.stage1.acs529.com/njdtpl/auth/ll.cs
+Click on “Forgot Username.”
+Observed Behavior:
+Instead of navigating to the correct username recovery flow, the application redirects to the following error page:
+
+https://njd.stage1.acs529.com/app/error/tmB5tn.html
+The page displays a message:
+“The information you are looking for regarding your NJBEST 529 College Savings Plan Account is temporarily unavailable…”
+Browser dev tools show “Failed to load response data – No content available because this request was redirected.”
+
+
+ 
+
+Expected Behavior:
+The user should be redirected to the appropriate Forgot Username recovery page.
+
+PLease let me know if additional details or logs are needed from my side.
+
+ Test NG Report" https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13068203674/artifacts/unite/unite-universal-enrollment/target/surefire-reports/index.html#
+
+
+Test Case Info & Scenario run steps:
+
+runScenario("Forgot Username with Unregistered Email/Phone ", "Identity Provider (IDP) Forgot User...)
+Starting scenario file: /builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/login/common/feature/IDPForgotUsernameUnregisteredNegative.feature
+Starting scenario: Forgot Username with Unregistered Email/Phone
+Traunch for Forgot Username with Unregistered Email/Phone is njd
+load test cases (PASSED)
+starting "login" URL for "member" (PASSED)
+Obtaining browser from resource manager
+using browser (PASSED)
+user clicks on Forgot Username Button (PASSED)
+Getting test case UnRegister Email
+source
+exception
+Attempt username recovery with an unregistered email/phone UnRegister Email (FAILED)
+an error message "No account found with this information." should be displayed (SKIPPED)
+Getting test case UnRegister Email
+testcase information
+Releasing test case resources

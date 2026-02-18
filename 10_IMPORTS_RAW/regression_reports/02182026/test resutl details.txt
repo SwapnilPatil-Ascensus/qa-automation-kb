@@ -1,0 +1,46 @@
+Prefill Enrollment - Error Message After Completing Bank Details
+Title: Prefill Enrollment - Error Message After Completing Bank Details: "This functionality is not available at this time. Please try again later."
+Description: During the Prefill Enrollment process, after completing the bank details section and attempting to proceed, the following error message is displayed at the top of the page:
+This functionality is not available at this time. Please try again later.ts2 = <timestamp>
+The error message appears immediately after submitting the bank details.
+The timestamp in the error message (e.g., ts2 = 02/18/2026 13:13:30) changes with each attempt.
+The issue prevents users from completing the enrollment process.
+The issue is consistently reproducible for the affected scenario.
+Steps to Reproduce:
+Start the Prefill Enrollment process.
+Complete all required sections up to the bank details.
+Enter valid bank details and attempt to proceed to the next step.
+Observe the error message at the top of the page.
+Expected Result:
+User should be able to proceed to the next step after entering valid bank details.
+No error message should be displayed.
+Actual Result:
+Error message is displayed: "This functionality is not available at this time. Please try again later." with a changing timestamp.
+User cannot proceed further in the enrollment process.
+Impact:
+Users are blocked from completing the Prefill Enrollment process.
+This affects regression and manual testing for the impacted plans.
+Attachments:
+Screenshot of the error message (see attached image).
+Environment:
+Prefill Enrollment (Negative/Positive scenario as applicable)
+Date observed: 02/18/2026
+
+
+
+
+
+
+Details:  The error message appears immediately after submitting the bank details and Click on Save and Send Button
+
+The timestamp in the error message (e.g., ts2 = 02/18/2026 13:13:30) changes with each attempt.
+
+The issue prevents users from completing the enrollment process.
+
+The issue is consistently reproducible for the affected scenario
+Please Try again later time details are Changing Frequently
+ 
+Plans:WFD,PAD,VGI,NUV
+ 
+path:frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature
+ 
