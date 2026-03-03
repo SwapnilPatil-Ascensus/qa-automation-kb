@@ -1,0 +1,476 @@
+Received: from CH1PPFF9B87097C.namprd16.prod.outlook.com
+ (2603:10b6:61f:fc00::a2b) by LV0PR16MB7010.namprd16.prod.outlook.com with
+ HTTPS; Mon, 2 Mar 2026 17:45:21 +0000
+Received: from DS0PR16MB5462.namprd16.prod.outlook.com (2603:10b6:8:167::17)
+ by CH1PPFF9B87097C.namprd16.prod.outlook.com (2603:10b6:61f:fc00::a2b) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.14; Mon, 2 Mar
+ 2026 17:45:19 +0000
+Received: from DS0PR16MB5462.namprd16.prod.outlook.com
+ ([fe80::eb45:abe2:26fb:6443]) by DS0PR16MB5462.namprd16.prod.outlook.com
+ ([fe80::eb45:abe2:26fb:6443%5]) with mapi id 15.20.9678.014; Mon, 2 Mar 2026
+ 17:45:19 +0000
+From: Abhitosh Fani <Abhitosh.Fani@ascensus.com>
+To: Luis Fernandes <Luis.Fernandes@ascensus.com>, Swapnil Patil
+	<Swapnil.Patil@ascensus.com>, Rajib Akhter <Rajib.Akhter@ascensus.com>
+CC: Arun Dash <Arun.Dash@ascensus.com>, Dharmender Verma
+	<Dharmender.Verma@ascensus.com>, Henry Dittmer <Henry.Dittmer@ascensus.com>
+Subject: Re: IDP flow performance test suite
+Thread-Topic: IDP flow performance test suite
+Thread-Index: AdylttHWUrWGwZZMRUeT5urj96IMKAEs5pSvAABsSYMAAAW2kg==
+Date: Mon, 2 Mar 2026 17:45:19 +0000
+Message-ID:
+	<DS0PR16MB5462A94C728DBBCCEA03F41B967EA@DS0PR16MB5462.namprd16.prod.outlook.com>
+References:
+	<DS0PR16MB54620CC99D7DC0B8A5AC7A509674A@DS0PR16MB5462.namprd16.prod.outlook.com>
+ <DS0PR16MB5462A5E4A40711B0C9420345967EA@DS0PR16MB5462.namprd16.prod.outlook.com>
+ <IA1PR16MB5480F711D6B3F6F461851C35F57EA@IA1PR16MB5480.namprd16.prod.outlook.com>
+In-Reply-To:
+	<IA1PR16MB5480F711D6B3F6F461851C35F57EA@IA1PR16MB5480.namprd16.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: DS0PR16MB5462.namprd16.prod.outlook.com
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-Network-Message-Id:
+	c1016369-7193-464f-3f47-08de788378da
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+msip_labels:
+x-ms-publictraffictype: Email
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=ascensus.com;
+x-ms-office365-filtering-correlation-id: c1016369-7193-464f-3f47-08de788378da
+x-ms-traffictypediagnostic:
+	DS0PR16MB5462:EE_|CH1PPFF9B87097C:EE_|LV0PR16MB7010:EE_
+x-microsoft-antispam:
+	BCL:0;ARA:13230040|366016|13003099007|8096899003|7142099003|7053199007|41050700001;
+x-forefront-antispam-report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR16MB5462.namprd16.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(13003099007)(8096899003)(7142099003)(7053199007)(41050700001);DIR:INT;
+x-ms-exchange-crosstenant-originalarrivaltime: 02 Mar 2026 17:45:19.6448 (UTC)
+x-ms-exchange-crosstenant-fromentityheader: Hosted
+x-ms-exchange-crosstenant-id: 1d3bed01-6d09-498e-ab05-f1e2fdb1b138
+x-ms-exchange-crosstenant-authsource: DS0PR16MB5462.namprd16.prod.outlook.com
+x-ms-exchange-crosstenant-authas: Internal
+x-ms-exchange-crosstenant-network-message-id:
+	c1016369-7193-464f-3f47-08de788378da
+x-ms-exchange-transport-crosstenantheadersstamped: CH1PPFF9B87097C
+x-ms-exchange-transport-endtoendlatency: 00:00:02.0344571
+x-ms-exchange-processed-by-bccfoldering: 15.20.9678.010
+x-ms-exchange-crosstenant-mailboxtype: HOSTED
+x-ms-exchange-crosstenant-userprincipalname:
+	2NYL4ZxuLs1xUsXEaEOzS1xcZJ0JQeRFh4E3jSHC6y/Tc8ShtHNALJZFGL7uaAYwdc5yTTb2Waf8c9bZchslsHxX6zD3vEKtYu2hjh1Xsbc=
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(425001)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	RCqA1d57+WAY065A2cKMdJoNKea9rXY5Ha3soGp4rYvzeVVs28t6AgZfI7SZ0gAv28f1Eiv/9n9ffJaB4D/jaQa4fZYkDV6/wuEeho1llJCUPRQ0A3SI68hsFbTIfg3DoCWDgEBwLPFyeOFX01ei/QqWbH3OHRs1uxbI0qWYNwZObikMFnlEehZljjvlVVyAosRSxHzT+QJduTpw1WnYflp06qiBoR9PrArGqZD+4hL1JgBlyHNFiNYG7R4jjPogftQLAxJFkrnx03So9W2ezsGjgUzrfAaJlL1Fv/6pBusrGrF3K14nOotNcFtCBCxgNGrm106jhQpLYgGmftW0NqV7H4cG1/IdHwGh4kxOllJLu0Lk5ZNxkEYf2xLa9s8S3DBmZ2e819q0jr4E/yJJ3anM0MCEk+J19kxdyueJdNmniS9RVP/7HQDkuEVsEAguHA/qM6im7F1NRxy///gdQBVORj3VW5uWvM2sSmOE1gtCcs93nLJfoim6bC2jMsSjgfW0BeQglPf44NpyHppiyPeIdJB/O27F5Ri0CEGbaTccML810d9WZsQDb66cpiD9sp0pA7ZoT4pnjpt+C8Pl7D2LuyQPUfAmnl0q3+sdbuGuY/6+oHkjdPOhcd5KFHCkG9dws+Sy9R4RlNW/q4elGw0HfFy6reI0clBdcwNOY0TGTYgv/J/tr1/vPEXH5CdkMi5Uqwj+CObtVsWg+PSRi2l0+32R9SyQmgWmd4RU3vvaVwMwAI98/oAUoq+32BO1SEiK/LEP7FQ/6ud9VQb4WmSAUvuomhOymqpAZHR6525xaMptPor/uET6/x4w6PbWU6wsTxXkTEBoEovvc0hbCItCRT2qKlbjWepDLpSWbdY=
+Content-Type: multipart/alternative;
+	boundary="_000_DS0PR16MB5462A94C728DBBCCEA03F41B967EADS0PR16MB5462namp_"
+MIME-Version: 1.0
+
+--_000_DS0PR16MB5462A94C728DBBCCEA03F41B967EADS0PR16MB5462namp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+We did not notice other flow impact yet, just identified change password fl=
+ow and required immediate action.
+
+
+
+Thanks,
+
+Abhitosh Fani
+
+
+
+________________________________
+From: Luis Fernandes <Luis.Fernandes@ascensus.com>
+Sent: Monday, March 2, 2026 12:44 PM
+To: Abhitosh Fani <Abhitosh.Fani@ascensus.com>; Swapnil Patil <Swapnil.Pati=
+l@ascensus.com>; Rajib Akhter <Rajib.Akhter@ascensus.com>
+Cc: Arun Dash <Arun.Dash@ascensus.com>; Dharmender Verma <Dharmender.Verma@=
+ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>
+Subject: Re: IDP flow performance test suite
+
+Are there any other workflows we are concerned about performance impact?
+
+Regards
+L
+________________________________
+From: Abhitosh Fani <Abhitosh.Fani@ascensus.com>
+Sent: Monday, March 2, 2026 12:41:34 PM
+To: Swapnil Patil <Swapnil.Patil@ascensus.com>; Rajib Akhter <Rajib.Akhter@=
+ascensus.com>; Luis Fernandes <Luis.Fernandes@ascensus.com>
+Cc: Arun Dash <Arun.Dash@ascensus.com>; Dharmender Verma <Dharmender.Verma@=
+ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>
+Subject: Re: IDP flow performance test suite
+
+Hi Swapnil,
+As discussed in our last meeting, we need to incorporate the full IDP flow =
+into both the automation and performance test suites. To begin, we should f=
+ocus on adding coverage for the Change Password flow. There are two variant=
+s:
+1. Change Password from the Login screen
+
+  *   Initiated through the =93Change Password=94 option
+  *   Requires MFA verification
+
+2. Change Password from the Profile Security section (easier to add to auto=
+mation immediately)
+
+  *   Applicable when 2FA is temporarily disabled for the user
+  *   Does not require MFA
+
+Please prioritize integrating into the automation suite. While these flows =
+may not need to be included in the upcoming load test immediately, we shoul=
+d continue running our current performance tests in parallel. The automatio=
+n updates will ensure that the new password flows are validated and not cau=
+sing downtime.
+Let me know if you need any support or clarification while implementing the=
+se additions.
+
+
+
+
+Thanks,
+
+Abhitosh Fani
+
+
+
+________________________________
+From: Abhitosh Fani
+Sent: Tuesday, February 24, 2026 12:55 PM
+To: Swapnil Patil <Swapnil.Patil@ascensus.com>; Rajib Akhter <Rajib.Akhter@=
+ascensus.com>; Nick Botvinnik <Nicholas.Botvinnik@ascensus.com>
+Cc: Arun Dash <Arun.Dash@ascensus.com>
+Subject: IDP flow performance test suite
+When: Tuesday, February 24, 2026 3:30 PM-3:50 PM.
+Where: Microsoft Teams Meeting
+
+
+
+
+___________________________________________________________________________=
+_____
+Microsoft Teams meeting
+Join: https://teams.microsoft.com/meet/28376567132622?p=3DE1LvggoRKxQ1WFDlj=
+O
+Meeting ID: 283 765 671 326 22
+Passcode: Yf6HY7dM
+________________________________
+Need help?<https://aka.ms/JoinTeamsMeeting?omkt=3Den-US> | System reference=
+<https://teams.microsoft.com/l/meetup-join/19%3ameeting_YTU4YjRmNGQtZmVhNS0=
+0MzNiLTg4ZDYtZmIzOGJhNDFlNTVl%40thread.v2/0?context=3D%7b%22Tid%22%3a%221d3=
+bed01-6d09-498e-ab05-f1e2fdb1b138%22%2c%22Oid%22%3a%22cbe1c215-99d8-43c9-82=
+a0-28b0685fcdee%22%7d>
+Dial in by phone
++1 267-281-7060,,7294930#<tel:+12672817060,,7294930#> United States, Souder=
+ton
+Find a local number<https://dialin.teams.microsoft.com/b43d56c0-5ce4-4d44-a=
+726-cd7d76007201?id=3D7294930>
+Phone conference ID: 729 493 0#
+For organizers: Meeting options<https://teams.microsoft.com/meetingOptions/=
+?organizerId=3Dcbe1c215-99d8-43c9-82a0-28b0685fcdee&tenantId=3D1d3bed01-6d0=
+9-498e-ab05-f1e2fdb1b138&threadId=3D19_meeting_YTU4YjRmNGQtZmVhNS00MzNiLTg4=
+ZDYtZmIzOGJhNDFlNTVl@thread.v2&messageId=3D0&language=3Den-US> | Reset dial=
+-in PIN<https://dialin.teams.microsoft.com/usp/pstnconferencing>
+___________________________________________________________________________=
+_____
+
+--_000_DS0PR16MB5462A94C728DBBCCEA03F41B967EADS0PR16MB5462namp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+We did not notice other flow impact yet, just identified change password fl=
+ow and required immediate action.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+<br>
+</div>
+<div class=3D"elementToProof" id=3D"Signature">
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+<br>
+</div>
+<p style=3D"margin: 0in; font-family: Calibri, sans-serif; font-size: 11pt;=
+" class=3D"elementToProof">
+<span style=3D"font-family: Arial, sans-serif; font-size: 10pt; color: rgb(=
+83, 86, 90); background-color: white;">Thanks,</span></p>
+<p style=3D"margin: 0in; font-family: Calibri, sans-serif; font-size: 11pt;=
+" class=3D"elementToProof">
+<span style=3D"font-family: Mistral; font-size: 16pt; color: black; backgro=
+und-color: white;">Abhitosh Fani</span></p>
+<p style=3D"margin: 0in; font-family: Calibri, sans-serif; font-size: 11pt;=
+" class=3D"elementToProof">
+&nbsp;</p>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Luis Fernandes &lt;Lu=
+is.Fernandes@ascensus.com&gt;<br>
+<b>Sent:</b> Monday, March 2, 2026 12:44 PM<br>
+<b>To:</b> Abhitosh Fani &lt;Abhitosh.Fani@ascensus.com&gt;; Swapnil Patil =
+&lt;Swapnil.Patil@ascensus.com&gt;; Rajib Akhter &lt;Rajib.Akhter@ascensus.=
+com&gt;<br>
+<b>Cc:</b> Arun Dash &lt;Arun.Dash@ascensus.com&gt;; Dharmender Verma &lt;D=
+harmender.Verma@ascensus.com&gt;; Henry Dittmer &lt;Henry.Dittmer@ascensus.=
+com&gt;<br>
+<b>Subject:</b> Re: IDP flow performance test suite</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"font-family:Aptos,-apple-system,HelveticaNeue,sans-serif; fon=
+t-size:12pt">
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Are there any other workflows we are concerned about performance impact?&nb=
+sp;</div>
+</div>
+<div id=3D"x_ms-outlook-mobile-body-separator-line" dir=3D"auto" style=3D"f=
+ont-family:Aptos,-apple-system,HelveticaNeue,sans-serif; font-size:12pt">
+<br>
+</div>
+<div id=3D"x_ms-outlook-mobile-signature" style=3D"font-family:Aptos,-apple=
+-system,HelveticaNeue,sans-serif; font-size:12pt">
+<div style=3D"direction:ltr">Regards</div>
+<div style=3D"direction:ltr">L</div>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" =
+color=3D"#000000" style=3D"font-size:11pt"><b>From:</b> Abhitosh Fani &lt;A=
+bhitosh.Fani@ascensus.com&gt;<br>
+<b>Sent:</b> Monday, March 2, 2026 12:41:34 PM<br>
+<b>To:</b> Swapnil Patil &lt;Swapnil.Patil@ascensus.com&gt;; Rajib Akhter &=
+lt;Rajib.Akhter@ascensus.com&gt;; Luis Fernandes &lt;Luis.Fernandes@ascensu=
+s.com&gt;<br>
+<b>Cc:</b> Arun Dash &lt;Arun.Dash@ascensus.com&gt;; Dharmender Verma &lt;D=
+harmender.Verma@ascensus.com&gt;; Henry Dittmer &lt;Henry.Dittmer@ascensus.=
+com&gt;<br>
+<b>Subject:</b> Re: IDP flow performance test suite</font>
+<div>&nbsp;</div>
+</div>
+<style type=3D"text/css" style=3D"display:none">
+<!--
+p
+	{margin-top:0;
+	margin-bottom:0}
+-->
+</style>
+<div dir=3D"ltr">
+<div class=3D"x_x_elementToProof" style=3D"font-family:Aptos,Aptos_Embedded=
+Font,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; colo=
+r:rgb(0,0,0)">
+Hi Swapnil,&nbsp;</div>
+<div class=3D"x_x_elementToProof" style=3D"line-height:20px; margin-top:1em=
+; margin-bottom:1em; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServi=
+ce,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+As discussed in our last meeting, we need to incorporate the full IDP flow =
+into both the automation and performance test suites. To begin, we should f=
+ocus on adding coverage for the Change Password flow. There are two variant=
+s:</div>
+<div class=3D"x_x_elementToProof" style=3D"line-height:20px; margin-top:1em=
+; margin-bottom:1em; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServi=
+ce,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+<b>1. Change Password from the Login screen</b></div>
+<ul>
+<li style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calib=
+ri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0); line-height:20px=
+">
+Initiated through the =93Change Password=94 option</li><li style=3D"font-fa=
+mily:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-se=
+rif; font-size:12pt; color:rgb(0,0,0); line-height:20px">
+Requires MFA verification</li></ul>
+<div class=3D"x_x_elementToProof" style=3D"line-height:20px; margin-top:1em=
+; margin-bottom:1em; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServi=
+ce,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+<b>2. Change Password from the Profile Security section (</b>easier to add =
+to automation immediately<b>)</b></div>
+<ul>
+<li style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calib=
+ri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0); line-height:20px=
+">
+Applicable when 2FA is temporarily disabled for the user</li><li style=3D"f=
+ont-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,s=
+ans-serif; font-size:12pt; color:rgb(0,0,0); line-height:20px">
+Does not require MFA</li></ul>
+<div class=3D"x_x_elementToProof" style=3D"line-height:20px; margin-top:1em=
+; margin-bottom:1em; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServi=
+ce,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Please prioritize integrating into the automation suite. While these flows =
+may not need to be included in the upcoming load test immediately, we shoul=
+d continue running our current performance tests in parallel. The automatio=
+n updates will ensure that the new
+ password flows are validated and not causing downtime.</div>
+<div class=3D"x_x_elementToProof" style=3D"line-height:20px; margin-top:1em=
+; margin-bottom:1em; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServi=
+ce,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Let me know if you need any support or clarification while implementing the=
+se additions.</div>
+<div class=3D"x_x_elementToProof" style=3D"font-family:Aptos,Aptos_Embedded=
+Font,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; colo=
+r:rgb(0,0,0)">
+<br>
+</div>
+<div class=3D"x_x_elementToProof" style=3D"font-family:Aptos,Aptos_Embedded=
+Font,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; colo=
+r:rgb(0,0,0)">
+<br>
+</div>
+<div class=3D"x_x_elementToProof" id=3D"x_x_Signature">
+<div class=3D"x_x_elementToProof" style=3D"font-family:Aptos,Aptos_Embedded=
+Font,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; colo=
+r:rgb(0,0,0)">
+<br>
+</div>
+<p class=3D"x_x_elementToProof" style=3D"margin:0in; font-family:Calibri,sa=
+ns-serif; font-size:11pt">
+<span style=3D"font-family:Arial,sans-serif; font-size:10pt; color:rgb(83,8=
+6,90); background-color:white">Thanks,</span></p>
+<p class=3D"x_x_elementToProof" style=3D"margin:0in; font-family:Calibri,sa=
+ns-serif; font-size:11pt">
+<span style=3D"font-family:Mistral; font-size:16pt; color:black; background=
+-color:white">Abhitosh Fani</span></p>
+<p class=3D"x_x_elementToProof" style=3D"margin:0in; font-family:Calibri,sa=
+ns-serif; font-size:11pt">
+&nbsp;</p>
+</div>
+<div style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Cali=
+bri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+<br>
+</div>
+<hr style=3D"display:inline-block; width:98%">
+<div id=3D"x_x_divRplyFwdMsg">
+<div style=3D"direction:ltr; font-family:Calibri,sans-serif; font-size:11pt=
+; color:rgb(0,0,0)">
+<b>From:</b>&nbsp;Abhitosh Fani<br>
+<b>Sent:</b>&nbsp;Tuesday, February 24, 2026 12:55 PM<br>
+<b>To:</b>&nbsp;Swapnil Patil &lt;Swapnil.Patil@ascensus.com&gt;; Rajib Akh=
+ter &lt;Rajib.Akhter@ascensus.com&gt;; Nick Botvinnik &lt;Nicholas.Botvinni=
+k@ascensus.com&gt;<br>
+<b>Cc:</b>&nbsp;Arun Dash &lt;Arun.Dash@ascensus.com&gt;<br>
+<b>Subject:</b>&nbsp;IDP flow performance test suite<br>
+<b>When:</b>&nbsp;Tuesday, February 24, 2026 3:30 PM-3:50 PM.<br>
+<b>Where:</b>&nbsp;Microsoft Teams Meeting</div>
+<div style=3D"direction:ltr">&nbsp;</div>
+</div>
+<div><br>
+<br>
+<br>
+</div>
+<div style=3D"max-width:1024px">
+<div style=3D"white-space:nowrap; margin-bottom:24px; font-family:&quot;Seg=
+oe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif; color:rg=
+b(36,36,36)">
+___________________________________________________________________________=
+_____</div>
+<div style=3D"margin-bottom:12px; font-family:&quot;Segoe UI&quot;,&quot;He=
+lvetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:20px; color:rgb(36=
+,36,36)">
+<span style=3D"font-weight:600">Microsoft Teams meeting</span></div>
+<div style=3D"margin-bottom:6px; font-family:&quot;Segoe UI&quot;,&quot;Hel=
+vetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:20px">
+<span style=3D"color:rgb(36,36,36); font-weight:600">Join: </span><span sty=
+le=3D"color:rgb(91,95,199)"><u><a data-auth=3D"NotApplicable" title=3D"Meet=
+ing join" class=3D"x_x_x_me-email-link x_x_OWAAutoLink" id=3D"OWAfc1b07a6-9=
+c15-c4e5-e87d-df30cc3c9cef" href=3D"https://teams.microsoft.com/meet/283765=
+67132622?p=3DE1LvggoRKxQ1WFDljO" style=3D"color:rgb(91,95,199)">https://tea=
+ms.microsoft.com/meet/28376567132622?p=3DE1LvggoRKxQ1WFDljO</a></u></span><=
+/div>
+<div style=3D"margin-bottom:6px; font-family:&quot;Segoe UI&quot;,&quot;Hel=
+vetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:14px">
+<span style=3D"color:rgb(97,97,97)">Meeting ID: </span><span style=3D"color=
+:rgb(36,36,36)">283 765 671 326 22</span></div>
+<div style=3D"margin-bottom:32px; font-family:&quot;Segoe UI&quot;,&quot;He=
+lvetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:14px">
+<span style=3D"color:rgb(97,97,97)">Passcode: </span><span style=3D"color:r=
+gb(36,36,36)">Yf6HY7dM</span></div>
+<div style=3D"margin-bottom:12px; max-width:1024px">
+<hr style=3D"background-color:rgb(97,97,97); height:1px">
+</div>
+<div style=3D"margin-bottom:24px; font-family:&quot;Segoe UI&quot;,&quot;He=
+lvetica Neue&quot;,Helvetica,Arial,sans-serif">
+<span style=3D"font-size:14px; color:rgb(91,95,199)"><u><a data-auth=3D"Not=
+Applicable" class=3D"x_x_x_me-email-link x_x_OWAAutoLink" id=3D"OWA5c24aeb5=
+-607d-6ec0-4aa9-ffe4a010c5be" href=3D"https://aka.ms/JoinTeamsMeeting?omkt=
+=3Den-US" style=3D"color:rgb(91,95,199)">Need help?</a></u></span><span sty=
+le=3D"color:rgb(36,36,36)">
+</span><span style=3D"color:rgb(97,97,97)">|</span><span style=3D"color:rgb=
+(36,36,36)">
+</span><span style=3D"font-size:14px; color:rgb(91,95,199)"><u><a data-auth=
+=3D"NotApplicable" class=3D"x_x_x_me-email-link x_x_OWAAutoLink" id=3D"OWA1=
+fbbd8b0-c7a8-36f0-2ff7-6d7403343d59" href=3D"https://teams.microsoft.com/l/=
+meetup-join/19%3ameeting_YTU4YjRmNGQtZmVhNS00MzNiLTg4ZDYtZmIzOGJhNDFlNTVl%4=
+0thread.v2/0?context=3D%7b%22Tid%22%3a%221d3bed01-6d09-498e-ab05-f1e2fdb1b1=
+38%22%2c%22Oid%22%3a%22cbe1c215-99d8-43c9-82a0-28b0685fcdee%22%7d" style=3D=
+"color:rgb(91,95,199)">System
+ reference</a></u></span></div>
+<div style=3D"margin-bottom:6px; font-family:&quot;Segoe UI&quot;,&quot;Hel=
+vetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:16px; color:rgb(36,=
+36,36)">
+<span style=3D"font-weight:600">Dial in by phone</span></div>
+<div style=3D"margin-bottom:6px; font-family:&quot;Segoe UI&quot;,&quot;Hel=
+vetica Neue&quot;,Helvetica,Arial,sans-serif">
+<span style=3D"font-size:14px; color:rgb(91,95,199)"><u><a data-auth=3D"Not=
+Applicable" class=3D"x_x_x_me-email-link x_x_OWAAutoLink" id=3D"OWA0a4b324b=
+-3221-3d11-c1ba-5db8ff19a6f1" href=3D"tel:+12672817060,,7294930#" style=3D"=
+color:rgb(91,95,199); margin-right:6px">+1 267-281-7060,,7294930#</a></u></=
+span><span style=3D"color:rgb(36,36,36)">
+</span><span style=3D"font-size:14px; color:rgb(97,97,97)">United States, S=
+ouderton</span></div>
+<div style=3D"margin-bottom:6px; font-family:&quot;Segoe UI&quot;,&quot;Hel=
+vetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:14px; color:rgb(91,=
+95,199)">
+<u><a data-auth=3D"NotApplicable" class=3D"x_x_x_me-email-link x_x_OWAAutoL=
+ink" id=3D"OWAef6eb9ca-33a1-72b2-6966-09c1a61220d7" href=3D"https://dialin.=
+teams.microsoft.com/b43d56c0-5ce4-4d44-a726-cd7d76007201?id=3D7294930" styl=
+e=3D"color:rgb(91,95,199)">Find a local number</a></u></div>
+<div style=3D"margin-bottom:24px; font-family:&quot;Segoe UI&quot;,&quot;He=
+lvetica Neue&quot;,Helvetica,Arial,sans-serif; font-size:14px">
+<span style=3D"color:rgb(97,97,97)">Phone conference ID: </span><span style=
+=3D"color:rgb(36,36,36)">729 493 0#</span></div>
+<div style=3D"font-family:&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,H=
+elvetica,Arial,sans-serif"><span style=3D"font-size:14px; color:rgb(97,97,9=
+7)">For organizers:
+</span><span style=3D"font-size:14px; color:rgb(91,95,199)"><u><a data-auth=
+=3D"NotApplicable" class=3D"x_x_x_me-email-link x_x_OWAAutoLink" id=3D"OWA2=
+93186ed-d793-9ce5-6f5a-f221c266ea12" href=3D"https://teams.microsoft.com/me=
+etingOptions/?organizerId=3Dcbe1c215-99d8-43c9-82a0-28b0685fcdee&amp;tenant=
+Id=3D1d3bed01-6d09-498e-ab05-f1e2fdb1b138&amp;threadId=3D19_meeting_YTU4YjR=
+mNGQtZmVhNS00MzNiLTg4ZDYtZmIzOGJhNDFlNTVl@thread.v2&amp;messageId=3D0&amp;l=
+anguage=3Den-US" style=3D"color:rgb(91,95,199)">Meeting
+ options</a></u></span><span style=3D"color:rgb(36,36,36)"> </span><span st=
+yle=3D"color:rgb(97,97,97)">|</span><span style=3D"color:rgb(36,36,36)">
+</span><span style=3D"font-size:14px; color:rgb(91,95,199)"><u><a data-auth=
+=3D"NotApplicable" class=3D"x_x_x_me-email-link x_x_OWAAutoLink" id=3D"OWAb=
+048a601-7271-e45d-5977-2f391f362f97" href=3D"https://dialin.teams.microsoft=
+.com/usp/pstnconferencing" style=3D"color:rgb(91,95,199)">Reset
+ dial-in PIN</a></u></span></div>
+<div style=3D"white-space:nowrap; margin-bottom:24px; font-family:&quot;Seg=
+oe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif; color:rg=
+b(36,36,36)">
+___________________________________________________________________________=
+_____</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_DS0PR16MB5462A94C728DBBCCEA03F41B967EADS0PR16MB5462namp_--

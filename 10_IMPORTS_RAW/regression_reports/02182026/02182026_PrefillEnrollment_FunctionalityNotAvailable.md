@@ -2,7 +2,7 @@
 
 **Naming:** `02182026_PrefillEnrollment_FunctionalityNotAvailable.md`  
 **Location:** `10_IMPORTS_RAW/regression_reports/02182026/`  
-**JIRA:** [QA-470](https://ascensuscollegesavings.atlassian.net/browse/QA-470) · **Status:** Open
+**JIRA:** [QA-470](https://ascensuscollegesavings.atlassian.net/browse/QA-470) · **Status:** Resolved
 
 ---
 
@@ -194,9 +194,21 @@ QA Automation Team
 
 ---
 
-## Resolution Email Draft (Placeholder – When Fix Is Verified)
+## Resolution & RCA (for JIRA – close bug)
 
-*Use template from `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`*
+**Root cause:** DB changes for prefill enrollment (table/sequence `SEQ_TU_PREFILL_ENROLLMENT_ID`) from the 98.6+ release were not fully applied in Stage 1. The table/sequence creation DB PRs were not executed in Stage 1, and the synonym and grant for the sequence had not been run, so the app user (uii0web) could not access the sequence. Backend threw **ORA-00942: table or view does not exist** on `select seq_tu_prefill_enrollment_id.nextval from dual`, which surfaced to the user as "This functionality is not available at this time. Please try again later." (RCA input: Mayank – logs pointed to Mayur’s table/sequence changes not executed in Stage 1.)
+
+**Fix:** Synonym and grant were run in Stage 1 so uii0web can access the sequence:
+- `CREATE OR REPLACE PUBLIC SYNONYM SEQ_TU_PREFILL_ENROLLMENT_ID FOR SEQ_TU_PREFILL_ENROLLMENT_ID;`
+- `GRANT SELECT ON SEQ_TU_PREFILL_ENROLLMENT_ID TO uii0web;`
+
+**Resolved by:** Dylan (fix). RCA input: Mayank.
+
+---
+
+## Resolution Email (Bug Resolution Follow-Up)
+
+*Template: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`*
 
 **To:** AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk  
 **Cc:** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>  
@@ -212,15 +224,15 @@ The previously reported issue related to **Prefill Enrollment (Functionality Not
 
 **Original Bug Summary:**
 - **Bug:** [QA-470](https://ascensuscollegesavings.atlassian.net/browse/QA-470)
-- **Failure Area:** Prefill Enrollment – error after bank details / Save and Send
+- **Failure Area:** Prefill Enrollment – error after bank details / Save and Send ("This functionality is not available at this time. Please try again later.")
 - **Environment:** Stage 1
 - **Reported On:** 02/18/2026
 - **Plans affected:** WFD, PAD, VGI, NUV
 
 **Resolution Summary:**
-- **Root cause:** [FILL – e.g. backend/service/config issue that triggered generic "functionality not available" response]
-- **Fix implemented by:** [FILL]
-- **Verified via:** [Manual rerun / Jenkins pipeline run – specify]
+- **Root cause:** DB PRs for prefill enrollment table/sequence (`SEQ_TU_PREFILL_ENROLLMENT_ID`) from the 98.6+ release were not fully executed in Stage 1. The synonym and grant for the sequence had not been run, so the app user (uii0web) could not access the sequence. Backend threw ORA-00942 (table or view does not exist), which surfaced as the generic error message. (RCA input: Mayank.)
+- **Fix:** Dylan ran the missing synonym and grant in Stage 1 so uii0web can access the sequence. Sequence is now accessible.
+- **Verified via:** [Manual rerun / regression rerun – specify when done]
 - **Branch status:** Main branch unlocked and automation resumed.
 - **Note:** Bug is closed.
 
@@ -233,4 +245,5 @@ Automation QA Team
 
 **Reported By:** [Name]  
 **Date:** 02/18/2026  
-**Environment:** Stage 1
+**Environment:** Stage 1  
+**Resolved By:** Dylan (fix); RCA input: Mayank
