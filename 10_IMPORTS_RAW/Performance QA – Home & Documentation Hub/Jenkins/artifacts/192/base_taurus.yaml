@@ -1,0 +1,24 @@
+settings:
+  proxy:
+    ssl-cert: false
+    address: http://webproxywt-vip.int.acs529.com:3128
+  env:
+    jconcurrency: ${jmconcurrency}
+    jhold: ${jmhold}
+    jramp: ${jmramp}
+    jthroughput: ${jmthroughput}
+modules:
+  jmeter:
+    gui: false
+    memory-xms: 2G
+    memory-xmx: 4G
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+    public-report: true
+    browser-open: none
+reporting:
+  - module: final-stats
+    summary: true
+    percentiles: true 
+    failed-labels: false
+    test-duration: true

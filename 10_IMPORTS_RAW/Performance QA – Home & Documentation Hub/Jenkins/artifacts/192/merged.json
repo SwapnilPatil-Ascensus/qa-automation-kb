@@ -1,0 +1,55 @@
+{
+ "settings": {
+  "proxy": {
+   "ssl-cert": false,
+   "address": "http://webproxywt-vip.int.acs529.com:3128"
+  },
+  "env": {
+   "jconcurrency": "${jmconcurrency}",
+   "jhold": "${jmhold}",
+   "jramp": "${jmramp}",
+   "jthroughput": "${jmthroughput}"
+  }
+ },
+ "modules": {
+  "jmeter": {
+   "gui": false,
+   "memory-xms": "2G",
+   "memory-xmx": "4G"
+  },
+  "blazemeter": {
+   "token": "********",
+   "public-report": true,
+   "browser-open": "none"
+  }
+ },
+ "reporting": [
+  {
+   "module": "final-stats",
+   "summary": true,
+   "percentiles": true,
+   "failed-labels": false,
+   "test-duration": true
+  },
+  {
+   "module": "blazemeter",
+   "report-name": "IDP Test - Member Login",
+   "test": "IDP Test - Member Login (CS/API w/ Resources)",
+   "project": "Universal Platform",
+   "upload-artifacts": false
+  }
+ ],
+ "execution": [
+  {
+   "concurrency": "${jconcurrency}",
+   "ramp-up": "${jramp}",
+   "hold-for": "${jhold}",
+   "scenario": "idp_login"
+  }
+ ],
+ "scenarios": {
+  "idp_login": {
+   "script": "idp-login-resources.jmx"
+  }
+ }
+}

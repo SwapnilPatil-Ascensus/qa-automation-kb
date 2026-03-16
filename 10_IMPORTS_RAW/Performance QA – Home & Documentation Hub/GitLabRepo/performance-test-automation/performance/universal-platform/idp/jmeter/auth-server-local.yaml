@@ -1,0 +1,30 @@
+settings:
+  proxy:
+    ssl-cert: false
+    #address: http://webproxywt-vip.int.acs529.com:3128
+modules:
+  jmeter:
+    gui: true
+    path: 'C:\Program Files\JMeter\apache-jmeter-5.6.3'
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+execution:
+  - concurrency: 50
+    ramp-up: 10s
+    hold-for: 30m
+    scenario: idp_login
+scenarios:
+  idp_login:
+    script: auth-server.jmx
+reporting:
+  - module: console
+  - module: final-stats
+    summary: true
+    percentiles: true 
+    failed-labels: false
+    test-duration: true
+  - module: blazemeter
+    report-name: IDP Test - Client Token
+    test: IDP Test - Client Token
+    project: Universal Platform
+    upload-artifacts: false

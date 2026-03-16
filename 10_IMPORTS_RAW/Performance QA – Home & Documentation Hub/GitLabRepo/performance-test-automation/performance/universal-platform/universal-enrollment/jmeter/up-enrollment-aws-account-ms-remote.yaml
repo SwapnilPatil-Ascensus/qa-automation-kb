@@ -1,0 +1,14 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    scenario: enrollment
+scenarios:
+  enrollment:
+    script: up-enrollment-aws-account-ms.jmx
+reporting:
+  - module: blazemeter
+    report-name: Universal - Account (POST)
+    test: Universal - Account (POST)
+    project: Universal Platform
+    upload-artifacts: false

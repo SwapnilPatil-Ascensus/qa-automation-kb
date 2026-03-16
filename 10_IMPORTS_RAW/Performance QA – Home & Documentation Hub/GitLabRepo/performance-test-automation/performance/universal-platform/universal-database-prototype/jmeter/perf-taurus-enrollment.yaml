@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: perf-taurus-pod-enrollment
+  namespace: ags-qa
+spec:
+  restartPolicy: Never
+  containers:
+  - name: perf-taurus-pod-enrollment
+    image: blazemeter/taurus:1.16.32
+    command: ["/bin/sh"]
+    args:
+    - "-c"
+    - "cp /bzt-configs-mount/TestRunEnrollment.yml /bzt-configs-mount/ue_enrollment_D.jmx /bzt-configs/; ls /bzt-configs; pwd; bzt -l /tmp/artifacts/bzt.log -report TestRunEnrollment.yml ue_enrollment_D.jmx"
+    resources:
+      limits:
+        cpu: "1"
+        memory: "1Gi"
+      requests:
+        cpu: "100m"
+        memory: "256Mi"
+    volumeMounts:
+      - name: perf-config
+        mountPath: /bzt-configs-mount
+      - name: test-data
+        mountPath: /bzt-configs/data
+      - name: test-artifacts
+        mountPath: /bzt-configs/TestArtifacts
+      - name: kube-api-access-4x7vn
+        mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+  volumes:
+    - name: perf-config
+      configMap:
+        name: ags-performance-testing-enrollment
+    - name: test-data
+      emptyDir: {}
+    - name: test-artifacts
+      emptyDir: {}
+    - name: kube-api-access-4x7vn
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace

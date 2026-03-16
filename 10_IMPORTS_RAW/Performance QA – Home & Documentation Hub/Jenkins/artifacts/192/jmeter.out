@@ -1,0 +1,6 @@
+Created the tree successfully using /bzt-configs/universal/idp/jmeter/modified_idp-login-resources.jmx
+Starting standalone test @ 2026 Jan 15 19:12:07 UTC (1768504327658)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Command: Shutdown received from /127.0.0.1
+Tidying up ...    @ 2026 Jan 15 19:15:42 UTC (1768504542281)
+... end of run

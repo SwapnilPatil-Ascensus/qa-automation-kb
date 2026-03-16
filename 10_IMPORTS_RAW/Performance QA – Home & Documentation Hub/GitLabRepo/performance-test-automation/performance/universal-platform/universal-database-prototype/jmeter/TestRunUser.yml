@@ -1,0 +1,32 @@
+aggregator: aggregator
+
+execution:
+  - executor: jmeter
+    scenario: userprofile
+
+scenarios:
+  userprofile:
+    script: userProfile.jmx
+    properties:
+      numberThreads: 1
+      rampUp: 5
+      loopCount: 20
+      timer: 1000
+      timerDelay: 1000
+
+reporting:
+  - module: blazemeter
+    report-name: AGS_UserProfile_Taurus_1
+    test: UNITE_Test
+    project: 2236539
+    upload-artifacts: true
+
+modules:
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+
+settings:
+  proxy:
+    ssl-cert: true
+    address: http://webproxywt-vip.int.acs529.com:3128
+

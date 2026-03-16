@@ -1,0 +1,802 @@
+settings:
+  proxy:
+    ssl-cert: false
+modules:
+  nose:
+    ignore-unknown-actions: true
+  selenium:
+    chromedriver:
+      path: 'C:\selenium\selenium-3.141.59'
+  blazemeter:
+      token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+execution:
+  - executor: selenium
+    remote: http://172.25.166.42:4444/wd/hub
+    scenario: Blazemeter-UE-Grid
+    concurrency: 1
+    iterations: 1
+    capabilities:
+      browserName: chrome
+reporting:
+  - module: blazemeter
+    report-name: Blazemeter-UE-Grid
+    test: UE Test
+    project: Universal Enrollment
+    upload-artifacts: true
+scenarios:
+  Blazemeter-UE-Grid:
+    generate-flow-markers: true
+    headless: true
+    timeout: 30s
+    think-time: 0s
+    data-sources:
+      - path: data.csv
+        delimiter: ','
+        quoted: false
+        loop: false
+    requests:
+      - label: 0. Navigate to Enrollment
+        actions:
+          - type: resizeWindow
+            param: '1535,743'
+          - type: go
+            param: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: assertTitle
+            param: Universal Enrollment
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 1a. Fill in Prospect
+        actions:
+          - type: type
+            locators:
+              - CSS: '#firstName'
+            param: ${ownerFirstName}
+            metadata:
+              type: text
+              label: First Name
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#lastName'
+            param: ${ownerLastName}
+            metadata:
+              type: text
+              label: Last Name
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#email input'
+            param: ${email}
+            metadata:
+              type: text
+              label: Email
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#confirmEmail input'
+            param: ${email}
+            metadata:
+              type: text
+              label: Confirm Email
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#username'
+            param: ${username}
+            metadata:
+              type: text
+              label: Username
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#password input'
+            param: Test@123
+            metadata:
+              type: text
+              label: Password
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#confirmPassword input'
+            param: Test@123
+            metadata:
+              type: text
+              label: Confirm Password
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 1b. Submit Prospect
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#createLogin'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#createLogin'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#acct-details-phone-number'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'Tell us about yourself'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 2a. Fill in Owner Details
+        actions:
+          - type: click
+            locators:
+              - CSS: '#acct-details-phone-number input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#acct-details-phone-number input'
+            param: ${phone}
+            metadata:
+              type: text
+              label: Phone Number
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#acct-details-phone-type'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#acct-details-ssn input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#acct-details-ssn input'
+            param: ${ownerSsn}
+            metadata:
+              type: text
+              label: SSN or ITIN
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#acct-details-confirm-ssn input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#acct-details-confirm-ssn input'
+            param: ${ownerSsn}
+            metadata:
+              type: text
+              label: Confirm SSN / ITIN
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#acct-details-dob input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#acct-details-dob input'
+            param: ${ownerDob}
+            metadata:
+              type: text
+              label: Date of Birth
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#acct-details-citizen'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 2b. Submit Owner Details
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#address1'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'What is your address?'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 3a. Fill in Owner Address
+        actions:
+          - type: type
+            locators:
+              - CSS: '#address1'
+            param: ${address}
+            metadata:
+              type: text
+              label: Street Address
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#city'
+            param: ${city}
+            metadata:
+              type: text
+              label: City
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#state'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:nth-of-type(26)'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:nth-of-type(26)'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#zipcode'
+            param: 02459
+            metadata:
+              type: text
+              label: Zip Code
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#workInStateNo'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 3b. Submit Owner Address
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#relationshipMyself'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'Who are you saving for?'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 4. Submit Saving For
+        actions:
+          - type: click
+            locators:
+              - CSS: '#relationshipChild'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#bene-first-name'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'Tell us about your future scholar'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 5a. Fill in Beneficiary Details
+        actions:
+          - type: type
+            locators:
+              - CSS: '#bene-first-name'
+            param: ${beneFirstName}
+            metadata:
+              type: text
+              label: First Name
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#bene-last-name'
+            param: ${ownerLastName}
+            metadata:
+              type: text
+              label: Last Name
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#bene-ssn input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#bene-ssn input'
+            param: ${beneSsn}
+            metadata:
+              type: text
+              label: SSN or ITIN
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#bene-confirm-ssn input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#bene-confirm-ssn input'
+            param: ${beneSsn}
+            metadata:
+              type: text
+              label: Confirm SSN / ITIN
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#bene-dob input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#bene-dob input'
+            param: ${beneDob}
+            metadata:
+              type: text
+              label: Date of Birth
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#acct-details-citizen'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 5b. Submit Beneficiary Details
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#contribution-type'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'How much would you like to contribute to {{name}} account to get started?'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 6a. Fill Funding Details
+        actions:
+          - type: click
+            locators:
+              - CSS: '#contribution-type'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:nth-of-type(3)'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:nth-of-type(3)'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#routing-number'
+            param: 011000138
+            metadata:
+              type: text
+              label: Routing Number
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#bank-name'
+            param: Bank of America
+            metadata:
+              type: text
+              label: Bank Name
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#account-type'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#account-number input'
+            param: ${bankAcct}
+            metadata:
+              type: text
+              label: Account Number
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#confirm-account-number input'
+            param: ${bankAcct}
+            metadata:
+              type: text
+              label: Confirm Account Number
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#ah-first-name'
+            param: ${ownerFirstName}
+            metadata:
+              type: text
+              label: Account Number
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#ah-last-name'
+            param: ${ownerLastName}
+            metadata:
+              type: text
+              label: Confirm Account Number
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#is-domestic'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: type
+            locators:
+              - CSS: '#contribution-amount'
+            param: ${amount}
+            metadata:
+              type: text
+              label: Contribution Amount
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 6b. Submit Funding Details
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#dollars-50-container'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'What would you like to contribute to {{name}} account on a regular basis?'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 7a. Fill Recurring Details
+        actions:
+          - type: click
+            locators:
+              - CSS: '#dollars-50-container'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#contribution-type'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#bene-dob input'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: keys
+            locators:
+              - CSS: '#bene-dob input'
+            param: ${startDate}
+            metadata:
+              type: text
+              label: Start Date
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#annual-increase'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#month-increase'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'kendo-popup li:first-child'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: 'kendo-popup li:first-child'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 7b. Submit Recurring Details
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#keep-it-simple'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: 'How would you like to invest?
+'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 8a. Submit How to Invest
+        actions:
+          - type: click
+            locators:
+              - CSS: '#keep-it-simple'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#learn-more-link'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: "Select ${beneFirstName}'s Portfolio"
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 8b. Submit Keep it Simple
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 8c. Continue Enrollment
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#add-bene-modal'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: 'kendo-dialog-titlebar'
+            param: 'Would you like to add another beneficiary now?'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#btn-finish'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '#upromise-modal'
+            param: present
+          - type: click
+            locators:
+              - CSS: '#not-right-now'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: '.review-page-container'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: '.form-title'
+            param: "You' re almost there!"
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 9a. Fill Review Page
+        actions:
+          - type: click
+            locators:
+              - CSS: '#delivery-checkbox'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: click
+            locators:
+              - CSS: '#terms-checkbox'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - label: 9b. Submit Review Page
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#bottomNavPrimaryBtn'
+            param: clickable
+          - type: click
+            locators:
+              - CSS: '#bottomNavPrimaryBtn'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+          - type: waitFor
+            locators: 
+              - CSS: 'ue-post-account-creation'
+            param: present
+          - type: assertText
+            locators:
+              - CSS: 'h1'
+            param: 'Your account has been successfully opened!'
+            metadata:
+              page-title: Universal Enrollment
+              page-url: 'https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/newyork'
+      - teardown:
+        - type: screenshot
+          param: ${screenshot}

@@ -1,0 +1,39 @@
+---
+execution:
+- concurrency: ${jconcurrency}
+  hold-for: ${jhold}
+  ramp-up: ${jramp}
+  scenario: idp_login
+modules:
+  blazemeter:
+    browser-open: none
+    public-report: true
+    token: '********'
+  jmeter:
+    gui: false
+    memory-xms: 2G
+    memory-xmx: 4G
+reporting:
+- failed-labels: false
+  module: final-stats
+  percentiles: true
+  summary: true
+  test-duration: true
+- module: blazemeter
+  project: Universal Platform
+  report-name: IDP Test - Member Login
+  test: IDP Test - Member Login (CS/API w/ Resources)
+  upload-artifacts: false
+scenarios:
+  idp_login:
+    script: idp-login-resources.jmx
+settings:
+  env:
+    jconcurrency: ${jmconcurrency}
+    jhold: ${jmhold}
+    jramp: ${jmramp}
+    jthroughput: ${jmthroughput}
+  proxy:
+    address: http://webproxywt-vip.int.acs529.com:3128
+    ssl-cert: false
+

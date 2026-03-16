@@ -1,0 +1,31 @@
+---- MEMBER
+1. MEMBER LOGIN > ACCOUNT LIST > ACCOUNT OVERVIEW > IRR > TXN SEARCH
+2. MEMBER LOGIN > ACCOUNT LIST > ACCOUNT OVERVIEW > PROFILE > EDIT (is this doable?)
+3. MEMBER LOGIN > ACCOUNT LIST > ACCOUNT OVERVIEW > PROFILE > CONFIRM
+4. MEMBER LOGIN > 2FA
+
+>> NYD: 33241293701 - nbotvinnik40/Test@123
+>> NYA: 77526217701 - nbotvinnik10/Test@123 (2FA, CASE)
+
+---- CASE MANAGEMENT
+1. CSR LOGIN > JUMP TO ACCOUNT > SEARCH BY CASE (wildcard - how to do this?)
+2. CSR LOGIN > JUMP TO ACCOUNT > CREATE A CASE
+3. CSR LOGIN > JUMP TO ACCOUNT > MEMBER LOGIN INFO > SECURITY QUESTION/ANSWER
+4. CSR LOGIN > JUMP TO ACCOUNT > PROFILE > CONFIRM (CSR)
+
+---- ENROLLMENT
+1. Universal Enrollment (NYD)
+2. NextGen (NYD)
+
+select *
+from unified_audit_trail;
+
+select sessionid, event_timestamp, object_schema, sql_text from unified_audit_trail
+where regexp_like(dbusername, 'UII0WEB')
+and not regexp_like(object_schema,'SYS')
+and action_name not in (
+'ALTER SESSION',
+'LOGON',
+'COMMIT'
+)
+order by sessionid, event_timestamp;

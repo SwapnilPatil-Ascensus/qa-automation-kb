@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Universal Enrollment">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Entity MS Enrollment">
+        <stringProp name="ThreadGroup.num_threads">${__P(numberThreads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(rampUp,60)}</stringProp>
+        <longProp name="ThreadGroup.duration">1200</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">${__P(loopCount,1)}</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Environment (QC4)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-905826493">server</stringProp>
+            <stringProp name="351608024">version</stringProp>
+            <stringProp name="3208616">host</stringProp>
+            <stringProp name="-907987551">schema</stringProp>
+            <stringProp name="-1471139193">signatureKey</stringProp>
+            <stringProp name="1216985755">password</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="1736239444">
+              <stringProp name="-151759351">${__P(host,)}</stringProp>
+              <stringProp name="-1138469097">${__P(version,)}</stringProp>
+              <stringProp name="86504242">agsup-aws-account-web-qc4.gs.ascensus.com</stringProp>
+              <stringProp name="1305363907">urn:ascensus:529:1.0:enrollment</stringProp>
+              <stringProp name="1176405628">RandomKey</stringProp>
+              <stringProp name="-1082792540">Test@123</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Environment (Stage 1)">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-905826493">server</stringProp>
+            <stringProp name="351608024">version</stringProp>
+            <stringProp name="-1211485199">hostBK</stringProp>
+            <stringProp name="-907987551">schema</stringProp>
+            <stringProp name="-1471139193">signatureKey</stringProp>
+            <stringProp name="1216985755">password</stringProp>
+            <stringProp name="908408390">clientId</stringProp>
+            <stringProp name="-1446909349">clientSecret</stringProp>
+            <stringProp name="430432888">authentication</stringProp>
+            <stringProp name="3208616">host</stringProp>
+            <stringProp name="110364485">timer</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-212149655">
+              <stringProp name="-151759351">${__P(host,)}</stringProp>
+              <stringProp name="-1138469097">${__P(version,)}</stringProp>
+              <stringProp name="1761654559">agsup-aws-account-web-stage1.gs.ascensus.com</stringProp>
+              <stringProp name="1305363907">urn:ascensus:529:1.0:enrollment</stringProp>
+              <stringProp name="1176405628">RandomKey</stringProp>
+              <stringProp name="-1072547438">Str0ngP@ssword</stringProp>
+              <stringProp name="-876037204">AFBCA44B0E6547DD9FC03AAF3FDA640C</stringProp>
+              <stringProp name="1608541959">m5gQE3QjtyURTAEamHiznf2nX5TbZyzJO7XWEZub</stringProp>
+              <stringProp name="-2138951941">agsup-auth-server-stage1.gs.ascensus.com</stringProp>
+              <stringProp name="2074562767">agsup-account-web-stage1.gs.ascensus.com</stringProp>
+              <stringProp name="295877671">${__P(timer,3000)}</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Environment (QC1)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-905826493">server</stringProp>
+            <stringProp name="351608024">version</stringProp>
+            <stringProp name="3208616">host</stringProp>
+            <stringProp name="430432888">authentication</stringProp>
+            <stringProp name="-907987551">schema</stringProp>
+            <stringProp name="1216985755">password</stringProp>
+            <stringProp name="100589">env</stringProp>
+            <stringProp name="-1446909349">clientSecret</stringProp>
+            <stringProp name="908408390">clientId</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="869840666">
+              <stringProp name="-151759351">${__P(host,)}</stringProp>
+              <stringProp name="-1138469097">${__P(version,)}</stringProp>
+              <stringProp name="321542447">agsup-aws-account-web-qc1.gs.ascensus.com</stringProp>
+              <stringProp name="978538195">agsup-auth-server-qc1.gs.ascensus.com</stringProp>
+              <stringProp name="1305363907">urn:ascensus:529:1.0:enrollment</stringProp>
+              <stringProp name="-1082792540">Test@123</stringProp>
+              <stringProp name="111711">qc1</stringProp>
+              <stringProp name="1611209827">02FORHW29uF7H70fy1LGaQZ49M1wFdwxi3fMQZFk</stringProp>
+              <stringProp name="-7684517">C92E6F51E6FE474A8DDA4686087C0FC6</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Environment (CAT)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-905826493">server</stringProp>
+            <stringProp name="351608024">version</stringProp>
+            <stringProp name="3208616">host</stringProp>
+            <stringProp name="430432888">authentication</stringProp>
+            <stringProp name="-907987551">schema</stringProp>
+            <stringProp name="1216985755">password</stringProp>
+            <stringProp name="100589">env</stringProp>
+            <stringProp name="-1446909349">clientSecret</stringProp>
+            <stringProp name="908408390">clientId</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-430710800">
+              <stringProp name="-151759351">${__P(host,)}</stringProp>
+              <stringProp name="-1138469097">${__P(version,)}</stringProp>
+              <stringProp name="1730827942">agsup-aws-account-web-cat.gs.ascensus.com</stringProp>
+              <stringProp name="-1907143606">agsup-auth-server-cat.gs.ascensus.com</stringProp>
+              <stringProp name="1305363907">urn:ascensus:529:1.0:enrollment</stringProp>
+              <stringProp name="-1082792540">Test@123</stringProp>
+              <stringProp name="98262">cat</stringProp>
+              <stringProp name="-790791226">Oa21ns3I5VZ90LinH44o2wDVdu6C97VcvFxNkmXB</stringProp>
+              <stringProp name="-2064548882">714B2AF3F49343958A537C3CBA61D185</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Environment (Stage 2)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-905826493">server</stringProp>
+            <stringProp name="351608024">version</stringProp>
+            <stringProp name="3208616">host</stringProp>
+            <stringProp name="430432888">authentication</stringProp>
+            <stringProp name="-1746132471">authentication-ui</stringProp>
+            <stringProp name="-907987551">schema</stringProp>
+            <stringProp name="1216985755">password</stringProp>
+            <stringProp name="100589">env</stringProp>
+            <stringProp name="-1446909349">clientSecret</stringProp>
+            <stringProp name="908408390">clientId</stringProp>
+            <stringProp name="-1584539138">privateId</stringProp>
+            <stringProp name="-1876070948">privateKey</stringProp>
+            <stringProp name="140479281">userClientId</stringProp>
+            <stringProp name="-1033642559">userUsername</stringProp>
+            <stringProp name="449056646">userPassword</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="1107514191">
+              <stringProp name="-151759351">${__P(host,)}</stringProp>
+              <stringProp name="-1138469097">${__P(version,)}</stringProp>
+              <stringProp name="-1180003040">agsup-aws-account-web-stage2.gs.ascensus.com</stringProp>
+              <stringProp name="-785642244">agsup-auth-server-stage2.gs.ascensus.com</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1305363907">urn:ascensus:529:1.0:enrollment</stringProp>
+              <stringProp name="-1082792540">Test@123</stringProp>
+              <stringProp name="-892494604">stage2</stringProp>
+              <stringProp name="-756272885">Nov6V6bpJfnND2cgYC6QIjCvW5gppzogLc5XwV8K</stringProp>
+              <stringProp name="2000153827">F791993B3D4F4993A7738B9570E0FED2</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (NYD - QC4)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="292938343">
+              <stringProp name="1846315375">newyork</stringProp>
+              <stringProp name="283752947">02e99af5-cec6-09d6-e063-2fa619ac5170</stringProp>
+              <stringProp name="1958102671">1003001</stringProp>
+              <stringProp name="1958102672">1003002</stringProp>
+              <stringProp name="1958102673">1003003</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (MDD - Stage 1)">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-945971176">
+              <stringProp name="-1787765696">mddirect</stringProp>
+              <stringProp name="820299676">0fdb8ff7-a507-cb68-e063-322019ac5889</stringProp>
+              <stringProp name="1965401466">1080001</stringProp>
+              <stringProp name="1965401467">1080002</stringProp>
+              <stringProp name="1965401468">1080003</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (NMD - Stage 1)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-1518145781">
+              <stringProp name="-647356824">nmdirect</stringProp>
+              <stringProp name="1095587975">03e1b163-897e-ef89-e063-8d1f19ac1f78</stringProp>
+              <stringProp name="1965401466">1080001</stringProp>
+              <stringProp name="1965401467">1080002</stringProp>
+              <stringProp name="1965401468">1080003</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (MDD - CAT)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="527794989">
+              <stringProp name="-1787765696">mddirect</stringProp>
+              <stringProp name="192468880">13a377e3-9099-08f8-e063-2fa619ace44e</stringProp>
+              <stringProp name="1965401466">1080001</stringProp>
+              <stringProp name="1965401467">1080002</stringProp>
+              <stringProp name="1965401468">1080003</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (NVV - QC1)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-1556526615">
+              <stringProp name="-1365355166">vanguard</stringProp>
+              <stringProp name="-766364125">02e9cda8-e543-1d48-e063-2fa619ac54ad</stringProp>
+              <stringProp name="1958072942">1002021</stringProp>
+              <stringProp name="1958072943">1002022</stringProp>
+              <stringProp name="1958072944">1002023</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (NVV - CAT)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-969556258">
+              <stringProp name="-1365355166">vanguard</stringProp>
+              <stringProp name="-1997659939">091ceefb-77a6-7d9e-e063-2fa619acfbfa</stringProp>
+              <stringProp name="-483750859">434001001</stringProp>
+              <stringProp name="-483750858">434001002</stringProp>
+              <stringProp name="-483750857">434001003</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Enrollment Setup - Plan (NVV - Stage 2)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-985764316">planId</stringProp>
+            <stringProp name="-366094569">investFund1</stringProp>
+            <stringProp name="-366094568">investFund2</stringProp>
+            <stringProp name="-366094567">investFund3</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-2086528188">
+              <stringProp name="-1365355166">vanguard</stringProp>
+              <stringProp name="-324624046">03e1b163-8958-ef89-e063-8d1f19ac1f78</stringProp>
+              <stringProp name="1958072883">1002004</stringProp>
+              <stringProp name="1958072887">1002008</stringProp>
+              <stringProp name="1958072912">1002012</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+          <stringProp name="TestPlan.comments">Enrollment information</stringProp>
+        </UserParameters>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Authentication"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate JWT Token" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import java.security.Key;
+import javax.crypto.spec.SecretKeySpec;
+
+Key signingKey = new SecretKeySpec(vars.get(&quot;clientSecret&quot;).getBytes(), &quot;HmacSHA256&quot;);
+
+//Create JWT token
+JwtBuilder builder = Jwts.builder().claims()
+      .issuer(vars.get(&quot;clientId&quot;))
+      .subject(vars.get(&quot;clientId&quot;))
+      .expiration(new Date(System.currentTimeMillis() + (86400 * 1000)))
+      .and()
+      .signWith(signingKey)
+      .audience().add(&quot;https://&quot; + vars.get(&quot;authentication&quot;) + &quot;/services/oauth2&quot;)
+      .and();
+
+vars.put(&quot;bearerToken&quot;, builder.compact());
+</stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Access Token" enabled="true">
+            <stringProp name="TestPlan.comments">Get Metadata</stringProp>
+            <intProp name="HTTPSampler.concurrentPool">6</intProp>
+            <stringProp name="HTTPSampler.domain">${authentication}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">services/oauth2/token</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="grant_type" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">grant_type</stringProp>
+                  <stringProp name="Argument.value">client_credentials</stringProp>
+                </elementProp>
+                <elementProp name="client_assertion" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client_assertion</stringProp>
+                  <stringProp name="Argument.value">${bearerToken}</stringProp>
+                </elementProp>
+                <elementProp name="client_assertion_type" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client_assertion_type</stringProp>
+                  <stringProp name="Argument.value">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</stringProp>
+                </elementProp>
+                <elementProp name="scope" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">scope</stringProp>
+                  <stringProp name="Argument.value">read</stringProp>
+                </elementProp>
+                <elementProp name="client_id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client_id</stringProp>
+                  <stringProp name="Argument.value">${clientId}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Access Token" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">access_token</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Signing Key" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">signing_key</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.signing_key</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell - Print Token + Signing Key" enabled="true">
+              <stringProp name="BeanShellAssertion.query">log.info(&quot;access_token: &quot;+vars.get(&quot;access_token&quot;));
+log.info(&quot;signing_key: &quot;+vars.get(&quot;signing_key&quot;));
+log.info(&quot;bearerToken: &quot;+ vars.get(&quot;bearerToken&quot;));</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller - Snapshot" enabled="false">
+          <stringProp name="LoopController.loops">2</stringProp>
+        </LoopController>
+        <hashTree>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+            <stringProp name="RandomTimer.range">250</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Snapshot" enabled="true"/>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">X-API-Key</stringProp>
+                  <stringProp name="Header.value">00000000-0000-0000-0000-000000000000</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Header Generator" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.util.Base64Encoder;
+
+TimeZone.setDefault(TimeZone.getTimeZone(&apos;UTC&apos;));
+
+// Set the request id (x-request-id)
+uuid = UUID.randomUUID().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-id&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-id&quot;, uuid));
+
+// Set the current datetime (x-request-datetime)
+currentUTC = new Date().format(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;);
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-datetime&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-datetime&quot;, currentUTC));
+
+// Set the json signature (x-signature)
+message = sampler.getArguments().getArgument(0).getValue();
+Mac mac = Mac.getInstance(&quot;HmacSHA256&quot;);
+SecretKeySpec secretKeySpec = new SecretKeySpec(vars.get(&quot;signing_key&quot;).decodeBase64(), &quot;HmacSHA256&quot;);
+mac.init(secretKeySpec);
+signature = mac.doFinal(message.getBytes()).encodeBase64().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-signature&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-signature&quot;, signature));
+
+// Set x-request-action
+var credentials = (vars.get(&quot;login&quot;) + &quot;:&quot; + vars.get(&quot;password&quot;)).getBytes().encodeBase64().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-action&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-action&quot;, &quot;snapshot &quot; + credentials));
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="snapshot (POST)" enabled="true">
+              <stringProp name="TestPlan.comments">Take Snapshot</stringProp>
+              <intProp name="HTTPSampler.concurrentPool">6</intProp>
+              <stringProp name="HTTPSampler.domain">${host}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">accounts/</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;enrollMethod&quot;: &quot;W&quot;,&#xd;
+  &quot;schema&quot;: &quot;urn:ascensus:529:1.0:enrollment&quot;,&#xd;
+  &quot;urn:ascensus:529:1.0:enrollment&quot;: {&#xd;
+    &quot;tcAcknowledgment&quot;: true,&#xd;
+    &quot;user&quot;: {&#xd;
+      &quot;gender&quot;: &quot;&quot;,&#xd;
+      &quot;countryOfCitizenship&quot;: &quot;US&quot;,&#xd;
+      &quot;questions&quot;: {&#xd;
+        &quot;enrollInUpromise&quot;: false,&#xd;
+        &quot;howYouHeardUs&quot;: &quot;&quot;,&#xd;
+        &quot;isMailingAddrDiff&quot;: false&#xd;
+      },&#xd;
+      &quot;id&quot;: &quot;${userUuid}&quot;,&#xd;
+      &quot;name&quot;: {&#xd;
+        &quot;first&quot;: &quot;${userFirst}&quot;,&#xd;
+        &quot;last&quot;: &quot;${userLast}&quot;&#xd;
+      },&#xd;
+      &quot;contact&quot;: {&#xd;
+        &quot;email&quot;: &quot;${userEmail}&quot;,&#xd;
+        &quot;daytimePhone&quot;: &quot;${userWPhone}&quot;,&#xd;
+        &quot;daytimePhoneType&quot;: &quot;C&quot;,&#xd;
+        &quot;eveningPhone&quot;: &quot;${userHPhone}&quot;,&#xd;
+        &quot;eveningPhoneType&quot;: &quot;C&quot;&#xd;
+      },&#xd;
+      &quot;citizenOrGCholder&quot;: true,&#xd;
+      &quot;ssn&quot;: &quot;${userSsn}&quot;,&#xd;
+      &quot;dob&quot;: &quot;${userDob}&quot;,&#xd;
+      &quot;login&quot;: {&#xd;
+        &quot;username&quot;: &quot;${login}&quot;,&#xd;
+        &quot;password&quot;: &quot;${password}&quot;,&#xd;
+        &quot;securityPassPhrase&quot;: null,&#xd;
+        &quot;securityChallenges&quot;: null&#xd;
+      },&#xd;
+      &quot;addresses&quot;: [&#xd;
+        {&#xd;
+          &quot;addressType&quot;: &quot;8&quot;,&#xd;
+          &quot;streetAddress1&quot;: &quot;${userPAdd1}&quot;,&#xd;
+          &quot;streetAddress2&quot;: &quot;${userPAdd2}&quot;,&#xd;
+          &quot;city&quot;: &quot;Aberdeen&quot;,&#xd;
+          &quot;zipCode&quot;: &quot;21001&quot;,&#xd;
+          &quot;state&quot;: &quot;MD&quot;,&#xd;
+          &quot;country&quot;: &quot;US&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;addressType&quot;: &quot;4&quot;,&#xd;
+          &quot;streetAddress1&quot;: &quot;${userMAdd1}&quot;,&#xd;
+          &quot;streetAddress2&quot;: &quot;${userMAdd2}&quot;,&#xd;
+          &quot;city&quot;: &quot;Newton&quot;,&#xd;
+          &quot;zipCode&quot;: &quot;02459&quot;,&#xd;
+          &quot;state&quot;: &quot;MA&quot;,&#xd;
+          &quot;country&quot;: &quot;US&quot;&#xd;
+        }&#xd;
+      ]&#xd;
+    },&#xd;
+    &quot;metadata&quot;: {&#xd;
+      &quot;autoSelectFeature&quot;: false,&#xd;
+      &quot;deliveryMethodAgreement&quot;: true,&#xd;
+      &quot;initialFundings&quot;: [&#xd;
+        {&#xd;
+          &quot;beneId&quot;: &quot;${beneUuid}&quot;,&#xd;
+          &quot;fundingId&quot;: &quot;${fundingUuid1}&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;recurringFundings&quot;: [&#xd;
+        {&#xd;
+          &quot;beneId&quot;: &quot;${beneUuid}&quot;,&#xd;
+          &quot;fundingId&quot;: &quot;${fundingUuid2}&quot;&#xd;
+        }&#xd;
+      ]&#xd;
+    },&#xd;
+    &quot;beneficiaries&quot;: [&#xd;
+      {&#xd;
+        &quot;id&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;relationship&quot;: &quot;Child&quot;,&#xd;
+        &quot;name&quot;: {&#xd;
+          &quot;first&quot;: &quot;${beneFirst}&quot;,&#xd;
+          &quot;last&quot;: &quot;${beneLast}&quot;&#xd;
+        },&#xd;
+        &quot;ssn&quot;: &quot;${beneSsn}&quot;,&#xd;
+        &quot;dob&quot;: &quot;${beneDob}&quot;,&#xd;
+        &quot;citizenOrGCholder&quot;: true,&#xd;
+        &quot;addresses&quot;: [&#xd;
+          {&#xd;
+            &quot;addressType&quot;: &quot;4&quot;,&#xd;
+            &quot;streetAddress1&quot;: &quot;${beneMAdd1}&quot;,&#xd;
+            &quot;streetAddress2&quot;: &quot;${beneMAdd2}&quot;,&#xd;
+            &quot;city&quot;: &quot;Newington&quot;,&#xd;
+            &quot;zipCode&quot;: &quot;06111&quot;,&#xd;
+            &quot;state&quot;: &quot;CT&quot;,&#xd;
+            &quot;country&quot;: &quot;US&quot;&#xd;
+          }&#xd;
+        ],&#xd;
+        &quot;countryOfCitizenship&quot;: &quot;US&quot;,&#xd;
+        &quot;isAddressDifferent&quot;: false,&#xd;
+        &quot;accountType&quot;: &quot;R&quot;,&#xd;
+        &quot;savingGoal&quot;: &quot;&quot;,&#xd;
+        &quot;matchingGrant&quot;: [],&#xd;
+        &quot;jointOwner&quot;: &quot;&quot;,&#xd;
+        &quot;successor&quot;: &quot;&quot;,&#xd;
+        &quot;fundingSources&quot;: [&#xd;
+          &quot;${fundingUuid1}&quot;,&#xd;
+          &quot;${fundingUuid2}&quot;&#xd;
+        ]&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;banks&quot;: [&#xd;
+      {&#xd;
+        &quot;isDomestic&quot;: true,&#xd;
+        &quot;id&quot;: &quot;${bankUuid}&quot;,&#xd;
+        &quot;bankName&quot;: &quot;Bank of America&quot;,&#xd;
+        &quot;accountType&quot;: &quot;C&quot;,&#xd;
+        &quot;routingNumber&quot;: &quot;011000138&quot;,&#xd;
+        &quot;accountNumber&quot;: &quot;${bank}&quot;,&#xd;
+        &quot;accountHolderName&quot;: {&#xd;
+          &quot;first&quot;: &quot;${bankFirst}&quot;,&#xd;
+          &quot;last&quot;: &quot;${bankLast}&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;fundings&quot;: [&#xd;
+      {&#xd;
+        &quot;status&quot;: &quot;active&quot;,&#xd;
+        &quot;id&quot;: &quot;${fundingUuid1}&quot;,&#xd;
+        &quot;type&quot;: &quot;Bank&quot;,&#xd;
+        &quot;appliedToPerson&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;debitFromBankId&quot;: &quot;${bankUuid}&quot;,&#xd;
+        &quot;paymentType&quot;: &quot;O&quot;,&#xd;
+        &quot;frequency&quot;: &quot;O&quot;,&#xd;
+        &quot;amount&quot;: &quot;${initialAmount}&quot;&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;status&quot;: &quot;active&quot;,&#xd;
+        &quot;id&quot;: &quot;${fundingUuid2}&quot;,&#xd;
+        &quot;type&quot;: &quot;Bank&quot;,&#xd;
+        &quot;appliedToPerson&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;debitFromBankId&quot;: &quot;${bankUuid}&quot;,&#xd;
+        &quot;paymentType&quot;: &quot;P&quot;,&#xd;
+        &quot;frequency&quot;: &quot;M&quot;,&#xd;
+        &quot;startDate&quot;: &quot;${recurringStart}&quot;,&#xd;
+        &quot;amount&quot;: &quot;${recurringAmount}&quot;,&#xd;
+        &quot;annualIncrease&quot;: {&#xd;
+          &quot;amount&quot;: &quot;${annualAmount}&quot;,&#xd;
+          &quot;month&quot;: &quot;3&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;successor&quot;: [],&#xd;
+    &quot;planId&quot;: &quot;${planId}&quot;,&#xd;
+    &quot;branding&quot;: &quot;${branding}&quot;,&#xd;
+    &quot;masterMemberId&quot;: &quot;&quot;,&#xd;
+    &quot;preference&quot;: {&#xd;
+      &quot;delivConfirms&quot;: &quot;E&quot;,&#xd;
+      &quot;delivStatements&quot;: &quot;E&quot;,&#xd;
+      &quot;delivTaxForms&quot;: &quot;E&quot;,&#xd;
+      &quot;eDelivDisclosure&quot;: true,&#xd;
+      &quot;enrollInUpromise&quot;: &quot;N&quot;&#xd;
+    },&#xd;
+    &quot;investments&quot;: [&#xd;
+      {&#xd;
+        &quot;appliedToPerson&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;fundAllocations&quot;: [&#xd;
+          {&#xd;
+            &quot;fundId&quot;: &quot;${investFund1}&quot;,&#xd;
+            &quot;allocationPercent&quot;: &quot;${investFundAlloc1}&quot;&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;fundId&quot;: &quot;${investFund2}&quot;,&#xd;
+            &quot;allocationPercent&quot;: &quot;${investFundAlloc2}&quot;&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;fundId&quot;: &quot;${investFund3}&quot;,&#xd;
+            &quot;allocationPercent&quot;: &quot;${investFundAlloc3}&quot;&#xd;
+          }&#xd;
+        ],&#xd;
+        &quot;method&quot;: &quot;Keep It Simple&quot;&#xd;
+      }&#xd;
+    ]&#xd;
+  }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 201" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49587">201</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Enrollment Data Generator">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import org.apache.jmeter.testelement.property.JMeterProperty;
+import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.services.FileServer;
+import org.apache.commons.lang3.RandomStringUtils;
+
+TimeZone.setDefault(TimeZone.getTimeZone(&apos;UTC&apos;));
+Random random = new Random();
+
+////////////////////////////// ENROLLMENT //////////////////////////////////////////////////
+
+vars.put(&quot;masterUuid&quot;, UUID.randomUUID().toString());
+
+////////////////////////////// USER ////////////////////////////////////////////////////////
+
+vars.put(&quot;userUuid&quot;, UUID.randomUUID().toString());
+
+vars.put(&quot;userPrefix&quot;, &quot;Mr.&quot;);
+vars.put(&quot;userFirst&quot;, &quot;John&quot;);
+vars.put(&quot;userMiddle&quot;, &quot;P&quot;);
+vars.put(&quot;userLast&quot;, &quot;Smith&quot;);
+vars.put(&quot;userSuffix&quot;, &quot;Jr.&quot;);
+
+vars.put(&quot;userDob&quot;, new Date().clearTime().minus(365 * 20).format(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;));
+vars.put(&quot;userSsn&quot;, String.format(&quot;%09d&quot;, ${__Random(100000000,999999999)}));
+log.info(&quot;userSsn&quot;+ vars.get(&quot;userSsn&quot;))
+vars.put(&quot;userEmail&quot;, &quot;perftest&quot; + 	random.nextInt(999999999).toString() + &quot;@test.com&quot;);
+vars.put(&quot;userHPhone&quot;, &quot;+1508&quot; + ((int)(Math.random() * 9000000) + 1000000).toString());
+vars.put(&quot;userWPhone&quot;, &quot;+1508&quot; + ((int)(Math.random() * 9000000) + 1000000).toString());
+
+vars.put(&quot;userPAdd1&quot;, random.nextInt(999).toString() + &quot; Main St&quot;);
+vars.put(&quot;userPAdd2&quot;, &quot;Floor&quot; + random.nextInt(9).toString());
+vars.put(&quot;userPAdd3&quot;, &quot;Suite&quot; + random.nextInt(999).toString());
+vars.put(&quot;userMAdd1&quot;, random.nextInt(999).toString() + &quot; Main St&quot;);
+vars.put(&quot;userMAdd2&quot;, &quot;Floor&quot; + random.nextInt(9).toString());
+vars.put(&quot;userMAdd3&quot;, &quot;Suite&quot; + random.nextInt(999).toString());
+
+vars.put(&quot;login&quot;, &quot;username&quot; + random.nextInt(999999999).toString());
+
+vars.put(&quot;id&quot;, RandomStringUtils.randomAlphanumeric(9));
+vars.put(&quot;idExpire&quot;, new Date().clearTime().plus(365 * 2).format(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;));
+vars.put(&quot;idName&quot;, &quot;Johnson&quot;);
+
+
+
+
+
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="EntitySubmit"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="submit (POST)">
+              <stringProp name="TestPlan.comments">Create Account</stringProp>
+              <intProp name="HTTPSampler.concurrentPool">6</intProp>
+              <stringProp name="HTTPSampler.domain">${host}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">accounts/</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;enrollMethod&quot;: &quot;W&quot;,&#xd;
+  &quot;schema&quot;: &quot;urn:ascensus:able:1.0:entity&quot;,&#xd;
+  &quot;urn:ascensus:able:1.0:entity&quot;: {&#xd;
+    &quot;tcAcknowledgment&quot;: true,&#xd;
+    &quot;branding&quot;:&quot;dcable&quot;,&#xd;
+    &quot;planId&quot;: &quot;0271c181-8135-4091-81f9-338a19e79e9e&quot;,&#xd;
+    &quot;organizationId&quot;: &quot;016fb788-e5da-447c-90cf-d7199c888bac&quot;,&#xd;
+    &quot;preference&quot;: {&#xd;
+      &quot;delivConfirms&quot;: &quot;E&quot;,&#xd;
+      &quot;delivStatements&quot;: &quot;E&quot;,&#xd;
+      &quot;delivTaxForms&quot;: &quot;E&quot;,&#xd;
+      &quot;eDelivDisclosure&quot;: &quot;E&quot;&#xd;
+    },&#xd;
+    &quot;representatives&quot;: [&#xd;
+      {&#xd;
+       &quot;id&quot;: &quot;5284b265-f3db-43b3-af63-f36fa1544da9&quot;,&#xd;
+        &quot;roleType&quot;: &quot;AO&quot;,&#xd;
+        &quot;jobTitle&quot;:&quot;Manager&quot;,&#xd;
+        &quot;secRoleType&quot;: &quot;CP&quot;,&#xd;
+        &quot;permType&quot;: &quot;ADMIN&quot;,&#xd;
+        &quot;name&quot;: {&#xd;
+          &quot;first&quot;: &quot;John&quot;,&#xd;
+          &quot;middle&quot;: &quot;&quot;,&#xd;
+          &quot;last&quot;: &quot;Smith&quot;,&#xd;
+          &quot;suffix&quot;: &quot;&quot;,&#xd;
+          &quot;prefix&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;dob&quot;: &quot;${userDob}&quot;,&#xd;
+        &quot;ssn&quot;: &quot;${userSsn}&quot;,&#xd;
+        &quot;gender&quot;: &quot;M&quot;,&#xd;
+        &quot;citizenOrGCholder&quot;: true,&#xd;
+        &quot;countryOfCitizenship&quot;: &quot;US&quot;,&#xd;
+        &quot;contact&quot;: {&#xd;
+          &quot;email&quot;: &quot;${userEmail}&quot;,&#xd;
+          &quot;daytimePhone&quot;: &quot;${userWPhone}&quot;,&#xd;
+          &quot;daytimePhoneType&quot;: &quot;C&quot;, &#xd;
+          &quot;eveningPhone&quot;: &quot;${userHPhone}&quot;,&#xd;
+          &quot;eveningPhoneType&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;addresses&quot;: [&#xd;
+          {&#xd;
+            &quot;addressType&quot;: &quot;4&quot;, &#xd;
+            &quot;streetAddress1&quot;: &quot;${userPAdd1}&quot;,&#xd;
+            &quot;streetAddress2&quot;: &quot;${userPAdd3}&quot;,&#xd;
+            &quot;city&quot;: &quot;Newtown&quot;,&#xd;
+            &quot;zipCode&quot;: &quot;02458&quot;,&#xd;
+            &quot;state&quot;: &quot;MA&quot;,&#xd;
+            &quot;country&quot;: &quot;US&quot;&#xd;
+          }&#xd;
+        ],&#xd;
+        &quot;login&quot;: {&#xd;
+          &quot;username&quot;: &quot;${userEmail}&quot;,&#xd;
+          &quot;password&quot;: &quot;${password}&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;organization&quot;: { &#xd;
+      &quot;type&quot;: &quot;NP&quot;,&#xd;
+      &quot;name&quot;: &quot;Contoso Inc.&quot;,&#xd;
+      &quot;tin&quot;: &quot;565434456&quot;,&#xd;
+      &quot;contact&quot;: {&#xd;
+        &quot;email&quot;: &quot;support@contosoinc.com&quot;,&#xd;
+        &quot;daytimePhone&quot;: &quot;+19234567890&quot;,&#xd;
+        &quot;daytimePhoneType&quot;: &quot;C&quot;&#xd;
+      },&#xd;
+      &quot;addresses&quot;: [&#xd;
+        {&#xd;
+          &quot;addressType&quot;: &quot;4&quot;, &#xd;
+          &quot;streetAddress1&quot;: &quot;12 Mailing Street&quot;,&#xd;
+          &quot;streetAddress2&quot;: &quot;street 2&quot;,&#xd;
+          &quot;city&quot;: &quot;Dresher&quot;,&#xd;
+          &quot;zipCode&quot;: &quot;19044&quot;,&#xd;
+          &quot;state&quot;: &quot;PA&quot;,&#xd;
+          &quot;country&quot;: &quot;US&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;addressType&quot;: &quot;8&quot;, &#xd;
+            &quot;streetAddress1&quot;: &quot;1 Permanent street&quot;,&#xd;
+            &quot;streetAddress2&quot;: &quot;stee pemr2 &quot;,&#xd;
+            &quot;city&quot;: &quot;Dresher&quot;,&#xd;
+            &quot;zipCode&quot;: &quot;19044&quot;,&#xd;
+            &quot;state&quot;: &quot;PA&quot;,&#xd;
+            &quot;country&quot;: &quot;US&quot;&#xd;
+          }&#xd;
+      ]&#xd;
+    }    &#xd;
+  },&#xd;
+  &quot;metadata&quot;: {&#xd;
+    &quot;key1&quot;: &quot;value&quot;,&#xd;
+    &quot;key2&quot;: &quot;value&quot;&#xd;
+  }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">X-API-Key</stringProp>
+                    <stringProp name="Header.value">00000000-0000-0000-0000-000000000000</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">x-signature</stringProp>
+                    <stringProp name="Header.value">t</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">x-request-datetime</stringProp>
+                    <stringProp name="Header.value">01-01-2014</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">x-request-id</stringProp>
+                    <stringProp name="Header.value">${__UUID}</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Header Generator">
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.util.Base64Encoder;
+
+TimeZone.setDefault(TimeZone.getTimeZone(&apos;UTC&apos;));
+
+// Set the request id (x-request-id)
+uuid = UUID.randomUUID().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-id&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-id&quot;, uuid));
+
+// Set the current datetime (x-request-datetime)
+currentUTC = new Date().format(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;);
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-datetime&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-datetime&quot;, currentUTC));
+
+// Set the json signature (x-signature)
+message = sampler.getArguments().getArgument(0).getValue();
+Mac mac = Mac.getInstance(&quot;HmacSHA256&quot;);
+SecretKeySpec secretKeySpec = new SecretKeySpec(vars.get(&quot;signing_key&quot;).decodeBase64(), &quot;HmacSHA256&quot;);
+mac.init(secretKeySpec);
+signature = mac.doFinal(message.getBytes()).encodeBase64().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-signature&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-signature&quot;, signature));
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 201" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+              <intProp name="ActionProcessor.action">1</intProp>
+              <intProp name="ActionProcessor.target">0</intProp>
+              <stringProp name="ActionProcessor.duration">${timer}</stringProp>
+            </TestAction>
+            <hashTree>
+              <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+                <stringProp name="ConstantTimer.delay">1000</stringProp>
+                <stringProp name="RandomTimer.range">100</stringProp>
+              </UniformRandomTimer>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="submit (POST) BK" enabled="false">
+              <stringProp name="TestPlan.comments">Create Account</stringProp>
+              <intProp name="HTTPSampler.concurrentPool">6</intProp>
+              <stringProp name="HTTPSampler.domain">${host}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">accounts/</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;enrollMethod&quot;: &quot;W&quot;,&#xd;
+    &quot;schema&quot;: &quot;urn:ascensus:529:1.0:enrollment&quot;,&#xd;
+    &quot;urn:ascensus:529:1.0:enrollment&quot;: {&#xd;
+    &quot;tcAcknowledgment&quot;: true,&#xd;
+    &quot;user&quot;: {&#xd;
+      &quot;gender&quot;: &quot;&quot;,&#xd;
+      &quot;countryOfCitizenship&quot;: &quot;US&quot;,&#xd;
+      &quot;questions&quot;: {&#xd;
+        &quot;enrollInUpromise&quot;: false,&#xd;
+        &quot;howYouHeardUs&quot;: &quot;&quot;,&#xd;
+        &quot;isMailingAddrDiff&quot;: false&#xd;
+      },&#xd;
+      &quot;id&quot;: &quot;${userUuid}&quot;,&#xd;
+      &quot;name&quot;: {&#xd;
+        &quot;first&quot;: &quot;${userFirst}&quot;,&#xd;
+        &quot;last&quot;: &quot;${userLast}&quot;&#xd;
+      },&#xd;
+      &quot;contact&quot;: {&#xd;
+        &quot;email&quot;: &quot;${userEmail}&quot;,&#xd;
+        &quot;daytimePhone&quot;: &quot;${userWPhone}&quot;,&#xd;
+        &quot;daytimePhoneType&quot;: &quot;C&quot;,&#xd;
+        &quot;eveningPhone&quot;: &quot;${userHPhone}&quot;,&#xd;
+        &quot;eveningPhoneType&quot;: &quot;C&quot;&#xd;
+      },&#xd;
+      &quot;citizenOrGCholder&quot;: true,&#xd;
+      &quot;ssn&quot;: &quot;${userSsn}&quot;,&#xd;
+      &quot;dob&quot;: &quot;${userDob}&quot;,&#xd;
+      &quot;login&quot;: {&#xd;
+        &quot;username&quot;: &quot;${login}&quot;,&#xd;
+        &quot;password&quot;: &quot;${password}&quot;,&#xd;
+        &quot;securityPassPhrase&quot;: null,&#xd;
+        &quot;securityChallenges&quot;: null&#xd;
+      },&#xd;
+      &quot;addresses&quot;: [&#xd;
+        {&#xd;
+          &quot;addressType&quot;: &quot;8&quot;,&#xd;
+          &quot;streetAddress1&quot;: &quot;${userPAdd1}&quot;,&#xd;
+          &quot;streetAddress2&quot;: &quot;${userPAdd2}&quot;,&#xd;
+          &quot;city&quot;: &quot;Aberdeen&quot;,&#xd;
+          &quot;zipCode&quot;: &quot;21001&quot;,&#xd;
+          &quot;state&quot;: &quot;MD&quot;,&#xd;
+          &quot;country&quot;: &quot;US&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;addressType&quot;: &quot;4&quot;,&#xd;
+          &quot;streetAddress1&quot;: &quot;${userMAdd1}&quot;,&#xd;
+          &quot;streetAddress2&quot;: &quot;${userMAdd3}&quot;,&#xd;
+          &quot;city&quot;: &quot;Newton&quot;,&#xd;
+          &quot;zipCode&quot;: &quot;02459&quot;,&#xd;
+          &quot;state&quot;: &quot;MA&quot;,&#xd;
+          &quot;country&quot;: &quot;US&quot;&#xd;
+        }&#xd;
+      ]&#xd;
+    },&#xd;
+    &quot;metadata&quot;: {&#xd;
+      &quot;autoSelectFeature&quot;: false,&#xd;
+      &quot;deliveryMethodAgreement&quot;: true,&#xd;
+      &quot;initialFundings&quot;: [&#xd;
+        {&#xd;
+          &quot;beneId&quot;: &quot;${beneUuid}&quot;,&#xd;
+          &quot;fundingId&quot;: &quot;${fundingUuid1}&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;recurringFundings&quot;: [&#xd;
+        {&#xd;
+          &quot;beneId&quot;: &quot;${beneUuid}&quot;,&#xd;
+          &quot;fundingId&quot;: &quot;${fundingUuid2}&quot;&#xd;
+        }&#xd;
+      ]&#xd;
+    },&#xd;
+    &quot;beneficiaries&quot;: [&#xd;
+      {&#xd;
+        &quot;id&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;relationship&quot;: &quot;N/A&quot;,&#xd;
+        &quot;name&quot;: {&#xd;
+          &quot;first&quot;: &quot;${beneFirst}&quot;,&#xd;
+          &quot;last&quot;: &quot;${beneLast}&quot;&#xd;
+        },&#xd;
+        &quot;ssn&quot;: &quot;${beneSsn}&quot;,&#xd;
+        &quot;dob&quot;: &quot;${beneDob}&quot;,&#xd;
+        &quot;citizenOrGCholder&quot;: true,&#xd;
+        &quot;addresses&quot;: [&#xd;
+          {&#xd;
+            &quot;addressType&quot;: &quot;4&quot;,&#xd;
+            &quot;streetAddress1&quot;: &quot;${beneMAdd1}&quot;,&#xd;
+            &quot;streetAddress2&quot;: &quot;${beneMAdd2}&quot;,&#xd;
+            &quot;city&quot;: &quot;Newington&quot;,&#xd;
+            &quot;zipCode&quot;: &quot;06111&quot;,&#xd;
+            &quot;state&quot;: &quot;CT&quot;,&#xd;
+            &quot;country&quot;: &quot;US&quot;&#xd;
+          }&#xd;
+        ],&#xd;
+        &quot;countryOfCitizenship&quot;: &quot;US&quot;,&#xd;
+        &quot;isAddressDifferent&quot;: false,&#xd;
+        &quot;accountType&quot;: &quot;R&quot;,&#xd;
+        &quot;savingGoal&quot;: &quot;&quot;,&#xd;
+        &quot;matchingGrant&quot;: [],&#xd;
+        &quot;jointOwner&quot;: &quot;&quot;,&#xd;
+        &quot;successor&quot;: &quot;&quot;,&#xd;
+        &quot;fundingSources&quot;: [&#xd;
+          &quot;${fundingUuid1}&quot;,&#xd;
+          &quot;${fundingUuid2}&quot;&#xd;
+        ]&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;banks&quot;: [&#xd;
+      {&#xd;
+        &quot;isDomestic&quot;: true,&#xd;
+        &quot;id&quot;: &quot;${bankUuid}&quot;,&#xd;
+        &quot;bankName&quot;: &quot;Bank of America&quot;,&#xd;
+        &quot;accountType&quot;: &quot;C&quot;,&#xd;
+        &quot;routingNumber&quot;: &quot;011000138&quot;,&#xd;
+        &quot;accountNumber&quot;: &quot;${bank}&quot;,&#xd;
+        &quot;accountHolderName&quot;: {&#xd;
+          &quot;first&quot;: &quot;${bankFirst}&quot;,&#xd;
+          &quot;last&quot;: &quot;${bankLast}&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;fundings&quot;: [&#xd;
+      {&#xd;
+        &quot;status&quot;: &quot;active&quot;,&#xd;
+        &quot;id&quot;: &quot;${fundingUuid1}&quot;,&#xd;
+        &quot;type&quot;: &quot;Bank&quot;,&#xd;
+        &quot;appliedToPerson&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;debitFromBankId&quot;: &quot;${bankUuid}&quot;,&#xd;
+        &quot;paymentType&quot;: &quot;O&quot;,&#xd;
+        &quot;frequency&quot;: &quot;O&quot;,&#xd;
+        &quot;amount&quot;: &quot;${initialAmount}&quot;&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;status&quot;: &quot;active&quot;,&#xd;
+        &quot;id&quot;: &quot;${fundingUuid2}&quot;,&#xd;
+        &quot;type&quot;: &quot;Bank&quot;,&#xd;
+        &quot;appliedToPerson&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;debitFromBankId&quot;: &quot;${bankUuid}&quot;,&#xd;
+        &quot;paymentType&quot;: &quot;P&quot;,&#xd;
+        &quot;frequency&quot;: &quot;M&quot;,&#xd;
+        &quot;startDate&quot;: &quot;${recurringStart}&quot;,&#xd;
+        &quot;amount&quot;: &quot;${recurringAmount}&quot;,&#xd;
+        &quot;annualIncrease&quot;: {&#xd;
+          &quot;amount&quot;: &quot;${annualAmount}&quot;,&#xd;
+          &quot;month&quot;: &quot;3&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;successor&quot;: [],&#xd;
+    &quot;planId&quot;: &quot;${planId}&quot;,&#xd;
+    &quot;branding&quot;: &quot;${branding}&quot;,&#xd;
+    &quot;masterMemberId&quot;: &quot;&quot;,&#xd;
+    &quot;preference&quot;: {&#xd;
+      &quot;delivConfirms&quot;: &quot;E&quot;,&#xd;
+      &quot;delivStatements&quot;: &quot;E&quot;,&#xd;
+      &quot;delivTaxForms&quot;: &quot;E&quot;,&#xd;
+      &quot;eDelivDisclosure&quot;: true,&#xd;
+      &quot;enrollInUpromise&quot;: &quot;N&quot;&#xd;
+    },&#xd;
+    &quot;investments&quot;: [&#xd;
+      {&#xd;
+        &quot;appliedToPerson&quot;: &quot;${beneUuid}&quot;,&#xd;
+        &quot;fundAllocations&quot;: [&#xd;
+          {&#xd;
+            &quot;fundId&quot;: &quot;${investFund1}&quot;,&#xd;
+            &quot;allocationPercent&quot;: &quot;${investFundAlloc1}&quot;&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;fundId&quot;: &quot;${investFund2}&quot;,&#xd;
+            &quot;allocationPercent&quot;: &quot;${investFundAlloc2}&quot;&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;fundId&quot;: &quot;${investFund3}&quot;,&#xd;
+            &quot;allocationPercent&quot;: &quot;${investFundAlloc3}&quot;&#xd;
+          }&#xd;
+        ],&#xd;
+        &quot;method&quot;: &quot;Keep It Simple&quot;&#xd;
+      }&#xd;
+    ]&#xd;
+  }&#xd;
+}&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 201" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49587">201</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

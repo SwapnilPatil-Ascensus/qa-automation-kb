@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="7" lt="7" ts="1768504884473" s="false" lb="7. Callback/Token (IDP) - Get Access Token" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-23" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 200</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:21:24 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=61
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Content-Length: 356
+Host: idd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:21:24 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">ags-idp-session=xslY0yMjlsawKBDqIyMCXjNy8mzQjBVElE7YF6je8a6TR1vjXiI3YwxowZIpl9y2; SESSION=MDNhYmVmMDQtNzZiYy00YjYxLTk2ZTYtZGU3NzBiOTMzNjU5; Apache=de5fcb49.64872214117b3</cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">grant_type=authorization_code&amp;code=8-IiC--jTLTiK9mjJaMb6BrRKr_fyiEbmJ9osH4ThP-jv_SpcOKWRIaMSW3_nUTHxI_649GealWk1N4vXkTb4HBNp7tprzdWXqivRuklGXRtxdQtuqg7x2z2FuXXrGSx&amp;redirect_uri=https%3A%2F%2Fidd.stage1.acs529.com%2Fidtpl%2Fauthentications%2FcallbackIDP.cs&amp;code_verifier=pN3nhDZdJG4oKfOD3jY4L2R7ETbONUkN42VsvV3Iawo&amp;client_id=0D055FB5A0E64EE08AC21EDCA88A91F3</queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/services/oauth2/token</java.net.URL>
+</httpSample>
+<httpSample t="7" lt="7" ts="1768504899295" s="false" lb="2-1. Authorize (IDP)" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-56" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 301/302</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[301]]]
+
+/	Test failed: code expected something using /
+
+****** received  : [[[41]]]2
+
+****** comparison: [[[30]]]2
+
+/	</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:21:39 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=97
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Host: idd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:21:39 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">Apache=6614d6a3.648722248aef7</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/services/oauth2/authorize?response_type=code&amp;client_id=0D055FB5A0E64EE08AC21EDCA88A91F3&amp;redirect_uri=https%3A%2F%2Fidd.stage1.acs529.com%2Fidtpl%2Fauthentications%2FcallbackIDP.cs&amp;scope=metadata+openid+profile+email+idp-admin&amp;code_challenge=493--ZQcMGmskqTtw7y8gi07TA-61lmFPX2XuxeQy3Y&amp;code_challenge_method=S256&amp;x-request-datetime=2026-01-15T19:21:39.294Z&amp;branding=idaho&amp;x-sardine-session-key=fa168454-3aef-4fb3-8109-7a563e9c3a56</java.net.URL>
+</httpSample>
+<httpSample t="7" lt="7" ts="1768505081848" s="false" lb="2-1. Authorize (IDP)" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-42" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 301/302</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[301]]]
+
+/	Test failed: code expected something using /
+
+****** received  : [[[41]]]2
+
+****** comparison: [[[30]]]2
+
+/	</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:24:41 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=97
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Host: idd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:24:41 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">Apache=27bee044.648722d2e6adf</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/services/oauth2/authorize?response_type=code&amp;client_id=0D055FB5A0E64EE08AC21EDCA88A91F3&amp;redirect_uri=https%3A%2F%2Fidd.stage1.acs529.com%2Fidtpl%2Fauthentications%2FcallbackIDP.cs&amp;scope=metadata+openid+profile+email+idp-admin&amp;code_challenge=58--9hkuXo0dm7ijobaUNjQAhjO6kS1hu_p-utX_C3g&amp;code_challenge_method=S256&amp;x-request-datetime=2026-01-15T19:24:41.848Z&amp;branding=idaho&amp;x-sardine-session-key=d70c44b9-ad44-4988-a20b-2e8dab2402a3</java.net.URL>
+</httpSample>
+<httpSample t="9" lt="9" ts="1768505119224" s="false" lb="2-1. Authorize (IDP)" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-98" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 301/302</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[301]]]
+
+/	Test failed: code expected something using /
+
+****** received  : [[[41]]]2
+
+****** comparison: [[[30]]]2
+
+/	</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:25:19 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=97
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Host: idd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:25:19 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">Apache=3f155937.648722f62b6fb</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/services/oauth2/authorize?response_type=code&amp;client_id=0D055FB5A0E64EE08AC21EDCA88A91F3&amp;redirect_uri=https%3A%2F%2Fidd.stage1.acs529.com%2Fidtpl%2Fauthentications%2FcallbackIDP.cs&amp;scope=metadata+openid+profile+email+idp-admin&amp;code_challenge=4--qIAt-3Ol7sxadd7yN7BAExKg-WmICiCce3MPVCn8&amp;code_challenge_method=S256&amp;x-request-datetime=2026-01-15T19:25:19.224Z&amp;branding=idaho&amp;x-sardine-session-key=0be0fa31-9006-48cd-abc1-946ae312443a</java.net.URL>
+</httpSample>
+<httpSample t="1" lt="0" ts="1768505334240" s="false" lb="5. Login (IDP) - GET Authorize Continue" rc="Non HTTP response code: org.apache.http.NoHttpResponseException" rm="Non HTTP response message: nyd.stage1.acs529.com:443 failed to respond" tn="IDP Member Login-ThreadStarter 1-73" dt="text" de="" by="2078" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 302</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Failed on account username TEST_9Q6J2XUF5E [TEST_9Q6J2XUF5E]</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Host: nyd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">org.apache.http.NoHttpResponseException: nyd.stage1.acs529.com:443 failed to respond
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:141)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.executeRequest(HTTPHC4Impl.java:939)
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.sample(HTTPHC4Impl.java:650)
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerProxy.sample(HTTPSamplerProxy.java:66)
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.sample(HTTPSamplerBase.java:1301)
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.sample(HTTPSamplerBase.java:1290)
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:651)
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:570)
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:501)
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:268)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</responseData>
+  <cookies class="java.lang.String">ags-idp-session=sW3nNu2qoQi8pxEpQrD3AK+omTEghM93DoWqxb3Yz9ZbJUP5s2LyG1WaVFIrQyZ9; SESSION=ZjlmMTllMWMtZDgzMy00MTFlLTk0NTktMDQyZWUwNTE5YmYx; Apache=75a46d78.648723c11807b</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>https://nyd.stage1.acs529.com/services/oauth2/authorize?response_type=code&amp;client_id=37E9E7A5881B4AA4A5163BFAD8216642&amp;redirect_uri=https://nyd.stage1.acs529.com/nytpl/authentications/callbackIDP.cs&amp;scope=metadata+openid+profile+email+idp-admin&amp;code_challenge=sdDFBOAl3JNf34Sc5mZ6qORpjJwlAI4ZLm-QBLfKfjk&amp;code_challenge_method=S256&amp;x-request-datetime=2026-01-15T19:28:51.658Z&amp;branding=newyork&amp;x-sardine-session-key=7505bef5-cd73-4e89-b834-99de29779c1a&amp;continue</java.net.URL>
+</httpSample>
+<httpSample t="8" lt="8" ts="1768505397855" s="false" lb="7. Callback/Token (IDP) - Get Access Token" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-83" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 200</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:29:57 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=61
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Content-Length: 357
+Host: mdd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:29:57 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">ags-idp-session=uESz38Yo4h4LdnQhATn+8y0nvwgZxmK2d+oCurtgML9YBKay3+qRrpRYYzMMBOgJ; SESSION=NWZlYTZjYjQtODgyYy00MzI4LWIwM2EtNjU2M2FhZDBiMjgx; Apache=5a89751b.648723fde0fde</cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">grant_type=authorization_code&amp;code=433-_kKvEL7ZV6qawgByNEL5FeaADXEsnU1Rk--31HhS4BoNWQzEtr16iIi1Vb25oXb8VBuhVb3Yzqqi3GlhZZNBGiU6stRqUFywJ58jn-vRyI_R1NyZykiyi1u6hXCd&amp;redirect_uri=https%3A%2F%2Fmdd.stage1.acs529.com%2Fmddtpl%2Fauthentications%2FcallbackIDP.cs&amp;code_verifier=2bBJRvFN1ODzQDwUaZI407xyyM5XFC_SHUsxeY1jSUA&amp;client_id=BB2886EA3E9E47CE8516AA0401FD01CF</queryString>
+  <java.net.URL>https://mdd.stage1.acs529.com/services/oauth2/token</java.net.URL>
+</httpSample>
+<httpSample t="154" lt="154" ts="1768505401504" s="false" lb="1. Login (CS)" rc="502" rm="Bad Gateway" tn="IDP Member Login-ThreadStarter 1-73" dt="text" de="" by="1482" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 200</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[502]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Assert Site Not Unavailable</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected not to contain /temporarily unavailable/</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 502 Bad Gateway
+Date: Thu, 15 Jan 2026 19:30:01 GMT
+Server: Apache
+Set-Cookie: Apache=5ba2f5bf.64872403da829; path=/; expires=Fri, 13-Jan-34 19:30:01 GMT; SameSite=none; Secure
+Set-Cookie: Apache=260e8487.64872403da829; path=/; expires=Fri, 13-Jan-34 19:30:01 GMT; SameSite=none; Secure
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Accept-Encoding: gzip, deflate, br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Host: idd.stage1.acs529.com
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/tmbStn.html --&gt;
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;IDeal - Idaho College Savings Program - We&apos;re making improvements&lt;/title&gt;
+	&lt;style type=&quot;text/css&quot;&gt;
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		#container{
+			width: 960px;
+			margin: 0 auto;
+			text-align: left;
+		}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id=&quot;container&quot;&gt;
+		&lt;div id=&quot;logo&quot;&gt;
+	        &lt;a href=&quot;/&quot;&gt;
+	            &lt;img src=&quot;https://cdn.stage1.acs529.com/f/248/21630/7d/im.uprinv.com/rc/idaho/images/logo.gif&quot; border=&quot;0&quot; alt=&quot;IDeal - Idaho College Savings Program&quot;/&gt;
+	        &lt;/a&gt;
+        &lt;/div&gt; 
+	    &lt;div id=&quot;directContent&quot;&gt;
+	    	&lt;br/&gt;&lt;br/&gt;
+	        &lt;p&gt;
+				Information about your Idaho College Savings Plan Account is temporarily unavailable. We apologize for the inconvenience. Please try again later, or for immediate assistance, call 1-866-433-2533 between 8 a.m. and 8 p.m., Mountain Time, Monday through Friday.
+	        &lt;/p&gt;
+	    &lt;/div&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/idtpl/authentications/loginLandingIDP.cs</java.net.URL>
+</httpSample>
+<httpSample t="7" lt="7" ts="1768505473779" s="false" lb="7. Callback/Token (IDP) - Get Access Token" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-73" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 200</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:31:13 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=61
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Accept-Language: en-US,en;q=0.9
+Content-Length: 356
+Host: idd.stage1.acs529.com
+User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.28)
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:31:13 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">ags-idp-session=5nYMZcKBy9/a4auQ1VKAE5rdoIUMwhhLyzs0pHx1OUrj9X00WrokYv6Ia8wyWBCI; SESSION=NzFlOWRlZjAtNDY0MS00OTJiLTliYzItOGI3YjExNTVhOWJi; Apache=1b8e2ba.648724469c18c</cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">grant_type=authorization_code&amp;code=7-lCRPk6QJUNnsDcIUMLFYzHyIU-QfBTrswcmW0y1As8rLZwHtVXK3zQnchCHE5x6Ty45QKy-OcnoHi3dt1xBZ4NInSILbihSXVhKMu5BknSnsQI--cLNCNeBrpAfJCZ&amp;redirect_uri=https%3A%2F%2Fidd.stage1.acs529.com%2Fidtpl%2Fauthentications%2FcallbackIDP.cs&amp;code_verifier=PIaOuXrAYKcmBo6GtH5adouBFF6Cxjsrg_bdppFbhDg&amp;client_id=0D055FB5A0E64EE08AC21EDCA88A91F3</queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/services/oauth2/token</java.net.URL>
+</httpSample>
+<httpSample t="8" lt="8" ts="1768505618168" s="false" lb="8. Session/Overview (CS)" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-85" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 200</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion - Account Overview</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Failed on account username TEST_5EB6ZSYC2D [TEST_5EB6ZSYC2D] | Account Num: 587202376</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:33:38 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=60
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Accept-Language: en-US,en;q=0.5
+Upgrade-Insecure-Requests: 1
+Accept-Encoding: gzip, deflate, br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+x-sardine-session-key: 479e3664-7676-4e68-9469-d135e9ed6873
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 199
+Host: idd.stage1.acs529.com
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:33:38 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">JSESSIONID=nGfgDgFvPdGaXkXZ7WgfFm9WMS4SsR7ME0XsrEg4.uniteappwts3_stage1-uiiapp; Apache=d4c31e45.648724cf5d309</cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">accessToken=1--3Q78OLdsTVExGsAmvNtnPMY_ZjAhsYrQr4w-L4jo90hhV8MOjA6X4VogMvsUCyhdoUcemy8BgWznyLOY0w4TFXfYgdKwS-8pt21ulAA17nyFd4FskGwKRhe1Lzpn1&amp;x-sardine-session-key=479e3664-7676-4e68-9469-d135e9ed6873</queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/idtpl/authentications/createSessionIDP.cs</java.net.URL>
+</httpSample>
+<httpSample t="7" lt="7" ts="1768505725087" s="false" lb="8. Session/Overview (CS)" rc="412" rm="Precondition Failed" tn="IDP Member Login-ThreadStarter 1-57" dt="text" de="" by="1232" ng="100" na="100">
+  <assertionResult>
+    <name>Assert Status 200</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[412]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion - Account Overview</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Failed on account username TEST_IUWQ5T327S [TEST_IUWQ5T327S] | Account Num: 580571137</failureMessage>
+  </assertionResult>
+  <responseHeader class="java.lang.String">HTTP/1.1 412 Precondition Failed
+Date: Thu, 15 Jan 2026 19:35:25 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+Keep-Alive: timeout=5, max=60
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Accept-Language: en-US,en;q=0.5
+Upgrade-Insecure-Requests: 1
+Accept-Encoding: gzip, deflate, br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+x-sardine-session-key: 10918b6b-6ae7-4f9c-bffb-e2e252be2bbd
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 199
+Host: idd.stage1.acs529.com
+</requestHeader>
+  <responseData class="java.lang.String">&lt;!-- /app/error/waf.html --&gt;
+
+
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;
+			529 College Savings Plan - Security Policy Error
+		&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot;&gt;
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot;&gt;
+			&lt;div id=&quot;directContent&quot;&gt;
+				&lt;br/&gt;&lt;br/&gt;
+			   	&lt;p&gt;
+                    To protect the security of your account, this request has been rejected.&lt;br/&gt;&lt;br/&gt;
+
+                    The most common error is using one of the following characters in fields requiring only text or numbers: ` &apos; ; &lt; &gt; \&lt;br/&gt;&lt;br/&gt;
+
+                    Please try your request again, but confirm no unusual characters were accidentally included in any of the fields.&lt;br/&gt;&lt;br/&gt;
+					
+					
+					Request Timestamp: 2026/01/15 14:35:25 EST&lt;br/&gt;&lt;br/&gt;
+				&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</responseData>
+  <cookies class="java.lang.String">JSESSIONID=gbruQHD2L-1Bujh-j7ufUWsb8b8COcLQObf2moyY.uniteappwts1_stage1-uiiapp; Apache=31255bf0.6487253653138</cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">accessToken=10-YtfcPEHECQrhS_dHHuen0cgMva7p--S-h1KvTo54sbWhfSRKSyYzqIz9b2g91XslKLCXkzcYYdhoTM_Y-LXZXv3U-GM0pgqRJD1rMipAEYwMsFPWU3tHZDWhOWg25&amp;x-sardine-session-key=10918b6b-6ae7-4f9c-bffb-e2e252be2bbd</queryString>
+  <java.net.URL>https://idd.stage1.acs529.com/idtpl/authentications/createSessionIDP.cs</java.net.URL>
+</httpSample>
+
+</testResults>

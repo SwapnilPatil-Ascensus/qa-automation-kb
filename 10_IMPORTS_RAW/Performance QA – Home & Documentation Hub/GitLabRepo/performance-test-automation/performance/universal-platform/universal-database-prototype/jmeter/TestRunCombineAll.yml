@@ -1,0 +1,45 @@
+aggregator: aggregator
+
+execution:
+#- scenario: 
+#   script: broker.jmx
+  - executor: jmeter
+    scenarios:
+      - script: userProfile.jmx
+        properties:
+          numberThreads: 10
+          rampUp: 100
+          loopCount: 20
+          timer: 100
+          timerDelay: 1000
+      - script: csr_search.jmx
+        properties:
+          numberThreads: 10
+          rampUp: 100
+          loopCount: 20
+          timer: 1000
+          timerDelay: 1000
+      - script: broker.jmx
+        properties:
+          numberThreads: 10
+          rampUp: 100
+          loopCount: 20
+          timer: 1000
+          timerDelay: 1000    
+
+reporting:
+  - module: blazemeter
+    report-name: AGS_CombineALL_Test
+    test: UNITE_Test
+    project: 2236539
+    upload-artifacts: true
+
+modules:
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+
+settings:
+  proxy:
+    ssl-cert: true
+    address: http://webproxywt-vip.int.acs529.com:3128
+

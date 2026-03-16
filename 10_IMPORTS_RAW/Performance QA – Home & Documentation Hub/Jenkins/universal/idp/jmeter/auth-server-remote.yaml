@@ -1,0 +1,14 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    scenario: idp_login
+scenarios:
+  idp_login:
+    script: auth-server.jmx
+reporting:
+  - module: blazemeter
+    report-name: IDP Test - Client Token
+    test: IDP Test - Client Token
+    project: Universal Platform
+    upload-artifacts: false

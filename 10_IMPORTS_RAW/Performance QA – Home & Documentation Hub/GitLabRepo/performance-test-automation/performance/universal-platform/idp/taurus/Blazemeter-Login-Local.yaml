@@ -1,0 +1,94 @@
+settings:
+  proxy:
+    ssl-cert: false
+modules:
+  local:
+    sequential: true  
+  nose:
+    ignore-unknown-actions: true
+  selenium:
+    chromedriver:
+      path: 'C:\work\prime\selenium\selenium-3.141.59'
+  blazemeter:
+      token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+execution:
+  - executor: selenium
+    scenario: Blazemeter-IDP-Login-Local
+    concurrency: 1
+    iterations: 1
+    capabilities:
+      browserName: chrome
+reporting:
+  - module: blazemeter
+    report-name: Blazemeter-IDP-Login-Local
+    test: IDP Login Test
+    project: Universal Platform
+    upload-artifacts: true
+scenarios:
+  Blazemeter-IDP-Login-Local:
+    generate-flow-markers: true
+    headless: true
+    timeout: 15s
+    think-time: 500ms
+    data-sources:
+      - path: data.csv
+        delimiter: ','
+        quoted: false
+        loop: true
+    requests:
+      - label: 0. Navigate to Login
+        actions:
+          - type: resizeWindow
+            param: '1535,743'
+          - type: go
+            param: 'https://nda.stage1.acs529.com/ndtpl/authentications/loginLandingIDP.cs'
+      - label: 1a. Fill in Credentials
+        actions:
+          - type: type
+            locators:
+              - shadow: "auth-form-input[name='username'], input"
+            param: tester1
+            metadata:
+              type: text
+              label: First Name
+              page-title: College SAVE - Login
+              page-url: 'https://nda.stage1.acs529.com/services/login'
+          - type: type
+            locators:
+              - shadow: "auth-form-input[name='fakePassword'], input"
+            param: Test@123
+            metadata:
+              type: text
+              label: Last Name
+              page-title: College SAVE - Login
+              page-url: 'https://nda.stage1.acs529.com/services/login'
+      - label: 1b. Submit Login
+        actions:
+          - type: waitFor
+            locators: 
+              - shadow: "auth-button[type='submit'], button"
+            param: clickable
+          - type: click
+            locators:
+              - shadow: "auth-button[type='submit'], button"
+            metadata:
+              page-title: College SAVE - Login
+              page-url: 'https://nda.stage1.acs529.com/services/login'
+      - label: 2a. Verify Overview
+        actions:
+          - type: waitFor
+            locators: 
+              - CSS: '#content-begin'
+            param: present
+            value: 30s
+          - type: assertText
+            locators:
+              - CSS: '#content-begin > header > h1'
+            param: 'Welcome back, Leon — My Accounts'
+            metadata:
+              page-title: College SAVE - Login
+              page-url: 'https://nda.stage1.acs529.com/ndtpl/al/list.cs'
+      - label: 3. Screenshot
+        actions:
+          - type: screenshot
+            param: ${screenshot}

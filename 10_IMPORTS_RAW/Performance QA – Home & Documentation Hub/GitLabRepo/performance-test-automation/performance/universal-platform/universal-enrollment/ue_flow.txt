@@ -1,0 +1,44 @@
+--- PROSPECT ---
+(GET) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/cms/529/upromise
+(GET) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/metadata/newyork
+(GET) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/plans/newyork
+
+--- OWNER DETAILS ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/login
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/refresh
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/validation +
+
+--- OWNER ADDRESS ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/refresh
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/validation +
+
+--- SAVING FOR ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/refresh
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/validation +
+
+--- BENEFICIARY ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/refresh
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/validation +
+
+--- FUNDING ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/refresh
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/plans/allocationfunds - simple
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/plans/allocationfunds - pick
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/validation +
+
+--- RECURRING ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/refresh
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/validation +
+
+--- INVEST (SIMPLE) ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+
+--- REVIEW ---
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts?snapshot=true +
+(POST) https://agsup-ui-enrollment-qc4.gs.ascensus.com/enrollments/api/accounts - submit

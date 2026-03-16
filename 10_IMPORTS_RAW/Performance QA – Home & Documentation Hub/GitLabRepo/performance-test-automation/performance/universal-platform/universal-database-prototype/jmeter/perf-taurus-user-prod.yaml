@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: perf-pod-user-prod-20
+  namespace: ags-qa
+  labels:
+    app: jmeter
+spec:
+  restartPolicy: Never
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      -  weight: 1
+         podAffinityTerm:
+            labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - jmeter
+            topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: perf-container-user-prod-20
+    image: blazemeter/taurus:1.16.32
+    command: ["/bin/sh"]
+    args:
+    - "-c"
+    - "cp /bzt-configs-mount/TestRunUserProd.yml /bzt-configs-mount/csr_acct0verview_prod1.jmx /bzt-configs-mount/secretKeyP.txt /bzt-configs-mount/UID_PWD_Prod.csv /bzt-configs-mount/csr_account_search_Prod.csv /bzt-configs/; ls /bzt-configs; pwd; bzt -l /tmp/artifacts/bzt.log -report TestRunUserProd.yml csr_acct0verview_prod1.jmx"
+    resources:
+      limits:
+        memory: "2048Mi"
+      requests:
+        cpu: "100m"
+        memory: "512Mi"
+    volumeMounts:
+      - name: perf-config
+        mountPath: /bzt-configs-mount
+      - name: test-data
+        mountPath: /bzt-configs/data
+      - name: test-artifacts
+        mountPath: /bzt-configs/TestArtifacts
+      - name: kube-api-access-4x7vn
+        mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+  volumes:
+    - name: perf-config
+      configMap:
+        name: ags-performance-testing-user-prod
+    - name: test-data
+      emptyDir: {}
+    - name: test-artifacts
+      emptyDir: {}
+    - name: kube-api-access-4x7vn
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace

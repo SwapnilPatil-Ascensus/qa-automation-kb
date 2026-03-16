@@ -1,0 +1,14 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    scenario: account
+scenarios:
+  account:
+    script: up-get-aws-account-ms.jmx
+reporting:
+  - module: blazemeter
+    report-name: Universal - Account (GET)
+    test: Universal - Account (GET)
+    project: Universal Platform
+    upload-artifacts: false

@@ -1,0 +1,14 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    scenario: enrollment
+scenarios:
+  enrollment:
+    script: up-enrollment-submission.jmx
+reporting:
+  - module: blazemeter
+    report-name: Universal - Enrollment
+    test: Universal - Enrollment
+    project: Universal Platform
+    upload-artifacts: false

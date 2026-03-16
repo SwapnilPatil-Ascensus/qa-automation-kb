@@ -1,0 +1,14 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    scenario: metadata
+scenarios:
+  metadata:
+    script: up-get-metadata-ms.jmx
+reporting:
+  - module: blazemeter
+    report-name: Universal - Metadata
+    test: Universal - Metadata
+    project: Universal Platform
+    upload-artifacts: false

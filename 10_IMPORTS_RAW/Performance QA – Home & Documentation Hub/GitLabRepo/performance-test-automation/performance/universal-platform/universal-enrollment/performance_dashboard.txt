@@ -1,0 +1,78 @@
+UI
+1. Full flow with submission (bank, recurring, keep it simple)
+
+Notes
+1. Environment stability, changes, and errors keep holding up further testing
+
+Findings:
+UI - Selenium grid (max of 30 containers with 1 browser each)
+1. Current execution maximum seems to be about 15-20 enrollments/min
+2. UI generates ~10 requests per enrollment to accounts endpoint (requires less UI users to strain MS due to # of requests)
+3. Depending on snapshot endpoint (which is non-blocking) performance, requests may pile up during enrollments
+
+------------
+
+UI vs AWS-UI
+1. Determine viability of running UI in AWS
+
+Reports: UI
+1 user - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71434692/summary
+20 user (x5) - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71434738/summary
+30 user (x10) - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71438798/summary
+
+Reports: AWS-UI
+1 user - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71434711/summary
+20 user (x5) - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71434861/summary
+20 user (x5) - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71435185/summary
+30 user (x10) - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71438877/summary
+30 user (x10) - https://a.blazemeter.com/app/#/accounts/406482/workspaces/404690/projects/2236539/masters/71439011/summary
+
+Findings:
+1. Performance between both seems to be about the same - ~500ms difference in response time (more tests may be desired in future)
+2. No serious advantage noted by switching UI to run in AWS
+
+------------
+
+API (Microservices):
+1. Full flow based on API calls made during UI
+2. Login > Snapshot > Submit (via node server)
+3. Login > Submit (via node server)
+4. Login > Snapshot > Submit (directly to MS)
+
+Notes
+1. Subsequent performance execution with high load may cause some stability issues (MS may require some time to become usable again)
+
+Findings:
+Jmeter - Login > Snapshot > Submit (via node server)
+1. [1 container for microservices] currently caps at ~160 users [~10 users/second] (snapshot endpoint starts to timeout - take 60+ seconds)
+2. [1 container for microservices] starts to struggle on snapshot with more requests per second (snapshot endpoint starts to peak in response times until 504 response)
+3. [3 containers for microservices] (as will be deployed in stage/production) removes snapshot issues at 160 users mark
+
+Jmeter - Login > Submit (via node server)
+1. [3 containers for microservices] Running at ~160 users [~10 users/second] causes subsequent errors on accounts endpoint
+
+Errors:
+1a. Failed to obtain JDBC Connection - Status: pending dev analysis
+1b. Unexpected exception while executing Create Enrollment stored procedure: Failed to obtain JDBC Connection (possibly different version of above)
+2a. Error retrieving database meta-data - Status: pending dev analysis
+2b. Unexpected exception while executing Create Enrollment stored procedure: Error retrieving database meta-data (possibly different version of above)
+3. Handler dispatch failed: java.lang.NoClassDefFoundError: com/ascensus/agsup/service/agsupvalidationhandler529/utils/ValidatorConstants - Status: currently fixed; Arpan stated may need to revert fix
+
+Identified next steps:
+1. Increase containers in grid to guage max capacity (on hold)
+2. Determine max baseline for MS (blocked)
+3. Determine max baseline for UI (blocked)
+
+Other considerations:
+1. Specific endpoint performance testings (metadata, validation, accounts)
+2. Endurance testing
+
+------------
+
+Lighthouse:
+1. Full flow with submission (bank, keep it simple)
+2. Full flow with submission (check, custom investment)
+
+Notes
+1. Allows for specific page by page analysis which is separate from load/endurance testing - Reports provided to Rob on 1/23
+2. Undetermined impact or use by dev (Additional executions/reports currently by request only)

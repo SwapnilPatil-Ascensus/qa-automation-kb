@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Universal Enrollment">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="UE GET Account">
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.duration">32400</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Plan Data (QC1)" enabled="false">
+          <stringProp name="filename">C:/Box/Private/Pramod bk/Team Alpha/GET Call/Performance test/GET API/get-acct-data-file-qc1.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">planname,acctnum</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Plan Data (Stage 1)">
+          <stringProp name="filename">C:/Box/Private/Pramod bk/Team Alpha/GET Call/Performance test/GET API/get-acct-data-file-stage1.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">planname,acctnum</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Key Path Setup">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="keyPath" elementType="Argument">
+              <stringProp name="Argument.name">keyPath</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="keyPathByJmx" elementType="Argument">
+              <stringProp name="Argument.name">keyPathByJmx</stringProp>
+              <stringProp name="Argument.value">true</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Environment Setup - IDP (QC1)" enabled="false">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="430432888">authentication</stringProp>
+            <stringProp name="-1746132471">authentication-ui</stringProp>
+            <stringProp name="908408390">clientId</stringProp>
+            <stringProp name="-828796022">clientSecretEncrypt</stringProp>
+            <stringProp name="-1584539138">privateId</stringProp>
+            <stringProp name="2084326633">privateKeyEncrypt</stringProp>
+            <stringProp name="140479281">userClientId</stringProp>
+            <stringProp name="271065444">userUsernameEncrypt</stringProp>
+            <stringProp name="-1784260609">userPasswordEncrypt</stringProp>
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-815873925">keyFile</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="707856040">
+              <stringProp name="978538195">agsup-auth-server-qc1.gs.ascensus.com</stringProp>
+              <stringProp name="191581092">agsup-auth-ui-qc1.gs.ascensus.com</stringProp>
+              <stringProp name="-7684517">C92E6F51E6FE474A8DDA4686087C0FC6</stringProp>
+              <stringProp name="1408693390">OY5QxpoUB+ysRNaXu3o2QiOGVNvsepsh7UvWpRfBzioXeFr4kZQAgYMwh3psxe44</stringProp>
+              <stringProp name="1602079717">CAD22753560C428D8A95FDAA7E8E2480</stringProp>
+              <stringProp name="491306961">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</stringProp>
+              <stringProp name="1512577784">545206C981554DE194FB5E5CDC81C3F4</stringProp>
+              <stringProp name="838989327">/QPUJb4Y3PSbDQn9Q9RgCi7dGkZmqHauJos5jVMs7oY=</stringProp>
+              <stringProp name="-1490606438">JhhD1HxFCASMQE+jINmBQg==</stringProp>
+              <stringProp name="104117">idp</stringProp>
+              <stringProp name="-362473807">secretKeyStage.txt</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Environment Setup - IDP (Stage 1)">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="430432888">authentication</stringProp>
+            <stringProp name="-1746132471">authentication-ui</stringProp>
+            <stringProp name="908408390">clientId</stringProp>
+            <stringProp name="-828796022">clientSecretEncrypt</stringProp>
+            <stringProp name="-1584539138">privateId</stringProp>
+            <stringProp name="2084326633">privateKeyEncrypt</stringProp>
+            <stringProp name="140479281">userClientId</stringProp>
+            <stringProp name="271065444">userUsernameEncrypt</stringProp>
+            <stringProp name="-1784260609">userPasswordEncrypt</stringProp>
+            <stringProp name="-25376005">branding</stringProp>
+            <stringProp name="-815873925">keyFile</stringProp>
+            <stringProp name="-1446909349">clientSecret</stringProp>
+            <stringProp name="1886569170">clientSecretJWTClientId</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-1878959782">
+              <stringProp name="-2138951941">agsup-auth-server-stage1.gs.ascensus.com</stringProp>
+              <stringProp name="-151538550">agsup-auth-ui-stage1.gs.ascensus.com</stringProp>
+              <stringProp name="-876037204">AFBCA44B0E6547DD9FC03AAF3FDA640C</stringProp>
+              <stringProp name="-1145640804">tCSODjP0cNMZJgaew0wuunkLdNUlATxgphZBCZ2UzXO7yLSh7OSE6jc8xIUaQ2MR</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1373937409">9D117E3DBAE24746BA3B2EEE85C7472C</stringProp>
+              <stringProp name="838989327">/QPUJb4Y3PSbDQn9Q9RgCi7dGkZmqHauJos5jVMs7oY=</stringProp>
+              <stringProp name="-1580826661">xKk2GydTAJk8LCTCGdnpwoyJnMzYxt2aFSolFlclYfQ=</stringProp>
+              <stringProp name="104117">idp</stringProp>
+              <stringProp name="-362473807">secretKeyStage.txt</stringProp>
+              <stringProp name="1817786842">OQak9yqQX4KAxViEJVT6UoZ3WvQsSupc1qrT7A2q</stringProp>
+              <stringProp name="-876037204">AFBCA44B0E6547DD9FC03AAF3FDA640C</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Decrypt Credentials" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import javax.crypto.Cipher
+import javax.crypto.KeyGenerator
+import javax.crypto.SecretKey
+import javax.crypto.spec.IvParameterSpec 
+import javax.crypto.spec.SecretKeySpec 
+import java.util.Base64
+import java.nio.file.Files
+import java.nio.file.Paths
+
+// Generate a 16-byte AES key
+def generateKey() {
+    KeyGenerator keyGen = KeyGenerator.getInstance(&quot;AES&quot;)
+    keyGen.init(128) // 128-bit key (16 bytes)
+    return keyGen.generateKey()
+}
+
+// Decrypt data
+def decrypt(SecretKey key, String encryptedData) {
+    Cipher cipher = Cipher.getInstance(&quot;AES/CBC/PKCS5Padding&quot;)
+    byte[] iv = new byte[16] // Initialization vector (16 bytes)
+    IvParameterSpec ivSpec = new IvParameterSpec(iv)
+    cipher.init(Cipher.DECRYPT_MODE, key, ivSpec)
+    byte[] decodedData = Base64.decoder.decode(encryptedData)
+    byte[] decryptedData = cipher.doFinal(decodedData)
+    return new String(decryptedData, &quot;UTF-8&quot;)
+}
+    
+// Load the Base64-encoded key from a file
+def loadKeyFromFile(String filePath) {
+    String encodedKey = vars.get(&quot;keyPathByJmx&quot;).equals(&quot;true&quot;) ? new String(Files.readAllBytes(Paths.get(vars.get(&quot;keyPath&quot;) + File.separator + filePath)), &quot;UTF-8&quot;) : new String(Files.readAllBytes(Paths.get(filePath)), &quot;UTF-8&quot;)
+    byte[] decodedKey = Base64.getDecoder().decode(encodedKey)
+    return new SecretKeySpec(decodedKey, 0, decodedKey.length, &quot;AES&quot;) 
+}
+
+// Main execution
+String filePath = vars.get(&quot;keyFile&quot;)
+
+// Load the key from the file
+SecretKey key = loadKeyFromFile(filePath)
+
+// Decrypt client secret
+String encryptedClient = vars.get(&quot;clientSecretEncrypt&quot;)
+String decryptedClient = decrypt(key, encryptedClient)
+vars.put(&quot;clientSecret&quot;, decryptedClient)
+//log.info(&quot;Decrypted: &quot; + vars.get(&quot;clientSecret&quot;))
+
+// Decrypt private key
+String encryptedKey = vars.get(&quot;privateKeyEncrypt&quot;)
+String decryptedKey = decrypt(key, encryptedKey)
+vars.put(&quot;privateKey&quot;, decryptedKey)
+//log.info(&quot;Decrypted: &quot; + vars.get(&quot;privateKey&quot;))
+
+// Decrypt portal username
+String encryptedUsername = vars.get(&quot;userUsernameEncrypt&quot;)
+String decryptedUsername = decrypt(key, encryptedUsername)
+vars.put(&quot;userUsername&quot;, decryptedUsername)
+//log.info(&quot;Decrypted: &quot; + vars.get(&quot;userUsername&quot;))
+log.info(&quot;========================Kumar=================&quot; + vars.get(&quot;userUsername&quot;));
+
+// Decrypt portal password
+String encryptedPassword = vars.get(&quot;userPasswordEncrypt&quot;)
+String decryptedPassword = decrypt(key, encryptedPassword)
+String credentials = decryptedPassword.getBytes().encodeBase64().toString();
+vars.put(&quot;userPassword&quot;, credentials);
+//log.info(&quot;Decrypted: &quot; + vars.get(&quot;userPassword&quot;))
+log.info(&quot;========================Kumar=================&quot; + vars.get(&quot;userPassword&quot;));
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Hide Sampler From Reports">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">prev.setIgnore();
+</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Authentication"/>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate JWT Token">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import java.security.Key;
+import javax.crypto.spec.SecretKeySpec;
+
+Key signingKey = new SecretKeySpec(vars.get(&quot;clientSecret&quot;).getBytes(), &quot;HmacSHA256&quot;);
+
+        // Generate the JWT
+        String jwt = Jwts.builder()
+                .setIssuer(vars.get(&quot;clientId&quot;)) // Set the issuer (iss)
+                .setSubject(vars.get(&quot;clientId&quot;)) // Set the subject (sub)
+                .setAudience(&quot;https://agsup-auth-server-stage1.gs.ascensus.com/services/oauth2&quot;) // Set the audience (aud)
+                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // Set expiration (exp)
+                 .signWith(signingKey)
+                .compact();
+
+          //  log.info(&quot;-----------------pramod jwt1------------&quot; + jwt);
+              vars.put(&quot;jwtToken&quot;, jwt)
+
+
+  //  log.info(&quot;--------------------------------------------------&quot;+  vars.get(&quot;bearerToken&quot;));
+     
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Access Token">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="Content-Type" elementType="HTTPArgument">
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">Content-Type</stringProp>
+                  <stringProp name="Argument.value">application/x-www-form-urlencoded</stringProp>
+                </elementProp>
+                <elementProp name="grant_type" elementType="HTTPArgument">
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">grant_type</stringProp>
+                  <stringProp name="Argument.value">client_credentials</stringProp>
+                </elementProp>
+                <elementProp name="client_assertion" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client_assertion</stringProp>
+                  <stringProp name="Argument.value">${jwtToken}</stringProp>
+                </elementProp>
+                <elementProp name="client_assertion_type" elementType="HTTPArgument">
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client_assertion_type</stringProp>
+                  <stringProp name="Argument.value">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</stringProp>
+                </elementProp>
+                <elementProp name="scope" elementType="HTTPArgument">
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">scope</stringProp>
+                  <stringProp name="Argument.value">openid profile email metadata idp-admin confidential-client</stringProp>
+                </elementProp>
+                <elementProp name="client_id" elementType="HTTPArgument">
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client_id</stringProp>
+                  <stringProp name="Argument.value">${clientSecretJWTClientId}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${authentication}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">services/oauth2/token</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 200">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Access Token">
+              <stringProp name="JSONPostProcessor.referenceNames">access_token</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Signing Key">
+              <stringProp name="JSONPostProcessor.referenceNames">signing_key</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.signing_key</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell - Print Token + Signing Key">
+              <stringProp name="BeanShellAssertion.query">
+log.info(vars.get(&quot;access_token&quot;));
+log.info(vars.get(&quot;signing_key&quot;));
+vars.put(&quot;Authorization&quot;, vars.get(&quot;access_token&quot;));
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="GET Account Call"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-request-id</stringProp>
+                <stringProp name="Header.value">fc2d0614-250b-11ee-be56-0242ac120002</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-API-Key</stringProp>
+                <stringProp name="Header.value">00000000-0000-0000-0000-000000000000</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">JSESSIONID=89F311622746421F9E7124E24AD0B27B</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Header Generator">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.util.Base64Encoder;
+
+TimeZone.setDefault(TimeZone.getTimeZone(&apos;UTC&apos;));
+// Set the request id (x-request-id)
+uuid = UUID.randomUUID().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-id&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-id&quot;, uuid));
+
+// Set the current datetime (x-request-datetime)
+currentUTC = new Date().format(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;);
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-request-datetime&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-request-datetime&quot;, currentUTC));
+
+// Set the json signature (x-signature)
+message = sampler.getArguments().getArgument(0).getValue();
+Mac mac = Mac.getInstance(&quot;HmacSHA256&quot;);
+SecretKeySpec secretKeySpec = new SecretKeySpec(vars.get(&quot;signing_key&quot;).decodeBase64(), &quot;HmacSHA256&quot;);
+mac.init(secretKeySpec);
+signature = mac.doFinal(message.getBytes()).encodeBase64().toString();
+sampler.getHeaderManager().removeHeaderNamed(&quot;x-signature&quot;);
+sampler.getHeaderManager().add(new Header(&quot;x-signature&quot;, signature));
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate JWT Token" enabled="false">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import java.security.KeyFactory;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.interfaces.RSAPrivateKey;
+import java.util.Base64;
+
+byte[] encoded = Base64.getDecoder().decode(vars.get(&quot;privateKey&quot;));
+KeyFactory kf = KeyFactory.getInstance(&quot;RSA&quot;);
+PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);
+RSAPrivateKey rsa = (RSAPrivateKey) kf.generatePrivate(keySpec);
+
+//Create JWT token
+JwtBuilder builder = Jwts.builder().claims()
+      .issuer(vars.get(&quot;privateId&quot;))
+      .subject(vars.get(&quot;privateId&quot;))
+      .expiration(new Date(System.currentTimeMillis() + (86400 * 1000)))
+      .and()
+      .signWith(rsa)
+      .audience().add(&quot;https://&quot; + vars.get(&quot;authentication&quot;) + &quot;/services/oauth2&quot;)
+      .and();
+
+vars.put(&quot;bearerToken&quot;, builder.compact());
+</stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Acct Call">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;schema&quot;: &quot;urn:ascensus:529:1.0:account&quot;,&#xd;
+	&quot;urn:ascensus:529:1.0:account&quot;: {&#xd;
+		 &quot;rootAccountNumber&quot;: &quot;${acctnum}&quot;&#xd;
+	},&#xd;
+	&quot;metadata&quot;: { &#xd;
+		&quot;name1&quot;: &quot;value&quot;,&#xd;
+		&quot;name2&quot;: &quot;value&quot;&#xd;
+	}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">agsup-aws-account-web-stage1.gs.ascensus.com</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/accounts/</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 200">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

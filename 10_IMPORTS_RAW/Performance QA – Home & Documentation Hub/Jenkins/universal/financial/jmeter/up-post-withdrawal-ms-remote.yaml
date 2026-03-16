@@ -1,0 +1,14 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    scenario: withdrawal
+scenarios:
+  withdrawal:
+    script: up-post-withdrawal-ms.jmx
+reporting:
+  - module: blazemeter
+    report-name: Universal - Withdrawal
+    test: Universal - Withdrawal
+    project: Universal Platform
+    upload-artifacts: false
