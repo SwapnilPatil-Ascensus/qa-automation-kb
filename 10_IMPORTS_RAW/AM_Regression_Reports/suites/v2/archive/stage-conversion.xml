@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="CONVERSION" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+
+   <test name="CSR Enrollment - Main"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/> 
+	</classes> 
+  </test> 
+
+   <test name="CSR Enrollment - Negative Test Cases"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentNegative.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/> 
+	</classes> 
+  </test> 
+
+ <test name="CSR Enrollment - Sub Enrollment Test Cases"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrSubsequentEnrollmentPositive.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+  <test name="CSR Single Contributions"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/contributions/feature/CSRSingleContributionRandom.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test>
+
+  <test name="CSR Fees"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+
+  <test name="CSR Annual Exchange"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AnnualExchange.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+
+  <test name="CSR Custom Exchange"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/CustomExchange.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+
+   <test name="CSR Transfers"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CsrTransfer.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+
+  <test name="CSR Withdrawals"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+   <test name="CSR Member Single Contribution"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+  <test name="CSR Member Transfers"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/member/transactions/transfer/feature/Transfer.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+    <test name="CSR Member Withdrawals"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+   <test name="CSR ShareAdjustment"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  
+   <test name="CSR P and E update"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/PandE/feature/CSR_PandE.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+   
+  <test name="Conversion Ugift - Main Verification"> 
+	<parameter name="traunch" value="akd"></parameter> 
+	<parameter name="features" value="frontoffice/common/ugift/feature/Ugift.feature"></parameter>
+	<classes> 
+		<class name="com.cs529.qa.prime.runner.FeatureRunner"/> 
+	</classes> 
+  </test> 
+  		
+	<test name="Conversion Ugift Portal - UI Validations">
+		<parameter name="traunch" value="akd"></parameter>
+		<parameter name="features" value="frontoffice/common/ugift/feature/Ugift529_UIValidations.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+    		
+	<test name="Conversion Ugift 529 Portal - ManageBanks">
+		<parameter name="traunch" value="akd"></parameter>
+		<parameter name="features" value="frontoffice/common/ugift/feature/ManageBanks.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="Conversion Ugift 529 Portal - ManageGifts">
+		<parameter name="traunch" value="akd"></parameter>
+		<parameter name="features" value="frontoffice/common/ugift/feature/ManageGifts.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+  <test name="CSR 529 Ugift Contribution - Conversion">
+		<parameter name="traunch" value="akd"></parameter>
+		<parameter name="features" value="frontoffice/csr/ugift/feature/CSR529UgiftContribution.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+   </test>
+   
+     
+  	<test name="ACHGIFT and GIFT transactions Post Nightly validations">
+		<parameter name="traunch" value="akd"></parameter>
+		<parameter name="features" value="frontoffice/csr/ugift/feature/ACHGIFTAndGIFT_PostNightlyValidations.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+   </test>
+       
+</suite>

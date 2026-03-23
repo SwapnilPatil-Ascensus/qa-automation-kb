@@ -1,0 +1,9 @@
+# Raw TestNG HTML reports and supporting asset folders (large, regenerable from Jenkins)
+10_IMPORTS_RAW/AM_Regression_Reports/reports/
+10_IMPORTS_RAW/AM_Regression_Reports/Regression Test Suite - *
+10_IMPORTS_RAW/AM_Regression_Reports/*_files/
+
+# Temp / OS
+.DS_Store
+Thumbs.db
+*.tmp

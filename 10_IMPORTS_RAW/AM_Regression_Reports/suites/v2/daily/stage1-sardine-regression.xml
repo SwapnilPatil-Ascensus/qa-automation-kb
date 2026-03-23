@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Stage1 Sardine Regression Suite" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** Enrollment Regression Coverage **************************************************************** -->
+    <!-- ****************************************************************************************************************************************************************** -->
+
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** NextGen Enrollment System ********************************************************************* -->
+    <!-- Plans: GAD, WI, WA, Vanguard, UCF, RI, OK, NM Advisor, NJ, NM Direct, NY, NJ Advisor, MN, MI, KY, MI Advisor, MO, MD, IA, IL, CA Kids, CA, AR,
+            AK National, AZ Advisor, AK Direct, AK Advisor -->
+    <!-- ****************************************************************************************************************************************************************** -->
+
+    <test name="Stage1 - CA Direct Member - NextGen Enrollment Flow - Positive">
+        <parameter name="traunch" value="cad"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="CA Direct Member - NextGen Enrollment - Multiple Beneficiaries">
+        <parameter name="traunch" value="cad"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/cad/member/enrollment/feature/T101_NextGenEnrollmentMultipleBeneficiary.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** Legacy Enrollment System ********************************************************************** -->
+    <!-- Plans: WV Select, WV Direct, WV Advisor, USAA, PA, RI Advisor, OH, ND, NY Advisor, NJ Advisor, NM Advisor, NM Direct, NC, TN, TN Able, PA Able,
+            RI Able, Schwab Advisor, Schwab LQ Advisor -->
+    <!-- ****************************************************************************************************************************************************************** -->
+
+
+
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** Specific Legacy Enrollment System ************************************************************* -->
+    <!-- Plans: WV Advisor, Schwab Advisor, Schwab LQ Advisor, NY Advisor, MO Advisor, LQ Direct, LQ Advisor, iShares, IA Advisor, IN Advisor, CT Advisor, CO Advisor -->
+    <!-- ****************************************************************************************************************************************************************** -->
+
+
+  <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** Legacy ABLE Enrollment System ************************************************************* -->
+    <!-- Plans: WV Advisor, Schwab Advisor, Schwab LQ Advisor, NY Advisor, MO Advisor, LQ Direct, LQ Advisor, iShares, IA Advisor, IN Advisor, CT Advisor, CO Advisor -->
+    <!-- ****************************************************************************************************************************************************************** -->
+    
+    <test name="Stage1 - TNB NAA ABLE Enrollment Flow - Positive Cases per custodian">
+        <parameter name="traunch" value="tnb"/>
+        <parameter name="tags" value="@regression and @dailyrun-naa and @sardinerun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+     <test name="Stage1 - PAB NAA ABLE Enrollment Flow - Positive Cases per custodian">
+        <parameter name="traunch" value="pab"/>
+        <parameter name="tags" value="@regression and @dailyrun-naa and @sardinerun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** GSP Enrollment ******************************************************************** -->
+    <!-- Plans: GSP (PAG) -->
+    <!-- ****************************************************************************************************************************************************************** -->
+
+    <test name="Stage1 - GSP (PAG) Enrollment Test Cases - Positive Cases">
+        <parameter name="traunch" value="pag"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/gsp/member/enrollment/feature/T100_GSPEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** Prefill Enrollment ******************************************************************** -->
+    <!--Plans: Arkansas	CalKIDS	Colorado	Future Path 529 Plan	Hawaii	Idaho
+Indiana Direct	Iowa	John Hancock Freedom 529	Maryland College Investment Plan	Missouri Direct	New York
+PA Direct	T. Rowe Price College Savings Plan	Vanguard	WA529 Invest	Wealthfront
+ -->
+	<!-- ****************************************************************************************************************************************************************** -->
+
+    <test name="Stage1 - Wealthfront Prefill Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="wfd"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    
+    <test name="Stage1 - PAD Prefill Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="pad"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    
+    <test name="Stage1 - Vanguard Prefill Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="vgi"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- ****************************************************************** Withdrawal Regression Coverage **************************************************************** -->
+    <!-- ****************************************************************************************************************************************************************** -->
+    <!-- Withdrawal Scenarios:
+         - Standard withdrawal (529) - IDP and Non-IDP plans (NYD, MID, IND, MND, PAD)
+         - ABLE plan withdrawal
+         - Advisor-based withdrawal
+         - IDP-enabled withdrawal
+         - Non-IDP withdrawal
+    -->
+    <test name="Stage1 - NY Direct - CSR Member Distribution - Qualified/Non-Qualified - Positive Scenarios">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="MI Direct - CSR Member Distribution - Qualified/Non-Qualified - Positive Scenarios">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @sardinerun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+</suite>

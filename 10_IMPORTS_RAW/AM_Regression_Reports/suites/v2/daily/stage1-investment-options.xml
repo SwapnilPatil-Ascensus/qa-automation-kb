@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Legacy Web Registration" parallel="tests" thread-count="1">
+    <!-- Listener to manage resources during test execution -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!--    ****************** MEMBER LOGIN FUNCTIONALITY FOR LEGACY (NON-IDP) ACCOUNTS *******************-->
+    <test name="Anual Exchange for Direct Plan- Positive Scenarios">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AnnualExchange.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Anual Exchange for Direct Plan- Positive Scenarios">
+        <parameter name="traunch" value="cod"/>
+        <parameter name="tags" value="@regression and @agebasedfundrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AnnualExchange.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!--    ****************** CSR -transfer functionalit  *******************-->
+
+</suite>

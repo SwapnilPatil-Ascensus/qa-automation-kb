@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - Exchanges" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  	
+	<test name="NYD CSR Member Annual Exchange">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AnnualExchange.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB ABLE CSR Member Annual Exchange">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AbleAnnualExchange.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYA Advisor CSR Member Annual Exchange">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AdvisorAnnualExchange.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Member Custom Exchange">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/CustomExchange.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB ABLE CSR Member Custom Exchange">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/CustomExchange.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+			
+	<test name="NYA CSR Member Custom Exchange">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/CustomExchange.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+				
+</suite>

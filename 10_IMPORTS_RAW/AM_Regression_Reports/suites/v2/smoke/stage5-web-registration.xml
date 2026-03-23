@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Legacy Web Registration" parallel="tests" thread-count="1">
+    <!-- Listener to manage resources during test execution -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <test name="CAD - Legacy Web Registration and login - Existing, remove registered Accounts, re-reg and login">
+        <parameter name="traunch" value="cad"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features"
+                   value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+<!--    <test name="MND - Legacy Web Registration and login - Existing, remove registered Accounts, re-reg and login">-->
+<!--        <parameter name="traunch" value="mnd"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="MID - Legacy Web Registration and login - Existing, remove registered Accounts, re-reg and login">-->
+<!--        <parameter name="traunch" value="mid"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="OKD - Legacy Web Registration and login - Existing, remove registered Accounts, re-reg and login">-->
+<!--        <parameter name="traunch" value="okd"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="COB - Legacy Web Registration and login for ABLE - Existing, remove registered Accounts, re-reg and login">
+        <parameter name="traunch" value="cob"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features"
+                   value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+<!--    <test name="RID - Legacy Web Registration Negative&#45;&#45; Non Web Registered Account">-->
+<!--        <parameter name="traunch" value="rid"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/T101_WebRegistrationNegative.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="COD - Legacy Web Registration and login - Non Web Registered Account">
+        <parameter name="traunch" value="cod"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features"
+                   value="frontoffice/common/webregistration/feature/Web_Registration_First_Time_Account.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="COB - Legacy Web Registration and login for ABLE - Non Web Registered Account">
+        <parameter name="traunch" value="cob"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features"
+                   value="frontoffice/common/webregistration/feature/Web_Registration_First_Time_Account.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+<!--    <test name="MND - Legacy Web Registration and login - Non Web Registered Account">-->
+<!--        <parameter name="traunch" value="mnd"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/Web_Registration_First_Time_Account.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="RID - Legacy Web Registration and login - Non Web Registered Account">-->
+<!--        <parameter name="traunch" value="rid"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/Web_Registration_First_Time_Account.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Legacy Web Registration and login - Existing, remove registered Accounts, re-reg and login">-->
+<!--        <parameter name="traunch" value="cod"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features"-->
+<!--                   value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>

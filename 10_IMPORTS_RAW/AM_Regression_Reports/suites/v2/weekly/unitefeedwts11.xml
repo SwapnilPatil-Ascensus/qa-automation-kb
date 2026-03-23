@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="Unitefeedwts11 Regression (Backoffice) - Weekly Wednesday" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  
+  <test name="ACI Account Info">
+	<parameter name="features" value="backoffice/aci/acctinfo/feature/AcsAciAcctInfo.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="ACI Account Position">
+	<parameter name="features" value="backoffice/aci/acctposition/feature/AcsAciAcctPosition.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="ACI Transaction Activity">
+	<parameter name="features" value="backoffice/aci/transaction/feature/AcsAciTransaction.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="By All Accounts Account Info">
+	<parameter name="features" value="backoffice/byallaccount/acctinfo/feature/AcsAcctInfo.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="By All Accounts Account Position">
+	<parameter name="features" value="backoffice/byallaccount/acctposition/feature/AcsAcctPosition.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="By All Accounts Price">
+	<parameter name="features" value="backoffice/byallaccount/acctprice/feature/AcsAcctPrice.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="By All Accounts Transaction Activity">
+	<parameter name="features" value="backoffice/byallaccount/accttransaction/feature/AcsAcctTransaction.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon Envision Trade">
+	<parameter name="features" value="backoffice/mellon/trade/feature/EnvisionTradeOrder.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon Envision Late Trade">
+	<parameter name="features" value="backoffice/mellon/latetrade/feature/EnvisionLateTradeOrder.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="State Street Cash">
+	<parameter name="features" value="backoffice/statestreet/cash/feature/StateStreetCash.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="State Street Trade">
+	<parameter name="features" value="backoffice/statestreet/trade/feature/StateStreetTrade.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="State Street HL Advisor Trade">
+	<parameter name="features" value="backoffice/statestreet/trade/feature/StateStreetTrade.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="USAA Customer Info">
+	<parameter name="features" value="backoffice/usaa/customer/feature/UiiUsaaCustomerInfo.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="USAA Position">
+	<parameter name="features" value="backoffice/usaa/position/feature/UiiUsaaPositionAudit.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="USAA Transaction Activity">
+	<parameter name="features" value="backoffice/usaa/transaction/feature/UiiUsaaTransaction.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Vanguard Trade">
+	<parameter name="features" value="backoffice/vanguard/trade/feature/UII_Vanguard_ETSOmniTrade_Request.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+</suite>

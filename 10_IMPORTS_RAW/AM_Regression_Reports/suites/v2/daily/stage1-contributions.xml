@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Contributions" parallel="tests" thread-count="4">
+    <!-- Listener to manage resources during test execution -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+    <test name="NYD - Direct CSR Member Single Contribution">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYA - Advisor CSR Member Single Contribution">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYB - Able CSR Member Single Contribution">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AbleMemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP plan - NY Direct CSR Member Single AIP Contribution">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Non-IDP plan - MI Direct CSR Member Single AIP Contribution">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NY Advisor CSR Member Single AIP Contribution">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NY Able CSR Member Single AIP Contribution">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @ablerun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- **************************** CSR Mem - Recurring Contribution AIP Test Cases **************************** -->
+    <test name="IDP Plan - NY Direct AIP update via CSR for member">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Non-IDP Plan - MI Direct AIP update via CSR for member">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NY Able AIP update via CSR for member">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NY Advisor AIP update via CSR for member">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYA AIP update via CSR for member">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDelete.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ************************** Member Contribution negative Test Cases ************************** -->
+    <test name="IDP - NY Direct Member Contribution Negative Scenarios via CSR">
+        <parameter name="features" value="frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature"/>
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Non-IDP - MI Direct Member Contribution Negative Scenarios via CSR">
+        <parameter name="features" value="frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature"/>
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NY Advisor Member Contribution Negative Scenarios via CSR">
+        <parameter name="features" value="frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature"/>
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+</suite>

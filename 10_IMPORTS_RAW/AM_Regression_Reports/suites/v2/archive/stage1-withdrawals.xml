@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - Withdrawals" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  		  
+	<test name="NYD CSR-Member K12 Withdrawal Test Case">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/member/transactions/withdrawal/feature/K12Distribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR-Member Qualified and Non-Qualified Withdrawal Test Case">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="TIAA MID CSR-Member Qualified and Non-Qualified Withdrawal Test Case">
+		<parameter name="traunch" value="okd" />
+		<parameter name="features" value="frontoffice/okd/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature" />
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="NYD  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYA  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Advisor_Distribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Able_Distribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="IND Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="ind"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="WVD CSR Systematic Withdrawal Test Cases">
+		<parameter name="traunch" value="wvd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+				
+</suite>

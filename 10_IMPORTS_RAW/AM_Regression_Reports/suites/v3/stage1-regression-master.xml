@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Stage1 Complete Regression Test Suite" parallel="tests" thread-count="1" data-provider-thread-count="4">
+    <listeners>
+        <listener class-name="core.listener.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- MASTER REGRESSION SUITE - STAGE1 ENVIRONMENT                                     -->
+    <!-- This master suite includes all regression test suites for Stage1 environment   -->
+    <!-- To add more suites, simply add another suite-file entry below                  -->
+    
+    <suite-files>        
+        <!-- Universal Enrollment Regression Tests -->
+        <suite-file path="universal-enrollment-stage1.xml"/>
+        <!-- IDP Login Regression Tests -->
+        <suite-file path="idp-login-stage1.xml"/>
+    </suite-files>
+</suite>
+

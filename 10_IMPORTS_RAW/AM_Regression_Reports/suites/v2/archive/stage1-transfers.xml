@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - Transfers" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  		  
+    <test name="NYB CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CsrTransferAblePlans.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CsrTransfer.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="RIA CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="ria"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CSR_TransferAdvisorPlans.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Member Transfer - Positive Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/transfer/feature/Transfer.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="OHD CSR Member Transfer - Positive Test Cases">
+		<parameter name="traunch" value="ohd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/transfer/feature/Transfer.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+				
+</suite>

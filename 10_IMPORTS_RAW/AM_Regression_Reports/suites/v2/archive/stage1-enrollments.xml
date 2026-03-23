@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - Enrollments" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  			
+	<test name="AKB ABLE Enrollment Flow - Positive Cases">
+		<parameter name="traunch" value="akb"></parameter>
+		<parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD NextGen Enrollment Flow - Positive Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/nyd/member/enrollment/feature/NextGenEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="MID NextGen Enrollment - Multiple Beneficiaries">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/mid/member/enrollment/feature/T101_NextGenEnrollmentMultipleBeneficiary.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID NextGen Enrollment - Save As Draft Test Cases">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/mid/member/enrollment/feature/T103_NextGenEnrollmentSaveAsDraft.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>	
+	
+	
+	<test name="GSP (PAG) Enrollment Test Cases - Positive Cases">
+		<parameter name="traunch" value="pag"></parameter>
+		<parameter name="features" value="frontoffice/gsp/member/enrollment/feature/T100_GSPEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID CSR Enrollment Test Cases - Positive Cases">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID CSR Enrollment Test Cases - Negative Cases">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentNegative.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID CSR Subsequent Enrollment Test Cases - Positive Cases">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrSubsequentEnrollmentPositive.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MIA CSR Enrollment Test Cases - Positive Cases">
+		<parameter name="traunch" value="mia"></parameter>
+		<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="NYA NextGen Enrollment - Single and Subsequent Enrollment">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>	
+	
+	<test name="NVU (SSgA) Prefill Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/nvu/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+		
+	</test>		
+		<test name="NVU (SSgA) Prefill Enrollment - Negative Test Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/nvu/csr/prefillenroll/feature/PrefillEnrollmentNegative.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+</suite>

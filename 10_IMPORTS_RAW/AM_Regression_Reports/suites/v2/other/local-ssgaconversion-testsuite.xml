@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) SSgA Conversion" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  	
+	
+	<test name="NVU (SSgA) Prefill Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/nvu/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+		
+	</test>		
+		<test name="NVU (SSgA) Prefill Enrollment - Negative Test Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/nvu/csr/prefillenroll/feature/PrefillEnrollmentNegative.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NVU CSR Restrictions and Freezes - 'Direct - No Checking Option Freeze', 'Stop Mail'">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/application/feature/CSRRestrictionsAndFreezes.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+	
+	<test name="NVU  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Advisor_Distribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NVU CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/AdvisorFeeEntry.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+</suite>

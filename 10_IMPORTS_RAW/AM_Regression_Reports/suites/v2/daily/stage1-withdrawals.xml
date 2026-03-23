@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Withdrawals" parallel="tests" thread-count="4">
+    <!-- Purpose: Validate CSR/member withdrawal flows across plans (Qualified/Non-Qualified, K-12, Greenscreen, Systematic, Flywire). -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- ===== CSR-Member Withdrawals (Positive Scenarios) ===== -->
+    <test name="CSR Member Withdrawal - MID Direct (Qualified/Non-Qualified)">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/mid/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal - NYD K-12 (EBT Prorated)">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="/frontoffice/csr/member/transactions/withdrawal/feature/K12Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal - MND K-12 (AO Partial, Prorated)">
+        <parameter name="traunch" value="mnd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MNDWithdrawal.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Member Withdrawal - MID Direct Non-IDP (Qualified/Non-Qualified)">
+        <parameter name="features" value="frontoffice/common/member/transactions/withdrawal/feature/MemberWithdrawal.feature"/>
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    
+    <!-- ===== CSR-Member Withdrawals (Negative Scenarios) ===== -->
+    <test name="CSR Member Withdrawal Negative Scenarios - NYD IDP">
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature"/>
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal Negative Scenarios - MID Non-IDP">
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature"/>
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal Negative Scenarios - NYA Advisor">
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature"/>
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    
+    <!-- ===== CSR Greenscreen Withdrawals ===== -->
+    <test name="CSR Greenscreen Withdrawal - NYD Direct (Qualified/Non-Qualified)">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Greenscreen Withdrawal - NYA Advisor (Qualified/Non-Qualified)">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Advisor_Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Greenscreen Withdrawal - NYB Able (AO Partial)">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Able_Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ===== CSR Systematic Withdrawals ===== -->
+    <test name="CSR Systematic Withdrawal - MND IDP">
+        <parameter name="traunch" value="mnd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="CSR Systematic Withdrawal - MID Non-IDP">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ===== CSR Flywire Withdrawals (flaky; out of sync) ===== -->
+    <test name="CSR Member Withdrawal - IND Flywire">
+        <parameter name="traunch" value="ind"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal - WVD Flywire">
+        <parameter name="traunch" value="wvd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+</suite>

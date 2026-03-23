@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Legacy Web Registration" parallel="tests" thread-count="1">
+    <!-- Listener to manage resources during test execution -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!--    ****************** MEMBER LOGIN FUNCTIONALITY FOR LEGACY (NON-IDP) ACCOUNTS *******************-->
+    <test name="Legacy(Non-IDP) MID - Member Login - Positive Scenarios">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) MID - Member Login - Negative Scenarios">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) CAD - Member Login - Positive Scenarios">
+        <parameter name="traunch" value="cad"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) CAD - Member Login - Negative Scenarios">
+        <parameter name="traunch" value="cad"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) COD - Member Login - Positive Scenarios">
+        <parameter name="traunch" value="cod"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) COD - Member Login - Negative Scenarios">
+        <parameter name="traunch" value="cod"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) OKD - Member Login - Positive Scenarios">
+        <parameter name="traunch" value="okd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) OKD - Member Login - Negative Scenarios">
+        <parameter name="traunch" value="okd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) RIB - Able Member Login - Positive Scenarios">
+        <parameter name="traunch" value="rib"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) RIB - Able Member Login - Negative Scenarios">
+        <parameter name="traunch" value="rib"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) PAB - Able Member Login - Positive Scenarios">
+        <parameter name="traunch" value="pab"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) PAB - Able Member Login - Negative Scenarios">
+        <parameter name="traunch" value="pab"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) COB - Able Member Login - Positive Scenarios">
+        <parameter name="traunch" value="cob"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) COB - Able Member Login - Negative Scenarios">
+        <parameter name="traunch" value="cob"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!--    ****************** FORGOT USERNAME AND PASSWORD FUNCTIONALITY FOR LEGACY (NON-IDP) ACCOUNTS *******************-->
+    <test name="Legacy(Non-IDP) MID Login - Forgot Username - Positive Scenarios until Email send">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_ForgotUsernamePositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) MID - Forgot Username - Negative Scenarios">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_ForgotUsernameNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) OKD Login - Forgot Username - Positive Scenarios until Email send">
+        <parameter name="traunch" value="okd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_ForgotUsernamePositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Legacy(Non-IDP) OKD - Forgot Username - Negative Scenarios">
+        <parameter name="traunch" value="okd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_ForgotUsernameNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="Non-IDP MID Login - Forgot Password - Positive Test Case">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_ForgotPasswordPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+<!--    <test name="Legacy(Non-IDP) Member Login - Forgot Password - Negative Test Case">-->
+<!--        <parameter name="traunch" value="mid"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features" value="frontoffice/common/login/feature/T101_ForgotPasswordNegative.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <!--    ****************** LOGIN FUNCTIONALITY FOR LEGACY (NON-IDP) ACCOUNTS *******************-->
+
+</suite>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Empower Plan" parallel="tests" thread-count="4">
+    <!-- Purpose: Validate Empower Plan Functionality through CSRAccount Balance page via CSR/Member Portal across plan traunches. -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+   
+    <!-- ************************** CSR Member Single Contribution  ************************** -->		
+    <test name="COE - Direct CSR Member Single Contribution">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	    <!-- ************************** Single AIP  Contribution via  CSR for member ************************** -->		
+    <test name="Non-IDP plan - CO Empoer CSR Member Single AIP Contribution">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	    <!-- ************************** AIP Update via  CSR for member ************************** -->	
+    <test name="Non-IDP Plan - CO Empower AIP update via CSR for member">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	    <!-- ************************** Member Contribution negative Test Cases ************************** -->
+    <test name="Non-IDP - CO Empower Member Contribution Negative Scenarios via CSR">
+        <parameter name="features" value="frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature"/>
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	    <!-- ************************** CSR-Member Withdrawal Test Cases ************************** -->
+    <test name="CSR Member Withdrawal - COE Direct (Qualified/Non-Qualified)">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/mid/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal - COE K-12 (AO Partial, Prorated)">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MNDWithdrawal.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Member Withdrawal - COE Direct Non-IDP (Qualified/Non-Qualified)">
+        <parameter name="features" value="frontoffice/common/member/transactions/withdrawal/feature/MemberWithdrawal.feature"/>
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	    <!-- ************************** CSR-Member Withdrawal Negative Test Cases ************************** -->	
+    <test name="CSR Member Withdrawal Negative Scenarios - coe IDP">
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:23:24:45:48:53:68:69:70:75:76:77:78:79"/>
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>	
+    <test name="CSR Member Withdrawal Negative Scenarios - COE Non-IDP">
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature"/>
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+   <test name="CSR Greenscreen Withdrawal - COE Direct (Qualified/Non-Qualified)">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>	
+	    <!-- ************************** CSR-Member Systematic Withdrawal Test Cases ************************** -->	
+    <test name="CSR Systematic Withdrawal - COE Direct">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	
+<!-- ************************** CSR-Member Flywire Withdrawal Test Cases ************************** -->		
+    <test name="CSR Member Withdrawal - COE Flywire">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Greenscreen Fee Withdrawal - COE Direct Fee Withdrawal">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice\csr\csr-greenscreen\transactions\fee\feature\FeeEntry.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+	
+<!-- ************************** CSR  Greenscreen Principle and Earning Test Cases ************************** -->			
+    <test name="CSR Greenscreen Principle and Earning - COE Direct P/E Adjustment">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice\csr\csr-greenscreen\transactions\PandE\feature\CSR_PandE.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+<!-- ************************** CSR Greenscreen Share Adjustment Test Cases ************************** -->
+    <test name="CSR Greenscreen Share Adjustment - COE Direct Share Adjustment">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice\csr\csr-greenscreen\transactions\Shareadjustment\feature\CSR_ShareAdjustment.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+     <test name="Non-IDP Plans - CO Empower CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="IDP - CO Empower CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+	
+    <test name="COE CSR-Member Profile Maintenance - Maintain Beneficiary Information">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/Beneficiary.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="COE CSR-Member Profile Maintenance - Update Delivery Preferences">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/DeliveryPreference.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+	<test name="COE CSR-Member Profile Maintenance - Maintain Payroll Deduction">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PayrollDeduction.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Test: Maintain Interested Party COE CSR-Member Profile Maintenance *********** -->
+    <test name="NYD CSR-Member Profile Maintenance - Add Interested Party">
+        <parameter name="traunch" value="coe"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice\csr\member\profileanddocuments\feature\InterestedParty.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>	
+	
+
+</suite>
