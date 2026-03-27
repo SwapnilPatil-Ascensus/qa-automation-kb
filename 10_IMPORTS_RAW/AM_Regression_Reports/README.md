@@ -11,6 +11,7 @@ AM_Regression_Reports/
 ├── docs/                           # ✅ CHECK IN — Confluence-ready documentation
 │   ├── README.md                   # Hub → Master Overview PDF + V2/V3 entry points
 │   ├── 00-automation-regression-master-overview.md  # Full TOC (parent for all doc pages)
+│   ├── CICD/                       # CI/CD landscape (Confluence-ready): master + V2/V3/API/perf/GitHub/mobile
 │   ├── v2/                         # Prime V2 overview + per-module docs
 │   │   ├── README.md               # Start here for V2
 │   │   ├── 00-v2-regression-overview.md
@@ -53,8 +54,9 @@ AM_Regression_Reports/
 │       ├── universal-enrollment-stage1.xml
 │       └── idp-login-stage1.xml
 │
-├── reports/                        # 🚫 GITIGNORED — Raw HTML reports (regenerable from Jenkins)
-│   ├── v2/                         # TestNG HTML reports per module
+├── reports/                        # 🚫 GITIGNORED (mostly) — Raw HTML reports; see docs/GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md
+│   ├── README.md                   # Optional: local policy pointer (may be ignored — canonical guide is under docs/)
+│   ├── v2/                         # TestNG HTML per module (clean up *_files/, rename per guide)
 │   └── v3/
 │
 ```
@@ -74,6 +76,7 @@ AM_Regression_Reports/
 ## Quick Start
 
 - **Master documentation hub (parent for all pages):** [`docs/README.md`](docs/README.md) · full TOC [`docs/00-automation-regression-master-overview.md`](docs/00-automation-regression-master-overview.md) · PDF [`reports/Automation Regression Suite – Master Overview.pdf`](reports/Automation Regression Suite – Master Overview.pdf)
+- **CI/CD & pipelines (Jenkins / GitLab / GitHub, etc.):** [`docs/CICD/README.md`](docs/CICD/README.md)
 - **V2 documentation:** [`docs/v2/README.md`](docs/v2/README.md)
 - **V2 per-module details:** [`docs/v2/modules/`](docs/v2/modules/)
 - **V3 documentation:** [`docs/v3/README.md`](docs/v3/README.md) · [`docs/v3/modules/`](docs/v3/modules/)

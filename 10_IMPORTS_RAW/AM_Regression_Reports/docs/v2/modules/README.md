@@ -2,6 +2,8 @@
 
 **↑ Parent hub:** [Master TOC](../../00-automation-regression-master-overview.md) · [V2 overview](../README.md)
 
+**Refresh from latest TestNG + Confluence PDF:** use [TEMPLATE_REGRESSION_MODULE_CONFLUENCE.md](../../TEMPLATE_REGRESSION_MODULE_CONFLUENCE.md) and prompt **I)** in `00_SYSTEM/PROMPTS.md`.
+
 Each page below is a standalone Confluence-ready document covering one regression module. These mirror the old Confluence format (1.1–1.8) with updated data from the current TestNG XMLs and HTML reports.
 
 ---

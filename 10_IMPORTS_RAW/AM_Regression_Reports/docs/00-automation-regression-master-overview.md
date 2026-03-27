@@ -12,6 +12,43 @@ This page is the **documentation hub** for the nightly automation regression pro
 
 Use the PDF for the official visual/layout copy; use this file and the links below for **up-to-date** structure, suite paths, and Confluence-ready Markdown.
 
+**TestNG HTML exports (cleanup & naming):** [GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md](GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md)
+
+---
+
+## Documentation map (navigation)
+
+*Update this diagram when adding V2/V3 module pages or new top-level doc areas — or run prompt **J)** in `00_SYSTEM/PROMPTS.md`.*
+
+```mermaid
+flowchart TD
+  subgraph Hub["Regression docs hub"]
+    Master["00-automation-regression-master-overview.md"]
+    DocsREADME["docs/README.md"]
+  end
+  subgraph V2["Prime V2"]
+    V2README["v2/README.md"]
+    V2Mod["v2/modules/*.md"]
+  end
+  subgraph V3["Prime V3 Stage 1"]
+    V3README["v3/README.md"]
+    V300["v3/modules/00 … overview"]
+    V3Children["v3/modules/01–02 …"]
+  end
+  subgraph Other["Related"]
+    CICD["CICD/README.md"]
+    Suites["suites/v2, v3"]
+  end
+  Master --> DocsREADME
+  Master --> V2README
+  Master --> V3README
+  V2README --> V2Mod
+  V3README --> V300
+  V300 --> V3Children
+  Master --> CICD
+  Master --> Suites
+```
+
 ---
 
 ## 1. Prime V2 – Nightly regression (Stage 1)
@@ -66,7 +103,7 @@ Use the PDF for the official visual/layout copy; use this file and the links bel
 
 **Suite XML mirror:** `AM_Regression_Reports/suites/v3/` — `stage1-regression-master.xml`, `universal-enrollment-stage1.xml`, `idp-login-stage1.xml`.
 
-**HTML reports (local):** `AM_Regression_Reports/reports/v3/` — see [reports/v3/README.md](../reports/v3/README.md).
+**HTML reports (local):** `AM_Regression_Reports/reports/v3/` — see [reports/v3/README.md](../reports/v3/README.md) and [GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md](GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md) (export cleanup / naming).
 
 ### Legacy Confluence PDFs (reference only)
 

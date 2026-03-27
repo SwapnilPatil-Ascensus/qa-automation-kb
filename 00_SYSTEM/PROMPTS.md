@@ -11,6 +11,8 @@ This document provides copy/paste-ready Cursor prompts for QA automation tasks. 
 3. Replace any `[PLACEHOLDER]` values with your specific information
 4. Execute the prompt
 
+**Regression KB extras:** **I)** refresh a V2/V3 module page from TestNG + PDF · **J)** sync parent/master indexes and the mermaid map after adding or renaming docs · TestNG export cleanup: `10_IMPORTS_RAW/AM_Regression_Reports/docs/GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md`
+
 **Step-by-step for repetitive tasks (bug report, leadership update):** See `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` for locations, templates, and plain-English steps.
 
 ---
@@ -227,6 +229,73 @@ Bug report task: create one markdown file that contains JIRA copy-paste content,
 **Report URL:** [FILL]
 **Artifacts folder path:** [FILL]
 **Files in folder:** [FILL – list screenshots, .txt, etc.]
+```
+
+---
+
+## I) "Regression suite module – Confluence page refresh" (V2 / V3)
+
+**How to use (one line):** Fill in **V2 or V3**, **module name**, and the three paths below (latest TestNG HTML, suite XML, Confluence PDF), paste into Cursor chat, and ask it to update the matching file under `AM_Regression_Reports/docs/v2/modules/` or `docs/v3/modules/`.
+
+**Template (section order & tables):** `10_IMPORTS_RAW/AM_Regression_Reports/docs/TEMPLATE_REGRESSION_MODULE_CONFLUENCE.md`  
+**Format examples:** `10_IMPORTS_RAW/AM_Regression_Reports/docs/v2/modules/01-enrollment.md`, `docs/v3/modules/02-universal-enrollment-stage1.md`
+
+**Copy-paste prompt (replace ALL caps placeholders):**
+
+```
+Regression suite module – Confluence page refresh.
+
+Version & target folder: [V2 → docs/v2/modules/ | V3 → docs/v3/modules/]
+Module to recreate: [e.g. enrollment | withdrawals | universal enrollment | idp login]
+Output file: [e.g. 01-enrollment.md | 02-universal-enrollment-stage1.md] (full path under AM_Regression_Reports/docs/...)
+
+Inputs (use repo paths or attach the HTML if not in repo):
+- TestNG report used to create/update the doc: [PATH_OR_URL_TO_TESTNG_INDEX_HTML]
+- TestNG runner suite (XML): [e.g. AM_Regression_Reports/suites/v2/daily/stage1-enrollments.xml]
+- Refer existing PDF (Confluence export we are superseding / aligning to): [PATH_UNDER_10_IMPORTS_RAW/confluence_exports/...pdf]
+
+Tasks:
+1) Read TEMPLATE_REGRESSION_MODULE_CONFLUENCE.md and the current output file (if it exists) plus one sibling module in the same folder for tone.
+2) Read the suite XML from the path above; list all active `<test>` blocks (note commented-out tests separately).
+3) Read the TestNG HTML report: extract suite name, tests/methods counts, passed/failed/skipped, and any per-method detail needed for the “Latest report summary” and validation of counts.
+4) Rewrite the output markdown to match the template sections: title block with module/XML/suite name/framework/env/pipeline; inputs table; suite at a glance; purpose; latest report summary; coverage summary; module & plan coverage table; test scenarios table; what’s covered; report & artifacts; notes.
+5) Do NOT invent Jenkins job names, GitLab URLs, schedules, or durations—copy from existing docs in AM_Regression_Reports/docs/v2 or v3, or mark NEEDS_VALIDATION.
+6) Keep tables Confluence-friendly (short cells, bullets where listed in examples).
+
+Write/update the file in the repo at the Output file path.
+```
+
+**Optional – before step 3:** If the user saved HTML from a browser, remind them to follow `10_IMPORTS_RAW/AM_Regression_Reports/docs/GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md` (remove duplicate downloads, `_files` policy, rename, move under `reports/v2` or `v3`).
+
+---
+
+## J) "Parent / master docs sync" (new or moved Markdown pages)
+
+**How to use (one line):** After you add or rename any file under `AM_Regression_Reports/docs/` (or `reports/` README paths), paste this prompt and list what changed so every **parent** index and the **mermaid** map stay accurate.
+
+**Copy-paste prompt:**
+
+```
+Parent / master documentation sync (AM_Regression_Reports).
+
+What changed (list paths or describe):
+- [e.g. Added docs/v3/modules/03-new-module-stage1.md]
+- [e.g. Renamed reports/v3/*.html to new convention]
+- [e.g. New CICD child page]
+
+Tasks:
+1) Update ALL relevant index/parent files so links and tables match the repo:
+   - 10_IMPORTS_RAW/AM_Regression_Reports/docs/README.md (Start here table, children at a glance)
+   - 10_IMPORTS_RAW/AM_Regression_Reports/docs/00-automation-regression-master-overview.md (section 1.1–1.14 and/or 2.0 tables; **Documentation map** mermaid — add/remove nodes and edges to reflect new pages)
+   - 10_IMPORTS_RAW/AM_Regression_Reports/docs/v2/README.md and/or docs/v3/README.md (module tables if applicable)
+   - 10_IMPORTS_RAW/AM_Regression_Reports/docs/v2/modules/README.md and/or docs/v3/modules/README.md
+   - 10_IMPORTS_RAW/AM_Regression_Reports/README.md (folder tree / Quick Start if structure changed)
+   - 10_IMPORTS_RAW/AM_Regression_Reports/docs/CICD/README.md and 01-master-… only if CI/CD pages changed
+2) If a new module page was added, add a row to the master overview tables AND extend the mermaid **Documentation map** (same subgraph as existing: V2 modules or V3 children).
+3) Do not invent files — if unsure, add NEEDS_VALIDATION in the master page footnote.
+4) Keep wording concise; preserve existing tone and table format.
+
+Apply edits directly in the repo.
 ```
 
 ---
