@@ -1,0 +1,182 @@
+{
+  "reporting_date": "2026-03-30",
+  "reporting_period": "2026-02-28 through 2026-03-30 (GitLab contribution_analytics start_date=2026-02-28)",
+  "team_name": "QA Automation Team",
+  "gitlab_report_link": "https://gitlab.com/groups/ascensus-gs/products/depot/qa-automation/-/contribution_analytics?start_date=2026-02-28",
+  "jira_links": {
+    "scrum_board": "https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/2515",
+    "kanban_board": "https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/1292"
+  },
+  "source_files": [
+    "10_IMPORTS_RAW/AMSquad Team Reports/03302026/confluence_report.md",
+    "10_IMPORTS_RAW/AMSquad Team Reports/03302026/teams_summary.md",
+    "10_IMPORTS_RAW/AMSquad Team Reports/03302026/leadership_email.md",
+    "10_IMPORTS_RAW/AMSquad Team Reports/03302026/monthly_report_data.json",
+    "10_IMPORTS_RAW/AMSquad Team Reports/03302026/prompt_reuse_notes.md"
+  ],
+  "source_files_note": "Add JPG/PNG GitLab screenshots, Word/docx notes, and text notes to this folder when available; append their paths to source_files.",
+  "contribution_summary": "Exact merge/commit counts were not extracted from screenshots in-repo at generation time. Use the gitlab_report_link and attached GitLab contribution screenshots for quantitative activity; describe trends qualitatively as 'visible GitLab contribution activity' when numbers are not legible.",
+  "executive_summary": [
+    "V2: Venkatesh expanding investment-option and transaction scenarios (CSR/member, exchanges, DCA, allocations) with focus on stable nightly inclusion.",
+    "V3/IDP: Dinesh growing UE subsequent-plan coverage, fixing flaky IDP cases, and adding V3-specific transaction coverage where flows differ from V2.",
+    "Performance: Preeti advancing IDP forgot username (mostly complete), forgot password, and change password flows; progress linked to authentication/MFA blockers (Abhitosh, Nick).",
+    "API/Legacy: Sunil completed transfer and CSR transfer coverage for multiple legacy plans in nightly; current focus on legacy member profile updates (email, phone).",
+    "Program: Swapnil driving Unite/Entity pipelines, API/performance CI integration, backlog/requirements, Stage5→CAT smoke, Stage2 suite, QC4 strategy, Empower and env support; Entity V3 sync under investigation.",
+    "Risks: Pipeline/Entity V3 sync, IDP flakiness, auth/MFA dependencies for performance, backlog/requirements clarity."
+  ],
+  "team_members": [
+    {
+      "name": "Venkatesh",
+      "primary_area": "V2 automation framework",
+      "completed_work": [
+        "Stabilized custom exchange-related test cases already in nightly regression",
+        "Created missing scenarios from scratch where framework had no coverage (ongoing)"
+      ],
+      "current_work": [
+        "Investment-option related test cases",
+        "CSR and member scenarios where plans allow member actions",
+        "Positive and negative scenarios across multiple plans",
+        "Exchange and custom annual exchange cases",
+        "DCA-eligible plan investment option cases",
+        "Fund allocation and future allocation scenarios"
+      ],
+      "next_steps": [
+        "Expand V2 transaction coverage for legacy plans",
+        "Keep new additions stable in nightly regression"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Dinesh",
+      "primary_area": "V3 automation / Universal Enrollment / IDP",
+      "completed_work": [
+        "IDP flaky case fixes (iterative)",
+        "Identified gaps for V3 transaction flows after IDP login vs V2"
+      ],
+      "current_work": [
+        "Universal enrollment subsequent plan coverage",
+        "Missing transaction-related coverage for V3 IDP plans",
+        "Evaluating transaction flows after IDP login where screens differ from V2",
+        "Adding V3-specific test coverage where needed"
+      ],
+      "next_steps": [
+        "Expand V3 only where functionality is materially different",
+        "Improve stability of IDP cases",
+        "Add missing V3 transaction-oriented coverage"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Preeti",
+      "primary_area": "Performance testing",
+      "completed_work": [
+        "IDP forgot username performance flow mostly completed",
+        "Worked with Abhitosh and Nick on authentication/MFA blockers"
+      ],
+      "current_work": [
+        "IDP forgot password performance flow",
+        "Change password flow from member profile",
+        "Progressing performance coverage after blocker resolution"
+      ],
+      "next_steps": [
+        "Add flows into existing Jenkins-based performance job",
+        "Prepare for scheduling and recurring execution"
+      ],
+      "blockers": [
+        "Authentication/MFA blockers (coordination with Abhitosh and Nick)"
+      ]
+    },
+    {
+      "name": "Sunil",
+      "primary_area": "API / transaction / legacy profile coverage",
+      "completed_work": [
+        "Transfer transaction coverage completed",
+        "CSR transfer cases for multiple legacy plans added to nightly regression"
+      ],
+      "current_work": [
+        "Missing legacy member profile update coverage",
+        "Member profile update scenarios such as email and phone number updates",
+        "Gap fill where CSR profile update already runs nightly"
+      ],
+      "next_steps": [
+        "Close remaining missing legacy profile-related scenarios",
+        "Keep transaction-related legacy coverage stable in nightly execution"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Swapnil",
+      "primary_area": "Program lead / pipeline / cross-team coordination / expansion strategy",
+      "completed_work": [
+        "Test requirements and backlog items",
+        "Nightly jobs review and operating model attention",
+        "Support for Pramod/Pradha on Empower automation integration",
+        "Working with Dong on environment and pipeline setup"
+      ],
+      "current_work": [
+        "Pipelines for Unite and Entity",
+        "Entity V3 out of sync under investigation",
+        "API test automation pipeline integration",
+        "Performance testing pipeline scheduling",
+        "Stage 5 to CAT region smoke suite support",
+        "Stage 2 release suite",
+        "QC4 automation integration strategy exploration"
+      ],
+      "next_steps": [
+        "Stabilize and expand pipeline-based execution",
+        "Improve backlog readiness and structured intake",
+        "Support cross-team automation enablement without losing prioritization discipline"
+      ],
+      "blockers": [
+        "Entity V3 pipeline sync under investigation"
+      ]
+    }
+  ],
+  "workstreams": {
+    "v2_automation": [
+      "Investment options, CSR/member scenarios, exchanges including custom annual exchange",
+      "DCA-eligible plans, fund and future allocation",
+      "Stabilization of custom exchange cases in nightly",
+      "Owner: Venkatesh"
+    ],
+    "v3_automation": [
+      "Universal Enrollment subsequent plans",
+      "IDP stability and flaky test reduction",
+      "V3 IDP transaction coverage and post-login flows differing from V2",
+      "Owner: Dinesh"
+    ],
+    "performance_testing": [
+      "IDP forgot username, forgot password, change password from member profile",
+      "Jenkins job integration and scheduling",
+      "Dependency on authentication/MFA resolution",
+      "Owner: Preeti"
+    ],
+    "api_pipeline_integration": [
+      "Legacy transfer and member profile coverage in nightly",
+      "Unite/Entity pipelines, API automation in CI, performance scheduling",
+      "Entity V3 sync investigation, QC4 strategy",
+      "Owners: Sunil (API/legacy profile), Swapnil (pipelines/integration)"
+    ],
+    "cross_team_support": [
+      "Stage 5 to CAT smoke, Stage 2 release suite",
+      "Empower integration support, environment/pipeline with Dong",
+      "Backlog/requirements and operating model",
+      "Owner: Swapnil (lead); interfaces with Abhitosh, Nick, Pramod, Pradha, Dong"
+    ]
+  },
+  "risks_dependencies": [
+    "Entity V3 out of sync — under investigation",
+    "IDP flaky tests affecting V3 signal",
+    "Authentication/MFA blockers for performance flows",
+    "Pipeline stabilization for Unite/Entity",
+    "Dependence on structured backlog and test requirements"
+  ],
+  "next_steps": [
+    "Attach or reference GitLab contribution screenshots for the reporting period",
+    "Update source_files in this JSON when new notes or images are added to the monthly folder",
+    "Continue nightly stabilization for V2/V3 additions",
+    "Close legacy member profile gaps and performance Jenkins integration",
+    "Resolve or document Entity V3 pipeline sync path"
+  ],
+  "overall_team_progress": "Team delivered expanded V2 transaction/investment coverage with nightly stabilization focus, advanced V3/IDP and UE coverage with flakiness work, progressed performance flows pending MFA/auth clearance, completed legacy transfer+CSR transfer in nightly, and advanced pipeline/backlog/cross-program initiatives with Entity V3 under investigation."
+}

@@ -1,0 +1,38 @@
+Report: http://seleniumhubnt2:8081/reports/unite/20260330/stage1-web-login/#
+Screenshot: http://seleniumhubnt2:8081/reports/unite/20260330/stage1-web-login/mid.20260330012703369.T101_LoginPositive.feature.45_html_chrome_failedresult.html
+Exception: http://seleniumhubnt2:8081/reports/unite/20260330/stage1-web-login/mid.20260330012703394.T101_LoginPositive.feature.45_exception_failedresult.txt
+
+
+OTHER DETAILS:
+
+Issue Type: Bug
+Priority: High
+Summary: MID plan login page returns “Page not found” and CSR “Update Password” link is missing (Stage1)
+Environment: Stage1
+CSR Application
+URL: https://mid.stage1.acs529.com/midtpl/auth/ll.cs
+Observed during V2 Regression run (today)
+Description:  For the MID plan only, two issues are observed:
+Error:
+	MID login URL is showing a Page not found error.
+	In CSR for MID, the Update Password link is not visible.
+	Other plans are working as expected, so this appears to be MID-specific.
+
+Test Data:
+	Account Number: A28826590
+Steps to Reproduce:
+	Open Stage1 CSR/member flow for MID.
+	Navigate to https://mid.stage1.acs529.com/midtpl/auth/ll.cs.
+	Observe the login page response.
+	Log in to CSR and check available options/links for MID plan.
+	Verify presence of Update Password link.
+Actual Result:
+	MID login URL shows Page not found.
+	Update Password link is not displayed in CSR for MID.
+Expected Result:
+	MID login URL should load the MID login page successfully.
+	Update Password link should be visible in CSR for MID, same as other plans.
+
+Scope/Comparison: Reproducible for MID only. Not reproducible for other plans in current regression run.
+
+Business Impact: MID users/CSR operations are blocked for login/password management flows. Regression sign-off risk for MID plan.
