@@ -27,7 +27,8 @@ qa-automation-kb/
 ├── 08_MEETINGS_NOTES/      # Meeting notes archive
 ├── 09_DECISIONS_WORKLOG/   # Decisions and work tracking
 ├── 10_IMPORTS_RAW/         # Raw imported content
-└── 11_BACKLOG/             # Backlog and action items
+├── 11_BACKLOG/             # Backlog and action items
+└── docs/jira-governance/   # Jira governance KB (intake, backlog, sprint, reporting)
 ```
 
 ## Quick Start
@@ -37,6 +38,7 @@ qa-automation-kb/
 3. **Looking for standards?** → See `02_STANDARDS/`
 4. **Understanding architecture?** → Read `03_ARCHITECTURE/OVERVIEW.md`
 5. **Bug report or leadership update?** → `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and prompts in `00_SYSTEM/PROMPTS.md`
+6. **Jira / Scrum / Kanban governance?** → `docs/jira-governance/README.md`
 
 ## Maintenance
 
