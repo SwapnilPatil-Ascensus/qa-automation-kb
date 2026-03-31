@@ -1,0 +1,349 @@
+Received: from CH3PR16MB5428.namprd16.prod.outlook.com (2603:10b6:610:166::12)
+ by PH7PR16MB4794.namprd16.prod.outlook.com with HTTPS; Fri, 27 Jan 2023
+ 16:41:12 +0000
+Received: from BL0PR16MB2532.namprd16.prod.outlook.com (2603:10b6:208:76::15)
+ by CH3PR16MB5428.namprd16.prod.outlook.com (2603:10b6:610:166::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6043.20; Fri, 27 Jan
+ 2023 16:41:11 +0000
+Received: from BL0PR16MB2532.namprd16.prod.outlook.com
+ ([fe80::ce5f:9e4a:58d7:e4f3]) by BL0PR16MB2532.namprd16.prod.outlook.com
+ ([fe80::ce5f:9e4a:58d7:e4f3%4]) with mapi id 15.20.6043.022; Fri, 27 Jan 2023
+ 16:41:10 +0000
+From: Pramod Gundelly <PramodKumar.Gundelly@ascensus.com>
+To: Sree Pallavi Ryali <SreePallavi.Ryali@ascensus.com>, Swapnil Patil
+	<Swapnil.Patil@ascensus.com>
+Subject: Team Tables
+Thread-Topic: Team Tables
+Thread-Index: AdkybiJxOaoyrgPNQBihbod0KeNDdw==
+Date: Fri, 27 Jan 2023 16:41:10 +0000
+Message-ID:
+	<BL0PR16MB2532F521D8C4D6C8C1B421A9F5CC9@BL0PR16MB2532.namprd16.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: BL0PR16MB2532.namprd16.prod.outlook.com
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-Network-Message-Id:
+	2a588fda-9b53-4797-8c7b-08db00854be9
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097);
+X-Microsoft-Antispam-Message-Info:
+	z+U+WBU3jiGRTS11tp5INEEH2R7AH12dNqVa1OrvCLMnqzxKbsCii2JH3GM/51eHqi4Wm0AjjK/Y8Hh7ag5IVV+Pv0yGcjpNwDtvxK3Jx6/GW9r0LeEgQLxzAPibXLgtwUTvIrtWFgQfZctZPtxiYoiHMA9Ojar35QlYNERiD8zMeBI2xu3aLiW1P53zGCW936jCIlDFe3cXi3qAHGg8TZSzxOtzNiYsaM+7wzyGk5a24TVtnrMQvUgMPjT9n2hwkyuZbZY4wsvCaALQyXB4uDWeFfJuMLqTZ6LeTqn7ou0jSVfgHncL7nrxWi38qypebo2G90/ZO4Vu7Uu4gDxNq9VisYHZT5NP71bDLQje9J6GYzkMJJ1qV50rr9+2qhGMa6Qhsh8e4jMPAP/VNkJY3XD8KJjEY9ARyrS7PlyvisEwjaLYejxaddZK5eVJN0ApaFsaubq/lj58e/VoCLj+p12ycGG1+VirPglZEFxQsJ0tN7NTdafn/3w9QUJs8GSJ0PqE9E/z6bbKHG4bIFVgx43ztXxT9drQVLpC9s5bFeoWiHltfzEdqvltBjA4e4A4EaeZ+RINdrUkVbroZTg5IV6/W27ZjzP88Z7ac3nn3gxMlJeMfD53wm7P4W36eqwTVpkzSzzT1LHaFHr7hmSHFAHYoFvqdyjODuQlkI70NNNbYzw6wa6YMKQz8yeoafNfL8/+40E+d+Y3bfIKeS2WKUrrChiRWMU5854Uhb/hA0ggDQqT3Ci9ykk5coqzN8pxxjMIBZjTD5vKFdF77ChdDHVeUuUfKjbB7J0iv2kx3hAEt7FHb8OvDJ4/3nAnHvUrLZNKK7AMMF0cwwo/Q4Gqng==
+Content-Type: multipart/alternative;
+	boundary="_000_BL0PR16MB2532F521D8C4D6C8C1B421A9F5CC9BL0PR16MB2532namp_"
+MIME-Version: 1.0
+
+--_000_BL0PR16MB2532F521D8C4D6C8C1B421A9F5CC9BL0PR16MB2532namp_
+Content-Type: text/plain; charset="us-ascii"
+
+CREATE TABLE QA_FIN_TXN (
+
+  uii_acct_id VARCHAR2(11) NOT null,
+
+  seq_acct_id NUMBER NOT NULL,
+
+  to_seq_acct_id NUMBER NOT null,
+
+  traunch_id VARCHAR2(6) NOT null,
+
+  transaction_type VARCHAR2(25) NOT null,
+
+  transaction_sub_type VARCHAR2(50),
+
+  original_principal NUMBER NOT null,
+
+  original_principal_toacct NUMBER,
+
+  new_principal NUMBER,
+
+  seq_qa_fin_txn_id NUMBER NOT NULL,
+
+  seq_fin_txn_id NUMBER,
+
+  linked_txn_id NUMBER,
+
+  seq_pay_id NUMBER,
+
+  max_contrib_flag VARCHAR2(1),
+
+  test_case_name VARCHAR2(255),
+
+  ctl_ins_dttm DATE,
+
+
+
+  CONSTRAINT SEQ_QA_FIN_TXN_ID_PK PRIMARY KEY (SEQ_QA_FIN_TXN_ID)
+
+);
+
+
+
+GRANT INSERT, SELECT, UPDATE ON QA_FIN_TXN TO PUBLIC;
+
+
+
+CREATE SEQUENCE SEQ_QA_FIN_TXN_PK start with 1;
+
+
+
+create or replace TRIGGER TRG_QA_FIN_TXN BEFORE UPDATE OR INSERT ON QA_FIN_TXN FOR EACH ROW
+
+        BEGIN
+
+          IF INSERTING
+
+          THEN
+
+             :NEW.SEQ_QA_FIN_TXN_ID := SEQ_QA_FIN_TXN_PK.NEXTVAL;
+
+          END IF;
+
+
+
+          :NEW.CTL_INS_DTTM := SYSTIMESTAMP;
+
+   EXCEPTION
+
+      WHEN OTHERS
+
+      THEN
+
+         RAISE_APPLICATION_ERROR (-30000,
+
+                                  SQLERRM || TO_CHAR (SQLCODE, '09999'));
+
+END TRG_QA_FIN_TXN;
+
+/
+
+
+
+SELECT *
+
+FROM QA_FIN_TXN;
+
+
+
+SELECT *
+
+FROM QA_FIN_INSTRUCTION;
+
+
+
+CREATE TABLE QA_FIN_INSTRUCTION (
+
+  seq_qa_fin_instruction_id NUMBER,
+
+  seq_qa_fin_txn_id NUMBER NOT NULL,
+
+  seq_num NUMBER,
+
+  fund_id NUMBER,
+
+  amount_type VARCHAR2(10),
+
+  amount NUMBER NOT NULL,
+
+  principal_amount NUMBER,
+
+  activity VARCHAR2(3) NOT NULL,
+
+  fin_type VARCHAR2(9) DEFAULT 'FUND',
+
+  comments VARCHAR(50),
+
+  ctl_ins_dttm DATE,
+
+
+
+  CONSTRAINT SEQ_QA_FIN_INSTR_ID_PK PRIMARY KEY (SEQ_QA_FIN_INSTRUCTION_ID),
+
+  CONSTRAINT SEQ_QA_FIN_TXN_ID_FK FOREIGN KEY (SEQ_QA_FIN_TXN_ID) REFERENCES QA_FIN_TXN(SEQ_QA_FIN_TXN_ID)
+
+);
+
+
+
+GRANT INSERT, SELECT, UPDATE ON QA_FIN_INSTRUCTION TO PUBLIC;
+
+
+
+CREATE SEQUENCE SEQ_QA_FIN_INSTR_ID_PK start with 1;
+
+
+
+create or replace TRIGGER TRG_QA_FIN_INSTRUCTION BEFORE UPDATE OR INSERT ON QA_FIN_INSTRUCTION FOR EACH ROW
+
+        BEGIN
+
+          IF INSERTING
+
+          THEN
+
+             :NEW.SEQ_QA_FIN_INSTRUCTION_ID := SEQ_QA_FIN_INSTR_ID_PK.NEXTVAL;
+
+          END IF;
+
+
+
+          :NEW.CTL_INS_DTTM := SYSTIMESTAMP;
+
+   EXCEPTION
+
+      WHEN OTHERS
+
+      THEN
+
+         RAISE_APPLICATION_ERROR (-30000,
+
+                                  SQLERRM || TO_CHAR (SQLCODE, '09999'));
+
+END TRG_QA_FIN_INSTRUCTION;
+
+/
+
+
+Regards,
+Pramod
+
+
+--_000_BL0PR16MB2532F521D8C4D6C8C1B421A9F5CC9BL0PR16MB2532namp_
+Content-Type: text/html; charset="us-ascii"
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="Generator" content="Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext="edit" spidmax="1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext="edit">
+<o:idmap v:ext="edit" data="1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang="EN-US" link="#0563C1" vlink="#954F72" style="word-wrap:break-word">
+<div class="WordSection1">
+<p style="margin:0in">CREATE TABLE QA_FIN_TXN (<o:p></o:p></p>
+<p style="margin:0in">&nbsp; uii_acct_id VARCHAR2(11) NOT null,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_acct_id NUMBER NOT NULL,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; to_seq_acct_id NUMBER NOT null,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; traunch_id VARCHAR2(6) NOT null,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; transaction_type VARCHAR2(25) NOT null,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; transaction_sub_type VARCHAR2(50),<o:p></o:p></p>
+<p style="margin:0in">&nbsp; original_principal NUMBER NOT null,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; original_principal_toacct NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; new_principal NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_qa_fin_txn_id NUMBER NOT NULL,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_fin_txn_id NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; linked_txn_id NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_pay_id NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; max_contrib_flag VARCHAR2(1),<o:p></o:p></p>
+<p style="margin:0in">&nbsp; test_case_name VARCHAR2(255),<o:p></o:p></p>
+<p style="margin:0in">&nbsp; ctl_ins_dttm DATE,<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">&nbsp; CONSTRAINT SEQ_QA_FIN_TXN_ID_PK PRIMARY KEY (SEQ_QA_FIN_TXN_ID)<o:p></o:p></p>
+<p style="margin:0in">);<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">GRANT INSERT, SELECT, UPDATE ON QA_FIN_TXN TO PUBLIC;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">CREATE SEQUENCE SEQ_QA_FIN_TXN_PK start with 1;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">create or replace TRIGGER TRG_QA_FIN_TXN BEFORE UPDATE OR INSERT ON QA_FIN_TXN FOR EACH ROW<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BEGIN<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF INSERTING<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THEN<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :NEW.SEQ_QA_FIN_TXN_ID := SEQ_QA_FIN_TXN_PK.NEXTVAL;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END IF;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :NEW.CTL_INS_DTTM := SYSTIMESTAMP;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp; EXCEPTION<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHEN OTHERS<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THEN<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RAISE_APPLICATION_ERROR (-30000,<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLERRM || TO_CHAR (SQLCODE, '09999'));<o:p></o:p></p>
+<p style="margin:0in">END TRG_QA_FIN_TXN;<o:p></o:p></p>
+<p style="margin:0in">/<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">SELECT *<o:p></o:p></p>
+<p style="margin:0in">FROM QA_FIN_TXN;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">SELECT *<o:p></o:p></p>
+<p style="margin:0in">FROM QA_FIN_INSTRUCTION;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">CREATE TABLE QA_FIN_INSTRUCTION (<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_qa_fin_instruction_id NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_qa_fin_txn_id NUMBER NOT NULL,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; seq_num NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; fund_id NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; amount_type VARCHAR2(10),<o:p></o:p></p>
+<p style="margin:0in">&nbsp; amount NUMBER NOT NULL,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; principal_amount NUMBER,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; activity VARCHAR2(3) NOT NULL,<o:p></o:p></p>
+<p style="margin:0in">&nbsp; fin_type VARCHAR2(9) DEFAULT 'FUND',<o:p></o:p></p>
+<p style="margin:0in">&nbsp; comments VARCHAR(50),<o:p></o:p></p>
+<p style="margin:0in">&nbsp; ctl_ins_dttm DATE,<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">&nbsp; CONSTRAINT SEQ_QA_FIN_INSTR_ID_PK PRIMARY KEY (SEQ_QA_FIN_INSTRUCTION_ID),<o:p></o:p></p>
+<p style="margin:0in">&nbsp; CONSTRAINT SEQ_QA_FIN_TXN_ID_FK FOREIGN KEY (SEQ_QA_FIN_TXN_ID) REFERENCES QA_FIN_TXN(SEQ_QA_FIN_TXN_ID)<o:p></o:p></p>
+<p style="margin:0in">);<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">GRANT INSERT, SELECT, UPDATE ON QA_FIN_INSTRUCTION TO PUBLIC;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">CREATE SEQUENCE SEQ_QA_FIN_INSTR_ID_PK start with 1;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">create or replace TRIGGER TRG_QA_FIN_INSTRUCTION BEFORE UPDATE OR INSERT ON QA_FIN_INSTRUCTION FOR EACH ROW<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BEGIN<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF INSERTING<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THEN<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :NEW.SEQ_QA_FIN_INSTRUCTION_ID := SEQ_QA_FIN_INSTR_ID_PK.NEXTVAL;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END IF;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :NEW.CTL_INS_DTTM := SYSTIMESTAMP;<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp; EXCEPTION<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHEN OTHERS<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THEN<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RAISE_APPLICATION_ERROR (-30000,<o:p></o:p></p>
+<p style="margin:0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLERRM || TO_CHAR (SQLCODE, '09999'));<o:p></o:p></p>
+<p style="margin:0in">END TRG_QA_FIN_INSTRUCTION;<o:p></o:p></p>
+<p style="margin:0in">/<o:p></o:p></p>
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class="MsoNormal">Regards,<o:p></o:p></p>
+<p class="MsoNormal">Pramod<o:p></o:p></p>
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_BL0PR16MB2532F521D8C4D6C8C1B421A9F5CC9BL0PR16MB2532namp_--

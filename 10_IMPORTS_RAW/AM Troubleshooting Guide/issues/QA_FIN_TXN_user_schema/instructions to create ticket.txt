@@ -1,0 +1,25 @@
+--> create fresh service ticket
+
+Hi Team,
+
+I’m requesting read/write access to specific transaction-related tables in the Stage 1 environment under the UII0 schema to support automation scripts for contributions, withdrawals, and general transaction flows.
+
+Access Requested:
+Schema: UII0
+Env: Stage 1
+Tables:
+	QA_FIN_TXN
+	QA_FIN_INSTRUCTION
+ 
+
+Purpose: To enable automated data setup, validations, and teardown activities for:
+	Contribution-related scenarios
+	Withdrawal and Distribution flows
+	General financial transaction tests
+ 
+Mirror user: Swapnil Patil
+
+Permissions Request:
+Please grant the same permissions as currently assigned to Swapnil Patil under the UII0 schema in Stage 1.
+
+Thanks,
