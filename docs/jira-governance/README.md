@@ -8,6 +8,8 @@
 
 **Structured backlog (Epics + Stories):** [backlog/](backlog/) — 9 Epics, 32 execution-ready Stories (synthetic; merge with Jira export when present).
 
+**Upcoming copy-paste Story drafts:** [upcoming-stories/](upcoming-stories/) — e.g. member-portal contributions (CSR parity).
+
 **Start here**
 
 | Order | Folder | Topic |

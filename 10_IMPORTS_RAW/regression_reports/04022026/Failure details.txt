@@ -1,0 +1,42 @@
+JIRA: https://ascensuscollegesavings.atlassian.net/browse/QA-557
+Bug doc: 10_IMPORTS_RAW/regression_reports/04022026/04022026_UniversalEnrollment_SubBeneWhoYouAreSavingStepFailure.md
+
+Report: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13754747115/artifacts/unite/unite-universal-enrollment/target/surefire-reports/index.html#
+
+Screenshot: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13754747115/artifacts/unite/unite-universal-enrollment/target/surefire-reports/njd.20260402030424342.UniversalEnrollmentFirstStepSubBene.feature_html_chrome_failedresult.html
+
+Exception: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13754747115/artifacts/unite/unite-universal-enrollment/target/surefire-reports/njd.20260402030424354.UniversalEnrollmentFirstStepSubBene.feature_exception_failedresult.txt
+
+Test Case info: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13754747115/artifacts/unite/unite-universal-enrollment/target/surefire-reports/njd.20260402030424356.UniversalEnrollmentFirstStepSubBene.feature_testcase_information.txt
+
+
+
+Test steps:
+
+runScenario("Sub Bene Enrollment using rollover with Sub bene Enrollment of Account with IL First Step with pare...)
+Starting scenario file: /builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStepSubBene.feature
+Starting scenario: Sub Bene Enrollment using rollover with Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover
+Traunch for Sub Bene Enrollment using rollover with Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover is njd
+load test cases (PASSED)
+starting "login" URL for "member" (PASSED)
+Obtaining browser from resource manager
+using browser (PASSED)
+Executing query:
+SELECT A.uii_acct_id || A.uii_acct_ext AS accountid, M.email AS email, L.username AS username, 'Newton@123' as password, tp.LAST_4_SSN as last_4ssn FROM tu_acct A INNER JOIN tu_traunch T ON T.traunch_id = A.traunch_id INNER JOIN tu_member M ON M.uii_member_id = A.uii_member_id INNER JOIN tu_person tp ON a.seq_part_id = tp.seq_person_id INNER JOIN ta_app_context ac ON ac.app_member_id = M.uii_member_id INNER JOIN ta_login L ON L.login_id = ac.login_id WHERE A.acct_state = '91' AND M.web_registered = 'Y' AND A.uii_acct_ext = '01' AND (M.web_access <> 'D' OR M.web_access IS NULL) AND UPPER(T.voucher_prefix) = UPPER(?) AND UPPER(L.username) LIKE UPPER('QAAUTOTEST%') AND M.TWOFACTOR_OPTIN = 'S' AND M.TWOFACTOR_INTST_FLAG IS NULL ORDER BY A.uii_acct_id DESC, A.uii_acct_ext DESC, L.login_id DESC FETCH NEXT 1 ROW ONLY
+With bindings (in order): njd
+Schema: null
+Query executed
+get Web Registered Automation UE account details from database for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (PASSED)
+Getting test case Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover
+user logs in idp screen for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (PASSED)
+User selects sub bene for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (PASSED)
+source
+exception
+User completes the who you are saving section for "Child" for "Higher Education Expenses" for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (FAILED)
+User completes the beneficiary information section for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (SKIPPED)
+User selects funding method as "rollover" for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (SKIPPED)
+User selects keep it simple as investment Options for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (SKIPPED)
+User verifies review page for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover (SKIPPED)
+Getting test case Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover
+testcase information
+Releasing test case resources
