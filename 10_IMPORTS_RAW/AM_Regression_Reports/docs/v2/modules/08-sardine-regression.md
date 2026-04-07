@@ -53,7 +53,7 @@ This module validates Sardine (fraud-detection) enrollment and distribution flow
 |----------|----------|
 | Suite XML | `suites/v2/daily/stage1-sardine-regression.xml` |
 | HTML Report | Not available in this export (TODO: obtain from Jenkins) |
-| Old Confluence PDF | `confluence_exports/.../1.8. Sardine Regression - Automation Regression Suite (Prime Version 2).pdf` |
+| Old Confluence PDF | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/1.8. Sardine Regression – Automation Regression Suite (Prime Version 2).pdf` |
 
 ## Notes
 

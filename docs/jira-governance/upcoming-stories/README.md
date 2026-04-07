@@ -23,6 +23,10 @@
 | [MEMCONTRIB-02-…](MEMCONTRIB-02-multi-plan-and-feature-parity.md) | Multi-traunch + AIP / recurring / negatives (member path) | **8** |
 | [MEMCONTRIB-03-…](MEMCONTRIB-03-ci-pipeline-integration.md) | Suite XML + nightly / scheduled job | **3** |
 | [MEMCONTRIB-04-…](MEMCONTRIB-04-test-data-qtest-documentation.md) | Data, qTest, docs, flaky baseline | **3** |
+| [SPIKE-Prime-V2-…](SPIKE-Prime-V2-Flaky-Regression-Unite-Reports.md) | Spike: Unite daily reports (seleniumhubnt2) — flaky & concurrent failures | **`[NEED_INPUT]`** |
+| [STORY-QA-494-…](STORY-QA-494-Transfer-Regression-CSR-Member.md) | **QA-494** Transfer regression execution & stabilization (CSR + Member) — desc, AC, sub-tasks | **5** (per Jira) |
+
+**Spike note:** Jira description should use **only** `http://seleniumhubnt2:8081/reports/unite/?C=M;O=D`, qTest, and Confluence — not private source-control URLs. Sample report shape: attach or reference **`QAAuto_UniteRegression_Daily_Report_20260402_125923.PDF`** from team storage (same naming pattern as daily exports).
 
 **Optional follow-ups (not separate files):** link as sub-tasks or later stories — performance smoke on contributions, CSR+member dual-run comparison report, MID/legacy vs IDP plan matrix.
 

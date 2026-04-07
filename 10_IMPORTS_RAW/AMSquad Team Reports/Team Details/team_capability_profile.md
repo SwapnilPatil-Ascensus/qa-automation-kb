@@ -2,7 +2,7 @@
 
 **Audience:** Leadership · **Use:** Confluence (paste as-is or convert)  
 **As of:** 2026-03-30  
-**Basis:** Resumes, interview feedback, evaluation summaries, and interview-plan materials under `10_IMPORTS_RAW/AMSquad Team Reports/Team Details/Resume & Analysis/`. **Current responsibilities** for active staffing are cross-checked against the published leadership roster in `10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/16. QA Automation Program – Leadership Working Update (As of 03042026).md` where no conflicting source exists.
+**Basis:** Resumes, interview feedback, evaluation summaries, and interview-plan materials under `10_IMPORTS_RAW/AMSquad Team Reports/Team Details/Resume & Analysis/`. **Current responsibilities** for active staffing are cross-checked against the published leadership roster in `10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/16. QA Automation Program – 03042026.md` where no conflicting source exists.
 
 ---
 
@@ -190,7 +190,7 @@ The QA Automation team is a **five-person** squad covering **Prime V2 and V3 UI 
 
 **Current responsibilities (program)**
 
-- Same as **Primary focus** above per `16. QA Automation Program – Leadership Working Update (As of 03042026).md`.
+- Same as **Primary focus** above per `16. QA Automation Program – 03042026.md`.
 
 **Capability assessment**
 
@@ -222,7 +222,7 @@ The QA Automation team is a **five-person** squad covering **Prime V2 and V3 UI 
 | `Priti Chaudhary - Interview Plan – Sr. Performance Tester & Automation Engineer.docx` | Preeti | Interview plan (Swapnil / Nick) |
 | `Overall Assessment - Sunil Godiyal.docx` | Sunil | Hiring/assessment summary |
 | `Sunil Godiyal QA.doc` | Sunil | Resume (binary; not fully extracted here) |
-| *None in folder* | Swapnil | Role from `16. QA Automation Program – Leadership Working Update (As of 03042026).md` |
+| *None in folder* | Swapnil | Role from `16. QA Automation Program – 03042026.md` |
 
 ---
 

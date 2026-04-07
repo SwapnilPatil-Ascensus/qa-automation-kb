@@ -97,7 +97,7 @@ Total estimated nightly wall-clock time depends on parallelization across Jenkin
 | Module-by-module breakdown | [`01-v2-module-coverage.md`](01-v2-module-coverage.md) |
 | Suite & job details | [`02-v2-suite-and-job-details.md`](02-v2-suite-and-job-details.md) |
 | Documentation delta (old vs current) | [`03-v2-documentation-delta.md`](03-v2-documentation-delta.md) |
-| Old Confluence PDFs | `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/` |
+| Old Confluence PDFs | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/` |
 | Suite XMLs | `10_IMPORTS_RAW/AM_Regression_Reports/Regression Suites XMLs/daily/` |
 | HTML reports | `10_IMPORTS_RAW/AM_Regression_Reports/Regression Test Suite - *.html` |
 

@@ -89,6 +89,6 @@ AM_Regression_Reports/
 | Resource | Location |
 |----------|----------|
 | **Master Overview PDF (local)** | `AM_Regression_Reports/reports/Automation Regression Suite – Master Overview.pdf` |
-| Old Confluence PDFs (archive) | `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/` |
+| Old Confluence PDFs (archive) | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/` |
 | Bug reporting process | `10_IMPORTS_RAW/regression_reports/BUG_REPORTING_PROCESS.md` |
 | Leadership updates | `10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/` |

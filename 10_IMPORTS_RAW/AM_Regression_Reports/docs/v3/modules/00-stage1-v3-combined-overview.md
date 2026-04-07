@@ -8,8 +8,8 @@
 **Environment:** Stage 1 (front office)
 
 *Reference PDFs:*  
-- `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/2. Unite  Prime V3 Regression Suite – Overview.pdf`  
-- `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/2.1. Universal Enrollment Regression Coverage – Prime V3.pdf`
+- `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/2. Unite  Prime V3 Regression Suite – Overview.pdf`  
+- `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/2.1. Universal Enrollment Regression Coverage – Prime V3.pdf`
 
 ---
 

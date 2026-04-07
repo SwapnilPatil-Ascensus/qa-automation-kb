@@ -208,7 +208,7 @@ QA Automation Team
 
 ## Resolution Email Draft (Placeholder – When Bug Is Fixed)
 
-*Use template from `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`*
+*Use template from `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. Automation Bug Resolution Follow-Up.pdf`*
 
 **Subject:** Resolved – Daily Regression Passed | KSD Login (Bad Request) | Stage 1
 

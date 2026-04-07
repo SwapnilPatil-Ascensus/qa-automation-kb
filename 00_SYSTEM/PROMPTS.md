@@ -44,6 +44,8 @@ Output: directly write the files in the repo.
 
 **After you drop exports into `10_IMPORTS_RAW/confluence_exports/`:**
 
+The Confluence **Automation QA – Home & Documentation Hub** tree is kept under **`10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/`** (short folder names for Windows path limits). See `auto-qa-dochub/README.md` for the title-to-folder map.
+
 ```
 Ingest task:
 - Use ONLY the files under 10_IMPORTS_RAW/confluence_exports/.
@@ -193,8 +195,8 @@ Then update 04_EXECUTION/RCA_PROCESS.md if a new pattern is discovered.
 **Use when:** A regression or test failure occurs and you need to log a bug and notify leads/dev. You have (or will put) failure artifacts in a date folder under `10_IMPORTS_RAW/regression_reports/[MMDDYYYY]/`.
 
 **Templates to follow:**  
-- Failure email: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug Is Found or Regression Fails (QA Automation).pdf`  
-- Resolution email: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`  
+- Failure email: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug.pdf`  
+- Resolution email: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. Automation Bug Resolution Follow-Up.pdf`  
 - Bug doc structure: existing bug docs in `10_IMPORTS_RAW/regression_reports/` (e.g. `02032026_UniversalEnrollment_BadSqlGrammarException.md`)
 
 **Copy this prompt, then replace the placeholders and paste your details:**

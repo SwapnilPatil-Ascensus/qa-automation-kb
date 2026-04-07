@@ -184,7 +184,7 @@ QA Automation Team
 
 ## Resolution Email Draft (Placeholder – When Restriction Is Lifted)
 
-*Use template from `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`*  
+*Use template from `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. Automation Bug Resolution Follow-Up.pdf`*  
 **Cc (same as failure):** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>
 
 **Subject:** Resolved – Stage 1 DB Restriction Lifted | ORA-01035 | Regression Resumed

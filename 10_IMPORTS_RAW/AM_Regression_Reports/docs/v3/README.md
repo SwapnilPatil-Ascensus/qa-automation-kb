@@ -55,8 +55,8 @@ Located at: `suites/v3/` (mirrors `bin\regression\daily\` in the automation repo
 | Resource | Location |
 |----------|----------|
 | **Master Overview (all suites)** | `AM_Regression_Reports/reports/Automation Regression Suite – Master Overview.pdf` |
-| V3 Overview (Confluence archive) | `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/2. Unite  Prime V3 Regression Suite – Overview.pdf` |
-| UE Coverage (Confluence archive) | `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/2.1. Universal Enrollment Regression Coverage – Prime V3.pdf` |
+| V3 Overview (Confluence archive) | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/2. Unite  Prime V3 Regression Suite – Overview.pdf` |
+| UE Coverage (Confluence archive) | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/2.1. Universal Enrollment Regression Coverage – Prime V3.pdf` |
 
 ---
 

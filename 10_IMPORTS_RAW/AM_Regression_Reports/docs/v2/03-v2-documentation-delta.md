@@ -25,7 +25,7 @@ The following Confluence PDFs were the prior source of truth:
 | 3 | Daily Validation Guide | Tech stack, env setup |
 | 4 | Regression Sign-Off Document | Per-module sign-off template |
 
-**PDF location:** `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/`
+**PDF location:** `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/`
 
 ---
 

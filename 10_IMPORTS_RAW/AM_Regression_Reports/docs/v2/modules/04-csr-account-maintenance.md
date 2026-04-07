@@ -8,7 +8,7 @@
 **Jenkins Job:** `STAGE1-Daily-Unite-Prime-Regression`  
 **Schedule:** Daily @ 12:00 AM – 1:00 AM EST (Mon–Fri)
 
-*Reference (format & structure):* `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/1.4. CSR Account Maintenance – Automation Regression Suite (Prime Version 2).pdf`
+*Reference (format & structure):* `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/1.4. CSR Account Maintenance – Automation Regression Suite (Prime Version 2).pdf`
 
 ---
 
@@ -135,7 +135,7 @@ For the latest numbers and method-level details (scenario names, pass/fail), ope
 | HTML Report (main) | `reports/v2/Regression Test Suite - Account or Profile Maintenance 1.html` |
 | HTML Report (view 2) | `reports/v2/Regression Test Suite - Account or Profile Maintenance 2.html` |
 | HTML Report (view 3) | `reports/v2/Regression Test Suite - Account or Profile Maintenance 3.html` |
-| Old Confluence PDF | `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/1.4. CSR Account Maintenance – Automation Regression Suite (Prime Version 2).pdf` |
+| Old Confluence PDF | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/1.4. CSR Account Maintenance – Automation Regression Suite (Prime Version 2).pdf` |
 
 *Latest results:* Re-run the suite in Jenkins and open the report URL, or replace the HTML files under `reports/v2/` with the latest export to refresh numbers and scenario lists in this doc.
 

@@ -11,8 +11,8 @@ This doc tells you **where things live** and **exact steps** for the tasks we do
 | **All prompts (Bug, Leadership, RCA, etc.)** | `00_SYSTEM/PROMPTS.md` |
 | **Bug documentation template** | `10_IMPORTS_RAW/regression_reports/[DATE]/BUG_DOCUMENTATION_TEMPLATE.md` (copy from an existing date folder if missing) |
 | **Bug process (naming, folder structure)** | `10_IMPORTS_RAW/regression_reports/BUG_REPORTING_PROCESS.md` |
-| **Email template for “failure” (first email)** | `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug Is Found or Regression Fails (QA Automation).pdf` |
-| **Email template for “resolved” (resolution email)** | `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf` |
+| **Email template for “failure” (first email)** | `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug.pdf` |
+| **Email template for “resolved” (resolution email)** | `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. Automation Bug Resolution Follow-Up.pdf` |
 | **Leadership update template** | `06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md` |
 | **Leadership update prompt** | `00_SYSTEM/PROMPTS.md` → section **F2) Persistent Bi-Weekly Leadership Update** |
 | **Example leadership update (format reference)** | `10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/14. QA Automation Program – Leadership Working Update (As of 02042026).md` |

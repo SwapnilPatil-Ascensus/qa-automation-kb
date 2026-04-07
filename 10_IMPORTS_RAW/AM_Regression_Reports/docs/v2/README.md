@@ -64,7 +64,7 @@ Located in `modules/` — one page per module, matching the old Confluence forma
 | Suite XMLs | `10_IMPORTS_RAW/AM_Regression_Reports/suites/v2/` |
 | HTML reports | `10_IMPORTS_RAW/AM_Regression_Reports/reports/v2/` (often gitignored) |
 | Master Overview PDF | `10_IMPORTS_RAW/AM_Regression_Reports/reports/Automation Regression Suite – Master Overview.pdf` |
-| Old Confluence PDFs | `10_IMPORTS_RAW/confluence_exports/Automation QA - Home & Documentation Hub/Automation Regression Suite - Master Overview/` |
+| Old Confluence PDFs | `10_IMPORTS_RAW/confluence_exports/auto-qa-dochub/regression-master-overview/` |
 
 ---
 

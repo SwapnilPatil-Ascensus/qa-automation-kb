@@ -132,7 +132,7 @@ Contact: @[Reporter Name] / QA Automation Team
 
 ## Email Draft (Bug Handling Template)
 
-*Template source: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug Is Found or Regression Fails (QA Automation).pdf`*
+*Template source: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1. Handling Process When a Bug.pdf`*
 
 **To:** AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk  
 **Cc:** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>  
@@ -208,7 +208,7 @@ QA Automation Team
 
 ## Resolution Email (Bug Resolution Follow-Up)
 
-*Template: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. 🔁 Automation Bug Resolution Follow-Up Process & Resolution Notification.pdf`*
+*Template: `10_IMPORTS_RAW/confluence_exports/Bug Handling/1b. Automation Bug Resolution Follow-Up.pdf`*
 
 **To:** AGS Tech Leads, AGS Chapter Leads, AGS Development, Brian Danilczyk  
 **Cc:** Rajib Akhter <Rajib.Akhter@ascensus.com>; Henry Dittmer <Henry.Dittmer@ascensus.com>; Phuong Huynh <Phuong.Huynh@ascensus.com>; Automation.Squad <Automation.Squad@ascensus.com>  
