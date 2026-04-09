@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Universal Enrollment integration suite for Stage 1 environment / pipeline runs.
+     Scenarios are filtered with @integration and @intrun (see feature files). -->
+<suite verbose="1" name="Universal Enrollment Integration Test Suite - Stage 1" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="core.listener.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- Standard individual enrollment (@integration @intrun) per traunch -->
+    <!-- MDD -->
+    <test name="MDD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ILD -->
+    <test name="ILD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="ild"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- OHD -->
+    <test name="OHD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositiveOhio.feature"/>
+        <parameter name="traunch" value="ohd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- IDD -->
+    <test name="IDD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="idd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- MOD -->
+    <test name="MOD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="mod"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NMD -->
+    <test name="NMD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NJD -->
+    <test name="NJD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="njd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NYD -->
+    <test name="NYD_Standard_Individual_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NYD — multiple beneficiaries (@integration @intrun) -->
+    <test name="NYD_Multiple_Beneficiaries_Enrollment">
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentMultipleBeneficiaries.feature"/>
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@integration and @intrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+</suite>

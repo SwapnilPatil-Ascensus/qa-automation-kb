@@ -1,0 +1,47 @@
+Meeting on 04/01/2026 @ 1:30 PM
+
+Nick:
+	How do we determine what to include?
+	Expected completion time?
+	Minimum criteria for smoke tests
+	Would 1 UI scenario per URN/SCHEMA enough?
+
+	How much plan coverage would be needed?
+
+	Data Management/Cleanup
+	What happens when UI fails for other reasons?
+	Test Efficiency
+	Grid capacity
+ 
+I Swapnil Reported to -->  Rajib 
+ 
+	Here are some outcomes from the meeting. You might know the answers to some of these, and it would be helpful to discuss them with the broader group rather
+	- How do we determine what should be included, considering the broad scope and the need to build micro suites?
+	- What is the minimum criterion or approval required? (Minimum criteria for smoke tests) Who will decide this?
+	- Is there a timeline for this, or should we approach it in phases? If so, what should be prioritized?
+	- Is one UI scenario per URN/SCHEMA sufficient?
+	- How much plan coverage is needed?
+	- Data management and cleanup (developer-specific questions)
+	- What should we do when the UI fails for other reasons? (Handling bugs, flaky tests, false positives—this process also needs to be implemented)
+	- Test efficiency (time, CPU usage, tech upgrades, etc.)
+	- Grid capacity (to save time when running multiple cases in parallel, how many can we run, and if we need to increase grid numbers, how should cost efficiency be calculated?)
+ 
+Here is the Rajib's Response
+ 
+	#1 - We have QA leads, they should decide what needs to be included - we should be able to run these tests to have confidence that our MFE and Micro-service is good to be deployed.
+	#2 - I would say QA lead along with Tech lead decide on that.
+	#3 - Yes, we need them as soon as possible. Are we saying we do not have them? Expectation is for all MFE/Micro-service test cases have been written, it is about how we package them. Is that not true? What is the exception here?
+	#4 - Needs to be decided by QA - are they ok to take that risk/chance?
+	#5 - Needs to be decided by QA - are they ok to take that risk/chance?
+	#6 - N/A
+	#7 - Needs to be decided by QA - are they ok to take that risk/chance?
+	#8 - Needs to be done with 3-5 minutes. 
+	#9 - Needs to be decided by QA - are they ok to take that risk/chance?
+	 
+
+Nicks response on above Rajis F/b
+	1 - This is still very open ended and I don't understand the difference of what the UI is doing that the API tests cannot based on the response.  UI ends up being an integration level test and could be even different per page.
+	6 - I still think this will end up playing a larger role when we get to other coverage than he gives credit here for.  Neither automation nor the pipelines have this concept of cleanup right now.
+	7 - This does not seem like a sufficient answer.  Considering adding UI tests inherently may add instability and the pipelines will require tests to pass to continue deployment, this will very much require additional process for handling or expectations.
+	8 - This is a good metric to have but it will also mean we have to very much limit what tests go into execution and how many;  It could mean we are aiming at say up to 10-15 UI tests (30 if we expect full grid capacity availability all the time) only to be executed in parallel.
+	9 - This is not an answer to the question as we will continue to rely on the selenium grid for all pipelines and it will likely not handle the load they are going to generate.

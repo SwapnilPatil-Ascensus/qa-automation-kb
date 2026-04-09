@@ -15,6 +15,8 @@
 | CSR contributions suite XML | `docs/jira-governance/data/stage1-contributions.xml` |
 | Jira export | `docs/jira-governance/data/jira-export.csv` |
 
+**Env Pipeline / ENVP (Epic QA-600, Aha ACS-5289):** [`Env-Pipeline_project/README.md`](Env-Pipeline_project/README.md) (Universal Enrollment integration suite and related stories).
+
 **Stories in this folder**
 
 | File | Theme | Suggested points |
