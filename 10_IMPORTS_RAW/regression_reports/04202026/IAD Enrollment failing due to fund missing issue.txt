@@ -1,0 +1,51 @@
+Report: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13965504271/artifacts/unite/unite-universal-enrollment/target/surefire-reports/index.html
+
+Snapshot: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13965504271/artifacts/unite/unite-universal-enrollment/target/surefire-reports/iad.20260417010507292.UniversalEnrollmentPositive.feature_html_chrome_failedresult.html
+
+
+Exception: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/13965504271/artifacts/unite/unite-universal-enrollment/target/surefire-reports/iad.20260417010500482.UniversalEnrollmentPositive.feature_exception_failedresult.txt
+
+Runner details on where it fails:
+
+runScenario("Single Universal Enrollment with Enrollment of Individual Account with KIS and Check and Recurring ...)
+Starting scenario file: /builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature
+Starting scenario: Single Universal Enrollment with Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Traunch for Single Universal Enrollment with Enrollment of Individual Account with KIS and Check and Recurring Contribution Option is iad
+load test cases (PASSED)
+starting "ueenrollment" URL for "UE" (PASSED)
+Obtaining browser from resource manager
+using browser (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+User completes the account owner information for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+User completes the tell us about yourself section for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+User completes the Account Owner Address section for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+User completes the Account Owner Identification section for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+User completes the who you are saving section for "Child" for "Higher Education Expenses" for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+User completes the beneficiary information section for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+User selects funding method as "check" for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (PASSED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+source
+exception
+User selects keep it simple as investment Options for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (FAILED)
+User selects Upromise modal for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (SKIPPED)
+User verifies review page for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (SKIPPED)
+pull database data for Enrollment of Individual Account with KIS and Check and Recurring Contribution Option with "enrollment.get.ue.accountownerinfo" using: (SKIPPED)
+validate database to test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option (SKIPPED)
+Getting test case Enrollment of Individual Account with KIS and Check and Recurring Contribution Option
+testcase information
+Releasing test case resources

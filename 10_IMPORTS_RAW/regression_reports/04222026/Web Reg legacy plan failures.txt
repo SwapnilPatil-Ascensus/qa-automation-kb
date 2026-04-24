@@ -1,0 +1,83 @@
+Report: http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/#
+Screenshots:
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/cad.20260422002347670.Web_Reregistration_Existing_Account.feature.60_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/okd.20260422003008535.Web_Reregistration_Existing_Account.feature.60_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/cob.20260422003249734.Web_Reregistration_Existing_Account.feature.60_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/rid.20260422004049978.T101_WebRegistrationNegative.feature.77_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/rid.20260422003945203.T101_WebRegistrationNegative.feature.62_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/rid.20260422003840473.T101_WebRegistrationNegative.feature.61_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/cod.20260422005527954.Web_Registration_First_Time_Account.feature.56_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/rid.20260422010856222.Web_Registration_First_Time_Account.feature.56_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/cod.20260422011101153.Web_Reregistration_Existing_Account.feature.60_html_chrome_failedresult.html
+
+Esception: http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/cod.20260422011101152.Web_Reregistration_Existing_Account.feature.60_exception_failedresult.txt
+
+Test data: http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-registration/cod.20260422011101152.Web_Reregistration_Existing_Account.feature.60_testcase_information.txt
+
+plans:
+cad
+okd
+cob
+rid
+rid
+rid
+cod
+rid
+cod
+
+runScenario("Validate Web Registration Error Messages for Security image blank values", "Web Registration - Nega...)
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/webregistration/feature/T101_WebRegistrationNegative.feature:77
+Starting scenario: Validate Web Registration Error Messages for Security image blank values
+exception
+testcase information
+snapshot
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "webreg" URL for "member" (PASSED)
+using browser (PASSED)
+user gets the account owner details from temporary file and database for "webreg" for Security image blank values (PASSED)
+user completes the Web Registration for Identification Information Security image blank values (PASSED)
+user completes the Web Registration for contact information Security image blank values (FAILED)
+user completes the Web Registration for security information Security image blank values (SKIPPED)
+user tests error messages in the security image for web registration Security image blank values (SKIPPED)
+runScenario("Validate Web Registration Error Messages for Security info invalid values", "Web Registration - Neg...)
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/webregistration/feature/T101_WebRegistrationNegative.feature:62
+Starting scenario: Validate Web Registration Error Messages for Security info invalid values
+exception
+testcase information
+snapshot
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "webreg" URL for "member" (PASSED)
+using browser (PASSED)
+user gets the account owner details from temporary file and database for "webreg" for Security info invalid values (PASSED)
+user completes the Web Registration for Identification Information Security info invalid values (PASSED)
+user completes the Web Registration for contact information Security info invalid values (FAILED)
+user tests error messages invalid in the security information for web registration Security info invalid values (SKIPPED)
+runScenario("Validate Web Registration Error Messages for Contact info blank values", "Web Registration - Negati...)
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/webregistration/feature/T101_WebRegistrationNegative.feature:46
+Starting scenario: Validate Web Registration Error Messages for Contact info blank values
+snapshot
+exception
+testcase information
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "webreg" URL for "member" (PASSED)
+using browser (PASSED)
+user gets the account owner details from temporary file and database for "webreg" for Contact info blank values (PASSED)
+user completes the Web Registration for Identification Information Contact info blank values (PASSED)
+user tests error messages blank in the contact information for web registration Contact info blank values (FAILED)
+runScenario("Validate Web Registration Error Messages for Security info blank values", "Web Registration - Negat...)
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/webregistration/feature/T101_WebRegistrationNegative.feature:61
+Starting scenario: Validate Web Registration Error Messages for Security info blank values
+exception
+testcase information
+snapshot
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "webreg" URL for "member" (PASSED)
+using browser (PASSED)
+user gets the account owner details from temporary file and database for "webreg" for Security info blank values (PASSED)
+user completes the Web Registration for Identification Information Security info blank values (PASSED)
+user completes the Web Registration for contact information Security info blank values (FAILED)
+user tests error messages blank in the security information for web registration Security info blank values (SKIPPED)

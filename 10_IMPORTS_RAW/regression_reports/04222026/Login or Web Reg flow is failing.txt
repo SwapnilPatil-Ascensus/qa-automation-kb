@@ -1,0 +1,80 @@
+Regression status
+There are some test cases failed due to WebPage is down for NYD and NMD 
+Module: stage1-UniversalEnrollmentFirstSubBene.
+	
+Plan: 	nyd/nmd
+Exception :  
+core.exception.TestFailureException: Failed to load/login into account
+	at core.frontoffice.IdpLoginStepDefs.userLogsInIdpScreen(IdpLoginStepDefs.java:39)
+	at ✽.user logs in idp screen for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with rollover(file:///builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStepSubBene.feature:31) 
+ 
+Screenshot link: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/14031928272/artifacts/unite/unite-universal-enrollment/target/surefire-reports/nyd.20260422031150470.UniversalEnrollmentFirstStepSubBene.feature_html_chrome_failedresult.html
+
+
+Reason for failure: Overall Comment/Note:  Webpage is down for NYD and NMD
+ 
+Steps:
+After Login with valid credential its redirecting to error page for both NYD and NMD plan.
+Cred:
+NMD: Automation_primeV3/Newton@123
+NYD: QAAUTOTEST_UE_976944555/Newton@123
+
+Report: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/14031928272/artifacts/unite/unite-universal-enrollment/target/surefire-reports/index.html#
+
+Steps:
+	runScenario("Sub Bene Enrollment using Bank with Sub bene Enrollment of Account with IL First Step with parent o...)
+	Starting scenario file: /builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStepSubBene.feature
+	Starting scenario: Sub Bene Enrollment using Bank with Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank
+	Traunch for Sub Bene Enrollment using Bank with Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank is nyd
+	load test cases (PASSED)
+	starting "login" URL for "member" (PASSED)
+	Obtaining browser from resource manager
+	using browser (PASSED)
+	Executing query:
+	SELECT A.uii_acct_id || A.uii_acct_ext AS accountid, M.email AS email, L.username AS username, 'Newton@123' as password, tp.LAST_4_SSN as last_4ssn FROM tu_acct A INNER JOIN tu_traunch T ON T.traunch_id = A.traunch_id INNER JOIN tu_member M ON M.uii_member_id = A.uii_member_id INNER JOIN tu_person tp ON a.seq_part_id = tp.seq_person_id INNER JOIN ta_app_context ac ON ac.app_member_id = M.uii_member_id INNER JOIN ta_login L ON L.login_id = ac.login_id WHERE A.acct_state = '91' AND M.web_registered = 'Y' AND A.uii_acct_ext = '01' AND (M.web_access <> 'D' OR M.web_access IS NULL) AND UPPER(T.voucher_prefix) = UPPER(?) AND UPPER(L.username) LIKE UPPER('QAAUTOTEST%') AND M.TWOFACTOR_OPTIN = 'S' AND M.TWOFACTOR_INTST_FLAG IS NULL ORDER BY A.uii_acct_id DESC, A.uii_acct_ext DESC, L.login_id DESC FETCH NEXT 1 ROW ONLY
+	With bindings (in order): nyd
+	Schema: null
+	Query executed
+	get Web Registered Automation UE account details from database for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (PASSED)
+	Getting test case Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank
+	user logs in idp screen for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (FAILED)
+	User selects sub bene for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (SKIPPED)
+	User completes the who you are saving section for "GrandChild" for "Higher Education Expenses" for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (SKIPPED)
+	User completes the beneficiary information section for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (SKIPPED)
+	User selects funding method as "Add a new bank" for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (SKIPPED)
+	User selects build your own investment Options for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (SKIPPED)
+	User verifies review page for Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank (SKIPPED)
+	source
+	exception
+	Getting test case Sub bene Enrollment of Account with IL First Step with parent of non IL resident with bank
+	testcase information
+	Releasing test case resources
+
+
+	runScenario("Sub Bene flow using Check with Sub bene Enrollment of Account with IL First Step with parent of IL ...)
+	Starting scenario file: /builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStepSubBene.feature
+	Starting scenario: Sub Bene flow using Check with Sub bene Enrollment of Account with IL First Step with parent of IL resident with check
+	Traunch for Sub Bene flow using Check with Sub bene Enrollment of Account with IL First Step with parent of IL resident with check is nyd
+	load test cases (PASSED)
+	starting "login" URL for "member" (PASSED)
+	Obtaining browser from resource manager
+	using browser (PASSED)
+	Executing query:
+	SELECT A.uii_acct_id || A.uii_acct_ext AS accountid, M.email AS email, L.username AS username, 'Newton@123' as password, tp.LAST_4_SSN as last_4ssn FROM tu_acct A INNER JOIN tu_traunch T ON T.traunch_id = A.traunch_id INNER JOIN tu_member M ON M.uii_member_id = A.uii_member_id INNER JOIN tu_person tp ON a.seq_part_id = tp.seq_person_id INNER JOIN ta_app_context ac ON ac.app_member_id = M.uii_member_id INNER JOIN ta_login L ON L.login_id = ac.login_id WHERE A.acct_state = '91' AND M.web_registered = 'Y' AND A.uii_acct_ext = '01' AND (M.web_access <> 'D' OR M.web_access IS NULL) AND UPPER(T.voucher_prefix) = UPPER(?) AND UPPER(L.username) LIKE UPPER('QAAUTOTEST%') AND M.TWOFACTOR_OPTIN = 'S' AND M.TWOFACTOR_INTST_FLAG IS NULL ORDER BY A.uii_acct_id DESC, A.uii_acct_ext DESC, L.login_id DESC FETCH NEXT 1 ROW ONLY
+	With bindings (in order): nyd
+	Schema: null
+	Query executed
+	get Web Registered Automation UE account details from database for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (PASSED)
+	Getting test case Sub bene Enrollment of Account with IL First Step with parent of IL resident with check
+	user logs in idp screen for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (FAILED)
+	User selects sub bene for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (SKIPPED)
+	User completes the who you are saving section for "Child" for "Higher Education Expenses" for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (SKIPPED)
+	User completes the beneficiary information section for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (SKIPPED)
+	User selects funding method as "check" for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (SKIPPED)
+	User selects keep it simple as investment Options for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (SKIPPED)
+	User verifies review page for Sub bene Enrollment of Account with IL First Step with parent of IL resident with check (SKIPPED)
+	source: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/14031928272/artifacts/unite/unite-universal-enrollment/target/surefire-reports/nyd.20260422031030319.UniversalEnrollmentFirstStepSubBene.feature_html_chrome_failedresult.html
+	exception: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/14031928272/artifacts/unite/unite-universal-enrollment/target/surefire-reports/nyd.20260422031030328.UniversalEnrollmentFirstStepSubBene.feature_exception_failedresult.txt
+	Getting test case Sub bene Enrollment of Account with IL First Step with parent of IL resident with check
+	testcase information
+	Releasing test case resources

@@ -1,0 +1,42 @@
+Report: http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-login/#
+Links: 
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-login/cad.20260422011716993.T101_LoginPositive.feature.45_html_chrome_failedresult.html
+http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-login/okd.20260422012503158.T101_LoginPositive.feature.45_html_chrome_failedresult.html
+
+Plans: cad, okd
+
+exception: http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-login/okd.20260422012503172.T101_LoginPositive.feature.45_exception_failedresult.txt
+Test data: http://seleniumhubnt2:8081/reports/unite/20260422/stage1-web-login/okd.20260422012503173.T101_LoginPositive.feature.45_testcase_information.txt
+
+Steps
+runScenario("User Login for User Login", "User Login")
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/login/feature/T101_LoginPositive.feature:45
+Starting scenario: User Login for User Login
+snapshot
+exception
+testcase information
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "login" URL for "member" (PASSED)
+using browser (PASSED)
+user gets the account owner details from temporary file and database for "login" for User Login (PASSED)
+get account username and email id from database for User Login (PASSED)
+user logs in for User Login (FAILED)
+validate member login is successful for User Login (SKIPPED)
+
+
+
+runScenario("User Login for User Login", "User Login")
+Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/login/feature/T101_LoginPositive.feature:45
+Starting scenario: User Login for User Login
+snapshot
+exception
+testcase information
+load test cases (PASSED)
+using unite database connection (PASSED)
+starting "login" URL for "member" (PASSED)
+using browser (PASSED)
+user gets the account owner details from temporary file and database for "login" for User Login (PASSED)
+get account username and email id from database for User Login (PASSED)
+user logs in for User Login (FAILED)
+validate member login is successful for User Login (SKIPPED)

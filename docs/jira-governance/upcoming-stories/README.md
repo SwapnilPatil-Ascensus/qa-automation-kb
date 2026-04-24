@@ -17,6 +17,10 @@
 
 **Env Pipeline / ENVP (Epic QA-600, Aha ACS-5289):** [`Env-Pipeline_project/README.md`](Env-Pipeline_project/README.md) (Universal Enrollment integration suite and related stories).
 
+**Sprint 26.05 (15 Apr – 28 Apr 2026):** [`Sprint_26.05_04152026-04282026/README.md`](Sprint_26.05_04152026-04282026/README.md) (V2/V3/perf Jira drafts + CSV import).
+
+**Platform Support Epic (Q2 · 26.05 onwards, no story points):** [`PLATFORM-SUPPORT-epic-q2-26-05-stories.md`](PLATFORM-SUPPORT-epic-q2-26-05-stories.md) — daily triage, weekly summary, tech meetings, KT, CI/CD coordination, learning, hygiene. Aligns with [`../data/Platform-support-jira-export.csv`](../data/Platform-support-jira-export.csv).
+
 **Stories in this folder**
 
 | File | Theme | Suggested points |
