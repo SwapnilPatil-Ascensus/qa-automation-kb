@@ -1,0 +1,69 @@
+You are working in a documentation-only repository. Generate JIRA-ready stories for the Mobile Microservices API Automation migration program.
+
+Goal:
+Create structured JIRA epics, stories, and tasks for migrating Unite Enrollment, Unite Mobile 1, and Unite Mobile 2 automation from application repositories into the centralized API Automation Framework.
+
+Create output under docs/mobile-automation-program-hub/jira-stories/.
+
+Required output files:
+01-epics.md
+02-unite-enrollment-stories.md
+03-unite-mobile1-stories.md
+04-unite-mobile2-stories.md
+05-cross-cutting-framework-and-pipeline-stories.md
+06-story-import-table.csv
+
+Story format:
+For each story include:
+- Title
+- Type: Epic / Story / Task / Spike
+- Priority
+- Business Value
+- Description
+- Scope
+- Acceptance Criteria
+- Technical Notes
+- Dependencies
+- Estimate: T-shirt size and suggested story points
+- Definition of Done
+
+Required epics:
+1. Mobile Microservices Automation Discovery and Planning
+2. Unite Enrollment Automation Migration
+3. Unite Mobile 1 Automation Migration
+4. Unite Mobile 2 Automation Migration
+5. Regression Suite and Pipeline Integration
+6. Documentation, Reporting, and Handoff
+
+Required story themes:
+- Discover legacy automation assets for Unite Enrollment.
+- Map feature files to step definitions.
+- Map endpoints, request payloads, response validations, SQL, configs, and test data.
+- Analyze target API Automation Framework structure.
+- Design mobile-automation folder/package structure.
+- Migrate vertical slice for Unite Enrollment with 3-5 scenarios.
+- Externalize heavy test data from feature files.
+- Build smoke suite for Unite Enrollment.
+- Build regression suite for Unite Enrollment.
+- Integrate Maven command and pipeline execution.
+- Repeat migration pattern for Mobile 1.
+- Repeat migration pattern for Mobile 2.
+- Create runbook and troubleshooting guide.
+- Create weekly leadership status update template.
+
+Constraints:
+- Use Java + Cucumber + Rest Assured + Maven as target technology.
+- Do not introduce Playwright/Karate unless listed as a future evaluation story.
+- Source application repositories are read-only references.
+- Avoid over-engineering and excessive utility layers.
+- Mark repo-specific unknowns as TBD.
+
+CSV requirements:
+Create a CSV with columns:
+Issue Type, Summary, Description, Acceptance Criteria, Priority, Labels, Component, Story Points, Epic Link
+
+Use labels:
+mobile-automation, unite-msc, api-automation, rest-assured, cucumber, regression
+
+Quality bar:
+Stories must be usable for sprint planning and leadership tracking. Avoid vague stories like "work on automation". Every story must have a measurable outcome.

@@ -1,0 +1,20 @@
+V3 Regression
+Most of the test cases got failed for UE due to SQL Exceptions for all plans
+ 
+ 
+Exception link:
+New York's 529 College Savings Program - Review
+ 
+2. Unable to create sub bene account from Home page for all plan
+Page is not loading when click on enroll link
+ 
+link
+NJBEST 529 College Savings Plan
+
+ 
+
+
+
+Report
+screenshot link: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/14273272936/artifacts/unite/unite-universal-enrollment/target/surefire-reports/njd.20260508031908800.UniversalEnrollmentFirstStepSubBene.feature_html_chrome_failedresult.html
+Exception link: https://ascensus-gs.gitlab.io/-/products/depot/qa-automation/prime-test-automation/-/jobs/14273272936/artifacts/unite/unite-universal-enrollment/target/surefire-reports/nyd.20260508001800624.UniversalEnrollmentPositive.feature_html_chrome_failedresult.html

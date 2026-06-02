@@ -8,6 +8,7 @@
 | [SPRINT-26.05-JIRA-STORIES.md](SPRINT-26.05-JIRA-STORIES.md) | Full **Jira Story Markdown** (Stories + Spikes), grouped by assignee |
 | [SUNIL-TAB-STORY-TEMPLATE.md](SUNIL-TAB-STORY-TEMPLATE.md) | Clone **once per missing CSR Maintenance tab** after spike **S2605-06** |
 | [SPRINT-26.05-jira-import.csv](SPRINT-26.05-jira-import.csv) | Optional Jira Cloud CSV import (verify importer column mapping) |
+| [STORY-QA-Ugift-nightly-suite-pipeline-T1-validation.md](STORY-QA-Ugift-nightly-suite-pipeline-T1-validation.md) | **Ugift follow-through:** suite + nightly job + **T+1** validation (**depends** QA-626 / QA-627) |
 
 **Evidence used (this repo only)**
 

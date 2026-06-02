@@ -1,0 +1,18 @@
+Swapnil Patil
+Good Morning
+ 
+Due to Stage1 Down all Regression test cases got failed
+Universal Enrollment
+ 
+seems like Stage 1 is up
+ 
+Looks like issue with Universal Enrollment page but IDP Login is happening
+https://nyd.stage1.acs529.com/enrollments/newyork
+ 
+oh ok
+ 
+Hi Swapnil good Morning V2 Regression looks good except    
+upromise =
+Everyday Savings, Every Day with Upromise
+Error message not getting in the page after completing the enrollment for Nextgen Enrollment  due to this Nextgen enrollment cases are failing
+ 

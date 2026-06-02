@@ -1,0 +1,405 @@
+﻿Issue Type,Issue key,Issue id,Summary,Assignee,Assignee Id,Priority,Custom field (Root Cause Category (RCC)),Created,Custom field (Root Cause Analysis),Custom field (QA owner),Custom field (Story Points),Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Project url,Labels,Labels,Labels,Labels,Labels,Team Id,Team Name,Custom field (Team Assigned)
+Bug,QA-715,317838,Stage 1 outage (04/27): Oracle UIIS01 down + CSR https://csr.stage1.acs529.com/csrauthtpl/csr/uiiHome.do unavailable — automation not run,Swapnil Patil,6357f972fc0cc7a600ae8914,Critical,Infrastructure Related,4/27/2026 8:46,"What happened: UIIS01 (and related Stage 1 stack) and CSR were unavailable during 2026-04-27; automation did not run.
+
+Root cause: Planned Stage 1 refresh / maintenance, not an application bug. Teams confirmation: Stage 1 refresh was done over the weekend; align to RT Re: AGS #511448 — refresh UIIS01, JTUS01, REPTS01 (schedule included Sat 4/25 DBA refresh / restricted mode, Mon 4/27 Ops cleanup, Mon 4/27 ~11 AM DBA rebuild GG and lift restrictions, Mon afternoon ETL restore per request thread).
+
+Resolution: Treat as expected downtime during refresh window; no code fix required for QA-715. Resume automation once Ops/DBA confirm Stage 1 healthy per RT.",,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Bug,QA-712,317217,Stage 1 (04/24): recurrence of multi-area failures (IDP / legacy login / legacy web reg) — same pattern as QA-708; verify TLS/SSL vs code,Swapnil Patil,6357f972fc0cc7a600ae8914,Critical,Configuration Issue,4/24/2026 8:15,"*What broke*: Stage 1 again showed TLS/SSL failures (same class as QA-708): IDP (NYD/NMD), UE sub bene (login-dependent), CSR/member flows, legacy login/reg, transfers — symptoms looked like app breaks; SSLException: Received fatal alert: protocol_version in traces.
+
+*Why*: Engineering traced the crash to the default RestClientFactory → SocketFactory path. SSLContext.getInstance(""TLS"") with no enabled-protocol pinning leaves negotiation to the JVM; protocol_version from the peer indicates the client offered a TLS version the server rejects (e.g. JVM/path still offering TLS 1.0/1.1 while the peer requires TLS 1.2+). Many monolith call sites use this path (~20+ managers/actions); standalone HTTP clients need separate fixes.
+
+*What fixed Stage 1*: The TLS-related change was reverted (confirmed: change had been pushed again, then reverted); Stage 1 returned to normal operation.
+
+Follow-up (engineering): Harden SocketFactory.getSSLContext (e.g. setEnabledProtocols TLSv1.2/TLSv1.3 or SSLContext.getInstance(""TLSv1.2"")) so all RestClientFactory.getRestClient(...) consumers inherit the fix; plan TLS 1.3 in prod with monolith changes, not flip alone on Java 8 clients.
+
+Verification: QA confirmed legacy web reg (OKD, CAD), legacy web login (OKD, CAD), IDP login (NYD, NMD) — working post-revert.",,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,PlatformSupport,QA-Board-View,Regression,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Bug,QA-708,316527,"Stage 1 (2026-04-22): regression failures across UE suite (62 fails), NYD/NMD IDP sub bene login, legacy web login (CAD/OKD), legacy web reg (multi-plan)",Swapnil Patil,6357f972fc0cc7a600ae8914,Critical,Configuration Issue,4/22/2026 8:40,"Root cause (concise): 
+Failures correlated to TLS/SSL handshake issues — Splunk showed SSL-related errors;
+investigation identified javax.net.ssl.SSLException: Received fatal alert: protocol_version (TLS protocol negotiation / crypto layer), not a code defect in the enrollment flows themselves.
+Stage 1 was rolled back while TLS/crypto was addressed.",,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Bug,QA-703,315670,Universal Enrollment (IAD): ElementClickInterceptedException on #bottomNavPrimaryBtn during KIS investment step – button disabled / progress overlay blocks click (CI regression 04/17/2026),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Medium,Data Issue,4/20/2026 8:28,"There were recently changes, so i have updated our csv file for enrollment.",,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-645,314268,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.05+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 18:08,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,PlatformSupport,QA-Board-View,Regression,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-644,314260,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.05+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 18:06,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,PlatformSupport,QA-Board-View,Regression,,,,,
+Story,QA-636,314248,[Daily][Platform Support] Daily regression review & triage — V2 + V3 (Q2 26.05+),Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 18:02,,,3,Review,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,,
+Story,QA-635,314245,[V3][IDP Login] Port IDP login coverage from Universal Enrollment module into Unite V3,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 17:45,,,2,Validation,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-634,314242,"[Docs][Stage 5] Confluence — V2/V3 smoke, suites, schedules, how to run, ownership",Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 17:41,,,2,To Do,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-633,314241,[V3][Stage 5] Integrate Stage 5 smoke into pipeline — schedule + on-demand + docs,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 17:36,,,1,Refinement,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-632,314240,"[V3][Stage 5] CAT/Stage 5 smoke suite — composition, tags, pass criteria",Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 17:35,,,2,Refinement,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-631,314237,[V2][Stage 5] Integrate Stage 5 smoke into pipeline — schedule + on-demand + docs,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 17:30,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-630,314236,"[V2][Stage 5] CAT/Stage 5 smoke suite — composition, tags, pass criteria",Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/15/2026 17:26,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Spike,QA-625,313681,"[V2][Spike] Ugift — CSR + member coverage, data, gaps, story breakdown",VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,4/14/2026 18:33,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-624,313678,[V2][CSR][Exchange] Filter accounts for Exchange — custom + annual criteria,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,4/14/2026 18:23,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-615,313603,[ENV-CICD] Stage 1 MFE/Micro Services/Mobile integration suite — package for pipeline,Swapnil Patil,6357f972fc0cc7a600ae8914,High,,4/14/2026 16:25,,,2,To Do,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,UE_UI,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-614,313482,"[Perf testing] Performance Script Update / New Development- Enrollment‑Related JMeter Script - Enroll Flow (Account, snapshot, validation)",Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,4/14/2026 12:24,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-613,313481,[Perf testing] Create Performance Regression Test Suite Using Existing JMeter Scripts,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,4/14/2026 12:23,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-612,313477,[Perf testing] Configure Jenkins CI/CD Pipeline for Automated Execution of JMeter Performance Scripts,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,4/14/2026 12:08,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-611,313428,[V3][Withdrawal ] Member Withdrawal (Member Portal) using IDP Login,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Low,,4/14/2026 10:43,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,Withdrawal,,,,,
+Story,QA-610,313410,[Perf testing] IDP- member profile change password UI flow with X‑Signature Header,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,4/14/2026 10:18,,,2,In Progress,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Spike,QA-609,313407,"[V2][Profile Update] CSR Profile update - research to find the gaps in current regression VS CSR Profile tab, add missing funtionality",Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Low,,4/14/2026 10:07,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Bug,QA-608,312329,AM Code Bug - Inv Option - Stage1 | multiple behavioral gaps-IRS annual exchange limits and in-progress exchange handling,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Medium,Coding Issue,4/10/2026 5:28,"The early morning failures (~4 AM) coincided with an active deployment window, causing temporary environment instability.
+A later automated pipeline build (~6 AM) stabilized the environment and appears to have resolved both issues.
+
+We’ve revalidated the impacted scenarios locally and manually, and things are working as expected now.
+We’ll continue to monitor and confirm via subsequent runs.",,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-601,312099,[ENVP][UE] Stage 1 Universal Enrollment integration suite — package for pipeline (Run Duration: ≤10 min),Swapnil Patil,6357f972fc0cc7a600ae8914,High,,4/9/2026 12:03,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,UE_UI,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-594,311996,Member Profile Maintenance – Beneficiaries (Add/Edit/Delete) (Multi-Plan Expansion),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Medium,,4/9/2026 9:56,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,MemProfile,Regression,,,,,,
+Bug,QA-588,310724,"Regression Failure V3: [NJD/NMD] Intermittent enrollment — ""Page Unavailable""; suspected uneven UI/version across nodes (Stage 1)",Swapnil Patil,6357f972fc0cc7a600ae8914,High,Infrastructure Related,4/7/2026 13:23,"incorrect version of ui-enrollment app was deployed to stage1 for multiple nodes, caused NJD/NMD enrollment load issue. so DevOps Clear cache & redeployed it to all the active nodes which fix this issue with at least for my plans NJD/NMD",,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Spike,QA-582,310658,[V2] Spike: Analyze daily regression for concurrent failures & flaky tests — stabilization plan,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Medium,,4/7/2026 10:04,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-579,310564,Regression Fix-KSD and MID moved to IDP update to Non- IDP Plans,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,4/7/2026 5:23,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-561,309810,"[V3][Contributions] IDP Member portal contrib — test data, qTest, Confluence/docs",Swapnil Patil,6357f972fc0cc7a600ae8914,Medium,,4/2/2026 12:38,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contribution,QA-Board-View,Regression,,,,,
+Story,QA-560,309806,[V3][Contributions] Wire IDP member-portal contribution tests into Stage 1 regression pipeline,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,4/2/2026 12:34,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contribution,QA-Board-View,Regression,,,,,
+Story,QA-559,309803,"[V3][Contributions] Expand IDP member-portal contributions — multi-plan, AIP, negatives",,,Low,,4/2/2026 12:30,,,3,To Do,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contribution,QA-Board-View,Regression,,,,,
+Story,QA-558,309800,[V3][Contributions] IDP Member portal: single contribution foundation(IDP member login) ,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Medium,,4/2/2026 12:27,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contribution,QA-Board-View,Regression,,,,,
+Bug,QA-557,309741,UE V3 NJD/NMD Enroll landing page failed,Swapnil Patil,6357f972fc0cc7a600ae8914,High,Configuration Issue,4/2/2026 10:31,incorrect version of ui-enrollment app was deployed to stage1 caused njd enrollment load issue ,,,Closed,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Enrollment,QA-Board-View,Regression,,,,,
+Story,QA-550,309026,[V2][INVOPT]Automatic Dollar Cost Averaging (DCA) for CSR Advisor plan,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,4/1/2026 5:55,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-542,308873,[DAILY] Automation Regression Health Check (V2 & V3) – 7:30 AM Triage & Reporting - 04/01-04/14,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,3/31/2026 17:17,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,,
+Story,QA-537,308291, Automatic Dollar Cost Averaging for CSR Direct plan,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/30/2026 2:50,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-535,308000,Investment Options for Future Investment Exchange for Member Portal,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/27/2026 7:48,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-531,307746,Fix for Annual Exchange for Direct plan for member Portal and Custom exchange for Csr,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/26/2026 10:19,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-530,307677,Investment Options for Custom Exchange for Member Portal,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/26/2026 8:45,,,3,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-525,307407,Investment Allocation Future Exchange Update and Reset,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/25/2026 6:12,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-522,306321,Investment Options for Future Contribution for CSR,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/20/2026 5:48,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Contrib,QA-Board-View,Regression,,,,,
+Story,QA-517,305982,[V2][Member][Exchange] Filter accounts for Exchange — Future + annual criteria,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Low,,3/19/2026 5:03,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,,,
+Story,QA-512,304773,UniversalEnrollment Automation – Add Test Cases & Perform Maintenance Enhancements,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Medium,,3/16/2026 10:48,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,Enrollment,QA-Board-View,Regression,,,4821708b-58a1-45f9-93f1-fe52c0da32a7,QA Automation,
+Story,QA-502,303932,IDP- Update/Change Password Functionality – Mem Profile Security Screen,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,3/12/2026 8:41,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,
+Story,QA-501,303928,IDP- forgot password functionality - IDP Login Screen,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,3/12/2026 8:40,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,
+Story,QA-494,303711,Transfer – UI Automation Regression Execution & Stabilization (CSR + Member),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Low,,3/11/2026 10:06,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,,,,7beaaa17-8ac1-438b-ba0b-b71e7f6ebaae,Automation Squad,
+Story,QA-464,297398,Performance Testing - Create test cases for each module in qtest (IDP Login & Forgot Flow),Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Low,,2/18/2026 9:41,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,
+Story,QA-387,280584,[ENV-CICD] Client ID successfully created,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,12/10/2025 15:31,,,1,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,AutomatedTesting,GitLab,QA-Board-View,Regression,ScrumOfScrum,,,
+Story,QA-386,280580,[ENV-CICD] API Test - PKCE Flow - API Automation Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,12/10/2025 15:02,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,GitLab,QA-Board-View,Regression,ScrumOfScrum,,,,
+Story,QA-333,279073,[V3] [Unite/Entity] Management - Create Regression GitLab pipeline for Unite Project in V3,Swapnil Patil,6357f972fc0cc7a600ae8914,Medium,,12/4/2025 10:07,,,3,To Do,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,QA-Board-View,Regression,WebRegAutomation,,,,,
+Spike,QA-228,270447,IDP - Enhance Prime v3 Framework for Deep Shadow DOM Element Handling in IDP Angular UI,Swapnil Patil,6357f972fc0cc7a600ae8914,Low,,10/28/2025 17:28,,,2,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,IDP_LoginAutomation,Regression,Research,,,,,
+Story,QA-184,269783,[V2][MEM Profile Update] Member Portal - Account & Doc Maintenance – Negative & Validation Scenarios (Profile & Bank Info),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Low,,10/26/2025 20:44,,,3,Review,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,MemProfile,Regression,,,,,,
+Story,QA-183,269781,Member Profile Update – Bank Information (Positive Flow),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Low,,10/26/2025 20:42,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,MemProfile,Regression,,,,,,
+Story,QA-182,269779,Member Profile Update – Personal & Contact Information (Positive Flow),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Low,,10/26/2025 20:41,,,5,Done,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,MemProfile,Regression,,,,,,
+Story,QA-178,269771,[V2][Profile Update] CSR Profile Maintenance – Beneficiaries (Add/Edit/Delete) (Multi-Plan Expansion),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Low,,10/26/2025 20:34,,,2,Refinement,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,CSRProfile,Regression,,,,,,

@@ -1,0 +1,99 @@
+FYI -> root cause seems expired certs (https://teams.microsoft.com/l/message/19:fb615e67837f4423959f1080b8d2be22@thread.tacv2/1778770525849?tenantId=1d3bed01-6d09-498e-ab05-f1e2fdb1b138&groupId=cb663e49-cfa2-4634-8529-3f2a0edb2f2a&parentMessageId=1778770525849&teamName=AGS%20Technology&channelName=DevOps%20Request&createdTime=1778770525849)
+
+Robert Broden
+10:55 AM
+UE UI Stage 1 credentials expired
+Related to #512223: CERT: IDP Cert Expiring in Stage 1
+
+ 
+
+The agsup-ui-enrollment stage1 credentials expired. I tried to update in Helm charts but might be another issue. 
+
+ 
+
+Pipeline #2525458345 · Ascensus GS / sandbox / agsup-ui-enrollment · GitLab
+
+ 
+
+Cursor eval of error:
+
+ 
+
+Here’s what **`sp-1.md`** is telling you.
+
+ 
+
+## Root cause
+
+ 
+
+`helm upgrade --install` failed with:
+
+ 
+
+```text
+Secret "enrollment-core-services-credential-v1" in namespace "agsupaws-useast1-stage1" exists and cannot be imported into the current release: invalid ownership metadata; label validation error: missing key "app.kubernetes.io/managed-by": must be set to "Helm"; annotation validation error: missing key "meta.helm.sh/release-name": must be set to "agsup-ui-enrollment"; annotation validation error: missing key "meta.helm.sh/release-namespace": must be set to "agsupaws-useast1-stage1"
+```
+
+ 
+
+So:
+
+ 
+
+1. That Secret **already existed** in `agsupaws-useast1-stage1`.
+2. It was **not** created by this Helm release (no Helm `managed-by` label / `meta.helm.sh/*` annotations).
+3. After your chart change, Helm **now tries to manage** that object as part of `agsup-ui-enrollment`, and Helm **will not take over** a Secret that wasn’t created by the release.
+
+ 
+
+That lines up with the earlier analysis: stage1 used to **not** get this Secret from Helm, so it was almost certainly **created some other way** (script, copy-paste, another pipeline). QC4 worked because that Secret was always Helm-owned there.
+
+ 
+
+## What to do (ops)
+
+ 
+
+Pick one (platform / someone with kube access on `unite-eks-stage-useast1`):
+
+ 
+
+**A – Simplest (usually):** Delete the orphan Secret, then rerun the deploy so Helm recreates it with correct ownership and the new data:
+
+ 
+
+```bash
+kubectl delete secret enrollment-core-services-credential-v1 -n agsupaws-useast1-stage1
+# then re-run deploy:passive (or let the pipeline retry)
+```
+
+ 
+
+Expect a short window where new pods might not mount the secret until the upgrade completes (often acceptable for a passive/preview slot).
+
+ 
+
+**B – “Adopt” into the release:** Patch the existing Secret so it has the label/annotations Helm expects, **then** run `helm upgrade` again. This is easy to get wrong (checksums, release history); many teams prefer **A**.
+
+ 
+
+## Not a chart bug (by itself)
+
+ 
+
+Your Helm change is doing the right thing for stage1; the failure is **collision with a pre-existing, non-Helm Secret**. After it’s removed or properly adopted, the same chart version should install.
+
+ 
+
+---
+
+ 
+
+**Security:** `sp-1.md` includes what looks like a **live Nexus password** in the job log (`nexus_pass=...`). Treat that as exposed: rotate it if this file or job log is shared outside a locked channel, and avoid committing `sp-1.md` if it still contains secrets.
+
+ 
+
+cc Brian Danilczyk Sam Peaslee Sri Mounica Thippareddy
+
+

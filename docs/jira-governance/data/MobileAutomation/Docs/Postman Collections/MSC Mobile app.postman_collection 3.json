@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "27f9cd11-b677-4427-b240-61ddba4131fe",
+		"name": "MSC Mobile app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29851356"
+	},
+	"item": [
+		{
+			"name": "Mobile1 - mobilemembersession",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(pm.response.text());\r",
+							"var jwtToken = jsonData['_embedded'].item.jwtToken;\r",
+							"pm.environment.set(\"mobileMsc.jwt\", jwtToken);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-App-Version",
+						"value": "3.1.0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"planId\": \"hawaii\", // cadirect\r\n    \"username\": \"lromero\", // tester2\r\n    \"password\": \"Test@123\",// Test@1234\r\n    \"rememberMe\": true,\r\n    \"deviceUuid\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile1api/v1/mobilemembersession",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile1api",
+						"v1",
+						"mobilemembersession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile1 - idptokenexchange",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-App-Version",
+						"value": "2.8.0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"planId\": \"hawaii\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile1api/v1/idptokenexchange",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile1api",
+						"v1",
+						"idptokenexchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - IDP token Exchange",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"planId\": \"hawaii\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/authenticationapi/v1/idptokenexchange",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"authenticationapi",
+						"v1",
+						"idptokenexchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile 1 - Owner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-App-Version",
+						"value": "3.1.0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"planId\": \"hawaii\", // cadirect\r\n    \"username\": \"lromero.hi\", // tester2\r\n    \"password\": \"Test@123\",// Test@1234\r\n    \"rememberMe\": true,\r\n    \"deviceUuid\": null\r\n}"
+				},
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile1api/v1/mobileowner",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile1api",
+						"v1",
+						"mobileowner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile 2 - Banks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile2api/v1/mobilebanks?filterDomesticBanks=true",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile2api",
+						"v1",
+						"mobilebanks"
+					],
+					"query": [
+						{
+							"key": "filterDomesticBanks",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile 2 - Banks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"acctNum\": \"890567234\",\r\n        \"routingNum\": \"011000138\",\r\n        \"name\": \"BANK OF AMERICA, N.A.\",\r\n        \"acctType\": \"S\",\r\n        \"isDomestic\": \"Y\",\r\n        \"confirmAcctNum\": \"890567234\",\r\n        \"sessionId\": \"{{mobileMsc.sessionId}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile2api/v1/mobilebanks",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile2api",
+						"v1",
+						"mobilebanks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile 2 - Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile2api/v1/mobiledashboard",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile2api",
+						"v1",
+						"mobiledashboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile 2 - Activity",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/mobile2api/v1/mobileactivity/01",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"mobile2api",
+						"v1",
+						"mobileactivity",
+						"01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata - Calendar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responseObj = pm.response.json();\r",
+							"var dates = responseObj?._embedded?.item;\r",
+							"\r",
+							"for (i in dates) {\r",
+							"    console.log(i, dates[i].calendarDate, new Date(dates[i].calendarDate).toISOString());\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/metadataapi/v2/calendar?futureBusinessDays=1",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"metadataapi",
+						"v2",
+						"calendar"
+					],
+					"query": [
+						{
+							"key": "currentDate",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "currentTradeDate",
+							"value": "1749801600000",
+							"disabled": true
+						},
+						{
+							"key": "checkBusinessDate",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "futureBusinessDays",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enrollment - Validate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"parent\": {\r\n            \"correlationId\": \"f72fcf81-f54c-11ef-8519-5524bfb33c99\",\r\n            \"eventId\": \"2a2d3f30-f54d-11ef-9c97-d13a449becda\",\r\n            \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n            \"seqNum\": 4\r\n        },\r\n        \"prospect\": {\r\n            \"challengeQuestion\": \"uAR+oIhWrH6WVRcGcxtVsw==\",\r\n            \"challengeResponse\": \"uAR+oIhWrH6WVRcGcxtVsw==\",\r\n            \"email\": \"RPhU1FY9c2K6NPi7wRepuL7E8U3+zfff6rZbp5Xl/g0=\",\r\n            \"password\": \"ISYrmNh/DeOl0djSV/pmAw==\",\r\n            \"plan\": \"hawaii\",\r\n            \"username\": \"KIwS31KdkOUnn0XG6nWsIQ==\",\r\n            \"promoCode\": \"uAR+oIhWrH6WVRcGcxtVsw==\"\r\n        },\r\n        \"dataCache\": null,\r\n        \"beneficiary\": {\r\n            \"confirmSsn\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"dob\": \"ZwjWEmL94lnCF7aTvGbpnQ==\",\r\n            \"firstName\": \"5a117U4BmHLT7fgzZdsHUw==\",\r\n            \"isBeneficiaryAddressDifferent\": \"x2na4pmq2h+bNIgsDgQbxQ==\",\r\n            \"lastName\": \"X3trcqkZxVuTKjLtkjpuMg==\",\r\n            \"mlAddline1\": \"K9TDabCRIEGL7cqgrmICUg==\",\r\n            \"mlAddline2\": \"uAR+oIhWrH6WVRcGcxtVsw==\",\r\n            \"mlCity\": \"sxGxRBsM5ET5qmOms8lbXQ==\",\r\n            \"mlStatelabel\": \"3pOJAXSJrDJxD8RUQcvRIA==\",\r\n            \"mlZipcode\": \"WWx7owzuirWAtdN8NvHlmw==\",\r\n            \"relationship\": \"H6U2xJBLrwnYLX27JybdfQ==\",\r\n            \"ssn\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"ssnCi\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"ssnE\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"ssnH\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"suffix\": \"uAR+oIhWrH6WVRcGcxtVsw==\"\r\n        },\r\n        \"owner\": {\r\n            \"confirmSsn\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"dob\": \"ZwjWEmL94lnCF7aTvGbpnQ==\",\r\n            \"firstName\": \"5a117U4BmHLT7fgzZdsHUw==\",\r\n            \"isMailingAddressDifferent\": \"x2na4pmq2h+bNIgsDgQbxQ==\",\r\n            \"lastName\": \"X3trcqkZxVuTKjLtkjpuMg==\",\r\n            \"mlAddline1\": \"K9TDabCRIEGL7cqgrmICUg==\",\r\n            \"mlAddline2\": \"uAR+oIhWrH6WVRcGcxtVsw==\",\r\n            \"mlCity\": \"sxGxRBsM5ET5qmOms8lbXQ==\",\r\n            \"mlStatelabel\": \"3pOJAXSJrDJxD8RUQcvRIA==\",\r\n            \"mlZipcode\": \"WWx7owzuirWAtdN8NvHlmw==\",\r\n            \"permAddline1\": \"K9TDabCRIEGL7cqgrmICUg==\",\r\n            \"permAddline2\": \"uAR+oIhWrH6WVRcGcxtVsw==\",\r\n            \"permCity\": \"sxGxRBsM5ET5qmOms8lbXQ==\",\r\n            \"permStatelabel\": \"3pOJAXSJrDJxD8RUQcvRIA==\",\r\n            \"permZipcode\": \"WWx7owzuirWAtdN8NvHlmw==\",\r\n            \"phone\": \"cRyDe6NdsGUogkEb4AgHyQ==\",\r\n            \"phoneType\": \"awYfgumCyuJLJfxY5P5wOw==\",\r\n            \"ssn\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"ssnCi\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"ssnE\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"ssnH\": \"sGBGP7ifwMQPKhNedk4vWA==\",\r\n            \"suffix\": \"uAR+oIhWrH6WVRcGcxtVsw==\"\r\n        },\r\n        \"successor\": null,\r\n        \"account\": null,\r\n        \"bank\": {\r\n            \"accountNumber\": \"XocaAFfov3Qxb9P57pAaNQ==\",\r\n            \"confirmAccountNumber\": \"XocaAFfov3Qxb9P57pAaNQ==\",\r\n            \"routingNumber\": \"UPQMwUETBaw2Z2qmCpb78w==\",\r\n            \"bankName\": \"A73RGzwyMQBH+RaDwnPJJ6GD+6k5KS05GlPSNW68Ot4=\",\r\n            \"accountType\": \"8dEERDZ2YC6TVJbbNggH+g==\",\r\n            \"isDomestic\": \"maFL7v4ef2qWqRXhBWPV2g==\"\r\n        },\r\n        \"oneTimeInstruction\": {\r\n            \"paymentType\": \"fqbQxhubsQjvIRziYlWZ9A==\",\r\n            \"frequency\": \"fqbQxhubsQjvIRziYlWZ9A==\",\r\n            \"amount\": \"d+Zg+6JFbDg747/RKFpF/w==\"\r\n        },\r\n        \"recurringBankInstruction\": null,\r\n        \"member\": null,\r\n        \"reviewConfirm\": null,\r\n        \"login\": null,\r\n        \"apiLogin\": null,\r\n        \"appContext\": null,\r\n        \"confirm\": null,\r\n        \"notify\": null,\r\n        \"usernameHash\": \"3dA2NETj2QniV1c34FSzP8imycDyixSZSMEHUwNzuQ5dyW4Jwz5+NW9c1H17izvIBhPzbnmXDBhSkpeLZPEM1w==\",\r\n        \"planId\": null,\r\n        \"timestamp\": 1740689632552,\r\n        \"status\": \"Active\",\r\n        \"encAesKey\": \"I9rPZ2YzLVEtDaVbCL/ayJ2En1YOhyXVtM+ktF23+4q9O9cxLSIBmQKQ1kbXv9MZa/eu5AxUjopLjjywbUsxgsfMMOGHxOC/zu6mCvXHER9p1he6mUniJiSkEC2L9vjypN/E3hKkFvSh6ioOR7mIXmE/orwXvldodIMGmce6eD8SZLllI398qfbpCb8lRY3sRO8v/5SPmICLD3NmevVEYdXSq+ZMO/apfaVmlkWg7aw/zupseWLNquo3DlFVOnmPLx/ao2nGvzsMeCj/XhaL0QFev5qCDBRa7NPEXTryRSnkUUfeM51BVTgV4C5Nxm30LaOJVRt8vwEYxTWPVG0XvQ==\",\r\n        \"ttl\": 1740690802656,\r\n        \"investment\": {},\r\n        \"funding\": {},\r\n        \"enrollmentAllocations\": [],\r\n        \"selectedFunds\": null,\r\n        \"errors\": [],\r\n        \"jwtToken\": \"\",\r\n        \"apiSource\": null,\r\n        \"eventType\": \"beneficiary-entered\",\r\n        \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n        \"eventId\": \"2a2d3f30-f54d-11ef-9c97-d13a449becda\",\r\n        \"causationId\": \"27f7e8a0-f54d-11ef-8519-5524bfb33c99\",\r\n        \"correlationId\": \"f72fcf81-f54c-11ef-8519-5524bfb33c99\",\r\n        \"seqNum\": 4,\r\n        \"inSubSequentEnroll\": null,\r\n        \"accountNumber\": null,\r\n        \"encryptedAesKey\": null\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/enrollmentapi/v1/enrollments/enrollment/bank-entered",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"enrollmentapi",
+						"v1",
+						"enrollments",
+						"enrollment",
+						"bank-entered"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction - Pending Transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mobileMsc.jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mobileMsc.host.url}}/transactionapi/v1/pendingtransactions/01",
+					"host": [
+						"{{mobileMsc.host.url}}"
+					],
+					"path": [
+						"transactionapi",
+						"v1",
+						"pendingtransactions",
+						"01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile Owner - With AES key",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Feature Flags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ags-featureflag-properties-shared.gs.ascensus.com/unite/stage1/v1/featureflag.properties",
+					"protocol": "https",
+					"host": [
+						"ags-featureflag-properties-shared",
+						"gs",
+						"ascensus",
+						"com"
+					],
+					"path": [
+						"unite",
+						"stage1",
+						"v1",
+						"featureflag.properties"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

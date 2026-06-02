@@ -1,0 +1,1 @@
+Create a clean README.md for this documentation repository. The README should explain that this repo is used to generate and maintain Confluence-ready documentation and JIRA planning artifacts for the Mobile Microservices Automation migration initiative. Include folder structure, how to update docs, how to regenerate pages, and how to copy content into Confluence.

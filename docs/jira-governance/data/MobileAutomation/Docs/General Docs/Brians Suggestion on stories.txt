@@ -1,0 +1,19 @@
+Good Morning Swapnil ->   I know you need to gather more data from Infinity on [QA-796] Unite MSC Test Automation - JIRA  
+ 
+I wanted to pass through to maybe help you break down the epic into stories.
+From Nick -> This is what I came up with based on 1 QA:
+ 
+MOBILE2 MVP:
+1. [QC4] Smoke tests (1-2 GET endpoints only) including setup and pipeline integration with DevOps - 1 sprint
+2. [QC4] Full endpoint coverage - 2 sprints
+3. [STAGE1] Add stage 1 data - 0.5 sprint
+ 
+MOBILE1 (Assumes setup from MOBILE2 for setup):
+1. [QC4] Smoke tests (1-2 GET endpoints only) including additional encryption handling - 0.75 sprint
+2. [QC4] Full endpoint coverage - 2 sprints
+3. [STAGE1] Add stage 1 data - 0.5 sprint
+ 
+ENROLLMENT (Assumes dependency on MOBILE1 for encryption handling and MOBILE2 for setup):
+1. [QC4] Smoke tests (1-2 GET endpoints only) - 0.5 sprint
+2. [QC4] Full endpoint coverage - 2 sprints
+3. [STAGE1] Add stage 1 data - 0.5 sprint

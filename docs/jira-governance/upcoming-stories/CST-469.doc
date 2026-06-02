@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#CST-469] QIPS-413 - AKD - TVG Calculator Credits Incorrect Logic </title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://ascensuscollegesavings.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://ascensuscollegesavings.atlassian.net/browse/CST-472">AKD - TVG Calculator Credits Incorrect Logic - URGENT</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://ascensuscollegesavings.atlassian.net/browse/CST-472">CST-472</a>)</span>
+                <h3 class="formtitle"><img src="https://ascensuscollegesavings.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [CST-469]&nbsp;<a href="https://ascensuscollegesavings.atlassian.net/browse/CST-469">QIPS-413 - AKD - TVG Calculator Credits Incorrect Logic </a>
+            <span class="subText">
+               Created: 27/Apr/26                   &nbsp;Updated: 08/May/26
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">In Progress</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://ascensuscollegesavings.atlassian.net/secure/BrowseProject.jspa?id=12067">Comet Scrum Team</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Components:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    
+            <td width="20%"><b>Parent:</b></td>
+        <td width="80%"><a href="https://ascensuscollegesavings.atlassian.net/browse/CST-472">AKD - TVG Calculator Credits Incorrect Logic - URGENT</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Story
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5bd30bef359ddf204e8c63ed"
+                id="word_reporter_5bd30bef359ddf204e8c63ed"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=5bd30bef359ddf204e8c63ed">
+                    Kim.Chaffee
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="557058:532702a7-6755-4682-8639-7b11e18d636e"
+                id="word_assignee_557058:532702a7-6755-4682-8639-7b11e18d636e"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A532702a7-6755-4682-8639-7b11e18d636e">
+                    Naomi Bechar
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-318013-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            None
+                    </td>
+    </tr>
+    
+    	<tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Σ Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            Not Specified
+                    </td>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Σ Time Spent:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            Not Specified
+                    </td>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap>
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Σ Original Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            Not Specified
+                    </td>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap>
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+            <tr><td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sub-tasks:</b></td>
+    <td bgcolor="#ffffff" valign="top">
+        <table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr bgcolor="#f0f0f0">
+                <td>
+                    <b>Key</b><br/>
+                </td>
+                <td>
+                    <b>Summary</b><br/>
+                </td>
+                <td>
+                    <b>Type</b><br/>
+                </td>
+                <td>
+                    <b>Status</b><br/>
+                </td>
+                <td>
+                    <b>Assignee</b><br/>
+                </td>
+            </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-491">CST-491</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-491">Dev - modify and test SQL statements ...</a>
+                    </td>
+                    <td>
+                        Sub-task
+                    </td>
+                    <td>
+                        Done
+                    </td>
+                    <td>
+                                                     Naomi Bechar  &nbsp;
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-495">CST-495</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-495">Dev - conduct code review</a>
+                    </td>
+                    <td>
+                        Sub-task
+                    </td>
+                    <td>
+                        Done
+                    </td>
+                    <td>
+                                                     Naomi Bechar  &nbsp;
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-565">CST-565</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-565">Dev - create DB PR to modify ctl_ins_...</a>
+                    </td>
+                    <td>
+                        Sub-task
+                    </td>
+                    <td>
+                        Done
+                    </td>
+                    <td>
+                                                     Naomi Bechar  &nbsp;
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-566">CST-566</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://ascensuscollegesavings.atlassian.net/browse/CST-566">Dev - support QA testing</a>
+                    </td>
+                    <td>
+                        Sub-task
+                    </td>
+                    <td>
+                        In Progress
+                    </td>
+                    <td>
+                                                     Naomi Bechar  &nbsp;
+                                            </td>
+                </tr>
+                    </table>
+    </td>
+</tr>
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>QA owner:</b></td>
+                <td id="customfield_10203-318013-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="6357f972fc0cc7a600ae8914" id="user_cf_6357f972fc0cc7a600ae8914">Swapnil Patil</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Dev owner:</b></td>
+                <td id="customfield_10700-318013-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="Naomi.Bechar@ascensus.com" id="user_cf_Naomi.Bechar@ascensus.com">Naomi Bechar</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10118-318013-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-1" href="https://ascensuscollegesavings.atlassian.net/browse/CST-472">
+        AKD - TVG Calculator Credits Incorrect Logic - URGENT
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10122-318013-value" class="value" bgcolor="#ffffff" width="80%">CSTQ2 Sprint 26.09 4/29-5/12</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Story Points:</b></td>
+                <td id="customfield_10602-318013-value" class="value" bgcolor="#ffffff" width="80%">    3
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Start date:</b></td>
+                <td id="customfield_11102-318013-value" class="value" bgcolor="#ffffff" width="80%">          <span title="06/May/26"><time datetime="2026-05-06">06/May/26</time></span>
+    </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p><b>Issue Description:</b> The use of sysdate in SQL statements lacks fractional seconds, causing Oracle to randomly select between transactions with identical timestamps, resulting in incorrect guarantee calculations.</p>
+
+<p><b>Technical Solution:</b> The fix involves replacing sysdate with <b>local timestamp</b> in all relevant XML files and updating existing data to include fractional seconds, using calculation order as the fractional component.</p>
+
+<p><b>Testing Requirements:</b> Swapnil from the QA automation team suggested for validation, and client services to perform front-end calculator checks</p>
+
+<p><b>Mitigation Process:</b> Ganesh created a spreadsheet calculator which has been provide to client service for manual validation, allowing CSR to check calculations until the fix is deployed. Ganesh can assist with checks if needed.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+Generated at Fri May 08 20:56:19 UTC 2026 by Swapnil Patil using Jira 1001.0.0-SNAPSHOT#100291-rev:d8478457c5fa155500daa93bc82897bab1ac835b.
+
+</body>
+</html>

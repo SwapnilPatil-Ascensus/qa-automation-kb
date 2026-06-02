@@ -1,0 +1,60 @@
+You are working in a documentation-only repository. Do not modify application source code. Do not invent project facts that are not provided. Use the project context documents in this repository as the source of truth.
+
+Goal:
+Generate a complete Confluence-ready documentation package for the Mobile Automation Program Hub.
+
+Context:
+This initiative is focused on Mobile Microservices API Automation for UniteMSC. Existing automation currently lives inside application development repositories. The target is to migrate and stabilize useful automation coverage inside the centralized API Automation Framework using Java, Cucumber, Rest Assured, and Maven.
+
+Required parent page:
+Mobile Automation Program Hub
+
+Required sections under the hub:
+1. Mobile Microservices Automation
+2. Mobile UI Automation
+
+For now, fully document Mobile Microservices Automation. Add Mobile UI Automation as a placeholder/future workstream only.
+
+Create Confluence-ready markdown files under a folder named docs/mobile-automation-program-hub/ with this hierarchy:
+
+01-program-overview-and-plan-of-action.md
+02-current-state-assessment.md
+03-target-framework-architecture.md
+04-migration-strategy.md
+05-unite-enrollment-migration-tracker.md
+06-unite-mobile1-migration-tracker.md
+07-unite-mobile2-migration-tracker.md
+08-regression-suite-and-pipeline-strategy.md
+09-raid-log.md
+10-weekly-status-and-leadership-updates.md
+11-technical-reference-and-cursor-execution-notes.md
+
+Formatting requirements:
+- Use clear H1/H2/H3 headings.
+- Use tables for scope, risks, roadmap, milestones, and trackers.
+- Keep leadership sections concise and action-focused.
+- Keep technical sections practical and implementation-focused.
+- Include placeholders marked as TBD where repo-specific details are not yet known.
+- Include a short executive summary on each major page.
+- Avoid long dense paragraphs.
+
+Content requirements:
+- Explain objective, business need, current state, target state, execution strategy, scope, out-of-scope items, priority order, and success criteria.
+- Document that Unite Enrollment is the pilot module, followed by Unite Mobile 1 and Unite Mobile 2.
+- Document that BrowserStack/Appium mobile UI automation is a separate future workstream and not the current priority.
+- Include resource-based estimate: Unite Enrollment 3-5 weeks, Mobile 1 2-4 weeks, Mobile 2 2-4 weeks, total 7-13 weeks with risk-adjusted 10-14 weeks.
+- Include RAID log with assumptions, risks, dependencies, and decisions.
+- Include migration decision matrix for scenarios: migrate, update, consolidate, parameterize, exclude, park for review.
+- Include suite strategy: smoke, lightweight, regression, debug.
+- Include example tags: @mobile, @uniteEnrollment, @uniteMobile1, @uniteMobile2, @smoke, @regression, @debug.
+- Include example Maven command placeholders, but mark them as examples until validated.
+- Include sign-off criteria.
+
+Deliverables:
+1. Create all markdown pages.
+2. Create docs/mobile-automation-program-hub/README.md with the page hierarchy and copy order for Confluence.
+3. Create docs/mobile-automation-program-hub/status-summary.md with a one-page leadership summary.
+4. Create docs/mobile-automation-program-hub/action-items.md with immediate next steps.
+
+Quality bar:
+The output should be clean enough to copy directly into Confluence with minimal editing.

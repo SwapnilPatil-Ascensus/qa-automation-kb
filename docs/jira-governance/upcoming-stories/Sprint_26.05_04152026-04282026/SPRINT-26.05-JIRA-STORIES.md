@@ -240,6 +240,70 @@ Scenario: Tagging
 
 ---
 
+### S2605-05a — Story (pipeline + nightly validation)
+
+**Summary:** `[V2][Ugift][Pipeline] Nightly suite — wire CSR+Member Ugift jobs + T+1 validation`
+
+**Issue type:** Story  
+**Assignee:** Swapnil Patil
+
+**Description**
+
+- **As a** regression / pipeline owner  
+- **I want** merged **Ugift** work from **[QA-626](https://ascensuscollegesavings.atlassian.net/browse/QA-626)** (CSR) and **[QA-627](https://ascensuscollegesavings.atlassian.net/browse/QA-627)** (Member) included in a **defined suite** and the **nightly** job  
+- **So that** we get a **trusted overnight signal** and **next-day** triage closes the release loop (not only “tests merged”)
+
+**Scope**
+
+- **Suite creation / tagging:** Single suite or tag group that runs Ugift CSR + Member scenarios delivered in QA-626/627; document path in `prime-test-automation` (**Needs Validation**).  
+- **Pipeline:** Add suite to nightly Jenkins/GitLab configuration (exact job: **Needs Validation**); link parent/child jobs if split.  
+- **T+1 validation:** Morning after each nightly — review report, triage failures, file defects, note flakes; repeat for **at least two** consecutive good-faith nights post-merge.  
+- **Optional relation:** **[QA-728](https://ascensuscollegesavings.atlassian.net/browse/QA-728)** if the program tracks broad flaky hardening separately; this Story does **not** replace that scope unless explicitly combined.
+
+**Acceptance Criteria (GWT)**
+
+```gherkin
+Scenario: Suite exists for nightly
+  Given QA-626 and QA-627 merges contain Ugift tests
+  When the suite or tag list for nightly is defined
+  Then a single documented entry point runs CSR and Member Ugift coverage agreed with the team
+
+Scenario: Nightly includes Ugift
+  Given the nightly job configuration is updated
+  When the scheduled nightly runs
+  Then Ugift tests execute and appear in the published report
+
+Scenario: Next-day validation
+  Given a nightly run completed overnight
+  When the assignee reviews results the next business day
+  Then each failure is categorized with evidence and follow-up logged
+
+Scenario: Two-night burn-in
+  Given Ugift is newly on nightly
+  When two consecutive nightly cycles complete
+  Then both cycles have a triage comment on this Story with job URLs
+```
+
+**Definition of Done**
+
+- [ ] Suite / tags documented + MR merged for automation if needed.  
+- [ ] Nightly pipeline MR merged; **first** overnight run URL attached.  
+- [ ] **Two** T+1 triage notes on Story (or linked doc).  
+- [ ] QA-626/627 (or team channel) notified that nightly includes Ugift.
+
+**Dependencies / Risks**
+
+- **Blocked by** QA-626 + QA-627 (or explicit subset agreement).  
+- **Risk:** Nightly duration increase — coordinate shard/parallelism with platform owners.
+
+**Labels:** `automation`, `v2`, `ugift`, `jenkins`, `gitlab`, `regression`, `dailyrun`, `qa-board-view`
+
+**Component/Area:** `v2`, `ugift`, `pipeline`, `jenkins`
+
+**KB copy-paste pack:** [STORY-QA-Ugift-nightly-suite-pipeline-T1-validation.md](STORY-QA-Ugift-nightly-suite-pipeline-T1-validation.md)
+
+---
+
 ## B) Sunil Godiyal
 
 ### S2605-06 — Spike
