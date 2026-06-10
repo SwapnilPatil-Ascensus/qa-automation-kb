@@ -1,0 +1,10 @@
+V2 modules failing for almost for all the plans
+
+report per module
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-contributions/
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-csr-acct-maintenance/
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-enrollments/
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-investment-options/
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-transfers/
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-ugift/
+http://seleniumhubnt2:8081/reports/unite/20260605/stage1-web-registration/

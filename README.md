@@ -33,12 +33,13 @@ qa-automation-kb/
 
 ## Quick Start
 
-1. **New to the team?** → Start with `05_ONBOARDING/ONBOARDING_7_DAY.md`
-2. **Need a template?** → Check `06_TEMPLATES/`
-3. **Looking for standards?** → See `02_STANDARDS/`
-4. **Understanding architecture?** → Read `03_ARCHITECTURE/OVERVIEW.md`
-5. **Bug report or leadership update?** → `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and prompts in `00_SYSTEM/PROMPTS.md`
-6. **Jira / Scrum / Kanban governance?** → `docs/jira-governance/README.md`
+1. **Cursor / AI session (start here after context loss)?** → `docs/agent-context/README.md`
+2. **New to the team?** → Start with `05_ONBOARDING/ONBOARDING_7_DAY.md`
+3. **Need a template?** → Check `06_TEMPLATES/`
+4. **Looking for standards?** → See `02_STANDARDS/`
+5. **Understanding architecture?** → Read `03_ARCHITECTURE/OVERVIEW.md`
+6. **Bug report or leadership update?** → `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and prompts in `00_SYSTEM/PROMPTS.md`
+7. **Jira / Scrum / Kanban governance?** → `docs/jira-governance/README.md`
 
 ## Maintenance
 

@@ -1,0 +1,66 @@
+BUG: https://ascensuscollegesavings.atlassian.net/browse/QA-1016
+Title: [V3][Enrollment] - Regression - Database Validation Failure & Account Creation Error in Stage1
+
+Description:
+Database results are empty exception observed during validation step and account creation failing with system error on final page in Stage1 (All Plans)
+
+
+Environment
+
+Application: Unite – Universal Enrollment
+
+Environment: Stage1
+
+Module: Front Office – Enrollment
+
+Browser: Chrome (Local execution)
+
+Execution Type: Local Regression + Manual
+
+
+
+Error Details (UI / API)
+
+UI shows: "There are some connectivity issues"
+
+Network response (from /accounts API):
+{
+
+  "status": 500,
+
+  "message": "System error.",
+
+  "requestId": "015b5f85-4dd2-4673-8878-49428c59fd14"
+
+}
+
+
+
+Steps to Reproduce
+
+Navigate to Universal Enrollment (Stage1)
+
+Complete enrollment flow:
+
+Individual Account
+
+BYO option
+
+Check Contribution
+
+Proceed to final Review (Account Open) page
+
+Accept Terms & Conditions
+
+Click on Open Accoun
+
+Screenshot for manual and locally run ref:
+
+
+
+New York's 529 College Savings Program - Review
+
+Exception:
+core.exception.ValidationException: Database results are empty
+	at core.backoffice.ValidationStepDefs.validateDatabaseToTestCase(ValidationStepDefs.java:75)
+	at ✽.validate database to test case Enrollment of Individual Account with BYO and Check Contribution Option(file:///builds/ascensus-gs/products/depot/qa-automation/prime-test-automation/unite/unite-universal-enrollment/src/test/resources/testsuite/frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature:137)

@@ -17,6 +17,8 @@ JIRA-ready epics, stories, tasks, and spikes for the UniteMSC API automation mig
 | [04-unite-mobile2-stories.md](./04-unite-mobile2-stories.md) | MOB-AUTO-401 – 406 |
 | [05-cross-cutting-framework-and-pipeline-stories.md](./05-cross-cutting-framework-and-pipeline-stories.md) | MOB-AUTO-101 – 106, 501 – 505, 601 – 604 |
 | [06-story-import-table.csv](./06-story-import-table.csv) | Bulk import (40 rows: 6 epics + 34 work items) |
+| **[07-sprint-kickoff-stories-by-assignee.md](./07-sprint-kickoff-stories-by-assignee.md)** | **This sprint — 9 stories (QA Lead + Venkatesh + Dinesh)** |
+| **[08-sprint-kickoff-import.csv](./08-sprint-kickoff-import.csv)** | **Bulk import for sprint kickoff (9 rows)** |
 
 ---
 
@@ -37,6 +39,7 @@ JIRA-ready epics, stories, tasks, and spikes for the UniteMSC API automation mig
 
 | Sprint focus | Stories | Notes |
 |--------------|---------|-------|
+| **This sprint (kickoff)** | **S26-001 – S26-009** | See [07-sprint-kickoff-stories-by-assignee.md](./07-sprint-kickoff-stories-by-assignee.md) — framework + Postman + discovery by assignee |
 | **Sprint 0** | 104, 105, 101, 102, 103 | Unblock decisions and design |
 | **Sprint 1** | 201, 202, 203, 204, 205 | Enrollment discovery + scaffold |
 | **Sprint 2** | 206, 207, 208, 501 | Vertical slice + smoke + Maven validation |
