@@ -31,6 +31,8 @@
 | [MEMCONTRIB-04-…](MEMCONTRIB-04-test-data-qtest-documentation.md) | Data, qTest, docs, flaky baseline | **3** |
 | [SPIKE-Prime-V2-…](SPIKE-Prime-V2-Flaky-Regression-Unite-Reports.md) | Spike: Unite daily reports (seleniumhubnt2) — flaky & concurrent failures | **`[NEED_INPUT]`** |
 | [STORY-QA-494-…](STORY-QA-494-Transfer-Regression-CSR-Member.md) | **QA-494** Transfer regression execution & stabilization (CSR + Member) — desc, AC, sub-tasks | **5** (per Jira) |
+| [STORY-QA-CST469-…](STORY-QA-CST469-AKD-TVG-microsecond-timestamp-manual-validation.md) | **CST-469** AKD TVG — microsecond timestamp manual validation with Naomi | **3–5** |
+| [STORY-QA-CST584-…](STORY-QA-CST584-AKD-TVG-trigger-batch-validation.md) | **CST-584** AKD TVG trigger fix — Control-M batch + 04/26 rerun validation with Naomi | **5** |
 
 **Spike note:** Jira description should use **only** `http://seleniumhubnt2:8081/reports/unite/?C=M;O=D`, qTest, and Confluence — not private source-control URLs. Sample report shape: attach or reference **`QAAuto_UniteRegression_Daily_Report_20260402_125923.PDF`** from team storage (same naming pattern as daily exports).
 

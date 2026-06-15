@@ -18,7 +18,8 @@ JIRA-ready epics, stories, tasks, and spikes for the UniteMSC API automation mig
 | [05-cross-cutting-framework-and-pipeline-stories.md](./05-cross-cutting-framework-and-pipeline-stories.md) | MOB-AUTO-101 – 106, 501 – 505, 601 – 604 |
 | [06-story-import-table.csv](./06-story-import-table.csv) | Bulk import (40 rows: 6 epics + 34 work items) |
 | **[07-sprint-kickoff-stories-by-assignee.md](./07-sprint-kickoff-stories-by-assignee.md)** | **This sprint — 9 stories (QA Lead + Venkatesh + Dinesh)** |
-| **[08-sprint-kickoff-import.csv](./08-sprint-kickoff-import.csv)** | **Bulk import for sprint kickoff (9 rows)** |
+| **[09-qa796-verified-backlog-stories.md](./09-qa796-verified-backlog-stories.md)** | **QA-796 backlog from verified context (NEW-001..038)** |
+| **[10-qa796-verified-backlog-import.csv](./10-qa796-verified-backlog-import.csv)** | **Bulk import — QA-796 new stories (do not recreate QA-1053 etc.)** |
 
 ---
 
