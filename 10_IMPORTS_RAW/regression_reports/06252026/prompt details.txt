@@ -1,0 +1,24 @@
+refer to C:\Workspace\GitLab\qa-automation-kb\10_IMPORTS_RAW\regression_reports\06252026
+I need to send this issue over to Galaxy team & Pradha to look at it & fix it
+
+go through those bugs & discussion with sri mounica
+
+here is what dinesh reported to me
+
+Swapnil Patil
+Can you please check once ? I have created a 3 bug from Regression
+Seems there were newly update in UI and due to this our regression is failing but functionality wise no issue. 
+ 
+Please let me know if i need to add or change any thing in Bug ticket
+https://ascensuscollegesavings.atlassian.net/browse/QA-1235
+https://ascensuscollegesavings.atlassian.net/browse/QA-1236
+https://ascensuscollegesavings.atlassian.net/browse/QA-1242
+
+
+come up with email draft i can send it to them make it concise nicely arranged & formatted one with simple context
+
+this is leadership guidance to send this over to you guys as you r the owner of these modules or area
+
+not sure which team is causing this issue though
+
+QA need any help on this please contact my team (Dinesh Kumar)

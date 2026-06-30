@@ -1,0 +1,77 @@
+# DB tables used per mobile2 feature
+
+features:
+  mobiledashboard:
+    account:
+      - tu_acct
+      - tu_fund_balance
+      - tu_member
+      - ta_login
+      - ta_app_context
+    profile:
+      - tu_person
+      - tu_bene
+    metadata:
+      - tu_traunch
+      - tu_funds
+      - tu_fund_price
+      - tu_traunch_fund
+    transaction:
+      - tjet_acct_txn
+      - tjet_traunch_txn_type
+      - tu_acct_txn
+      - tu_txn_type
+      - tenv_acct_txn
+    external:
+      - on_prem_account
+      - on_prem_banks
+
+  mobilebank:
+    bank: [tu_bank, tu_bnk_instruction]
+    account: [tu_acct, tu_member]
+    metadata: [tu_traunch]
+    external: [on_prem_account]
+
+  mobilecontribution:
+    account: [tu_acct, tu_member]
+    profile: [tu_person, tu_bene]
+    metadata: [tu_traunch, tu_funds]
+    bank: [tu_bank, tu_bnk_instruction]
+    transaction: [tjet_acct_txn, tu_acct_txn, tenv_acct_txn]
+
+  mobileactivity:
+    transaction: [tjet_acct_txn, tu_acct_txn, tenv_acct_txn, tu_stmt_bal]
+    account: [tu_acct]
+    metadata: [tu_traunch, tu_funds]
+    bank: [tu_bank]
+    external: [content_cms]
+
+  mobileTransactionHistory:
+    transaction: [tjet_acct_txn, tu_acct_txn, tenv_acct_txn]
+
+  mobilePerformance:
+    account: [tu_acct, tu_fund_balance]
+    transaction: [tu_stmt_bal]
+
+  mobileBalanceTrend:
+    account: [tu_acct]
+    transaction: [tu_stmt_bal]
+
+  mobileStackup:
+    metadata: [tu_traunch_stackup, tu_traunch]
+
+  mobileugift:
+    account: [tu_acct]
+
+  investment:
+    account: [tu_acct, tu_fund_balance]
+    metadata: [tu_funds, tu_fund_price, tu_traunch]
+
+  planselection:
+    metadata: [tu_traunch, tu_traunch_metadata]
+
+  contentservice:
+    external: [content_cms]
+
+  e2e:
+    inherits: all

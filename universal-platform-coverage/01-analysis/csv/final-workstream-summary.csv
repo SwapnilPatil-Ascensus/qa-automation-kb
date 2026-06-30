@@ -1,0 +1,7 @@
+workstream,aha_id,v2_in_scope_ui,v3_in_scope_ui,adjacent_ui,api_unique_operations,api_test_methods_estimated,api_test_classes,performance_in_scope_jmx_assets,component_tests,confidence,sme_validation_required
+Enrollment,ACS-I-2679,151,303,0,5,103,17,7,0,High,Partial - V2 per-plan expansion unmapped
+IDP / Authentication,ACS-I-2680,27,56,52,4,6,4,6,0,High,Web registration scope (6 V3 + 46 V2 adjacent)
+ABLE - Unite ABLE/CSR,ACS-I-2681,17,0,0,0,0,0,0,0,High,Embedded ABLE in V2 enrollment module not split
+ABLE - Entity Platform,ACS-I-2681,0,6,0,0,0,0,1,0,High,Pipeline enablement
+Angular,ACS-I-2682,0,0,51,0,0,0,0,22,Medium,Contributions/CSR adjacent; lib-ui component tests separate from E2E
+Withdrawal,ACS-I-2690,73,20,12,2,98,9,1,0,High,Transfers adjacent (12 V2)

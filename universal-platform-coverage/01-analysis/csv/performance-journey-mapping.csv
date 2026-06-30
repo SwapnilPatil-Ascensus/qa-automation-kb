@@ -1,0 +1,21 @@
+business_journey,workstream,inclusion_classification,jmx_file,taurus_configuration,workload_model,sla_assertion,scheduling_evidence,rationale,confidence,sme_confirmation_required
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,up-enrollment-submission.jmx,Blazemeter-UE-Local.yaml,API submission,Yes,implemented,Mapped from performance repo inventory,High,No
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,up-enrollment-aws-account-ms.jmx,up-enrollment-aws-account-ms-local.yaml,Account MS load,Yes,implemented,Mapped from performance repo inventory,High,No
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,up-enrollment-validation-ms.jmx,up-enrollment-validation-ms-local.yaml,Validation MS load,Yes,implemented,Mapped from performance repo inventory,High,No
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,up-enrollment-aws-account-ms-submit.jmx,up-enrollment-aws-account-ms-submit-local.yaml,Submit path,Yes,implemented,Mapped from performance repo inventory,High,No
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,up-enrollment-aws-account-ms-snapshot.jmx,up-enrollment-aws-account-ms-snapshot-local.yaml,Snapshot path,Yes,implemented,Mapped from performance repo inventory,High,No
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,up-enrollment-account-ms.jmx,up-enrollment-account-ms-local.yaml,Legacy account MS,Yes,implemented,Mapped from performance repo inventory,Medium,No
+Universal Enrollment,IN_SCOPE_ENROLLMENT,IN_SCOPE_ENROLLMENT,ue_subsequent-aws-account-ms.jmx,ue_subsequent-aws-account-ms.yaml,Subsequent enrollment,Yes,implemented,Mapped from performance repo inventory,Medium,No
+IDP Login,IN_SCOPE_IDP,IN_SCOPE_IDP,idp-login.jmx,idp-login-local.yaml,Member login,Yes,implemented,Mapped from performance repo inventory,High,No
+IDP Login,IN_SCOPE_IDP,IN_SCOPE_IDP,idp-login-resources.jmx,idp-login-resources-local.yaml,Login static resources,Partial,implemented,Mapped from performance repo inventory,Medium,Yes
+IDP Login,IN_SCOPE_IDP,IN_SCOPE_IDP,idp-forgot-username.jmx,idp-forgot-username-local.yaml,Forgot username,Yes,implemented,Mapped from performance repo inventory,High,No
+IDP Login,IN_SCOPE_IDP,IN_SCOPE_IDP,idp-forgot-password.jmx,idp-forgot-password-local.yaml,Forgot password,Yes,implemented,Mapped from performance repo inventory,High,No
+IDP Auth Server,IN_SCOPE_IDP,IN_SCOPE_IDP,auth-server.jmx,auth-server-local.yaml,Auth server load,Yes,implemented,Mapped from performance repo inventory,High,No
+IDP Auth Server,IN_SCOPE_IDP,IN_SCOPE_IDP,authentication-pkce.jmx,authentication-pkce-local.yaml,PKCE flow,Yes,implemented,Mapped from performance repo inventory,High,No
+Withdrawal,IN_SCOPE_WITHDRAWAL,IN_SCOPE_WITHDRAWAL,up-post-withdrawal-ms.jmx,up-post-withdrawal-ms-local.yaml,Withdrawal MS POST,Yes,implemented,Mapped from performance repo inventory,High,No
+ABLE Entity,IN_SCOPE_ABLE,IN_SCOPE_ABLE,entityMS_1.jmx,none,Entity MS enrollment,Partial,implemented,Mapped from performance repo inventory,Medium,Yes
+Account read,ADJACENT_NOT_CONFIRMED,ADJACENT_NOT_CONFIRMED,up-get-aws-account-ms.jmx,up-get-aws-account-ms-local.yaml,GET account,Partial,implemented,Mapped from performance repo inventory,Medium,Yes
+Metadata,ADJACENT_NOT_CONFIRMED,ADJACENT_NOT_CONFIRMED,up-get-metadata-ms.jmx,up-get-metadata-ms-local.yaml,Metadata read,Partial,implemented,Mapped from performance repo inventory,Medium,Yes
+DB prototype enrollment,OUT_OF_SCOPE,OUT_OF_SCOPE,ue_enrollment.jmx,perf-taurus-ue.yaml,Database prototype,No,prototype,Mapped from performance repo inventory,High,No
+DB prototype login,OUT_OF_SCOPE,OUT_OF_SCOPE,tf_member_login.jmx,perf-taurus-tf.yaml,Database prototype,No,prototype,Mapped from performance repo inventory,High,No
+DB prototype CSR,OUT_OF_SCOPE,OUT_OF_SCOPE,csr_search.jmx,TestRun_CSRSearch.yaml,Database prototype,No,prototype,Mapped from performance repo inventory,High,No

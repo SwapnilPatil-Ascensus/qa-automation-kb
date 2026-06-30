@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#QA-1235] [V3][Universal Enrollment] Regression Failed- OHD – “Military I.D. Card” missing in ID Card Type dropdown on Account Identification page</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://ascensuscollegesavings.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [QA-1235]&nbsp;<a href="https://ascensuscollegesavings.atlassian.net/browse/QA-1235">[V3][Universal Enrollment] Regression Failed- OHD – “Military I.D. Card” missing in ID Card Type dropdown on Account Identification page</a>
+            <span class="subText">
+               Created: 25/Jun/26                   &nbsp;Updated: 25/Jun/26
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">NEW</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://ascensuscollegesavings.atlassian.net/secure/BrowseProject.jspa?id=11406">QA Automation</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Components:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f"
+                id="word_reporter_712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Ad83927fa-1ed7-43f2-94b8-4cd6bf64ac3f">
+                    Dinesh Kumar
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                    Unassigned
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-339638-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            None
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://ascensuscollegesavings.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    image-20260625-163137.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://ascensuscollegesavings.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    image-20260625-163151.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+    
+</table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>During execution of <b>feature/UniversalEnrollmentPositiveOhio.feature</b> for OHD plans, while validating the test case <em>“Enrollment of Individual Account with KIS and ABI One-Time Bank Contribution Option and Beneficiary DOB Edit”</em>, an issue is observed on the <b>Account Identification (ID Verification) page</b>.</p>
+
+<p>The <b>“Military I.D. Card”</b> option is <b>not displayed in the ID Card Type dropdown</b>, although it exists in the Test CSV Data.</p>
+
+<hr />
+
+<h3><a name="Environment%3A"></a><b>Environment:</b></h3>
+
+<ul>
+	<li>Stage1</li>
+	<li>Ohio 529 Enrollment application</li>
+	<li>URL: Enrollment → Account Identification page</li>
+</ul>
+
+
+<hr />
+
+<h3><a name="StepstoReproduce%3A"></a><b>Steps to Reproduce:</b></h3>
+
+<ol>
+	<li>Navigate to Ohio 529 enrollment (Stage1)</li>
+	<li>Start Individual Account enrollment flow</li>
+	<li>Proceed with KIS and ABI One-Time Bank Contribution option</li>
+	<li>Navigate to <b>Account Identification page</b></li>
+	<li>Click on <b>ID Card Type dropdown</b></li>
+	<li>Observe available options</li>
+</ol>
+
+
+<hr />
+
+<h3><a name="ActualResult%3A"></a><b>Actual Result:</b></h3>
+
+<ul>
+	<li>Dropdown options displayed:
+	<ul>
+		<li>Driver’s License</li>
+		<li>State Issued I.D. Card</li>
+	</ul>
+	</li>
+	<li>❌ “Military I.D. Card” option is <b>missing</b></li>
+</ul>
+
+
+<hr />
+
+<h3><a name="ExpectedResult%3A"></a><b>Expected Result:</b></h3>
+
+<ul>
+	<li>✅ “Military I.D. Card” should be available in the dropdown, as it is present in CSV file:
+	<ul>
+		<li><tt>AO_IDENTIFICATION_TYPE</tt></li>
+	</ul>
+	</li>
+</ul>
+
+
+<hr />
+
+<h3><a name="Evidence%3A"></a><b>Evidence:</b></h3>
+
+<ul>
+	<li>UI Screenshot: Shows only Driver’s License &amp; State Issed I.D. Card</li>
+	<li>DB Screenshot: Shows multiple entries for “Military I.D. Card”</li>
+</ul>
+
+
+<hr />
+
+<h3><a name="Impact%3A"></a><b>Impact:</b></h3>
+
+<ul>
+	<li>Users cannot select Military ID for identity verification</li>
+	<li>Causes <b>functional gap between UI and Test Data(CSV FILE)</b></li>
+	<li>May impact enrollment completion for applicable users</li>
+</ul>
+
+
+
+
+<p><b>Screenshot:</b><br/>
+In Automation CSV</p>
+
+<p><span class="image-wrap" style=""><img src="https://ascensuscollegesavings.atlassian.net/rest/api/3/attachment/content/101315" alt="image-20260625-163137.png" width="159" style="border: 0px solid black" /></span></p>
+
+
+
+<p>In UI(Actual)</p>
+
+
+<p><span class="image-wrap" style=""><img src="https://ascensuscollegesavings.atlassian.net/rest/api/3/attachment/content/101316" alt="image-20260625-163151.png" width="468" style="border: 0px solid black" /></span></p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+Generated at Thu Jun 25 18:50:59 UTC 2026 by Swapnil Patil using Jira 1001.0.0-SNAPSHOT#100292-rev:78eb2db72f78ef9463e923416f4731ef4f0c8d20.
+
+</body>
+</html>

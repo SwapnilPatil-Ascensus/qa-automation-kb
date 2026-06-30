@@ -1,0 +1,16 @@
+-- ============================================================================
+-- Query: {QUERY_NAME}
+-- Feature: {FEATURE_NAME}
+-- BFF Endpoint: GET /mobile2api/v1/{endpoint}
+-- Downstream API: GET {service}/v1/{path}
+-- Source repo: C:\Workspace\GitLab\MobileAutomation\UniteMSC\unite-{service}\
+-- Source file: {path to Dao.xml or Service.java}
+-- Source method: {method name}
+-- DB tables: {table list}
+-- Parameters: :memberId, :ext, :traunchId, etc.
+-- Returns: columns that map to API JSON fields
+-- Notes: ORM-generated vs explicit SQL, date format, rounding rules
+-- ============================================================================
+-- Bind variables (for validation framework)
+-- :memberId, :ext, :uiiAcctId, :seqPartId, :seqBeneId, :traunchId
+SELECT ...

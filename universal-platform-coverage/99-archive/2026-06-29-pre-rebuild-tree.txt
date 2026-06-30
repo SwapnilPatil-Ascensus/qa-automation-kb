@@ -1,0 +1,140 @@
+03-tools/rebuild_project.py
+up-coverage-metrics-finalization-pack-v2.zip
+up-coverage-metrics-kit.zip
+up-coverage-metrics-kit/output/00-source-inventory.md
+up-coverage-metrics-kit/output/01-domain-mapping.md
+up-coverage-metrics-kit/output/02-coverage-matrix.md
+up-coverage-metrics-kit/output/03-gap-analysis.md
+up-coverage-metrics-kit/output/04-kevin-response-draft.md
+up-coverage-metrics-kit/output/05-review-notes-for-nick.md
+up-coverage-metrics-kit/output/06-cursor-self-audit.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/AHA PDF/ACS-I-2679 Universal Platform Test Automation – Enrollment Domain.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/AHA PDF/ACS-I-2680 Universal Platform Test Automation – IDP Domain.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/AHA PDF/ACS-I-2681 Universal Platform Test Automation – ABLE Domain.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/AHA PDF/ACS-I-2682 Universal Platform Test Automation – Angular Domain.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/AHA PDF/ACS-I-2690 Universal Platform Test Automation - Withdrawal Domain.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/QAAuto_UniteRegression_Daily_Report.PDF
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V2 Jenkins Job extract full output.txt
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files.html
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/collapseall.gif
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/failed.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/format.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/jquery-3.6.0.min.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/jsapi
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/jsapi_compiled_default_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/jsapi_compiled_graphics_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/jsapi_compiled_table_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/jsapi_compiled_ui_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/loader.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/passed.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/table.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/testng-reports.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/testng-reports.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/testng-reports1.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/testng-reports2.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/tooltip.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 UE TestNG reports_files/util.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports.html
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/collapseall.gif
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/failed.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/format.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/jquery-3.6.0.min.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/jsapi
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/jsapi_compiled_default_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/jsapi_compiled_graphics_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/jsapi_compiled_table_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/jsapi_compiled_ui_module.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/loader.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/passed.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/table.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/testng-reports.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/testng-reports.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/testng-reports1.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/testng-reports2.js.download
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/tooltip.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 Unite TestNG reports_files/util.css
+up-coverage-metrics-kit/up-coverage-metrics-kit/Gitlab V2 Job Log/V3 job latest log.txt
+up-coverage-metrics-kit/up-coverage-metrics-kit/README.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/docs/01-solution-plan.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/00-bootstrap-folder-structure.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/01-inventory-scan.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/02-domain-mapping.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/03-coverage-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/04-gap-analysis.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/05-final-report.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/prompts/06-cursor-self-audit.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/templates/domain-coverage-template.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/templates/executive-report-template.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/gitlab/2026-06-26-gitlab-nightly-schedule.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/gitlab/2026-06-29-v3-ue-testng-303.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/gitlab/2026-06-29-v3-unite-idp-testng.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/jenkins/2026-06-26-idp-performance-suite.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/jenkins/2026-06-26-v2-jenkins-build-steps.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/jenkins/2026-06-26-v2-jenkins-suite-summary.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-01.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-02.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-03.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-04.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-05.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-06.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-07.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-08.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-09.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-26-v2-module-report-10.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/00-input-evidence/regression-reports/2026-06-29-v2-qtest-744-testcases.png
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/archive/05-superseded-prior-assessment.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/00-INTERNAL-reconciliation-and-counts.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/07-requirement-traceability-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/08-ui-automation-inventory-internal-with-runs.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/09-api-endpoint-coverage-matrix-internal.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/11-execution-evidence-ledger.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/12-nick-validation-pack.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/14-independent-audit-report.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/15-final-validation-report.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/02-internal-evidence/execution/16-source-and-evidence-index.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/README-NEXT-STEPS.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/00-source-inventory.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/01-domain-mapping.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/02-coverage-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/03-gap-analysis.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/04-kevin-response-draft.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/05-review-notes-for-nick.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/2026-06-26-preliminary-assessment/06-cursor-self-audit.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/archive/README.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/00-deliverable-manifest.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/01-executive-summary.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/02-leadership-coverage-dashboard.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/03-gaps-priorities-and-ownership.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/04-kevin-rajib-email.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/04b-nick-factual-review-email.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/05-universal-platform-automation-assessment.docx
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/05-universal-platform-automation-assessment.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/06-scope-and-methodology.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/07-able-coverage.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/08-ui-automation-inventory.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/09-api-coverage-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/10-performance-coverage-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/13-assumptions-limitations-open-items.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/final/README.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/prompts-v2/DOCX-PDF-QA-PROMPT.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/prompts-v2/INDEPENDENT-RECHECK-PROMPT.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/prompts-v2/MASTER-FINALIZATION-PROMPT.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/api-endpoint-coverage-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/execution-evidence-ledger.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/leadership-one-page.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/ownership-routing-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/performance-coverage-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/requirements-traceability-matrix.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/templates-v2/validation-checklist.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/README.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/build_docx.py
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/cleanup-log.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/normalized-data/api-endpoint-coverage.csv
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/normalized-data/evidence-ledger.csv
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/normalized-data/performance-coverage.csv
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/normalized-data/requirement-traceability.csv
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/qa_scan.py
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/rendered-review/05-assessment-fresh.pdf
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/rendered-review/docx-extracted.txt
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/rendered-review/docx-pdf-qa.md
+up-coverage-metrics-kit/up-coverage-metrics-kit/up-coverage-metrics-finalization-pack-v2/work/source-inventory/00-source-inventory.md

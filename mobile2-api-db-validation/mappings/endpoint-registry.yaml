@@ -1,0 +1,164 @@
+# Mobile2 BFF endpoint registry
+
+base_path: /mobile2api/v1
+
+endpoints:
+  - id: mobilemembers
+    method: GET
+    path: /mobilemembers/{planId}/{username}
+    resource: MobileDashboardResource
+    service: MobileDashboardService
+    gateways: [AccountGateway]
+    sql_repos: [account]
+    auth: acceptance_test_jwt
+
+  - id: mobiledashboard
+    method: GET
+    path: /mobiledashboard
+    resource: MobileDashboardResource
+    service: MobileDashboardService
+    gateways: [AccountGateway, ProfileGateway, MetadataGateway, OnPremAccountGateway]
+    sql_repos: [account, profile, metadata]
+    auth: member_jwt_verified_factors
+    response_type: MobileDashboard
+
+  - id: mobileytdsummary
+    method: GET
+    path: /mobileytdsummary/{ext}
+    resource: MobileDashboardResource
+    service: MobileDashboardService
+    gateways: [AccountGateway, TransactionGateway]
+    sql_repos: [account, transaction]
+    auth: member_jwt_verified_factors
+    response_type: MobileContriSummary
+
+  - id: mobilebanks
+    method: GET
+    path: /mobilebanks
+    resource: MobileBankResource
+    service: MobileBankService
+    gateways: [BankGateway, AccountGateway, MetadataGateway, OnPremAccountGateway]
+    sql_repos: [bank, account, metadata]
+    status: not_started
+
+  - id: mobilebanks_by_id
+    method: GET
+    path: /mobilebanks/{id}
+    resource: MobileBankResource
+    service: MobileBankService
+    gateways: [BankGateway, OnPremAccountGateway]
+    sql_repos: [bank]
+    status: not_started
+
+  - id: mobilecontribution
+    method: GET
+    path: /mobilecontribution
+    resource: MobileContributionResource
+    service: MobileContributionService
+    gateways: [AccountGateway, ProfileGateway, MetadataGateway, BankGateway]
+    sql_repos: [account, profile, metadata, bank]
+    status: not_started
+
+  - id: mobilecontributioncheck
+    method: GET
+    path: /mobilecontributioncheck
+    resource: MobileContributionResource
+    service: MobileContributionService
+    status: not_started
+
+  - id: mobilecontribution_by_ext
+    method: GET
+    path: /mobilecontribution/{ext}/{id}
+    resource: MobileContributionResource
+    service: MobileContributionService
+    status: not_started
+
+  - id: mobileactivity
+    method: GET
+    path: /mobileactivity/{ext}
+    resource: MobileActivityResource
+    service: MobileActivityService
+    gateways: [TransactionGateway, AccountGateway, MetadataGateway, BankGateway, ContentGateway]
+    sql_repos: [transaction, account, metadata, bank]
+    status: not_started
+
+  - id: mobiletransactionhistory
+    method: GET
+    path: /mobiletransactionhistory/{ext}
+    resource: MobileTransactionHistoryResource
+    service: MobileTransactionHistoryService
+    gateways: [TransactionGateway]
+    sql_repos: [transaction]
+    status: not_started
+
+  - id: mobileperformance
+    method: GET
+    path: /mobileperformance/{ext}
+    resource: MobilePerformanceResource
+    service: MobilePerformanceService
+    gateways: [AccountGateway, TransactionGateway]
+    sql_repos: [account, transaction]
+    status: not_started
+
+  - id: mobilebalancetrend
+    method: GET
+    path: /mobilebalancetrend/{ext}
+    resource: MobileBalanceTrendResource
+    service: MobileBalanceTrendService
+    gateways: [AccountGateway, TransactionGateway]
+    sql_repos: [account, transaction]
+    status: not_started
+
+  - id: mobilestackup
+    method: GET
+    path: /mobilestackup/{planId}
+    resource: MobileStackupResource
+    service: MobileStackupService
+    gateways: [MetadataGateway]
+    sql_repos: [metadata]
+    status: not_started
+
+  - id: mobileugift
+    method: GET
+    path: /mobileugift/{ext}
+    resource: MobileUgiftResource
+    service: MobileUgiftService
+    gateways: [AccountGateway]
+    sql_repos: [account]
+    status: not_started
+
+  - id: investments
+    method: GET
+    path: /investments/{ext}
+    resource: InvestmentResource
+    service: InvestmentService
+    gateways: [AccountGateway, MetadataGateway]
+    sql_repos: [account, metadata]
+    status: not_started
+
+  - id: plans
+    method: GET
+    path: /plans
+    resource: PlanSelectionResource
+    service: PlanSelectionService
+    gateways: [MetadataGateway]
+    sql_repos: [metadata]
+    status: not_started
+
+  - id: plans_by_id
+    method: GET
+    path: /plans/{id}
+    resource: PlanSelectionResource
+    service: PlanSelectionService
+    gateways: [MetadataGateway]
+    sql_repos: [metadata]
+    status: not_started
+
+  - id: content
+    method: GET
+    path: /content
+    resource: ContentResource
+    service: ContentService
+    gateways: [ContentGateway]
+    sql_repos: []
+    validation: external_cms_only

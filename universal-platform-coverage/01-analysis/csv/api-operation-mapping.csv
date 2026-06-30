@@ -1,0 +1,19 @@
+service_module,test_class,test_method,http_method,sanitized_endpoint,business_capability,inclusion_classification,aha_workstream,intent,scheduled_status,rationale,confidence,sme_confirmation_required
+API-AUTH-01,jsonapi-auth,GetAccessTokenTest,testGetAccessToken,GET,/services/oauth2/authorize,OAuth authorize,IN_SCOPE_IDP,positive,implemented,High,No
+API-AUTH-02,jsonapi-auth,GetPkceTokenTest,testGetPkceToken,POST,/services/oauth2/token,OAuth token/PKCE,IN_SCOPE_IDP,positive,implemented,High,No
+API-AUTH-03,jsonapi-auth,IntrospectTest,testIntrospect,POST,/services/oauth2/introspect,Token introspection,IN_SCOPE_IDP,positive,implemented,High,No
+API-AUTH-04,jsonapi-auth,UserInfoTest,testUserInfo,GET,/services/userinfo,User info,IN_SCOPE_IDP,positive,implemented,High,No
+API-ACCT-01,jsonapi-aws-accountweb,PostEnrollmentRequestTest,multiple,POST,/accounts/,Enrollment create,IN_SCOPE_ENROLLMENT,positive/negative,implemented,High,No
+API-ACCT-02,jsonapi-aws-accountweb,PutEnrollmentRequestTest,multiple,PUT,/accounts/,Enrollment update,IN_SCOPE_ENROLLMENT,positive/negative,implemented,High,No
+API-ACCT-03,jsonapi-aws-accountweb,GetAccountRequestTest,multiple,GET,/accounts/,Account read,IN_SCOPE_ENROLLMENT,positive/negative,implemented,High,No
+API-ACCT-04,jsonapi-aws-accountweb,DeleteAccountRequestTest,multiple,DELETE,/accounts/,Account delete,IN_SCOPE_ENROLLMENT,positive/negative,implemented,High,No
+API-ACCT-05,jsonapi-aws-accountweb,GetValidationSubBeneEnrollmentRequestTest,multiple,GET,/validation/,Enrollment validation,IN_SCOPE_ENROLLMENT,positive/negative,implemented,High,No
+API-FIN-01,jsonapi-aws-financialweb,PostWithdrawalByBankRequestTest,multiple,POST,/withdrawals/,Withdrawal by bank,IN_SCOPE_WITHDRAWAL,positive/negative,implemented,High,No
+API-FIN-02,jsonapi-aws-financialweb,PostWithdrawalByCheckRequestTest,multiple,POST,/withdrawals/,Withdrawal by check,IN_SCOPE_WITHDRAWAL,positive/negative,implemented,High,No
+API-FIN-03,jsonapi-aws-financialweb,PostExchangeRequestTest,multiple,POST,/financial/,Fund exchange,ADJACENT_NOT_CONFIRMED,positive/negative,implemented,Medium,Yes
+API-META-01,jsonapi-metadataweb,GetPlanRequestTest,multiple,GET,/metadata/,Plan metadata,ADJACENT_NOT_CONFIRMED,reference,implemented,Medium,Yes
+API-META-02,jsonapi-metadataweb,GetUiMetadataRequestTest,multiple,GET,/metadata/,UI metadata,ADJACENT_NOT_CONFIRMED,reference,implemented,Medium,Yes
+API-META-03,jsonapi-metadataweb,GetFundRequestTest,multiple,GET,/metadata/,Fund metadata,ADJACENT_NOT_CONFIRMED,reference,implemented,Medium,Yes
+API-MOBILE-01,mobile2,MobileDashboardRequestTest,multiple,GET,/mobile2api/v1/mobiledashboard,Mobile dashboard,OUT_OF_SCOPE,positive,implemented,High,No
+API-ASTRO-01,jsonapi-astro,EmployerPlansTest,multiple,GET,/employers/plans,FuturePlan employer,OUT_OF_SCOPE,positive,implemented,High,No
+API-ABLE-01,none,none,none,N/A,N/A,No ABLE-specific API automation identified,IN_SCOPE_ABLE,N/A,none,High,No
