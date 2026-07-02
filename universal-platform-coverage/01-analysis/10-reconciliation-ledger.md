@@ -1,63 +1,68 @@
 # Reconciliation Ledger
 
-All leadership numbers must trace to this ledger.
+All leadership numbers trace to this ledger. **Final SME review complete (July 1, 2026).**
 
 ## V2 qTest source population = 744
 
 | Classification | Count | Counting unit |
 |---|---:|---|
-| IN_SCOPE_ENROLLMENT | 151 | executed qTest cases (provisional module map) |
+| IN_SCOPE_ENROLLMENT | 151 | executed qTest cases |
 | IN_SCOPE_IDP | 27 | executed qTest cases |
 | IN_SCOPE_ABLE | 17 | executed qTest cases |
 | IN_SCOPE_WITHDRAWAL | 73 | executed qTest cases |
-| ADJACENT_NOT_CONFIRMED | 196 | executed qTest cases |
-| OUT_OF_SCOPE | 80 | executed qTest cases |
-| UNMAPPED_NEEDS_SME_CONFIRMATION | 200 | executed qTest cases |
+| Legacy / non-UP / out-of-scope | 476 | executed qTest cases |
 | **Total** | **744** | |
 
-**Validated V2 in-scope UI subtotal:** 268 (Enrollment, IDP, ABLE dedicated suite, Withdrawal — four workstreams on V2; excludes adjacent, out-of-scope, unmapped)
+**UP-scoped V2 UI subtotal:** 268 (151 + 27 + 17 + 73)
 
-## V3 UE source = 303
+**Inventory share:** 268 ÷ 744 = **36.0%**
 
-| Classification | Count |
-|---|---:|
-| IN_SCOPE_ENROLLMENT | 303 |
-| **Total** | **303** |
+## V3 source population = 436
 
-## V3 Unite source = 133
-
-| Suite | Count | Classification |
+| Suite / component | Count | In scoped subtotal? |
 |---|---:|---|
-| IDP Login | 56 | IN_SCOPE_IDP |
-| Member Withdrawal | 20 | IN_SCOPE_WITHDRAWAL |
-| IDP Web Registration | 6 | ADJACENT_NOT_CONFIRMED |
-| Contributions | 36 | ADJACENT_NOT_CONFIRMED |
-| CSR Account Maintenance | 15 | ADJACENT_NOT_CONFIRMED |
-| **Total** | **133** | |
+| Universal Enrollment | 303 | Yes |
+| IDP Login | 56 | Yes |
+| Member Withdrawal | 20 | Yes |
+| IDP Web Registration | 6 | No (adjacent) |
+| Contributions | 36 | No (adjacent) |
+| CSR Account Maintenance | 15 | No (adjacent) |
+| **Total nightly source** | **436** | |
 
-**Validated V3 in-scope UI subtotal (nightly):** 379 (303 + 56 + 20)
+**Directly scoped V3 UI subtotal:** 379 (303 + 56 + 20)
 
-## V3 combined source = 436
+**Other / adjacent V3 inventory:** 57 (6 + 36 + 15)
 
-303 + 133 = 436 ✓
+**Inventory share:** 379 ÷ 436 = **86.9%**
 
-## API source inventory
+## Reported separately (not in V3 scoped subtotal of 379)
 
-| Metric | Source total | In-scope subtotal |
-|---|---:|---:|
-| Test methods | ~269 | ~207 (enrollment + IDP + withdrawal; **inventory estimate**, method-level export not attached) |
-| Unique operations | 27 (all modules) | 11 (enrollment + IDP + withdrawal) |
-| Test classes | 38 | 30 |
+| Component | Count | Notes |
+|---|---:|---|
+| ABLE Entity Platform | 6 scenarios | MIB, NEB, VAB — implemented V3 |
+| Angular lib-ui | 22 component tests | Not E2E business-flow coverage |
 
-## Performance source inventory
+## API (in-scope)
 
-| Metric | Source total | In-scope subtotal |
-|---|---:|---:|
-| JMX scripts | 36 | 15 assets mapped to in-scope workstreams (counting unit: JMX file per journey asset; deduplication not fully verified) |
-| Taurus configs | 53 | ~15 (deduplicated) |
+| Workstream | Unique operations |
+|---|---:|
+| Enrollment | 5 |
+| IDP | 4 |
+| Withdrawal | 2 |
+| **Total** | **11** |
 
-## Limitations
+## Performance (in-scope business journeys)
 
-- V2 row-level qTest IDs unavailable — module provisional mapping
-- V2/V3 overlap not reconciled to unique business requirements
-- Adjacent suites excluded from leadership scoped totals pending SME
+| Workstream | Journeys |
+|---|---:|
+| Enrollment | 7 |
+| IDP | 6 |
+| Withdrawal | 1 |
+| ABLE Entity | 1 |
+| **Total** | **15** |
+
+## Measurement boundaries
+
+- V2 and V3 are not summed (different frameworks; functional overlap may exist).
+- Inventory-share percentages are not requirement-level coverage.
+- No ABLE-specific API automation identified in reviewed repositories.

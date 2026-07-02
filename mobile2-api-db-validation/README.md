@@ -35,6 +35,8 @@ C:\Workspace\GitLab\MobileAutomation\UniteMSC\
 
 REST base path: `GET /mobile2api/v1/{endpoint}`
 
+**Performance testing (separate track):** see [docs/01-shared/unite-msc-performance-testing-tracker.md](docs/01-shared/unite-msc-performance-testing-tracker.md) for Jenkins jobs, JMeter/Taurus scripts, and sprint status (Priti — Unite MSC perf).
+
 ## Module layout
 
 ```
