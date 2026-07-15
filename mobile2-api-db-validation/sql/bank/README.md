@@ -4,6 +4,7 @@
 |---------|--------|------|
 | `get-banks-by-member.sql` | `BankTableDao.xml` | explicit |
 | `get-bank-instructions-by-ext.sql` | `BankInstructionTableDao.xml` | explicit |
+| `get-mobile-contribution-fixture-by-user.sql` | Auth row + recurring instruction → `{ext}` + API path `{id}` (`seq_pay_id`) | explicit |
 
 ## Repo paths
 
