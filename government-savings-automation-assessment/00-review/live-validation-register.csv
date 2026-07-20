@@ -1,0 +1,7 @@
+id,system,commit_or_ref,path,finding,status,timestamp
+LV-001,api-test-automation,cee0de9,mobile/mobile2,25 endpoints inventoried,Verified,2026-07-20T18:15:00-04:00
+LV-002,api-test-automation,cee0de9,mobile/mobile1,6 endpoints implemented,Verified,2026-07-20T18:15:00-04:00
+LV-003,GitLab API,N/A,pipelines,401 expired token,Blocked,2026-07-20T18:15:00-04:00
+LV-004,prime-test-automation,93f8628,.gitlab-ci.yml,scheduled_regression_job present,Verified,2026-07-20T18:15:00-04:00
+LV-005,Jira MCP,N/A,user-jira,Discovery error,Blocked,2026-07-20T18:15:00-04:00
+LV-006,qTest REST,N/A,env,QTEST_* not set,Blocked,2026-07-20T18:15:00-04:00

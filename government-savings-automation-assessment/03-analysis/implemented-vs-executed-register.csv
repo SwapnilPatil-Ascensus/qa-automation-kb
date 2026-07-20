@@ -1,0 +1,7 @@
+platform,metric_layer,numerator,denominator,result,commit,evidence,status
+M2,Implemented automation,24,25,96.0%,cee0de9,Code + suite XML,Verified
+M2,Executed (last sign-off),22,25,88.0%,7ccaf46,Sign-off package,Stale
+M2,Master regression scope,20,25,80.0%,cee0de9,Stable endpoints in master; destructive excluded,Verified
+M1,Implemented automation,6,27,22.2%,cee0de9,6 test classes on main,Verified
+M1,Executed verified,1,27,3.7%,baseline,Auth session historical,Verified
+M1,Scheduled CI,0,27,0%,cee0de9,No GitLab job,Verified

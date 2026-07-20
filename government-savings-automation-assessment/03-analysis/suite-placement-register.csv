@@ -1,0 +1,26 @@
+endpoint_id,path,test_class,suite_placement,execution_model
+M2-01,/mobile2api/v1/mobileactivity/{ext},MobileActivityRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-02,/mobile2api/v1/mobiletransactionhistory/{ext},MobileTransactionHistoryRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-03,/mobile2api/v1/investments/{ext},MobileInvestmentRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-04,/mobile2api/v1/mobilebanks,MobileBanksRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-05,/mobile2api/v1/mobilebanks/{id},MobileBanksRequestTest,"module_regression,master_regression",Implemented — master regression (added post 7ccaf46)
+M2-06,/mobile2api/v1/mobilebanks,MobileBanksRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-07,/mobile2api/v1/mobilebanks,MobileBanksRequestTest,smoke,Implemented — smoke/targeted only (destructive)
+M2-08,/mobile2api/v1/mobilebanks,MobileBanksRequestTest,smoke,Implemented — smoke/targeted only (destructive)
+M2-09,/mobile2api/v1/content,MobileContentRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-10,/mobile2api/v1/plans,MobilePlansRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-11,/mobile2api/v1/plans/{id},MobilePlansRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-12,/mobile2api/v1/mobilecontribution,MobileContributionRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-13,/mobile2api/v1/mobilecontributioncheck,MobileContributionCheckRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-14,/mobile2api/v1/mobilecontribution/{ext}/{id},MobileContributionDetailRequestTest,"module_regression,master_regression",Implemented — master regression; Stage1 partial
+M2-15,/mobile2api/v1/mobilecontribution,MobileContributionPostRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-16,/mobile2api/v1/mobilecontribution/{ext}/{id},MobileContributionPutRequestTest,"module_regression,master_regression",Implemented — master regression; Stage1 partial
+M2-17,/mobile2api/v1/mobilecontribution/{ext}/{id},MobileContributionDeleteRequestTest,module_regression,Implemented — module/targeted only (destructive)
+M2-18,/mobile2api/v1/mobiledashboard,MobileDashboardRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-19,/mobile2api/v1/mobileytdsummary/{ext},MobileYtdSummaryRequestTest,"module_regression,smoke,master_regression",Implemented — master + smoke (added post 7ccaf46)
+M2-20,/mobile2api/v1/mobilemembers/{planId}/{username},MobileMembersRequestTest,smoke,Harness test — excluded from business automation numerator
+M2-21,/mobile2api/v1/mobilebalancetrend/{ext},MobileBalanceTrendRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-22,/mobile2api/v1/mobileperformance/{ext},MobilePerformanceRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-23,/mobile2api/v1/mobilestackup/{planId},MobileStackupRequestTest,"module_regression,master_regression",Implemented — master regression (duplicate class in 2 packages)
+M2-24,/mobile2api/v1/mobileugift,MobileUgiftRequestTest,"module_regression,master_regression",Implemented — master regression
+M2-25,/mobile2api/v1/mobileugift/{ext},MobileUgiftRequestTest,"module_regression,master_regression",Implemented — master regression
