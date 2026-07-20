@@ -15,5 +15,8 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# Read-only coverage intelligence audits (generated locally; do not commit)
+coverage-intelligence-assessment/
+
 # Pre-rebuild snapshot has recursive nested copies (Windows MAX_PATH); manifest/tree kept at 99-archive root
 universal-platform-coverage/99-archive/2026-06-29-pre-rebuild-snapshot/
