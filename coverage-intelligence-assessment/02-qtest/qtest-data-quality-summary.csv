@@ -1,0 +1,14 @@
+finding_id,category,status,evidence,severity,remediation,evidence_source
+DQ-001,Duplicate test cases,Unknown,Cannot verify without live qTest API,High,Export full test-case list with PID + name hash,Blocked
+DQ-002,Obsolete/inactive tests,Inferred,744 qTest population includes executed PRIME cycle; obsolete filter unknown,Medium,Filter by last execution + automation flag,Stale export only
+DQ-003,Tests without requirement linkage,Inferred,Module mapping provisional; Jira links not in export,High,qTest requirement link field audit,Blocked
+DQ-004,Automated without repo mapping,Inferred,qTest marks automation via PRIME cycle + TR-* run IDs in reports,Medium,Crosswalk qTest automation field to suite XML,Partial
+DQ-005,Repo tests without qTest mapping,Verified,Mobile2 API tests have no qTest IDs in source @ cee0de9,High,Add stable automation IDs in code + qTest,Code scan
+DQ-006,Manual counted as automation,Inferred,UP assessment excluded manual cases from automation %,Medium,Enforce automation status field in qTest,Methodology
+DQ-007,Not executed recently,Stale,qTest export dated 2026-06-29; freshness >21 days,High,Refresh qTest execution export,Stale
+DQ-008,Multiple versions same scenario,Inferred,179-case PRIME expansion unmapped — possible param variants,Medium,SME review of PRIME expansion bucket,UP ledger
+DQ-009,Missing business-area classification,Verified,Module-level only; 179 UNMAPPED_NEEDS_SME_CONFIRMATION,High,Custom field or tag standard,v2-row-level-mapping.csv
+DQ-010,Missing endpoint/service identifiers,Verified,qTest V2 UI cases not endpoint-keyed,High,Not applicable for UI; use for API catalog separately,Scope distinction
+DQ-011,Stale Jira links,Unknown,Cannot verify without Jira API,High,Jira-qTest link export,Blocked
+DQ-012,Stale owners,Unknown,Owner field not in available export,Medium,qTest owner + modified date report,Blocked
+DQ-013,Unclear regression designation,Inferred,PRIME cycle used as nightly regression proxy,Medium,Define approved regression suite IDs in qTest,UP methodology

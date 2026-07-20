@@ -1,0 +1,7 @@
+unmatched_id,system,record,reason,status,remediation
+U-001,Jira scope,ACS-I-2682 Angular,No qTest module in UP 744 map,Inferred,Add scope rule or map to Angular tests
+U-002,qTest,179 PRIME expansion,No Jenkins module breakdown,Inferred,SME allocate to workstreams
+U-003,Repository,92 api-test-automation tests,No qTest IDs in source,Verified,Automation ID standard
+U-004,Repository,Mobile2 20 classes,No scheduled pipeline,Verified,QA-1405
+U-005,Pipeline,Universal API modules,No GitLab schedule,Verified,Expand CI schedule
+U-006,qTest,744 V2 population,V3 GitLab uses TestNG not qTest,Verified,Separate denominators per framework

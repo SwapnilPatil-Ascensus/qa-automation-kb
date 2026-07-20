@@ -1,0 +1,7 @@
+mapping_id,identifier_type,source_value,target_type,target_value,match_status,confidence,notes,evidence
+ID-001,Jira issue key,ACS-I-2679,qTest module,PROVISIONAL-MOD-01,Inferred,Medium,Module aggregate 151 cases,SME confirmed UP scope
+ID-002,Jenkins target,stage1-enrollments-regression,Suite XML,stage1-enrollments.xml,Verified,High,Jenkins log extract,unite-test-automation
+ID-003,qTest cycle,PRIME CL-*,Test run,TR-*,Inferred,Medium,PDF report format,Spike docs reference
+ID-004,Endpoint,GET /mobile/dashboard,Test class,MobileDashboardRequestTest,Verified,High,Code @ cee0de9,api-test-automation
+ID-005,Maven profile,stage1-unite-regression-master,Pipeline job,scheduled_regression_job,Verified,High,prime-test-automation CI,GitLab
+ID-006,qTest case ID,Row-level,Repository test,N/A,Unknown,Low,Not exported,Blocked without qTest API

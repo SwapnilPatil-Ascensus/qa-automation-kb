@@ -1,0 +1,15 @@
+asset_id,name,repository,path,framework,count_unit,count,classification,ci_integration,gate_type,status,evidence_date,notes
+T-001,V3 UE regression,prime-test-automation,unite/unite-universal-enrollment,TestNG,303,1,Active recently executed,GitLab scheduled_regression_job,Hard scheduled gate,Verified,2026-07-20,UP ledger
+T-002,V3 Unite master,prime-test-automation,unite/unite,TestNG,133,1,Active recently executed,GitLab scheduled_regression_job,Hard scheduled gate,Verified,2026-07-20,UP ledger 379 scoped
+T-003,Metadataweb API,api-test-automation,jsonapi-metadataweb,TestNG,13 suites,1,Active recently executed,scheduled_metadataweb_stage1,Hard scheduled gate,Verified,2026-07-20,gitlab-ci.yml
+T-004,Mobile2 API master,api-test-automation,mobile/mobile2,TestNG,20 classes 24 endpoints,1,Active manually executed,None scheduled,Unverified CI,Verified code,2026-07-20,QA-1405 pending
+T-005,Mobile1 API,api-test-automation,mobile/mobile1,TestNG,6 classes,1,Active manually executed,None,Unverified CI,Verified,2026-07-20,6/27 endpoints
+T-006,V2 UI PRIME,unite-test-automation,unite/testsuite,Cucumber,2176 scenarios,1,Active manually executed,Jenkins Ant inferred,Soft/manual,Inferred,2026-07-20,qTest 744 executed subset
+T-007,V2 backoffice,unite-test-automation,backoffice,Cucumber,1077,1,Active manually executed,Ant daily target,Soft/manual,Inferred,2026-07-20,Not on V3 schedule
+T-008,ASTRO UI,astro-test-automation,astro/testsuite,Cucumber,1236,1,Active manually executed,Jenkins refresh only,Unverified,Inferred,2026-07-20,No nightly GitLab
+T-009,UP IDP perf,performance-test-automation,universal-platform/idp,JMeter/Taurus,6+,1,Integrated scheduled regression,AGSUP_IDP_REGRESSION_SUITE,Perf not functional gate,Inferred,2026-07-02,KB tracker
+T-010,MSC service BDD,UniteMSC,*/src/test/resources/features,Cucumber,112 aggregate,14,Integrated deployment validation,Per-repo GitLab,Build/test gate,Verified,2026-07-20,Not BFF acceptance
+T-011,Universal API modules,api-test-automation,universal/*,TestNG,38 classes,1,Code exists unverified schedule,None,Unverified CI,Verified code,2026-07-20,Manual only
+T-012,Mobile2 banks smoke,api-test-automation,banks-smoke-testng.xml,TestNG,2,1,Disabled from master by design,Smoke manual,Informational,Verified,2026-07-20,Excluded from master
+T-013,GitHub Mobile2 Nexus,api-test-automation,documented only,N/A,0,1,Planned,None,Planned,Planned,2026-07-20,No workflow file
+T-014,COPACS,N/A,N/A,N/A,0,0,Unknown,None,None,Unknown,2026-07-20,No repo identified

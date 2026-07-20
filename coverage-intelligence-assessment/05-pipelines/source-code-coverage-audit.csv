@@ -1,0 +1,8 @@
+repository,repo_type,coverage_generated,test_type_generating,tooling,report_uploaded,visible_in_platform,minimum_threshold,decrease_blocks_approval,failure_blocks_merge_deploy,branch_coverage,report_current,integration_tests_included,status,evidence
+unite-mobile2,Application microservice,Yes,Unit + Cucumber,Jacoco maven plugin 0.8.5,CI report stage,GitLab job artifacts,No threshold verified,No,No merge block on coverage %,Unknown,Unknown,Service tests only,Inferred,pom.xml + .gitlab-ci.yml
+unite-mobile1,Application microservice,Yes,Unit + Cucumber,Jacoco in pom,CI report stage,GitLab,No threshold,No,No,Unknown,Unknown,Service tests,Inferred,pom.xml
+api-test-automation,QA automation repo,No,N/A,No JaCoCo on test code,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Black-box tests,Verified,Repo scan — QA not app coverage
+prime-test-automation,QA automation repo,No,N/A,No app source coverage,N/A,N/A,N/A,N/A,N/A,N/A,N/A,UI tests,Verified,Repo scan
+prime-test-automation/jsonapi libs,Test libraries,Partial,Unit,Jacoco refs in pom,Local/CI unknown,Unknown,Unknown,No,No,Unknown,Unknown,Library unit tests,Inferred,jsonapi-core pom hits
+UniteMSC aggregate,14 services,Yes,Service unit,Jacoco + RUN_SONARQUBE:false,Template,Not published to Sonar,No GS-wide threshold,No,Build fail on test not coverage,Unknown,Unknown,Unit/service,Verified,CI variables
+Government Savings QA pipelines,Regression pipelines,No,N/A,No coverage_report in GitLab CI reviewed,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Business test pass % only,Verified,gitlab-ci.yml review

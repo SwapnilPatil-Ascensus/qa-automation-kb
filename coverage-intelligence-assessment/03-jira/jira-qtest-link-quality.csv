@@ -1,0 +1,7 @@
+jira_key,domain,link_status,jira_evidence,qtest_reference,match_method,gap,freshness,remediation
+ACS-I-2679,Enrollment,Inferred,qTest module map,PROVISIONAL-MOD-01,Module-level only,No row-level qTest ID,Stale,Refresh qTest export + Jira link API
+ACS-I-2680,IDP Login,Inferred,qTest module map,PROVISIONAL-MOD-02,Module-level only,No row-level qTest ID,Stale,Same
+ACS-I-2681,ABLE,Inferred,qTest module map,PROVISIONAL-MOD-04,Module-level only,No row-level qTest ID,Stale,Same
+ACS-I-2690,Withdrawal,Inferred,qTest module map,PROVISIONAL-MOD-03,Module-level only,No row-level qTest ID,Stale,Same
+QA-1405,Mobile 2 GitLab nightly,Inferred,Jira story in KB,N/A,Pipeline spec only,No qTest link verified,Planned,Link story to qTest cycle on implementation
+QA-1313,Mobile 1 owner/profile,Verified,Git commit message,N/A,Code only,No qTest link in commit,Verified,Add traceability on close

@@ -1,0 +1,6 @@
+record_id,jira_key,qtest_ref,qtest_count,repo_test,suite_profile,pipeline_job,latest_execution,source_code_coverage,match_status,match_method,confidence,data_freshness,remediation
+R-001,ACS-I-2679,PROVISIONAL-MOD-01,151 qTest cases,stage1-enrollments.xml,stage1-enrollments-regression,Jenkins inferred,Stale/unknown,N/A,Partial,Module map,Medium,2026-06-29,Refresh qTest row IDs
+R-002,N/A,N/A,N/A,MobileDashboardRequestTest,N/A,Manual/local,Unknown,N/A,Unmatched,Endpoint class only,High,2026-07-20,Add qTest + Jira links
+R-003,N/A,V3 TestNG 379,N/A,prime UE+Unite tests,scheduled_regression_job,GitLab,Unknown live,N/A,Partial,UP ledger not qTest,High,2026-07-01,V3 not qTest-keyed
+R-004,QA-1405,Planned,N/A,mobile2 master suite,Planned GitLab job,None,N/A,N/A,Planned,Story to pipeline,High,Planned,Implement + link
+R-005,ACS-I-2680,PROVISIONAL-MOD-02,27 cases,stage1-web-login.xml,Jenkins,Stale,N/A,Partial,Module map,Medium,2026-06-29,SME verified IDP scope

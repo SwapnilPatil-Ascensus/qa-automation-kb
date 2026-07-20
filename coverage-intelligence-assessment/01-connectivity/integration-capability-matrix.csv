@@ -1,0 +1,18 @@
+System,Access method,Configured,Authentication type,Read access verified,Available objects,Permission limitations,Rate or pagination limitations,Data freshness,Recommended extraction method,Status,Evidence
+Atlassian Jira/Confluence MCP,Cursor MCP user-jira,Yes (config present),MCP session,No,N/A,Tool discovery error; mcp_auth timeout,Unknown,Stale/unknown,Jira REST API after credential fix,Blocked,GetMcpTools 2026-07-20; mcp_auth timeout
+qTest MCP,Cursor MCP,No,N/A,No,N/A,No qTest MCP server registered,N/A,N/A,qTest REST API v3,Not configured,MCP catalog 2026-07-20 — no qTest server
+qTest REST API,HTTPS + bearer token,No,API token (env),No,N/A,"QTEST_BASE_URL, QTEST_API_TOKEN, QTEST_PROJECT_ID not set",Unknown,Unknown,Scheduled Python collector,Not configured,Env scan 2026-07-20
+GitLab MCP,Cursor MCP user-gitlab,Yes,MCP session,No,N/A,Server error at discovery,Unknown,Unknown,GitLab REST API / glab CLI,Blocked,GetMcpTools 2026-07-20
+GitLab REST API,HTTPS PRIVATE-TOKEN,Partial,GITLAB_TOKEN env,No,N/A,401 Unauthorized on /api/v4/user,Rate limits per GitLab.com,Unknown,glab or REST after valid token,Blocked,Invoke-RestMethod 2026-07-20
+GitHub MCP,Cursor MCP user-git,Yes,MCP session,No,N/A,Server error at discovery,Unknown,Unknown,gh CLI if configured,Blocked,GetMcpTools 2026-07-20
+GitHub CLI,gh,No,N/A,No,N/A,gh not installed,N/A,N/A,Install gh + token for Actions evidence,Not configured,Shell which gh 2026-07-20
+Jenkins API,HTTP/CLI,No,N/A,No,N/A,No API URL or token in env,N/A,Unknown,Exported job configs / console logs,Partial,KB exports in universal-platform-coverage/00-input-evidence
+SonarQube,HTTP API,No,SONAR_TOKEN not set,No,N/A,RUN_SONARQUBE: false on UniteMSC CI,N/A,Unknown,Sonar API after access,Not configured,unite-mobile1/.gitlab-ci.yml; env scan
+Nexus,HTTP,No,NEXUS_URL not set,No,N/A,Referenced in POMs only,N/A,Unknown,Artifact metadata export,Not configured,unite-mobile2/pom.xml distributionManagement
+Local qTest/Jenkins exports,Filesystem,Yes,N/A,Yes (read-only),qTest PDF 744 cases; Jenkins logs,Row-level qTest IDs not exported,N/A,2026-06-29 qTest snapshot,Reuse as historical evidence,Partial,universal-platform-coverage/00-input-evidence/v2-qtest-jenkins/
+Python coverage utilities,Local scripts,Yes,N/A,Yes,UP rebuild; GS deliverables generator,Read-only,N/A,2026-07-20,Extend existing Python collectors,Available,universal-platform-coverage/03-tools/; government-savings-automation-assessment/tools/
+GS coverage KB (prior assessment),Filesystem,Yes,N/A,Yes,Repo/pipeline inventories,No live system query,N/A,2026-07-20,Baseline for this audit,Available,government-savings-automation-assessment/
+Brave Search MCP,Cursor MCP,Yes,MCP,Yes,Web search,Public web only,API limits,Live,Supplemental research,Available,GetMcpTools ready
+Snyk MCP,Cursor MCP,Yes,MCP,Yes,Security scans,Not coverage scope,N/A,Live,Dependency security only,Available,GetMcpTools ready
+1Password MCP,Cursor MCP,Yes,MCP,No,N/A,Server error at discovery,N/A,Unknown,Credential retrieval if fixed,Blocked,GetMcpTools 2026-07-20
+Slack MCP,Cursor MCP,Yes,MCP,No,N/A,Server error,N/A,Unknown,Notifications only,Blocked,GetMcpTools 2026-07-20

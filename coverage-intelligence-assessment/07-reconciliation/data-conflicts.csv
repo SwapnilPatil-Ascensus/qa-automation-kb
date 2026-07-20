@@ -1,0 +1,5 @@
+conflict_id,domain,value_a,value_b,status,resolution,evidence
+C-001,Metric definition,Leadership '80% covered',Multiple incompatible metrics exist,Verified,Never combine without formula,Use separate A–E metrics
+C-002,Mobile2 coverage,88% leadership Jul 14 vs 100% Jul 20,Denominator/coverage definition changed,Verified,Superseded by code review,Use 24/24 in-scope endpoints
+C-003,V2 execution,qTest 744 executed vs Jenkins 508 subset,Different counting units,Verified,Document subset relationship,UP reconciliation ledger
+C-004,GitLab schedule,KB schedule #3961313 vs live unverified,No API access,Unknown,Live-verify schedule,DevOps screenshot
