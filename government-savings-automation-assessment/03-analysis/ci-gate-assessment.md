@@ -9,8 +9,8 @@
 
 | Platform | GS-related recurring jobs verified | Hard gates | Informational / manual |
 |----------|-----------------------------------|------------|------------------------|
-| **GitLab** | 2 families: V3 UI nightly + metadataweb API nightly | Yes — test failure exits non-zero | `prepare`, manual Stage5 smoke |
-| **GitHub Actions** | **None implemented** in reviewed repos | N/A | Nexus workflow documented only |
+| **GitLab** | 2 families: V3 UI nightly + metadataweb API nightly | Scheduled hard-fail on run | `prepare`, manual Stage5 smoke |
+| **GitHub Actions** | Mobile 2 Dashboard vertical slice (external) | Deployment validation | Module expansion in progress |
 | **Jenkins** | IDP perf suite scheduled; V2/Astro via Ant references | TBD — functional UI gate not confirmed | MSC perf manual; TB refresh jobs |
 
 ---
@@ -27,7 +27,7 @@
 | **Technology** | Selenium + Cucumber/TestNG |
 | **Scope** | V3 Universal Enrollment + Unite core (IDP login, contributions, withdrawals, CSR, etc.) |
 | **Failure behavior** | `set +e` tracks failures; **exit 1** if either Maven phase fails |
-| **Gate status** | **Hard gate** on scheduled run |
+| **Gate status** | **Scheduled regression — hard-fail on run** (not verified MR/deployment gate) |
 | **Artifacts** | JUnit from both surefire directories |
 | **Evidence** | `prime-test-automation/.gitlab-ci.yml` L23–80 |
 | **Schedule** | KB references pipeline schedule #3961313 — **live schedule not re-verified in this pass** |
@@ -68,11 +68,11 @@
 
 | Finding | Evidence |
 |---------|----------|
-| No `.github/workflows/` in `api-test-automation` | Directory absent |
+| No `.github/workflows/` in `api-test-automation` clone | Directory absent in audited repo |
 | Mobile 2 Nexus + Dashboard vertical slice | Documented in `17-MOBILE2-NEXUS-GITHUB-ACTIONS-PIPELINE.md` |
-| **Conclusion** | **Planned / documented — not verified as active CI gate** |
-
-**Leadership message:** GitHub Actions may support deployment validation in other org repos; **not evidenced as operational GS regression gate** in reviewed automation repositories.
+| **Dashboard slice validated with Chaitanya** | Leadership pack 2026-07-17; Nexus publish/consume flow |
+| Workflow repository | **Not available in this audit clone** — externally validated |
+| **Conclusion** | **Deployment validation path exists** — separate from GitLab nightly regression; module expansion in progress |
 
 ---
 
@@ -94,10 +94,11 @@
 
 | Classification | Examples |
 |----------------|----------|
-| **Hard gate — scheduled regression** | V3 GitLab nightly; metadataweb Stage1 nightly |
+| **Hard gate — scheduled regression** | V3 GitLab nightly; metadataweb Stage1 nightly (fail job on error) |
+| **Deployment validation** | GHA Mobile 2 Dashboard slice (external) |
 | **Hard gate — build/deploy** | UniteMSC service pipelines; accountowner Angular build |
 | **Soft / manual** | Stage5 smoke (manual GitLab); MSC perf Jenkins; V2 Ant targets |
-| **Planned** | Mobile 2 GitLab nightly (QA-1405); GitHub Nexus Mobile2 workflow |
+| **Planned** | Mobile 2 GitLab nightly (QA-1405); GHA module suite expansion |
 | **None identified** | COPACS; full GS API nightly across all universal modules |
 
 ---

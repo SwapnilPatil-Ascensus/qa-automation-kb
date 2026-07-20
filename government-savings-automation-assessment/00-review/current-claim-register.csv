@@ -1,0 +1,16 @@
+claim_id,claim_text,location,metric_type,numerator,denominator,formula,as_of_date,evidence,verification_status,confidence,action_required
+CL-001,V3 UI inventory share 86.9%,leadership-summary,M-Business,379,436,379/436,2026-07-01,UP reconciliation ledger,Verified,High,None
+CL-002,V2 UP inventory share 36.0%,leadership-summary,M-Business,268,744,268/744,2026-06-29,qTest PRIME export,Verified,High,Refresh qTest export
+CL-003,Mobile 2 100% (24/24),prior matrix/docx,M-Business,24,24,24/24,2026-07-20,Code scan,Rejected,High,Replaced — see CL-004 CL-005
+CL-004,Mobile 2 verified 88% (22/25),leadership baseline,M-Business,22,25,22/25,2026-07-14,17-mobile2-api-automation-signoff.md,Verified,High,Retain as leadership baseline
+CL-005,Mobile 2 projected 96% (24/25) pending sign-off,matrix,M-Business,24,25,24/25,2026-07-20,cee0de9 YTD+banks GET,Pending verification,Medium,QC4/Stage1 rerun + matrix refresh
+CL-006,Mobile 1 22.2% verified,prior matrix,M-Business,6,27,6/27,2026-07-20,Code scan,Rejected,High,Split verified vs pending
+CL-007,Mobile 1 verified 3.7% (1/27),leadership baseline,M-Business,1,27,1/27,2026-07-09,03-document-postman-coverage-matrix.md,Verified,High,Retain until 5 endpoints evidenced
+CL-008,Mobile 1 implemented 6/27 pending evidence,matrix,M-Business,6,27,6/27,2026-07-20,cee0de9 five new test classes,Pending verification,Medium,Sprint evidence + workbook mapping
+CL-009,GitHub Actions not implemented,prior summary,M-CI,N/A,N/A,N/A,2026-07-20,No workflow in api-test-automation,Rejected,Medium,Externally validated Dashboard slice
+CL-010,GHA Dashboard slice validated,corrected summary,M-CI,1,1,slice validated,2026-07,17-NEXUS-GITHUB doc + leadership pack,Verified external,Medium,Locate workflow repo for audit
+CL-011,V3 GitLab hard merge gate,prior ci-gate,M-Gate,N/A,N/A,N/A,2026-07-20,gitlab-ci.yml schedules only,Rejected,High,Reclassify scheduled hard-fail
+CL-012,V3 scheduled regression hard-fail on run,corrected ci-gate,M-Gate,1,1,exit 1 on fail,2026-07-20,prime-test-automation/.gitlab-ci.yml,Verified,High,None
+CL-013,No GS-wide coverage %,all leadership docs,M-Enterprise,N/A,N/A,N/A,2026-07-20,Governance rule,Verified,High,Do not publish blended %
+CL-014,JaCoCo on UniteMSC services,source-code audit,M-SourceCode,N/A,N/A,generated not gated,2026-07-20,unite-mobile1 pom,Verified,Medium,Sonar disabled
+CL-015,Mobile 2 GitLab nightly absent,ci-gate,M-CI,0,1,0 scheduled,2026-07-20,No job in gitlab-ci.yml,Verified,High,QA-1405

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Generate GS Automation Assessment XLSX and leadership DOCX from CSV sources."""
+"""Generate and validate GS assessment XLSX, DOCX, PDF from CSV sources."""
 
 from __future__ import annotations
 
 import csv
-from datetime import date
+import re
+import sys
 from pathlib import Path
 
 try:
     from openpyxl import Workbook
-    from openpyxl.styles import Alignment, Font, PatternFill, Border, Side
+    from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils import get_column_letter
-    from openpyxl.chart import BarChart, Reference
 except ImportError:
     raise SystemExit("Install openpyxl: pip install openpyxl")
 
@@ -21,32 +21,41 @@ try:
     from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.oxml import OxmlElement
     from docx.oxml.ns import qn
-    from docx.shared import Inches, Pt, RGBColor, Cm
+    from docx.shared import Cm, Pt, RGBColor
 except ImportError:
     raise SystemExit("Install python-docx: pip install python-docx")
 
 ROOT = Path(__file__).resolve().parent.parent
+METRICS_CSV = ROOT / "03-analysis" / "verified-metrics-register.csv"
 MATRIX_CSV = ROOT / "03-analysis" / "government-savings-coverage-matrix.csv"
+CLAIMS_CSV = ROOT / "00-review" / "current-claim-register.csv"
+PIPE_CSV = ROOT / "01-inventory" / "pipeline-job-inventory.csv"
+EVIDENCE_CSV = ROOT / "04-leadership" / "evidence-register.csv" if (ROOT / "04-leadership" / "evidence-register.csv").exists() else None
 XLSX_OUT = ROOT / "03-analysis" / "government-savings-coverage-matrix.xlsx"
 DOCX_OUT = ROOT / "04-leadership" / "Government-Savings-Automation-Coverage-Assessment.docx"
+PDF_OUT = ROOT / "04-leadership" / "Government-Savings-Automation-Coverage-Assessment.pdf"
+REVIEW_DOCX = ROOT / "04-leadership" / "Government-Savings-Automation-Assessment-Review-Findings.docx"
+REVIEW_PDF = ROOT / "04-leadership" / "Government-Savings-Automation-Assessment-Review-Findings.pdf"
 REPORT_DATE = "July 20, 2026"
+REBUILD_DATE = "July 21, 2026"
 
 NAVY = "003057"
 TEAL = "007A8C"
 WHITE = "FFFFFF"
-LIGHT_BG = "E8EEF4"
-GREEN_BG = "E8F5E9"
-AMBER_BG = "FFF3E0"
+GREEN_BG = "C8E6C9"
+AMBER_BG = "FFE0B2"
+RED_BG = "FFCDD2"
+GRAY_BG = "ECEFF1"
 
 
 def load_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     with path.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
-        return reader.fieldnames or [], rows
+        return list(reader.fieldnames or []), rows
 
 
-def style_header_row(ws, row_idx: int = 1) -> None:
+def style_header(ws, row_idx: int = 1) -> None:
     fill = PatternFill("solid", fgColor=NAVY)
     font = Font(bold=True, color=WHITE, name="Calibri", size=10)
     for cell in ws[row_idx]:
@@ -55,147 +64,127 @@ def style_header_row(ws, row_idx: int = 1) -> None:
         cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 
-def auto_width(ws, max_width: int = 45) -> None:
+def auto_width(ws, max_width: int = 48) -> None:
     for col in ws.columns:
         letter = get_column_letter(col[0].column)
         length = max(len(str(c.value or "")) for c in col)
         ws.column_dimensions[letter].width = min(max(length + 2, 10), max_width)
 
 
-def build_xlsx() -> None:
+def validate_metrics(metrics: list[dict[str, str]]) -> None:
+    errors: list[str] = []
+    for m in metrics:
+        status = m.get("verification_status", "")
+        safe = m.get("leadership_safe", "")
+        if status == "Pending verification" and safe == "Yes":
+            errors.append(f"{m['metric_id']}: pending metric marked leadership_safe=Yes")
+        if status == "Verified" and "Rejected" in m.get("notes", ""):
+            errors.append(f"{m['metric_id']}: inconsistent status/notes")
+    rejected = []
+    if CLAIMS_CSV.exists():
+        _, claims = load_csv(CLAIMS_CSV)
+        rejected = [c["claim_id"] for c in claims if c.get("verification_status") == "Rejected"]
+    if errors:
+        raise SystemExit("Validation failed:\n" + "\n".join(errors))
+    if rejected:
+        print(f"Validation note: {len(rejected)} rejected claims in register — ensure docs do not cite them.")
+
+
+def status_fill(status: str) -> PatternFill:
+    s = status.lower()
+    if "verified" in s and "pending" not in s and "external" not in s:
+        return PatternFill("solid", fgColor=GREEN_BG)
+    if "pending" in s or "partial" in s or "conditional" in s:
+        return PatternFill("solid", fgColor=AMBER_BG)
+    if "rejected" in s or "gap" in s or "unknown" in s:
+        return PatternFill("solid", fgColor=RED_BG)
+    return PatternFill("solid", fgColor=GRAY_BG)
+
+
+def build_xlsx(metrics: list[dict[str, str]]) -> None:
     wb = Workbook()
+    ws = wb.active
+    ws.title = "Executive Summary"
+    ws["A1"] = "Government Savings — Automation Coverage (Rebuilt)"
+    ws["A1"].font = Font(bold=True, size=14, color=NAVY)
+    ws["A2"] = f"Assessment: {REPORT_DATE}  |  Rebuild validation: {REBUILD_DATE}"
+    ws.merge_cells("A1:G1")
 
-    # --- Summary sheet ---
-    ws_sum = wb.active
-    ws_sum.title = "Executive Summary"
-    ws_sum["A1"] = "Government Savings — Automation Coverage Summary"
-    ws_sum["A1"].font = Font(bold=True, size=14, color=NAVY, name="Calibri")
-    ws_sum["A2"] = f"Assessment date: {REPORT_DATE}"
-    ws_sum.merge_cells("A1:F1")
-
-    summary_headers = ["GS Area", "Verified Metric", "Percentage / Count", "Denominator Basis", "CI Scheduled", "Confidence"]
-    summary_data = [
-        ["V3 / Universal Experience UI", "Scoped TestNG methods", "86.9%", "379 of 436 nightly methods", "Yes — GitLab", "High"],
-        ["V2 UI (UP-scoped)", "qTest cases mapped", "36.0%", "268 of 744 qTest population", "Jenkins/Ant — TBD", "High"],
-        ["Mobile 2 MSC API", "Documented endpoints", "100%", "24 of 24 in-scope endpoints", "No — QA-1405 pending", "High"],
-        ["Mobile 1 MSC API", "Documented endpoints", "22.2%", "6 of 27 endpoints", "No", "High"],
-        ["UP API operations", "HTTP operations", "11 ops", "UP operation catalog", "Partial — metadataweb", "High"],
-        ["UP performance", "Business journeys", "15 journeys", "UP perf ledger", "IDP scheduled", "Medium"],
-        ["V2 full UI corpus", "Cucumber scenarios", "2,176 scenarios", "TBD business scope", "TBD", "Medium"],
-        ["ASTRO UI", "Cucumber scenarios", "1,236 scenarios", "TBD", "Not verified", "Medium"],
-        ["COPACS", "—", "TBD", "Not identified", "No", "Low"],
-    ]
+    headers = ["Metric ID", "Label", "Result", "Numerator", "Denominator", "Status", "Leadership safe"]
     start = 4
-    for c, h in enumerate(summary_headers, 1):
-        ws_sum.cell(row=start, column=c, value=h)
-    style_header_row(ws_sum, start)
-    for r, row in enumerate(summary_data, start + 1):
-        for c, val in enumerate(row, 1):
-            cell = ws_sum.cell(row=r, column=c, value=val)
-            cell.alignment = Alignment(wrap_text=True, vertical="top")
-            if c == 3 and "%" in str(val):
-                cell.fill = PatternFill("solid", fgColor=GREEN_BG if float(val.strip("%")) >= 80 else AMBER_BG)
-
-    # Chart
-    chart_row = start + len(summary_data) + 3
-    ws_sum.cell(row=chart_row, column=1, value="Verified % (where applicable)")
-    pct_rows = [
-        ("V3 UI inventory", 86.9),
-        ("V2 UP inventory", 36.0),
-        ("Mobile 2 API", 100.0),
-        ("Mobile 1 API", 22.2),
-    ]
-    for i, (label, pct) in enumerate(pct_rows, chart_row + 1):
-        ws_sum.cell(row=i, column=1, value=label)
-        ws_sum.cell(row=i, column=2, value=pct)
-
-    chart = BarChart()
-    chart.type = "col"
-    chart.title = "Verified Coverage Metrics (%)"
-    chart.y_axis.title = "Percent"
-    chart.x_axis.title = "Area"
-    data = Reference(ws_sum, min_col=2, min_row=chart_row + 1, max_row=chart_row + len(pct_rows))
-    cats = Reference(ws_sum, min_col=1, min_row=chart_row + 1, max_row=chart_row + len(pct_rows))
-    chart.add_data(data, titles_from_data=False)
-    chart.set_categories(cats)
-    chart.height = 10
-    chart.width = 18
-    ws_sum.add_chart(chart, f"D{chart_row}")
-
-    auto_width(ws_sum)
-
-    # --- Full matrix sheet ---
-    headers, rows = load_csv(MATRIX_CSV)
-    ws = wb.create_sheet("Coverage Matrix")
     for c, h in enumerate(headers, 1):
-        ws.cell(row=1, column=c, value=h)
-    style_header_row(ws, 1)
-    thin = Side(style="thin", color="CCCCCC")
-    border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    for r, row in enumerate(rows, 2):
-        for c, h in enumerate(headers, 1):
-            cell = ws.cell(row=r, column=c, value=row.get(h, ""))
+        ws.cell(row=start, column=c, value=h)
+    style_header(ws, start)
+
+    leadership_rows = [m for m in metrics if m.get("leadership_safe") in ("Yes", "Conditional")]
+    for r, m in enumerate(leadership_rows, start + 1):
+        vals = [
+            m["metric_id"], m["label"], m["formula"], m["numerator"], m["denominator"],
+            m["verification_status"], m["leadership_safe"],
+        ]
+        for c, v in enumerate(vals, 1):
+            cell = ws.cell(row=r, column=c, value=v)
             cell.alignment = Alignment(wrap_text=True, vertical="top")
-            cell.border = border
-    ws.freeze_panes = "A2"
-    ws.auto_filter.ref = f"A1:{get_column_letter(len(headers))}{len(rows)+1}"
+            if c == 6:
+                cell.fill = status_fill(m["verification_status"])
+    ws.freeze_panes = f"A{start + 1}"
     auto_width(ws)
 
-    # --- CI Gates sheet ---
-    pipe_csv = ROOT / "01-inventory" / "pipeline-job-inventory.csv"
-    ph, pr = load_csv(pipe_csv)
-    ws_ci = wb.create_sheet("CI Pipeline Jobs")
-    for c, h in enumerate(ph, 1):
-        ws_ci.cell(row=1, column=c, value=h)
-    style_header_row(ws_ci, 1)
-    for r, row in enumerate(pr, 2):
-        for c, h in enumerate(ph, 1):
-            ws_ci.cell(row=r, column=c, value=row.get(h, "")).alignment = Alignment(wrap_text=True)
-    auto_width(ws_ci)
+    if MATRIX_CSV.exists():
+        mh, mr = load_csv(MATRIX_CSV)
+        ws_m = wb.create_sheet("Coverage Matrix")
+        for c, h in enumerate(mh, 1):
+            ws_m.cell(row=1, column=c, value=h)
+        style_header(ws_m, 1)
+        for r, row in enumerate(mr, 2):
+            for c, h in enumerate(mh, 1):
+                ws_m.cell(row=r, column=c, value=row.get(h, "")).alignment = Alignment(wrap_text=True)
+        ws_m.freeze_panes = "A2"
+        ws_m.auto_filter.ref = f"A1:{get_column_letter(len(mh))}{len(mr)+1}"
+        auto_width(ws_m)
 
-    # --- Categories pivot ---
-    ws_cat = wb.create_sheet("By Category")
-    ws_cat.append(["Automation Type", "Areas Count", "Avg Verified % (where numeric)"])
-    style_header_row(ws_cat, 1)
-    type_counts: dict[str, list[float]] = {}
-    for row in rows:
-        at = row.get("automation_type", "Unknown")
-        pct = row.get("verified_pct", "")
-        type_counts.setdefault(at, [])
-        if pct and pct.endswith("%"):
-            try:
-                type_counts[at].append(float(pct.replace("%", "")))
-            except ValueError:
-                pass
-    for at, pcts in sorted(type_counts.items()):
-        avg = round(sum(pcts) / len(pcts), 1) if pcts else "TBD"
-        ws_cat.append([at, len([r for r in rows if r.get("automation_type") == at]), f"{avg}%" if isinstance(avg, float) else avg])
-    auto_width(ws_cat)
+    if PIPE_CSV.exists():
+        ph, pr = load_csv(PIPE_CSV)
+        ws_p = wb.create_sheet("CI Jobs Gates")
+        for c, h in enumerate(ph, 1):
+            ws_p.cell(row=1, column=c, value=h)
+        style_header(ws_p, 1)
+        for r, row in enumerate(pr, 2):
+            for c, h in enumerate(ph, 1):
+                ws_p.cell(row=r, column=c, value=row.get(h, "")).alignment = Alignment(wrap_text=True)
+        auto_width(ws_p)
+
+    _, claims = load_csv(CLAIMS_CSV)
+    unresolved = [c for c in claims if c.get("verification_status") in ("Rejected", "Pending verification", "Unknown")]
+    ws_u = wb.create_sheet("Unresolved Verification")
+    uh = ["claim_id", "claim_text", "verification_status", "action_required"]
+    for c, h in enumerate(uh, 1):
+        ws_u.cell(row=1, column=c, value=h)
+    style_header(ws_u, 1)
+    for r, row in enumerate(unresolved, 2):
+        for c, h in enumerate(uh, 1):
+            cell = ws_u.cell(row=r, column=c, value=row.get(h, ""))
+            cell.alignment = Alignment(wrap_text=True)
+            cell.fill = status_fill(row.get("verification_status", ""))
+    auto_width(ws_u)
 
     wb.save(XLSX_OUT)
     print(f"Wrote {XLSX_OUT}")
 
 
-def set_docx_header_footer(doc: Document) -> None:
+def set_docx_header_footer(doc: Document, title: str) -> None:
     section = doc.sections[0]
-    section.orientation = WD_ORIENT.PORTRAIT
     section.top_margin = Cm(2)
     section.bottom_margin = Cm(2)
-    header = section.header
-    hp = header.paragraphs[0]
-    hp.text = "Ascensus Government Savings  |  Automation Coverage Assessment"
-    hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    hp = section.header.paragraphs[0]
+    hp.text = title
     for run in hp.runs:
         run.font.size = Pt(9)
         run.font.color.rgb = RGBColor(0x00, 0x30, 0x57)
-
-    footer = section.footer
-    fp = footer.paragraphs[0]
+    fp = section.footer.paragraphs[0]
     fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = fp.add_run(f"Confidential — Internal Use  |  {REPORT_DATE}  |  Page ")
+    run = fp.add_run(f"Confidential — Internal Use  |  {REBUILD_DATE}  |  Page ")
     run.font.size = Pt(9)
-    run.font.color.rgb = RGBColor(0x61, 0x61, 0x61)
-    # page number field
     fld = OxmlElement("w:fldSimple")
     fld.set(qn("w:instr"), "PAGE")
     run._r.addnext(fld)
@@ -204,109 +193,138 @@ def set_docx_header_footer(doc: Document) -> None:
 def add_table(doc: Document, headers: list[str], data: list[list[str]]) -> None:
     table = doc.add_table(rows=1, cols=len(headers))
     table.style = "Table Grid"
-    hdr = table.rows[0].cells
     for i, h in enumerate(headers):
-        hdr[i].text = h
-        for p in hdr[i].paragraphs:
+        table.rows[0].cells[i].text = h
+        for p in table.rows[0].cells[i].paragraphs:
             for r in p.runs:
                 r.bold = True
     for row_data in data:
-        row = table.add_row().cells
+        cells = table.add_row().cells
         for i, val in enumerate(row_data):
-            row[i].text = str(val)
+            cells[i].text = str(val)
     doc.add_paragraph()
 
 
-def build_docx() -> None:
+def build_main_docx(metrics: list[dict[str, str]]) -> None:
     doc = Document()
-    set_docx_header_footer(doc)
-
-    title = doc.add_heading("Government Savings", level=0)
-    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    set_docx_header_footer(doc, "Ascensus Government Savings  |  Automation Coverage Assessment")
+    t = doc.add_heading("Government Savings", level=0)
+    t.alignment = WD_ALIGN_PARAGRAPH.CENTER
     sub = doc.add_paragraph("Automation Coverage & CI Integration Assessment")
     sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
     sub.runs[0].bold = True
-    sub.runs[0].font.size = Pt(14)
-    meta = doc.add_paragraph(f"Assessment Date: {REPORT_DATE}\nPrepared for: Ascensus Leadership")
-    meta.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    doc.add_paragraph(f"Assessment Date: {REPORT_DATE}\nRebuild validated: {REBUILD_DATE}").alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     doc.add_heading("Executive Summary", level=1)
     doc.add_paragraph(
-        "Government Savings has meaningful automated coverage across Universal Platform V3 UI (GitLab nightly), "
-        "legacy V2 UI (large Jenkins/Ant corpus), MSC Mobile APIs (100% in-scope endpoint automation in code), "
-        "metadataweb API (GitLab nightly), and performance assets. A single GS-wide coverage percentage is not "
-        "defensible without a unified business denominator. Verified metrics: V3 UI 86.9% inventory share; "
-        "V2 UP-scoped 36.0%; Mobile 2 API 100% (24/24 endpoints); Mobile 1 API 22.2% (6/27 endpoints)."
+        "Government Savings has meaningful automation across V3 UI (GitLab scheduled regression), "
+        "legacy V2 (large Jenkins/Ant corpus), MSC Mobile APIs, metadataweb API nightly, and performance assets. "
+        "A single GS-wide coverage percentage is not defensible without governed denominators. "
+        "Verified platform metrics are reported separately from pending sign-off metrics."
     )
 
-    doc.add_heading("Verified Coverage Snapshot", level=1)
+    doc.add_heading("Verified Metrics (leadership-safe)", level=1)
+    verified = [m for m in metrics if m.get("leadership_safe") == "Yes" and m.get("verification_status") == "Verified"]
     add_table(
         doc,
-        ["Area", "Metric", "Result", "CI Scheduled"],
-        [
-            ["V3 / UE UI", "TestNG inventory share", "86.9% (379/436)", "Yes — GitLab"],
-            ["V2 UI (UP)", "qTest inventory share", "36.0% (268/744)", "Jenkins — TBD"],
-            ["Mobile 2 API", "Endpoint automation", "100% (24/24)", "No — QA-1405"],
-            ["Mobile 1 API", "Endpoint automation", "22.2% (6/27)", "No"],
-            ["UP API", "Operations", "11 automated", "Partial"],
-            ["Performance", "Journeys", "15 in-scope", "IDP scheduled"],
-        ],
+        ["Area", "Metric", "Result", "As of", "Evidence"],
+        [[m["gs_domain"], m["label"], m["formula"], m["as_of_date"], m["evidence_path"][:60]] for m in verified],
+    )
+
+    doc.add_heading("Pending Verification (do not quote as final)", level=1)
+    pending = [m for m in metrics if "Pending" in m.get("verification_status", "")]
+    add_table(
+        doc,
+        ["Area", "Metric", "Projected", "As of", "Dependency"],
+        [[m["gs_domain"], m["label"], m["formula"], m["as_of_date"], m["notes"][:80]] for m in pending],
     )
 
     doc.add_heading("CI/CD Integration", level=1)
     doc.add_paragraph(
-        "GitLab: V3 scheduled_regression_job (hard gate) and api-test-automation metadataweb Stage1 nightly. "
-        "GitHub Actions: Mobile 2 workflow documented but not in repository. "
-        "Jenkins: IDP performance scheduled weekdays; MSC endurance manual; V2/Ant targets exist."
+        "GitLab: V3 scheduled_regression_job and metadataweb Stage1 — scheduled jobs exit non-zero on failure "
+        "(not verified as MR merge gates). GitHub Actions: Mobile 2 Dashboard vertical slice externally validated; "
+        "workflow repository not in audit clone. Jenkins: IDP performance scheduled; V2 UI recurring job not verified. "
+        "Mobile 2 GitLab nightly not created (QA-1405)."
     )
 
-    doc.add_heading("Key Gaps", level=1)
-    gaps = [
-        "Mobile 2 GitLab nightly not implemented (QA-1405)",
-        "Mobile 1 — 21 of 27 endpoints not automated",
-        "ASTRO and full V2 backoffice not on V3 GitLab schedule",
-        "COPACS — no automation identified",
-        "No unified GS denominator for one headline %",
-    ]
-    for g in gaps:
-        doc.add_paragraph(g, style="List Bullet")
-
-    doc.add_heading("Leadership Decisions Required", level=1)
-    decisions = [
-        "Prioritize Mobile 2 GitLab nightly as MSC API gate",
-        "Confirm Mobile 1 sprint scope and target endpoints",
-        "Clarify code coverage vs test automation coverage terminology",
-        "V2/Jenkins vs V3/GitLab consolidation strategy",
-        "COPACS and ASTRO scope ownership",
-    ]
-    for d in decisions:
-        doc.add_paragraph(d, style="List Number")
-
-    doc.add_heading("Roadmap Horizons", level=1)
-    add_table(
-        doc,
-        ["Horizon", "Focus"],
-        [
-            ["0–30 days", "M2 CI nightly, evidence refresh, M1 sprint, CI inventory"],
-            ["30–90 days", "M1 IDP, perf schedule, ASTRO/COPACS scope, qTest mapping"],
-            ["90+ days", "Enrollment API, microservice gates, quarterly GS roadmap"],
-        ],
+    doc.add_heading("Leadership Narrative", level=1)
+    doc.add_paragraph(
+        "The team has meaningful automation across Government Savings. The current limitation is not the ability "
+        "to build automation; it is establishing a consistent, traceable coverage model across Jira, qTest, "
+        "repositories, and CI execution."
     )
-
-    doc.add_paragraph()
-    p = doc.add_paragraph(
-        "Full detail: qa-automation-kb/government-savings-automation-assessment/ "
-        "including Excel matrix and CSV inventories."
-    )
-    p.runs[0].italic = True
 
     doc.save(DOCX_OUT)
     print(f"Wrote {DOCX_OUT}")
 
 
+def build_review_docx() -> None:
+    doc = Document()
+    set_docx_header_footer(doc, "Ascensus GS  |  Assessment Review Findings")
+    doc.add_heading("Government Savings Automation Assessment", level=0)
+    doc.add_paragraph("Review Findings — Rebuild & Verification").alignment = WD_ALIGN_PARAGRAPH.CENTER
+    doc.add_paragraph(f"Review date: {REBUILD_DATE}").alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    doc.add_heading("Purpose", level=1)
+    doc.add_paragraph(
+        "Independent rebuild review of the Government Savings automation coverage assessment prior to "
+        "2026-07-21 leadership distribution. Identifies contradictions, corrects headline metrics, and "
+        "separates verified from pending evidence."
+    )
+
+    doc.add_heading("Executive Findings", level=1)
+    findings = [
+        ("F-01", "High", "Mobile 2 100% claim corrected", "Prior 24/24 superseded leadership 22/25 (88%). Projected 24/25 (96%) pending sign-off."),
+        ("F-02", "High", "Mobile 1 verified baseline retained", "1/27 (3.7%) verified; 6/27 code-implemented pending QC4/Stage1 evidence."),
+        ("F-03", "Medium", "GitHub Actions wording corrected", "Dashboard slice externally validated; not equivalent to absent implementation."),
+        ("F-04", "Medium", "CI gate terminology corrected", "Scheduled hard-fail ≠ merge/deployment gate without pipeline rule evidence."),
+        ("F-05", "High", "No GS-wide %", "Enterprise percentage remains undefined — by design."),
+        ("F-06", "Low", "COPACS scope unknown", "No automation repository identified in reviewed set."),
+    ]
+    add_table(doc, ["ID", "Severity", "Finding", "Resolution"], findings)
+
+    doc.add_heading("Contradictions Resolved", level=1)
+    ledger = ROOT / "00-review" / "contradiction-resolution-ledger.md"
+    if ledger.exists():
+        doc.add_paragraph(ledger.read_text(encoding="utf-8")[:4000])
+
+    doc.add_heading("Recommendations", level=1)
+    recs = [
+        "Retain 22/25 (88%) as verified Mobile 2 leadership baseline until sign-off path completes.",
+        "Complete Mobile 2 GitLab nightly (QA-1405) before claiming execution or gate coverage.",
+        "Report Mobile 1 as 1/27 verified with sprint progress tracked separately.",
+        "Provision read-only qTest/Jira/GitLab API access for automated register.",
+        "Do not regenerate DOCX headline numbers without updating verified-metrics-register.csv.",
+    ]
+    for r in recs:
+        doc.add_paragraph(r, style="List Number")
+
+    doc.add_heading("Artifacts Reviewed", level=1)
+    doc.add_paragraph(str(ROOT))
+
+    doc.save(REVIEW_DOCX)
+    print(f"Wrote {REVIEW_DOCX}")
+
+
+def export_pdf(docx_path: Path, pdf_path: Path) -> str:
+    try:
+        from docx2pdf import convert
+        convert(str(docx_path), str(pdf_path))
+        return f"OK — {pdf_path}"
+    except Exception as exc:
+        return f"SKIPPED — {exc}"
+
+
 def main() -> None:
-    build_xlsx()
-    build_docx()
+    _, metrics = load_csv(METRICS_CSV)
+    validate_metrics(metrics)
+    build_xlsx(metrics)
+    build_main_docx(metrics)
+    build_review_docx()
+    r1 = export_pdf(DOCX_OUT, PDF_OUT)
+    r2 = export_pdf(REVIEW_DOCX, REVIEW_PDF)
+    print(r1)
+    print(r2)
 
 
 if __name__ == "__main__":

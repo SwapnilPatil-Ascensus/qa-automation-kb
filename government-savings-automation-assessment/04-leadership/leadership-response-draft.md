@@ -2,27 +2,34 @@
 
 **To:** Michael Blake, Rajiv Akhter  
 **From:** QA Automation  
-**Re:** Government Savings automation coverage and CI integration  
-**Date:** July 20, 2026
+**Re:** Government Savings automation coverage and CI integration (rebuilt assessment)  
+**Date:** July 21, 2026
 
 ---
 
 Michael, Rajiv —
 
-We completed a repository- and pipeline-backed assessment of Government Savings test automation (July 20, 2026). **Meaningful automated coverage exists and is operational in key areas**, but **Government Savings is not a single uniform coverage percentage**.
+We rebuilt and verified the Government Savings automation assessment ahead of leadership review. **Meaningful automation exists and is operational in key areas**, but **Government Savings is not a single uniform coverage percentage**.
 
-**Verified today:** Unite V3 / Universal Experience runs a **GitLab nightly regression on Stage 1** (379 scoped TestNG methods — **87%** of the nightly inventory population). Universal metadata API has a **scheduled GitLab Stage 1 job**. **Mobile 2 MSC APIs are fully automated in code for all 24 in-scope documented endpoints (100%)**, with OKD and NMD paths; **nightly GitLab scheduling is pending DevOps (QA-1405)**. **Mobile 1 has advanced to 6 of 27 documented endpoints (22%)**, up from one endpoint in early July. Universal Platform UI assessment (SME-reviewed June–July) shows **V2 UP-scoped inventory at 36%** of the qTest population (268 of 744 cases).
+**Verified (leadership-safe):**
+- **V3 / Universal Experience:** GitLab **scheduled** Stage 1 regression — **379 scoped TestNG methods (86.9% inventory share)**.  
+- **Mobile 2 MSC APIs:** **22 of 25 documented endpoints (88.0%)** per **July 14 sign-off evidence** — leadership baseline retained.  
+- **Mobile 1:** **1 of 27 endpoints (3.7%)** verified — session/auth foundation complete.  
+- **Metadataweb API:** GitLab scheduled Stage 1 job.  
+- **GitHub Actions:** Mobile 2 **Dashboard vertical slice validated** with Chaitanya (Nexus archive flow) — **separate from GitLab nightly regression**.
 
-**CI separation:** **GitLab** = V3 UI nightly + metadataweb API nightly (failures block the job). **Jenkins** = performance (IDP suite scheduled weekdays; MSC endurance manual) and legacy V2/Ant targets — **full V2 nightly gate not re-verified in this pass**. **GitHub Actions** for Mobile 2 is **documented but not implemented** in the automation repository.
+**Pending verification (do not quote as final):**
+- Mobile 2 code on `main` may support **24/25 (96%)** after YTD and banks GET-by-id — **requires refreshed QC4/Stage 1 runs and formal sign-off**.  
+- Mobile 1 has **five additional endpoints implemented in code** — sprint evidence in progress; **verified count remains 1/27** until confirmed.
 
-**Gaps:** Mobile API suites not on recurring GitLab schedules; ASTRO and full V2 backoffice not confirmed on the V3 nightly pipeline; COPACS not identified; no org-wide GS denominator for one headline %.
+**CI clarity:** GitLab nightly jobs **fail on test errors when scheduled** — they are **not verified merge/deployment gates**. Mobile 2 **GitLab nightly is not yet created** (QA-1405). Jenkins carries legacy V2/Ant and performance workloads.
 
-**Application code coverage (JaCoCo/Sonar) is not the same metric** — service repos run unit tests; we did not find a QA pipeline enforcing application code-coverage gates.
+**Gaps:** Unified GS denominator; ASTRO recurring execution; COPACS scope; qTest/Jira live reconciliation.
 
-**Next steps:** (1) Complete Mobile 2 GitLab nightly and sign-off evidence, (2) execute Mobile 1 sprint plan, (3) leadership decision on V2/Jenkins vs V3/GitLab consolidation and COPACS/ASTRO scope. Full matrix, Excel, and roadmap are in `qa-automation-kb/government-savings-automation-assessment/`.
+**Next steps:** Mobile 2 sign-off path + GitLab nightly; Mobile 1 sprint; governed coverage register with separate metrics.
 
-Happy to walk through the workbook on a leadership call.
+Full pack: `qa-automation-kb/government-savings-automation-assessment/` including **Review Findings** document.
 
 ---
 
-*~248 words*
+*~280 words*

@@ -1,0 +1,16 @@
+horizon,days,id,outcome,owner,priority,evidence_of_done
+0-30,30,P1-1,Mobile 2 GitLab nightly QA-1405,DevOps+QA,P1,Green scheduled pipeline URL
+0-30,30,P1-2,Mobile 2 QC4+Stage1 sign-off rerun @ cee0de9,QA Automation,P1,40/40 or documented exceptions
+0-30,30,P1-3,Refresh M2 endpoint matrix,QA Automation,P1,Updated 16-mobile2-coverage-matrix.md
+0-30,30,P1-4,Mobile 1 sprint evidence for 5 endpoints,QA Automation,P1,Execution logs + workbook rows
+0-30,30,P1-5,Distribute rebuilt leadership pack,QA Lead,P1,Review Findings DOCX sent
+0-30,30,P1-6,Live-verify GitLab schedules V3+metadataweb,DevOps,P2,Screenshot + last run
+30-60,60,P2-1,qTest read-only API credentials,qTest admin,P1,Collector smoke test
+30-60,60,P2-2,Jira read-only access,Atlassian admin,P1,Scope export
+30-60,60,P2-3,Valid GitLab PAT for pipeline collector,DevOps,P1,API 200 on /user
+30-60,60,P2-4,GHA workflow repo documented in register,DevOps,P2,URL in evidence register
+30-60,60,P2-5,Weekly coverage register job,QA Automation,P2,JSON snapshot cadence
+60-90,60,P3-1,Traceability gate pilot on new MSC tests,QA Automation,P2,MR template enforced
+60-90,60,P3-2,ASTRO/COPACS scope decision,Program,P2,Written in/out scope
+60-90,90,P3-3,Quarterly GS register cadence,QA Lead,P1,First quarterly report
+60-90,90,P3-4,Sonar pilot on 2 UniteMSC services,DevOps,P3,RUN_SONARQUBE policy

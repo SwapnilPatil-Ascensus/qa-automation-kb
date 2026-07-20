@@ -1,0 +1,31 @@
+relative_path,type,purpose,generated_or_source,last_modified_note,dependencies,factual_status,formatting_status,required_action
+README.md,Markdown,Entry point and folder map,Source,2026-07-20,None,Needs update for rebuild,OK,Update dates and metric corrections
+00-review/file-by-file-review.csv,CSV,Phase 1 manifest,Generated,2026-07-20,All folder files,Current,OK,Maintain on each rebuild
+00-review/current-claim-register.csv,CSV,All headline claims tracked,Generated,2026-07-20,verified-metrics-register.csv,Current,OK,Sync with metrics register
+00-review/contradiction-resolution-ledger.md,Markdown,Resolved contradictions,Source,2026-07-20,Prior assessment,Current,OK,Leadership review
+00-review/render-and-visual-qa.md,Markdown,DOCX/PDF QA evidence,Generated,2026-07-20,Generator output,Pending,Pending,Run after DOCX regen
+01-inventory/repository-inventory.csv,CSV,Repo metadata,Generated,2026-07-20,Local git,Mostly current,OK,Refresh commits
+01-inventory/automation-asset-inventory.csv,CSV,Test asset classification,Generated,2026-07-20,Repo scans,Needs M1/M2 correction,OK,Correct M1/M2 rows
+01-inventory/pipeline-job-inventory.csv,CSV,CI job inventory,Generated,2026-07-20,gitlab-ci.yml,Needs GHA correction,OK,Fix GitHub Actions row
+03-analysis/verified-metrics-register.csv,CSV,Single source of truth for %,Source,2026-07-20,Evidence docs,Current,OK,Generator must read this
+03-analysis/government-savings-coverage-matrix.csv,CSV,Coverage matrix,Generated,2026-07-20,verified-metrics-register,Stale M1/M2,OK,Regenerate from register
+03-analysis/government-savings-coverage-matrix.xlsx,Excel,Leadership matrix,Generated,2026-07-20,CSV + generator,Stale,OK,Regenerate
+03-analysis/coverage-calculation-notes.md,Markdown,Formula documentation,Source,2026-07-20,Register,Stale M1/M2,OK,Rewrite sections
+03-analysis/ci-gate-assessment.md,Markdown,CI gate audit,Source,2026-07-20,YAML,Gate terminology fix needed,OK,Clarify scheduled vs merge gate
+03-analysis/source-code-coverage-assessment.md,Markdown,JaCoCo/Sonar audit,Source,2026-07-20,UniteMSC POMs,New,OK,None
+03-analysis/known-gaps-and-dependencies.md,Markdown,Gap register,Source,2026-07-20,All analysis,Partial,OK,Update M2 sign-off gap
+03-analysis/automated-coverage-feasibility.md,Markdown,Intelligence feasibility,Source,2026-07-20,coverage-intelligence-assessment,New,OK,Cross-link
+04-leadership/leadership-summary.md,Markdown,Executive summary,Source,2026-07-20,Register,Stale headlines,OK,Rewrite
+04-leadership/leadership-response-draft.md,Markdown,Email draft,Source,2026-07-20,Summary,Stale,OK,Rewrite
+04-leadership/leadership-talking-points.md,Markdown,Meeting bullets,Source,2026-07-20,Summary,New,OK,Create
+04-leadership/action-item-proposal.md,Markdown,Action items,Source,2026-07-20,Roadmap,New,OK,Create
+04-leadership/verification-checklist.md,Markdown,Pre-distribution QA,Source,2026-07-20,All deliverables,Stale checks,OK,Update checkboxes
+04-leadership/evidence-register.md,Markdown,Evidence index,Source,2026-07-20,Repos,Needs M1/M2 entries,OK,Update
+04-leadership/Government-Savings-Automation-Coverage-Assessment.docx,Word,Formatted report,Generated,2026-07-20,Generator,Stale,Pending visual QA,Regenerate
+04-leadership/Government-Savings-Automation-Coverage-Assessment.pdf,PDF,Forwardable report,Generated,2026-07-20,DOCX,Missing/stale,Pending,Export from DOCX
+04-leadership/Government-Savings-Automation-Assessment-Review-Findings.docx,Word,Review findings report,Generated,2026-07-20,00-review,New,Pending,Generate
+04-leadership/Government-Savings-Automation-Assessment-Review-Findings.pdf,PDF,Review findings PDF,Generated,2026-07-20,Review DOCX,New,Pending,Export
+05-roadmap/government-savings-automation-roadmap.md,Markdown,Roadmap,Source,2026-07-20,Gaps,Current,OK,Minor updates
+05-roadmap/30-60-90-day-plan.csv,CSV,Horizon plan,Generated,2026-07-20,Roadmap,New,OK,Create
+tools/generate_gs_assessment_deliverables.py,Python,Generator + validator,Source,2026-07-20,CSV inputs,Needs rewrite,OK,Add validation + review DOCX
+02-evidence/README.md,Markdown,External evidence pointers,Source,Earlier,Imports,OK,OK,Optional refresh

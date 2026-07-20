@@ -1,124 +1,123 @@
 # Coverage Calculation Notes
 
 **Assessment date:** 2026-07-20  
-**Principle:** Percentages are reported only where numerator, denominator, and counting unit are documented.
+**Rebuild validated:** 2026-07-21  
+**Single source of truth:** `verified-metrics-register.csv`
 
 ---
 
-## 1. What we measure vs what we do not
+## 1. Metric separation (non-negotiable)
 
-| Metric type | Measured in this assessment? | Evidence |
-|-------------|------------------------------|----------|
-| **Business / test automation coverage** | Yes — primary metric | Endpoint matrices, qTest/TestNG inventories, suite XML |
-| **Application source-code coverage (JaCoCo/Sonar)** | Noted separately | UniteMSC POMs; `RUN_SONARQUBE: false` on service CI |
-| **Pipeline quality gates** | Yes — execution model | `.gitlab-ci.yml`, Jenkins tracker, Ant targets |
-| **Manual test coverage** | Excluded | qTest manual cases not counted as automated |
+| # | Metric | Code | Measured in this assessment? |
+|---|--------|------|------------------------------|
+| 1 | Business automation coverage | B | Yes — domain-specific |
+| 2 | API endpoint coverage | B-api | Yes — MSC + UP subsets |
+| 3 | Execution coverage | C | Partial — live runs mostly TBD |
+| 4 | CI integration coverage | D | Partial |
+| 5 | Gate coverage | E | Partial — scheduled vs merge gate distinguished |
+| 6 | Application source-code coverage | A | Partial — UniteMSC JaCoCo |
+| 7 | Traceability completeness | T | Low — qTest/Jira blocked |
 
-**Leadership clarification for Michael Blake:** If "code coverage" means JaCoCo on application repos, that is **not** the same as automated business scenario coverage. No verified **QA automation pipeline** enforcing application code-coverage thresholds was identified. Service repos may run unit tests in build pipelines; Sonar is disabled in reviewed UniteMSC template variables.
+**Leadership rule:** Do not combine these into one GS percentage.
 
 ---
 
-## 2. Verified percentages (defensible)
-
-### Universal Platform — V2 UI (inventory share)
-
-| Field | Value |
-|-------|------:|
-| Numerator | 268 executed qTest cases mapped to UP workstreams |
-| Denominator | 744 executed qTest cases (V2 source population) |
-| **Result** | **36.0%** inventory share |
-| Basis | `universal-platform-coverage/01-analysis/10-reconciliation-ledger.md` |
-| SME sign-off | July 1, 2026 |
-| **Not** | Requirement-level or functional completeness % |
+## 2. Verified percentages (defensible for leadership)
 
 ### Universal Platform — V3 UI (inventory share)
 
 | Field | Value |
 |-------|------:|
-| Numerator | 379 TestNG methods (UE 303 + IDP Login 56 + Member Withdrawal 20) |
-| Denominator | 436 TestNG methods in nightly source population |
-| **Result** | **86.9%** inventory share |
-| Basis | Same reconciliation ledger |
-| Execution | GitLab `scheduled_regression_job` on `prime-test-automation` |
+| Numerator | 379 scoped TestNG methods |
+| Denominator | 436 nightly source population |
+| **Result** | **86.9%** |
+| Timestamp | 2026-07-01 SME sign-off |
+| Status | **Verified** |
+| Not | Requirement-level coverage |
 
-### Unite MSC — Mobile 2 API (endpoint automation)
-
-| Field | Value |
-|-------|------:|
-| Numerator | 24 automated business endpoints (L3+ TestNG) |
-| Denominator | 24 in-scope (25 documented minus `mobilemembers` exclusion) |
-| **Result** | **100%** in-scope endpoint automation |
-| Evidence | `api-test-automation` @ `cee0de9` — 20 test classes, dynamic contribution fixture |
-| Prior baseline | 88% (22/25) @ `7ccaf46` on 2026-07-14 — **superseded** by code review 2026-07-20 |
-| CI integration | **0%** scheduled — nightly job not in `.gitlab-ci.yml` (QA-1405 pending) |
-
-### Unite MSC — Mobile 1 API (endpoint automation)
+### Universal Platform — V2 UI (inventory share)
 
 | Field | Value |
 |-------|------:|
-| Numerator | 6 endpoint identities with canonical tests |
-| Denominator | 27 documented business endpoints (Dinesh workbook — **workbook not in repo**) |
-| **Result** | **22.2%** (6÷27) |
-| Endpoints | session, owner, owner menu, profile menu, beneficiary by ext, bank info by routing |
-| Evidence | `mobile/mobile1/src/test/java` @ `cee0de9` |
-| Prior baseline | 3.7% (1/27) — **superseded** |
+| Numerator | 268 UP-scoped qTest cases |
+| Denominator | 744 executed qTest population |
+| **Result** | **36.0%** |
+| Timestamp | 2026-06-29 qTest export (**Stale**) |
+| Status | **Verified** within export scope |
 
-### Universal Platform — API operations
-
-| Field | Value |
-|-------|------:|
-| Numerator | 11 unique HTTP operations (Enrollment 5, IDP 4, Withdrawal 2) |
-| Denominator | UP-scoped operation catalog only |
-| **Result** | TBD % of full GS API surface |
-| Basis | `universal-platform-coverage/01-analysis/csv/api-operation-mapping.csv` |
-
-### Performance — business journeys
+### Mobile 2 — API endpoint automation (**leadership baseline**)
 
 | Field | Value |
 |-------|------:|
-| Numerator | 15 in-scope journeys (UP ledger) |
-| Denominator | 36 JMX / 53 Taurus assets total |
-| **Result** | Journey-level inventory — not % of GS performance scope |
-| MSC-specific | 6 JMX under `performance/mobile/unite-msc/` — manual Jenkins job only |
+| Numerator | **22** automated business endpoints |
+| Denominator | **25** documented business endpoints (Dinesh workbook) |
+| **Result** | **88.0%** |
+| Timestamp | **2026-07-14** @ `7ccaf46` |
+| Evidence | `17-mobile2-api-automation-signoff.md` |
+| Status | **Verified** — retain until sign-off path completes |
+| Exclusions | `GET mobilemembers/{planId}/{username}` — acceptance helper, not automation target |
+
+### Mobile 2 — projected (pending sign-off) — **not leadership-final**
+
+| Field | Value |
+|-------|------:|
+| Numerator | **24** (adds YTD + `GET mobilebanks/{id}` in code @ `cee0de9`) |
+| Denominator | **25** |
+| **Result** | **96.0%** projected |
+| Timestamp | 2026-07-20 code review |
+| Status | **Pending verification** |
+| Required | Matrix refresh; QC4 master rerun; Stage 1 master rerun; contribution fixture documented |
+
+**Do not claim 100%** — `mobilemembers` remains excluded from automation numerator by approved sign-off scope.
+
+### Mobile 1 — API endpoint automation
+
+| Field | Value |
+|-------|------:|
+| **Verified baseline** | **1 / 27 = 3.7%** (`POST mobilemembersession`) @ 2026-07-09 |
+| **Implemented pending evidence** | **5 additional endpoints** in code @ `cee0de9` (owner, owner menu, profile menu, beneficiary, bank by routing) |
+| **Potential** | 6/27 = 22.2% — **not verified** until workbook mapping + suite/master wiring + execution evidence |
+| Status | **Verified 3.7%** for leadership; sprint progress reported separately |
 
 ---
 
-## 3. TBD — denominator not verified
+## 3. CI / execution metrics
 
-| Area | Why TBD |
-|------|---------|
-| Full V2 Unite UI | 2,176 scenarios exist; no approved GS business denominator |
-| V2 backoffice only | 1,077 scenarios — scope vs nightly subset unclear |
-| ASTRO/SFRP | 1,236 scenarios — not mapped to leadership scope |
-| COPACS | No automation repository identified |
-| Full GS microservice API catalog | Universal modules exceed UP 11-operation subset |
-| qTest approved in-scope cases | Exports not refreshed in this assessment |
-| Current V2/V3 nightly **pass rates** | Requires live GitLab/Jenkins artifact refresh |
+| Metric | Value | Status |
+|--------|-------|--------|
+| Mobile 2 GitLab nightly (D) | 0% scheduled | **Verified gap** — QA-1405 |
+| GHA Dashboard slice (D) | Externally validated | **Verified external** — workflow repo not in clone |
+| V3 scheduled regression fail-on-error (E) | Yes on scheduled run | **Verified** — not MR gate |
 
 ---
 
-## 4. Rules applied
+## 4. Rejected / corrected prior claims
 
-1. **Do not sum V2 + V3** — different frameworks; overlapping journeys possible.
-2. **Do not use inventory-share % as requirement coverage** (UP assessment rule).
-3. **PUT/DELETE banks + DELETE contribution** count as automated but excluded from master regression by design.
-4. **Service-level Cucumber** in UniteMSC ≠ BFF acceptance in `api-test-automation`.
-5. **Code in repo ≠ scheduled regression** — execution model column required in matrix.
+| Prior claim | Correction |
+|-------------|------------|
+| Mobile 2 **100% (24/24)** | **Rejected** — used manipulated denominator |
+| Mobile 1 **22.2% verified** | **Rejected** — conflated code presence with verified metric |
+| GitHub Actions **not implemented** | **Rejected** — Dashboard slice validated externally |
+| V3 **hard merge gate** | **Rejected** — scheduled hard-fail only |
+
+See `00-review/contradiction-resolution-ledger.md`.
 
 ---
 
-## 5. Recommended leadership-safe statements
+## 5. Safe leadership statements
 
 **Safe:**
-- "V3 Universal Experience has a **verified GitLab nightly regression** on Stage 1 with **379 scoped TestNG methods** in the scheduled master suites."
-- "Mobile 2 API automation covers **all 24 in-scope documented endpoints** in canonical TestNG; **nightly GitLab scheduling is pending** DevOps (QA-1405)."
-- "Mobile 1 API automation has advanced to **6 of 27** documented endpoints (**22%**), up from 1 endpoint in July."
+- "Mobile 2 verified endpoint automation is **22 of 25 (88%)** per July 14 sign-off evidence."
+- "Code on `main` may support **24 of 25 (96%)** — pending refreshed QC4/Stage 1 runs and formal approval."
+- "Mobile 1 verified automation remains **1 of 27 (3.7%)** with additional endpoints in active sprint implementation."
+- "V3 Universal Experience has a **verified GitLab scheduled regression** with **379 scoped TestNG methods** (86.9% inventory share)."
 
-**Avoid without refresh:**
-- "Government Savings has X% total test coverage."
-- "863 UI tests all pass nightly" (historical Apr 2026 demand-planning figure).
-- "GitHub Actions validates Mobile 2" (workflow file not present in repo).
+**Avoid:**
+- "Government Savings has X% total coverage."
+- "Mobile 2 is 100% complete."
+- "GitHub Actions is not implemented."
+- "GitLab nightly failures block merge requests" (without pipeline rule evidence).
 
 ---
 
-*Cross-reference: `government-savings-coverage-matrix.csv`, `evidence-register.md`*
+*Regenerate DOCX/XLSX: `tools/generate_gs_assessment_deliverables.py`*

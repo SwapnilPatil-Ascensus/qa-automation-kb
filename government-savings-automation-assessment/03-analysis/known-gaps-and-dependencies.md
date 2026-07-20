@@ -10,10 +10,11 @@
 | # | Gap | Impact | Owner type | Dependency |
 |---|-----|--------|------------|------------|
 | 1 | Mobile 2 GitLab nightly not wired | No recurring API regression gate for MSC BFF | DevOps + QA | QA-1405; secure files; runner network |
-| 2 | Mobile 2 sign-off evidence stale | Cannot claim "locked" MSC API program | QA Automation | Fresh QC4/Stage1 master runs post `cee0de9` |
-| 3 | Mobile 1 — 21/27 endpoints not automated | MSC member API surface largely uncovered | QA Automation | Sprint scope; test data; IDP hardening |
+| 2 | Mobile 2 sign-off evidence stale | Cannot claim projected 96% as verified | QA Automation | Fresh QC4/Stage1 @ `cee0de9` |
+| 3 | Prior assessment overstated M2/M1 % | Leadership trust risk | QA Automation | Rebuild complete 2026-07-21 |
+| 4 | Mobile 1 — 26/27 endpoints not verified | MSC member API surface largely uncovered | QA Automation | Sprint scope |
 | 4 | No single GS-wide coverage denominator | Cannot report one "GS %" number | Program + BA | Business capability map; qTest refresh |
-| 5 | GitHub Actions Mobile2 not in repo | Deployment validation story unverified in code | DevOps + QA | Nexus secrets; workflow implementation |
+| 5 | GitHub Actions Mobile2 workflow repo not in clone | Deployment validation story incomplete in audit | DevOps + QA | Document workflow repo URL |
 
 ---
 
@@ -61,8 +62,8 @@
 
 - V3 UI GitLab nightly regression with hard failure on test errors
 - Metadataweb API Stage1 scheduled job on GitLab
-- Mobile 2 endpoint automation complete in code (24/24 in-scope)
-- Mobile 1 progress beyond auth-only baseline (6 endpoints)
+- Mobile 2 **verified** endpoint baseline **22/25 (88%)**; projected **24/25 (96%)** pending sign-off
+- Mobile 1 **verified** **1/27 (3.7%)**; five endpoints implemented pending evidence
 - UP assessment with SME-reviewed inventory shares (V2 36%, V3 87%)
 - Performance assets for UP IDP (scheduled) and MSC (manual)
 
