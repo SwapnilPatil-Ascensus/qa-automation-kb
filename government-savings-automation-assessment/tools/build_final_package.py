@@ -527,8 +527,15 @@ Happy to walk through the leadership brief and evidence workbook on a call.
 """.format(date=ASSESS)
     (comm / "Michael-Blake-Teams-Response.md").write_text(teams, encoding="utf-8")
 
-    email = (ROOT / "04-leadership" / "michael-blake-email-draft.md").read_text(encoding="utf-8") if (ROOT / "04-leadership" / "michael-blake-email-draft.md").exists() else ""
-    (comm / "Michael-Blake-Email-Draft.md").write_text(email, encoding="utf-8")
+    (comm / "Michael-Blake-Email-Draft.md").write_text(
+        (PKG / "04-communications" / "Michael-Blake-Email-Draft.md").read_text(encoding="utf-8")
+        if (PKG / "04-communications" / "Michael-Blake-Email-Draft.md").exists()
+        and len((PKG / "04-communications" / "Michael-Blake-Email-Draft.md").read_text(encoding="utf-8")) > 2000
+        else (ROOT / "04-leadership" / "michael-blake-email-draft.md").read_text(encoding="utf-8")
+        if (ROOT / "04-leadership" / "michael-blake-email-draft.md").exists()
+        else teams,
+        encoding="utf-8",
+    )
 
     talking = (ROOT / "04-leadership" / "government-savings-business-coverage-summary.md").read_text(encoding="utf-8")
     (comm / "Leadership-Talking-Points.md").write_text(talking, encoding="utf-8")

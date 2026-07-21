@@ -1,63 +1,72 @@
 # Executive Email — Government Savings Automation & Coverage Position
 
-**To:** Government Savings leadership  
-**Subject:** GS automation coverage — business platform position and activation priorities  
-**As of:** 2026-07-21
+**To:** Michael Blake, Rajiv Akhter, Government Savings Engineering and DevOps leadership  
+**From:** Swapnil Patil, QA Automation & Quality Program Lead, Government Savings  
+**Subject:** GS automation coverage, pipeline controls, and coverage-intelligence — final position  
+**As of:** July 21, 2026  
+**Classification:** Confidential — Internal Use
 
 ---
 
-Michael and team,
+Michael, Rajiv, and team,
 
-We rebuilt the Government Savings automation position around **business platforms and operational activation** — what is implemented, what runs on recurring schedules, and what remains activation work — rather than framework inventory shares.
+We completed the final Government Savings automation coverage and pipeline-controls assessment. This email summarizes the leadership position. The full distribution package — leadership brief, technical assessment, evidence workbook, and communications pack — is available for review.
 
 ## Executive position
 
-Automation exists across every major GS platform. The gap is **operational activation**: governed suite placement, recurring execution, fresh evidence, traceability, and ownership. Conversational estimates (e.g., "95% UE," "70% MSC," "80% legacy") are **not verified** without approved denominators and are excluded from this summary.
+Government Savings has meaningful automation across every major business platform. The distinguishing factor is **operational activation**: whether automation is integrated into governed suites, executes on recurring schedules, produces fresh evidence, and meets our emerging Definition of Done.
 
-## Coverage by platform
+**There is no defensible single Government Savings-wide coverage percentage.** We report by business platform using six separate metrics: business automation, application source-code coverage, execution coverage, CI integration, gate coverage, and traceability completeness. Conversational estimates are excluded from this summary unless supported by an approved numerator and denominator.
 
-**Unite MSC.** Mobile 2 API automation is **complete for the currently defined automatable business scope** (24 endpoints). Destructive tests are in smoke/module suites by design. Follow-up items: **GitLab nightly (QA-1405)** and refreshed master sign-off (last run Jul 14). GitHub Actions validates the Dashboard deployment slice — not full API regression. Mobile 1 is partial (6/27 endpoints). Enrollment is a bootstrap pilot — no combined MSC % published.
+## Unite MSC / Mobile Microservices
 
-**Universal Platform / Modern Unite.** Universal Enrollment, IDP, and Withdrawals run in **active GitLab nightly regression** (303, 56, and 20 TestNG methods in the approved inventory). Entity Platform (6 scenarios) is the primary expansion area. Metadata API is scheduled; other universal API modules await scheduling. Inventory-share metrics stay in the technical appendix.
+**Mobile 2 API** automation is **complete for the currently defined automatable business scope** (24 of 24 endpoints). Destructive operations are implemented in smoke or targeted suites by design.
 
-**Legacy Unite (V2).** **Majority of high-priority member portal journeys** are automated across ten referenced daily Jenkins modules. CSR, greenscreen, management, and specialty assets **exist but require revalidation and governed nightly inclusion** — not "no automation."
+Two separate pipelines apply:
 
-**Back-office / Batch.** 1,000+ backoffice features implemented; weekly regression referenced but not live-verified. Not on Modern Unite GitLab nightly.
+- **GitHub QC4 integration workflow** (build → deploy → test → promote): Dashboard vertical slice validated with Chaitanya; Nexus publish/consume in place. Full integration pending QC4/ITT stabilization. This is deployment validation, not GitLab nightly regression.
 
-**ASTRO / SFRP.** 391 feature files — substantial assets; **recurring execution inactive**. Scope decision and reactivation required.
+- **GitLab Stage 1 nightly (QA-1405):** Pending DevOps capacity — not operational without schedule evidence.
 
-**COPACS.** No validated automation identified — discovery needed.
+**Mobile 1:** 6 of 27 endpoints implemented; no recurring CI. **Enrollment:** bootstrap pilot — no combined MSC percentage.
 
-## Definition of Done
+## Modern Unite / Universal Platform
 
-A capability is not fully automated because code exists alone. Target state includes manual coverage, functional and API automation, performance where applicable, suite integration, execution evidence, CI/CD, documentation, traceability, and ownership. The program advances toward this incrementally.
+Active GitLab nightly regression: Universal Enrollment (303 TestNG methods), IDP (56), Withdrawals (20). Entity Platform: 6 scenarios — primary expansion. Metadata API scheduled; other universal APIs await scheduling.
 
-## Active recurring regression
+## Legacy Unite, back-office, and ASTRO
 
-- Modern Unite UI + metadata API (GitLab)  
-- IDP performance (Jenkins weekdays)  
-- Legacy daily modules (Jenkins — referenced)  
-- **Not active:** Mobile 2 API nightly, Mobile 1 CI, ASTRO, full universal API surface
+**Legacy Unite (V2):** Substantial high-priority member automation across ten referenced daily Jenkins modules. CSR/greenscreen assets require revalidation and governed activation.
 
-## CI and code coverage
+**Back-office / Batch:** 1,062+ features including Kofax, feeds, and batch flows. Previously scheduled Jenkins jobs are **currently disabled**.
 
-Merge controls remain strong (protected main, pipeline, Snyk, dual approval, discussion blocks). Scheduled jobs hard-fail for Modern Unite and metadata API. **No code-coverage-delta MR gate** today. JaCoCo on UniteMSC services; Sonar disabled. Recommend pilot on `unite-mobile2` plus a read-only business coverage register.
+**ASTRO / SFRP:** 391 features; previously scheduled regression **currently disabled**; revalidation required.
 
-## Actions and decisions
+**COPACS:** Scope unknown — discovery required.
 
-**Immediate:** QA-1405 Mobile 2 nightly; execution refresh; read-only qTest/Jira/GitLab APIs.
+## Performance and Definition of Done
 
-**Near-term:** Coverage-delta pilot; Entity nightly confirmation; ASTRO scope; backoffice schedule confirmation; CSR revalidation.
+IDP performance is scheduled weekdays (Jenkins). UE, Entity, and MSC performance assets exist with uneven scheduling. A capability is not fully automated because code exists alone — target state includes manual coverage, functional/API/performance automation, suite integration, execution evidence, CI/CD, traceability, and ownership.
 
-**Decisions:** Platform denominators; ASTRO in/out; COPACS owner; exception group for future coverage gates.
+## CI controls and recommended solution
 
-Artifacts: business coverage summary, Teams pack, module tables, technical appendix.
+Merge controls are strong (protected main, pipeline, Snyk, dual approval, discussion blocks). No code-coverage-delta MR gate today. JaCoCo on UniteMSC services; Sonar disabled. Recommend pilot on `unite-mobile2` and a versioned coverage register extending existing Python collectors.
 
-Happy to walk through on a call.
+## Priorities and decisions
+
+| Priority | Action |
+|----------|--------|
+| 1 | Complete Mobile 2 GitHub QC4 integration; resolve ITT/environment |
+| 2 | Complete QA-1405 Stage 1 GitLab nightly |
+| 3 | Read-only ALM/CI APIs; coverage-register MVP |
+| 4 | JaCoCo coverage-delta pilot |
+| 5 | qTest/Jira traceability normalization |
+| 6 | Revalidate Entity, ASTRO, back-office, CSR, COPACS |
+
+**Decisions:** Platform denominators; ASTRO scope; COPACS owner; exception-approval group; API credentials.
+
+Happy to walk through the leadership brief and evidence workbook on a call.
 
 Regards,  
-QA Automation
-
----
-
-*Attachments: `government-savings-business-coverage-summary.md`, `michael-blake-teams-message-pack.md`*
+Swapnil Patil  
+QA Automation & Quality Program Lead, Government Savings
