@@ -1,0 +1,4 @@
+claim_id,claim,status,numerator,denominator,evidence
+C-01,Mobile 2 24/24 automatable,Verified,24,24,E-M2-IMPL
+C-02,No GS-wide %,Verified,N/A,N/A,Policy
+C-03,86.9% inventory share only,Verified,379,436,Technical appendix

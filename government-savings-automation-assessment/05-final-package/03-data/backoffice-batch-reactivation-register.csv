@@ -1,0 +1,2 @@
+asset_type,count,includes,execution_status,evidence,next_action,owner,as_of
+Backoffice feature files,1062,Kofax feeds batch jobs,Disabled — previously scheduled weekly,unite-test-automation backoffice subtree scan,Inventory + smoke + schedule reactivation,QA Automation,2026-07-21

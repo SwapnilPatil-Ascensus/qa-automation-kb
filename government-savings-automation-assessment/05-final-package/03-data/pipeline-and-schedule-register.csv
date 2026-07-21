@@ -1,0 +1,9 @@
+platform,job_name,repository,branch,commit,schedule_status,environment,gate_type,evidence,as_of,owner,notes
+GitLab,scheduled_regression_job,prime-test-automation,main,93f8628,Active — scheduled,Stage 1,Scheduled hard-fail,https://gitlab.com/ascensus-gs/products/depot/qa-automation/prime-test-automation/-/blob/main/.gitlab-ci.yml @ 93f8628,2026-07-21,QA Automation,Modern Unite UI nightly
+GitLab,scheduled_metadataweb_stage1,api-test-automation,main,cee0de9,Active — scheduled,Stage 1,Scheduled hard-fail,https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/blob/main/.gitlab-ci.yml @ cee0de9,2026-07-21,QA Automation,Metadata API nightly
+GitLab,scheduled_mobile2_stage1 (QA-1405),api-test-automation,main,cee0de9,Pending — DevOps capacity,Stage 1,Planned scheduled regression,Jira QA-1405; YAML absent,2026-07-21,DevOps + QA,Not QC4 nightly
+GitHub Actions,Mobile 2 QC4 integration workflow,External workflow repo,N/A,N/A,Deployment/integration validation,QC4,Build-deploy-test-promote,SME confirmed — Chaitanya validation; Nexus publish/consume,2026-07-21,DevOps + QA,Not GitLab nightly
+Jenkins,STAGE1-Daily-Unite-Prime-Regression,unite-test-automation,main,14e3b62a,Referenced — live verification pending,Stage 1,Legacy daily regression,Platform documentation; Live verification unavailable as of 2026-07-21,2026-07-21,QA Automation,10 daily modules
+Jenkins,Weekly backoffice regression,unite-test-automation,main,14e3b62a,Disabled,Stage 1,Previously scheduled,SME confirmed — live verification pending,2026-07-21,QA Automation,Kofax feeds batch
+Jenkins,ASTRO regression,astro-test-automation,main,N/A,Disabled,TB1,Previously scheduled,SME confirmed — live verification pending,2026-07-21,QA + Program,Reactivation required
+Jenkins,AGSUP_IDP_REGRESSION_SUITE,performance-test-automation,main,N/A,Active — weekdays,Load,Performance regression,Performance tracker 2026-07-02,2026-07-21,QA Performance,Not functional gate

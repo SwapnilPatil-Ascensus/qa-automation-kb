@@ -1,0 +1,6 @@
+gap_id,area,severity,remediation,owner
+TQ-01,Duplicate qTest cases,Medium,Deduplicate and archive obsolete,QA Governance
+TQ-02,Missing Jira links,High,Link scoped stories to qTest cases,BA + QA
+TQ-03,Missing automation_id in repos,High,Publish standard; pilot Mobile 2,QA Automation
+TQ-04,Tests marked automated without repo mapping,High,Reconciliation collector,QA Automation
+TQ-05,Stale execution history,Medium,Freshness SLA + weekly collector,QA Governance

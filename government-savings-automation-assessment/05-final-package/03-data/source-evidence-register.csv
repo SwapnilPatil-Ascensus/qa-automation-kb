@@ -1,0 +1,5 @@
+evidence_id,claim,source_type,reference,as_of,confidence,owner
+E-M2-IMPL,Mobile 2 24/24 automatable endpoints,GitLab repository,https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/blob/main/mobile/mobile2 @ cee0de9,2026-07-21,High,QA Automation
+E-V3-CI,Modern Unite GitLab nightly active,GitLab CI YAML,https://gitlab.com/ascensus-gs/products/depot/qa-automation/prime-test-automation/-/blob/main/.gitlab-ci.yml @ 93f8628,2026-07-21,High,QA Automation
+E-GHA-M2,Mobile 2 GitHub QC4 integration validated,SME confirmation,Dashboard vertical slice validated with Chaitanya; Nexus workflow,2026-07-21,Medium,QA Automation
+E-QA1405,GitLab nightly pending,Jira,QA-1405; DevOps capacity constraint,2026-07-21,High,DevOps
