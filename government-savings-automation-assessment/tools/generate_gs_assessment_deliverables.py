@@ -27,6 +27,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent.parent
 METRICS_CSV = ROOT / "03-analysis" / "verified-metrics-register.csv"
+BUSINESS_CSV = ROOT / "03-analysis" / "government-savings-business-coverage-register.csv"
 MATRIX_CSV = ROOT / "03-analysis" / "government-savings-coverage-matrix.csv"
 CLAIMS_CSV = ROOT / "00-review" / "current-claim-register.csv"
 PIPE_CSV = ROOT / "01-inventory" / "pipeline-job-inventory.csv"
@@ -130,6 +131,18 @@ def build_xlsx(metrics: list[dict[str, str]]) -> None:
     ws.freeze_panes = f"A{start + 1}"
     auto_width(ws)
 
+    if BUSINESS_CSV.exists():
+        bh, br = load_csv(BUSINESS_CSV)
+        ws_b = wb.create_sheet("Business Coverage")
+        for c, h in enumerate(bh, 1):
+            ws_b.cell(row=1, column=c, value=h)
+        style_header(ws_b, 1)
+        for r, row in enumerate(br, 2):
+            for c, h in enumerate(bh, 1):
+                ws_b.cell(row=r, column=c, value=row.get(h, "")).alignment = Alignment(wrap_text=True)
+        ws_b.freeze_panes = "A2"
+        auto_width(ws_b)
+
     if MATRIX_CSV.exists():
         mh, mr = load_csv(MATRIX_CSV)
         ws_m = wb.create_sheet("Coverage Matrix")
@@ -217,13 +230,37 @@ def build_main_docx(metrics: list[dict[str, str]]) -> None:
 
     doc.add_heading("Executive Summary", level=1)
     doc.add_paragraph(
-        "Government Savings has meaningful automation across V3 UI (GitLab scheduled regression), "
-        "legacy V2 (large Jenkins/Ant corpus), MSC Mobile APIs, metadataweb API nightly, and performance assets. "
-        "A single GS-wide coverage percentage is not defensible without governed denominators. "
-        "Verified platform metrics are reported separately from pending sign-off metrics."
+        "Government Savings automation is organized by business platform and operational activation — "
+        "what is implemented, what runs on recurring schedules, and what awaits reactivation. "
+        "A single GS-wide coverage percentage is not defensible. Inventory-share metrics (e.g. V2/V3 "
+        "TestNG or qTest populations) appear in the technical appendix only, not as functional completeness."
     )
 
-    doc.add_heading("Verified Metrics (leadership-safe)", level=1)
+    if BUSINESS_CSV.exists():
+        doc.add_heading("Business Platform Coverage", level=1)
+        _, business = load_csv(BUSINESS_CSV)
+        leadership_business = [
+            b for b in business
+            if b.get("percent_class") != "Verified inventory share only"
+            and "technical appendix" not in b.get("notes", "").lower()
+        ][:14]
+        add_table(
+            doc,
+            ["Business area", "Sub-area", "Position", "Implementation", "Scheduled", "Confidence"],
+            [
+                [
+                    b["business_area"],
+                    b["sub_area"],
+                    b["leadership_safe_wording"][:90] + ("…" if len(b["leadership_safe_wording"]) > 90 else ""),
+                    b["implementation_status"],
+                    b["scheduled_status"],
+                    b["confidence"],
+                ]
+                for b in leadership_business
+            ],
+        )
+
+    doc.add_heading("Verified Metrics Register", level=1)
     verified = [m for m in metrics if m.get("leadership_safe") == "Yes" and m.get("verification_status") == "Verified"]
     add_table(
         doc,
