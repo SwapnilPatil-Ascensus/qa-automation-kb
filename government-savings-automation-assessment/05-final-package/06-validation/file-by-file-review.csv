@@ -13,7 +13,7 @@ path,type,size
 03-data\backoffice-batch-reactivation-register.csv,.csv,285
 03-data\coverage-exception-register-template.csv,.csv,91
 03-data\government-savings-business-coverage-register.csv,.csv,9914
-03-data\Government-Savings-Coverage-Evidence-Workbook.xlsx,.xlsx,58694
+03-data\Government-Savings-Coverage-Evidence-Workbook.xlsx,.xlsx,58697
 03-data\legacy-unite-module-status.csv,.csv,4515
 03-data\pipeline-and-schedule-register.csv,.csv,1976
 03-data\qtest-jira-traceability-gap-register.csv,.csv,467
@@ -23,7 +23,7 @@ path,type,size
 03-data\universal-platform-business-summary.csv,.csv,4113
 04-communications\Leadership-FAQ.md,.md,1075
 04-communications\Leadership-Talking-Points.md,.md,11544
-04-communications\Michael-Blake-Email-Draft.md,.md,3976
+04-communications\Michael-Blake-Email-Draft.md,.md,4466
 04-communications\Michael-Blake-Teams-Response.md,.md,2311
 05-roadmap\Coverage-Intelligence-Action-Backlog.csv,.csv,5093
 05-roadmap\Coverage-Intelligence-Action-Backlog.xlsx,.xlsx,8330
@@ -32,7 +32,7 @@ path,type,size
 05-roadmap\Suggested-Jira-stories.md,.md,12129
 06-validation\claim-register.csv,.csv,224
 06-validation\contradiction-resolution-ledger.md,.md,3747
-06-validation\file-by-file-review.csv,.csv,2300
+06-validation\file-by-file-review.csv,.csv,2414
 06-validation\final-distribution-checklist.md,.md,378
 06-validation\formula-validation-report.md,.md,252
 06-validation\link-validation-report.md,.md,355
