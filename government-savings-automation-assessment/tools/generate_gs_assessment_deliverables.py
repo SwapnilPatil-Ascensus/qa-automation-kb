@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -39,6 +40,10 @@ REVIEW_DOCX = ROOT / "04-leadership" / "Government-Savings-Automation-Assessment
 REVIEW_PDF = ROOT / "04-leadership" / "Government-Savings-Automation-Assessment-Review-Findings.pdf"
 REPORT_DATE = "July 20, 2026"
 REBUILD_DATE = "July 21, 2026"
+VERSION = "1.1"
+PREPARED_BY = "Swapnil Patil"
+ROLE = "QA Automation & Quality Program Lead, Government Savings"
+CLASSIFICATION = "Confidential - Internal Use"
 
 NAVY = "003057"
 TEAL = "007A8C"
@@ -185,52 +190,180 @@ def build_xlsx(metrics: list[dict[str, str]]) -> None:
     print(f"Wrote {XLSX_OUT}")
 
 
+def kill_word() -> None:
+    if sys.platform == "win32":
+        subprocess.run(["taskkill", "/F", "/IM", "WINWORD.EXE"], capture_output=True)
+
+
+def set_document_defaults(doc: Document) -> None:
+    normal = doc.styles["Normal"]
+    normal.font.name = "Calibri"
+    normal.font.size = Pt(11)
+    for level in range(1, 4):
+        heading = doc.styles[f"Heading {level}"]
+        heading.font.name = "Calibri"
+        heading.font.color.rgb = RGBColor(0x00, 0x30, 0x57)
+
+
 def set_docx_header_footer(doc: Document, title: str) -> None:
     section = doc.sections[0]
-    section.top_margin = Cm(2)
-    section.bottom_margin = Cm(2)
+    section.top_margin = Cm(2.54)
+    section.bottom_margin = Cm(2.54)
+    section.left_margin = Cm(2.54)
+    section.right_margin = Cm(2.54)
     hp = section.header.paragraphs[0]
     hp.text = title
     for run in hp.runs:
+        run.font.name = "Calibri"
         run.font.size = Pt(9)
         run.font.color.rgb = RGBColor(0x00, 0x30, 0x57)
     fp = section.footer.paragraphs[0]
     fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = fp.add_run(f"Confidential — Internal Use  |  {REBUILD_DATE}  |  Page ")
+    run = fp.add_run(f"{CLASSIFICATION}  |  {REBUILD_DATE}  |  Page ")
+    run.font.name = "Calibri"
     run.font.size = Pt(9)
     fld = OxmlElement("w:fldSimple")
     fld.set(qn("w:instr"), "PAGE")
     run._r.addnext(fld)
 
 
-def add_table(doc: Document, headers: list[str], data: list[list[str]]) -> None:
+def add_title_page(doc: Document, title: str, subtitle: str) -> None:
+    for _ in range(4):
+        doc.add_paragraph()
+    heading = doc.add_heading(title, level=0)
+    heading.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    sub = doc.add_paragraph(subtitle)
+    sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    if sub.runs:
+        sub.runs[0].bold = True
+        sub.runs[0].font.name = "Calibri"
+    meta = doc.add_paragraph(
+        f"\nPrepared by: {PREPARED_BY}\n"
+        f"{ROLE}\n\n"
+        f"Assessment Date: {REPORT_DATE}\n"
+        f"Rebuild validated: {REBUILD_DATE}\n"
+        f"Version: {VERSION}\n"
+        f"Classification: {CLASSIFICATION}"
+    )
+    meta.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for run in meta.runs:
+        run.font.name = "Calibri"
+        run.font.size = Pt(11)
+    doc.add_page_break()
+
+
+def _shade_cell(cell, fill_hex: str) -> None:
+    tc_pr = cell._tc.get_or_add_tcPr()
+    shd = OxmlElement("w:shd")
+    shd.set(qn("w:fill"), fill_hex)
+    shd.set(qn("w:val"), "clear")
+    tc_pr.append(shd)
+
+
+def sanitize_text(text: str) -> str:
+    return (
+        text.replace("\u2014", "-")
+        .replace("\u2013", "-")
+        .replace("\u2026", "...")
+        .replace("\u2260", "is not")
+    )
+
+
+def _set_cell_text(cell, text: str, *, bold: bool = False, size: int = 10) -> None:
+    cell.text = ""
+    paragraph = cell.paragraphs[0]
+    paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    run = paragraph.add_run(sanitize_text(str(text)))
+    run.bold = bold
+    run.font.name = "Calibri"
+    run.font.size = Pt(size)
+
+
+def add_table(doc: Document, headers: list[str], data: list[list[str]], row_shades: list[str] | None = None) -> None:
+    if not data:
+        doc.add_paragraph("No items in this section.")
+        doc.add_paragraph()
+        return
     table = doc.add_table(rows=1, cols=len(headers))
     table.style = "Table Grid"
-    for i, h in enumerate(headers):
-        table.rows[0].cells[i].text = h
-        for p in table.rows[0].cells[i].paragraphs:
-            for r in p.runs:
-                r.bold = True
-    for row_data in data:
+    table.autofit = True
+    for i, header in enumerate(headers):
+        cell = table.rows[0].cells[i]
+        _set_cell_text(cell, header, bold=True, size=10)
+        _shade_cell(cell, NAVY)
+        for paragraph in cell.paragraphs:
+            for run in paragraph.runs:
+                run.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+    for row_idx, row_data in enumerate(data):
         cells = table.add_row().cells
+        shade = row_shades[row_idx] if row_shades and row_idx < len(row_shades) else (GRAY_BG if row_idx % 2 else WHITE)
         for i, val in enumerate(row_data):
-            cells[i].text = str(val)
+            _set_cell_text(cells[i], val, size=9)
+            if shade != WHITE:
+                _shade_cell(cells[i], shade)
+            for paragraph in cells[i].paragraphs:
+                paragraph.paragraph_format.space_after = Pt(2)
     doc.add_paragraph()
+
+
+def shorten_evidence(path: str, limit: int = 72) -> str:
+    cleaned = path.replace("\\", "/")
+    for prefix in (
+        "C:/Workspace/GitLab/",
+        "c:/Workspace/GitLab/",
+        "C:/Workspace/GitLab/qa-automation-kb/",
+    ):
+        if cleaned.lower().startswith(prefix.lower()):
+            cleaned = cleaned[len(prefix):]
+            break
+    cleaned = re.sub(r"^government-savings-automation-assessment/", "", cleaned)
+    if len(cleaned) > limit:
+        return cleaned[: limit - 1] + "…"
+    return cleaned
+
+
+def parse_contradiction_ledger() -> list[list[str]]:
+    ledger = ROOT / "00-review" / "contradiction-resolution-ledger.md"
+    if not ledger.exists():
+        return []
+    rows: list[list[str]] = []
+    for line in ledger.read_text(encoding="utf-8").splitlines():
+        if not line.startswith("| C-"):
+            continue
+        parts = [p.strip() for p in line.strip("|").split("|")]
+        if len(parts) < 7:
+            continue
+        rows.append([
+            parts[0],
+            sanitize_text(parts[1]),
+            sanitize_text(parts[4].replace("**", "")),
+            sanitize_text(parts[5].replace("**", "")),
+        ])
+    return rows
+
+
+def severity_shade(severity: str) -> str:
+    s = severity.lower()
+    if s == "high":
+        return RED_BG
+    if s == "medium":
+        return AMBER_BG
+    return GRAY_BG
 
 
 def build_main_docx(metrics: list[dict[str, str]]) -> None:
     doc = Document()
+    set_document_defaults(doc)
     set_docx_header_footer(doc, "Ascensus Government Savings  |  Automation Coverage Assessment")
-    t = doc.add_heading("Government Savings", level=0)
-    t.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    sub = doc.add_paragraph("Automation Coverage & CI Integration Assessment")
-    sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    sub.runs[0].bold = True
-    doc.add_paragraph(f"Assessment Date: {REPORT_DATE}\nRebuild validated: {REBUILD_DATE}").alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_title_page(
+        doc,
+        "Government Savings",
+        "Automation Coverage & CI Integration Assessment",
+    )
 
     doc.add_heading("Executive Summary", level=1)
     doc.add_paragraph(
-        "Government Savings automation is organized by business platform and operational activation — "
+        "Government Savings automation is organized by business platform and operational activation - "
         "what is implemented, what runs on recurring schedules, and what awaits reactivation. "
         "A single GS-wide coverage percentage is not defensible. Inventory-share metrics (e.g. V2/V3 "
         "TestNG or qTest populations) appear in the technical appendix only, not as functional completeness."
@@ -243,6 +376,7 @@ def build_main_docx(metrics: list[dict[str, str]]) -> None:
             b for b in business
             if b.get("percent_class") != "Verified inventory share only"
             and "technical appendix" not in b.get("notes", "").lower()
+            and "NOT leadership headline metric" not in b.get("notes", "")
         ][:14]
         add_table(
             doc,
@@ -251,7 +385,7 @@ def build_main_docx(metrics: list[dict[str, str]]) -> None:
                 [
                     b["business_area"],
                     b["sub_area"],
-                    b["leadership_safe_wording"][:90] + ("…" if len(b["leadership_safe_wording"]) > 90 else ""),
+                    b["leadership_safe_wording"][:100] + ("…" if len(b["leadership_safe_wording"]) > 100 else ""),
                     b["implementation_status"],
                     b["scheduled_status"],
                     b["confidence"],
@@ -265,20 +399,45 @@ def build_main_docx(metrics: list[dict[str, str]]) -> None:
     add_table(
         doc,
         ["Area", "Metric", "Result", "As of", "Evidence"],
-        [[m["gs_domain"], m["label"], m["formula"], m["as_of_date"], m["evidence_path"][:60]] for m in verified],
+        [
+            [
+                m["gs_domain"],
+                m["label"],
+                m["formula"],
+                m["as_of_date"][:10],
+                shorten_evidence(m["evidence_path"]),
+            ]
+            for m in verified
+        ],
     )
 
-    doc.add_heading("Pending Verification (do not quote as final)", level=1)
-    pending = [m for m in metrics if "Pending" in m.get("verification_status", "")]
+    doc.add_heading("Conditional / Gap Metrics (do not quote as final)", level=1)
+    doc.add_paragraph(
+        "The following metrics are leadership-relevant but not fully verified execution or scheduling evidence."
+    )
+    pending = [
+        m for m in metrics
+        if m.get("verification_status") != "Verified"
+        or m.get("leadership_safe") in ("Conditional",)
+    ]
     add_table(
         doc,
-        ["Area", "Metric", "Projected", "As of", "Dependency"],
-        [[m["gs_domain"], m["label"], m["formula"], m["as_of_date"], m["notes"][:80]] for m in pending],
+        ["Area", "Metric", "Value", "Status", "Dependency"],
+        [
+            [
+                m["gs_domain"],
+                m["label"],
+                m["formula"],
+                m["verification_status"],
+                m["notes"][:90] + ("…" if len(m["notes"]) > 90 else ""),
+            ]
+            for m in pending
+        ],
     )
 
     doc.add_heading("CI/CD Integration", level=1)
     doc.add_paragraph(
-        "GitLab: V3 scheduled_regression_job and metadataweb Stage1 — scheduled jobs exit non-zero on failure "
+        "GitLab: V3 scheduled_regression_job and metadataweb Stage1 - scheduled jobs exit non-zero on failure "
         "(not verified as MR merge gates). GitHub Actions: Mobile 2 Dashboard vertical slice externally validated; "
         "workflow repository not in audit clone. Jenkins: IDP performance scheduled; V2 UI recurring job not verified. "
         "Mobile 2 GitLab nightly not created (QA-1405)."
@@ -291,16 +450,26 @@ def build_main_docx(metrics: list[dict[str, str]]) -> None:
         "repositories, and CI execution."
     )
 
+    doc.add_heading("Document Control", level=1)
+    add_table(
+        doc,
+        ["Version", "Date", "Author", "Changes"],
+        [[VERSION, REBUILD_DATE, PREPARED_BY, "Formatting refresh; conditional metrics table; evidence path cleanup"]],
+    )
+
     doc.save(DOCX_OUT)
     print(f"Wrote {DOCX_OUT}")
 
 
 def build_review_docx() -> None:
     doc = Document()
+    set_document_defaults(doc)
     set_docx_header_footer(doc, "Ascensus GS  |  Assessment Review Findings")
-    doc.add_heading("Government Savings Automation Assessment", level=0)
-    doc.add_paragraph("Review Findings — Rebuild & Verification").alignment = WD_ALIGN_PARAGRAPH.CENTER
-    doc.add_paragraph(f"Review date: {REBUILD_DATE}").alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_title_page(
+        doc,
+        "Government Savings Automation Assessment",
+        "Review Findings - Rebuild & Verification",
+    )
 
     doc.add_heading("Purpose", level=1)
     doc.add_paragraph(
@@ -311,19 +480,39 @@ def build_review_docx() -> None:
 
     doc.add_heading("Executive Findings", level=1)
     findings = [
-        ("F-01", "High", "Mobile 2 100% claim corrected", "Prior 24/24 superseded leadership 22/25 (88%). Projected 24/25 (96%) pending sign-off."),
+        ("F-01", "High", "Mobile 2 100% claim corrected", "Prior 24/24 superseded by leadership 22/25 (88%). Projected 24/25 (96%) pending sign-off."),
         ("F-02", "High", "Mobile 1 verified baseline retained", "1/27 (3.7%) verified; 6/27 code-implemented pending QC4/Stage1 evidence."),
         ("F-03", "Medium", "GitHub Actions wording corrected", "Dashboard slice externally validated; not equivalent to absent implementation."),
-        ("F-04", "Medium", "CI gate terminology corrected", "Scheduled hard-fail ≠ merge/deployment gate without pipeline rule evidence."),
-        ("F-05", "High", "No GS-wide %", "Enterprise percentage remains undefined — by design."),
+        ("F-04", "Medium", "CI gate terminology corrected", "Scheduled hard-fail is not a merge/deployment gate without pipeline rule evidence."),
+        ("F-05", "High", "No GS-wide %", "Enterprise percentage remains undefined by design."),
         ("F-06", "Low", "COPACS scope unknown", "No automation repository identified in reviewed set."),
     ]
-    add_table(doc, ["ID", "Severity", "Finding", "Resolution"], findings)
+    add_table(
+        doc,
+        ["ID", "Severity", "Finding", "Resolution"],
+        findings,
+        row_shades=[severity_shade(row[1]) for row in findings],
+    )
 
+    doc.add_page_break()
     doc.add_heading("Contradictions Resolved", level=1)
-    ledger = ROOT / "00-review" / "contradiction-resolution-ledger.md"
-    if ledger.exists():
-        doc.add_paragraph(ledger.read_text(encoding="utf-8")[:4000])
+    contradictions = parse_contradiction_ledger()
+    if contradictions:
+        add_table(
+            doc,
+            ["ID", "Topic", "Corrected claim", "Status"],
+            contradictions,
+        )
+    else:
+        doc.add_paragraph("Contradiction ledger not available.")
+
+    doc.add_heading("Approved Leadership Narrative", level=1)
+    doc.add_paragraph(
+        "The team has meaningful automation across Government Savings. The current limitation is not the ability "
+        "to build automation; it is establishing a consistent, traceable coverage model across Jira, qTest, "
+        "repositories, and CI execution. We can report verified platform-specific metrics now, but we should not "
+        "publish one GS-wide percentage until the denominators and pipeline evidence are governed."
+    )
 
     doc.add_heading("Recommendations", level=1)
     recs = [
@@ -333,23 +522,41 @@ def build_review_docx() -> None:
         "Provision read-only qTest/Jira/GitLab API access for automated register.",
         "Do not regenerate DOCX headline numbers without updating verified-metrics-register.csv.",
     ]
-    for r in recs:
-        doc.add_paragraph(r, style="List Number")
+    for rec in recs:
+        doc.add_paragraph(rec, style="List Number")
 
     doc.add_heading("Artifacts Reviewed", level=1)
-    doc.add_paragraph(str(ROOT))
+    doc.add_paragraph(
+        "Primary assessment folder: government-savings-automation-assessment/ "
+        "(verified-metrics-register.csv, business-coverage-register, contradiction-resolution-ledger.md, "
+        "pipeline-job-inventory.csv, and linked repository evidence)."
+    )
+
+    doc.add_heading("Document Control", level=1)
+    add_table(
+        doc,
+        ["Version", "Date", "Author", "Changes"],
+        [[VERSION, REBUILD_DATE, PREPARED_BY, "Formatting refresh; contradiction table; severity shading"]],
+    )
 
     doc.save(REVIEW_DOCX)
     print(f"Wrote {REVIEW_DOCX}")
 
 
 def export_pdf(docx_path: Path, pdf_path: Path) -> str:
+    kill_word()
     try:
         from docx2pdf import convert
         convert(str(docx_path), str(pdf_path))
-        return f"OK — {pdf_path}"
+        pages = 0
+        try:
+            from pypdf import PdfReader
+            pages = len(PdfReader(str(pdf_path)).pages)
+        except Exception:
+            pass
+        return f"OK - {pdf_path} ({pages} pages)"
     except Exception as exc:
-        return f"SKIPPED — {exc}"
+        return f"SKIPPED - {exc}"
 
 
 def main() -> None:

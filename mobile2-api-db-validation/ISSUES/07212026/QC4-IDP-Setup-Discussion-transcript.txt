@@ -1,0 +1,297 @@
+QC4 IDP Setup - Discussion-20260721_120158-Meeting Transcript
+July 21, 2026, 6:01PM
+24m 18s
+621792274320Cole Corkran started transcription
+576072292608Swapnil Patil   0:03testing happens in stage one, and then they can push it into the production itself. So that's what they're trying. So for that, they want to make sure that like QC4 works for IDP, non-IDP plans.
+576072292608Cole Corkran   0:16Mhm.
+576072292608Swapnil Patil   0:17So, so we are testing now this mobile microservices.We've tested for non-IDP plans and while testing that plan moved to IDP now, so we have to find other plan. But yeah, but the IDP is not enabled in QC4 at all. But when we were testing, right, I think a couple weeks back, NMD was working fine. Now it is not working.Even I tried creating new accounts and all, so I was not sure who will be the appropriate person to reach.There you go, I'm easier. So, so what happened, right? So, hey, hey, hey.
+576072292608Abhitosh Fani   0:52Is Swapnil.
+576072292608Tandabany Anbanandan   0:53Yes.
+576072292608Swapnil Patil   0:56I'm just giving a brief idea about what's going on with this, right? So we're working on this Unite MSC project, and...United MSC needs to be set up in KFC4. For non-IDP, we have designed it and we changed the model to, you know, it should support IDP as well. And a couple of weeks back, we tested for identity, it was working fine, but now for all new accounts, somehow it doesn't work. Not sure what's going on. So we just wanted to see, like, you know, who can help. That's where I started.Finding out if there is somebody can help us on that. It might be just the configuration issues, I think, but I know it's not easy work.And we don't have like no rush, we don't want to do it like right now kind of thing. We can wait on it, but yes, I want to get it like simultaneously working right. So we are working on mobile two and mobile one and authentication, right? So the authentication piece is what.Fields here.And we are just looking for like, who can be the owner for this particular area. That's where I get your names. That's why the meeting invite was with a lot of people, then I cut down all of them. Like, we don't want those rights yet. Otherwise, there'll be too much discussion. So that's pretty much it.for the time being. So we need somebody to look into it and can at least get couple plants working, like IDP couple plants working for mobile, microservice, at least mobile login, I'll say, right? Because that is kind of stopper for performance test as well as automation for us to design specifically for IDP.Our test cases are done, but before calling it off, right, we have to test it and make sure it is all green.So, that's where we are at, and that's where we need help.
+576072292608Abhitosh Fani   2:53So, for mobile app, I think you should include Team Infinity, who has been working actively on the mobile app, and...
+576072292608Swapnil Patil   2:59I did, and that's where they were like, no, we don't deal with IDP. And I was like, okay, because it's not with the mobile plan, that's what they were saying. It's with the IDP group. I have no clue. I included them and Rich was like, no, we should not be part of this. I was like, okay, let me at least check with Brian what he says.But in worst case, right, like we need to get them on boarded, then probably I'll go through Rajib and then send an e-mail and all that stuff. So that will be official. It was just a discussion that I just wanted to talk to people and they were like, no, we cannot talk because it's that busy.
+576072292608Abhitosh Fani   3:38Yeah, I think as far as your web login work for IDP, that is what Team Odyssey or Team Odyssey has been enabling. And I think recently if they're not doing any QC4 maybe because of time. But Cole, I think whenever we implement new plan, so we should.at least make sure that QC4 is up and running because that is our lower enrollment and we can't go tracked into stage one.
+576072292608Swapnil Patil   4:03I know, and I've been actually, you know, telling Henry and Rajib about this because it's very unstable because developers are using it, right? So, ongoing development is happening in QC code. It's hard to, you know, I mean, every day if you run the regression, obviously you'll have more issues and most of them will be false failure.
+576072292608Cole Corkran   4:04Mhm.
+576072292608Abhitosh Fani   4:14Mm.
+576072292608Swapnil Patil   4:24not actual application issues.But they still want to get QC4 stabilized. Because the way they are now deciding, right, this pipeline project will work, they're thinking QC4 is supposed to be stable. Because it's a lot of work.
+576072292608Abhitosh Fani   4:37Yeah, all the dev work will go into a different different environment. QC4 will not be used for the development right now, what we are doing, so that's really, yeah, we should make QC4 stable, but I think, yeah, for...
+576072292608Swapnil Patil   4:40Yeah.Okay.Yeah.Yeah, eventually it'll be stable, but yeah, and our test cases are dynamic. I mean, we don't have to be in QC4. But to design the pipeline, they have to work in QC4 for DevOps. So their task is like pending right now, and they are waiting on it's fixed, they can merge it completely.
+576072292608Abhitosh Fani   4:52Yeah.
+576072292608Cole Corkran   5:05Mhm.
+576072292608Swapnil Patil   5:08But overall, it's done, we can test it in stage one. And for our stuff, we can mark it complete. Because for us, it doesn't matter, right? As long as the test case is working, we are good. But for pipeline project, it won't be done until QC4, IDP, at least one plan is stage one.
+576072292608Cole Corkran   5:19Mhm.
+576072292608Swapnil Patil   5:28But the problem is like, even we create that, right? Who's going to maintain it, right? Because people changing stuff here and there, right? In case of all, we need somebody to...
+576072292608Abhitosh Fani   5:28So, suppose this.Did mobile app login work anytime for IDP? I think no, right? It worked.
+576072292608Swapnil Patil   5:40Yes, yes, no, it worked. Yeah, we were testing it with NMD.
+576072292608Abhitosh Fani   5:46Okay, do you know when it stopped working?
+576072292608Swapnil Patil   5:50I don't exactly remember, but I can find that one out because we were using it and then all of a sudden it failed. Then NYD was working. NYD was working.
+576072292608Abhitosh Fani   5:57NQC 4.
+576072292608Cole Corkran   6:00Yeah, I was gonna say, yeah, we enabled for New York, yeah.
+576072292608Swapnil Patil   6:03And then...Yeah, and it was working, so we switched everything to NYD because NYD had a lot of test data already there. So it was a good plan. And we disabled MFA and all that stuff, and then we started working on it. But then somehow it is again, I mean, New York is now goes to Lagos.
+576072292608Abhitosh Fani   6:12No.
+576072292608Swapnil Patil   6:24So, something happened and it's under, so...
+576072292608Abhitosh Fani   6:29Yeah, I think, good, sorry, go ahead, Cole.
+576072292608Cole Corkran   6:29Is it?No, I mean, you might say the same thing, but isn't there a, isn't that expected maybe in QC4 since there's some repetitive pushes we have to run?config wise to keep QC4 up and running since we create the configs on our local, like the client ID and we don't really need DevOps's help because we can run the metadata as well.So there's got to be like some maintenance on our side, right? It's not just like set it and forget it in QC4. Is that right?
+576072292608Abhitosh Fani   7:05It should be actually certain for forget it too, because QC for one time it it is like any other environment, so in in stage reason, so we'll have to ask DevOps to run the SQL DBA to run the SQL, get the client ID, and ask the Ops team to upload into UPoints properties. Same thing here we do in QC4, but...
+576072292608Swapnil Patil   7:05I think we need to stabilize QC, right?
+576072292608Abhitosh Fani   7:24we can do ourselves instead of calling DP or Ops people. And these are like one time job, so you should not require to maintain it at all. So for example, right now you're working on any new plan, let's say New Mexico. You set the client, you create the client, then add the properties.In the source file, we update the reverse proxy setting, and once it is deployed, then it will go and QC4 will start working. Once it is done, then usually no one would touch that, but if someone does that, the automation might call, might catch it.But usually if NMD is a plan which is enabled already, then it should not be case that it will not work in future. No one will tell that.
+576072292608Cole Corkran   8:12Mhm.
+576072292608Abhitosh Fani   8:12Only case it will not work is sometime the credential will expire. So with that, I remember, Swapnil, the application that you are using currently, maybe we should check whether the credential or certificate has expired or not for the application. If it was working earlier. So yeah, that can be one of the issue.
+576072292608Swapnil Patil   8:27No, OK.Yeah, I can see, I think we were testing till 7-10, and this one till 10, I think it was working fine. I was just checking the history. And then later, I don't see exactly when it started failing, but I think till 10th of this month it was working for NMD. And that's why we created a lot of test data, because we don't care for other plants, right?
+576072292608Abhitosh Fani   8:39Mhm.
+576072292608Swapnil Patil   8:51For designing and work stage one, where we care about more plans, not in QC.So, we just created some test data for performance and some test data for automation and stuff, but yeah, what do you want me to check?
+576072292608Abhitosh Fani   9:09Check whether the application that you are using might be you do not have that yet in the do you have the author author uii access?
+576072292608Swapnil Patil   9:10Mmh.You mean the API?
+576072292608Abhitosh Fani   9:21Admin portal.
+576072292608Swapnil Patil   9:23No, I don't have.
+576072292608Abhitosh Fani   9:25Okay.
+576072292608Swapnil Patil   9:27This one, right? So, I we have this data right here, so...
+576072292608Abhitosh Fani   9:27Ohh, we can check that.No, not that, not that. So then in the admin portal, let me see.
+576072292608Swapnil Patil   9:32Okay, okay.No, I don't have access to the admin port.So if I use the Chrome, right, so it'll go like the blank. Okay, looks like it's doing something. Yeah, so this is what happens.So after some time you just 401 unauthorized.
+576072292608Abhitosh Fani   9:59Yeah.
+576072292608Tandabany Anbanandan   10:00For this one, you have to check with Luis team, right? Abhitosh, we have nothing to do with this one, right? They are the one mobile responsible, right?
+576072292608Abhitosh Fani   10:09Right, so that's why I told you.This is something the mobile team should.
+576072292608Swapnil Patil   10:13And they said they're not, but let's see if I log into IDP.in KC4, is it working? This is a regular IDP login? Because it redirects, right? It redirects to this, and even with the mobile, right, the way it is, like it redirects to this, logs in and then comes back. This works, and if it fails for...
+576072292608Tandabany Anbanandan   10:22There's a stage in, yeah, that's.Yeah.
+576072292608Swapnil Patil   10:39Mobile, then I'll let them know this is what is going on.I added Luis to this meeting. Mizar, Luis, Nick, I added all of them, but Rich said they should not join this meeting. But let's see.
+576072292608Abhitosh Fani   10:55Yes, uh...I think you should escalate to Rajib and from there we should get some direction because...
+576072292608Swapnil Patil   11:01Yeah, yeah, yeah, yeah.You can.
+576072292608Abhitosh Fani   11:04from ODC team, they are not responsible for mobile. They just enable it. So if it was working, then now if it is not working, then I think we should get mobile team involved because.
+576072292608Swapnil Patil   11:18The.
+576072292608Abhitosh Fani   11:19They maintain the mobile app.
+576072292608Tandabany Anbanandan   11:21Yeah, if anything like Swapnil, if you need any any couple of plans, we can do it in QC 4. We will fix that reverse proxy issue and generate the client ID we have with the new promises.
+576072292608Swapnil Patil   11:21Yeah, so...Sue.Yeah, at least if you can do for NMD and New York plan, right, that is more than enough. I think even QC4, right, IDP login, regular IDP login also not working, right? So it just gives a blank page, I don't know. Let me go to incognito, right, in case.
+576072292608Tandabany Anbanandan   11:35Mhm.Mhm.Oh, sorry.
+576072292608Cole Corkran   11:46Mm.
+576072292608Swapnil Patil   11:50And change this to QC4.
+576072292608Cole Corkran   12:01Is the blank page maybe a symptom of what you were mentioning, Abby, the expired token? So it's trying to fetch nothing. Is that the right way to think about it?The page is blank, no.
+576072292608Abhitosh Fani   12:13No, no, we'll have to look into, so it...
+576072292608Tandabany Anbanandan   12:15No, now it's gone.
+576072292608Swapnil Patil   12:16Something is failing, right? Because Chrome has some cookies or some session there, right? That's why now it worked. OK, QC for LMD worked. OK, this is good.
+576072292608Tandabany Anbanandan   12:20Now, now it's coming, right? Now it's, yeah, now it's coming, yeah, now it works, yeah.Yeah.
+576072292608Abhitosh Fani   12:27So this is the login you do, I did not see initially. So this is the web login you're trying, right?
+576072292608Tandabany Anbanandan   12:31No, no, no.
+576072292608Swapnil Patil   12:32This is the IDP login, right? So, IDP login independently, it works. OK, now let me another one, and I go to QC for so QC for mobile login.
+576072292608Tandabany Anbanandan   12:33No IDP login only event.Yeah, it working.
+576072292608Abhitosh Fani   12:37At least, yeah.
+576072292608Tandabany Anbanandan   12:39Yeah.
+576072292608Swapnil Patil   12:48And...Okay, it goes to LMD by default.Okay, let me take the same account.Next, these are for disabled accounts, so...
+576072292608Cole Corkran   13:02Oh, okay, no more.
+576072292608Swapnil Patil   13:05Okay, so okay, I did we login works.Something is missing here with the mobile one.
+576072292608Abhitosh Fani   13:09So this is, yeah, something in the app, it is throwing an error, so someone has to look into the log and find out reason.
+576072292608Tandabany Anbanandan   13:16And this you need to check with the Luis team. Yeah, they are the one maintaining that mobile app.
+576072292608Cole Corkran   13:21Ohh.
+576072292608Swapnil Patil   13:25401.OK, they might have done something, right, because they are the ones who are doing it, OK?
+576072292608Tandabany Anbanandan   13:31Yeah.
+576072292608Swapnil Patil   13:34Okay.So let me check with them and I'll tell them this, OK?And this is happening pretty much all the article. Like I tried with the NMNJD and all. It is not working. We made inputting was the same issue.
+576072292608Tandabany Anbanandan   13:42Yeah, if not.Is it is it New York IDP New York is working? Can you check that one, Swapnil?
+576072292608Swapnil Patil   13:53New York is not IDP. If I go to New York, it goes to legacy.
+576072292608Tandabany Anbanandan   13:58Still going legacy, because we can we migrated that one.
+576072292608Swapnil Patil   13:59Yeah.Mm.Yeah, I don't know what happened with this because I remember when it was working. So this one, this is legacy logging.
+576072292608Cole Corkran   14:07Mm.
+576072292608Tandabany Anbanandan   14:09Ohh.
+576072292608Swapnil Patil   14:11Yeah.
+576072292608Tandabany Anbanandan   14:11Maybe metadata is not updated.
+576072292608Swapnil Patil   14:14Yeah, something might have missed because I remember I tested this in a QC pool.
+576072292608Tandabany Anbanandan   14:16Yeah, because what happened is at some point we stopped loading the metadata in QC4, so we directly go to the stage and load it. So, yeah, yeah.
+576072292608Swapnil Patil   14:23Mm.
+576072292608Cole Corkran   14:26Mhm.
+576072292608Swapnil Patil   14:28Yeah, I I completely understand completely, but and I think let me let me talk to Luis.
+576072292608Tandabany Anbanandan   14:31Nie.
+576072292608Abhitosh Fani   14:33Yeah, I think Swapnil, so yeah, for the app, yeah, please send an e-mail to Rich and Luis, so they should they should be able to look into it if you are not getting any response into Simon and Rajib, so the Rajib should be able to escalate it, and for the for the existing plan.
+576072292608Swapnil Patil   14:43Okay.Okay.
+576072292608Abhitosh Fani   14:52Maybe if you have only few plan, then Cole or Bunny, are you able to help for few plan? If not, then...
+576072292608Tandabany Anbanandan   15:00Yeah, yeah, definitely. I'll be. I can help for the I.D.P. Like, if you want to set up the reverse browser and enter the client idea and set it up with the new promise, I can definitely help. There is no doubt on, yeah.
+576072292608Abhitosh Fani   15:03Yeah.
+576072292608Swapnil Patil   15:06Yeah, but now the problem looks like on the login microservice, right? MSC, United MSC, that's where the problem is. Even they migrate the plan, I think still will have issue for login, right? It's something on the microservice side. Let me check with them.
+576072292608Abhitosh Fani   15:09Yeah.Yeah.
+576072292608Swapnil Patil   15:26OK, this is helpful.
+576072292608Abhitosh Fani   15:27And for the new plan, yeah, and for the new plan call, so I think, yeah, if you are not already applying QC4, then yeah, please have QC4 also up and running for new plan at least going forward.
+576072292608Swapnil Patil   15:28Yeah.
+576072292608Cole Corkran   15:39Yeah, that makes sense. And then we also have to.
+576072292608Tandabany Anbanandan   15:41Yeah.
+576072292608Abhitosh Fani   15:42Because eventually we are going to get away with QC4 development work, so we will have a different environment. So in that way it will be another maintenance work.
+576072292608Cole Corkran   15:51Okay, yeah, I can read the.
+576072292608Swapnil Patil   15:52Yeah, it'll be a little more stable, right? So they want to do the shift left testing where we can have more control and can be found more issues can be found in the lower environments, right?
+576072292608Abhitosh Fani   15:54Yeah.
+576072292608Cole Corkran   16:00Mhm.
+576072292608Swapnil Patil   16:02That's what they're trying.Sounds good. Let me send an e-mail. I'll add Infy on it and I'll add you 3 on it with Brian and Kevin and Rajib. Let's see what we can get here. But thank you, thank you for all the help, guys. Okay.
+576072292608Tandabany Anbanandan   16:19Yeah.Yeah, no problem. Thank you. Thanks, bye.
+576072292608Abhitosh Fani   16:23Yep, thank you, Swapnil. Thank you all.
+576072292608Cole Corkran   16:24Yeah, no problem. Thanks.
+576072292608Swapnil Patil   16:25And this is needed, but it's not kind of blocker for us. I mean, we can design our stuff. It will be blocker for DevOps. But we will find a workaround for that. That's not a problem.
+576072292608Tandabany Anbanandan   16:28Yeah.
+576072292608Cole Corkran   16:32Yeah.Yeah, okay, one question, sorry. The plans that you want enabled in QC4, just let us know and then I can make those stories and we can get them up and running for you. Unless you have a few in mind right now.
+576072292608Tandabany Anbanandan   16:36Yeah.
+576072292608Swapnil Patil   16:37Sure, Cole.Sure.Okay.Yep, I'm putting here.
+576072292608Cole Corkran   16:52Okay.
+576072292608Tandabany Anbanandan   16:53Cole, what is this place? Every time you are in your place.
+576072292608Swapnil Patil   16:54Andy.
+576072292608Cole Corkran   16:57Ohh, I'm back home in Alaska for two weeks, 3 weeks.
+576072292608Tandabany Anbanandan   17:01Oh yeah, you told me, yeah.
+576072292608Swapnil Patil   17:01Oh, you're in Alaska? Yeah.
+576072292608Cole Corkran   17:03Right now, yeah, yep.
+576072292608Tandabany Anbanandan   17:05Yeah, lucky that you are not middle of the river, Cole.
+576072292608Swapnil Patil   17:05That's pretty cool.
+576072292608Cole Corkran   17:09Yeah, you. I know. I'm very lucky. Well, it's been raining.
+576072292608Swapnil Patil   17:12That's cool.
+576072292608Tandabany Anbanandan   17:12Because one time, one time still I, I can remember, Paul, I, yeah, I called you, I called you on some prod issues, said that, hey, Fani, I am in the middle of the river, I could not have river.
+576072292608Swapnil Patil   17:15It's pretty bright over there.
+576072292608Cole Corkran   17:17Yeah, it is.I was in the middle of a, I was on a boat. Yeah.
+576072292608Swapnil Patil   17:26Ha ha ha.
+576072292608Tandabany Anbanandan   17:26What?
+576072292608Cole Corkran   17:27And that was a pretty bad prod issue too. I was sitting on a dock in the middle of nowhere in Alaska with my hotspot with one bar on the phone with DevOps and Bonnie.
+576072292608Swapnil Patil   17:28Okay.
+576072292608Tandabany Anbanandan   17:30Yeah.
+576072292608Swapnil Patil   17:30Uhh.
+576072292608Tandabany Anbanandan   17:38Yeah.Yes.
+576072292608Swapnil Patil   17:41Ha ha ha!
+576072292608Cole Corkran   17:41And they are.
+576072292608Abhitosh Fani   17:42Something.
+576072292608Cole Corkran   17:43Yeah.Crazy.
+576072292608Swapnil Patil   17:45Oh, man.
+576072292608Abhitosh Fani   17:45Which, which friend was that?
+576072292608Tandabany Anbanandan   17:48And no, no, no, it's not New Mexico. It's a vanguard, vanguard.
+576072292608Cole Corkran   17:48New Mexico, so we had changed the name of a fund.It was.
+576072292608Abhitosh Fani   17:54Ohh.
+576072292608Cole Corkran   17:54Yeah, okay, yeah, well, essentially, future path, so yeah, like...
+576072292608Tandabany Anbanandan   17:55And then we have.Yeah, we closed all the funds, we closed all the funds, and then the everything started burning, so...
+576072292608Abhitosh Fani   17:59The.
+576072292608Cole Corkran   18:00Nevada, Nevada, that's what it was.Is Nevada.Yeah, it was not good.
+576072292608Tandabany Anbanandan   18:10Yeah, it's not good.
+576072292608Cole Corkran   18:12Yeah.
+576072292608Swapnil Patil   18:12So, Cole, do you live in Alaska or are you just visiting there?
+576072292608Cole Corkran   18:16No, I grew up here and then I am just visiting like family, yeah.
+576072292608Tandabany Anbanandan   18:17Yeah.
+576072292608Swapnil Patil   18:19No.That's pretty good, man. That's pretty good. Where do you live?
+576072292608Tandabany Anbanandan   18:23Yeah.
+576072292608Cole Corkran   18:24in Anchorage.
+576072292608Swapnil Patil   18:27Okay, I'm in Pennsylvania.
+576072292608Tandabany Anbanandan   18:27Okay.
+576072292608Cole Corkran   18:28Yeah.Yeah, yeah, I went to a college at Lehigh and then I moved around after college, but I grew up here until I went to Pennsylvania.
+576072292608Swapnil Patil   18:30Mhm.
+576072292608Tandabany Anbanandan   18:30Yeah.
+576072292608Swapnil Patil   18:42Oh, okay, okay.
+576072292608Tandabany Anbanandan   18:42Because.Is that your garden, girl?
+576072292608Cole Corkran   18:47You know, it's a shared space here. What if is there like a blur or something on? Let's see. OK, yeah, yeah, so there's a...
+576072292608Tandabany Anbanandan   18:51Thanks.Yeah, it completely. Oh, yeah. Oh, nice.
+576072292608Cole Corkran   18:57Yeah, so this is a lake. There's a bunch of fish out there.
+576072292608Tandabany Anbanandan   19:00Yeah, that's what I said. You are in the middle of the lake.
+576072292608Swapnil Patil   19:00I can put your spotlight.
+576072292608Cole Corkran   19:02Yeah, just the other week there was a black bear that was in our yard, like over here. Yeah. It was really small. It was making a lot of noise. I think it wanted its mom or something. But yeah, yeah, it's there's some eagles usually like on that tree line way, way over there. But.
+576072292608Tandabany Anbanandan   19:05Yeah. Oh, black. Oh, is it? Oh. Oh.
+576072292608Swapnil Patil   19:08Oh, wow.
+576072292608Abhitosh Fani   19:09Wow.
+576072292608Tandabany Anbanandan   19:12Mhm.Ohh.
+576072292608Swapnil Patil   19:14Yeah.
+576072292608Tandabany Anbanandan   19:16Mm.Mhm, mhm.
+576072292608Swapnil Patil   19:19Mhm.
+576072292608Tandabany Anbanandan   19:21Yep.
+576072292608Abhitosh Fani   19:21Mhm.
+576072292608Cole Corkran   19:23Yeah, a lot of fish.
+576072292608Tandabany Anbanandan   19:24Yeah.
+576072292608Cole Corkran   19:25They stock it with a bunch of fish.
+576072292608Tandabany Anbanandan   19:25Ohh, cool.
+576072292608Swapnil Patil   19:25Wow, that's pretty cool. It's just a nice view, man.
+576072292608Tandabany Anbanandan   19:28Yeah.Yeah.
+576072292608Cole Corkran   19:31Yeah, yeah, no, it's definitely nice. There's, I mean, there's a lot of nice views in Anchorage.
+576072292608Swapnil Patil   19:34Actually.
+576072292608Tandabany Anbanandan   19:34Thank you.
+576072292608Swapnil Patil   19:36How's the weather over there right now?
+576072292608Tandabany Anbanandan   19:36Mhm.
+576072292608Cole Corkran   19:38Well, I mean, it's been raining for like 2 weeks straight and today's the first sunny day. I was supposed to go on in the middle of the ocean for five days at the end of the week. So I had PTO booked, but I just canceled my PTO because the waves are like way too big. So it's just not safe. So the weather is not great.
+576072292608Swapnil Patil   19:51Mhm.
+576072292608Tandabany Anbanandan   19:56Okay.
+576072292608Cole Corkran   19:58But today is the like one of the only days that it's sunny, which is, you know, I'm going to get outside for sure.
+576072292608Swapnil Patil   20:05Yeah, yeah.
+576072292608Abhitosh Fani   20:06So, you get some sunset around noon, around night time, midnight.Haha.
+576072292608Cole Corkran   20:15set, which is funny. It's still very, like you can still go outside and, you know, see just fine throughout the whole night. But the sun, I guess, technically sets at midnight and then it comes up. Like I was up at 5 this morning for work and the sun was up. Yeah.
+576072292608Abhitosh Fani   20:17Yeah.Yes.
+576072292608Swapnil Patil   20:27Mm-hmm.
+576072292608Abhitosh Fani   20:30Sun is already there.
+576072292608Tandabany Anbanandan   20:33Oh.
+576072292608Abhitosh Fani   20:33Mhm.
+576072292608Swapnil Patil   20:34Wow.
+576072292608Tandabany Anbanandan   20:35No.
+576072292608Abhitosh Fani   20:38Yeah.
+576072292608Swapnil Patil   20:38Yeah.
+576072292608Tandabany Anbanandan   20:41Anyone wants fish, Cole will send it from Alaska, right, Cole?
+576072292608Cole Corkran   20:45That's true. I mean, I got to catch him first. This year there's a lot less, but...
+576072292608Swapnil Patil   20:48We are not talking about the pictures again. Fresh pictures, you'll get them.
+576072292608Cole Corkran   20:51Yeah.
+576072292608Tandabany Anbanandan   20:51What's up?Oh.Cool, Cole.
+576072292608Swapnil Patil   20:58Mhm.
+576072292608Cole Corkran   20:59Yeah, you guys, you guys let me know. I'll have extra fish.
+576072292608Tandabany Anbanandan   21:02Yeah.
+576072292608Swapnil Patil   21:02Mhm.
+576072292608Tandabany Anbanandan   21:03X-rays, okay.
+576072292608Cole Corkran   21:05Yeah.I have shipped it before. I've shipped it to a few folks in the census because they really like fish.
+576072292608Swapnil Patil   21:07Yeah.Okay.
+576072292608Cole Corkran   21:12You ship it in like a styrofoam box, yeah.
+576072292608Abhitosh Fani   21:13Oh, really?
+576072292608Tandabany Anbanandan   21:15Mm-hmm.
+576072292608Abhitosh Fani   21:15Nice.
+576072292608Swapnil Patil   21:16Yeah.
+576072292608Tandabany Anbanandan   21:18Yeah, nice.
+576072292608Swapnil Patil   21:18Pretty cool. That's pretty cool. That's pretty cool. Yeah, nice to see. Nice to see that beautiful view. I thought you got a wallpaper from somewhere, you know. It is almost like a wallpaper kind of picture, you know.
+576072292608Cole Corkran   21:24Yeah, I mean, it's kind of...
+576072292608Tandabany Anbanandan   21:27Yeah.
+576072292608Cole Corkran   21:28You thought I was working where?Yeah, like a background.
+576072292608Tandabany Anbanandan   21:33Mhm.
+576072292608Swapnil Patil   21:34Yep, yep, yep, yep.
+576072292608Cole Corkran   21:34Yeah.
+576072292608Swapnil Patil   21:37Yeah, we have a fake one.
+576072292608Tandabany Anbanandan   21:37Peaslee.Who was me?
+576072292608Cole Corkran   21:42Yeah, I could probably just save this and use it as my background forever. Make it a little less like that. Get rid of the fan, yeah.
+576072292608Swapnil Patil   21:42Yeah.
+576072292608Tandabany Anbanandan   21:46Yeah.
+576072292608Swapnil Patil   21:46Yeah.
+576072292608Tandabany Anbanandan   21:49Yeah.
+576072292608Cole Corkran   21:52But...
+576072292608Swapnil Patil   21:56That's cool, that's cool.
+576072292608Cole Corkran   21:56Yeah, hopefully the weather's fine. I heard there was a lot of...A lot of heat waves. Is that what's happening on the East Coast right now? Super hot?
+576072292608Abhitosh Fani   22:06Is better now, is better.
+576072292608Cole Corkran   22:07Okay.
+576072292608Tandabany Anbanandan   22:08It's better, but in New York it's a flooding. Can you imagine that?
+576072292608Cole Corkran   22:12Ohh.Well, yeah, I mean, the Manhattan's sinking like 5 inches a year, right?
+576072292608Tandabany Anbanandan   22:15Yeah.
+576072292608Cole Corkran   22:21It's on an island technically, it's sinking.
+576072292608Abhitosh Fani   22:22No.
+576072292608Swapnil Patil   22:24Oh yeah, yeah, yep, yep, yep. That's what they're saying.
+576072292608Tandabany Anbanandan   22:24Is it?
+576072292608Cole Corkran   22:25Yeah.No.AYeah.
+576072292608Tandabany Anbanandan   22:30Mmh.
+576072292608Swapnil Patil   22:31Those measures, these all these things, man, I don't know inch by inch, but they're saying that.
+576072292608Cole Corkran   22:37Yeah, yeah, Manhattan will be like Venice. If you guys have ever seen Venice, it will be like that one day.
+576072292608Swapnil Patil   22:42Mhm.
+576072292608Tandabany Anbanandan   22:43Yeah, I'm going to see it.
+576072292608Swapnil Patil   22:44Ohh, yeah, yeah.Yeah.Oh, cool. Thank you, guys. Thank you for your time. And thank you for the beautiful new call. So I'll make sure that I give you a call, right? After a couple of weeks or so, like alternate weeks, I should call you, especially video calls and see where you are at.
+576072292608Tandabany Anbanandan   22:51Okay. Thank you.
+576072292608Cole Corkran   22:55Oh, you're welcome.Yeah.
+576072292608Abhitosh Fani   23:04Ha ha ha.
+576072292608Cole Corkran   23:06Yeah, I'll turn, I'll turn my background to a real background. Everybody else will think I'm like right in Boston.
+576072292608Swapnil Patil   23:09Yeah.
+576072292608Abhitosh Fani   23:11You, you don't need background.
+576072292608Swapnil Patil   23:13Yeah.
+576072292608Cole Corkran   23:14Yeah.That's true. No, yeah, give me a call, you know.
+576072292608Swapnil Patil   23:17Hey.
+576072292608Tandabany Anbanandan   23:20Children.
+576072292608Swapnil Patil   23:20Yeah, sure, sure, definitely.
+576072292608Tandabany Anbanandan   23:22Okay.
+576072292608Abhitosh Fani   23:23Yep, all right. Thank you, everyone.
+576072292608Swapnil Patil   23:24Thank you guys. Okay, there is no too much load for this IDP thing, but yeah, we'll see what we can do. Okay. Whenever you get some bandwidth, you can work on it. Yep, yep.
+576072292608Tandabany Anbanandan   23:24Thank you.
+576072292608Abhitosh Fani   23:30Yeah.
+576072292608Cole Corkran   23:30Yep, yeah, I'll put some stories on the board for us. When is it, when is it due? When do you need the enablement spy? Just after you get Infinity fixing their side with the services and then...
+576072292608Swapnil Patil   23:41Yeah, I think at least one plan working in QC4. Looks like NMD is working. So I'll just ask them to fix on their end whatever they need to do it. I think we should be good. So that is just for the future work, right? If you want to test more plans, then only for that. So there's no timeline for it.
+576072292608Cole Corkran   23:44Okay.OK.Yeah.Okay.
+576072292608Swapnil Patil   24:01But yeah, one thing to get rid of, right? So, yeah.
+576072292608Cole Corkran   24:01OK, well, we'll still, I'll still make the stories in.Put it up. Sounds good.
+576072292608Tandabany Anbanandan   24:05Yeah.
+576072292608Swapnil Patil   24:07Cool, cool. Thank you. Thank you, guys. Thank you. Take care. Yeah, talk to you later. Yeah, you guys. Bye.
+576072292608Tandabany Anbanandan   24:07Thank you, everyone.
+576072292608Cole Corkran   24:09All right, have a good rest of your day. Thanks. Bye.
+576072292608Tandabany Anbanandan   24:09Thank you, thank you so much. Well, yeah, thanks a lot. Bye.
+576072292608Abhitosh Fani   24:10Thank you.Blake.
+621792274320Cole Corkran stopped transcription
