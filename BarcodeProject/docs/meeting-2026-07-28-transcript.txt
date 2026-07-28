@@ -1,0 +1,127 @@
+﻿Performance Testing Requirements – Barcode Feature-20260728_090252-Meeting Recording
+July 28, 2026, 3:02PM
+16m 35s
+576072292608Priti Choudhary   0:08So, for nag, I have kept this meeting so that we can move over armed dispatch.
+576072292608Krishna Reddy   0:15Okay.
+576072292608Priti Choudhary   0:16Yeah.
+576072292608Swapnil Patil   0:16And.
+576072292608Priti Choudhary   0:20Yes.
+576072292608Swapnil Patil   0:20Okay, I think there are a few unclear points here, right? So what we want to do right before proceeding to this, we need to get a formal approval from Rajib, right? So what will be the deliverable here? Because I think discussion is still going on, like about the certificates.
+576072292608Priti Choudhary   0:27Play.I.
+576072292608Swapnil Patil   0:38or authentication, right? Because if this user search or any type of authentication, we create performance test without it. So that is not a correct depiction of the performance test, right? So we have to make sure that it's approved by them. They kind of understand what we are doing, right? So we don't want to just make it.
+576072292608Priti Choudhary   0:56Yeah.
+576072292608Swapnil Patil   1:00Green, right? We want to make sure that if there is an issue with the performance or any anything happens, whatever the production is that production going to have, right? So we have at this similar to that.So that's why I was like not sure what's going on. That's why I asked Priti to set up this meeting. So that we can discuss and then we can ask the same question to them, right? So I mean the leadership.
+576072292608Suresh Mahto   1:24Yeah, so let me clarify on this. Even earlier also, I raised the same concern, like why we need a performance test on this particular functionality. Although everything is getting called from Copax and it required search, and then only we can validate. So what he said.
+576072292608Swapnil Patil   1:27Mhm.
+576072292608Suresh Mahto   1:46Why we are relying on Cofax changes and other things? Whatever API we delivered, we need performance tests from that particular endpoint, not for Cofax related changes. So even though on that time I explicitly ask, on that case we need to validate.performance testing on QC environment or local environment. So you said that would be fine. I didn't make any difference, but...
+576072292608Swapnil Patil   2:14So why is confusing then? Like if it's just the endpoint we are testing, right? So nothing to deal with certificates and all, then it's pretty straightforward, right? So, but what happens in production? There is a production, I mean the performance lag and all that stuff happens because of certs. Because it'll ask the same question, why we did not do that in stage.one, right? So what I'm trying to say here, right? So we need to get this approved from their end as well. So they are also kind of aware of this, right? And we can do both of the things. I mean, there's no blocker from our end. Performance tests can be done with the certificates as well, or maybe the keys or authentication.But if it's not necessary, then why unnecessarily do it, right? So if it's not required, then we don't want to add extra time to get that working and all. We completely get it, but that's a technical part on our end, right? So leadership should kind of agree on this one and they kind of know what we're doing only QC for.And this is the gap we have. They are okay with it. We don't mind, right? It's easy for us to set that way. We don't have to wait for the search and all that stuff.You get my point, right? Because if something happens in production, right, so if there is a deadlock or performance lag or something happens, the discussion will again start. And that point, it'll be like, you know, the pointing fingers on everyone. Rather than going into that, we have a couple days to do it. So we can do anything. Like we can do just the QC4 without like no bypassing or.maybe just now skip search, get that going. Or stage one with the search, that also can be possible. That won't be possible within a couple days, but at least we can choose the hybrid approach, right? So KC4 and then stage one, something like that, right? So we can certainly go with that.He is getting my point, right? So because it'll happen, it happened in the past. Performance test is a little critical for them because it's pushed from higher up. So they don't kind of understand what we are talking about. They do not know what is performance test. So they just want to see it's green. But when we are dealing with it, right, so we want to make sure that we are doing it the way.It's supposed to be with the best practices, right?
+576072292608Suresh Mahto   4:38Yeah, completely active. And even though volume they are talking about, that's very less even, even that is not required any performance testing, but that's fine.
+576072292608Swapnil Patil   4:40Yeah.Yeah.Yeah, for the time being, it'll be like that, but later on, once it is, you know, they're out there in public, right? Like, down the line after six months or a year, there might be volume, right, later on.Because it will get publicized and people will start using it. We don't know, so...But that's okay, that's okay. So my only point is, like, you know, if you want to proceed with just the QC4, I think we need the approval from Rajib and I think Arun as well, right? So this is what we are doing and they're kind of aware of it. If they want us to, better to discuss, right? So if they have any doubt or anything, just get on the call and then discuss and then.Solve that issue, because we don't have a lot of time here.All right, so because Priti is offshore, her day is almost done. So Tuesday is when we have hardly a couple more days, right? So.So for us now, right? Suppose we want to, yes, Brenda, go ahead.
+576072292608Brenda Montoya   5:47Okay.I'm just questioning what's the action item because we've...
+576072292608Swapnil Patil   5:55Yeah, that's what we are still trying to figure it out, so...
+576072292608Brenda Montoya   5:56When I get the update on Friday.I did tell Rajib he asked his questions about stage, like why not on stage? It was provided and then the conversation was in.
+576072292608Swapnil Patil   6:00Yeah.Is he happy with it?
+576072292608Brenda Montoya   6:12I meant means happy for me.
+576072292608Swapnil Patil   6:14Yeah.I don't know what to do. Okay. Let's, yeah, this is weird. Okay, let's do this, okay? Like Suresh said, right? So we can proceed with QC4, get everything designed for a QC4. Let me talk to him, okay?
+576072292608Brenda Montoya   6:22Let me do more probing.
+576072292608Swapnil Patil   6:39And let's see if he has any concerns.And because if you want to validate just the API endpoint, then we don't have to worry about what CoPax does, right? That's CoPax here, right? So we are just dealing with the endpoint and that does not need any search or anything, right? And if they talk about search and all, so that's the workflow.
+576072292608Suresh Mahto   6:50That's true.Mm.
+576072292608Swapnil Patil   7:02on the cofax plus search plus the endpoint that we are not doing right. So that is completely different. That's out of scope for this requirement. So let me talk to him in that particular sense so that he can kind of know power of it and he knows what we are kind of delivering right.
+576072292608Brenda Montoya   7:19Okay, yeah, to make an informed decision. Got it.
+576072292608Swapnil Patil   7:22Yes, yes, yes. So, and if he has any concerns, questions, then we can get on the call and then we can discuss, but probably I think he should be kind of getting it right what we are trying here.
+576072292608Brenda Montoya   7:30Yes, I think his concerns would be loud and clear if he had some, but yes, they get that reassurance and make sure.
+576072292608Swapnil Patil   7:39Yeah.Yeah, yeah, yeah, so let me talk to him or at least chat with him and see what what he says, so that he knows exactly what we're gonna deliver on Friday, right? So, and everybody's kind of an hour of everybody's on same page, right? What we're gonna do.
+576072292608Brenda Montoya   7:41Think.
+576072292608Swapnil Patil   7:55Okay, so now if that's the thing, we will need the data for QC4, like now the host names, whatever the payloads, methods, or the response, how it's supposed to be, right? So the one you give, Suresh, that's for the local, I think, right?
+576072292608Suresh Mahto   8:13Yes.
+576072292608Swapnil Patil   8:14Yeah, we need for QC4.Because we're going to deliver something for QC4, right? So...
+576072292608Suresh Mahto   8:20Okay, so one thing I just wanted to know, so do you guys have certificate for KC4?
+576072292608Swapnil Patil   8:29Where do we need to add that cert?
+576072292608Priti Choudhary   8:31Yeah.
+576072292608Swapnil Patil   8:34We do not have anything right now. So what are you guys provided that day, right? Like through e-mail or maybe chat. That's what we have.
+576072292608Suresh Mahto   8:39Mhm.
+576072292608Priti Choudhary   8:39Bing.Play.Oh.
+576072292608Swapnil Patil   8:43Sorry, Priti might have something, but that's what I was aware of. I don't know, Priti, do you have certificates?
+576072292608Priti Choudhary   8:46Yeah.
+576072292608Suresh Mahto   8:50Yeah, but that will only bypass Apache server.
+576072292608Priti Choudhary   8:51Ohh.Suresh has shared.One that Suresh sent me one, which is for the local dev environment.And we can check is he he mentioned that we can use the same for QC as well.
+576072292608Suresh Mahto   9:08Yeah, but I don't think so. That will bypass JBoss and that will bypass your Apache server, but not JBoss.
+576072292608Swapnil Patil   9:19So, how do we listen?
+576072292608Suresh Mahto   9:19So, that is only concern.
+576072292608Priti Choudhary   9:19Bing.
+576072292608Suresh Mahto   9:22QC4 what happened like in local dev we have already bypassed the partner auth so that it doesn't ask that credentials and all. But in QC4 it's already in server. We tried to replace that partner auth jar file but.
+576072292608Priti Choudhary   9:23Yes.I.
+576072292608Suresh Mahto   9:42we don't have right permission for that.
+576072292608Swapnil Patil   9:45So how you guys are testing this then?
+576072292608Priti Choudhary   9:50Yeah.Yeah.But.
+576072292608Swapnil Patil   10:05Okay, for performance we need to do it on QC4. How can we get that going? Like, is there a way that anybody can help?
+576072292608Priti Choudhary   10:11Ohh.
+576072292608Suresh Mahto   10:11So, uh, do you do you do so just wanted to one thing, so do you have access to replace any jar file in QC4 server?
+576072292608Priti Choudhary   10:19Yeah.
+576072292608Swapnil Patil   10:20No, no, we don't.We can get DevOps help right here in case we need.
+576072292608Suresh Mahto   10:27Yeah, on that case, I think that approach we can try. So we need to play. Yeah, so on that case, I think it would be easy. We just need to place one jar file on a certain location.
+576072292608Priti Choudhary   10:28Yeah.
+576072292608Swapnil Patil   10:32Yeah, yeah.
+576072292608Priti Choudhary   10:33Bing.Oh.
+576072292608Swapnil Patil   10:41Yeah, so there's a channel there, right? The ops channel. You can put message that whoever's available, right? They can help us. They'll contact you and then they can get that stuff done.
+576072292608Suresh Mahto   10:48Mmh.
+576072292608Priti Choudhary   10:50Yeah.
+576072292608Suresh Mahto   10:53OK, so on that case, we can try that, and if that's...
+576072292608Swapnil Patil   10:55Yeah, yeah, yeah, yeah. Once that is done, I think it should work, right?
+576072292608Suresh Mahto   10:59Yeah, yeah, so on that case it will work. On that case, we even we don't need certificate on that case, we can directly hit the server.
+576072292608Swapnil Patil   11:02No.
+576072292608Priti Choudhary   11:02Yeah.
+576072292608Swapnil Patil   11:06Okay, then yeah, that's the good approach, right? Because what will happen, right? So we design everything. Local, we don't want to say that because they'll ask the same question, why local, right? So at least we are saying QC4, then because junkin also will use junkin and all, right, to set up this job and all. So.
+576072292608Suresh Mahto   11:18Mhm.
+576072292608Swapnil Patil   11:27In that case, QC for server has to be up and running, and then our API should be deployed there, so we should be able to, you know, hit the API without any dependencies on.
+576072292608Suresh Mahto   11:38Mhm.
+576072292608Swapnil Patil   11:40So I think, yeah, let's get DevOps also involved here, right? So that they can copy whatever it needs to be or search or whatever they need to add for this particular endpoint. And then we'll check if it works, yeah.
+576072292608Suresh Mahto   11:49Mhm.Okay, so one more thing like these files should be updated on daily basis because I believe QC4 is getting bounced on daily basis. So.
+576072292608Krishna Reddy   12:02I think we can skip that part, Suresh. If we let the DevOps know, I think they have something set up. I think they can skip those files.
+576072292608Suresh Mahto   12:08Mhm.
+576072292608Swapnil Patil   12:13Yeah, they really do have, they can exclude, they can, yeah, yeah, yeah, yeah, but when you work with them, right, so you have to tell them that these files we need it for testing and you should exclude it from your word with the redeploy or whatever they do, right, so they can explore.
+576072292608Krishna Reddy   12:15Yeah, they can exclude those files.
+576072292608Suresh Mahto   12:18Okay, okay, then that's fine.
+576072292608Krishna Reddy   12:28Yeah, from daily bill, they can exclude those files.
+576072292608Suresh Mahto   12:29Okay.Okay, okay, so, okay, so we can straight away put those details on there or we required RT and all.
+576072292608Krishna Reddy   12:40RT would be better. Create an RT.
+576072292608Swapnil Patil   12:41Yeah, so what do you do, right? So you always with the DevOps, right, you create Rd. so that they can track the changes. And because Rd. takes some time, so you put the same Rd. number and your small query in that channel. For the channel, it works a little faster. So somebody who is available, right, they can immediately contact you and get things done.
+576072292608Suresh Mahto   12:42Okay.Mhm.
+576072292608Krishna Reddy   13:02Yeah, I would create an RT, give the part of the jar files you have from your L drive and the part that needs to be replaced and then post a message in the channel. I created RT, I need to copy files to CSAppPermission and the RT link.Then someone will start looking at it.
+576072292608Swapnil Patil   13:24Yeah.We don't want to be pain man here, okay? So we just know later on what is going to happen, right? So we just want to make sure that we don't get into the time crunch and kind of rush something and then break the system, right? So we don't want to do that. So we're trying to help you guys. So we don't want to be pain here, but you know, at least we should have one environment working so that.
+576072292608Krishna Reddy   13:32Mmh.
+576072292608Swapnil Patil   13:47Priti can get it going, so to market complete right, at least QC4 should be working for us, and rest I can talk to Rajib about performance testing. So, what are the areas we should be covering, you know?
+576072292608Krishna Reddy   14:01Okay.
+576072292608Swapnil Patil   14:01We'll send an e-mail too with all the details, but I'll check with him first.
+576072292608Krishna Reddy   14:07Sure.
+576072292608Swapnil Patil   14:10I know unnecessarily you have to do this one actually, he has to work on this DevOps deployment and all, Suresh, but yeah, we need that. Sorry for that, but yeah.
+576072292608Krishna Reddy   14:11Maybe we'll do that today.
+576072292608Suresh Mahto   14:22Yeah, yeah, that's fine. That is not nice.
+576072292608Swapnil Patil   14:28Okay, so once it is done deployed, right, and you guys able to query, let us know those details, right, whatever we need to use for, like, you know, manual test locally will run once, as long as we able to connect and it works, I think then we'll have performance testing part is easy.script and all that stuff is easy as long as because just one endpoint right so it should be pretty straightforward.I don't wanna talk for Priti though, but that's what it is.Okay, any other question Priti, you have anything else?
+576072292608Suresh Mahto   15:02Yeah, then that's fine. OK.
+576072292608Priti Choudhary   15:07No, Swapnil, whatever you have mentioned already, so nothing else from my side.Yeah, just the we can get the postman endpoint.
+576072292608Swapnil Patil   15:16Okay.
+576072292608Priti Choudhary   15:21Working postman endpoint that you want to start.
+576072292608Swapnil Patil   15:22Okay, yeah, that curl, right? Whatever first statement you are running, right? So, if you're able to do that in QC4, it works, so we'll need just need those payload and the response if you have any, right? So, as long as it was responsible, we can we can do the response stuff, but at least the payload will need.
+576072292608Priti Choudhary   15:28Okay.You.Google.Yeah.
+576072292608Swapnil Patil   15:44Okay.
+576072292608Priti Choudhary   15:45Yes, definitely.
+576072292608Swapnil Patil   15:46Yep.
+576072292608Priti Choudhary   15:47Yeah.Yeah.
+576072292608Swapnil Patil   15:50That sounds good.Do you guys have any questions, any concerns, or anything from our end?Clarification.Okay, at least let us get this going, right? So once we have everything working, then probably we can again connect back and go over what we have, right? So that will give more clarity.
+576072292608Dattatraya Adsul   16:05Yeah.
+576072292608Suresh Mahto   16:05Just.
+576072292608Swapnil Patil   16:16Awesome.
+576072292608Suresh Mahto   16:18Yeah, sure.
+576072292608Swapnil Patil   16:20Thank you for, thank you for coming on short notice.
+576072292608Dattatraya Adsul   16:20Okay.
+576072292608Krishna Reddy   16:25Thanks, thanks, Swapnil. Thanks, Brenda.
+576072292608Suresh Mahto   16:26Okay, no problem. Thank you.
+576072292608Swapnil Patil   16:27No.
+576072292608Priti Choudhary   16:27Okay.
+576072292608Swapnil Patil   16:29Thank you. Thank you, Brenda. Thank you, everyone. Bye.
+576072292608Dattatraya Adsul   16:29Bentz.
+576072292608Brenda Montoya   16:30Yeah.
+576072292608Krishna Reddy   16:31Yeah.
+621792274320Swapnil Patil stopped transcription
+

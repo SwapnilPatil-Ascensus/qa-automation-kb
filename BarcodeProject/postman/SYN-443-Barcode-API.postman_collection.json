@@ -2,74 +2,244 @@
 	"info": {
 		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
 		"name": "SYN-443 Barcode Returned-Mail API",
-		"description": "Returned Mail Barcode Cost Saving Enhancement (SYN-443).\n\n**URL:** `POST https://api.localdev.acs529.com/api/v1/plans/unite/returnmail/{barcodeId}`\n\n**Prerequisites (Suresh demo setup):**\n1. `api.localdev.acs529.com` must resolve and have a listener on **443** (often localhost + local proxy)\n2. Client cert `*.localdev.acs529.com` in Postman Settings → Certificates\n3. Request body JSON from `returnmail-body.json`\n\nSee `docs/04-smoke-test-results.md` for connectivity notes.",
+		"description": "Returned Mail Barcode Cost Saving Enhancement (SYN-443).\n\n**QC4 (verified 2026-07-28):** `PUT https://api.qc4.acs529.com/...` — body `{\"SCAN_RESULT_CODE\":\"RETURNED\"}` — no client cert.\n\n**Stage 1:** `PUT https://api.stage1.acs529.com/...` — body `{\"scanResultCode\":\"RETURNED\"}` — **PFX client cert required**. See `docs/07-stage1-postman-cert-setup.md`.\n\n**Postman SSL:** Disable SSL verification if needed (curl uses `-k`).\n\n**KB:** `qa-automation-kb/BarcodeProject/`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Return Mail Lookup (POST)",
-			"event": [
+			"name": "QC4",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test('Response time under 5s (smoke)', function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
-							"});",
-							"",
-							"pm.test('Response is JSON', function () {",
-							"    pm.response.to.be.json;",
-							"});"
+					"name": "Return Mail — Apply Scan Result (PUT)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response time under 5s (smoke)', function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+									"});",
+									"",
+									"pm.test('Response is JSON', function () {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test('success is true', function () {",
+									"    const json = pm.response.json();",
+									"    pm.expect(json.success).to.eql(true);",
+									"});",
+									"",
+									"pm.test('BARCODE_ID matches request', function () {",
+									"    const json = pm.response.json();",
+									"    pm.expect(json.BARCODE_ID).to.eql(pm.environment.get('barcode.id'));",
+									"});",
+									"",
+									"pm.test('SCAN_RESULT_CODE is RETURNED', function () {",
+									"    const json = pm.response.json();",
+									"    pm.expect(json.SCAN_RESULT_CODE).to.eql('RETURNED');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
 						],
-						"type": "text/javascript"
-					}
+						"body": {
+							"mode": "raw",
+							"raw": "{{barcode.requestBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{barcode.host}}/api/v1/plans/unite/returnmail/{{barcode.id}}",
+							"protocol": "https",
+							"host": [
+								"{{barcode.host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"plans",
+								"unite",
+								"returnmail",
+								"{{barcode.id}}"
+							]
+						},
+						"description": "Suresh QC4 curl (verified HTTP 200 on 2026-07-28):\n\n```powershell\n$json = '{\"SCAN_RESULT_CODE\":\"RETURNED\"}'\n[System.IO.File]::WriteAllText('C:\\temp\\returnmail-body.json', $json, (New-Object System.Text.UTF8Encoding $false))\n\ncurl.exe -k -s -w \"`nHTTP:%{http_code}\" -X PUT `\n  \"https://api.qc4.acs529.com/api/v1/plans/unite/returnmail/UNT13649678458\" `\n  -H \"Host: api.qc4.acs529.com\" `\n  -H \"Content-Type: application/json\" `\n  --data-binary \"@C:\\temp\\returnmail-body.json\"\n```\n\n**Test data (QC4):** `select barcode_id, a.* from tu_sent_mail a;`"
+					},
+					"response": [
+						{
+							"name": "200 — Sample (UNT13649678458)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"SCAN_RESULT_CODE\":\"RETURNED\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.qc4.acs529.com/api/v1/plans/unite/returnmail/UNT13649678458",
+									"protocol": "https",
+									"host": [
+										"api",
+										"qc4",
+										"acs529",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plans",
+										"unite",
+										"returnmail",
+										"UNT13649678458"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"success\": true,\n  \"addressMatch\": true,\n  \"ctype\": \"CAL\",\n  \"stopMailApplied\": true,\n  \"status\": \"PASS-APPLIED\",\n  \"statusMessage\": \"Document was already scanned\",\n  \"BARCODE_ID\": \"UNT13649678458\",\n  \"SEQ_RETURN_MAIL_ID\": 32,\n  \"SEQ_CASE_ID\": 1243910,\n  \"CTL_CSR_ID\": 47029,\n  \"RECIPIENT_TYPE_CODE\": \"AO\",\n  \"SCAN_RESULT_CODE\": \"RETURNED\",\n  \"FIRST_NAME\": \"Ann\",\n  \"MIDDLE_INITIAL\": \"j\",\n  \"LAST_NAME\": \"Knapp\",\n  \"ML_ADDLINE1\": \"UBS\",\n  \"ML_ADDLINE2\": \"Apartment B\",\n  \"ML_ADDLINE3\": \"\",\n  \"ML_CITY\": \"Hartsdale\",\n  \"ML_ZIPCODE\": \"10530\",\n  \"ML_STATELABEL\": \"NY\"\n}"
+						}
+					]
 				}
 			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{{barcode.requestBody}}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"description": "Hosted QC4 environment — auth bypass configured by DevOps (2026-07-28). No client cert required."
+		},
+		{
+			"name": "Stage 1",
+			"item": [
+				{
+					"name": "Return Mail — Apply Scan Result (PUT)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Stage 1 requires client cert configured in Postman Settings → Certificates",
+									"// Host: api.stage1.acs529.com",
+									"// PFX: kofaxapi.stage.acs529.com.pfx (see docs/07-stage1-postman-cert-setup.md)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response time under 5s (smoke)', function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+									"});",
+									"",
+									"pm.test('Response is JSON', function () {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test('success is true', function () {",
+									"    const json = pm.response.json();",
+									"    pm.expect(json.success).to.eql(true);",
+									"});",
+									"",
+									"pm.test('BARCODE_ID matches request', function () {",
+									"    const json = pm.response.json();",
+									"    pm.expect(json.BARCODE_ID).to.eql(pm.environment.get('barcode.id'));",
+									"});",
+									"",
+									"pm.test('SCAN_RESULT_CODE is RETURNED', function () {",
+									"    const json = pm.response.json();",
+									"    const code = json.SCAN_RESULT_CODE || json.scanResultCode;",
+									"    pm.expect(code).to.eql('RETURNED');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "https://{{barcode.host}}/api/v1/plans/unite/returnmail/{{barcode.id}}",
-					"protocol": "https",
-					"host": [
-						"{{barcode.host}}"
 					],
-					"path": [
-						"api",
-						"v1",
-						"plans",
-						"unite",
-						"returnmail",
-						"{{barcode.id}}"
-					]
-				},
-				"description": "Suresh demo curl (PowerShell):\n\n```\ncurl \"https://api.localdev.acs529.com/api/v1/plans/unite/returnmail/UNT13649678458\" `\n  -H \"Host: api.localdev.acs529.com\" `\n  -H \"Content-Type: application/json\" `\n  --data-binary \"@C:\\temp\\returnmail-body.json\"\n```\n\n**Do not** put full URL in the `host` field — use `barcode.host` only."
-			},
-			"response": []
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{barcode.requestBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{barcode.host}}/api/v1/plans/unite/returnmail/{{barcode.id}}",
+							"protocol": "https",
+							"host": [
+								"{{barcode.host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"plans",
+								"unite",
+								"returnmail",
+								"{{barcode.id}}"
+							]
+						},
+						"description": "Stage 1 curl (requires PFX client cert):\n\n```bash\ncurl -k -v --connect-timeout 10 -m 30 -X PUT \\\n  \"https://api.stage1.acs529.com/api/v1/plans/unite/returnmail/UNT96080597642\" \\\n  -H \"Host: api.stage1.acs529.com\" \\\n  -H \"Content-Type: application/json\" \\\n  --cert-type P12 \\\n  --cert \"C:\\\\...\\\\kofaxapi.stage.acs529.com.pfx:PASSPHRASE\" \\\n  -d '{\"scanResultCode\":\"RETURNED\"}'\n```\n\n**Note:** Stage 1 body uses **camelCase** `scanResultCode` (QC4 uses `SCAN_RESULT_CODE`).\n\n**Cert file:** `BarcodeProject/Suresh P12/security/kofaxapi.stage.acs529.com.pfx`\n\n**Setup:** `docs/07-stage1-postman-cert-setup.md`"
+					},
+					"response": []
+				}
+			],
+			"description": "Stage 1 — production-like path with Kofax client certificate (`kofaxapi.stage.acs529.com.pfx`). Without cert: HTTP 401 Invalid client credentials."
 		}
 	]
 }

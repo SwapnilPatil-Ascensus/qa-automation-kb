@@ -8,6 +8,11 @@
 Thumbs.db
 *.tmp
 
+# Secrets — barcode perf certs (do not commit)
+*.pfx
+*.p12
+**/CredentialFile.xml
+
 # IDE / local tooling
 .cursor/
 

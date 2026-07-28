@@ -26,7 +26,8 @@ Performance testing was missed in the delivery plan. QA Automation is standing u
 | Path | Purpose |
 |------|---------|
 | [JIRA-story-SYN-443-barcode-perf-testing.md](./JIRA-story-SYN-443-barcode-perf-testing.md) | **Copy-paste JIRA Story** for Kriti |
-| [postman/](./postman/) | Postman collection + QC4 environment |
+| [postman/](./postman/) | Postman collection + QC4 + Stage 1 environments |
+| [docs/PRITI-HANDOFF.md](./docs/PRITI-HANDOFF.md) | **Priti handoff** — import JSON, QC4 + Stage 1 smoke, JMeter |
 | [docs/01-setup-curl-to-postman.md](./docs/01-setup-curl-to-postman.md) | Import curl, certs, first successful call |
 | [docs/02-environment-strategy.md](./docs/02-environment-strategy.md) | QC4 vs Stage vs Prod — auth & cert decision log |
 | [docs/05-dev-team-meeting-agenda.md](./docs/05-dev-team-meeting-agenda.md) | **Dev meeting agenda** — QC4 vs Stage, questions, acceptance criteria |
@@ -47,8 +48,8 @@ Performance testing was missed in the delivery plan. QA Automation is standing u
 | Kickoff call with Synergy devs | Done (2026-07-24) |
 | Epic linked | [SYN-443](https://ascensuscollegesavings.atlassian.net/browse/SYN-443) |
 | QC4 test data SQL | `select barcode_id, a.* from tu_sent_mail a;` (Suresh) |
-| Authoritative curl from Suresh | **Blocked** — meeting ended before curl was shared; see [api/curl-from-suresh.md](./api/curl-from-suresh.md) |
-| Rajib approval — QC4 vs Stage | **Pending** — see [communications/email-rajib-qc4-approval-draft.md](./communications/email-rajib-qc4-approval-draft.md) |
+| QC4 hosted URL + working curl | ✅ `api.qc4.acs529.com` — HTTP 200 verified 2026-07-28 |
+| Rajib approval — QC4 endpoint-only scope | **Pending** | Swapnil |
 | QC4 wildcard cert for Postman | Suresh / Rajib path — cert `*.localdev.acs529.com` (do **not** commit cert or passphrase) |
 | JIRA Story created | **Draft ready** — create in JIRA and link to SYN-443 |
 | Postman collection | **Template ready** — finalize after curl received |
