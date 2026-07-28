@@ -1,0 +1,32 @@
+﻿Call with Dattatraya and 4 others-20260724_104749-Meeting Transcript
+July 24, 2026, 4:47PM
+2m 18s
+621792274320Brenda Montoya started transcription
+576072292608Swapnil Patil   0:03So tell me, how can we help? I mean, can we help or not at all? Because the way he was, I don&apos;t know, after two sentences, how can somebody ask for ETN? I mean, it doesn&apos;t give any context. I just, I know.
+576072292608Suresh Mahto   0:05Thankful to.I.And.
+576072292608Brenda Montoya   0:14Okay.
+576072292608Swapnil Patil   0:15Yeah.
+576072292608Suresh Mahto   0:15I think requirement is very simple, not too big. So actually what happened, we developed one endpoint and what it will do, so like the ODS team, they will use a scanner.
+576072292608Brenda Montoya   0:17Yeah.Play.
+576072292608Suresh Mahto   0:34They will scan some barcode and it will, that based on barcode, it will hit to unite server. So for that, we develop one API. Now, if they hit that API, we are going to provide in response all the required details like customer details and.
+576072292608Brenda Montoya   0:35Yeah.Sue.Okay.
+576072292608Swapnil Patil   0:50Sorry, Suresh, can I record the transcript so that I can give it to Priti in case we need right? Ohh, it&apos;s already, it&apos;s already on recording. OK, thank you so much. Yeah, yeah, go ahead, go ahead.
+576072292608Suresh Mahto   0:56Yeah, yeah, of course.
+576072292608Brenda Montoya   0:56I&apos;m already doing that.
+576072292608Suresh Mahto   0:58Okay, okay.
+576072292608Brenda Montoya   0:59Yeah, your comments from the beginning are already recorded.
+576072292608Suresh Mahto   1:00Sue.
+576072292608Swapnil Patil   1:03Thank you so much. Yeah, thank you so much. Yeah, go ahead, go ahead, sir. Sorry, yes.
+576072292608Krishna Reddy   1:04I think.
+576072292608Suresh Mahto   1:05Okay, so expectation is that like once they will hit the endpoint, they will get the response. Okay, and the response, let me showcase how it works.
+576072292608Swapnil Patil   1:17So this is nothing to do with the application, right? I mean, it is just like going to the application, right? This simple thing, right?
+576072292608Suresh Mahto   1:23No, I ideally, if they wanted to check the performance, the only concern here, like in QC environment, they need to validate in each stage, it required certificate and all. OK, because those API only.
+576072292608Dattatraya Adsul   1:34Yeah.Yeah.
+576072292608Suresh Mahto   1:38handle the request from Copex. So that is big challenge from our end. So what he suggested, if we developed API, let&apos;s validate performance test in QC environment.
+576072292608Brenda Montoya   1:43Yeah.
+576072292608Swapnil Patil   1:53OK, that we that we can do, so that is another thing, right? Because performance testing, we the tech stack, what we have right for performance testing, Jmeter and Blaze. Yeah, yeah, go ahead, go ahead.
+576072292608Suresh Mahto   1:54Okay, so...Yeah, so...
+576072292608Brenda Montoya   2:00The.
+576072292608Suresh Mahto   2:01So, correct. So let me show you curl. Yeah, let me show you curl request. So it would be very easier because that won&apos;t take much time, okay? And just one request, okay? So what happened? This is the endpoint you can think of.
+576072292608Swapnil Patil   2:10Mhm, mhm.Okay.
+

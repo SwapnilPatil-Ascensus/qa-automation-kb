@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#SYN-443] Returned Mail Barcode Cost Saving Enhancement</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://ascensuscollegesavings.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [SYN-443]&nbsp;<a href="https://ascensuscollegesavings.atlassian.net/browse/SYN-443">Returned Mail Barcode Cost Saving Enhancement</a>
+            <span class="subText">
+               Created: 04/Apr/24                   &nbsp;Updated: 27/Jul/26
+
+                                    &nbsp;Due: 10/Jul/26
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Review</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://ascensuscollegesavings.atlassian.net/secure/BrowseProject.jspa?id=11538">Team Synergy</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Components:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix versions:</b></td>
+            <td>
+                                        <a title="Master Backlog - https://acscensus.aha.io/releases/QIPS-R-2"
+                href="https://ascensuscollegesavings.atlassian.net/issues/?jql=project%3D11538%20AND%20%22fixVersion%22%3D17188%20ORDER%20BY%20priority%20ASC"
+            >Master Backlog</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Epic
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="621937975d162c0069a7a5aa"
+                id="word_reporter_621937975d162c0069a7a5aa"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=621937975d162c0069a7a5aa">
+                    Marty Schroeder (Inactive)
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                    Unassigned
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-178563-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            ST Yes                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            22 weeks, 2 days, 6 hours
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://ascensuscollegesavings.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    image.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://ascensuscollegesavings.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    image.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Name:</b></td>
+                <td id="customfield_10120-178563-value" class="value" bgcolor="#ffffff" width="80%">      Returned Mail Barcode Cost Saving Enhancement
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of Request:</b></td>
+                <td id="customfield_11139-178563-value" class="value" bgcolor="#ffffff" width="80%">      Kaden Dao / Kevin Engholdt
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Start date:</b></td>
+                <td id="customfield_11102-178563-value" class="value" bgcolor="#ffffff" width="80%">          <span title="01/Apr/26"><time datetime="2026-04-01">01/Apr/26</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Feature Reference Number (AHA):</b></td>
+                <td id="customfield_11168-178563-value" class="value" bgcolor="#ffffff" width="80%">      ACS-1696
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Product:</b></td>
+                <td id="customfield_11169-178563-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11169-field">
+        							<span>ASTRO</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Softcap:</b></td>
+                <td id="customfield_11196-178563-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Strategic Category:</b></td>
+                <td id="customfield_11140-178563-value" class="value" bgcolor="#ffffff" width="80%">    Expense Reduction
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Corporate Goals:</b></td>
+                <td id="customfield_11195-178563-value" class="value" bgcolor="#ffffff" width="80%">    Expanding our Opportunity
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Plans Impacted:</b></td>
+                <td id="customfield_11141-178563-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11141-field">
+        							<span>All ABLE Plans</span>,			        							<span>All 529 Plans</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Estimated Number of Sprints:</b></td>
+                <td id="customfield_12281-178563-value" class="value" bgcolor="#ffffff" width="80%">    1
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Complexity:</b></td>
+                <td id="customfield_12206-178563-value" class="value" bgcolor="#ffffff" width="80%">    3 - medium complexity
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Current Functionality:</b></td>
+                <td id="customfield_11134-178563-value" class="value" bgcolor="#ffffff" width="80%">      Existing barcode for SFRP but not for 529 and ABLE
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Expected Functionality:</b></td>
+                <td id="customfield_11135-178563-value" class="value" bgcolor="#ffffff" width="80%">      Barcode to trigger &quot;Mailstop&quot; process for Returned mail
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Risks:</b></td>
+                <td id="customfield_11136-178563-value" class="value" bgcolor="#ffffff" width="80%">      3/7/24 - Shaping has not yet begun. Will gather information and schedule initial meeting prior to 3/22/24.
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Department:</b></td>
+                <td id="customfield_11194-178563-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11194-field">
+        							<span>Client Services &amp; Operations</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Story Points:</b></td>
+                <td id="customfield_10602-178563-value" class="value" bgcolor="#ffffff" width="80%">    57
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>AGS Scrum Team:</b></td>
+                <td id="customfield_13187-178563-value" class="value" bgcolor="#ffffff" width="80%">    Synergy
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Jira Link:</b></td>
+                <td id="customfield_13319-178563-value" class="value" bgcolor="#ffffff" width="80%">  <a href="https://ascensuscollegesavings.atlassian.net/browse/SYN-443">https://ascensuscollegesavings.atlassian.net/browse/SYN-443</a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>[CHART] Date of First Response:</b></td>
+                <td id="customfield_12923-178563-value" class="value" bgcolor="#ffffff" width="80%">            <span title="30/Sep/25 3:27 PM"><time class="livestamp allow-future" datetime="2025-09-30T15:27:00-0400">30/Sep/25 3:27 PM</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Record Reconciliation Details:</b></td>
+                <td id="customfield_13583-178563-value" class="value" bgcolor="#ffffff" width="80%">      <p>August Release Review</p>
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Total Logged Time:</b></td>
+                <td id="customfield_13551-178563-value" class="value" bgcolor="#ffffff" width="80%">      902h0m
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>In Service Date:</b></td>
+                <td id="customfield_11167-178563-value" class="value" bgcolor="#ffffff" width="80%">          <span title="07/Aug/26"><time datetime="2026-08-07">07/Aug/26</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Rovo Project Business Description:</b></td>
+                <td id="customfield_14248-178563-value" class="value" bgcolor="#ffffff" width="80%">      <p>This project delivers a barcode enhancement to automate the “Mailstop” process for returned mail across all 529 and ABLE plans, eliminating the need for manual indexing and repeat mail attempts. This enhancement drives significant operational cost savings and productivity improvements by reducing the volume of second-attempt mailers and freeing up employee time for higher-value tasks.</p>
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>As of March 2023, 55,000 pieces of returned mail are received by mail ops each year. Of these, 29,000 mail pieces are sent out for 2nd Attempt mailers. These attempts have drained resource time of employees as well as cost the organization an unnecessary expense. Eliminating the 2nd Attempt mailers can free up more value added time for employees and reduce costs for the organization. <br/>
+We aim to reduce the 29,000 2nd Attempt Mailers to 0 by 12/31/2023.﻿</p>
+
+<p>Dependency on O'Neil.</p>
+
+<p>can operations (Kaden) help with testing so that offshore team can do the work? or</p>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'>NPV - Cash Flow 5 Years</td>
+<td class='confluenceTd'>$63,923</td>
+</tr>
+<tr>
+<td class='confluenceTd'>ROI</td>
+<td class='confluenceTd'>247%</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<p><span class="image-wrap" style=""><img src="https://acscensus.aha.io/attachments/7325492718445102684/token/b5622035aac2ace472d105558cc1880c87e9a6d0e6f3ff3ee9e6827cc09b0a71.download?size=original" height="218.54058078927773" width="500" style="border: 0px solid black" /></span></p>
+
+<p>Discovery Call - 4/12/23</p>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'><b>Discovery Call Questions/Answers:</b></td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'>What is the problem we are trying to solve, in business terms, what is the ask? What is the scope of work?</td>
+<td class='confluenceTd'>As of March 2023, 55,000 pieces of returned mail are received by mail ops each year. Of these, 29,000 mail pieces are sent out for 2nd Attempt mailers. These attempts have drained resource time of employees as well as cost the organization an unnecessary expense. Eliminating the 2nd Attempt mailers can free up more value added time for employees and reduce costs for the organization.</td>
+</tr>
+<tr>
+<td class='confluenceTd'>What is the business value? Why are we doing this and how will it help the business goals?</td>
+<td class='confluenceTd'>We aim to reduce the 29,000 2nd Attempt Mailers to 0 by 12/31/2023.﻿</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is there a workaround?</td>
+<td class='confluenceTd'>Currently manual work</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is there similar functionality on a different plan?</td>
+<td class='confluenceTd'>No</td>
+</tr>
+<tr>
+<td class='confluenceTd'>What is the <b>primary</b> Strategic Goal that you are trying to accomplish? Pick one: Revenue Growth, Regulatory/Compliance, Expense Reduction, Risk Mitigation, Contractual, Stability &amp; Scalability</td>
+<td class='confluenceTd'>Expense Reduction</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is there a specific Strategic Client angle? Pick one: large profitable client relationship, upcoming client renewal, ongoing client contract negotiations, not applicable</td>
+<td class='confluenceTd'>N/A</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is there a target quarter or target date, and if so what is the driver for the target? What will be the consequence if the target is not hit?</td>
+<td class='confluenceTd'>deliver before end of Oct to coincide with busy season</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is there a risk of not completing: What is the impact/severity of the risk (High/Medium/Low)? What is the probability/likelihood the risk will be realized (High, Medium, Low)?</td>
+<td class='confluenceTd'>Medium - High</td>
+</tr>
+<tr>
+<td class='confluenceTd'><b>AHA Scorecard:</b></td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'><font color="#172B4D">What is the estimated net new revenue over a 5 year period directly related to implementing this feature? </font> <font color="#172B4D"> How did you get to this number? Provide additional details to support the estimate i.e. Net new assets estimate, Net new accounts, New contributions; </font></td>
+<td class='confluenceTd'>$0</td>
+</tr>
+<tr>
+<td class='confluenceTd'><font color="#242424">Will this lead to any estimated operational efficiencies or cost reduction, and if so please provide more details to quantify the impact? </font> i.e. # reduced call per week, # reduced processing transactions, # saved Service/Ops hours, # of IT hours, # reduced paper forms</td>
+<td class='confluenceTd'>Total: $98,780
+<br class="atl-forced-newline" />
+-Hard Cash Savings (EBITDA): $18,270 (1 year)
+<br class="atl-forced-newline" />
+-Soft Cash Savings (Productivity): $80,510 (1 year)
+<br class="atl-forced-newline" />
+Finance Rep Approved: Sam Butt
+<br class="atl-forced-newline" />
+See attached Initial ROI</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Will this impact client experience (end-client or stakeholders)? If yes provide details of the impact? (5 massive, 4, high, 3 medium, 2 low, 1 minimal).</td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Regulatory or contractual (1 no, 2 yes but flexible date, 3 yes with fixed date)</td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'><ul>
+	<li>** <font color="#172B4D">If contractual, what are the specifics of the contractual agreement?</font></li>
+</ul>
+</td>
+<td class='confluenceTd'>No</td>
+</tr>
+<tr>
+<td class='confluenceTd'><ul>
+	<li>** <font color="#172B4D">If regulatory, what are the specifics of the regulation?</font></li>
+</ul>
+</td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Which plans will be impacted by the change over the course of a year? If not all plans, then list specific impacted plans.</td>
+<td class='confluenceTd'>All Plans</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Effort <em>-</em> <font color="#172B4D">Determine duration to complete the ask by a dedicated full team: Extra Small - under 2 days; Small - 1-2 sprints; Medium - 2-4 sprints; Large - 4-8 sprints; Extra Large - 8+ sprints.</font></td>
+<td class='confluenceTd'>Combo of Kofax team (Dallas), Nigo -
+<br class="atl-forced-newline" />
+Adding barcode - Scrum Team effort - full team = 1 sprint</td>
+</tr>
+<tr>
+<td class='confluenceTd'><b>Technical Considerations:</b></td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is a dedicated architecture feature recommended i.e. POC; if yes, then split up feature accordingly</td>
+<td class='confluenceTd'>No</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Softcap - Yes or No (Can this project be capitalized?)</td>
+<td class='confluenceTd'>Yes</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Domain Alignment (Enrollment, Withdrawal, Fund Event Automation, Conversion, ABLE, SFRP, Fund Events, Other)</td>
+<td class='confluenceTd'>Other</td>
+</tr>
+<tr>
+<td class='confluenceTd'>Is a Project Manager required</td>
+<td class='confluenceTd'>Yes - Kevin E is the PM</td>
+</tr>
+<tr>
+<td class='confluenceTd'>What is the technical complexity of the work (1 - low complexity, 3 - medium complexity; 5 - high complexity)?</td>
+<td class='confluenceTd'>3 - medium - will need to understand the process</td>
+</tr>
+</tbody></table>
+</div>
+
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-283925"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                id="word_commented_712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A16c031bf-2077-4ebc-a995-e4791ceb47ef">
+                    AGS Admin
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">30/Sep/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-283925"><td bgcolor="#ffffff">
+            <p>Comment added by Marina Kirchheimer in Aha! - <a href="https://acscensus.aha.io/comments/7555965866013809616" class="external-link" rel="nofollow noreferrer">View</a></p>
+
+<p><a href="https://acscensus.aha.io/users/7397806427896629091" class="external-link" rel="nofollow noreferrer">@Cole Corkran</a> if you have some capacity, can you please work with Kevin Engholdt and Kaden Dao to understand requirements and shape this work. It has not been prioritized but may be a good candidate for filler work.</p>
+        </td></tr>
+                <tr id="comment-header-287231"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                id="word_commented_712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A16c031bf-2077-4ebc-a995-e4791ceb47ef">
+                    AGS Admin
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">22/Oct/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-287231"><td bgcolor="#ffffff">
+            <p>Comment added by Timothy Kaufman in Aha! - <a href="https://acscensus.aha.io/comments/7564097615636360572" class="external-link" rel="nofollow noreferrer">View</a></p>
+
+<p>Update: Feature reassigned to Team Cosmos 10/22/2025</p>
+        </td></tr>
+                <tr id="comment-header-293053"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                id="word_commented_712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A16c031bf-2077-4ebc-a995-e4791ceb47ef">
+                    AGS Admin
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">19/Nov/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-293053"><td bgcolor="#ffffff">
+            <p>Comment added by Timothy Kaufman in Aha! - <a href="https://acscensus.aha.io/comments/7574476967101685799" class="external-link" rel="nofollow noreferrer">View</a></p>
+
+<p>Update: Feature has been reassigned to Team Synergy</p>
+        </td></tr>
+                <tr id="comment-header-327816"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                id="word_commented_712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A16c031bf-2077-4ebc-a995-e4791ceb47ef">
+                    AGS Admin
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/Apr/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-327816"><td bgcolor="#ffffff">
+            <p>Comment added by Marina Kirchheimer in Aha! - <a href="https://acscensus.aha.io/comments/7628671871209808286" class="external-link" rel="nofollow noreferrer">View</a></p>
+
+<p><a href="https://acscensus.aha.io/users/7374128746947994026" class="external-link" rel="nofollow noreferrer">@Brian Danilczyk</a> can you help to create a feature to track architecture data work for this feature.</p>
+        </td></tr>
+                <tr id="comment-header-334276"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                id="word_commented_712020:16c031bf-2077-4ebc-a995-e4791ceb47ef"
+                href="https://ascensuscollegesavings.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A16c031bf-2077-4ebc-a995-e4791ceb47ef">
+                    AGS Admin
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/May/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-334276"><td bgcolor="#ffffff">
+            <p>Comment added by Timothy Kaufman in Aha! - <a href="https://acscensus.aha.io/comments/7636797055898331457" class="external-link" rel="nofollow noreferrer">View</a></p>
+
+<p><a href="https://acscensus.aha.io/users/6666055633238991821" class="external-link" rel="nofollow noreferrer">@Bob Geiger</a> - Adding you as a watcher for visibility on updates and comments.</p>
+
+<p>Update provided 5/6/2026 via email for transparency</p>
+
+<p><b>Release Timing</b></p>
+
+<p>Based on the latest delivery updates, the May release does not appear to be achievable. Given the current state of the work, they are now planning toward the June production window, with the next available deployment date of <b>June 12</b>.</p>
+
+<p><b>Additional Context</b></p>
+
+<p>The team understands the urgency and the operational impact the returned mail backlog is creating. While the barcode creation itself is understood, the outstanding issue is the implementation of the flow after the barcode is read. The existing Barcode Reader web application contains the routing logic required after barcode decryption, and the current team does not yet have access or visibility into that implementation. Development cannot proceed until this logic is fully understood.</p>
+
+<p>This work requires a Unite production release. This remains a high‑priority item for the team, and they will continue to assess any opportunities to accelerate delivery. I will share updates as additional clarity becomes available.</p>
+        </td></tr>
+            </table>
+Generated at Mon Jul 27 14:10:16 UTC 2026 by Swapnil Patil using Jira 1001.0.0-SNAPSHOT#100293-rev:f37a74f776196442c72678fccdddc78eac807782.
+
+</body>
+</html>

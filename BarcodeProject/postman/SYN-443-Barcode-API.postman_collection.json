@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "SYN-443 Barcode Returned-Mail API",
+		"description": "Returned Mail Barcode Cost Saving Enhancement (SYN-443).\n\n**URL:** `POST https://api.localdev.acs529.com/api/v1/plans/unite/returnmail/{barcodeId}`\n\n**Prerequisites (Suresh demo setup):**\n1. `api.localdev.acs529.com` must resolve and have a listener on **443** (often localhost + local proxy)\n2. Client cert `*.localdev.acs529.com` in Postman Settings → Certificates\n3. Request body JSON from `returnmail-body.json`\n\nSee `docs/04-smoke-test-results.md` for connectivity notes.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Return Mail Lookup (POST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response time under 5s (smoke)', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{barcode.requestBody}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{barcode.host}}/api/v1/plans/unite/returnmail/{{barcode.id}}",
+					"protocol": "https",
+					"host": [
+						"{{barcode.host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"plans",
+						"unite",
+						"returnmail",
+						"{{barcode.id}}"
+					]
+				},
+				"description": "Suresh demo curl (PowerShell):\n\n```\ncurl \"https://api.localdev.acs529.com/api/v1/plans/unite/returnmail/UNT13649678458\" `\n  -H \"Host: api.localdev.acs529.com\" `\n  -H \"Content-Type: application/json\" `\n  --data-binary \"@C:\\temp\\returnmail-body.json\"\n```\n\n**Do not** put full URL in the `host` field — use `barcode.host` only."
+			},
+			"response": []
+		}
+	]
+}

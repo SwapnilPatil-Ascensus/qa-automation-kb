@@ -1,0 +1,84 @@
+Hi Swapnil Patil,
+I asked Brenda to get help from Priti - they need urgent help on barcode project. It may take 1-2 days of her time.
+ 
+Hello,
+you mean for performance testing for this specific project?
+ 
+Yes, I am not sure if she needs to do that or help Synergy engineer to do that.
+ 
+They have never done performance testing it seems.
+ 
+Performance testing is a different beast, and if they don't have that perf testing engineer and haven't done it before, I doubt they'll finish on time.
+What we can do is take a phased approach: get the framework or baseline set up with the initial work(Priti & myself can help on that) & then KT them.
+With a sample & baseline, they should be able to do it.
+ 
+Absolutely — we can help with this.
+ 
+But we need to consider this
+Right now, though, we don’t have a clear understanding of the project or the expectations.
+Could we get formal requirements on what needs to be done?
+A demo and some KT on what it does and how it works would help us design the test cases.
+It would also be helpful to have the timeline, along with some aha/jira details.
+And if any questions come up, SMEs to support us would be great.
+We’re happy to help, and she is a pro in that area, so she should be able to pull it off.
+ 
+what is the ETA?
+ 
+also, can we not streamline this? does this need to be part of performance testing framework? is there a crude version we can go for?
+ 
+Rajib Akhter
+what is the ETA?
+I'd like to understand the scope and requirements first; once we have that context, I can provide a realistic ETA.
+ 
+Rajib Akhter
+also, can we not streamline this? does this need to be part of performance testing framework? is there a crude version we can go for?
+The Perf Testing framework already exists; what we'd need is a lightweight project structure and baseline scripts for the barcode application so it's organized, maintainable, and can be extended by the team going forward.
+ 
+we need it to be done by next Friday (end of the day) in worst case scenario
+ 
+Can we get in call and discuss 
+I think can be done but without checking how many endpoints or ui screens it's hard to commit 
+ 
+But its achievable, by perf test engg not with regular QA
+ 
+Rajib Akhter added Suresh Mahto and Krishna Reddy to the chat and shared all chat history.
+
+ 
+I added developers into this chat. I think it is very limited api call (one get end point for sure0
+ 
+Swapnil Patil
+But its achievable, by perf test engg not with regular QA
+I heard they have engineers who can automate - I would like to see if we could utilize them or not.
+ 
+Then I can be done
+Api are little easier on perf testing side
+ 
+Rajib Akhter
+I heard they have engineers who can automate - I would like to see if we could utilize them or not.
+I can pull in Datta if we need confirmation on skillset
+ 
+Brenda Montoya added Dattatraya Adsul to the chat and shared all chat history.
+
+ 
+Available whenever you guys are
+ 
+me too
+ 
+can we connect now
+ 
+Please exclude me from the call. you guys can connect. 
+Brenda Montoya - can you please share the progress at the end of the day?
+ 
+Sure, I will 
+Friday 12:45 PM You started a meeting.
+
+ 
+started meeting here please feel free to join
+ 
+This is the epic Swapnil - https://ascensuscollegesavings.atlassian.net/browse/SYN-443?atlOrigin=eyJpIjoiZmQzZDE0OTYyMDkwNGQ3MThhNGMyNWY1NDEyZmQ4YjEiLCJwIjoiaiJ9
+Jira
+ 
+Suresh is pending the SQL for QC4
+ 
+QC4 : select barcode_id, a.* from tu_sent_mail a;
+ 
