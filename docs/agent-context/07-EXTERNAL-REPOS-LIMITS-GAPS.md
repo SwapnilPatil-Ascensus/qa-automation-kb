@@ -41,7 +41,7 @@
 
 ## Security limits (mandatory)
 
-From `00_SYSTEM/CONSTRAINTS.md`:
+From `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
 
 - **Never** commit secrets, tokens, credentials, customer PII
 - Redact emails, plan participant data, sensitive URLs
@@ -54,11 +54,11 @@ From `00_SYSTEM/CONSTRAINTS.md`:
 
 | Gap | Impact | Agent action |
 |-----|--------|--------------|
-| `01_CONTEXT/CURRENT_STATE.md` placeholders | Leadership context outdated | Mark `[NEED_INPUT]`; ask user for live values |
+| `qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md` placeholders | Leadership context outdated | Mark `[NEED_INPUT]`; ask user for live values |
 | `STACK_AND_TOOLS.md`, `ENVIRONMENTS.md` unfilled | Onboarding incomplete | Same |
-| `00_SYSTEM/SOURCES.md` says imports "pending" | Import audit inaccurate | Note stale; suggest user update |
-| `08_MEETINGS_NOTES/2026/` empty | No meeting archive | Use `DECISIONS.md` instead |
-| `11_BACKLOG/DOC_GAPS.md` template only | No live gap list | Run Prompt D to populate |
+| `qa-knowledge-base/00_SYSTEM/SOURCES.md` says imports "pending" | Import audit inaccurate | Note stale; suggest user update |
+| `qa-knowledge-base/08_MEETINGS_NOTES/2026/` empty | No meeting archive | Use `DECISIONS.md` instead |
+| `qa-knowledge-base/11_BACKLOG/DOC_GAPS.md` template only | No live gap list | Run Prompt D to populate |
 | Duplicate CICD markdown | Confusion about canonical source | Always use `AM_Regression_Reports/docs/CICD/` |
 | `docs/DB Refresh/` no index | Hard to discover SQL scripts | Point user to `SQL Files/` directly |
 | Performance snapshot drift | Scripts may differ from live repo | Warn when referencing perf folder |
@@ -93,8 +93,8 @@ From `00_SYSTEM/CONSTRAINTS.md`:
 ## Recommended session startup (after wipe)
 
 1. Read `docs/agent-context/00-AGENT-BOOTSTRAP.md`
-2. Read `09_DECISIONS_WORKLOG/DECISIONS.md` (decision memory)
-3. Read `00_SYSTEM/ROLE.md` + `CONSTRAINTS.md`
+2. Read `qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md` (decision memory)
+3. Read `qa-knowledge-base/00_SYSTEM/ROLE.md` + `CONSTRAINTS.md`
 4. Ask user what task they're on → route via `03-DAILY-WORKFLOWS.md`
 
 ---

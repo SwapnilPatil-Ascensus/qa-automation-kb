@@ -1,31 +1,36 @@
 # Automation Bug Lifecycle
 
-**QA Automation operating standard** — how any team responds when regression or release tests fail.
+**QA Automation operating standard** — regression failure triage through resolution.
 
-This module is a **root-level standard** in `qa-automation-kb`. It is not tied to a specific program, client, or meeting. Use it for onboarding, cross-team alignment, and day-to-day regression failure handling.
+Use this module for day-to-day bug handling and for the **Persistent demo**: drop real failure artifacts into `evidence/regression-reports/MMDDYYYY/` and let Cursor + Prompt H produce JIRA, email, Teams, and change-set investigation in ~15 minutes.
 
-## Deliverables
+## Layout (flat — one layer to find things)
 
-| File | Purpose |
+| Path | Purpose |
 |------|---------|
-| `_output/Automation-Bug-Lifecycle-Standard.pptx` | Presentation deck — operating standard overview |
-| `_output/Automation-Bug-Lifecycle-Playbook.docx` | Detailed playbook with workflows, tables, screenshots |
-| `automation-bug-lifecycle-standard.md` | Full narrative reference (markdown) |
-| `recreate-kit/` | **Setup kit** — prompts, templates, scripts, Cursor skill, GitLab util guide |
-| `_assets/` | Charts + GitLab Project Manager screenshots |
+| `evidence/regression-reports/` | **Drop zone** — dated folders per failure (`MMDDYYYY/`) |
+| `evidence/program-issues-unite-msc/` | Program-specific issue bundles (not daily regression) |
+| `prompts/` | Cursor prompts 01–05 (triage, Prompt H, change set, resolution, rollup) |
+| `templates/` | Bug doc, triage worksheet, JIRA/RCA templates |
+| `process/` | Triage rules, flakiness, defect lifecycle, RCA, daily regression |
+| `scripts/` | `new-evidence-folder.ps1` / `.sh` — bootstrap evidence folder |
+| `cursor-kit/` | Cursor skill + JIRA formatting rule (copy to `.cursor/`) |
+| `reference/` | Confluence Bug Handling PDFs, GitLab PM setup |
+| `deliverables/` | Playbook DOCX, standard PPTX |
+| `assets/` | Workflow charts, GitLab PM screenshots |
+| `tools/` | `generate_deliverables.py` — rebuild DOCX/PPTX |
 
-## New team member? Start here
+## Quick start
 
-**[recreate-kit/README.md](recreate-kit/README.md)** — 30-minute setup to reproduce the full workflow:
+1. **One-time:** copy `cursor-kit/SKILL.md` → `.cursor/skills/automation-bug-lifecycle/`
+2. **Per failure:** `scripts/new-evidence-folder.ps1 -Date MMDDYYYY -Feature FeatureName`
+3. **Triage:** `prompts/01-triage-regression-failure.md`
+4. **Defect:** `prompts/02-bug-report-prompt-h.md` (also in `qa-knowledge-base/00_SYSTEM/PROMPTS.md` § H)
+5. **Change set:** GitLab Project Manager — `reference/gitlab-project-manager-setup.md`
 
-1. Install Cursor skill (`.cursor/skills/automation-bug-lifecycle/`)
-2. Set up GitLab Project Manager (`recreate-kit/gitlab-util/SETUP.md`)
-3. Bootstrap evidence folders (`recreate-kit/scripts/new-evidence-folder.ps1`)
-4. Use prompt library (`recreate-kit/prompts/`)
+Checklist: [`QUICK-START.md`](QUICK-START.md) · Setup: [`SETUP-GUIDE.md`](SETUP-GUIDE.md)
 
-Quick checklist: [recreate-kit/QUICK-START-CHECKLIST.md](recreate-kit/QUICK-START-CHECKLIST.md)
-
-## Regenerate
+## Regenerate leadership deliverables
 
 ```bash
 python automation-bug-lifecycle/tools/generate_deliverables.py
@@ -33,29 +38,18 @@ python automation-bug-lifecycle/tools/generate_deliverables.py
 
 Requires: `python-docx`, `python-pptx`, `matplotlib`, `Pillow`
 
-## What this standard covers
+## KB cross-references
 
-1. **Triage** — environment vs flaky vs functional defect (`04_EXECUTION/TRIAGE_RULES.md`, `FLAKINESS_PLAYBOOK.md`)
-2. **Evidence** — folder structure in `10_IMPORTS_RAW/regression_reports/`
-3. **Cursor Prompt H** — JIRA + email + Teams in one step (`00_SYSTEM/PROMPTS.md`)
-4. **Communications** — leadership-approved Teams and email templates (Confluence Bug Handling PDFs)
-5. **Change set** — GitLab Project Manager utility (`C:\Development\Workspace\GitlabInfoProjUI`)
-6. **Resolution** — RCA, JIRA closure, main branch unlock
+| Topic | Location |
+|-------|----------|
+| Prompt library | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
+| Repetitive tasks how-to | `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
+| Bug reporting SOP | `evidence/regression-reports/BUG_REPORTING_PROCESS.md` |
+| Constraints / no PII | `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md` |
 
-## Validated against
+## Related programs (not in this module)
 
-| Area | Repository paths |
-|------|------------------|
-| System | `00_SYSTEM/PROMPTS.md`, `ROLE.md`, `CONSTRAINTS.md`, `GLOSSARY.md` |
-| Execution | `04_EXECUTION/DEFECT_LIFECYCLE.md`, `TRIAGE_RULES.md`, `FLAKINESS_PLAYBOOK.md`, `RCA_PROCESS.md`, `DAILY_REGRESSION.md` |
-| Onboarding | `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
-| Templates | `06_TEMPLATES/JIRA_TICKET_TEMPLATE.md`, `RCA_TEMPLATE.md` |
-| Raw SOPs | `10_IMPORTS_RAW/regression_reports/BUG_REPORTING_PROCESS.md`, `confluence_exports/Bug Handling/` |
-
-## External utility
-
-**GitLab Project Manager** — separate local repo at `C:\Development\Workspace\GitlabInfoProjUI`. Not modified by this module.
-
-## Communication note
-
-Teams and email templates referenced in this standard are **approved by leadership and senior QA resources**. Use Prompt H output and Confluence Bug Handling PDFs as-is.
+| Program | Location |
+|---------|----------|
+| SYN-443 Barcode | `programs/barcode-syn-443/` |
+| Unite MSC coordination | `programs/unite-msc/leadership/jira/` |

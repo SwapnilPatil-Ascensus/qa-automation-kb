@@ -2,7 +2,7 @@
 
 **Version:** July 24, 2026  
 **Scope:** All QA Automation teams — UI, API, performance, any program  
-**Repository:** `qa-automation-kb` (single source of truth per `00_SYSTEM/ROLE.md`)
+**Repository:** `qa-automation-kb` (single source of truth per `qa-knowledge-base/00_SYSTEM/ROLE.md`)
 
 ---
 
@@ -24,7 +24,7 @@ This standard is an **operating norm** — applicable to any team going forward.
 
 ## 2. Triage — Bug or Not?
 
-**Not every failure is a defect.** Triage per `04_EXECUTION/TRIAGE_RULES.md` and `04_EXECUTION/FLAKINESS_PLAYBOOK.md`.
+**Not every failure is a defect.** Triage per `automation-bug-lifecycle/process/TRIAGE_RULES.md` and `automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md`.
 
 | Classification | Signals | Action | Log JIRA? |
 |----------------|---------|--------|-----------|
@@ -39,7 +39,7 @@ This standard is an **operating norm** — applicable to any team going forward.
 
 ## 3. Evidence Collection
 
-**Folder:** `10_IMPORTS_RAW/regression_reports/[MMDDYYYY]/`
+**Folder:** `automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/`
 
 | Artifact | Example |
 |----------|---------|
@@ -49,15 +49,15 @@ This standard is an **operating norm** — applicable to any team going forward.
 | Console log | GitLab / Jenkins job output |
 | Bug documentation | `[MMDDYYYY]_[Feature]_[IssueType].md` |
 
-**Naming:** see `10_IMPORTS_RAW/regression_reports/BUG_REPORTING_PROCESS.md`
+**Naming:** see `automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md`
 
 ---
 
 ## 4. Cursor Prompt H
 
-**Location:** `00_SYSTEM/PROMPTS.md` → section **H) Bug Report: JIRA + Email + Teams**
+**Location:** `qa-knowledge-base/00_SYSTEM/PROMPTS.md` → section **H) Bug Report: JIRA + Email + Teams**
 
-**Steps:** (full guide in `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md`)
+**Steps:** (full guide in `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md`)
 
 1. Place artifacts in evidence folder
 2. Copy Prompt H, fill placeholders, attach failure images in Cursor
@@ -107,17 +107,17 @@ When many tests fail in one run — group by feature/plan, not per test method. 
 
 | Topic | Path |
 |-------|------|
-| Prompts | `00_SYSTEM/PROMPTS.md` |
-| Role & constraints | `00_SYSTEM/ROLE.md`, `CONSTRAINTS.md` |
-| Glossary | `00_SYSTEM/GLOSSARY.md` |
-| Defect lifecycle | `04_EXECUTION/DEFECT_LIFECYCLE.md` |
-| Triage rules | `04_EXECUTION/TRIAGE_RULES.md` |
-| Flakiness | `04_EXECUTION/FLAKINESS_PLAYBOOK.md` |
-| RCA | `04_EXECUTION/RCA_PROCESS.md` |
-| Daily regression | `04_EXECUTION/DAILY_REGRESSION.md` |
-| Templates | `06_TEMPLATES/` |
-| Bug SOP | `10_IMPORTS_RAW/regression_reports/BUG_REPORTING_PROCESS.md` |
-| Confluence exports | `10_IMPORTS_RAW/confluence_exports/Bug Handling/` |
+| Prompts | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
+| Role & constraints | `qa-knowledge-base/00_SYSTEM/ROLE.md`, `CONSTRAINTS.md` |
+| Glossary | `qa-knowledge-base/00_SYSTEM/GLOSSARY.md` |
+| Defect lifecycle | `automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md` |
+| Triage rules | `automation-bug-lifecycle/process/TRIAGE_RULES.md` |
+| Flakiness | `automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md` |
+| RCA | `automation-bug-lifecycle/process/RCA_PROCESS.md` |
+| Daily regression | `automation-bug-lifecycle/process/DAILY_REGRESSION.md` |
+| Templates | `qa-knowledge-base/06_TEMPLATES/` |
+| Bug SOP | `automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md` |
+| Confluence exports | `automation-bug-lifecycle/reference/confluence-bug-handling/Bug Handling/` |
 
 ---
 
@@ -125,9 +125,9 @@ When many tests fail in one run — group by feature/plan, not per test method. 
 
 | File | Purpose |
 |------|---------|
-| `_output/Automation-Bug-Lifecycle-Standard.pptx` | Standard overview deck |
-| `_output/Automation-Bug-Lifecycle-Playbook.docx` | Detailed playbook |
-| `recreate-kit/` | **Reproduce the workflow** — prompts, templates, scripts, skill |
+| `deliverables/Automation-Bug-Lifecycle-Standard.pptx` | Standard overview deck |
+| `deliverables/Automation-Bug-Lifecycle-Playbook.docx` | Detailed playbook |
+| `prompts/`, `templates/`, `scripts/` | **Workflow kit** — triage through resolution |
 | `tools/generate_deliverables.py` | Regenerate charts + documents |
 
 ```bash
@@ -138,8 +138,8 @@ python automation-bug-lifecycle/tools/generate_deliverables.py
 
 | Item | Path |
 |------|------|
-| Start here | `recreate-kit/README.md` |
-| Prompts (01–05) | `recreate-kit/prompts/` |
-| Evidence folder script | `recreate-kit/scripts/new-evidence-folder.ps1` |
-| Cursor skill | `recreate-kit/cursor-skill/SKILL.md` → copy to `.cursor/skills/` |
-| GitLab util setup | `recreate-kit/gitlab-util/SETUP.md` |
+| Start here | `README.md` |
+| Prompts (01–05) | `prompts/` |
+| Evidence folder script | `scripts/new-evidence-folder.ps1` |
+| Cursor skill | `cursor-kit/SKILL.md` → copy to `.cursor/skills/` |
+| GitLab util setup | `reference/gitlab-project-manager-setup.md` |

@@ -46,7 +46,7 @@ As a **QA automation engineer**, I want **automated member contribution scenario
 ## Links
 - Design: *[Confluence / Figma if applicable]*
 - Aha!/Confluence: *[Aha feature URL + ID if mapped]*
-- KB: `10_IMPORTS_RAW/AM_Regression_Reports/docs/v3/` (V3 regression docs); `docs/jira-governance/backlog/stories.md` (QA-S-V3-004)
+- KB: `qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/docs/v3/` (V3 regression docs); `docs/jira-governance/backlog/stories.md` (QA-S-V3-004)
 
 ---
 Source: *[Aha feature name]* — *[URL]*  

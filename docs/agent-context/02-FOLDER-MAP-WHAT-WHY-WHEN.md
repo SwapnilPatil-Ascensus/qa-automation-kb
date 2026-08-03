@@ -6,7 +6,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ## Numbered curated folders (`00`–`11`)
 
-### `00_SYSTEM/` — Core system
+### `qa-knowledge-base/00_SYSTEM/` — Core system
 
 | File | What | Why | When |
 |------|------|-----|------|
@@ -18,7 +18,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `01_CONTEXT/` — Current reality
+### `qa-knowledge-base/01_CONTEXT/` — Current reality
 
 | File | What | Why | When |
 |------|------|-----|------|
@@ -29,7 +29,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `02_STANDARDS/` — Rules for code and docs
+### `qa-knowledge-base/02_STANDARDS/` — Rules for code and docs
 
 | File | What | When |
 |------|------|------|
@@ -40,7 +40,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `03_ARCHITECTURE/` — Technical design (templates + patterns)
+### `qa-knowledge-base/03_ARCHITECTURE/` — Technical design (templates + patterns)
 
 | File | What | When |
 |------|------|------|
@@ -54,7 +54,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `04_EXECUTION/` — How tests run and fail get handled
+### `qa-knowledge-base/04_EXECUTION/` — How tests run and fail get handled
 
 | File | What | When |
 |------|------|------|
@@ -67,7 +67,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 | `FLAKINESS_PLAYBOOK.md` | Fix intermittent tests | Recurring flaky failures |
 | `regression/` | **Pipeline 1**: evidence → area docs | See `regression/README.md` |
 
-**`04_EXECUTION/regression/` subfolder:**
+**`qa-knowledge-base/04_EXECUTION/regression/` subfolder:**
 
 | File | What | When |
 |------|------|------|
@@ -77,7 +77,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `05_ONBOARDING/` — Getting started + repetitive tasks
+### `qa-knowledge-base/05_ONBOARDING/` — Getting started + repetitive tasks
 
 | File | What | When |
 |------|------|------|
@@ -89,7 +89,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `06_TEMPLATES/` — Reusable output structures
+### `qa-knowledge-base/06_TEMPLATES/` — Reusable output structures
 
 | File | What | When |
 |------|------|------|
@@ -103,7 +103,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `07_GOVERNANCE_VISIBILITY/` — Metrics and status
+### `qa-knowledge-base/07_GOVERNANCE_VISIBILITY/` — Metrics and status
 
 | File | What | When |
 |------|------|------|
@@ -114,7 +114,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `08_MEETINGS_NOTES/` — Meeting archive
+### `qa-knowledge-base/08_MEETINGS_NOTES/` — Meeting archive
 
 | Path | What | When |
 |------|------|------|
@@ -122,7 +122,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `09_DECISIONS_WORKLOG/` — Memory replacement
+### `qa-knowledge-base/09_DECISIONS_WORKLOG/` — Memory replacement
 
 | File | What | When |
 |------|------|------|
@@ -132,7 +132,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `11_BACKLOG/` — Doc gaps and actions
+### `qa-knowledge-base/11_BACKLOG/` — Doc gaps and actions
 
 | File | What | When |
 |------|------|------|
@@ -189,7 +189,7 @@ SQL scripts for test account setup (IDP password, MFA disable). **No markdown in
 
 ---
 
-## `10_IMPORTS_RAW/` — Raw imports and working artifacts (~577 files)
+## `qa-knowledge-base/10_IMPORTS_RAW/` — Raw imports and working artifacts (~577 files)
 
 **Purpose:** Preserve originals; hold evidence; host the **primary regression documentation KB**.
 
@@ -220,7 +220,7 @@ SQL scripts for test account setup (IDP password, MFA disable). **No markdown in
 
 | Looking for… | Path |
 |--------------|------|
-| Bug prompt + steps | `00_SYSTEM/PROMPTS.md` § H · `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
+| Bug prompt + steps | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` § H · `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
 | Leadership prompt | `PROMPTS.md` § F2 |
 | V2 module list (14 modules) | `AM_Regression_Reports/docs/v2/modules/` |
 | V3 Stage1 (UE + IDP) | `AM_Regression_Reports/docs/v3/modules/` |

@@ -1,0 +1,39 @@
+---
+description: Jira Cloud bug docs — use paste-friendly Markdown, not wiki markup
+globs: "**/ISSUES/**/*.md,**/*JIRA*.md,**/jira-governance/**/*.md"
+alwaysApply: false
+---
+
+# Jira Cloud description formatting (Ascensus)
+
+When creating JIRA bug content in this repo, assume **Jira Cloud visual editor** — not legacy wiki markup.
+
+## Do not use
+
+- `h1.`, `h2.`, `{code}`, `{code:json}`, `{{monospace}}`, `#` wiki numbered lists
+- Wrapping the entire description in a code block (`</>`)
+
+These paste as raw text and do not format (see ISSUES/06242026 lesson learned).
+
+## Use instead
+
+**Primary — Markdown (paste into empty Description field):**
+
+- `## Section` for headings
+- `**bold**` for labels
+- `-` bullets, `1.` numbered lists
+- `` `inline code` `` for errors/endpoints
+- Code fence **only** for JSON/request snippets — user selects those lines → Jira `</>` → language **JSON**
+
+**Fallback — plain text** with ALL CAPS section labels if Markdown auto-convert fails.
+
+## Required structure in bug MD files
+
+1. **How to paste in Jira Cloud** — short instructions at top
+2. **DESCRIPTION — copy below / copy above** markers around paste-ready body
+3. **Plain text fallback** section
+4. Closure comments in plain text (no wiki `*` bullets)
+
+## Reference
+
+`programs/unite-msc/api-validation/ISSUES/06242026/JIRA-bug-QC4-mobile-login-ECONNRESET.md`

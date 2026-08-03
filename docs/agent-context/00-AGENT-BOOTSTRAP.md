@@ -8,13 +8,13 @@
 | **What is it NOT?** | The Java/Selenium test code (that lives in GitLab: `prime-test-automation`, etc.) |
 | **Who uses it?** | Sr. QA Automation Engineer (you) + Cursor for daily doc generation |
 | **Core rule** | If it isn't in the repo, it doesn't exist |
-| **Primary daily tool** | `00_SYSTEM/PROMPTS.md` — copy/paste Cursor prompts |
+| **Primary daily tool** | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` — copy/paste Cursor prompts |
 
 ---
 
 ## Mandatory behavior for agents
 
-Read and follow **`00_SYSTEM/ROLE.md`** and **`00_SYSTEM/CONSTRAINTS.md`**.
+Read and follow **`qa-knowledge-base/00_SYSTEM/ROLE.md`** and **`qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`**.
 
 | Rule | Detail |
 |------|--------|
@@ -23,7 +23,7 @@ Read and follow **`00_SYSTEM/ROLE.md`** and **`00_SYSTEM/CONSTRAINTS.md`**.
 | Always include | Assumptions (max 5), risks, next actions |
 | Security | **Never** add secrets, credentials, tokens, or customer PII |
 | Unknown facts | Mark `[NEED_INPUT]` or `[REDACT_NEEDED]` — do not invent |
-| Source of truth | Prefer curated numbered folders (`00`–`11`); `10_IMPORTS_RAW/` is evidence/archive |
+| Source of truth | Prefer curated numbered folders (`00`–`11`); `qa-knowledge-base/10_IMPORTS_RAW/` is evidence/archive |
 
 ---
 
@@ -32,7 +32,7 @@ Read and follow **`00_SYSTEM/ROLE.md`** and **`00_SYSTEM/CONSTRAINTS.md`**.
 ```
 External systems (Jenkins, GitLab CI, Jira, Confluence)
         ↓ evidence / exports / failures
-10_IMPORTS_RAW/          ← raw imports, bug artifacts, TestNG HTML, PDF exports
+qa-knowledge-base/10_IMPORTS_RAW/          ← raw imports, bug artifacts, TestNG HTML, PDF exports
         ↓ Cursor prompts process & normalize
 Curated KB (00–11, docs/) ← standards, templates, regression docs, governance
         ↓ prompts H, F2, I, J
@@ -45,13 +45,13 @@ Outputs                  ← JIRA blocks, emails, Teams, Confluence pages, leade
 
 | # | Task | Prompt | Primary paths |
 |---|------|--------|---------------|
-| 1 | **Bug report** (JIRA + email + Teams) | **H** | `10_IMPORTS_RAW/regression_reports/MMDDYYYY/` |
-| 2 | **Bi-weekly leadership update** (Persistent client) | **F2** | `06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md` |
+| 1 | **Bug report** (JIRA + email + Teams) | **H** | `automation-bug-lifecycle/evidence/regression-reports/MMDDYYYY/` |
+| 2 | **Bi-weekly leadership update** (Persistent client) | **F2** | `qa-knowledge-base/06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md` |
 | 3 | **Refresh regression module doc** from TestNG | **I** | `AM_Regression_Reports/docs/v2|v3/modules/` |
 | 4 | **Sync parent indexes** after doc changes | **J** | `AM_Regression_Reports/docs/00-automation-regression-master-overview.md` |
-| 5 | **RCA** from failure evidence | **G** | `04_EXECUTION/RCA_PROCESS.md` |
+| 5 | **RCA** from failure evidence | **G** | `automation-bug-lifecycle/process/RCA_PROCESS.md` |
 
-Full steps: `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and `docs/agent-context/03-DAILY-WORKFLOWS.md`.
+Full steps: `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and `docs/agent-context/03-DAILY-WORKFLOWS.md`.
 
 ---
 
@@ -60,7 +60,7 @@ Full steps: `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and `docs/agent-context/0
 | Pipeline | Input | Output | Prompt |
 |----------|-------|--------|--------|
 | **Bug reporting** | Screenshots, exceptions, test data in date folder | One `.md` with JIRA + email + Teams | **H** in `PROMPTS.md` |
-| **Evidence → area docs** | `regression_reports/YYYY-MM-DD/` with PDF/CSV/PNG | `04_EXECUTION/regression/*.md` | Fixed prompt in `04_EXECUTION/regression/PIPELINE_PROMPT.md` |
+| **Evidence → area docs** | `regression_reports/YYYY-MM-DD/` with PDF/CSV/PNG | `qa-knowledge-base/04_EXECUTION/regression/*.md` | Fixed prompt in `qa-knowledge-base/04_EXECUTION/regression/PIPELINE_PROMPT.md` |
 | **Module Confluence refresh** | TestNG HTML + suite XML + PDF | `AM_Regression_Reports/docs/v2|v3/modules/*.md` | **I** in `PROMPTS.md` |
 
 ---
@@ -79,10 +79,10 @@ Full steps: `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and `docs/agent-context/0
 
 ## Before you edit anything
 
-1. Check if content is **curated** (`00`–`11`) vs **raw import** (`10_IMPORTS_RAW/`)
+1. Check if content is **curated** (`00`–`11`) vs **raw import** (`qa-knowledge-base/10_IMPORTS_RAW/`)
 2. For regression docs, confirm **canonical** path is `AM_Regression_Reports/docs/` (not duplicate under `confluence_exports/`)
 3. After adding/moving regression markdown, run prompt **J**
-4. Log significant decisions in `09_DECISIONS_WORKLOG/DECISIONS.md`
+4. Log significant decisions in `qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md`
 
 ---
 

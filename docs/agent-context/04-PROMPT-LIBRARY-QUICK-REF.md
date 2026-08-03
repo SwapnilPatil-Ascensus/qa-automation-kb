@@ -1,6 +1,6 @@
 # Prompt Library Quick Reference
 
-All prompts live in **`00_SYSTEM/PROMPTS.md`**. Copy the full block, replace placeholders, run in Cursor.
+All prompts live in **`qa-knowledge-base/00_SYSTEM/PROMPTS.md`**. Copy the full block, replace placeholders, run in Cursor.
 
 ---
 
@@ -8,10 +8,10 @@ All prompts live in **`00_SYSTEM/PROMPTS.md`**. Copy the full block, replace pla
 
 | ID | Name | Use when | Output location |
 |----|------|----------|-----------------|
-| **A** | Project bootstrap | One-time repo skeleton setup | `01_CONTEXT/`, `03_ARCHITECTURE/`, etc. |
+| **A** | Project bootstrap | One-time repo skeleton setup | `qa-knowledge-base/01_CONTEXT/`, `qa-knowledge-base/03_ARCHITECTURE/`, etc. |
 | **B** | Ingest Confluence export | PDFs dropped in `confluence_exports/` | Curated folders + `SOURCES.md` |
 | **C** | Ingest chats | Chat exports in `chats_exports/` | `DECISIONS.md`, `WORKLOG.md`, `DOC_STANDARDS.md` |
-| **D** | Gap finder | Weekly doc hygiene | `11_BACKLOG/DOC_GAPS.md` |
+| **D** | Gap finder | Weekly doc hygiene | `qa-knowledge-base/11_BACKLOG/DOC_GAPS.md` |
 | **E** | Confluence page generator | Any topic from repo content | New Confluence-ready markdown |
 | **F** | Leadership update (1-min) | Quick status from repo facts | Chat output |
 | **F2** | Persistent bi-weekly leadership | **Alternate weeks** — client meeting | `Demand Planning Reports/[N]. …md` |
@@ -50,7 +50,7 @@ All prompts live in **`00_SYSTEM/PROMPTS.md`**. Copy the full block, replace pla
 - `[START]`, `[END]`, `[LAST_SHARE_DATE]`, `[MMDDYYYY]`, `[NEXT_NUMBER]`
 - Brief bullet update at bottom of prompt
 
-**Template:** `06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md`
+**Template:** `qa-knowledge-base/06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md`
 
 **Output has two parts:**
 1. Full Confluence page (sections 1–10)
@@ -96,7 +96,7 @@ All prompts live in **`00_SYSTEM/PROMPTS.md`**. Copy the full block, replace pla
 | Test execution | Analyze results, generate exec report |
 | Debugging | Investigate flaky test |
 
-All follow `02_STANDARDS/` and `03_ARCHITECTURE/` references.
+All follow `qa-knowledge-base/02_STANDARDS/` and `qa-knowledge-base/03_ARCHITECTURE/` references.
 
 ---
 
@@ -104,7 +104,7 @@ All follow `02_STANDARDS/` and `03_ARCHITECTURE/` references.
 
 | Pipeline | Prompt file | Purpose |
 |----------|-------------|---------|
-| Regression evidence → area docs | `04_EXECUTION/regression/PIPELINE_PROMPT.md` | Generate `summary.md`, `enrollment.md`, etc. |
+| Regression evidence → area docs | `qa-knowledge-base/04_EXECUTION/regression/PIPELINE_PROMPT.md` | Generate `summary.md`, `enrollment.md`, etc. |
 
 **Rule:** Fixed template — no improvisation.
 

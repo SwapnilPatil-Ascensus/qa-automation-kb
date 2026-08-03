@@ -114,7 +114,7 @@ Pilot: Unite Enrollment (UE)
 
 ---
 
-## 4. AM Troubleshooting Guide (`10_IMPORTS_RAW/AM Troubleshooting Guide/`)
+## 4. AM Troubleshooting Guide (`qa-knowledge-base/10_IMPORTS_RAW/AM Troubleshooting Guide/`)
 
 **Purpose:** Stage environment workarounds for offshore/manual QA.
 
@@ -127,7 +127,7 @@ Pilot: Unite Enrollment (UE)
 
 ---
 
-## 5. Performance QA snapshot (`10_IMPORTS_RAW/Performance QA …/`)
+## 5. Performance QA snapshot (`qa-knowledge-base/10_IMPORTS_RAW/Performance QA …/`)
 
 **Purpose:** Reference copy of `performance-test-automation` repo structure.
 

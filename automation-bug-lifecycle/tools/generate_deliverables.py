@@ -23,9 +23,9 @@ from pptx.util import Pt as PptPt
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSETS = ROOT / "_assets"
-DOCX_OUT = ROOT / "_output" / "Automation-Bug-Lifecycle-Playbook.docx"
-PPTX_OUT = ROOT / "_output" / "Automation-Bug-Lifecycle-Standard.pptx"
+ASSETS = ROOT / "assets"
+DOCX_OUT = ROOT / "deliverables" / "Automation-Bug-Lifecycle-Playbook.docx"
+PPTX_OUT = ROOT / "deliverables" / "Automation-Bug-Lifecycle-Standard.pptx"
 VERSION_DATE = "July 24, 2026"
 
 # Ascensus-aligned palette
@@ -289,7 +289,7 @@ def chart_evidence_folder(path: Path) -> None:
     ax.set_ylim(0, 5)
     ax.axis("off")
     _rounded_box(ax, 0.5, 0.5, 9.0, 4.2, LIGHT, TEAL, lw=2)
-    ax.text(5.0, 4.35, "10_IMPORTS_RAW/regression_reports/[MMDDYYYY]/", ha="center",
+    ax.text(5.0, 4.35, "automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/", ha="center",
             fontsize=12, fontweight="bold", color=NOBLE, family="monospace")
     items = [
         ("Screenshots", ".png — failure UI captures"),
@@ -435,8 +435,8 @@ def build_docx(charts: dict[str, Path]) -> None:
         "It applies to any team running V2 (Jenkins) or V3 (GitLab) suites, API automation, "
         "or performance regression — not tied to a single program or client.")
     doc.add_paragraph(
-        "The workflow integrates: (1) triage per 04_EXECUTION/TRIAGE_RULES.md and FLAKINESS_PLAYBOOK.md, "
-        "(2) evidence collection in 10_IMPORTS_RAW/regression_reports/, (3) Cursor Prompt H from 00_SYSTEM/PROMPTS.md, "
+        "The workflow integrates: (1) triage per automation-bug-lifecycle/process/TRIAGE_RULES.md and FLAKINESS_PLAYBOOK.md, "
+        "(2) evidence collection in automation-bug-lifecycle/evidence/regression-reports/, (3) Cursor Prompt H from qa-knowledge-base/00_SYSTEM/PROMPTS.md, "
         "(4) leadership-approved communication templates from Confluence Bug Handling exports, and "
         "(5) GitLab Project Manager for change-set investigation.")
     doc.add_page_break()
@@ -464,9 +464,9 @@ def build_docx(charts: dict[str, Path]) -> None:
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     steps = [
         ("Detect", "V2 Jenkins or V3 GitLab regression reports failure. Record last green run timestamp."),
-        ("Triage", "Classify per Section 2. Rerun locally. Check environment health (04_EXECUTION/DAILY_REGRESSION.md)."),
-        ("Evidence", "Folder: 10_IMPORTS_RAW/regression_reports/[MMDDYYYY]/ — screenshots, logs, test data."),
-        ("Cursor H", "00_SYSTEM/PROMPTS.md section H → JIRA block + email + Teams in one .md file."),
+        ("Triage", "Classify per Section 2. Rerun locally. Check environment health (automation-bug-lifecycle/process/DAILY_REGRESSION.md)."),
+        ("Evidence", "Folder: automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/ — screenshots, logs, test data."),
+        ("Cursor H", "qa-knowledge-base/00_SYSTEM/PROMPTS.md section H → JIRA block + email + Teams in one .md file."),
         ("JIRA + Notify", "QA board ticket. Leadership-approved To/Cc. Critical legit → lock main (10 AM SLA)."),
         ("Change set", "GitLab Project Manager: MRs + commits between last pass and failure."),
         ("Resolve", "Fix verified → JIRA closed with RCA → resolution email → unlock main."),
@@ -476,8 +476,8 @@ def build_docx(charts: dict[str, Path]) -> None:
     for i, h in enumerate(["Step", "Activity", "Standard reference"]):
         set_cell_text(st.rows[0].cells[i], h, bold=True, color=WHITE_RGB)
     style_table_header(st.rows[0])
-    refs = ["04_EXECUTION/DAILY_REGRESSION.md", "FLAKINESS_PLAYBOOK.md", "BUG_REPORTING_PROCESS.md",
-            "00_SYSTEM/PROMPTS.md", "Confluence Bug Handling PDFs", "GitLab Project Manager", "1b Resolution PDF"]
+    refs = ["automation-bug-lifecycle/process/DAILY_REGRESSION.md", "FLAKINESS_PLAYBOOK.md", "BUG_REPORTING_PROCESS.md",
+            "qa-knowledge-base/00_SYSTEM/PROMPTS.md", "Confluence Bug Handling PDFs", "GitLab Project Manager", "1b Resolution PDF"]
     for ri, ((act, det), ref) in enumerate(zip(steps, refs), start=1):
         set_cell_text(st.rows[ri].cells[0], str(ri), bold=True, color=NAVY)
         set_cell_text(st.rows[ri].cells[1], f"{act}: {det}")
@@ -521,7 +521,7 @@ def build_docx(charts: dict[str, Path]) -> None:
     add_heading(doc, "7. Defect Lifecycle & Branch Locking", level=1)
     doc.add_picture(str(charts["lifecycle"]), width=Inches(6.5))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
-    doc.add_paragraph("Full reference: 04_EXECUTION/DEFECT_LIFECYCLE.md, 04_EXECUTION/TRIAGE_RULES.md")
+    doc.add_paragraph("Full reference: automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md, automation-bug-lifecycle/process/TRIAGE_RULES.md")
     add_callout(doc, "Lock monolith/main + automation/main only for critical, legitimate defects — not env/data/flaky.", DOC_AMBER_BG)
 
     add_heading(doc, "8. Multi-Failure Rollup", level=1)
@@ -529,7 +529,7 @@ def build_docx(charts: dict[str, Path]) -> None:
         "Group by feature/plan — not one JIRA per test method",
         "Failure matrix with root-cause hints per traunch/plan",
         "Umbrella ticket + linked children when appropriate",
-        "Reference: 10_IMPORTS_RAW/regression_reports/04202026/04202026_DailyRegression_PipelineFailureRollup.md",
+        "Reference: automation-bug-lifecycle/evidence/regression-reports/04202026/04202026_DailyRegression_PipelineFailureRollup.md",
     ]:
         doc.add_paragraph(item, style="List Bullet")
 
@@ -540,17 +540,17 @@ def build_docx(charts: dict[str, Path]) -> None:
         set_cell_text(src.rows[0].cells[i], h, bold=True, color=WHITE_RGB)
     style_table_header(src.rows[0])
     for ri, (topic, path) in enumerate([
-        ("Prompt H", "00_SYSTEM/PROMPTS.md"),
-        ("Role & constraints", "00_SYSTEM/ROLE.md, CONSTRAINTS.md"),
-        ("Glossary (triage, flakiness, RCA)", "00_SYSTEM/GLOSSARY.md"),
-        ("Bug reporting SOP", "10_IMPORTS_RAW/regression_reports/BUG_REPORTING_PROCESS.md"),
-        ("Repetitive tasks guide", "05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md"),
-        ("Defect lifecycle", "04_EXECUTION/DEFECT_LIFECYCLE.md"),
-        ("Triage rules", "04_EXECUTION/TRIAGE_RULES.md"),
-        ("Flakiness playbook", "04_EXECUTION/FLAKINESS_PLAYBOOK.md"),
-        ("RCA process", "04_EXECUTION/RCA_PROCESS.md"),
-        ("JIRA template", "06_TEMPLATES/JIRA_TICKET_TEMPLATE.md"),
-        ("Confluence exports", "10_IMPORTS_RAW/confluence_exports/Bug Handling/"),
+        ("Prompt H", "qa-knowledge-base/00_SYSTEM/PROMPTS.md"),
+        ("Role & constraints", "qa-knowledge-base/00_SYSTEM/ROLE.md, CONSTRAINTS.md"),
+        ("Glossary (triage, flakiness, RCA)", "qa-knowledge-base/00_SYSTEM/GLOSSARY.md"),
+        ("Bug reporting SOP", "automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md"),
+        ("Repetitive tasks guide", "qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md"),
+        ("Defect lifecycle", "automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md"),
+        ("Triage rules", "automation-bug-lifecycle/process/TRIAGE_RULES.md"),
+        ("Flakiness playbook", "automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md"),
+        ("RCA process", "automation-bug-lifecycle/process/RCA_PROCESS.md"),
+        ("JIRA template", "automation-bug-lifecycle/templates/JIRA_TICKET_TEMPLATE.md"),
+        ("Confluence exports", "automation-bug-lifecycle/reference/confluence-bug-handling/Bug Handling/"),
     ], start=1):
         set_cell_text(src.rows[ri].cells[0], topic, bold=True, color=NAVY)
         set_cell_text(src.rows[ri].cells[1], path)
@@ -770,13 +770,13 @@ def build_pptx(charts: dict[str, Path]) -> None:
 
     d.cards_2x2("Four Pillars of the Standard", [
         ("01", "Triage & classify",
-         "Per 04_EXECUTION/TRIAGE_RULES.md. Rerun locally. Env vs flaky vs defect. "
+         "Per automation-bug-lifecycle/process/TRIAGE_RULES.md. Rerun locally. Env vs flaky vs defect. "
          "Do not log JIRA for noise.", PPT_WARN),
         ("02", "Evidence folder",
-         "10_IMPORTS_RAW/regression_reports/[MMDDYYYY]/ — screenshots, logs, test data, "
+         "automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/ — screenshots, logs, test data, "
          "one bug .md per issue.", PPT_TEAL_DARK),
         ("03", "Cursor Prompt H",
-         "00_SYSTEM/PROMPTS.md — JIRA block, failure email, Teams message, resolution "
+         "qa-knowledge-base/00_SYSTEM/PROMPTS.md — JIRA block, failure email, Teams message, resolution "
          "placeholder in one file.", PPT_ACTION),
         ("04", "GitLab change set",
          "GitLab Project Manager — who merged, who committed, which branches between "
@@ -789,7 +789,7 @@ def build_pptx(charts: dict[str, Path]) -> None:
 
     d.split("Cursor Prompt H — One Prompt, All Deliverables", [
         "Open qa-automation-kb in Cursor",
-        "00_SYSTEM/PROMPTS.md → section H",
+        "qa-knowledge-base/00_SYSTEM/PROMPTS.md → section H",
         "Provide: date, feature, error, report URL, folder path, file list",
         "Attach failure screenshots in chat for richer context",
         "",
@@ -798,7 +798,7 @@ def build_pptx(charts: dict[str, Path]) -> None:
         "  • Failure email — leadership-approved To/Cc",
         "  • Teams message with JIRA + report links",
         "  • Resolution email placeholder (template 1b)",
-    ], charts["toolchain"], "Prompt H toolchain", subtitle="05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md")
+    ], charts["toolchain"], "Prompt H toolchain", subtitle="qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md")
 
     d.content("Communication Standards", [
         "Teams and email templates are approved by leadership and senior QA resources",
@@ -840,7 +840,7 @@ def build_pptx(charts: dict[str, Path]) -> None:
     d.section("Close the Loop", "Resolution · Unlock · Knowledge capture")
 
     d.chart("Defect Lifecycle", charts["lifecycle"],
-            "04_EXECUTION/DEFECT_LIFECYCLE.md · TRIAGE_RULES.md",
+            "automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md · TRIAGE_RULES.md",
             subtitle="JIRA states")
 
     d.content("Resolution Standard", [
@@ -862,10 +862,10 @@ def build_pptx(charts: dict[str, Path]) -> None:
 
     d.content("Repository Map — Where Standards Live", [
         "00_SYSTEM — PROMPTS.md (H), ROLE.md, CONSTRAINTS.md, GLOSSARY.md",
-        "04_EXECUTION — DEFECT_LIFECYCLE, TRIAGE_RULES, FLAKINESS_PLAYBOOK, RCA_PROCESS",
+        "automation-bug-lifecycle/process — DEFECT_LIFECYCLE, TRIAGE_RULES, FLAKINESS_PLAYBOOK, RCA_PROCESS",
         "05_ONBOARDING — HOW_TO_REPETITIVE_TASKS.md (step-by-step)",
         "06_TEMPLATES — JIRA_TICKET_TEMPLATE, RCA_TEMPLATE",
-        "10_IMPORTS_RAW — regression_reports/, Confluence Bug Handling PDFs",
+        "automation-bug-lifecycle/evidence/regression-reports/, reference/confluence-bug-handling/",
         "This module — automation-bug-lifecycle/ (playbook + deck + generator)",
     ], subtitle="If it's not in the repo, treat as unknown — per ROLE.md")
 
@@ -875,7 +875,7 @@ def build_pptx(charts: dict[str, Path]) -> None:
         "Communications use leadership-approved templates — no improvisation",
         "GitLab PM answers who merged and committed in the failure window",
         "Standard applies to any team, any program, going forward",
-        "Full playbook: automation-bug-lifecycle/_output/Automation-Bug-Lifecycle-Playbook.docx",
+        "Full playbook: automation-bug-lifecycle/deliverables/Automation-Bug-Lifecycle-Playbook.docx",
     ], subtitle="QA Automation operating norm")
 
     d.save(PPTX_OUT)

@@ -1,0 +1,29 @@
+ID,action,owner,dependency,priority,complexity,target_horizon,acceptance_criteria,evidence,status
+CI-001,Publish repository code-coverage gate matrix,QA Automation,Repo scan complete,P0,Low,0-30 days,CSV covers all UniteMSC + QA repos with status labels,repository-code-coverage-gate-matrix.csv,Complete
+CI-002,Deliver Michael Blake final response,QA Automation,Matrix + register,P0,Low,0-30 days,Answers all 6 leadership questions; 300-500 words,michael-blake-final-response.md,Complete
+CI-003,Provision read-only GitLab PAT,IT/DevOps,Security approval,P0,Low,0-30 days,glab api user returns 200; pipeline collector runs,integration-capability-matrix.csv Blocked,Open
+CI-004,Provision read-only qTest API token,IT/QA Admin,Security approval,P0,Medium,0-30 days,QTEST env vars set; test case export succeeds,integration-capability-matrix.csv,Open
+CI-005,Provision read-only Jira API access,IT/QA Admin,Security approval,P0,Medium,0-30 days,Jira collector returns scoped stories,jira-scope-assessment.md,Open
+CI-006,Extend Python coverage register collector,QA Automation,CI-003 CI-004 CI-005,P0,Medium,0-30 days,Weekly JSON snapshot; no manual CSV edits,tools/generate_coverage_intelligence_assessment.py,Open
+CI-007,Implement JaCoCo coverage-delta pilot script,QA Automation,DevOps pipeline MR,P0,Medium,0-30 days,Script compares branch vs main XML on sample MR,code-coverage-gate-implementation-plan.md,Open
+CI-008,Add JaCoCo XML artifact to unite-mobile2 MR pipeline,DevOps,CI-007 script,P0,Medium,0-30 days,MR pipeline publishes jacoco.xml artifact,unite-mobile2/.gitlab-ci.yml,Open
+CI-009,Wire Mobile 2 API GitLab nightly QA-1405,DevOps + QA,Secure files QA-1405,P0,Medium,0-30 days,Green scheduled job; JUnit artifacts archived,api-test-automation/.gitlab-ci.yml gap E-009,Open
+CI-010,Refresh Mobile 2 master execution sign-off,QA Automation,CI-009 optional,P1,Low,0-30 days,New run post-cee0de9; M-M2-EXEC updated,17-mobile2-api-automation-signoff.md Stale,Open
+CI-011,Define automation_id traceability standard,QA Automation,Team agreement,P1,Low,0-30 days,Published standard; 10+ M2 tests linked,jira-qtest-ci-harmonization-plan.md,Open
+CI-012,qTest read-only collector MVP,QA Automation,CI-004,P1,Medium,31-60 days,qtest-snapshot.json weekly,qtest-readiness-assessment.md,Open
+CI-013,Jira scope collector MVP,QA Automation,CI-005,P1,Medium,31-60 days,jira-scope-snapshot.json weekly,jira-scope-assessment.md,Open
+CI-014,GitLab live pipeline execution collector,QA Automation,CI-003,P1,Medium,31-60 days,execution-snapshot.json with last-run per job,pipeline-job-inventory.csv,Open
+CI-015,GitHub Actions collector,QA Automation,gh CLI + token,P2,Medium,31-60 days,gha-execution-snapshot.json for M2 workflow,17-MOBILE2-NEXUS-GITHUB-ACTIONS-PIPELINE.md,Open
+CI-016,Jenkins collector for V2/perf jobs,QA Automation,Jenkins API access,P2,Medium,31-60 days,jenkins-execution-snapshot.json,universal-platform-coverage Jenkins exports,Open
+CI-017,Reconciliation engine v2 with contradiction detection,QA Automation,CI-012 CI-013 CI-014,P1,High,31-60 days,cross-system-traceability.csv + data-conflicts.csv,07-reconciliation/reconciliation-summary.md,Open
+CI-018,qTest data-quality remediation sprint,QA Governance + BA,CI-012,P1,Medium,31-60 days,≥5 DQ findings closed; row IDs exported,qtest-data-quality-summary.csv,Open
+CI-019,Configure coverage-delta required status check on pilot repo,DevOps,CI-008 Phase 2,P0,Medium,61-90 days,MR blocked when check fails; bypass group works,code-coverage-gate-decision-brief.md,Open
+CI-020,Establish controlled bypass process and exception register,QA Governance + DevOps,Leadership approval,P0,Low,61-90 days,Monthly exception CSV; waiver fields mandatory,ci-gate-strategy.md,Open
+CI-021,Define freshness SLA for register metrics,QA Governance,Register MVP,P1,Low,0-30 days,Published SLA in governance model,data-freshness-and-ownership.md,Open
+CI-022,Leadership reporting automation,QA Automation,CI-006,P1,Medium,61-90 days,Weekly leadership MD from register; no blended %,executive-summary.md,Open
+CI-023,Reconcile unite-financial JaCoCo POM inconsistency,Engineering,None,P2,Low,31-60 days,Properties match jacoco-check minimums,unite-financial/pom.xml,Open
+CI-024,Sonar enablement decision for UniteMSC,DevOps + Security,Architecture review,P2,High,61-90 days,RUN_SONARQUBE policy documented,source-code-coverage-assessment.md,Open
+CI-025,Roll out coverage-delta to unite-profile and unite-account,DevOps,CI-019 pilot success,P2,Medium,61-90 days,2 additional repos on Phase 2,repository-code-coverage-gate-matrix.csv,Open
+CI-026,Clone and audit GHA Mobile2 workflow repository,QA Automation,Repo access,P2,Low,31-60 days,Workflow YAML in evidence register,E-011 workflow not in clone,Open
+CI-027,Verify Jenkins V2 UI regression job scope,QA Automation,Jenkins access,P2,Medium,31-60 days,Job name schedule documented in register,ci-gate-assessment.md TBD,Open
+CI-028,Approve domain-specific denominators,Leadership,Program review,P0,Low,0-30 days,Signed metric definition A-E,coverage-metric-definition.md,Open

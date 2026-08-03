@@ -1,0 +1,206 @@
+AI-generated content may be incorrect
+KD
+
+Kevin Daines
+0 minutes 18 seconds0:18
+Kevin Daines 0 minutes 18 seconds
+Hello.
+
+Abhitosh Fani
+0 minutes 18 seconds0:18
+Abhitosh Fani 0 minutes 18 seconds
+Hey, Kevin.
+KD
+
+Kevin Daines
+0 minutes 20 seconds0:20
+Kevin Daines 0 minutes 20 seconds
+How are you?
+
+Abhitosh Fani
+0 minutes 22 seconds0:22
+Abhitosh Fani 0 minutes 22 seconds
+Good, how are you doing?
+KD
+
+Kevin Daines
+0 minutes 24 seconds0:24
+Kevin Daines 0 minutes 24 seconds
+Good.
+Kevin Daines 0 minutes 34 seconds
+What do we have coming in?
+Kevin Daines 0 minutes 39 seconds
+The.
+Kevin Daines 0 minutes 46 seconds
+Okay, I invited Swapnil and Luis.
+TA
+
+Tandabany Anbanandan
+0 minutes 54 seconds0:54
+Tandabany Anbanandan 0 minutes 54 seconds
+Just a quick question: Is there something is deploying auth server in QC4? Any changes you guys made?
+
+Abhitosh Fani
+1 minute 2 seconds1:02
+Abhitosh Fani 1 minute 2 seconds
+Yeah, we have deployed service worker.
+TA
+
+Tandabany Anbanandan
+1 minute 5 seconds1:05
+Tandabany Anbanandan 1 minute 5 seconds
+Okay, so right now the login is not working.
+KD
+Kevin Daines
+22 minutes 13 seconds22:13
+Kevin Daines 22 minutes 13 seconds
+Okay.
+
+Luis Fontalvo Romero
+22 minutes 14 seconds22:14
+Luis Fontalvo Romero 22 minutes 14 seconds
+Because they are.
+Luis Fontalvo Romero 22 minutes 16 seconds
+Already done for those plans, at least.
+KD
+Kevin Daines
+22 minutes 19 seconds22:19
+Kevin Daines 22 minutes 19 seconds
+Okay, so the plans in the chat.
+
+Abhitosh Fani
+22 minutes 22 seconds22:22
+Abhitosh Fani 22 minutes 22 seconds
+I.
+KD
+Kevin Daines
+22 minutes 25 seconds22:25
+Kevin Daines 22 minutes 25 seconds
+are already mostly set up. They just need the reverse proxy.
+
+Abhitosh Fani
+22 minutes 26 seconds22:26
+Abhitosh Fani 22 minutes 26 seconds
+Yes.
+Abhitosh Fani 22 minutes 33 seconds
+reverse proxy and the application.
+
+Luis Fontalvo Romero
+22 minutes 33 seconds22:33
+Luis Fontalvo Romero 22 minutes 33 seconds
+Send data on the application.
+KD
+Kevin Daines
+22 minutes 35 seconds22:35
+Kevin Daines 22 minutes 35 seconds
+Uh-huh.
+Kevin Daines 22 minutes 37 seconds
+Okay, all right, so you guys are thinking that a week or so is sufficient to enable everything after the refresh.
+Kevin Daines 22 minutes 46 seconds
+OK.
+
+Luis Fontalvo Romero
+22 minutes 47 seconds22:47
+Luis Fontalvo Romero 22 minutes 47 seconds
+Do you agree, Fani?
+TA
+Tandabany Anbanandan
+22 minutes 51 seconds22:51
+Tandabany Anbanandan 22 minutes 51 seconds
+Yeah, if everything goes well, yeah, yeah, we have that is the main challenge all the time. Like now, after talking to Abhitosh, I come to know that their team is making some changes, so that's causing the login issue. So, because that's real, that's what I'm saying, like everything goes well, then we'll be done. It's a straightforward, but if something fails, then we need to...
+KD
+Kevin Daines
+22 minutes 54 seconds22:54
+Kevin Daines 22 minutes 54 seconds
+That's always the.
+Kevin Daines 22 minutes 58 seconds
+Yeah.
+TA
+Tandabany Anbanandan
+23 minutes 13 seconds23:13
+Tandabany Anbanandan 23 minutes 13 seconds
+Uh, check, reach out the team and fix it, yeah.
+KD
+Kevin Daines
+23 minutes 15 seconds23:15
+Kevin Daines 23 minutes 15 seconds
+Mhm.
+Kevin Daines 23 minutes 17 seconds
+Okay.
+Kevin Daines 23 minutes 19 seconds
+Okay.
+Kevin Daines 23 minutes 21 seconds
+All right, so if I'm going to pursue this in the value stream, I'll just have...
+Kevin Daines 23 minutes 29 seconds
+Odyssey and Infinity.
+Kevin Daines 23 minutes 34 seconds
+S.
+Kevin Daines 23 minutes 38 seconds
+So...
+Kevin Daines 23 minutes 42 seconds
+Um, Abhitosh, do I need to keep you involved in this conversation going forward?
+
+Abhitosh Fani
+23 minutes 48 seconds23:48
+Abhitosh Fani 23 minutes 48 seconds
+Yeah, since it is for the observer involvement, then please do add me. Maybe I'll not.
+KD
+Kevin Daines
+23 minutes 53 seconds23:53
+Kevin Daines 23 minutes 53 seconds
+Okay.
+
+Abhitosh Fani
+23 minutes 55 seconds23:55
+Abhitosh Fani 23 minutes 55 seconds
+Too much here, but just want to keep informed.
+KD
+Kevin Daines
+24 minutes 11 seconds24:11
+Kevin Daines 24 minutes 11 seconds
+Okay.
+Kevin Daines 24 minutes 20 seconds
+All right, well, that sounds pretty good for right now. That's the questions that I had. That's the...
+Kevin Daines 24 minutes 29 seconds
+That's the process, the steps that's needed.
+Kevin Daines 24 minutes 34 seconds
+People that are needed.
+Kevin Daines 24 minutes 38 seconds
+Okay.
+Kevin Daines 24 minutes 41 seconds
+Yeah, there had been a, there had been an aha feature to do, I think just the IDP plans, but we're going to try to get everything. So I'm going to try to revive that and get it through the value stream and see when we can get that done.
+Kevin Daines 25 minutes 1 second
+It'll have to follow after the QC port refresh, but...
+Kevin Daines 25 minutes 6 seconds
+That sounds good to me.
+Kevin Daines 25 minutes 8 seconds
+All right. Thanks for your time. Any other questions or anything before we go?
+Kevin Daines 25 minutes 20 seconds
+Okay.
+TA
+Tandabany Anbanandan
+25 minutes 21 seconds25:21
+Tandabany Anbanandan 25 minutes 21 seconds
+I'm good, thank you.
+KD
+Kevin Daines
+25 minutes 23 seconds25:23
+Kevin Daines 25 minutes 23 seconds
+Well, thanks for joining and sharing your knowledge here. I appreciate it. Have a good day.
+TA
+Tandabany Anbanandan
+25 minutes 29 seconds25:29
+Tandabany Anbanandan 25 minutes 29 seconds
+Thank you. Thanks, bye. Bye.
+
+Luis Fontalvo Romero
+25 minutes 29 seconds25:29
+Luis Fontalvo Romero 25 minutes 29 seconds
+Yeah.
+
+Abhitosh Fani
+25 minutes 30 seconds25:30
+Abhitosh Fani 25 minutes 30 seconds
+Thank you.
+
+Kevin Daines stopped transcription

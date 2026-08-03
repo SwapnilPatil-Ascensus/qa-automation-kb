@@ -2,7 +2,7 @@
 
 The **primary regression documentation** lives under:
 
-`10_IMPORTS_RAW/AM_Regression_Reports/`
+`qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/`
 
 This is the most content-rich and frequently updated area of the repo.
 
@@ -162,14 +162,14 @@ suites/v3/
 
 ## Bug evidence (separate from module docs)
 
-**Location:** `10_IMPORTS_RAW/regression_reports/MMDDYYYY/`
+**Location:** `automation-bug-lifecycle/evidence/regression-reports/MMDDYYYY/`
 
 | Content | Purpose |
 |---------|---------|
 | Screenshots, `.txt` logs | Evidence |
 | `[date]_[Feature]_[Issue].md` | JIRA + email + Teams package |
 
-**Not the same as** `04_EXECUTION/regression/` area rollup docs.
+**Not the same as** `qa-knowledge-base/04_EXECUTION/regression/` area rollup docs.
 
 ---
 

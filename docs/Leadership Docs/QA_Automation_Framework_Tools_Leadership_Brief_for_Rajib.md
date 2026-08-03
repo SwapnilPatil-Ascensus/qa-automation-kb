@@ -359,7 +359,7 @@ The strategy is **evolve the homegrown frameworks**, not abandon them for a mark
 | Topic | Path |
 |-------|------|
 | Program hub — mobile MSC API migration | `docs/mobile-automation-program-hub/` |
-| CI/CD landscape | `10_IMPORTS_RAW/AM_Regression_Reports/docs/CICD/` |
+| CI/CD landscape | `qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/docs/CICD/` |
 | Agent / team bootstrap | `docs/agent-context/` |
 
 ---

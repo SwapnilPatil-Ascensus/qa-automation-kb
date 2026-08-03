@@ -1,53 +1,44 @@
 # QA Automation Knowledge Base
 
-> **Core Rule**: "If it isn't in the repo, it doesn't exist."
+> **Core rule:** If it isn't in the repo, it doesn't exist.
 
-This repository serves as the single source of truth for QA automation knowledge, decisions, and documentation.
+Single source of truth for QA automation knowledge, operating standards, and time-bounded program work.
 
-## Purpose
-
-This knowledge base acts as:
-- **Source of truth** (Markdown docs)
-- **Memory** (decision log + worklog + meeting notes)
-- **Prompt library** (Cursor instructions)
-- **Output factory** (Confluence-ready templates, Jira-ready snippets, leadership updates)
-
-## Repository Structure
+## Top-level layout
 
 ```
 qa-automation-kb/
-├── 00_SYSTEM/              # Core system documentation
-├── 01_CONTEXT/             # Current state and context
-├── 02_STANDARDS/           # Documentation and code standards
-├── 03_ARCHITECTURE/        # Technical architecture
-├── 04_EXECUTION/           # Test execution processes
-├── 05_ONBOARDING/          # Onboarding resources
-├── 06_TEMPLATES/           # Reusable templates
-├── 07_GOVERNANCE_VISIBILITY/ # Metrics and governance
-├── 08_MEETINGS_NOTES/      # Meeting notes archive
-├── 09_DECISIONS_WORKLOG/   # Decisions and work tracking
-├── 10_IMPORTS_RAW/         # Raw imported content
-├── 11_BACKLOG/             # Backlog and action items
-└── docs/jira-governance/   # Jira governance KB (intake, backlog, sprint, reporting)
+├── automation-bug-lifecycle/   # Bug triage → evidence → JIRA/email/Teams → change set → resolution
+├── qa-knowledge-base/          # Evergreen KB spine (00_SYSTEM … 11_BACKLOG)
+├── programs/                   # Initiative / program folders (barcode, GS, Unite MSC, QC4, …)
+└── docs/                       # Agent bootstrap, Jira governance, access requests
 ```
 
-## Quick Start
+## Start here
 
-1. **Cursor / AI session (start here after context loss)?** → `docs/agent-context/README.md`
-2. **New to the team?** → Start with `05_ONBOARDING/ONBOARDING_7_DAY.md`
-3. **Need a template?** → Check `06_TEMPLATES/`
-4. **Looking for standards?** → See `02_STANDARDS/`
-5. **Understanding architecture?** → Read `03_ARCHITECTURE/OVERVIEW.md`
-6. **Bug report or leadership update?** → `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` and prompts in `00_SYSTEM/PROMPTS.md`
-7. **Jira / Scrum / Kanban governance?** → `docs/jira-governance/README.md`
+| Goal | Where |
+|------|--------|
+| **Regression failed — triage & log a bug (demo workflow)** | [`automation-bug-lifecycle/README.md`](automation-bug-lifecycle/README.md) |
+| **Cursor / AI session after context loss** | [`docs/agent-context/README.md`](docs/agent-context/README.md) |
+| **New to the team** | [`qa-knowledge-base/05_ONBOARDING/ONBOARDING_7_DAY.md`](qa-knowledge-base/05_ONBOARDING/ONBOARDING_7_DAY.md) |
+| **Standards & architecture** | [`qa-knowledge-base/02_STANDARDS/`](qa-knowledge-base/02_STANDARDS/), [`qa-knowledge-base/03_ARCHITECTURE/`](qa-knowledge-base/03_ARCHITECTURE/) |
+| **Jira / Scrum governance** | [`docs/jira-governance/README.md`](docs/jira-governance/README.md) |
+| **Active program work** | [`programs/README.md`](programs/README.md) |
+
+## Automation Bug Lifecycle (15-minute demo)
+
+1. Drop failure artifacts into `automation-bug-lifecycle/evidence/regression-reports/MMDDYYYY/`
+2. Run triage + Prompt H from `automation-bug-lifecycle/prompts/`
+3. Cursor skill handles JIRA block, email, Teams, and change-set prompts
+
+Bootstrap a dated folder:
+
+```powershell
+.\automation-bug-lifecycle\scripts\new-evidence-folder.ps1 -Date "07312026" -Feature "YourFeature"
+```
 
 ## Maintenance
 
-- Keep `01_CONTEXT/CURRENT_STATE.md` updated with current reality
-- Log all decisions in `09_DECISIONS_WORKLOG/DECISIONS.md`
-- Archive meeting notes in `08_MEETINGS_NOTES/YYYY/`
-- Track work in `09_DECISIONS_WORKLOG/WORKLOG.md`
-
-## Contributing
-
-All documentation should follow standards defined in `02_STANDARDS/DOC_STANDARDS.md`.
+- Keep [`qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md`](qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md) current
+- Log decisions in [`qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md`](qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md)
+- Bug evidence and SOPs stay in **automation-bug-lifecycle** — not scattered in the KB spine

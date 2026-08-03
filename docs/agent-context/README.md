@@ -30,13 +30,13 @@ Core rule: **"If it isn't in the repo, it doesn't exist."**
 | Need | Go to |
 |------|-------|
 | Repo navigation | `README.md` |
-| AI role & output rules | `00_SYSTEM/ROLE.md` |
-| Security constraints | `00_SYSTEM/CONSTRAINTS.md` |
-| **All Cursor prompts** | `00_SYSTEM/PROMPTS.md` |
-| Step-by-step bug + leadership tasks | `05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
-| Full KT index | `05_ONBOARDING/KT_INDEX.md` |
-| Decision memory | `09_DECISIONS_WORKLOG/DECISIONS.md` |
-| Regression suite docs hub | `10_IMPORTS_RAW/AM_Regression_Reports/docs/README.md` |
+| AI role & output rules | `qa-knowledge-base/00_SYSTEM/ROLE.md` |
+| Security constraints | `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md` |
+| **All Cursor prompts** | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
+| Step-by-step bug + leadership tasks | `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
+| Full KT index | `qa-knowledge-base/05_ONBOARDING/KT_INDEX.md` |
+| Decision memory | `qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md` |
+| Regression suite docs hub | `qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/docs/README.md` |
 
 ---
 
@@ -44,7 +44,7 @@ Core rule: **"If it isn't in the repo, it doesn't exist."**
 
 ```
 Read docs/agent-context/00-AGENT-BOOTSTRAP.md and 03-DAILY-WORKFLOWS.md.
-Then read 00_SYSTEM/ROLE.md and 00_SYSTEM/CONSTRAINTS.md.
+Then read qa-knowledge-base/00_SYSTEM/ROLE.md and qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md.
 Summarize: repo purpose, my likely next task, and which folder/prompt to use.
 Do not invent facts — if missing, mark [NEED_INPUT].
 ```
