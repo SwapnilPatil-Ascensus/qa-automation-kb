@@ -1,0 +1,93 @@
+Script:
+def servers = ['loadtestwt1', 'loadtestwt2']
+
+// lobal default config (from your Taurus runs)
+def defaultConfig = [
+    concurrency : '25',
+    throughput  : '600',
+    duration    : '1h',
+    ramp        : '5m',
+    encrypted   : false
+]
+
+def tests = [
+    [
+        name: 'IDP Login Resources',
+        yaml: 'universal/idp/jmeter/idp-login-resources-remote.yaml',
+        overrides: [:]   // uses full defaultConfig
+    ],
+    [
+        name: 'Auth Server Delay',
+        yaml: 'universal/idp/jmeter/auth-server-delay-remote.yaml',
+        overrides: [:]
+    ],
+    [
+        name: 'IDP forgot username',
+        yaml: 'universal/idp/jmeter/idp-forgot-username-remote.yaml',
+        overrides: [
+            concurrency: '10',
+            duration: '15m'
+        ]
+    ]
+]
+
+pipeline {
+    agent none
+
+    parameters {
+        string(name: 'concurrency', defaultValue: '')
+        string(name: 'throughput', defaultValue: '')
+        string(name: 'duration', defaultValue: '')
+        booleanParam(name: 'encrypted', defaultValue: false)
+        string(name: 'environment', defaultValue: 'stage1')
+    }
+
+    stages {
+
+        stage('Run Regression Suite') {
+            steps {
+                script {
+
+                    for (test in tests) {
+
+                        stage("Run ${test.name}") {
+
+                            // Merge configs: default → test overrides → params override
+                            def finalConfig = defaultConfig + test.overrides
+
+                            // Apply runtime (UI/auto) overrides
+                            finalConfig.concurrency = params.concurrency ?: finalConfig.concurrency
+                            finalConfig.throughput  = params.throughput ?: finalConfig.throughput
+                            finalConfig.duration    = params.duration ?: finalConfig.duration
+                            finalConfig.encrypted   = params.encrypted != null ? params.encrypted : finalConfig.encrypted
+
+                            def parallelRuns = servers.collectEntries { server ->
+                                ["${server}" : {
+                                    build job: 'AGSUP_ENDURANCE_THROUGHPUT',
+                                        parameters: [
+                                            string(name: 'server', value: server),
+                                            string(name: 'yaml', value: test.yaml),
+                                            string(name: 'environment', value: params.environment),
+                                            booleanParam(name: 'encrypted', value: finalConfig.encrypted),
+                                            string(name: 'concurrency', value: finalConfig.concurrency),
+                                            string(name: 'duration', value: finalConfig.duration),
+                                            string(name: 'ramp', value: finalConfig.ramp),
+                                            string(name: 'throughput', value: finalConfig.throughput)
+                                        ],
+                                        propagate: false,
+                                        wait: true
+                                }]
+                            }
+
+                            parallel parallelRuns
+                        }
+
+                        stage("Cooldown after ${test.name}") {
+                            sleep(time: 60, unit: "SECONDS")
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

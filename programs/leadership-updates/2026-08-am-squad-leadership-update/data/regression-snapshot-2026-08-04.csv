@@ -1,0 +1,14 @@
+module,methods,passed,failed,pass_pct,report_date,environment
+Enrollments,147,59,88,40.1,2026-08-04,STAGE1
+Account or Profile Maintenance,74,67,7,90.5,2026-08-04,STAGE1
+Empower Plan,75,54,21,72.0,2026-08-04,STAGE1
+Withdrawals,73,63,10,86.3,2026-08-04,STAGE1
+Contributions,48,45,3,93.8,2026-08-04,STAGE1
+Ugift,36,29,7,80.6,2026-08-04,STAGE1
+Legacy Web Registration,41,35,6,85.4,2026-08-04,STAGE1
+Stage1 Sardine,33,24,9,72.7,2026-08-04,STAGE1
+Investment Options,24,14,10,58.3,2026-08-04,STAGE1
+Legacy Web Login,19,4,15,21.1,2026-08-04,STAGE1
+Transfers,12,7,5,58.3,2026-08-04,STAGE1
+Account Balance Page,10,7,3,70.0,2026-08-04,STAGE1
+TOTAL,592,408,184,69.0,2026-08-04,STAGE1
