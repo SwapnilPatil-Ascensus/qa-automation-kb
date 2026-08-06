@@ -1,0 +1,20 @@
+[
+  {
+    "prospect": { "plan": "{{enrollment.planId}}" },
+    "owner": {
+      "permAddline1": "{{enrollment.owner.mlAddline1}}",
+      "permCity": "{{enrollment.owner.mlCity}}",
+      "permZipcode": "{{enrollment.owner.mlZipcode}}",
+      "permStatelabel": "{{enrollment.owner.mlStatelabel}}",
+      "isForeignPermaddr": "N",
+      "mlAddline1": "{{enrollment.owner.mlAddline1}}",
+      "mlCity": "{{enrollment.owner.mlCity}}",
+      "mlZipcode": "{{enrollment.owner.mlZipcode}}",
+      "mlStatelabel": "{{enrollment.owner.mlStatelabel}}",
+      "isForeignAddress": "N",
+      "phone": "{{enrollment.owner.phone}}",
+      "phoneType": "{{enrollment.owner.phoneType}}",
+      "changeId": "TEST_ID"
+    }
+  }
+]

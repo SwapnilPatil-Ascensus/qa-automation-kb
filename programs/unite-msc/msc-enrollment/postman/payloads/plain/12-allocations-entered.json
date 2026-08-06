@@ -1,0 +1,7 @@
+[
+  {
+    "enrollmentAllocations": [
+      { "fundId": "{{enrollment.fundId}}", "percentAlloc": "100" }
+    ]
+  }
+]

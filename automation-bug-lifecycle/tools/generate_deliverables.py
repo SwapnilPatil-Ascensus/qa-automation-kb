@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 DOCX_OUT = ROOT / "deliverables" / "Automation-Bug-Lifecycle-Playbook.docx"
 PPTX_OUT = ROOT / "deliverables" / "Automation-Bug-Lifecycle-Standard.pptx"
-VERSION_DATE = "July 24, 2026"
+VERSION_DATE = "August 3, 2026"
 
 # Ascensus-aligned palette
 NOBLE = "#003241"
@@ -429,19 +429,44 @@ def build_docx(charts: dict[str, Path]) -> None:
         run.font.color.rgb = GRAY_RGB
     doc.add_page_break()
 
-    add_heading(doc, "1. Purpose & Scope", level=1)
+    add_heading(doc, "1. Use Case & Context", level=1)
     add_callout(doc,
-        "This standard defines how QA Automation responds when regression or release tests fail. "
-        "It applies to any team running V2 (Jenkins) or V3 (GitLab) suites, API automation, "
-        "or performance regression — not tied to a single program or client.")
+        "Continuation from prior QA Automation sessions: we defined the bug lifecycle standard. "
+        "This module operationalizes it — repo + Cursor AI + GitLab Project Manager — so any engineer "
+        "can go from regression failure to JIRA, email, Teams, and change-set visibility in ~15 minutes.")
     doc.add_paragraph(
-        "The workflow integrates: (1) triage per automation-bug-lifecycle/process/TRIAGE_RULES.md and FLAKINESS_PLAYBOOK.md, "
-        "(2) evidence collection in automation-bug-lifecycle/evidence/regression-reports/, (3) Cursor Prompt H from qa-knowledge-base/00_SYSTEM/PROMPTS.md, "
-        "(4) leadership-approved communication templates from Confluence Bug Handling exports, and "
-        "(5) GitLab Project Manager for change-set investigation.")
+        "When V2 (Jenkins) or V3 (GitLab) regression fails, teams need a repeatable response — not ad-hoc "
+        "firefighting. Drop evidence into automation-bug-lifecycle/evidence/regression-reports/MMDDYYYY/, "
+        "run Prompt H in Cursor, create JIRA, pull the change set, and send leadership-approved communications.")
+    add_heading(doc, "2. The Challenge — Visibility", level=1)
+    add_callout(doc,
+        "The core gap was visibility: who merged or committed between the last green run and the failure? "
+        "Were communications consistent? Was the process repeatable across engineers and programs?",
+        DOC_AMBER_BG)
+    for item in [
+        "No single place for evidence — screenshots and logs scattered across chat and email",
+        "JIRA and email drafted differently every time — leadership templates not always used",
+        "Change-set investigation manual and slow — hard to answer who changed what",
+        "Critical defects lacked clear accountability — main branch lock and 24-hour resolution unclear",
+    ]:
+        doc.add_paragraph(item, style="List Bullet")
+    add_heading(doc, "3. The Solution — This Module", level=1)
+    doc.add_paragraph(
+        "qa-automation-kb/automation-bug-lifecycle/ bundles prompts, process rules, evidence examples, "
+        "charts, and deliverables. Cursor Prompt H generates all communications from one evidence folder. "
+        "GitLab Project Manager answers the change-set question. Full walkthrough: WORKFLOW.md.")
     doc.add_page_break()
 
-    add_heading(doc, "2. Triage — Bug or Not?", level=1)
+    add_heading(doc, "4. Purpose & Scope", level=1)
+    add_callout(doc,
+        "Operating standard for any QA Automation team — UI, API, performance, any program.")
+    doc.add_paragraph(
+        "Integrates: (1) triage per TRIAGE_RULES.md and FLAKINESS_PLAYBOOK.md, "
+        "(2) evidence in evidence/regression-reports/, (3) Cursor Prompt H, "
+        "(4) leadership-approved templates, (5) GitLab Project Manager change-set tooling.")
+    doc.add_page_break()
+
+    add_heading(doc, "5. Triage — Bug or Not?", level=1)
     doc.add_picture(str(charts["triage"]), width=Inches(6.8))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     triage = doc.add_table(rows=5, cols=4)
@@ -459,7 +484,7 @@ def build_docx(charts: dict[str, Path]) -> None:
             set_cell_text(triage.rows[ri].cells[ci], val, bold=(ci == 0), color=NAVY if ci == 0 else GRAY_RGB)
     doc.add_page_break()
 
-    add_heading(doc, "3. End-to-End Workflow", level=1)
+    add_heading(doc, "6. End-to-End Workflow", level=1)
     doc.add_picture(str(charts["workflow"]), width=Inches(6.8))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     steps = [
@@ -484,19 +509,32 @@ def build_docx(charts: dict[str, Path]) -> None:
         set_cell_text(st.rows[ri].cells[2], ref, size=9)
     doc.add_page_break()
 
-    add_heading(doc, "4. Evidence Folder Structure", level=1)
+    add_heading(doc, "7. Evidence Folder Structure", level=1)
     doc.add_picture(str(charts["evidence"]), width=Inches(6.2))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     doc.add_paragraph("Naming: [MMDDYYYY]_[FeatureName]_[IssueType].md — see BUG_REPORTING_PROCESS.md.")
 
-    add_heading(doc, "5. Cursor Prompt H Deliverables", level=1)
+    add_heading(doc, "8. Cursor Prompt H — Plain English", level=1)
+    doc.add_paragraph(
+        "Prompt H is the single Cursor prompt that turns your evidence folder into all deliverables. "
+        "You provide: date, feature name, error message, report URL, folder path, file list, and last green run. "
+        "Attach failure screenshots in chat. Cursor writes one .md file with:")
+    for item in [
+        "JIRA copy-paste block (Summary, Description, Steps, Environment, Priority)",
+        "Failure email draft — leadership-approved To/Cc lists",
+        "Teams message with JIRA and report links",
+        "Resolution email placeholder for when the bug is fixed",
+    ]:
+        doc.add_paragraph(item, style="List Bullet")
+    doc.add_paragraph("Prompt file: automation-bug-lifecycle/prompts/02-bug-report-prompt-h.md")
+    add_heading(doc, "9. Cursor Prompt H — Toolchain", level=1)
     doc.add_picture(str(charts["toolchain"]), width=Inches(6.2))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     add_callout(doc,
         "Teams and email templates produced by Prompt H follow formats approved by leadership and senior QA resources. "
         "Use standard To/Cc lists — do not improvise distribution or structure.", DOC_GREEN_BG)
 
-    add_heading(doc, "6. GitLab Project Manager — Change Set", level=1)
+    add_heading(doc, "10. GitLab Project Manager — Change Set", level=1)
     mr_img = ASSETS / "gitlab_mr_results_sample.png"
     ui_img = ASSETS / "gitlab_project_manager_ui.png"
     if ui_img.exists():
@@ -518,13 +556,46 @@ def build_docx(charts: dict[str, Path]) -> None:
         doc.add_paragraph(item, style="List Bullet")
     doc.add_page_break()
 
-    add_heading(doc, "7. Defect Lifecycle & Branch Locking", level=1)
+    add_heading(doc, "11. Critical Defects — Lock & 24-Hour Resolution", level=1)
+    add_callout(doc,
+        "For critical legitimate defects: lock monolith/main + automation/main. "
+        "The responsible party must respond immediately. Target resolution within 24 hours — "
+        "revert or fix plus verified regression. Not for env, data, or flaky failures.",
+        DOC_RED_BG)
+    for item in [
+        "Notify via failure email and Teams (from Prompt H output)",
+        "Run GitLab PM change set — paste into JIRA so ownership is visible",
+        "Track JIRA until Verified → Closed",
+        "Send resolution email; unlock main branches",
+    ]:
+        doc.add_paragraph(item, style="List Bullet")
+
+    add_heading(doc, "12. Defect Lifecycle", level=1)
     doc.add_picture(str(charts["lifecycle"]), width=Inches(6.5))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
-    doc.add_paragraph("Full reference: automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md, automation-bug-lifecycle/process/TRIAGE_RULES.md")
-    add_callout(doc, "Lock monolith/main + automation/main only for critical, legitimate defects — not env/data/flaky.", DOC_AMBER_BG)
+    doc.add_paragraph("Full reference: automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md, TRIAGE_RULES.md")
 
-    add_heading(doc, "8. Multi-Failure Rollup", level=1)
+    add_heading(doc, "13. How Your Team Tries It", level=1)
+    steps_try = [
+        ("Setup (once)", "Copy cursor-kit/SKILL.md to .cursor/skills/. Clone GitLab PM. Bookmark PROMPTS.md."),
+        ("Simulate or use real failure", "Run new-evidence-folder.ps1. Drop screenshots and logs into MMDDYYYY/."),
+        ("Triage", "prompts/01-triage-regression-failure.md — confirm real defect."),
+        ("Prompt H", "prompts/02-bug-report-prompt-h.md — attach images, get one .md with all comms."),
+        ("JIRA + notify", "Create ticket, send email and Teams from generated content."),
+        ("Change set", "GitLab PM → paste extract → optional prompts/03-gitlab-change-set.md."),
+        ("Close loop", "Resolution email via prompts/04-resolution-email.md when fixed."),
+    ]
+    tt = doc.add_table(rows=len(steps_try) + 1, cols=2)
+    tt.style = "Table Grid"
+    for i, h in enumerate(["Step", "Action"]):
+        set_cell_text(tt.rows[0].cells[i], h, bold=True, color=WHITE_RGB)
+    style_table_header(tt.rows[0])
+    for ri, (step, action) in enumerate(steps_try, start=1):
+        set_cell_text(tt.rows[ri].cells[0], step, bold=True, color=NAVY)
+        set_cell_text(tt.rows[ri].cells[1], action)
+    doc.add_paragraph("Detailed shell guide: automation-bug-lifecycle/WORKFLOW.md")
+
+    add_heading(doc, "14. Multi-Failure Rollup", level=1)
     for item in [
         "Group by feature/plan — not one JIRA per test method",
         "Failure matrix with root-cause hints per traunch/plan",
@@ -533,7 +604,7 @@ def build_docx(charts: dict[str, Path]) -> None:
     ]:
         doc.add_paragraph(item, style="List Bullet")
 
-    add_heading(doc, "9. Repository Cross-References", level=1)
+    add_heading(doc, "15. Repository Cross-References", level=1)
     src = doc.add_table(rows=12, cols=2)
     src.style = "Table Grid"
     for i, h in enumerate(["Topic", "Path in qa-automation-kb"]):
@@ -750,13 +821,29 @@ def build_pptx(charts: dict[str, Path]) -> None:
 
     d.title()
 
-    d.content("What This Standard Defines", [
-        "Repeatable response when V2 (Jenkins) or V3 (GitLab) regression fails",
-        "Applies to any QA Automation team — UI, API, performance, any program",
-        "Single source of truth: qa-automation-kb (00_SYSTEM through 11_BACKLOG)",
-        "Integrates triage rules, Prompt H, leadership-approved comms, and GitLab change-set tooling",
-        "Goal: fast, accurate footprint — not ad-hoc firefighting or noisy JIRA",
-    ], subtitle="Operating norm for all teams")
+    d.content("Continuation — Where We Left Off", [
+        "Prior sessions: defined the Automation Bug Lifecycle standard (triage → evidence → notify → resolve)",
+        "Today: how we operationalize it with this repo, Cursor AI, and GitLab Project Manager",
+        "Goal: any engineer can run the full workflow in ~15 minutes per real defect",
+        "Not meeting-specific — QA Automation operating norm for all teams and programs",
+        "Evidence examples already in evidence/regression-reports/ — real failures, real outputs",
+    ], subtitle="From standard to daily practice")
+
+    d.content("The Challenge — Visibility", [
+        "Who merged or committed between last green run and failure?",
+        "Communications inconsistent — JIRA and email drafted differently every time",
+        "Evidence scattered — screenshots in chat, logs in CI, no single folder",
+        "Critical defects lacked clear accountability and resolution timeline",
+        "Tribal knowledge — process lived in people's heads, not the repo",
+    ], subtitle="Why we built this module")
+
+    d.content("The Solution — Repo + AI Agent + GitLab PM", [
+        "qa-automation-kb/automation-bug-lifecycle/ — prompts, process, evidence, deliverables",
+        "Evidence folder — drop screenshots, logs, report URL under regression-reports/MMDDYYYY/",
+        "Cursor Prompt H — one prompt → JIRA block + email + Teams in one .md file",
+        "GitLab Project Manager — change set: MRs, commits, authors in the failure window",
+        "Shell guide: WORKFLOW.md · Checklist: QUICK-START.md",
+    ], subtitle="Three tools, one repeatable flow")
 
     d.chart("End-to-End Workflow", charts["workflow"],
             "Detect → Triage → Evidence → Cursor H → JIRA/Notify → Change Set → Resolve",
@@ -764,41 +851,52 @@ def build_pptx(charts: dict[str, Path]) -> None:
 
     d.chart("Step 1 — Triage Before You Log", charts["triage"],
             "Environment and flaky failures do not enter the full bug cycle",
-            subtitle="Decision tree validated against TRIAGE_RULES.md + FLAKINESS_PLAYBOOK.md")
+            subtitle="Decision tree — TRIAGE_RULES.md + FLAKINESS_PLAYBOOK.md")
 
-    d.section("Act on a Real Defect", "Evidence · Communications · Change set")
+    d.section("Act on a Real Defect", "Evidence · Prompt H · Change set · Notify")
 
     d.cards_2x2("Four Pillars of the Standard", [
         ("01", "Triage & classify",
-         "Per automation-bug-lifecycle/process/TRIAGE_RULES.md. Rerun locally. Env vs flaky vs defect. "
+         "process/TRIAGE_RULES.md. Rerun locally. Env vs flaky vs defect. "
          "Do not log JIRA for noise.", PPT_WARN),
         ("02", "Evidence folder",
-         "automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/ — screenshots, logs, test data, "
-         "one bug .md per issue.", PPT_TEAL_DARK),
+         "evidence/regression-reports/[MMDDYYYY]/ — screenshots, logs, test data, "
+         "one bug .md per issue. scripts/new-evidence-folder.ps1", PPT_TEAL_DARK),
         ("03", "Cursor Prompt H",
-         "qa-knowledge-base/00_SYSTEM/PROMPTS.md — JIRA block, failure email, Teams message, resolution "
-         "placeholder in one file.", PPT_ACTION),
+         "prompts/02-bug-report-prompt-h.md — JIRA block, failure email, Teams message, "
+         "resolution placeholder in one file.", PPT_ACTION),
         ("04", "GitLab change set",
          "GitLab Project Manager — who merged, who committed, which branches between "
          "last green run and failure.", PPT_PEAK),
-    ], subtitle="Validated against repository standards")
+    ], subtitle="What your team runs on every real defect")
 
-    d.chart("Evidence Folder Structure", charts["evidence"],
+    d.chart("Evidence Folder — Copy Artifacts Here", charts["evidence"],
             "Naming: [MMDDYYYY]_[Feature]_[IssueType].md",
             subtitle="BUG_REPORTING_PROCESS.md")
 
-    d.split("Cursor Prompt H — One Prompt, All Deliverables", [
-        "Open qa-automation-kb in Cursor",
-        "qa-knowledge-base/00_SYSTEM/PROMPTS.md → section H",
-        "Provide: date, feature, error, report URL, folder path, file list",
-        "Attach failure screenshots in chat for richer context",
+    d.content("Prompt H in Plain English", [
+        "You have a dated evidence folder with screenshots and logs",
+        "Open prompts/02-bug-report-prompt-h.md — fill date, feature, error, report URL, file list",
+        "Attach failure images in Cursor chat and paste the prompt",
         "",
-        "Output sections:",
-        "  • JIRA copy-paste block (Summary, Steps, Env, Priority)",
-        "  • Failure email — leadership-approved To/Cc",
+        "Cursor writes ONE file with:",
+        "  • JIRA copy-paste block ready for QA board",
+        "  • Failure email — leadership-approved To/Cc (do not improvise)",
         "  • Teams message with JIRA + report links",
-        "  • Resolution email placeholder (template 1b)",
-    ], charts["toolchain"], "Prompt H toolchain", subtitle="qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md")
+        "  • Resolution email placeholder for when bug is fixed",
+        "",
+        "Then: create JIRA → send email → post Teams — copy from that one file",
+    ], subtitle="One prompt, all deliverables")
+
+    d.split("Cursor + Repo Toolchain", [
+        "qa-automation-kb open in Cursor",
+        "Evidence under regression-reports/MMDDYYYY/",
+        "Prompt H → single bug .md output",
+        "Create JIRA from generated block",
+        "GitLab PM → change set extract",
+        "Paste JIRA link + change set back into Cursor (optional Prompt 03)",
+        "Dump email/Teams content — send as-is",
+    ], charts["toolchain"], "Evidence → Comms → Footprint", subtitle="Integrated toolchain")
 
     d.content("Communication Standards", [
         "Teams and email templates are approved by leadership and senior QA resources",
@@ -830,17 +928,28 @@ def build_pptx(charts: dict[str, Path]) -> None:
         "Created At · Merged At (EST timestamps)",
         "Paste Change Set section into JIRA comment or failure email",
     ], mr if mr.exists() else charts["repos"],
-       "Real output — 8 MRs in window, 4 merged",
+       "Real output — MRs in window with authors and branches",
        subtitle="Who changed what — application footprint", img_right=False)
 
     d.chart("Repository Investigation Order", charts["repos"],
             "Start monolith (app) → automation → qa-automation → prime-test-automation",
             subtitle="Cross-reference MR authors with failing test area")
 
-    d.section("Close the Loop", "Resolution · Unlock · Knowledge capture")
+    d.section("Critical Path", "Lock · Respond · Resolve within 24 hours")
+
+    d.content("Critical Defects — Main Lock & SLA", [
+        "Legitimate critical defect → lock monolith/main + automation/main",
+        "Responsible party must respond immediately — name visible in change set",
+        "Target: resolution within 24 hours (revert or fix + verified regression)",
+        "Not for environment, data, or flaky failures",
+        "",
+        "Notify: failure email + Teams from Prompt H output",
+        "Track: JIRA with change set comment until Verified → Closed",
+        "Close: resolution email → unlock main branches",
+    ], subtitle="Accountability when the pipeline must stop")
 
     d.chart("Defect Lifecycle", charts["lifecycle"],
-            "automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md · TRIAGE_RULES.md",
+            "process/DEFECT_LIFECYCLE.md · TRIAGE_RULES.md",
             subtitle="JIRA states")
 
     d.content("Resolution Standard", [
@@ -852,30 +961,40 @@ def build_pptx(charts: dict[str, Path]) -> None:
         "Update bug .md: JIRA link, Status Closed, resolution section filled",
     ], subtitle="Confluence 1b. Automation Bug Resolution Follow-Up")
 
+    d.content("How Your Team Tries It", [
+        "One-time: copy cursor-kit/SKILL.md → .cursor/skills/ · clone GitLab PM",
+        "Per failure: new-evidence-folder.ps1 → drop screenshots and logs",
+        "Triage: prompts/01 — env/flaky stops here; defect continues",
+        "Prompt H: prompts/02 — attach images → one .md with JIRA + email + Teams",
+        "Create JIRA, send email, post Teams — copy from generated file",
+        "GitLab PM: date range → paste change set → optional prompts/03",
+        "When fixed: prompts/04 resolution email · unlock main · close JIRA",
+    ], subtitle="Hands-on adoption — start with a real or sample failure")
+
     d.content("Multi-Failure Rollup", [
         "Large nightly failures (e.g. 62/358) — group by feature/plan, not per test",
         "Build failure matrix with root-cause hints per traunch",
         "One JIRA per root cause — umbrella + children when needed",
         "Single combined email/Teams with matrix reference",
-        "Example: 04202026_DailyRegression_PipelineFailureRollup.md",
+        "prompts/05-multi-failure-rollup.md",
     ], subtitle="When many tests fail at once")
 
-    d.content("Repository Map — Where Standards Live", [
-        "00_SYSTEM — PROMPTS.md (H), ROLE.md, CONSTRAINTS.md, GLOSSARY.md",
-        "automation-bug-lifecycle/process — DEFECT_LIFECYCLE, TRIAGE_RULES, FLAKINESS_PLAYBOOK, RCA_PROCESS",
-        "05_ONBOARDING — HOW_TO_REPETITIVE_TASKS.md (step-by-step)",
-        "06_TEMPLATES — JIRA_TICKET_TEMPLATE, RCA_TEMPLATE",
-        "automation-bug-lifecycle/evidence/regression-reports/, reference/confluence-bug-handling/",
-        "This module — automation-bug-lifecycle/ (playbook + deck + generator)",
+    d.content("Repository Map", [
+        "WORKFLOW.md — detailed shell guide (this presentation's companion)",
+        "evidence/regression-reports/ — drop zone + real examples",
+        "prompts/ 01–05 — triage, Prompt H, change set, resolution, rollup",
+        "process/ — TRIAGE_RULES, FLAKINESS_PLAYBOOK, DEFECT_LIFECYCLE, RCA",
+        "deliverables/ — this deck + Automation-Bug-Lifecycle-Playbook.docx",
+        "qa-knowledge-base/00_SYSTEM/PROMPTS.md — master Prompt H reference",
     ], subtitle="If it's not in the repo, treat as unknown — per ROLE.md")
 
     d.content("Key Takeaways", [
+        "Visibility solved: evidence folder + change set + consistent comms",
         "Triage first — not every failure is a defect",
-        "One evidence folder · one Prompt H run · one bug .md per issue",
-        "Communications use leadership-approved templates — no improvisation",
-        "GitLab PM answers who merged and committed in the failure window",
-        "Standard applies to any team, any program, going forward",
-        "Full playbook: automation-bug-lifecycle/deliverables/Automation-Bug-Lifecycle-Playbook.docx",
+        "One folder · one Prompt H run · one bug .md per issue",
+        "Dump and send — leadership-approved templates, no improvisation",
+        "Critical defects: lock main, responsible party responds, 24-hour resolution",
+        "Full playbook: deliverables/Automation-Bug-Lifecycle-Playbook.docx",
     ], subtitle="QA Automation operating norm")
 
     d.save(PPTX_OUT)

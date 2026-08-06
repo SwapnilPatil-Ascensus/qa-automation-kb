@@ -1,0 +1,6 @@
+
+
+Legacy unite msc-enrolment repo:C:\Workspace\GitLab\MobileAutomation\UniteMSC\unite-enrollment
+Mobile new repo: C:\Workspace\GitLab\api-test-automation\mobile\enrollment
+
+existing framework - exisitn universal Acccounte creation or enrollment repo details for references: C:\Workspace\GitLab\api-test-automation\universal\jsonapi-aws-accountweb

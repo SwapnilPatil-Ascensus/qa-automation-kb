@@ -1,0 +1,40 @@
+# Local smoke test — 1 user, short run
+# Usage (from this folder, with Taurus + JMeter installed):
+#   bzt idp-login-resources-local.yaml
+#
+# Copy idp-login-stage1.csv from performance-test-automation repo into this folder,
+# or set CSV path via JMeter GUI / user.properties.
+
+settings:
+  env:
+    jenv: stage1
+    jencryption: "false"
+    jconcurrency: 1
+    jram: 10s
+    jhold: 60s
+    jthroughput: 600
+
+modules:
+  jmeter:
+    properties:
+      jenv: stage1
+      jencryption: "false"
+      jthroughput: 600
+
+execution:
+  - concurrency: 1
+    ramp-up: 10s
+    hold-for: 60s
+    scenario: idp_login
+
+scenarios:
+  idp_login:
+    script: idp-login-resources.jmx
+
+reporting:
+  - module: console
+  - module: final-stats
+    summary: true
+    percentiles: true
+    failed-labels: true
+    test-duration: true

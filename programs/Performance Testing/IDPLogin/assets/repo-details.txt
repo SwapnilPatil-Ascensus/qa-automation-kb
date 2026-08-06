@@ -1,0 +1,21 @@
+IDP Login Performance Testing — Documentation Index
+====================================================
+Start here: README.md
+
+FOR PREETI: PRITI_HANDOFF.md
+
+JMeter script (ready): scripts/jia-banner-post-login/idp-login-resources.jmx
+
+
+IDP Login Jmeter repo local details: C:\Workspace\GitLab\Automation\performance-test-automation\performance\universal-platform\idp\jmeter
+
+IDP script details: "C:\Workspace\GitLab\Automation\performance-test-automation\performance\universal-platform\idp\jmeter\idp-login.jmx"
+IDP Jenkins script details: "C:\Workspace\GitLab\Automation\performance-test-automation\performance\universal-platform\idp\jmeter\idp-login-resources.jmx"
+
+Modified script (KB copy with 6 new pages): programs/Performance Testing/IDPLogin/scripts/jia-banner-post-login/idp-login-resources.jmx
+
+test data: "C:\Workspace\GitLab\Automation\performance-test-automation\performance\universal-platform\idp\jmeter\idp-login-stage1.csv"
+blazemeter details yaml (Jenkins): "C:\Workspace\GitLab\Automation\performance-test-automation\performance\universal-platform\idp\jmeter\idp-login-resources-remote.yaml"
+blazemeter details yaml (lighter script): "C:\Workspace\GitLab\Automation\performance-test-automation\performance\universal-platform\idp\jmeter\idp-login-remote.yaml"
+
+Jenkins job: http://jenkinsqant1:8080/view/Performance/job/AGSUP_ENDURANCE_THROUGHPUT/

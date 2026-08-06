@@ -10,7 +10,7 @@ AM Squad is the **go-to automation team** for emergency and cross-team requests.
 |---------|-----------|----------|-------------|-------|
 | **Empower plan conversion** | Program team | Q2 2026 | Stage 5 regression framework + Jenkins smoke job | Swapnil |
 | **Barcode SYN-443 perf** | SYN team | **1 week** | QC4 + Stage1 baselines (30/45/60 SPM) | Priti |
-| **JEA proxy / IDP server** | IDP team | Q2 2026 | IDP login resource perf baselines | Priti + Swapnil |
+| **Jahia proxy / IDP server** | IDP team | Q2 2026 | IDP login resource perf baselines | Priti + Swapnil |
 | **Stage 5 smoke suite** | Release team | May 2026 | UE + IDP smoke TestNG suites | Swapnil |
 | **Stage 2 smoke** | Release team | Q2 2026 | Smoke framework + Jenkins job | Swapnil |
 | **QC4 cross-team validation** | Multiple | Ongoing | API + UI validation support | Sunil + team |
@@ -68,7 +68,7 @@ Michael Blake's team sees V2/V3 regression numbers. They do **not** see:
 
 - 1-week barcode turnaround
 - Empower framework from scratch
-- JEA proxy baselines
+- Jahia proxy baselines
 - Revolt review hours
 - qTest/SharePoint migration weeks
 

@@ -1,0 +1,75 @@
+[
+  {
+    "planId": "{{enrollment.planId}}",
+    "usernameHash": "{{enrollment.usernameHash}}",
+    "prospect": {
+      "username": "{{enrollment.username}}",
+      "password": "{{enrollment.password}}",
+      "plan": "{{enrollment.planId}}",
+      "email": "{{enrollment.email}}",
+      "challengeQuestion": "{{enrollment.challengeQuestion}}",
+      "challengeResponse": "{{enrollment.challengeResponse}}"
+    },
+    "owner": {
+      "firstName": "{{enrollment.owner.firstName}}",
+      "lastName": "{{enrollment.owner.lastName}}",
+      "ssn": "{{enrollment.owner.ssn}}",
+      "dob": "{{enrollment.owner.dob}}",
+      "enrollInUpromise": "N",
+      "permAddline1": "{{enrollment.owner.mlAddline1}}",
+      "permCity": "{{enrollment.owner.mlCity}}",
+      "permZipcode": "{{enrollment.owner.mlZipcode}}",
+      "permStatelabel": "{{enrollment.owner.mlStatelabel}}",
+      "isForeignPermaddr": "N",
+      "mlAddline1": "{{enrollment.owner.mlAddline1}}",
+      "mlCity": "{{enrollment.owner.mlCity}}",
+      "mlZipcode": "{{enrollment.owner.mlZipcode}}",
+      "mlStatelabel": "{{enrollment.owner.mlStatelabel}}",
+      "isForeignAddress": "N",
+      "phone": "{{enrollment.owner.phone}}",
+      "phoneType": "{{enrollment.owner.phoneType}}",
+      "changeId": "TEST_ID"
+    },
+    "beneficiary": {
+      "firstName": "{{enrollment.beneficiary.firstName}}",
+      "lastName": "{{enrollment.beneficiary.lastName}}",
+      "dob": "{{enrollment.beneficiary.dob}}",
+      "ssn": "{{enrollment.beneficiary.ssn}}",
+      "isCtznOrResalien": "Y",
+      "countryCode": "0",
+      "mlAddline1": "{{enrollment.beneficiary.mlAddline1}}",
+      "mlCity": "{{enrollment.beneficiary.mlCity}}",
+      "mlZipcode": "{{enrollment.beneficiary.mlZipcode}}",
+      "mlStatelabel": "{{enrollment.beneficiary.mlStatelabel}}",
+      "isForeignAddress": "N",
+      "changeId": "TEST_ID"
+    },
+    "member": {
+      "email": "{{enrollment.email}}",
+      "webRegistered": "N",
+      "changeId": "TEST_ID",
+      "delivConfirms": "E",
+      "delivStatements": "E",
+      "delivTaxForms": "E"
+    },
+    "account": {
+      "prefix": "{{enrollment.account.prefix}}",
+      "ext": "{{enrollment.account.ext}}",
+      "planId": "{{enrollment.planDeprecatedId}}",
+      "changeId": "TEST_ID"
+    },
+    "bank": {
+      "bankName": "{{enrollment.bank.name}}",
+      "routingNumber": "{{enrollment.bank.routing}}",
+      "accountNumber": "{{enrollment.bank.account}}",
+      "accountType": "{{enrollment.bank.accountType}}",
+      "changeId": "TEST_ID"
+    },
+    "enrollmentAllocations": [
+      { "fundId": "{{enrollment.fundId}}", "percentAlloc": "100" }
+    ],
+    "reviewConfirm": {
+      "tcAccepted": true
+    }
+  }
+]

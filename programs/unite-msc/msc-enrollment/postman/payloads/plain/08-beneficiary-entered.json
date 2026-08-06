@@ -1,0 +1,18 @@
+[
+  {
+    "usernameHash": "{{enrollment.usernameHash}}",
+    "prospect": { "plan": "{{enrollment.planId}}" },
+    "beneficiary": {
+      "firstName": "{{enrollment.beneficiary.firstName}}",
+      "lastName": "{{enrollment.beneficiary.lastName}}",
+      "ssn": "{{enrollment.beneficiary.ssn}}",
+      "dob": "{{enrollment.beneficiary.dob}}",
+      "mlAddline1": "{{enrollment.beneficiary.mlAddline1}}",
+      "mlCity": "{{enrollment.beneficiary.mlCity}}",
+      "mlZipcode": "{{enrollment.beneficiary.mlZipcode}}",
+      "mlStatelabel": "{{enrollment.beneficiary.mlStatelabel}}",
+      "isForeignAddress": "N",
+      "changeId": "TEST_ID"
+    }
+  }
+]
