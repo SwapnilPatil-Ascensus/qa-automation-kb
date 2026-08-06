@@ -1,0 +1,1716 @@
+Issue Type,Issue key,Issue id,Summary,Assignee,Assignee Id,Status,Sprint,Sprint,Project key,Project name,Project type,Project lead,Project lead id,Project description,Project url,Custom field (Story Points),Inward issue link (Blocks),Outward issue link (Blocks),Outward issue link (Blocks),Outward issue link (Blocks),Outward issue link (Blocks),Inward issue link (Cloners),Outward issue link (Cloners),Inward issue link (Polaris work item link),Outward issue link (Polaris work item link),Inward issue link (Relates),Outward issue link (Relates),Outward issue link (Relates),Outward issue link (Work item split),Inward issue link (depends on ),Inward issue link (depends on ),Outward issue link (depends on ),Labels,Labels,Labels,Labels,Labels,Labels,Custom field (Start date),Custom field (Fixed Date),Σ Time Spent,Custom field (Time to resolution)
+Spike,QA-1507,348815,[UNITE-MSC][Enrollment] Spike - Investigate legacy Enrollment automation asset migration approach,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,QA-995,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1462,348458,[V3] [Unite] Web Registration Flow – Prime V3-Stabilization and Validation,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/27/2026 0:00,,,
+Story,QA-1401,345362,"[UNITE-MSC][Mobile1] Session extensions — discovery and integration vertical slice (IDP token, PIN, CSR)",Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1397,345358,[UNITE-MSC][Mobile1] Owner and profile reads — discovery and integration vertical slice (OKD baseline),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,QA-1313,,,,,,,mobile1,owner,profile,QA-Board-View,Regression,unite-msc,7/24/2026 0:00,,,
+Story,QA-1366,343712,[V3][Universal Enrollment] Stabilize Flaky Automation Test Case for Member Withdrawal,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,7/10/2026 0:00,,,
+Story,QA-1316,343080,[UNITE-MSC][Mobile1] Member profile PATCH/PUT — integration vertical slice with test-data safeguards (module only),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/20/2026 0:00,,,
+Story,QA-1314,343075,[UNITE-MSC][Mobile2][Spike] Mobile members acceptance endpoint — scope confirmation,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/16/2026 0:00,,,
+Story,QA-1313,343074,[UNITE-MSC][Mobile1] Owner and profile reads — discovery and integration vertical slice (OKD baseline),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,QA-1397,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1267,340633,"[UNITE-MSC][Mobile1][Postman] Discover, analyze & create postman collection for Mobile 1",Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/6/2026 0:00,,,
+Bug,QA-1242,339659,[V3][Universal Enrollment] NJD – Investment portfolio page details changed & Active funds missing in BYO Investment Options (Test data CSF file vs UI mismatch),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Bug,QA-1236,339642,[V3][Universal Enrollment] NYD – Account owner mailing address not displayed in Review/Submit section for NOSAMEADDR scenario,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,DEVOPS-8494,,,,,,QA-Board-View,Regression,,,,,,,,
+Bug,QA-1235,339638,[V3][Universal Enrollment] Regression Failed- OHD – “Military I.D. Card” missing in ID Card Type dropdown on Account Identification page,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-1218,339251,[UNITE-MSC][Mobile2] Mobile Ugift Post — discovery and integration vertical slice,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1071,336189,[UNITE-MSC][Mobile2] YTD Summary — discovery and integration vertical slice,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/10/2026 0:00,,,
+Story,QA-1069,336187,[UNITE-MSC][Mobile2] Plan Selection — discovery and integration vertical slice,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/30/2026 0:00,,,
+Story,QA-1066,336181,[UNITE-MSC][Mobile2] Mobile Ugift Get — discovery and integration vertical slice,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/29/2026 0:00,,,
+Story,QA-1061,336176,[UNITE-MSC][Mobile2] Content — integration vertical slice and QC4 gate test,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/19/2026 0:00,,,
+Story,QA-1060,336175,[UNITE-MSC][Mobile2] Content — discovery spike and legacy coverage matrix,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/19/2026 0:00,,,
+Story,QA-1049,336084,[V3][Entity] -Automate Open an account - E-E Test Validation,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression,,,,6/18/2026 0:00,,,
+Bug,QA-1044,334642,[V3][UE] - Regression -TimeoutException due to invalid/stale locator for beneficiary account details element,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Bug,QA-1016,334192,[V3][Enrollment] - Regression - Database Validation Failure & Account Creation Error in Stage1,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Story,QA-995,333416,[UNITE-MSC][Enrollment] Discover and inventory legacy Enrollment automation assets,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,QA-1507,,,,,,,QA-Board-View,Regression,unite-msc,,,,8/5/2026 0:00,,,
+Bug,QA-967,332447,[V3][Enrollment]- Regression failure observed in Universal Enrollment – First Step Sub Beneficiary flow,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Story,QA-955,331638,[V3][Entity]- Change Access level,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression_Testing,,,,5/29/2026 0:00,,,
+Story,QA-954,331637,[V3][Entity]- Remove Team Member,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,6/3/2026 0:00,,,
+Story,QA-953,331636,[V3][Entity] - Add Team Member ,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,6/3/2026 0:00,,,
+Story,QA-940,331315,[V3][Entity] -Automate Open an account,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,,,,,,,6/4/2026 0:00,,,
+Story,QA-899,329661,[V3][Entity]- Create Test Suite for Entity Login (Multi Plan) Scenarios,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression_Testing,,,,5/21/2026 0:00,,,
+Story,QA-896,329630,[V3][Entity]- Create Regression test suite for Entity Registration End-to-End Flow,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,5/25/2026 0:00,,,
+Story,QA-895,329628,[V3][Entity]-Automate Entity Registration End-to-End Flow (Entity Management),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression_Testing,,,,5/21/2026 0:00,,,
+Spike,QA-844,323532,"[V3][Entity Management] Entity Registration - identify cases, workflow & understand the domain on Web Reg",Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,,,,,,,,,,
+Story,QA-843,323531,"[V3][Entity Management][Login Flow] Create testcases for IDP login eligible Entity plans - Multi plan, create suite",Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/18/2026 0:00,,,
+Story,QA-818,321383,[V3][Entity Platform] - Automate Open New Account after Login to Entity Dashboard,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression,,,,5/11/2026 0:00,,,
+Story,QA-789,320429,"[V3][Entity] Entity Dashboard – Automation Baseline, Test Suite Creation & Coverage Expansion Plan",Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression_Testing,,,,5/12/2026 0:00,,,
+Story,QA-788,320419,[V3][Entity] Entity Platform – Login Flow Stabilization & Automation,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression_Testing,,,,5/8/2026 0:00,,,
+Story,QA-741,319154,[V3][Enrollment]-Maintain IAD plan for Regression ,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,5/21/2026 0:00,,,
+Spike,QA-722,318506,[V3][Entity] Entity Platform - Go through KTs & code base to understand the coverage & plan to create test suite,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,EntityRegression,QA-Board-View,Regression,,,,,,,
+Bug,QA-703,315670,Universal Enrollment (IAD): ElementClickInterceptedException on #bottomNavPrimaryBtn during KIS investment step – button disabled / progress overlay blocks click (CI regression 04/17/2026),Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Closed,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-611,313428,[V3][Withdrawal ] Member Withdrawal (Member Portal) using IDP Login,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,Withdrawal,,,,4/20/2026 0:00,,,
+Story,QA-558,309800,[V3][Contributions] IDP Member portal: single contribution foundation(IDP member login) ,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,Contribution,QA-Board-View,Regression,,,,4/7/2026 0:00,,,
+Story,QA-512,304773,UniversalEnrollment Automation – Add Test Cases & Perform Maintenance Enhancements,Dinesh Kumar,712020:d83927fa-1ed7-43f2-94b8-4cd6bf64ac3f,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,Enrollment,QA-Board-View,Regression,,,,4/2/2026 0:00,,,
+Story,QA-1593,350033,[PERF TESTING][IDP-LOGIN Setup] Deploy post-login banner JMeter script and validate on stage1,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,8/5/2026 0:00,,,
+Story,QA-1463,348563,[SYN-443][PERF_TEST Barcode returned-mail GET API — QC4 baseline load test (single endpoint),Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,7/29/2026 0:00,,,
+Story,QA-1432,347648,MSC Setup] [Perf testing] mobile 2 contribution endpoints,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/29/2026 0:00,,,
+Story,QA-1431,347647,[PERF TESTING][UNITE-MSC Setup] mobile 2 bank endpoints,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/29/2026 0:00,,,
+Story,QA-1430,347645,[PERF TESTING][UNITE-MSC Setup] mobile 2 dashboard endpoints,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/23/2026 0:00,,,
+Story,QA-1325,343368,"[Platform Support][Perf-Test][TestData-Setup] Automation framework setup- v3, v2 for perf test data generation",Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,QA-1338,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/9/2026 0:00,,,
+Story,QA-1307,342701,"[Perf Testing][Unite-MSC-LOGIN-BZT] Test & Analyze MSC IDP, Non-IDP Login on BlazeMeter",Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/16/2026 0:00,,,
+Story,QA-1305,342698,[Perf Testing][Unite-MSC-AUTH] Jenkins setup for unite-msc-idp-login,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/10/2026 0:00,,,
+Bug,QA-1268,340637,[Stage1] Unite MSC / IDP Login – username and password text boxes missing on login screen (06/30/2026),Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Closed,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-1230,339533,[Perf Testing][Unite-MSC-AUTH] Unite msc data setup using automation framework,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/6/2026 0:00,,,
+Story,QA-1229,339529,[Perf Testing][Unite-MSC-AUTH] Jenkins setup for unite-msc-non-idp-login,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/2/2026 0:00,,,
+Story,QA-1228,339497,[Perf Testing][Unite-MSC-AUTH] Implement UNITE-MSC Login Performance Tests - IDP,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,6/25/2026 0:00,,,
+Story,QA-1170,338383,[Perf Testing][Unite-MSC-AUTH] Implement UNITE-MSC Performance Tests - Non IDP GET Endpoint,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,6/22/2026 0:00,,,
+Story,QA-1120,337535,[Perf Testing][Unite-MSC-AUTH] Implement UNITE-MSC Login Performance Tests - Non IDP (Hawaii),Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,6/18/2026 0:00,,,
+Spike,QA-1052,336095,[UNITE-MSC Setup] [Perf testing]Investigate on existing Unite MSC Mob 2 Flow JMeter scripts & ETA to create these TCs,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,,,,
+Story,QA-1051,336093,[UNITE-MSC Setup] [Perf testing] mobile 2 endpoints,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,7/21/2026 0:00,,,
+Story,QA-1050,336092,[Troubleshooting][Change-PWD][Perf testing] Mem Change Password Flow -  X-Signature Issue,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,QA-1211,,,,PerformanceTesting,QA-Board-View,Regression,unite-msc,,,6/23/2026 0:00,,,
+Bug,QA-1015,333685,[Perf Testing][Reg suite]idp-forgot-username.jmx and datasetup update,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Closed,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,QA-985,QA-1083,,,,,,,,,,,
+Story,QA-957,331652,"[Perf Testing][Legacy Login Validation] Add Legacy login to Nightly job & create baseline, reports & validation on execution",Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,5/29/2026 0:00,,,
+Story,QA-897,329633,[Perf Testing] Baseline IDP regression suit by adjusting ramp up duration,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,6/9/2026 0:00,,,
+Story,QA-842,323522,[Perf Testing][Perf Test Execution] Jenkins & Blazemeter report setup – Legacy Login,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/21/2026 0:00,,,
+Story,QA-802,320908,[Perf Testing][Reporting & Analysis ] Results Analysis & Baseline Comparison,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,QA-799,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-801,320907,[Perf Testing][Perf Test Execution] Performance Test Execution – Legacy Login,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/14/2026 0:00,,,
+Story,QA-800,320906,[Perf Testing][Perf Test Execution] Performance Test Execution – IdP Login,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-799,320905,[Perf Testing][Stage 1 Data Creation] Stage1 Environment & Test Data Validation,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,QA-802,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,,,,
+Story,QA-798,320904,[Perf Testing][Unite Legacy Login] Unite (Legacy) Login – Performance Script Implementation,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-797,320903,[Perf Testing][IDP PKCE Flow] IdP (PKCE) Login – Performance Script Fix & Re‑Baseline,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/7/2026 0:00,,,
+Spike,QA-781,320376,[Perf testing][Mobile Login Flow] Investigate on existing Mobile Login Flow JMeter scripts & ETA to create these TCs,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,,,,
+Story,QA-721,318505,[Perf Testing][Unite Legacy Login] Unite (Legacy) Login – Performance Script Design,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/7/2026 0:00,,,
+Story,QA-720,318504,[Perf Testing] Create Regression suit to include & schedule IDP login flow,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,5/19/2026 0:00,,,
+Story,QA-719,318490,[Perf testing] IDP- member profile change password UI flow with X‑Signature Header,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,6/4/2026 0:00,,,
+Story,QA-614,313482,"[Perf testing] Performance Script Update / New Development- Enrollment‑Related JMeter Script - Enroll Flow (Account, snapshot, validation)",Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/22/2026 0:00,,,
+Story,QA-613,313481,[Perf testing] Create Performance Regression Test Suite Using Existing JMeter Scripts,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/24/2026 0:00,,,
+Story,QA-612,313477,[Perf testing] Configure Jenkins CI/CD Pipeline for Automated Execution of JMeter Performance Scripts,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/22/2026 0:00,,,
+Story,QA-610,313410,[Perf testing] IDP- member profile change password UI flow with X‑Signature Header,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,QA-502,,,,,,,,QA-Board-View,Regression,,,,,4/16/2026 0:00,,,
+Story,QA-502,303932,IDP- Update/Change Password Functionality – Mem Profile Security Screen,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,QA-610,,,,,,,,,,,,,,,4/8/2026 0:00,,,
+Story,QA-501,303928,IDP- forgot password functionality - IDP Login Screen,Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,,,,,,,4/1/2026 0:00,,,
+Story,QA-464,297398,Performance Testing - Create test cases for each module in qtest (IDP Login & Forgot Flow),Priti Choudhary,712020:65a17112-cbcc-4b3a-a8ae-2542eeefe9ac,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,4/10/2026 0:00,,,
+Task,QA-1586,349764,Mapping excel sheet for Mobile1 API testing endpoint coverage,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,Ready to UNITE-MSC,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,,,,,,,8/3/2026 0:00,,,
+Story,QA-1451,347991,[UNITE-MSC][Mobile1]- GET- mobile member push notification tokens-pushDeviceUuid,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/31/2026 0:00,,,
+Story,QA-1450,347990,[UNITE-MSC][Mobile1]- PUT- mobile member push notification tokens Endpoint,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/29/2026 0:00,,,
+Story,QA-1449,347989,[UNITE-MSC][Mobile1][API Automation] Automate POST mobilememberpushnotificationtokens Endpoint,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/28/2026 0:00,,,
+Story,QA-1448,347988,[UNITE-MSC][Mobile1]- GET - mobile member devices -deviceUuid ,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,unite-msc,,,,,,,,,
+Story,QA-1447,347987,[UNITE-MSC][Mobile1] - POST - mobile member devices - deviceUuid,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,unite-msc,,,,,,7/27/2026 0:00,,,
+Story,QA-1433,347651,[UNITE-MSC][Mobile1][API Automation] Automate POST requestPhoneNumberAuthentication Endpoint,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1400,345361,[UNITE-MSC][Mobile1] Owner profile PUT — integration vertical slice with reversible field strategy (module only),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,mobile1,mutating,owner,unite-msc,,,7/20/2026 0:00,,,
+Story,QA-1399,345360,[UNITE-MSC][Mobile1] Bank info routing lookup — discovery and integration vertical slice (read-only),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,bank,mobile1,read-only,unite-msc,,,7/17/2026 0:00,,,
+Story,QA-1386,345035,[UNITE-MSC][Mobile2] Banks GET - mobile banks by ID (OKD + NMD),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1310,343064,"[UNITE-MSC][Mobile2] Banks GET-by-id, PUT/DELETE banks — discovery and integration vertical slice (OKD + NMD)",Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/15/2026 0:00,,,
+Spike,QA-1276,341483,[UNITE-MSC][Mobile2][Spike] IDP login flow — NMD plan auth path and downstream endpoint reuse,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-1212,339117,[UNITE-MSC][Mobile2] Banks POST — integrate & E-E Testing of Banks Post call in QC4 for OKD plan,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/26/2026 0:00,,,
+Story,QA-1164,338113,[UNITE-MSC][Mobile2] Banks — integration vertical slice (POST baseline) and QC4 gate,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.09 6/10-6/23,AMSQUAD Sprint 26.10 6/24-7/07,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/22/2026 0:00,,,
+Story,QA-1070,336188,[UNITE-MSC][Mobile2] Investment — discovery and integration vertical slice,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/30/2026 0:00,,,
+Story,QA-1068,336186,[UNITE-MSC][Mobile2] Transaction History — discovery and integration vertical slice,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/1/2026 0:00,,,
+Story,QA-1067,336185,[UNITE-MSC][Mobile2] Mobile Stackup — discovery and integration vertical slice,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,,,,
+Story,QA-1063,336178,[UNITE-MSC][Mobile2] Banks — integration vertical slice (GET baseline) and QC4 gate,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/15/2026 0:00,,,
+Story,QA-1062,336177,[UNITE-MSC][Mobile2] Banks — discovery spike and legacy coverage matrix,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/22/2026 0:00,,,
+Spike,QA-965,331665,"[UNITE-MSC Setup] Investigate on existing Unite MSc Project, setup , Get postman setup locally, API Framework KT",Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,,,,
+Story,QA-958,331653,[V2][CSR][Management] CSR Action - Fee,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,6/5/2026 0:00,,,
+Story,QA-941,331620,[V2][CSR][Management] CSR Action - Multiple Contribution,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,6/5/2026 0:00,,,
+Story,QA-912,330491,[V2][CSR][Management] CSR Action - Single Contribution,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,6/5/2026 0:00,,,
+Story,QA-840,323363,"[V2][Profile maint.][CSR Profile Maintenance] – Trust contact, interested party & Authorize Agent - test case review, validation & Regression",Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,,,,,,,5/14/2026 0:00,,,
+Spike,QA-837,323316,[V2][CSR][Spike] CSR Maintenance Screen — regression gap analysis + matrix,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,CSR,QA-Board-View,Regression,,,,,,,
+Story,QA-803,321008,[V2][Profile maint.] CSR Profile Maintenance – Interested Parties - Plan Coverage,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,csrprofile,regression,,,,,5/12/2026 0:00,,,
+Story,QA-792,320728,[V2][Profile maint.]CSR Profile Maintenance – Authorize Agent - Plan Coverage,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,memprofile,regression,,,,,,,,
+Story,QA-743,319168,[V2][Profile maint.] Member Profile Maintenance – Trusted Contact - Plan Coverage,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,csrprofile,regression,,,,,5/13/2026 0:00,,,
+Story,QA-729,319074,[V2][Profile maint.]CSR Profile Maintenance – Payroll Deduction - Plan Coverage,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MemProfile,Regression,,,,,5/7/2026 0:00,,,
+Spike,QA-609,313407,"[V2][Profile Update] CSR Profile update - research to find the gaps in current regression VS CSR Profile tab, add missing funtionality",Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-594,311996,Member Profile Maintenance – Beneficiaries (Add/Edit/Delete) (Multi-Plan Expansion),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,MemProfile,Regression,,,,,4/9/2026 0:00,,,
+Story,QA-494,303711,Transfer – UI Automation Regression Execution & Stabilization (CSR + Member),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/7/2026 0:00,,,
+Story,QA-184,269783,[V2][MEM Profile Update] Member Portal - Account & Doc Maintenance – Negative & Validation Scenarios (Profile & Bank Info),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,MemProfile,Regression,,,,,4/28/2026 0:00,,,
+Story,QA-183,269781,Member Profile Update – Bank Information (Positive Flow),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,MemProfile,Regression,,,,,4/7/2026 0:00,,,
+Story,QA-182,269779,Member Profile Update – Personal & Contact Information (Positive Flow),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,MemProfile,Regression,,,,,4/2/2026 0:00,,,
+Story,QA-181,269777,[V2][Profile Update] CSR Profile Maintenance – Flakiness Stabilization (All Modules),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,CSRProfile,Regression,,,,,5/20/2026 0:00,,,
+Story,QA-179,269773,[V2][Profile maint.] CSR Profile Maintenance – Security Questions & Delivery Preferences - Plan Coverage,Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,CSRProfile,Regression,,,,,5/5/2026 0:00,,,
+Story,QA-178,269771,[V2][Profile Update] CSR Profile Maintenance – Beneficiaries (Add/Edit/Delete) (Multi-Plan Expansion),Sunil Godiyal,712020:cc420b1e-75ad-4809-a429-2b255ac56337,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,CSRProfile,Regression,,,,,4/28/2026 0:00,,,
+Story,QA-1606,350329,[V2/V3/PerfTesting][Daily][Platform Support] Daily regression review & triage — V2 + V3 + Perf Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,To Do,AMSQUAD Sprint 26.13 8/05-8/18,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,7/1/2026 0:00,,,
+Story,QA-1553,349647,"[UNITE-MSC][Mobile2][Validation] All business features — coverage matrix, L1–L4 validation, execution evidence, and sign-off package",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,Regression,unite-msc,,,7/31/2026 0:00,,,
+Story,QA-1552,349646,[UNITE-MSC][ENVP][CICD] Coordinate DevOps integration of Mobile 1/2 API suites into environment pipeline workflow,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,Regression,unite-msc,,,8/5/2026 0:00,,,
+Story,QA-1551,349645,"[UNITE-MSC][Coordination] Cross-team alignment, coverage matrix validation, and leadership reporting for MSC API automation",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,Regression,unite-msc,,,,,,
+Story,QA-1550,349644,"[SYN-443][Coordination][Perf] Barcode return-mail API — requirements, cross-team alignment, env setup, and KB documentation",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PerformanceTesting,QA-Board-View,Regression,,,,7/31/2026 0:00,,,
+Story,QA-1476,348581,[V2/V3/PERF_Test][Daily][Platform Support] Daily regression review & triage — V2 + V3 + Perf Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,QA-1338,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/27/2026 0:00,,,
+Story,QA-1472,348577,"[Platform Support] Release Support, Tech meetings & engineering alignment",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/31/2026 0:00,,,
+Story,QA-1470,348574,"[Platform Support] KT, onboarding & tooling/environment setup",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/31/2026 0:00,,,
+Task,QA-1464,348568,"[Platform Support] Jira, qTest & KB hygiene — squad governance",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/31/2026 0:00,,,
+Story,QA-1338,343383,[V2/V3/PerfTesting][Daily][Platform Support] Daily regression review & triage — V2 + V3 + Perf Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,QA-1325,QA-1476,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,7/1/2026 0:00,,,
+Task,QA-1337,343381,"[Platform Support] Jira, qTest & KB hygiene — squad governance",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/7/2026 0:00,,,
+Story,QA-1336,343380,"[Platform Support] KT, onboarding & tooling/environment setup",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/7/2026 0:00,,,
+Story,QA-1335,343379,"[Platform Support] Release Support, Tech meetings & engineering alignment",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/7/2026 0:00,,,
+Story,QA-1315,343078,[UNITE-MSC][Mobile2] Stage 1 — master regression evidence collection and archive for IDP & NonIDP Plans (OKD + NMD),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/9/2026 0:00,,,
+Story,QA-1311,343067,[UNITE-MSC][Mobile2] Sign-off — migration evidence pack and coverage metrics update,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/21/2026 0:00,,,
+Story,QA-1309,343057,[UNITE-MSC][Mobile2] Master suite — wire integration and regression for seven stable endpoint classes (OKD + NMD),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/8/2026 0:00,,,
+Story,QA-1243,339821,[UNITE-MSC][Mobile2][CICD] QC4 API validation pipeline — Mobile Dashboard vertical slice (expand to all features),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/26/2026 0:00,,,
+Bug,QA-1234,339637,[QC4][Mobile] Member login failing — POST mobilemembersession returns ECONNRESET,Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,Regression,unite-msc,,,,,,
+Story,QA-1217,339249,[UNITE-MSC][Enhancement][Mobile2] Dynamic user and SQL-backed account selection framework,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/24/2026 0:00,,,
+Story,QA-1202,339107,[V2/V3/PerfTesting][Daily][Platform Support] Daily regression review & triage — V2 + V3 + Perf Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,7/1/2026 0:00,,,
+Story,QA-1197,339102,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.09+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/7/2026 0:00,,,
+Story,QA-1193,339098,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.09+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/7/2026 0:00,,,
+Task,QA-1186,339091,"[Platform Support] Jira, qTest & KB hygiene — squad governance (Q2 26.09+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,7/7/2026 0:00,,,
+Story,QA-1156,338054,[UNITE-MSC][Mobile2] Dashboard — integration vertical slice and QC4 gate test,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-1155,338053,[UNITE-MSC][Mobile2] Dashboard — discovery spike and legacy coverage matrix,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-1100,336294,[CST-584][AKD/TVG] Manual validation — trigger fix + Control-M batch rerun,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,TVG,,,,6/10/2026 0:00,,,
+Task,QA-1093,336234,"[Platform Support] Jira, qTest & KB hygiene — squad governance (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,6/22/2026 0:00,,,
+Story,QA-1089,336229,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,6/22/2026 0:00,,,
+Story,QA-1084,336224,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,6/22/2026 0:00,,,
+Story,QA-1075,336213,[V2/V3/PerfTesting][Daily][Platform Support] Daily regression review & triage — V2 + V3 + Perf Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,6/22/2026 0:00,,,
+Story,QA-1073,336191,[UNITE-MSC][Mobile2][Enhancement] Expand Auth & Dashboard coverage for multiple plans and environments based on Login SQL,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/7/2026 0:00,,,
+Story,QA-1072,336190,[UNITE-MSC][Mobile2] E2E cross-endpoint flow — integration smoke,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/2/2026 0:00,,,
+Story,QA-1059,336168,[UNITE-MSC][Mobile2] all features— regression suite and dynamic data cleanup,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/22/2026 0:00,,,
+Story,QA-1053,336117,[UNITE-MSC][Mobile 1/2] unite-mobile1 and unite-mobile2 module framework setup & scaffolding,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,Regression,unite-msc,,,6/18/2026 0:00,,,
+Story,QA-1001,333425,[UNITE-MSC][Mobile1][Postman] Collaborate with Dev: Postman QC4 setup for Mobile 1 BFF/auth,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-1000,333423,[UNITE-MSC][Mobile1] Discover and inventory legacy Mobile 1 automation assets,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/2/2026 0:00,,,
+Story,QA-999,333422,[UNITE-MSC][Mobile1] Implement unite-mobile1 module scaffold in API Automation Framework,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-998,333421,[UNITE-MSC Mobile2] Discover and inventory legacy Mobile 2 automation assets,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-997,333418,[UNITE-MSC Mobile2][Postman] Collaborate with Dev: Postman QC4 setup for Mobile 2 BFF/auth,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/22/2026 0:00,,,
+Story,QA-996,333417,[UNITE-MSC Mobile2] Implement unite-mobile2 module scaffold in API Automation Framework,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-988,333397,[UNITE-MSC Postman] Collaborate with Dev: Postman workspace for Unite Enrollment (QC4),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/5/2026 0:00,,,
+Story,QA-987,333395,[UNITE-MSC Framework] Create mobile-automation parent module in API Automation Framework,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/5/2026 0:00,,,
+Story,QA-977,332949,[V2/V3][Daily][Platform Support] Daily regression review & triage — V2 + V3 (Q2 26.06+),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,6/5/2026 0:00,,,
+Task,QA-976,332943,"[Platform Support] Jira, qTest & KB hygiene — squad governance (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-973,332938,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-972,332937,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-889,329496,[UNITE-MSC] Confirm UniteMSC repo access and close DEC-1 pilot order for sprint,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,unite-msc,,,,6/2/2026 0:00,,,
+Story,QA-888,329495,[UNITE-MSC] Enrollment - Apply migration decision matrix to Enrollment scenarios,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,unite-msc,,,,6/2/2026 0:00,,,
+Spike,QA-887,329494,"[UNITE-MSC] Map Enrollment endpoints, payloads, validations, SQL, and configs",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,unite-msc,,,,,,,
+Spike,QA-886,329490,[UNITE-MSC] Map Unite Enrollment feature files to step definitions,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,unite-msc,,,,,,,
+Spike,QA-885,329489,[UNITE-MSC]Discover legacy Unite Enrollment automation assets,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,MobileAutomation,QA-Board-View,unite-msc,,,,,,,
+Bug,QA-873,324373,[Stage 1][Regression] UE down / enrollment blocked — expired creds + Helm Secret collision; Upromise Nextgen message missing,Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,DEVOPS-8494,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-850,323633,[V2/V3][Daily][Platform Support] Daily regression review & triage — V2 + V3 (Q2 26.07+),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,5/20/2026 0:00,,,
+Story,QA-849,323632,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.07+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/20/2026 0:00,,,
+Story,QA-846,323629,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.07+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/26/2026 0:00,,,
+Task,QA-845,323628,"[Platform Support] Jira, qTest & KB hygiene — squad governance (Q2 26.07+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/26/2026 0:00,,,
+Story,QA-828,323120,"[V2][CSR][Prefill] Prefill Online Enrollment regression expand beyond NVU baseline - NVU , IND, NJD",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/20/2026 0:00,,,
+Story,QA-826,323070,[TVG Test]CST-469 / QIPS-413 — Manual validation: TVG calculator + microsecond create/update timestamps,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,CST-469,,,,,,,,,QA-Board-View,TVG,,,,,5/13/2026 0:00,,,
+Bug,QA-821,322067,[Stage 1][Regression] Universal Enrollment + sub-bene — mass SQL failures (05/08/2026),Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,DEVOPS-8494,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-777,320371,[V3][Stage 5][Unite] Integrate Stage 5 smoke into pipeline — schedule + on-demand + docs,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/6/2026 0:00,,,
+Story,QA-773,320367,[V3][Stage 5][UE] Integrate Stage 5 smoke into pipeline — schedule + on-demand + docs,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/6/2026 0:00,,,
+Story,QA-765,320359,[V2/V3][Daily][Platform Support] Daily regression review & triage — V2 + V3 (Q2 26.06+),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,5/4/2026 0:00,,,
+Story,QA-763,320356,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-760,320353,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Task,QA-759,320351,"[Platform Support] Jira, qTest & KB hygiene — squad governance (Q2 26.06+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,5/12/2026 0:00,,,
+Story,QA-751,319824,[V3][Daily-Regression][Flaky] Harden nightly suite — reduce intermittent failures,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/4/2026 0:00,,,
+Story,QA-723,318507,"[V3][Stage 5][Unite] CAT/Stage 5 smoke suite for Unite project — composition, tags, pass criteria",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/5/2026 0:00,,,
+Bug,QA-715,317838,Stage 1 outage (04/27): Oracle UIIS01 down + CSR https://csr.stage1.acs529.com/csrauthtpl/csr/uiiHome.do unavailable — automation not run,Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Bug,QA-712,317217,Stage 1 (04/24): recurrence of multi-area failures (IDP / legacy login / legacy web reg) — same pattern as QA-708; verify TLS/SSL vs code,Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,,,,
+Bug,QA-708,316527,"Stage 1 (2026-04-22): regression failures across UE suite (62 fails), NYD/NMD IDP sub bene login, legacy web login (CAD/OKD), legacy web reg (multi-plan)",Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,DEVOPS-8494,,,,,,QA-Board-View,Regression,,,,,,,,
+Task,QA-646,314277,"[Platform Support] Jira, qTest & KB hygiene — squad governance (Q2 26.05+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,,,,
+Story,QA-645,314268,"[Platform Support] KT, onboarding & tooling/environment setup (Q2 26.05+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,,,,
+Story,QA-644,314260,"[Platform Support] Release Support, Tech meetings & engineering alignment (Q2 26.05+)",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,PlatformSupport,QA-Board-View,Regression,,,,4/21/2026 0:00,,,
+Story,QA-636,314248,[Daily][Platform Support] Daily regression review & triage — V2 + V3 (Q2 26.05+),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,4/20/2026 0:00,,,
+Story,QA-635,314245,[V3][IDP Login] Port IDP login coverage from Universal Enrollment module into Unite V3,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/27/2026 0:00,,,
+Story,QA-634,314242,"[V2/V3][Docs][Stage 5] Confluence — smoke, suites, schedules, how to run, ownership",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,QA-631,QA-630,QA-633,QA-632,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/12/2026 0:00,,,
+Story,QA-632,314240,"[V3][Stage 5] CAT/Stage 5 smoke suite — composition, tags, pass criteria",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,QA-634,,,,,,,,,,,,,QA-633,,,QA-Board-View,Regression,,,,,4/28/2026 0:00,,,
+Story,QA-631,314237,[V2][Stage 5] Integrate Stage 5 smoke into pipeline — schedule + on-demand + docs,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,QA-634,,,,,,,,,,,,,,,QA-630,QA-Board-View,Regression,,,,,4/22/2026 0:00,,,
+Story,QA-630,314236,"[V2][Stage 5] CAT/Stage 5 smoke suite — composition, tags, pass criteria",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,QA-634,,,,,,,,,,,,,QA-631,,,QA-Board-View,Regression,,,,,4/20/2026 0:00,,,
+Story,QA-601,312099,[ENVP][UE] Stage 1 Universal Enrollment integration suite — package for pipeline (Run Duration: ≤10 min),Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,UE_UI,,,,4/13/2026 0:00,,,
+Bug,QA-588,310724,"Regression Failure V3: [NJD/NMD] Intermittent enrollment — ""Page Unavailable""; suspected uneven UI/version across nodes (Stage 1)",Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-561,309810,"[V3][Contributions] IDP Member portal contrib — test data, qTest, Confluence/docs",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,Contribution,QA-Board-View,Regression,,,,4/24/2026 0:00,,,
+Story,QA-560,309806,[V3][Contributions] Wire IDP member-portal contribution tests into Stage 1 regression pipeline,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,Contribution,QA-Board-View,Regression,,,,4/20/2026 0:00,,,
+Story,QA-559,309803,"[V3][Contributions] Expand IDP member-portal contributions — multi-plan, AIP, negatives",Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contribution,QA-Board-View,Regression,,,,5/6/2026 0:00,,,
+Bug,QA-557,309741,UE V3 NJD/NMD Enroll landing page failed,Swapnil Patil,6357f972fc0cc7a600ae8914,Closed,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,Enrollment,QA-Board-View,Regression,,,,,,,
+Story,QA-542,308873,[DAILY] Automation Regression Health Check (V2 & V3) – 7:30 AM Triage & Reporting - 04/01-04/14,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,AutomatedTesting,QA-Board-View,Regression,Regression_Testing,,,4/7/2026 0:00,,,
+Story,QA-387,280584,[ENV-CICD] Client ID successfully created,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,1,,,,,,,,,,,,,,,,,AutomatedTesting,GitLab,QA-Board-View,Regression,ScrumOfScrum,,4/16/2026 0:00,,,
+Story,QA-386,280580,[ENV-CICD] API Test - PKCE Flow - API Automation Testing,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,GitLab,QA-Board-View,Regression,ScrumOfScrum,,,4/16/2026 0:00,,,
+Spike,QA-228,270447,IDP - Enhance Prime v3 Framework for Deep Shadow DOM Element Handling in IDP Angular UI,Swapnil Patil,6357f972fc0cc7a600ae8914,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,IDP_LoginAutomation,Regression,Research,,,,,,,
+Story,QA-1526,349512,[Daily-Regression][V2]Update and Remove V2 Regression Test Cases for Plans Migrated from Non-IDP to IDP,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,8/3/2026 0:00,,,
+Story,QA-1521,349293,[UNITE-MSC][Mobile1][API Automation] POST mobilemembersession/validateBiometricToken automation,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/30/2026 0:00,,,
+Story,QA-1420,346040,[UNITE-MSC][Mobile1][API Automation] DELETE mobilememberbiometric automation (skipped / deferred,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/28/2026 0:00,,,
+Story,QA-1411,345962, [UNITE-MSC][Mobile1][API Automation] Automate GET mobilebeneficiaryByExt/{ext} Endpoin,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/20/2026 0:00,,,
+Story,QA-1403,345364,[UNITE-MSC][Mobile1] Biometric and push — discovery and integration vertical slice (if in MSC scope),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/21/2026 0:00,,,
+Story,QA-1402,345363,[UNITE-MSC][Mobile1] Close account — integration vertical slice with strict isolation (module only),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,destructive,mobile1,module-only,QA-Board-View,Regression,unite-msc,7/23/2026 0:00,,,
+Story,QA-1398,345359,[UNITE-MSC][Mobile1] Beneficiary reads — POST mobilecloseaccount/{ext} (preClosureCheck),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.12 7/22-8/04,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,beneficiary,mobile1,QA-Board-View,Regression,unite-msc,,7/24/2026 0:00,,,
+Story,QA-1383,344371, [UNITE-MSC][Mobile2] Contribution GET/PUT tests — resolve ext and contributionId dynamically for multi-environment runs,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/13/2026 0:00,,,
+Story,QA-1312,343070,[UNITE-MSC][Mobile2] Contribution DELETE — integration vertical slice with automation-owned data safeguards (module only),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.11 7/08-7/21,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/10/2026 0:00,,,
+Story,QA-1275,341425,[Daily-Regression][V2]Update and Remove V2 Regression Test Cases for Plans Migrated from Non-IDP to IDP,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/6/2026 0:00,,,
+Story,QA-1173,338529,[UNITE-MSC][Mobile2] Contribution — integration vertical slice and QC4 gate test,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/22/2026 0:00,,,
+Story,QA-1171,338500,[UNITE-MSC][Mobile2] Contribution— discovery spike and legacy coverage matrix,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/22/2026 0:00,,,
+Bug,QA-1119,337495,[V2][Stage1] ABLE Plans (CSR) – “Please try again later” error when clicking “Edit Address or Entity” on Authorized Individual profile,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Closed,,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-1065,336180,[UNITE-MSC][Mobile2] Contributions POST/PUT — discovery and integration vertical slice - E-E test & Validations,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/6/2026 0:00,,,
+Story,QA-1064,336179,[UNITE-MSC][Mobile2] Balance Trends — discovery and integration vertical slice,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.10 6/24-7/07,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,7/2/2026 0:00,,,
+Story,QA-1058,336166,[UNITE-MSC][Mobile2] Activities — integration vertical slice and QC4 gate test,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/18/2026 0:00,,,
+Story,QA-1057,336164,[UNITE-MSC][Mobile2] Activities — discovery spike and legacy coverage matrix,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.09 6/10-6/23,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/17/2026 0:00,,,
+Bug,QA-1017,334216,[V2][Stage1] Multi-module regression failures (06/05/2026) — enrollments + contributions + CSR + transfers + uGift + web reg — almost all plans,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Closed,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-994,333414,[UNITE-MSC Postman] Collaborate with Dev & QA: Postman validation for Enrollment slice candidates,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,unite-msc,,,,6/4/2026 0:00,,,
+Story,QA-966,332155,[V2][CSR][Member][Ugift] Implement and enable Ugift functionality across multiple 529 and ABLE plans,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.08 5/27-6/10,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,Regression,,,,,,6/1/2026 0:00,,,
+Bug,QA-959,331656," Stage1 daily regression – Multiple member/CSR flows fail with “This functionality is not available at this time” (enrollment, web registration, transfer, account overview Home)",VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Closed,,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-836,323315,[V2][Ugift][Pipeline] Nightly suite — wire CSR+Member Ugift jobs + T+1 validation,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,Ugift,,,,5/25/2026 0:00,,,
+Story,QA-829,323121,[V2][CSR][UgiftAble] UgiftAble automation coverage per GSSD test cases,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/19/2026 0:00,,,
+Story,QA-827,323113,[V2][Enrollment][PAG] GSP enrollment scenarios missing from regression,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.07 5/13-5/27,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/19/2026 0:00,,,
+Story,QA-728,318622,[V2][Daily-Regression][Flaky] Harden nightly suite — reduce intermittent failures(post-spike),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/30/2026 0:00,,,
+Story,QA-627,313683,[V2][Member][Ugift] Automate key Ugift member flows (post-spike),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/13/2026 0:00,,,
+Story,QA-626,313682,[V2][CSR][Ugift] Automate key Ugift CSR flows (post-spike),VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.06 4/29-5/12,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,5/7/2026 0:00,,,
+Spike,QA-625,313681,"[V2][Spike] Ugift — CSR + member coverage, data, gaps, story breakdown",VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-624,313678,[V2][CSR][Exchange] Filter accounts for Exchange — custom + annual criteria,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/20/2026 0:00,,,
+Spike,QA-582,310658,[V2] Spike: Analyze daily regression for concurrent failures & flaky tests — stabilization plan,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,,,,
+Story,QA-579,310564,Regression Fix-KSD and MID moved to IDP update to Non- IDP Plans,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/7/2026 0:00,,,
+Story,QA-550,309026,[V2][INVOPT]Automatic Dollar Cost Averaging (DCA) for CSR Advisor plan,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/1/2026 0:00,,,
+Story,QA-537,308291, Automatic Dollar Cost Averaging for CSR Direct plan,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/2/2026 0:00,,,
+Story,QA-535,308000,Investment Options for Future Investment Exchange for Member Portal,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/2/2026 0:00,,,
+Story,QA-531,307746,Fix for Annual Exchange for Direct plan for member Portal and Custom exchange for Csr,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/6/2026 0:00,,,
+Story,QA-530,307677,Investment Options for Custom Exchange for Member Portal,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/7/2026 0:00,,,
+Story,QA-525,307407,Investment Allocation Future Exchange Update and Reset,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,3,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/8/2026 0:00,,,
+Story,QA-522,306321,Investment Options for Future Contribution for CSR,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.04 4/1-4/14,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,5,,,,,,,,,,,,,,,,,Contrib,QA-Board-View,Regression,,,,4/6/2026 0:00,,,
+Story,QA-517,305982,[V2][Member][Exchange] Filter accounts for Exchange — Future + annual criteria,VENKATESH MALLELA,712020:1a2ec93a-8616-4589-a831-b49300d8cab7,Done,AMSQUAD Sprint 26.05 4/15-4/28,,QA,QA Automation,software,Timothy Kaufman,6418909f67102fc717c0b0d8,"{quote}Automation & Performance Testing Center of Excellence 
+
+
+Tracks test strategy, execution, CI results, risk mitigation, and engineering dashboards.  
+
+
+Project lead: Swapnil Patil (Functional) | Timothy Kaufman (JIRA Admin){quote}",https://confluence.ascensus.com/pages/viewpage.action?pageId=315559619,2,,,,,,,,,,,,,,,,,QA-Board-View,Regression,,,,,4/15/2026 0:00,,,

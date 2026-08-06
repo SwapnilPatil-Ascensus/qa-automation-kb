@@ -18,7 +18,7 @@ AM Squad operates across **six parallel tracks** — not a single regression num
 |------|-----------|--------|
 | **V2 Legacy UI** | **592** test methods in Stage1 nightly (12 modules) | Operational — nightly Mon–Fri |
 | **V3 Universal Platform** | GitLab scheduled regression + **379** UP-scoped TestNG cases | Operational — IDP/entity expansion |
-| **API / Unite MSC** | Mobile 2: **24/25 endpoints (96%)**; Mobile 1: **18/27 (67%)** | M2 sign-off ready; M1 active |
+| **API / Unite MSC** | Mobile 2: **25/25 endpoints (100%)**; Mobile 1: **~25/29 core (~86%)** | M2 sign-off ready; M1 active |
 | **Performance** | **6+ scheduled regression scenarios** (IDP, legacy, MSC) | Baselines established; expansion in flight |
 | **Pipeline / CI** | Enrollment + metadata in hub pipeline; M2 GHA vertical slice | Module-by-module onboarding |
 | **Release automation** | **~80%** of monthly release validations automated (was 17 FTE → **2 FTE**) | Production-proven |
@@ -35,7 +35,7 @@ Legacy `unite-mobile2` Cucumber was tightly coupled to the monolith, had no Post
 - Designed a **canonical TestNG API framework** (`api-test-automation/mobile/`)
 - Used **AI agents** for documentation, Postman collections, data utils, and migration boilerplate
 - Delivered **Mobile 2 baseline in ~50% of original ETA** with IDP/NMD branding support
-- Mobile 1 sprint now at **18 endpoints** (auth, profile, biometric, push notifications, close account)
+- Mobile 1 sprint now at **~25/29 core endpoints (~86%)** (auth, profile, biometric, push, close account)
 
 ### 2. V2 regression — breadth over raw count
 

@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 """Generate leadership update charts for AM Squad Q2-Q3 2026."""
+from __future__ import annotations
+
+import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Ascensus-inspired palette
-NAVY = "#003366"
-TEAL = "#00A3AD"
+NAVY = "#003241"
+TEAL = "#026B84"
+PEAK = "#009E86"
 ORANGE = "#F7941D"
+PURPLE = "#5B4B9A"
 GRAY = "#6D6E71"
 LIGHT = "#E8EEF4"
 
-OUT = Path(__file__).resolve().parents[1] / "2026-08-am-squad-leadership-update/assets/charts"
+ROOT = Path(__file__).resolve().parents[1] / "2026-08-am-squad-leadership-update"
+OUT = ROOT / "assets" / "charts"
+METRICS = ROOT / "data" / "leadership-metrics.json"
 OUT.mkdir(parents=True, exist_ok=True)
 
 plt.rcParams.update({
@@ -23,76 +29,122 @@ plt.rcParams.update({
 })
 
 
-def save(fig, name: str):
+def load_metrics() -> dict:
+    with METRICS.open(encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save(fig, name: str) -> None:
     path = OUT / name
-    fig.savefig(path, dpi=160, bbox_inches="tight", facecolor="white")
+    fig.savefig(path, dpi=180, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     print(f"Wrote {path}")
 
 
-def chart_mr_by_month():
+def chart_gitlab_merges_stacked(m: dict) -> None:
+    """GitLab merges by month — stacked by repository channel."""
     months = ["Apr", "May", "Jun", "Jul", "Aug"]
-    counts = [24, 22, 34, 33, 3]
-    colors = [NAVY if c == max(counts) else TEAL for c in counts]
-    fig, ax = plt.subplots(figsize=(8, 4.5))
-    bars = ax.bar(months, counts, color=colors, edgecolor="white", linewidth=0.8)
-    ax.set_ylabel("Merged MRs to main")
-    ax.set_title("AM Squad Delivery Velocity — GitLab Merges (Apr–Aug 2026)")
-    ax.set_ylim(0, max(counts) + 8)
-    for b, v in zip(bars, counts):
-        ax.text(b.get_x() + b.get_width() / 2, v + 0.6, str(v), ha="center", fontweight="bold")
+    keys = ["2026-04", "2026-05", "2026-06", "2026-07", "2026-08"]
+    repo_data = m["gitlab"]["monthly_by_repo"]
+    v2 = [repo_data[k]["V2 Legacy UI"] for k in keys]
+    v3 = [repo_data[k]["V3 Universal Platform"] for k in keys]
+    api = [repo_data[k]["API / Unite MSC"] for k in keys]
+    x = np.arange(len(months))
+    fig, ax = plt.subplots(figsize=(10, 5.2))
+    ax.bar(x, v2, 0.62, label="V2 (automation repo)", color=NAVY)
+    ax.bar(x, v3, 0.62, bottom=v2, label="V3 (prime-test-automation)", color=TEAL)
+    b2 = [a + b for a, b in zip(v2, v3)]
+    ax.bar(x, api, 0.62, bottom=b2, label="API / MSC (api-test-automation)", color=PEAK)
+    totals = [repo_data[k]["total"] for k in keys]
+    for i, t in enumerate(totals):
+        ax.text(i, t + 1.2, str(t), ha="center", fontweight="bold", fontsize=11)
+    ax.set_xticks(x)
+    ax.set_xticklabels(months)
+    ax.set_ylabel("GitLab merges to main")
+    ax.set_title("GitLab Delivery Velocity by Repository (Apr–Aug 2026)")
+    ax.legend(loc="upper left", fontsize=9)
     ax.spines[["top", "right"]].set_visible(False)
-    ax.grid(axis="y", alpha=0.25)
+    ax.grid(axis="y", alpha=0.2)
     save(fig, "01-gitlab-mrs-by-month.png")
 
 
-def chart_mr_by_area():
-    labels = ["API / Unite MSC", "V2 Legacy UI +\nPerformance", "V3 Universal\nPlatform"]
-    sizes = [48, 42, 26]
-    colors = [NAVY, TEAL, ORANGE]
-    fig, ax = plt.subplots(figsize=(7, 5))
-    wedges, texts, autotexts = ax.pie(
-        sizes, labels=labels, autopct="%1.0f%%", colors=colors,
-        startangle=90, pctdistance=0.75, wedgeprops=dict(width=0.45, edgecolor="white"),
+def chart_monthly_test_cases_added(m: dict) -> None:
+    """Automation test cases added per month — NOT merge count."""
+    data = m["monthly_test_cases_added"]
+    labels = [d["label"] for d in data]
+    channels = ["V2 Legacy UI", "V3 Universal Platform", "Performance Testing", "API / Unite MSC", "Standards / Pipeline"]
+    colors = [NAVY, TEAL, ORANGE, PEAK, PURPLE]
+    x = np.arange(len(labels))
+    bottom = np.zeros(len(labels))
+    fig, ax = plt.subplots(figsize=(10, 5.2))
+    for ch, color in zip(channels, colors):
+        vals = [d.get(ch, 0) for d in data]
+        ax.bar(x, vals, 0.62, bottom=bottom, label=ch, color=color)
+        bottom = bottom + np.array(vals)
+    for i, d in enumerate(data):
+        ax.text(i, d["total"] + 3, str(d["total"]), ha="center", fontweight="bold", fontsize=11)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylabel("Estimated test cases added (period)")
+    ax.set_title("Monthly Automation Delivery — New Coverage Added (Apr–Aug 2026)")
+    ax.legend(loc="upper left", fontsize=8)
+    note = (
+        "Period delivery estimate from Jira resolved stories — not cumulative inventory. "
+        "Team formed Q2 2025; nightly totals (592 V2, 442 V3, 323 perf) reflect ~12 months of build-out."
     )
-    for t in autotexts:
-        t.set_fontweight("bold")
-        t.set_color("white")
-    ax.set_title("116 Merged MRs by Automation Area (Apr–Aug 2026)")
-    save(fig, "02-gitlab-mrs-by-area.png")
-
-
-def chart_mr_by_author():
-    authors = ["Sunil", "Venkatesh", "Dinesh", "Swapnil", "Priti"]
-    counts = [28, 27, 26, 25, 10]
-    fig, ax = plt.subplots(figsize=(8, 4.5))
-    y = np.arange(len(authors))
-    ax.barh(y, counts, color=TEAL, height=0.6)
-    ax.set_yticks(y)
-    ax.set_yticklabels(authors)
-    ax.invert_yaxis()
-    ax.set_xlabel("Merged MRs authored")
-    ax.set_title("Team Contribution — GitLab Merge Requests (Apr–Aug 2026)")
-    for i, v in enumerate(counts):
-        ax.text(v + 0.4, i, str(v), va="center", fontweight="bold")
+    ax.text(0.01, -0.14, note, transform=ax.transAxes, fontsize=8, color=GRAY)
     ax.spines[["top", "right"]].set_visible(False)
-    ax.grid(axis="x", alpha=0.25)
-    save(fig, "03-gitlab-mrs-by-author.png")
+    ax.grid(axis="y", alpha=0.2)
+    save(fig, "08-monthly-automation-test-cases-added.png")
 
 
-def chart_v2_regression_modules():
+def chart_jira_story_points(m: dict) -> None:
+    sprints = m["jira"]["sprints"]
+    labels = [s["sprint"].replace("AMSQUAD Sprint ", "S") for s in sprints]
+    points = [s["story_points"] for s in sprints]
+    items = [s["work_items"] for s in sprints]
+    fig, ax1 = plt.subplots(figsize=(10, 4.8))
+    bars = ax1.bar(labels, points, color=TEAL, alpha=0.9)
+    ax1.set_ylabel("Story points delivered")
+    ax1.set_title("Jira Sprint Delivery — Story Points & Work Items (Sprint 26.04–26.12)")
+    ax2 = ax1.twinx()
+    ax2.plot(labels, items, color=NAVY, marker="o", linewidth=2)
+    ax2.set_ylabel("Work items closed")
+    for b, v in zip(bars, points):
+        ax1.text(b.get_x() + b.get_width() / 2, v + 1.5, f"{v:.0f}", ha="center", fontsize=8, fontweight="bold")
+    ax1.spines[["top"]].set_visible(False)
+    ax2.spines[["top"]].set_visible(False)
+    ax1.grid(axis="y", alpha=0.2)
+    save(fig, "09-jira-story-points-by-sprint.png")
+
+
+def chart_jira_bugs(m: dict) -> None:
+    sprints = m["jira"]["sprints"]
+    labels = [s["sprint"].replace("AMSQUAD Sprint ", "S") for s in sprints]
+    bugs = [s["bugs"] for s in sprints]
+    fig, ax = plt.subplots(figsize=(10, 4.2))
+    bars = ax.bar(labels, bugs, color=ORANGE, edgecolor="white")
+    ax.set_ylabel("Automation bugs logged")
+    ax.set_title(f"Defects Found via Automation — {m['jira']['totals']['automation_bugs_logged']} total")
+    for b, v in zip(bars, bugs):
+        if v:
+            ax.text(b.get_x() + b.get_width() / 2, v + 0.15, str(v), ha="center", fontweight="bold")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.grid(axis="y", alpha=0.2)
+    save(fig, "10-jira-automation-bugs-by-sprint.png")
+
+
+def chart_v2_regression_modules() -> None:
     modules = [
-        "Enrollments", "Acct Maint", "Empower", "Withdrawals",
-        "Contributions", "Ugift", "Web Reg", "Sardine", "Inv Options",
-        "Transfers", "Web Login", "Balance",
+        "Enrollments", "Acct Maint", "Empower", "Withdrawals", "Contributions",
+        "Ugift", "Web Reg", "Sardine", "Inv Options", "Transfers", "Web Login", "Balance",
     ]
     passed = [59, 67, 54, 63, 45, 29, 35, 24, 14, 7, 4, 7]
     failed = [88, 7, 21, 10, 3, 7, 6, 9, 10, 5, 15, 3]
     x = np.arange(len(modules))
-    w = 0.55
     fig, ax = plt.subplots(figsize=(12, 5))
-    ax.bar(x, passed, w, label="Passed", color=TEAL)
-    ax.bar(x, failed, w, bottom=passed, label="Failed", color=ORANGE)
+    ax.bar(x, passed, 0.55, label="Passed", color=PEAK)
+    ax.bar(x, failed, 0.55, bottom=passed, label="Failed", color=ORANGE)
     ax.set_xticks(x)
     ax.set_xticklabels(modules, rotation=35, ha="right")
     ax.set_ylabel("Test methods")
@@ -106,60 +158,134 @@ def chart_v2_regression_modules():
     save(fig, "04-v2-regression-by-module.png")
 
 
-def chart_unite_msc_coverage():
-    categories = ["Mobile 2\nEndpoints", "Mobile 1\nEndpoints", "M2 Test\nClasses", "Perf\nScenarios"]
-    current = [24, 18, 36, 6]
-    target = [25, 27, 40, 12]
-    x = np.arange(len(categories))
-    w = 0.35
-    fig, ax = plt.subplots(figsize=(8, 4.5))
-    ax.bar(x - w / 2, current, w, label="Aug 2026", color=NAVY)
-    ax.bar(x + w / 2, target, w, label="Target", color=LIGHT, edgecolor=NAVY)
+def chart_v3_regression_modules(m: dict) -> None:
+    modules = m["v3_snapshot"]["modules"]
+    names = [mod["module"][:22] for mod in modules]
+    passed = [mod["passed"] for mod in modules]
+    failed = [mod["failed"] for mod in modules]
+    x = np.arange(len(names))
+    fig, ax = plt.subplots(figsize=(11, 5))
+    ax.bar(x, passed, 0.55, label="Passed", color=TEAL)
+    ax.bar(x, failed, 0.55, bottom=passed, label="Failed", color=ORANGE)
     ax.set_xticks(x)
-    ax.set_xticklabels(categories)
-    ax.set_ylabel("Count")
-    ax.set_title("Unite MSC — API & Performance Coverage Progress")
-    ax.legend()
-    for i, (c, t) in enumerate(zip(current, target)):
-        pct = 100 * c / t
-        ax.text(i, max(c, t) + 0.8, f"{pct:.0f}%", ha="center", fontweight="bold", fontsize=9)
+    ax.set_xticklabels(names, rotation=30, ha="right")
+    ax.set_ylabel("Test methods")
+    ax.set_title("V3 GitLab Nightly Regression — Module Snapshot (2026-08-04)")
+    ax.legend(loc="upper right")
+    total = m["v3_snapshot"]["total_methods"]
+    pct = m["v3_snapshot"]["pass_pct"]
+    ax.text(len(names) - 0.5, max(p + f for p, f in zip(passed, failed)) + 5,
+            f"Total: {total} methods | Pass rate: {pct}%", fontsize=9, color=GRAY)
     ax.spines[["top", "right"]].set_visible(False)
+    save(fig, "11-v3-regression-by-module.png")
+
+
+def chart_api_module_snapshot(m: dict) -> None:
+    """API automation coverage by module/category — coverage only."""
+    cats = m["api_module_snapshot"]["categories"]
+    names = [c["name"][:20] for c in cats]
+    automated = [c["automated"] for c in cats]
+    remaining = [max(c["target"] - c["automated"], 0) for c in cats]
+    x = np.arange(len(names))
+    fig, ax = plt.subplots(figsize=(11, 5))
+    ax.bar(x, automated, 0.55, label="Automated", color=TEAL)
+    ax.bar(x, remaining, 0.55, bottom=automated, label="Remaining", color=LIGHT, edgecolor=GRAY, linewidth=0.5)
+    ax.set_xticks(x)
+    ax.set_xticklabels(names, rotation=30, ha="right")
+    ax.set_ylabel("Endpoints / categories")
+    ax.set_title("API / Unite MSC — Automation Coverage by Module (Aug 2026)")
+    ax.legend(loc="upper right")
+    for i, c in enumerate(cats):
+        pct = round(100 * c["automated"] / c["target"]) if c["target"] else 100
+        ax.text(i, c["target"] + 0.3, f"{pct}%", ha="center", fontweight="bold", fontsize=8)
+    ax.spines[["top", "right"]].set_visible(False)
+    save(fig, "13-api-regression-by-module.png")
+
+
+def chart_msc_coverage(m: dict) -> None:
+    """Coverage only — no wired/target comparison."""
+    cats = m["api_snapshot"]["categories"][:2]
+    labels = [c["name"] for c in cats]
+    pcts = [round(100 * c["count"] / c["denominator"]) for c in cats]
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    bars = ax.bar(labels, pcts, color=[PEAK, TEAL], width=0.5)
+    ax.set_ylim(0, 110)
+    ax.set_ylabel("Coverage %")
+    ax.set_title("Unite MSC — API Endpoint Coverage")
+    for b, c, p in zip(bars, cats, pcts):
+        ax.text(b.get_x() + b.get_width() / 2, p + 2, f"{c['count']}/{c['denominator']}\n({p}%)",
+                ha="center", fontweight="bold", fontsize=10)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.grid(axis="y", alpha=0.2)
     save(fig, "05-unite-msc-coverage.png")
 
 
-def chart_work_allocation():
-    areas = [
-        "Unite MSC API", "V2 UI Regression", "V3 UP UI", "Performance",
-        "Pipeline/CI", "Standards &\nFramework", "Cross-team\nSupport",
-    ]
-    # Relative effort index (justified by MR mix + program priority)
+def chart_perf_inventory(m: dict) -> None:
+    areas = m["perf_inventory"]["areas"]
+    names = [a["area"][:24] for a in areas]
+    cases = [a["cases"] for a in areas]
+    fig, ax = plt.subplots(figsize=(11, 5))
+    y = np.arange(len(names))
+    ax.barh(y, cases, color=ORANGE, height=0.65)
+    ax.set_yticks(y)
+    ax.set_yticklabels(names[::-1])
+    ax.invert_yaxis()
+    ax.set_xlabel("Performance test cases (labels × plans)")
+    ax.set_title(f"Performance Test Inventory — {m['perf_inventory']['total_test_cases']} total test cases")
+    for i, v in enumerate(cases[::-1]):
+        ax.text(v + 2, i, str(v), va="center", fontweight="bold", fontsize=8)
+    ax.spines[["top", "right"]].set_visible(False)
+    save(fig, "12-perf-test-case-inventory.png")
+
+
+def chart_mr_by_area(m: dict) -> None:
+    labels = ["API / Unite MSC", "V2 Legacy UI +\nPerformance", "V3 Universal\nPlatform"]
+    sizes = [48, 42, 26]
+    colors = [PEAK, NAVY, TEAL]
+    fig, ax = plt.subplots(figsize=(7, 5))
+    _, _, autotexts = ax.pie(
+        sizes, labels=labels, autopct="%1.0f%%", colors=colors,
+        startangle=90, pctdistance=0.75, wedgeprops=dict(width=0.45, edgecolor="white"),
+    )
+    for t in autotexts:
+        t.set_fontweight("bold")
+        t.set_color("white")
+    ax.set_title(f"{m['gitlab']['total_mrs']} GitLab Merges by Automation Area")
+    save(fig, "02-gitlab-mrs-by-area.png")
+
+
+def chart_work_allocation() -> None:
+    areas = ["Unite MSC API", "V2 UI Regression", "V3 UP UI", "Performance", "Pipeline/CI", "Standards", "Cross-team"]
     effort = [35, 20, 15, 12, 10, 8, 10]
     fig, ax = plt.subplots(figsize=(8, 5))
     colors = plt.cm.Blues(np.linspace(0.45, 0.9, len(areas)))[::-1]
     ax.barh(areas[::-1], effort[::-1], color=colors[::-1], height=0.65)
-    ax.set_xlabel("Relative effort index (Apr–Jul 2026)")
-    ax.set_title("Where AM Squad Time Went — Multi-Track Delivery")
+    ax.set_xlabel("Relative effort index")
+    ax.set_title("Investment Allocation — Multi-Track Delivery (Apr–Jul 2026)")
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "06-work-allocation-index.png")
 
 
-def chart_release_automation_impact():
-    labels = ["Automated\n(validations)", "Manual\n(queue)"]
-    sizes = [80, 20]
-    colors = [TEAL, GRAY]
+def chart_release_automation_impact() -> None:
     fig, ax = plt.subplots(figsize=(5.5, 5))
-    ax.pie(sizes, labels=labels, autopct="%1.0f%%", colors=colors,
-           startangle=90, wedgeprops=dict(edgecolor="white"))
-    ax.set_title("Monthly Release Validation\n(17 FTE → 2 FTE + automation)")
+    ax.pie([80, 20], labels=["Automated", "Manual queue"], autopct="%1.0f%%",
+           colors=[PEAK, GRAY], startangle=90, wedgeprops=dict(edgecolor="white"))
+    ax.set_title("Monthly Release Validation\n(17 FTE → 2 FTE equivalent)")
     save(fig, "07-release-automation-impact.png")
 
 
-def main():
-    chart_mr_by_month()
-    chart_mr_by_area()
-    chart_mr_by_author()
+def main() -> None:
+    m = load_metrics()
+    chart_gitlab_merges_stacked(m)
+    chart_monthly_test_cases_added(m)
+    chart_jira_story_points(m)
+    chart_jira_bugs(m)
     chart_v2_regression_modules()
-    chart_unite_msc_coverage()
+    chart_v3_regression_modules(m)
+    chart_api_module_snapshot(m)
+    chart_msc_coverage(m)
+    chart_perf_inventory(m)
+    chart_mr_by_area(m)
     chart_work_allocation()
     chart_release_automation_impact()
     print("All charts generated.")

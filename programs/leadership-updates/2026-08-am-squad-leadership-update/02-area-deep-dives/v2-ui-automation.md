@@ -28,7 +28,9 @@ V2 is the **legacy Cucumber + Ant + TestNG** UI automation stack for Unite/Prime
 | Legacy Web Login | 19 | 4 | 15 | 21% |
 | Transfers | 12 | 7 | 5 | 58% |
 | Account Balance Page | 10 | 7 | 3 | 70% |
-| **TOTAL** | **592** | **408** | **184** | **69%** |
+| **TOTAL (nightly snapshot)** | **592** | **408** | **184** | **69%** |
+
+> **Not yet in nightly snapshot:** CSR Actions suite (`stage1-csr-actions.xml`) — **33 additional scenarios** when wired to Jenkins (see below). Updated V2 total with CSR Actions: **625** methods.
 
 > Enrollments and Legacy Web Login failures are under active triage (app/env vs automation). CSR maintenance modules are consistently **>85% pass**.
 
@@ -44,6 +46,7 @@ V2 MR count: **42 merges** to `automation` repo. Highlights:
 |------|--------------|------|
 | CSR Fee Entry | QA-958 | Sunil |
 | CSR Single/Multiple Contribution | QA-912, QA-941 | Sunil |
+| **CSR Actions suite** (`stage1-csr-actions.xml` — 33 daily scenarios) | QA-912, QA-941, QA-958 | Sunil |
 | Authorize Agent | QA-803 | Sunil |
 | Security Questions | QA-179 | Sunil |
 | Payroll Deduction | QA-729 | Sunil |
@@ -66,10 +69,91 @@ QA-1275 **"Update and Remove V2 Regression"** (Jul 2026) intentionally removed o
 
 ---
 
+## CSR Actions suite — new regression module (Sunil / QA-912, QA-941, QA-958)
+
+**Suite file:** `unite/bin/regression/daily/stage1-csr-actions.xml`  
+**Status:** **Built and ready** — not yet wired to `STAGE1-Daily-Unite-Prime-Regression` or `build.xml` (pipeline add pending)  
+**Tag filter:** `@regression and @dailyrun`  
+**Parallelism:** 3 threads (`thread-count="3"`)
+
+### Three feature files, nine TestNG test blocks
+
+| # | Feature file | Module | Plans (traunch) |
+|---|-------------|--------|-----------------|
+| 1 | `CSRSingleContributionRandom.feature` | CSR Single Contribution | COD, NYD, NYA |
+| 2 | `CSRMultipleContributions.feature` | CSR Multiple Contribution | COD, NYD, NYA |
+| 3 | `FeeEntry.feature` | CSR Fee Entry | COD, NYD, NYA |
+
+### Scenarios per plan (`@dailyrun` tag — what nightly will execute)
+
+Counted from feature file `Examples` blocks tagged `@dailyrun`:
+
+| Feature | Scenario outlines | `@dailyrun` examples per plan | × 3 plans | Subtotal |
+|---------|------------------:|------------------------------:|----------:|---------:|
+| **CSR Single Contribution** | 3 (Regular, Employer, Web Bill Pay vouchers) | **5** | × 3 | **15** |
+| **CSR Multiple Contribution** | 1 (Regular voucher) | **2** | × 3 | **6** |
+| **CSR Fee Entry** | 2 (Standing Alloc, Specified Fund) | **4** | × 3 | **12** |
+| **CSR Actions total** | **6 outlines** | **11 scenarios/plan** | × 3 | **33** |
+
+#### CSR Single Contribution — 5 scenarios/plan
+
+| # | Voucher type | Daily test case |
+|---|-------------|-----------------|
+| 1 | Contribution-Regular | Contribution Check (2 Funds) |
+| 2 | Contribution-Regular | AIP (1 Fund) |
+| 3 | Contribution-Regular | EBT (3 Funds) |
+| 4 | Contribution-Employer | Payroll (3 Funds) |
+| 5 | Contribution-Web Bill Pay | ePay (2 Funds) |
+
+#### CSR Multiple Contribution — 2 scenarios/plan
+
+| # | Daily test case |
+|---|-----------------|
+| 1 | Multiple Beneficiary By Alloc |
+| 2 | 3 Contributions to Same Account |
+
+#### CSR Fee Entry — 4 scenarios/plan
+
+| # | Fee type | Daily test case |
+|---|----------|-----------------|
+| 1 | Standing Alloc | Annual Account Fee |
+| 2 | Standing Alloc | Low Balance Fee |
+| 3 | Specified Fund | Annual Account Fee |
+| 4 | Specified Fund | Low Balance Fee |
+
+### Broader functional inventory (what the team automated)
+
+Beyond `@dailyrun`, the feature files include **`@functionalrun`** examples for on-demand/full regression:
+
+| Feature | `@dailyrun` | `@functionalrun` | CSV test-case rows |
+|---------|------------:|-----------------:|-------------------:|
+| CSRSingleContributionRandom | 5 | 15 | 19 |
+| CSRMultipleContributions | 2 | 4 | 5 |
+| FeeEntry | 4 | 24 (12 Standing + 12 Specified) | 24 |
+| **Total test definitions** | **11 daily** | **43 functional** | **48** |
+
+### Plan branding (traunch parameter)
+
+| TestNG test name | Traunch | Plan |
+|------------------|---------|------|
+| COD - CSR * | `cod` | Colorado Direct |
+| NYD - CSR * | `nyd` | New York Direct |
+| NY Advisor - CSR * | `nya` | New York Advisor |
+
+Each scenario runs **once per plan** — same feature file, different `traunch` parameter in `stage1-csr-actions.xml`.
+
+### Pipeline next step
+
+Add Ant target to `build.xml` (e.g. `stage1-csr-actions-regression`) and include in `STAGE1-Daily-Unite-Prime-Regression` Jenkins job script — same pattern as `stage1-csr-acct-maintenance-regression`.
+
+---
+
 ## Additional V2 jobs
 
 | Job | Schedule | Purpose |
 |-----|----------|---------|
+| `STAGE1-Daily-Unite-Prime-Regression` | Mon–Fri 12 AM | Full nightly (592 methods in Aug 4 snapshot) |
+| `stage1-csr-actions.xml` | **Pending pipeline wire** | CSR Actions — 33 scenarios (11/plan × 3 plans) |
 | `STAGE1-Daily-Empower-Regression` | Mon–Fri 2 AM | Empower plan conversion suite (75 methods) |
 | `STAGE5-Unite-Prime-SmokeTest` | On-demand | Stage 5 smoke (Swapnil — QA-773) |
 | `STAGE1-Unite-Prime-Regression-SmokeTest` | On-demand | Fast smoke subset |
@@ -80,3 +164,5 @@ QA-1275 **"Update and Remove V2 Regression"** (Jul 2026) intentionally removed o
 
 - HTML reports: `programs/leadership-updates-legacy/AMSquad_OverallUpdate/V2 reports - 08042026/`
 - Jenkins config: `evidence/jenkins/stage1-daily-unite-prime-regression.txt`
+- CSR Actions suite: `unite-test-automation/unite/bin/regression/daily/stage1-csr-actions.xml`
+- CSR feature files: `unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/contributions/feature/` and `.../fee/feature/FeeEntry.feature`

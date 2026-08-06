@@ -58,9 +58,26 @@ Priti defined and rolled out:
 
 ---
 
-## IDP login resources (JEA / proxy server)
+## IDP server — auth & Pixie flow (Q2 2026)
 
-Baseline perf tests created for IDP-related flows on JEA proxy server — supports cross-team IDP validation initiative.
+IDP authentication and Pixie flow performance test cases delivered in Q2 and added to the Jenkins weekday regression suite:
+
+- IDP login resources
+- Auth server delay
+- IDP forgot username / forgot password
+- Legacy non-IDP login (companion baseline)
+
+---
+
+## Jahia (Jia) proxy — server patch validation (1 week)
+
+Separate emergency from **Arun** (platform team) — validate Jahia proxy server patch impact on post-login banner/dashboard pages:
+
+- JMeter + Taurus scripts for IDP login → post-login page flows
+- Pre/post patch BlazeMeter baselines on stage1
+- **1 week** turnaround (late Jul 2026)
+
+KB: `programs/Performance Testing/IDPLogin/`
 
 ---
 

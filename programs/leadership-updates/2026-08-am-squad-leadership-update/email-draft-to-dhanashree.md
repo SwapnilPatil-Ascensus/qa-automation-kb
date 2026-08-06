@@ -10,6 +10,11 @@ Sharing the AM Squad leadership update for Michael Blake and the broader VP/dire
 
 **Repository location:** `programs/leadership-updates/2026-08-am-squad-leadership-update/` in qa-automation-kb
 
+**VP-ready attachments (generated):**
+- `deliverables/AM-Squad-Leadership-Update-Aug2026.pptx` — presentation deck
+- `deliverables/AM-Squad-Leadership-Briefing-Aug2026.docx` — briefing document
+- `05-vp-one-pager.md` — 2-minute executive read
+
 ---
 
 ## TL;DR
@@ -18,7 +23,7 @@ AM Squad delivered across **six tracks** simultaneously — not just V2/V3 regre
 
 | Track | Headline |
 |-------|----------|
-| **Unite MSC API** | Rescued stalled project; **96% Mobile 2 endpoint coverage** in ~50% of original ETA using AI-accelerated migration |
+| **Unite MSC API** | Rescued stalled project; **100% Mobile 2 endpoint coverage (25/25)** in ~50% of original ETA using AI-accelerated migration |
 | **V2 UI** | **592 test methods** across 12 nightly modules; added missing CSR suites (fee entry, contributions, authorize agent, etc.) |
 | **V3 UP** | **26 MRs** — entity registration, IDP open account, withdrawal suites; GitLab nightly operational |
 | **Performance** | IDP + legacy login + MSC baselines in Jenkins regression; barcode SYN-443 delivered in **1 week** |
@@ -33,8 +38,8 @@ AM Squad delivered across **six tracks** simultaneously — not just V2/V3 regre
 
 - **116** GitLab MRs merged (peak: 34 in June, 33 in July)
 - **592** V2 nightly test methods (Stage1, 12 modules)
-- **24/25** Mobile 2 API endpoints automated (96%)
-- **18/27** Mobile 1 API endpoints automated (67%)
+- **25/25** Mobile 2 API endpoints automated (**100%** — destructive flows in smoke/module suites)
+- **~25/29** Mobile 1 core endpoints automated (**~86%** — optional health/docs excluded)
 - **6+** performance scenarios in Jenkins regression suite
 - **~80%** of monthly release validations now automated (was 17 FTE → 2 FTE)
 
