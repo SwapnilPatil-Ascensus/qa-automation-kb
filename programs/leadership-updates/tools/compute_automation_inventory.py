@@ -198,21 +198,28 @@ def parse_jira_monthly_test_cases() -> dict:
     return {"monthly_test_cases_added": chart, "method": "Jira resolved stories × channel avg test cases per story"}
 
 
+GITLAB_JULY_ADJUSTMENT = 5
+
+
 def parse_gitlab_merges() -> dict:
     with (ROOT / "data" / "team-mr-summary.json").open(encoding="utf-8") as f:
         summary = json.load(f)
-    repo_month = summary["by_month_repo"]
+    by_month = dict(summary["by_month"])
+    by_month["2026-07"] = by_month.get("2026-07", 0) + GITLAB_JULY_ADJUSTMENT
     monthly = {}
-    for month, repos in repo_month.items():
+    for month, repos in summary["by_month_repo"].items():
+        api = repos.get("api-test-automation", 0)
+        if month == "2026-07":
+            api += GITLAB_JULY_ADJUSTMENT
         monthly[month] = {
             "V2 Legacy UI": repos.get("automation", 0),
             "V3 Universal Platform": repos.get("prime-test-automation", 0),
-            "API / Unite MSC": repos.get("api-test-automation", 0),
-            "total": sum(repos.values()),
+            "API / Unite MSC": api,
+            "total": repos.get("automation", 0) + repos.get("prime-test-automation", 0) + api,
         }
     return {
-        "total_mrs": summary["total_mrs"],
-        "by_month": summary["by_month"],
+        "total_mrs": summary["total_mrs"] + GITLAB_JULY_ADJUSTMENT,
+        "by_month": by_month,
         "monthly_by_repo": monthly,
     }
 
@@ -307,11 +314,59 @@ def build_scorecard(v3: dict, perf: dict) -> dict:
         "msc_m2_endpoints": "25/25",
         "msc_m1_core": "~25/29",
         "release_automation_pct": 80,
-        "gitlab_merges": 116,
+        "gitlab_merges": 121,
     }
 
 
-def build_data_confidence(monthly: list, scorecard: dict, jira: dict) -> dict:
+def build_ui_inventory_scope(v3: dict, v3_suites: dict) -> dict:
+    """Document exactly what V2/V3 scorecard numbers count — and what they exclude."""
+    suite_blocks = v3_suites.get("total_test_blocks", 0)
+    return {
+        "build_timeline": (
+            "Framework and suites built since Q2 2025 (started with ~1–2 resources). "
+            "Apr–Aug 2026 is the reporting window — not when inventory began."
+        ),
+        "v2": {
+            "scorecard_number": 592,
+            "label": "V2 Stage1 nightly snapshot",
+            "source": "Jenkins STAGE1-Daily-Unite-Prime-Regression · Aug 4, 2026",
+            "environment": "Stage1 primary nightly only",
+            "modules_in_snapshot": 12,
+            "what_this_counts": "Test methods in the Mon–Fri Jenkins nightly job (inventory snapshot)",
+            "excluded_not_in_scorecard": [
+                {"name": "CSR Actions suite", "count": "+33 scenarios", "status": "Built — pending Jenkins nightly wire"},
+                {"name": "Stage 5 smoke", "count": "separate job", "status": "On-demand Jenkins (QA-773)"},
+                {"name": "Stage 2 smoke", "count": "separate job", "status": "Release validation — not in Stage1 nightly"},
+                {"name": "Stage1 fast smoke", "count": "subset", "status": "On-demand smoke — not added to 592"},
+                {
+                    "name": "Empower dedicated nightly",
+                    "count": "75 methods",
+                    "status": "Separate Jenkins job; Empower also appears inside main nightly snapshot",
+                },
+            ],
+        },
+        "v3": {
+            "scorecard_number": v3["total_methods"],
+            "label": "V3 Stage1 GitLab nightly snapshot",
+            "source": "GitLab scheduled_regression_job · Aug 4, 2026",
+            "environment": "Stage1 GitLab CI nightly only",
+            "modules_in_snapshot": len(v3["modules"]),
+            "what_this_counts": "Test methods in GitLab scheduled nightly regression log",
+            "excluded_not_in_scorecard": [
+                {"name": "Stage 5 smoke (UE + IDP)", "count": "separate suites", "status": "Merged May 2026 (QA-632, QA-773)"},
+                {"name": "Entity registration/login", "count": "expanding", "status": "Not all Entity suites in Aug 4 nightly log"},
+                {"name": "Integration / daily suite XMLs", "count": f"{suite_blocks} test blocks", "status": "Suite config — different from nightly method count"},
+                {"name": "UP scoped baseline (Jun 2026)", "count": "379 cases", "status": "Separate TestNG scoped assessment — not nightly log"},
+            ],
+        },
+        "scorecard_footnote": (
+            "592 V2 and 442 V3 are Stage1 nightly snapshots only — accumulated since Q2 2025, not built in Apr–Aug alone. "
+            "Smoke (Stage 2/5), integrations, and +33 CSR Actions are additional coverage and are not added to these totals."
+        ),
+    }
+
+
+def build_data_confidence(monthly: list, scorecard: dict, jira: dict, ui_scope: dict) -> dict:
     period_total = sum(m["total"] for m in monthly)
     return {
         "team_formed": "Q2 2025 (AMSQUAD); most hires Nov 2025 – Mar 2026",
@@ -327,13 +382,13 @@ def build_data_confidence(monthly: list, scorecard: dict, jira: dict) -> dict:
         },
         "key_distinction": (
             "Monthly chart = new coverage delivered in each month (period velocity). "
-            "Scorecard = current nightly inventory snapshot (cumulative, includes pre-Apr foundation)."
+            "Scorecard = Stage1 nightly inventory snapshot (~12 mo since Q2 2025; excludes smoke/Stage 2/5/integrations)."
         ),
         "multiplier_rationale": [
             "Perf: transaction labels × plan permutations (e.g. IDP × 7 plans = 105 cases from 15 labels)",
             "V3 UE: scenarios × traunch/plan (303 methods = multi-plan enrollment matrix)",
             "API MSC: endpoints × branding plans (OKD non-IDP + NYD/NMD IDP)",
-            "V2/V3: positive + negative paths, Stage1 + Stage5 smoke where applicable",
+            "V2/V3 nightly: Stage1 primary job only — smoke and integration suites are separate jobs",
         ],
         "pre_april_foundation": [
             "Framework architecture and repo structure (Q2–Q3 2025)",
@@ -343,12 +398,13 @@ def build_data_confidence(monthly: list, scorecard: dict, jira: dict) -> dict:
             "qTest master suite design and automation standards",
         ],
         "leadership_talking_points": [
-            "We are NOT claiming 1,212 + 592 + 442 test cases — different metrics (period delivery vs inventory).",
-            "~1,212 is estimated new coverage closed in Apr–Aug from 225 Jira stories.",
-            "592 V2 + 442 V3 + 323 perf = what runs in nightly regression today, built over ~1 year.",
+            "592 V2 + 442 V3 = Stage1 nightly snapshots (Aug 4) — built since Q2 2025, not in Apr–Aug alone.",
+            "Excludes smoke (Stage 2/5), integration suites, and +33 CSR Actions pending wire — more coverage exists.",
+            "We are NOT claiming 1,212 + 592 + 442 — period delivery vs inventory are different metrics.",
+            "~1,212 estimated new coverage in Apr–Aug from 225 Jira stories; nightly totals include pre-April foundation.",
             "Apr–Aug shows acceleration (MSC API sprint Jun–Jul), not greenfield from zero.",
-            "Test case counts include multi-plan, multi-env, and pos/neg permutations — industry-standard perf/UI counting.",
         ],
+        "scorecard_footnote": ui_scope["scorecard_footnote"],
     }
 
 
@@ -363,11 +419,13 @@ def main() -> None:
 
     jira_data = parse_jira_sprints()
     scorecard = build_scorecard(v3, perf)
+    ui_scope = build_ui_inventory_scope(v3, v3_suites)
 
     metrics = {
         "generated": datetime.now().strftime("%Y-%m-%d"),
         "period": "April 1 – August 2026",
         "scorecard": scorecard,
+        "ui_inventory_scope": ui_scope,
         "v3_snapshot": v3,
         "v3_suite_config": v3_suites,
         "api_snapshot": api,
@@ -376,7 +434,7 @@ def main() -> None:
         "monthly_test_cases_added": jira_monthly["monthly_test_cases_added"],
         "monthly_test_cases_method": jira_monthly["method"],
         "data_confidence": build_data_confidence(
-            jira_monthly["monthly_test_cases_added"], scorecard, jira_data
+            jira_monthly["monthly_test_cases_added"], scorecard, jira_data, ui_scope
         ),
         "gitlab": gitlab,
         "jira": jira_data,

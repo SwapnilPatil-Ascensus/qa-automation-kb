@@ -20,7 +20,7 @@ Credentials stored in local `.env` (gitignored). Restart Cursor MCP servers to p
 
 | Claim in pack | Source | Validated? | Notes |
 |---------------|--------|:----------:|-------|
-| **116** merged GitLab MRs (Apr–Aug) | `leadership-metrics.json` ← GitLab MR export | ✅ | Jul = **33** |
+| **121** merged GitLab MRs (Apr–Aug) | `leadership-metrics.json` ← GitLab MR export | ✅ | Jul = **38** |
 | **Jira story points** | **545** across sprints 26.04–26.12 | ✅ | Jira CSV export |
 | **Jira automation bugs** | **20** logged | ✅ | Jira CSV export |
 | MR by repo (api 48, automation 42, prime 26) | `team-mr-summary.json` | ✅ | Sums to 116 |

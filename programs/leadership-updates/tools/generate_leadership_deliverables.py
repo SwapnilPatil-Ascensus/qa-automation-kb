@@ -1,65 +1,64 @@
 #!/usr/bin/env python3
-"""Generate VP-grade leadership briefing DOCX + PPTX — no local repo references."""
+"""Generate modern leadership briefing DOCX + classic-path PPTX (does not touch Executive/Detailed decks)."""
 
 from __future__ import annotations
 
-import json
 from datetime import datetime
 from pathlib import Path
 
 from docx import Document
+from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Inches, Pt, RGBColor
-from pptx import Presentation
-from pptx.dml.color import RGBColor as PptRGB
-from pptx.enum.text import PP_ALIGN
-from pptx.util import Inches as PptInches
-from pptx.util import Pt as PptPt
 
-ROOT = Path(__file__).resolve().parents[1] / "2026-08-am-squad-leadership-update"
-METRICS = ROOT / "data" / "leadership-metrics.json"
-CHARTS = ROOT / "assets" / "charts"
-DELIVERABLES = ROOT / "deliverables"
+from leadership_design import (
+    CHARTS,
+    DELIVERABLES,
+    DOCX_CORAL,
+    DOCX_CYAN,
+    DOCX_INK,
+    DOCX_INSIGHT,
+    DOCX_MUTED,
+    DOCX_NAVY,
+    DOCX_SURFACE,
+    DOCX_TEAL,
+    DOCX_TEXT,
+    DOCX_VIOLET,
+    REFS,
+    SUBTITLE,
+    TITLE,
+    add_footer,
+    add_header,
+    load_metrics,
+    new_presentation,
+    slide_bullets_modern,
+    slide_chart_insight,
+    slide_close,
+    slide_hero,
+    slide_kpi_dashboard,
+    slide_section_modern,
+)
+
 DOCX_OUT = DELIVERABLES / "AM-Squad-Leadership-Briefing-Aug2026.docx"
 PPTX_OUT = DELIVERABLES / "AM-Squad-Leadership-Update-Aug2026.pptx"
 
-TITLE = "QA Automation — AM Squad Leadership Update"
-SUBTITLE = "April – August 2026"
-VERSION = "August 2026"
+# Protected — never overwrite from this script
+PROTECTED = {
+    DELIVERABLES / "AM-Squad-Leadership-Executive-Glimpse-Aug2026.pptx",
+    DELIVERABLES / "AM-Squad-Leadership-Detailed-Modern-Aug2026.pptx",
+}
 
-NAVY = RGBColor(0x00, 0x32, 0x41)
-TEAL = RGBColor(0x02, 0x6B, 0x84)
-PEAK = RGBColor(0x00, 0x9E, 0x86)
-GRAY = RGBColor(0x47, 0x55, 0x69)
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
-
-PPT_NAVY = PptRGB(0x00, 0x32, 0x41)
-PPT_TEAL = PptRGB(0x05, 0xA2, 0xC6)
-PPT_PEAK = PptRGB(0x00, 0x9E, 0x86)
-PPT_WHITE = PptRGB(0xFF, 0xFF, 0xFF)
-PPT_TEXT = PptRGB(0x1E, 0x29, 0x3B)
-PPT_MUTED = PptRGB(0x64, 0x74, 0x8B)
-
-REFS = [
-    ("Jira — QA Automation project", "https://ascensuscollegesavings.atlassian.net/jira/software/projects/QA"),
-    ("GitLab — api-test-automation", "https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation"),
-    ("GitLab — unite-test-automation (V2)", "https://gitlab.com/ascensus-gs/products/depot/qa-automation/automation"),
-    ("GitLab — prime-test-automation (V3)", "https://gitlab.com/ascensus-gs/products/depot/qa-automation/prime-test-automation"),
-    ("qTest — Automation Unite", "https://ascensus.qtestnet.com"),
-    ("Jenkins — QA performance & nightly regression", "jenkinsqant1 (internal QA Jenkins)"),
-]
-
-
-def load_metrics() -> dict:
-    with METRICS.open(encoding="utf-8") as f:
-        return json.load(f)
+GRAY = RGBColor(0x64, 0x74, 0x8B)
+NAVY = RGBColor(0x00, 0x32, 0x41)
+TEAL = RGBColor(0x00, 0xB3, 0x88)
 
 
 # ── DOCX helpers ──────────────────────────────────────────────────────────────
 
-def set_cell_shading(cell, fill_hex: str) -> None:
+def shade_cell(cell, fill_hex: str) -> None:
     tc = cell._tc
     tc_pr = tc.get_or_add_tcPr()
     shd = OxmlElement("w:shd")
@@ -68,10 +67,138 @@ def set_cell_shading(cell, fill_hex: str) -> None:
     tc_pr.append(shd)
 
 
+def set_cell_margins(cell, top=80, start=120, bottom=80, end=120) -> None:
+    tc = cell._tc
+    tc_pr = tc.get_or_add_tcPr()
+    mar = OxmlElement("w:tcMar")
+    for side, val in (("top", top), ("start", start), ("bottom", bottom), ("end", end)):
+        el = OxmlElement(f"w:{side}")
+        el.set(qn("w:w"), str(val))
+        el.set(qn("w:type"), "dxa")
+        mar.append(el)
+    tc_pr.append(mar)
+
+
+def styled_run(paragraph, text: str, *, bold=False, size=11, color: RGBColor | None = None, italic=False):
+    run = paragraph.add_run(text)
+    run.bold = bold
+    run.italic = italic
+    run.font.size = Pt(size)
+    run.font.name = "Segoe UI"
+    if color:
+        run.font.color.rgb = color
+    return run
+
+
+def add_section_banner(doc: Document, number: str, title: str, subtitle: str = "") -> None:
+    table = doc.add_table(rows=1, cols=2)
+    table.alignment = WD_TABLE_ALIGNMENT.LEFT
+    left, right = table.rows[0].cells
+    shade_cell(left, DOCX_CYAN)
+    left.width = Cm(0.5)
+    set_cell_margins(left, 40, 40, 40, 40)
+    shade_cell(right, DOCX_INK)
+    set_cell_margins(right)
+    p = right.paragraphs[0]
+    styled_run(p, f"{number}  ", bold=True, size=10, color=TEAL)
+    styled_run(p, title, bold=True, size=16, color=WHITE)
+    if subtitle:
+        p2 = right.add_paragraph()
+        styled_run(p2, subtitle, size=10, color=GRAY)
+    doc.add_paragraph()
+
+
+def add_callout(doc: Document, title: str, bullets: list[str]) -> None:
+    table = doc.add_table(rows=1, cols=2)
+    left, right = table.rows[0].cells
+    shade_cell(left, DOCX_TEAL)
+    left.width = Cm(0.35)
+    shade_cell(right, DOCX_INSIGHT)
+    set_cell_margins(right)
+    p = right.paragraphs[0]
+    styled_run(p, title, bold=True, size=11, color=NAVY)
+    for b in bullets:
+        bp = right.add_paragraph()
+        styled_run(bp, f"• {b}", size=10, color=RGBColor(0x1A, 0x23, 0x32))
+    doc.add_paragraph()
+
+
+def add_chart_section(
+    doc: Document,
+    heading: str,
+    chart_name: str,
+    caption: str,
+    takeaways: list[str],
+) -> None:
+    """Standard executive layout: heading → narrative chart → caption → takeaways."""
+    doc.add_heading(heading, level=2)
+    path = CHARTS / chart_name
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    if path.exists():
+        p.add_run().add_picture(str(path), width=Inches(6.4))
+    else:
+        styled_run(p, f"[Chart: {chart_name}]", italic=True, color=GRAY)
+    cap = doc.add_paragraph()
+    cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    styled_run(cap, caption, italic=True, size=9, color=GRAY)
+    doc.add_paragraph()
+    styled_run(doc.add_paragraph(), "Key takeaways", bold=True, size=10, color=NAVY)
+    for item in takeaways:
+        doc.add_paragraph(item, style="List Bullet")
+    doc.add_paragraph()
+
+
+def add_exec_summary_table(doc: Document, m: dict) -> None:
+    sc = m["scorecard"]
+    j = m["jira"]["totals"]
+    dc = m.get("data_confidence", {})
+    perf_base = sum(a["labels"] for a in m["perf_inventory"]["areas"])
+    rows = [
+        ("GitLab merges to main", str(sc["gitlab_merges"]), "Apr–Aug 2026 · 3 repositories"),
+        ("Jira story points delivered", f"{j['story_points']:.0f}", "AMSQUAD Sprints 26.04–26.12"),
+        ("Automation bugs discovered", str(j["automation_bugs_logged"]), "Logged via regression triage"),
+        ("V2 Stage1 nightly methods", str(sc["v2_nightly_methods"]), "Jenkins nightly · Aug 4 · ~12 mo build"),
+        ("V3 Stage1 nightly methods", str(sc["v3_nightly_methods"]), "GitLab CI nightly · Aug 4 snapshot"),
+        ("Performance test cases", str(sc["perf_test_cases"]), f"{perf_base} base flows × plan matrix"),
+        ("MSC Mobile 2 / M1 core", f"{sc['msc_m2_endpoints']} · {sc['msc_m1_core']}", "api-test-automation"),
+        ("Period delivery (Apr–Aug)", str(dc.get("period_delivery_estimate", "—")), "Estimated new coverage"),
+        ("Release automation", f"~{sc['release_automation_pct']}%", "17 FTE → 2 FTE equivalent"),
+    ]
+    add_data_table(doc, ["Metric", "Value", "Context"], rows)
+
+
+def add_data_table(doc: Document, headers: list[str], rows: list[list[str]], header_fill: str = DOCX_NAVY) -> None:
+    table = doc.add_table(rows=1, cols=len(headers))
+    table.style = "Table Grid"
+    for i, h in enumerate(headers):
+        c = table.rows[0].cells[i]
+        c.text = h
+        shade_cell(c, header_fill)
+        for run in c.paragraphs[0].runs:
+            run.font.color.rgb = WHITE
+            run.font.bold = True
+            run.font.size = Pt(9)
+    for row in rows:
+        cells = table.add_row().cells
+        for i, val in enumerate(row):
+            cells[i].text = val
+            for run in cells[i].paragraphs[0].runs:
+                run.font.size = Pt(9)
+    doc.add_paragraph()
+
+
 def add_toc(doc: Document) -> None:
-    doc.add_heading("Table of Contents", 1)
+    doc.add_heading("Contents", 1)
     p = doc.add_paragraph()
     run = p.add_run()
+    for el in (
+        OxmlElement("w:fldChar"),
+        OxmlElement("w:instrText"),
+        OxmlElement("w:fldChar"),
+        OxmlElement("w:fldChar"),
+    ):
+        pass
     fld_begin = OxmlElement("w:fldChar")
     fld_begin.set(qn("w:fldCharType"), "begin")
     instr = OxmlElement("w:instrText")
@@ -85,80 +212,64 @@ def add_toc(doc: Document) -> None:
     run._r.append(instr)
     run._r.append(fld_sep)
     run._r.append(fld_end)
-    note = doc.add_paragraph("Right-click Table of Contents → Update Field in Word to refresh page numbers.")
-    note.runs[0].italic = True
-    note.runs[0].font.size = Pt(9)
-    note.runs[0].font.color.rgb = GRAY
+    note = doc.add_paragraph()
+    styled_run(note, "Right-click Contents → Update Field in Word to refresh page numbers.", italic=True, size=9, color=GRAY)
+    doc.add_page_break()
+
+
+def add_cover(doc: Document) -> None:
+    """Clean corporate cover — title block + metadata table."""
+    doc.add_paragraph()
+    t = doc.add_paragraph()
+    t.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    styled_run(t, TITLE, bold=True, size=24, color=NAVY)
+    s = doc.add_paragraph()
+    styled_run(s, SUBTITLE, size=14, color=TEAL)
+    doc.add_paragraph()
+    meta = doc.add_table(rows=4, cols=2)
+    meta.style = "Table Grid"
+    fields = [
+        ("Prepared by", "QA Automation — AM Squad"),
+        ("Reporting period", SUBTITLE),
+        ("Version", datetime.now().strftime("%B %Y")),
+        ("Classification", "Internal — Leadership distribution"),
+    ]
+    for i, (label, value) in enumerate(fields):
+        shade_cell(meta.rows[i].cells[0], DOCX_SURFACE)
+        meta.rows[i].cells[0].text = label
+        meta.rows[i].cells[1].text = value
+        for run in meta.rows[i].cells[0].paragraphs[0].runs:
+            run.font.bold = True
+            run.font.size = Pt(10)
+        for run in meta.rows[i].cells[1].paragraphs[0].runs:
+            run.font.size = Pt(10)
     doc.add_page_break()
 
 
 def add_header_footer(doc: Document) -> None:
     for section in doc.sections:
-        section.top_margin = Cm(2.0)
-        section.bottom_margin = Cm(2.2)
-        section.left_margin = Cm(2.5)
-        section.right_margin = Cm(2.5)
+        section.top_margin = Cm(1.8)
+        section.bottom_margin = Cm(1.8)
+        section.left_margin = Cm(2.2)
+        section.right_margin = Cm(2.2)
         header = section.header
         hp = header.paragraphs[0] if header.paragraphs else header.add_paragraph()
-        hp.text = f"{TITLE}  |  {VERSION}"
-        hp.runs[0].font.size = Pt(8)
-        hp.runs[0].font.color.rgb = GRAY
+        hp.text = ""
+        styled_run(hp, f"{TITLE}  |  {SUBTITLE}", size=8, color=GRAY)
         footer = section.footer
         fp = footer.paragraphs[0] if footer.paragraphs else footer.add_paragraph()
         fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        run = fp.add_run(f"QA Automation AM Squad  ·  {SUBTITLE}  ·  Page ")
-        run.font.size = Pt(8)
-        run.font.color.rgb = GRAY
-        fld = OxmlElement("w:fldChar")
-        fld.set(qn("w:fldCharType"), "begin")
+        styled_run(fp, f"QA Automation AM Squad  ·  Confidential  ·  Page ", size=8, color=GRAY)
+        fld_begin = OxmlElement("w:fldChar")
+        fld_begin.set(qn("w:fldCharType"), "begin")
         instr = OxmlElement("w:instrText")
         instr.text = "PAGE"
-        fld2 = OxmlElement("w:fldChar")
-        fld2.set(qn("w:fldCharType"), "end")
-        run2 = fp.add_run()
-        run2._r.append(fld)
-        run2._r.append(instr)
-        run2._r.append(fld2)
-
-
-def add_scorecard_table(doc: Document, m: dict) -> None:
-    sc = m["scorecard"]
-    j = m["jira"]["totals"]
-    rows = [
-        ("GitLab merges to main", str(sc["gitlab_merges"]), "GitLab MR export Apr–Aug 2026"),
-        ("Jira story points delivered", str(j["story_points"]), "Sprints 26.04–26.12"),
-        ("Jira work items closed", str(j["work_items_in_sprints"]), "Stories, tasks, spikes"),
-        ("Automation bugs found", str(j["automation_bugs_logged"]), "Logged via automation triage"),
-        ("V2 nightly test methods", str(sc["v2_nightly_methods"]), "Stage1 Jenkins nightly"),
-        ("V3 nightly test methods", str(sc["v3_nightly_methods"]), "GitLab nightly Aug 4 snapshot"),
-        ("Performance test cases", str(sc["perf_test_cases"]), "Transaction labels × plan permutations"),
-        ("MSC Mobile 2 endpoints", sc["msc_m2_endpoints"], "100% business scope"),
-        ("MSC Mobile 1 core endpoints", sc["msc_m1_core"], "Excludes optional health/docs"),
-        ("Release automation", f"~{sc['release_automation_pct']}%", "Was 17 FTE → 2 FTE equivalent"),
-        ("Perf regression scenarios", str(sc["perf_test_cases"]), "Transaction labels × plans"),
-    ]
-    table = doc.add_table(rows=1, cols=3)
-    table.style = "Table Grid"
-    hdr = table.rows[0].cells
-    for i, label in enumerate(["Metric", "Value", "Notes"]):
-        hdr[i].text = label
-        set_cell_shading(hdr[i], "003241")
-        hdr[i].paragraphs[0].runs[0].font.color.rgb = WHITE
-        hdr[i].paragraphs[0].runs[0].bold = True
-    for metric, value, note in rows:
-        row = table.add_row().cells
-        row[0].text = metric
-        row[1].text = value
-        row[2].text = note
-
-
-def add_chart(doc: Document, title: str, chart_name: str) -> None:
-    doc.add_heading(title, 2)
-    path = CHARTS / chart_name
-    if path.exists():
-        doc.add_picture(str(path), width=Inches(6.2))
-    else:
-        doc.add_paragraph(f"[Chart: {chart_name}]")
+        fld_end = OxmlElement("w:fldChar")
+        fld_end.set(qn("w:fldCharType"), "end")
+        r = fp.add_run()
+        r._r.append(fld_begin)
+        r._r.append(instr)
+        r._r.append(fld_end)
 
 
 def build_docx(m: dict) -> None:
@@ -168,386 +279,330 @@ def build_docx(m: dict) -> None:
     style.font.name = "Segoe UI"
     style.font.size = Pt(11)
 
-    # Cover
-    for _ in range(6):
-        doc.add_paragraph()
-    cover = doc.add_paragraph(TITLE)
-    cover.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    cover.runs[0].font.size = Pt(28)
-    cover.runs[0].font.bold = True
-    cover.runs[0].font.color.rgb = NAVY
-    sub = doc.add_paragraph(SUBTITLE)
-    sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    sub.runs[0].font.size = Pt(16)
-    sub.runs[0].font.color.rgb = TEAL
-    org = doc.add_paragraph("QA Automation — AM Squad")
-    org.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    org.runs[0].font.size = Pt(12)
-    org.runs[0].font.color.rgb = GRAY
-    doc.add_page_break()
-
+    add_cover(doc)
     add_header_footer(doc)
     add_toc(doc)
 
-    # 1 Executive summary
-    doc.add_heading("1. Executive Summary", 1)
-    doc.add_paragraph(
-        "The QA Automation AM Squad operates across six parallel channels — V2 Legacy UI, V3 Universal "
-        "Platform, API/Unite MSC, performance testing, pipeline/CI integration, and department-wide standards. "
-        "Delivery metrics alone understate impact: framework architecture, AI-accelerated migration, "
-        "cross-team emergency support, and release-cycle transformation represent the majority of business value."
-    )
-    add_scorecard_table(doc, m)
-
-    # 2 Delivery velocity
-    doc.add_heading("2. Delivery Velocity", 1)
-    doc.add_paragraph(
-        "GitLab merge activity peaked in June–July 2026 during the Unite MSC API sprint."
-    )
-    add_chart(doc, "GitLab merges by repository", "01-gitlab-mrs-by-month.png")
-    add_chart(doc, "Monthly automation test cases added", "08-monthly-automation-test-cases-added.png")
-
-    # 3 Jira
-    doc.add_heading("3. Jira Sprint Delivery", 1)
+    sc = m["scorecard"]
     j = m["jira"]
-    doc.add_paragraph(
-        f"Across AMSQUAD Sprints 26.04 through 26.12, the squad closed {j['totals']['work_items_in_sprints']} "
-        f"work items totaling {j['totals']['story_points']:.0f} story points. "
-        f"{j['totals']['automation_bugs_logged']} automation-discovered defects were logged for triage."
-    )
-    add_chart(doc, "Story points by sprint", "09-jira-story-points-by-sprint.png")
-    add_chart(doc, "Automation bugs by sprint", "10-jira-automation-bugs-by-sprint.png")
-
-    sprint_table = doc.add_table(rows=1, cols=6)
-    sprint_table.style = "Table Grid"
-    hdr = ["Sprint", "Work Items", "Stories", "Spikes", "Bugs", "Story Points"]
-    for i, h in enumerate(hdr):
-        sprint_table.rows[0].cells[i].text = h
-        set_cell_shading(sprint_table.rows[0].cells[i], "026B84")
-        sprint_table.rows[0].cells[i].paragraphs[0].runs[0].font.color.rgb = WHITE
-    for s in j["sprints"]:
-        row = sprint_table.add_row().cells
-        row[0].text = s["sprint"].replace("AMSQUAD Sprint ", "")
-        row[1].text = str(s["work_items"])
-        row[2].text = str(s["stories"])
-        row[3].text = str(s["spikes"])
-        row[4].text = str(s["bugs"])
-        row[5].text = f"{s['story_points']:.0f}"
-
-    # 4 V2
-    doc.add_heading("4. V2 Legacy UI Automation", 1)
-    doc.add_paragraph(
-        "V2 runs on Jenkins Stage1 nightly (Mon–Fri). The Aug 4 snapshot shows 592 test methods across "
-        "12 modules. CSR maintenance modules (fee entry, contributions, authorize agent) were added Apr–Jul. "
-        "CSR Actions suite adds 33 additional scenarios in the next nightly expansion."
-    )
-    add_chart(doc, "V2 module snapshot", "04-v2-regression-by-module.png")
-
-    # 5 V3
-    doc.add_heading("5. V3 Universal Platform", 1)
+    jt = j["totals"]
+    dc = m.get("data_confidence", {})
+    ui = m.get("ui_inventory_scope", {})
     v3 = m["v3_snapshot"]
-    doc.add_paragraph(
-        f"V3 GitLab nightly regression runs {v3['total_methods']} test methods across "
-        f"{len(v3['modules'])} modules (Aug 4 snapshot). Universal Enrollment (303), "
-        f"IDP Login (56), Contributions (36), Withdrawals (20), and more."
-    )
-    add_chart(doc, "V3 module snapshot", "11-v3-regression-by-module.png")
+    perf_base = sum(a["labels"] for a in m["perf_inventory"]["areas"])
 
-    # 6 API MSC
-    doc.add_heading("6. API / Unite MSC", 1)
+    # ── Executive Summary ─────────────────────────────────────────────────────
+    doc.add_heading("Executive Summary", level=1)
     doc.add_paragraph(
-        "Mobile 2 API automation is complete at 25/25 endpoints. "
-        "Mobile 1 is at ~25/29 core endpoints. The project was rescued using AI-assisted migration delivering "
-        "~50% schedule compression versus the original ETA."
+        "The QA Automation AM Squad delivers across six parallel channels — V2 Legacy UI, V3 Universal "
+        "Platform, API/Unite MSC, performance testing, pipeline/CI, and department standards. This briefing "
+        "covers Apr–Aug 2026 delivery within a ~12-month team build (squad formed Q2 2025)."
     )
-    add_chart(doc, "MSC endpoint coverage", "05-unite-msc-coverage.png")
-    add_chart(doc, "API module snapshot", "13-api-regression-by-module.png")
+    headlines = [
+        f"{sc['gitlab_merges']} GitLab merges to main across three automation repositories (peak Jun–Jul MSC sprint)",
+        f"{jt['story_points']:.0f} Jira story points · {jt['work_items_in_sprints']} work items · {jt['automation_bugs_logged']} automation bugs logged",
+        f"Stage1 nightly inventory: V2 {sc['v2_nightly_methods']} + V3 {sc['v3_nightly_methods']} methods "
+        f"(built since Q2 2025; excludes smoke/Stage 2/5/integrations); perf {sc['perf_test_cases']} plan-expanded cases",
+        f"Unite MSC rescued — M2 {sc['msc_m2_endpoints']} endpoints, M1 {sc['msc_m1_core']} core (~50% ETA savings)",
+        f"~{sc['release_automation_pct']}% release validation automated (17 FTE → 2 FTE equivalent)",
+    ]
+    for h in headlines:
+        doc.add_paragraph(h, style="List Bullet")
+    add_exec_summary_table(doc, m)
+    scope_note = doc.add_paragraph()
+    styled_run(
+        scope_note,
+        ui.get("scorecard_footnote") or dc.get("scorecard_footnote", ""),
+        italic=True,
+        size=9,
+        color=GRAY,
+    )
+    doc.add_page_break()
 
-    # 7 Performance
-    doc.add_heading("7. Performance Testing", 1)
+    # ── 1 Delivery Velocity ───────────────────────────────────────────────────
+    doc.add_heading("1. Delivery Velocity", level=1)
     doc.add_paragraph(
-        f"Performance automation inventory: {m['perf_inventory']['total_test_cases']} test cases "
-        "(business transaction labels × plan permutations). Covers IDP login, auth delay, "
-        "forgot username/password, legacy login, MSC endurance, barcode, and pipeline API profiles."
+        "GitLab merge activity measures code delivery throughput. Monthly automation delivery measures "
+        "estimated new test coverage closed in each month — these are separate metrics and should not be combined."
     )
-    add_chart(doc, "Performance test case inventory", "12-perf-test-case-inventory.png")
+    add_chart_section(
+        doc, "GitLab Merges by Repository", "01-gitlab-mrs-by-month.png",
+        f"Source: GitLab MR export · Apr 1 – Aug 4, 2026 · Total {sc['gitlab_merges']} merges",
+        [
+            f"{sc['gitlab_merges']} merges to main; July peak at 38 merges during MSC API sprint",
+            "Repositories: automation (V2), prime-test-automation (V3), api-test-automation (MSC)",
+            "Merge count is a delivery-velocity metric — not the same as test case inventory",
+        ],
+    )
+    add_chart_section(
+        doc, "Monthly Automation Delivery", "08-monthly-automation-test-cases-added.png",
+        f"Source: Jira AMSQUAD Sprints 26.04–26.12 · ~{dc.get('period_delivery_estimate', 1212)} est. cases Apr–Aug",
+        [
+            "Period delivery estimate — not cumulative nightly inventory",
+            "Counts include multi-plan, multi-environment, and positive/negative permutations",
+            "Pre-April foundation is in nightly totals; this chart shows when work landed",
+        ],
+    )
 
-    # 8 Beyond metrics
-    doc.add_heading("8. Value Beyond Tracked Metrics", 1)
-    beyond = [
+    # ── 2 Jira Sprint Delivery ────────────────────────────────────────────────
+    doc.add_heading("2. Jira Sprint Delivery", level=1)
+    doc.add_paragraph(
+        f"Across AMSQUAD Sprints 26.04–26.12 the squad closed {jt['work_items_in_sprints']} work items "
+        f"({jt['story_points']:.0f} story points) and logged {jt['automation_bugs_logged']} automation-discovered defects."
+    )
+    add_chart_section(doc, "Story Points by Sprint", "09-jira-story-points-by-sprint.png",
+        "Source: Jira AMSQUAD export", ["Sustained sprint delivery across reporting window", "Story points track committed work closed"])
+    add_chart_section(doc, "Automation Bugs by Sprint", "10-jira-automation-bugs-by-sprint.png",
+        "Source: Jira AMSQUAD export", ["Defects found via nightly regression triage", "Fed into automation bug lifecycle standard"])
+    doc.add_heading("Sprint detail", level=2)
+    add_data_table(doc, ["Sprint", "Work Items", "Stories", "Spikes", "Bugs", "SP"],
+        [[s["sprint"].replace("AMSQUAD Sprint ", ""), str(s["work_items"]), str(s["stories"]),
+          str(s["spikes"]), str(s["bugs"]), f"{s['story_points']:.0f}"] for s in j["sprints"]])
+
+    # ── 3 V2 ──────────────────────────────────────────────────────────────────
+    doc.add_heading("3. V2 Legacy UI Automation", level=1)
+    doc.add_paragraph(
+        f"V2 Jenkins Stage1 nightly snapshot: {sc['v2_nightly_methods']} test methods across 12 modules "
+        f"(Aug 4, 2026). This count reflects the primary Mon–Fri nightly job only — built since Q2 2025, "
+        "not delivered in Apr–Aug alone."
+    )
+    doc.add_paragraph(
+        "Not included in 592: Stage 5 smoke, Stage 2 smoke, on-demand fast smoke, and +33 CSR Actions "
+        "scenarios (built — pending Jenkins nightly wire). Empower also runs as a separate dedicated nightly job."
+    )
+    add_chart_section(doc, "V2 Test Methods by Module", "04-v2-regression-by-module.png",
+        "Source: Jenkins STAGE1-Daily-Unite-Prime-Regression · Aug 4, 2026 snapshot",
+        [
+            "592 total methods — Stage1 primary nightly only",
+            "Enrollments largest module (scenario × plan matrix)",
+            "CSR maintenance modules added Apr–Jul on earlier foundation",
+            "+33 CSR Actions scenarios — next expansion (not yet in nightly job)",
+        ],
+    )
+
+    # ── 4 V3 ──────────────────────────────────────────────────────────────────
+    doc.add_heading("4. V3 Universal Platform", level=1)
+    doc.add_paragraph(
+        f"V3 GitLab Stage1 nightly snapshot: {v3['total_methods']} test methods (Aug 4, 2026). "
+        "Framework, CI/CD pipelines, and suites were built since Q2 2025 — Apr–Aug is acceleration, not greenfield."
+    )
+    doc.add_paragraph(
+        "Not included in 442: Stage 5 smoke suites (UE + IDP), integration XML profiles, and Entity suites "
+        "still expanding on a separate GitLab track. Universal Enrollment (303) reflects enrollment scenarios "
+        "multiplied across plan/traunch permutations — not 303 unique manual scripts."
+    )
+    add_chart_section(doc, "V3 Test Methods by Module", "11-v3-regression-by-module.png",
+        "Source: GitLab scheduled_regression_job · Aug 4, 2026 snapshot",
+        [
+            "442 total methods across UE, IDP Login, Web Registration, CSR, Contributions, Withdrawals",
+            "Entity platform suites expanding on a separate GitLab track",
+            "GitLab CI scheduled regression operational",
+        ],
+    )
+    add_data_table(doc, ["Module", "Test Methods", "Notes"],
+        [[mod["module"].replace(" Stage1 Environment", ""), str(mod["methods"]),
+          "Largest module — multi-plan enrollment matrix" if mod["methods"] > 200 else "Functional coverage"]
+         for mod in v3["modules"]], header_fill=DOCX_VIOLET)
+
+    # ── 5 API / MSC ─────────────────────────────────────────────────────────
+    doc.add_heading("5. API / Unite MSC", level=1)
+    doc.add_paragraph(
+        "Mobile 2 API automation is complete at 25/25 endpoints. Mobile 1 is at ~25/29 core endpoints. "
+        "Delivered in approximately half the original ETA using AI-assisted migration."
+    )
+    add_chart_section(doc, "MSC Endpoint Coverage", "05-unite-msc-coverage.png",
+        "Source: api-test-automation repo inventory", [f"M2 {sc['msc_m2_endpoints']} · M1 {sc['msc_m1_core']}", "P0: GitLab nightly scheduling (QA-1405)"])
+    add_chart_section(doc, "API Module Breakdown", "13-api-regression-by-module.png",
+        "Source: api-test-automation repo inventory", ["Auth, profile, biometric, device, bank categories", "M1 master suite in progress"])
+
+    # ── 6 Performance ───────────────────────────────────────────────────────
+    doc.add_heading("6. Performance Testing", level=1)
+    doc.add_paragraph(
+        f"Performance inventory: {perf_base} base transaction flows expand to {sc['perf_test_cases']} test cases "
+        "when multiplied across plan permutations (e.g. IDP × 7 plans). Four Jenkins scenarios schedule these runs."
+    )
+    add_chart_section(doc, "Performance Flows vs Expanded Cases", "12-perf-test-case-inventory.png",
+        "Source: Perf inventory model · Jenkins + BlazeMeter",
+        [
+            f"{perf_base} base flows → {sc['perf_test_cases']} plan-expanded test cases",
+            "IDP login: 15 transaction labels × 7 plans = 105 cases alone",
+            "Barcode SYN-443 emergency cycle delivered in ~1 week",
+        ],
+    )
+
+    # ── 7 Portfolio Value ─────────────────────────────────────────────────────
+    doc.add_heading("7. Portfolio Value & Investment", level=1)
+    for item in [
         "Framework architecture and canonical repo structure (API, perf, UI)",
         "AI-accelerated documentation, Postman collections, and TestNG boilerplate",
-        "qTest master suite design and department-wide enforcement",
-        "Automation bug lifecycle standard (triage → JIRA → leadership notification)",
-        "Pipeline/DevOps co-design (hub workflow, module switches, GHA/Nexus)",
-        "Cross-team emergency support (Empower, barcode, JEA proxy validation)",
-        "Release support and regression triage (V2 + V3 + perf daily)",
-        "Technical debt cleanup and standards documentation",
-    ]
-    for item in beyond:
+        "qTest master suite design and automation bug lifecycle standard",
+        "Pipeline/DevOps co-design and cross-team emergency support",
+    ]:
         doc.add_paragraph(item, style="List Bullet")
-    add_chart(doc, "Investment allocation", "06-work-allocation-index.png")
-    add_chart(doc, "Release automation impact", "07-release-automation-impact.png")
+    add_chart_section(doc, "Investment Allocation", "06-work-allocation-index.png",
+        "Squad effort estimate Apr–Jul 2026", ["MSC API 35%", "V2 UI 20%", "V3 UP 15%", "Perf 12%"])
+    add_chart_section(doc, "Release Automation Impact", "07-release-automation-impact.png",
+        "Release validation model", [f"~{sc['release_automation_pct']}% automated", "17 FTE → 2 FTE equivalent"])
 
-    # 9 Roadmap & asks
-    doc.add_heading("9. Roadmap & Leadership Asks", 1)
-    doc.add_paragraph("Q3–Q4 priorities:", style="List Bullet")
-    priorities = [
-        "Mobile 2 GitLab nightly scheduling (QA-1405)",
-        "Mobile 1 master suite completion",
-        "MSC enrollment API automation",
-        "CSR Actions Jenkins nightly expansion",
-        "Automated monthly leadership dashboard",
-    ]
-    for p in priorities:
-        doc.add_paragraph(p, style="List Bullet 2")
+    # ── Appendix A: Data Confidence ───────────────────────────────────────────
+    doc.add_heading("Appendix A — Data Confidence", level=1)
+    doc.add_paragraph(dc.get("key_distinction", ""))
+    for point in dc.get("leadership_talking_points", []):
+        doc.add_paragraph(point, style="List Bullet")
+
+    # ── Appendix B: Roadmap & Asks ────────────────────────────────────────────
+    doc.add_heading("Appendix B — Roadmap & Leadership Asks", level=1)
+    for p in ["Mobile 2 GitLab nightly (QA-1405)", "Mobile 1 master suite completion",
+              "MSC enrollment API automation", "CSR Actions nightly expansion", "Automated monthly dashboard"]:
+        doc.add_paragraph(p, style="List Bullet")
     doc.add_paragraph(
-        "Leadership asks: (1) involve AM Squad at SDLC start for roadmap visibility, not end-of-sprint "
-        "emergency; (2) administrative capacity to free technical lead for architecture and AI tooling."
+        "Leadership asks: (1) engage AM Squad at SDLC start for roadmap visibility; "
+        "(2) administrative capacity to free technical lead for architecture and AI tooling."
     )
 
-    # 10 References
-    doc.add_heading("10. References & Evidence Sources", 1)
+    # ── Appendix C: References ────────────────────────────────────────────────
+    doc.add_heading("Appendix C — References", level=1)
     for label, url in REFS:
         p = doc.add_paragraph(style="List Bullet")
-        r = p.add_run(f"{label}: ")
-        r.bold = True
-        p.add_run(url)
+        styled_run(p, f"{label}: ", bold=True, size=10)
+        styled_run(p, url, size=10, color=TEAL)
 
-    doc.add_paragraph(
-        f"\nDocument generated {datetime.now().strftime('%B %d, %Y')}. "
-        "Metrics sourced from GitLab MR export, Jira AMSQUAD sprint export, qTest execution export, "
-        "and Jenkins nightly regression snapshots."
-    )
+    styled_run(doc.add_paragraph(), f"Generated {datetime.now().strftime('%B %d, %Y')}.", italic=True, size=9, color=GRAY)
     doc.save(DOCX_OUT)
     print(f"Wrote {DOCX_OUT}")
 
 
-# ── PPTX helpers ──────────────────────────────────────────────────────────────
-
-def slide_title(prs: Presentation, title: str, subtitle: str = "") -> None:
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
-    bg = slide.shapes.add_shape(1, 0, 0, prs.slide_width, prs.slide_height)
-    bg.fill.solid()
-    bg.fill.fore_color.rgb = PPT_NAVY
-    bg.line.fill.background()
-    tb = slide.shapes.add_textbox(PptInches(0.55), PptInches(2.4), PptInches(9), PptInches(1.2))
-    p = tb.text_frame.paragraphs[0]
-    p.text = title
-    p.font.size = PptPt(32)
-    p.font.bold = True
-    p.font.color.rgb = PPT_WHITE
-    if subtitle:
-        sb = slide.shapes.add_textbox(PptInches(0.55), PptInches(3.6), PptInches(9), PptInches(0.8))
-        sp = sb.text_frame.paragraphs[0]
-        sp.text = subtitle
-        sp.font.size = PptPt(16)
-        sp.font.color.rgb = PPT_TEAL
-
-
-def slide_section(prs: Presentation, title: str) -> None:
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
-    rect = slide.shapes.add_shape(1, 0, 0, PptInches(0.35), prs.slide_height)
-    rect.fill.solid()
-    rect.fill.fore_color.rgb = PPT_PEAK
-    rect.line.fill.background()
-    tb = slide.shapes.add_textbox(PptInches(0.7), PptInches(3.0), PptInches(8.5), PptInches(1))
-    p = tb.text_frame.paragraphs[0]
-    p.text = title
-    p.font.size = PptPt(36)
-    p.font.bold = True
-    p.font.color.rgb = PPT_NAVY
-
-
-def slide_bullets(prs: Presentation, title: str, bullets: list[str], note: str = "") -> None:
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
-    tb = slide.shapes.add_textbox(PptInches(0.45), PptInches(0.3), PptInches(9.1), PptInches(0.75))
-    tp = tb.text_frame.paragraphs[0]
-    tp.text = title
-    tp.font.size = PptPt(26)
-    tp.font.bold = True
-    tp.font.color.rgb = PPT_NAVY
-    bar = slide.shapes.add_shape(1, PptInches(0.45), PptInches(1.05), PptInches(1.2), PptInches(0.06))
-    bar.fill.solid()
-    bar.fill.fore_color.rgb = PPT_PEAK
-    bar.line.fill.background()
-    body = slide.shapes.add_textbox(PptInches(0.55), PptInches(1.25), PptInches(8.9), PptInches(5.5))
-    tf = body.text_frame
-    tf.word_wrap = True
-    for i, bullet in enumerate(bullets):
-        p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
-        p.text = bullet
-        p.font.size = PptPt(15)
-        p.font.color.rgb = PPT_TEXT
-        p.space_after = PptPt(6)
-    if note:
-        nb = slide.shapes.add_textbox(PptInches(0.45), PptInches(6.6), PptInches(9), PptInches(0.5))
-        np = nb.text_frame.paragraphs[0]
-        np.text = note
-        np.font.size = PptPt(10)
-        np.font.italic = True
-        np.font.color.rgb = PPT_MUTED
-
-
-def slide_chart(prs: Presentation, title: str, chart: str) -> None:
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
-    tb = slide.shapes.add_textbox(PptInches(0.45), PptInches(0.25), PptInches(9), PptInches(0.65))
-    tp = tb.text_frame.paragraphs[0]
-    tp.text = title
-    tp.font.size = PptPt(22)
-    tp.font.bold = True
-    tp.font.color.rgb = PPT_NAVY
-    path = CHARTS / chart
-    if path.exists():
-        slide.shapes.add_picture(str(path), PptInches(0.35), PptInches(0.95), width=PptInches(9.3))
-
+# ── PPTX (modern design — updates original deck only) ────────────────────────
 
 def build_pptx(m: dict) -> None:
     sc = m["scorecard"]
     j = m["jira"]["totals"]
-    prs = Presentation()
-    prs.slide_width = PptInches(10)
-    prs.slide_height = PptInches(7.5)
+    dc = m.get("data_confidence", {})
+    perf_base = sum(a["labels"] for a in m["perf_inventory"]["areas"])
+    prs = new_presentation()
+    n = 0
 
-    slide_title(prs, "QA Automation — AM Squad", f"Leadership Update · {SUBTITLE}")
+    slide_hero(prs, "QA Automation — AM Squad", f"Leadership Update · {SUBTITLE}", "Portfolio briefing")
+    slide_kpi_dashboard(prs, n := n + 1, m)
 
-    slide_bullets(prs, "Executive headline", [
+    slide_bullets_modern(prs, n := n + 1, "Executive Headline", [
         f"{sc['gitlab_merges']} merged changes to main across 3 automation repositories",
         f"{j['story_points']:.0f} Jira story points · {j['work_items_in_sprints']} work items · {j['automation_bugs_logged']} bugs found",
         f"~{sc['release_automation_pct']}% of monthly release validations automated (17 FTE → 2 FTE)",
         "Unite MSC rescued — Mobile 2 at 25/25 endpoints, ~50% ETA savings",
         "Six parallel tracks: V2 · V3 · API/MSC · Perf · Pipeline · Standards",
-    ])
+    ], "Executive summary", "Overview")
 
-    slide_bullets(prs, "Scorecard", [
-        f"V2 Legacy UI: {sc['v2_nightly_methods']} nightly test methods (Stage1)",
-        f"V3 Universal Platform: {sc['v3_nightly_methods']} nightly test methods",
-        f"API / Unite MSC: M2 {sc['msc_m2_endpoints']} · M1 {sc['msc_m1_core']}",
-        f"Performance: {sc['perf_test_cases']} test cases in inventory",
-        "Pipeline: enrollment + metadata in hub; MSC GHA vertical slice",
-    ])
+    slide_chart_insight(prs, n := n + 1, "GitLab Delivery Velocity", "01-gitlab-mrs-by-month.png",
+        "What this shows", [f"{sc['gitlab_merges']} total merges", "July peak: 38 merges during MSC sprint", "Separate from test case counts"],
+        "GitLab MR export · Apr 1 – Aug 4, 2026", "GitLab")
+    slide_chart_insight(prs, n := n + 1, "Monthly Automation Delivery", "08-monthly-automation-test-cases-added.png",
+        "Period delivery", dc.get("leadership_talking_points", [])[:4],
+        "Jira AMSQUAD · period delivery estimate", "Automation")
+    slide_chart_insight(prs, n := n + 1, "Jira Sprint Delivery", "09-jira-story-points-by-sprint.png",
+        "Sprint outcomes", [f"{j['work_items_in_sprints']} items · {j['story_points']:.0f} SP", f"{j['automation_bugs_logged']} bugs logged"],
+        "Jira AMSQUAD Sprints 26.04–26.12", "Jira")
+    slide_chart_insight(prs, n := n + 1, "Automation Defects Discovered", "10-jira-automation-bugs-by-sprint.png",
+        "Quality signal", ["Defects found via nightly triage", "Fed into automation bug lifecycle"],
+        "Jira AMSQUAD", "Quality")
 
-    slide_chart(prs, "GitLab merges by repository", "01-gitlab-mrs-by-month.png")
-    slide_chart(prs, "Monthly automation test cases added", "08-monthly-automation-test-cases-added.png")
-
-    slide_bullets(prs, "Beyond the metrics — additional value delivered", [
+    slide_bullets_modern(prs, n := n + 1, "Beyond the Metrics", [
         "Framework architecture & canonical repo design",
         "AI-accelerated docs, Postman, TestNG boilerplate",
         "qTest master suite & automation bug lifecycle standard",
         "Pipeline/DevOps co-design & module switches",
         "Cross-team emergency support & release triage",
-        "Technical debt cleanup & department standards",
-    ], note="These investments are not fully captured in merge or test-count metrics.")
+    ], "Additional value not captured in merge or test-count metrics", "Value", note="These investments are not fully captured in delivery charts.")
 
-    slide_chart(prs, "Jira sprint delivery — story points", "09-jira-story-points-by-sprint.png")
-    slide_chart(prs, "Automation defects discovered", "10-jira-automation-bugs-by-sprint.png")
-
-    # V2 section
-    slide_section(prs, "V2 Legacy UI Automation")
-    slide_bullets(prs, "V2 — Overview", [
-        "Jenkins Stage1 nightly: Mon–Fri regression",
-        f"{sc['v2_nightly_methods']} test methods across 12 modules (Aug 4 snapshot)",
-        "CSR modules added: fee entry, contributions, authorize agent, security questions",
-        "+33 CSR Actions scenarios ready for next nightly expansion",
-    ])
-    slide_chart(prs, "V2 — Module pass/fail snapshot", "04-v2-regression-by-module.png")
-    slide_bullets(prs, "V2 — Business value", [
+    slide_section_modern(prs, "V2 Legacy UI Automation", "Jenkins Stage1 nightly · built since Q2 2025")
+    slide_chart_insight(prs, n := n + 1, "V2 Stage1 Nightly Snapshot", "04-v2-regression-by-module.png",
+        "What this counts", [
+            f"{sc['v2_nightly_methods']} methods — Stage1 primary nightly only (Aug 4)",
+            "Built since Q2 2025 — not Apr–Aug alone",
+            "Excludes smoke, Stage 2/5, +33 CSR Actions pending wire",
+            "CSR maintenance added Apr–Jul on earlier foundation",
+        ],
+        "Jenkins STAGE1-Daily-Unite-Prime-Regression · Aug 4", "V2",
+        footnote="Additional V2 coverage: Stage 5 smoke, Stage 2 smoke, on-demand fast smoke, +33 CSR Actions.")
+    slide_bullets_modern(prs, n := n + 1, "V2 Business Value", [
         "Core member journeys covered nightly before release",
-        "CSR maintenance gaps closed — high-risk flows now automated",
-        "Enrollments/login triage active — separates env vs product defects",
-    ])
+        "CSR maintenance gaps closed — high-risk flows automated",
+        "Enrollments/login triage separates env vs product defects",
+    ], "V2 value", "V2")
 
-    # V3 section
-    slide_section(prs, "V3 Universal Platform")
-    slide_bullets(prs, "V3 — Overview", [
-        f"{sc['v3_nightly_methods']} test methods in GitLab nightly (Aug 4 snapshot)",
-        "Modules: Universal Enrollment (303), IDP Login (56), Contributions (36), Withdrawals (20)",
-        "Entity platform suites expanding on separate track",
-        "GitLab CI scheduled regression operational",
-    ])
-    slide_chart(prs, "V3 — Module pass/fail snapshot", "11-v3-regression-by-module.png")
-    slide_bullets(prs, "V3 — Delivery highlights", [
+    slide_section_modern(prs, "V3 Universal Platform", "GitLab CI nightly · built since Q2 2025")
+    slide_chart_insight(prs, n := n + 1, "V3 Stage1 Nightly Snapshot", "11-v3-regression-by-module.png",
+        "What this counts", [
+            f"{sc['v3_nightly_methods']} methods — GitLab Stage1 nightly only (Aug 4)",
+            "Framework + CI/CD accumulated over ~1 year",
+            "UE 303 = scenarios × plan/traunch matrix",
+            "Entity suites expanding — not all in Aug 4 log",
+        ],
+        "GitLab scheduled_regression_job · Aug 4", "V3",
+        footnote="Additional V3 coverage: Stage 5 smoke (UE + IDP), integration profiles, Entity track — not in 442.")
+    slide_bullets_modern(prs, n := n + 1, "V3 Delivery Highlights", [
         "Entity registration/login suites expanded",
-        "IDP open-account (MIB) and member withdrawal regression",
+        "IDP open-account and member withdrawal regression",
         "Flaky-test stabilization and web registration flows",
         "Stage 5 smoke suites for UE + IDP",
-    ])
-    slide_bullets(prs, "V3 — Next steps", [
-        "Entity platform nightly expansion",
-        "Additional universal API modules in GitLab schedule",
-    ])
+    ], "V3 highlights", "V3")
 
-    # API section
-    slide_section(prs, "API / Unite MSC")
-    slide_bullets(prs, "MSC — Problem & solution", [
-        "Legacy Cucumber tied to monolith, no Postman baseline, past ETA",
-        "Canonical TestNG framework in api-test-automation/mobile/",
-        "AI agents for docs, Postman, data utils, migration stubs",
-        "Delivered in ~50% of original ETA",
-    ])
-    slide_chart(prs, "MSC — Endpoint coverage", "05-unite-msc-coverage.png")
-    slide_chart(prs, "API — Module coverage snapshot", "13-api-regression-by-module.png")
-    slide_bullets(prs, "MSC — Status", [
-        "M2: 25/25 endpoints (100%) — sign-off ready",
-        "M1: ~25/29 core (~86%) — master suite in progress",
-        "Branding: OKD (non-IDP) · NYD/NMD (IDP)",
-        "P0: GitLab nightly scheduling (QA-1405)",
-    ])
+    slide_section_modern(prs, "API / Unite MSC", "Rescued · accelerated")
+    slide_chart_insight(prs, n := n + 1, "MSC Endpoint Coverage", "05-unite-msc-coverage.png",
+        "MSC status", [f"M2 {sc['msc_m2_endpoints']}", f"M1 {sc['msc_m1_core']}", "~50% ETA savings"],
+        "api-test-automation", "MSC")
+    slide_chart_insight(prs, n := n + 1, "API Module Breakdown", "13-api-regression-by-module.png",
+        "M1 categories", ["Auth, profile, biometric, device, bank", "Master suite in progress"],
+        "api-test-automation", "API")
 
-    # Perf section
-    slide_section(prs, "Performance Testing")
-    slide_bullets(prs, "Performance — Regression suite", [
-        f"{sc['perf_test_cases']} performance test cases in inventory",
-        "IDP login: 15 transaction labels × 7 plans",
-        "Auth delay, forgot username/password, legacy login",
-        "MSC non-IDP + IDP login endurance profiles",
-    ])
-    slide_chart(prs, "Performance — Test case inventory", "12-perf-test-case-inventory.png")
-    slide_bullets(prs, "Performance — Emergency delivery", [
-        "Barcode SYN-443: full perf cycle in ~1 week",
-        "JEA/Jahia proxy patch validation scripts",
-        "Department perf DoD and BlazeMeter reporting standard",
-    ])
-    slide_bullets(prs, "Performance — Value", [
+    slide_section_modern(prs, "Performance Testing", "Labels × plans model")
+    slide_chart_insight(prs, n := n + 1, "Perf Test Case Inventory", "12-perf-test-case-inventory.png",
+        "Why the numbers look large", [
+            f"{perf_base} base transaction flows → {sc['perf_test_cases']} plan-expanded cases",
+            "Bars = flows; line = cases after × plan matrix",
+            "4 Jenkins scenarios schedule these permutations",
+            "IDP alone: 15 labels × 7 plans = 105 cases",
+        ],
+        "Perf inventory", "Perf")
+    slide_bullets_modern(prs, n := n + 1, "Performance Value", [
         "Repeatable baselines — no manual re-run each release",
         "Evidence for platform team pre/post patch comparison",
-    ])
+        "Department perf DoD and BlazeMeter reporting standard",
+    ], "Perf value", "Perf")
 
-    slide_chart(prs, "Investment allocation", "06-work-allocation-index.png")
-    slide_chart(prs, "Release automation impact", "07-release-automation-impact.png")
+    slide_chart_insight(prs, n := n + 1, "Investment Allocation", "06-work-allocation-index.png",
+        "Effort mix", ["MSC API 35%", "V2 20%", "V3 15%", "Perf 12%"],
+        "Squad estimate Apr–Jul", "Portfolio")
+    slide_chart_insight(prs, n := n + 1, "Release Automation Impact", "07-release-automation-impact.png",
+        "Business value", [f"~{sc['release_automation_pct']}% automated", "17 FTE → 2 FTE equivalent"],
+        "Release validation", "Value")
 
-    slide_bullets(prs, "AI acceleration", [
+    slide_bullets_modern(prs, n := n + 1, "AI Acceleration", [
         "MSC migration agents — Postman, docs, TestNG boilerplate",
         "Automation bug lifecycle — Cursor skill + standardized reporting",
         "Chart & metrics generators — reproducible leadership packs",
         "Coverage intelligence foundation for monthly dashboard",
-    ])
-
-    slide_bullets(prs, "Roadmap Q3–Q4 2026", [
+    ], "AI tooling", "AI")
+    slide_bullets_modern(prs, n := n + 1, "Roadmap Q3–Q4 2026", [
         "P0: MSC GitLab nightly · M1 master suite",
         "P1: MSC enrollment API · CSR Actions nightly expansion",
         "P2: Entity V3 nightly · automated monthly dashboard",
-        "Engage squad at SDLC start → proven ETA track record",
-    ])
-
-    slide_bullets(prs, "Leadership asks", [
+    ], "Roadmap", "Roadmap")
+    slide_bullets_modern(prs, n := n + 1, "Leadership Asks", [
         "Roadmap visibility — AM Squad at SDLC start, not sign-off deadline",
         "Administrative capacity — free lead for architecture & AI tooling",
-        "Recommended: 30-minute live walkthrough (framework + pipeline + qTest)",
-    ])
+        "Recommended: 30-minute live walkthrough",
+    ], "Asks", "Asks")
 
-    slide_bullets(prs, "References", [f"{label}: {url}" for label, url in REFS])
-
-    slide_title(prs, "QA Automation AM Squad", "Delivering across six automation channels")
-
+    slide_close(prs, "QA Automation AM Squad", "Delivering across six automation channels · Team since Q2 2025")
     prs.save(PPTX_OUT)
     print(f"Wrote {PPTX_OUT}")
 
 
 def main() -> None:
-    for old in (DOCX_OUT, PPTX_OUT):
-        if old.exists():
-            old.unlink()
+    for path in (DOCX_OUT, PPTX_OUT):
+        if path.exists():
+            path.unlink()
     m = load_metrics()
     build_pptx(m)
     build_docx(m)

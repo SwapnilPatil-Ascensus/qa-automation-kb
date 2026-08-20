@@ -6,9 +6,11 @@ Knowledge base for **Unite MSC mobile enrollment** (`enrollmentapi/v1`). Use thi
 
 | Goal | Start here |
 |------|------------|
+| **Automation team guide (prospect flow, add steps, Cursor)** | **[docs/12-automation-team-guide.md](docs/12-automation-team-guide.md)** |
 | Run enrollment in Postman (Stage1) | [docs/10-postman-usage-guide.md](docs/10-postman-usage-guide.md) |
 | Understand all endpoints | [docs/02-endpoint-catalog.md](docs/02-endpoint-catalog.md) |
 | Encryption (required for POST on Stage1/QC4) | [docs/04-encryption-guide.md](docs/04-encryption-guide.md) |
+| AES key framework flow (TestNG / Java) | [api-test-automation/docs/03-development/07-mobile-aes-encryption-flow.md](../api-test-automation/docs/03-development/07-mobile-aes-encryption-flow.md) |
 | Allocation `fundId` (SQL) | [sql/12-allocations-entered.sql](sql/12-allocations-entered.sql) |
 | Dynamic test data SQL (all endpoints) | [sql/README.md](sql/README.md) |
 | Test data naming standards | [docs/06-test-data-standards.md](docs/06-test-data-standards.md) |
@@ -41,7 +43,7 @@ msc-enrollment/
 | Repo | Path | Role |
 |------|------|------|
 | Legacy MSC enrollment service | `C:\Workspace\GitLab\MobileAutomation\UniteMSC\unite-enrollment` | API source, Cucumber tests, event handlers |
-| New automation target | `C:\Workspace\GitLab\api-test-automation\mobile\enrollment` | TestNG pilot (bootstrap only today) |
+| New automation target | `C:\Workspace\GitLab\api-test-automation\mobile\enrollment` | TestNG wizard suite (prospect + steps 2+) |
 | Encryption utility | `C:\Workspace\GitLab\api-test-automation\jsonapi\jsonapi-encryption` | `EncryptHelper` CLI for Postman payloads |
 | Universal web enrollment (reference) | `C:\Workspace\GitLab\api-test-automation\universal\jsonapi-aws-accountweb` | Different API surface; reuse SQL/POJO patterns only |
 | Mobile1 patterns | `C:\Workspace\GitLab\api-test-automation\mobile\mobile1` | `QAAUTOTEST%` SQL, `MobileBaseRequestTest` |

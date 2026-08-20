@@ -26,11 +26,11 @@
 
 | **One-pager** | [VP One-Pager](./05-vp-one-pager.md) | Michael Blake — 2-minute read |
 
-| **Presentation (classic)** | [AM-Squad-Leadership-Update-Aug2026.pptx](./deliverables/AM-Squad-Leadership-Update-Aug2026.pptx) | Full deck — original format |
-| **Executive glimpse (new)** | [AM-Squad-Leadership-Executive-Glimpse-Aug2026.pptx](./deliverables/AM-Squad-Leadership-Executive-Glimpse-Aug2026.pptx) | **Share with leadership** — chart + insight per slide |
-| **Detailed modern (new)** | [AM-Squad-Leadership-Detailed-Modern-Aug2026.pptx](./deliverables/AM-Squad-Leadership-Detailed-Modern-Aug2026.pptx) | Full portfolio — BI dashboard design |
+| **Presentation (classic — updated)** | [AM-Squad-Leadership-Update-Aug2026.pptx](./deliverables/AM-Squad-Leadership-Update-Aug2026.pptx) | Full deck — modern BI design (chart + insight layout) |
+| **Executive glimpse** | [AM-Squad-Leadership-Executive-Glimpse-Aug2026.pptx](./deliverables/AM-Squad-Leadership-Executive-Glimpse-Aug2026.pptx) | **Share with leadership** — chart + insight per slide |
+| **Detailed modern** | [AM-Squad-Leadership-Detailed-Modern-Aug2026.pptx](./deliverables/AM-Squad-Leadership-Detailed-Modern-Aug2026.pptx) | Full portfolio — BI dashboard design |
 
-| **Briefing doc** | [AM-Squad-Leadership-Briefing-Aug2026.docx](./deliverables/AM-Squad-Leadership-Briefing-Aug2026.docx) | Email attachment / Confluence |
+| **Briefing doc (updated)** | [AM-Squad-Leadership-Briefing-Aug2026.docx](./deliverables/AM-Squad-Leadership-Briefing-Aug2026.docx) | Email / Confluence — KPI grid, chart panels, data confidence section |
 
 | **Value + roadmap** | [Value, Roadmap & ETA](./06-value-roadmap-and-eta.md) | "What value did we add?" |
 

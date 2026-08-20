@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06",
+  "generated": "2026-08-10",
   "period": "April 1 \u2013 August 2026",
   "scorecard": {
     "v2_nightly_methods": 592,
@@ -8,7 +8,76 @@
     "msc_m2_endpoints": "25/25",
     "msc_m1_core": "~25/29",
     "release_automation_pct": 80,
-    "gitlab_merges": 116
+    "gitlab_merges": 121
+  },
+  "ui_inventory_scope": {
+    "build_timeline": "Framework and suites built since Q2 2025 (started with ~1\u20132 resources). Apr\u2013Aug 2026 is the reporting window \u2014 not when inventory began.",
+    "v2": {
+      "scorecard_number": 592,
+      "label": "V2 Stage1 nightly snapshot",
+      "source": "Jenkins STAGE1-Daily-Unite-Prime-Regression \u00b7 Aug 4, 2026",
+      "environment": "Stage1 primary nightly only",
+      "modules_in_snapshot": 12,
+      "what_this_counts": "Test methods in the Mon\u2013Fri Jenkins nightly job (inventory snapshot)",
+      "excluded_not_in_scorecard": [
+        {
+          "name": "CSR Actions suite",
+          "count": "+33 scenarios",
+          "status": "Built \u2014 pending Jenkins nightly wire"
+        },
+        {
+          "name": "Stage 5 smoke",
+          "count": "separate job",
+          "status": "On-demand Jenkins (QA-773)"
+        },
+        {
+          "name": "Stage 2 smoke",
+          "count": "separate job",
+          "status": "Release validation \u2014 not in Stage1 nightly"
+        },
+        {
+          "name": "Stage1 fast smoke",
+          "count": "subset",
+          "status": "On-demand smoke \u2014 not added to 592"
+        },
+        {
+          "name": "Empower dedicated nightly",
+          "count": "75 methods",
+          "status": "Separate Jenkins job; Empower also appears inside main nightly snapshot"
+        }
+      ]
+    },
+    "v3": {
+      "scorecard_number": 442,
+      "label": "V3 Stage1 GitLab nightly snapshot",
+      "source": "GitLab scheduled_regression_job \u00b7 Aug 4, 2026",
+      "environment": "Stage1 GitLab CI nightly only",
+      "modules_in_snapshot": 6,
+      "what_this_counts": "Test methods in GitLab scheduled nightly regression log",
+      "excluded_not_in_scorecard": [
+        {
+          "name": "Stage 5 smoke (UE + IDP)",
+          "count": "separate suites",
+          "status": "Merged May 2026 (QA-632, QA-773)"
+        },
+        {
+          "name": "Entity registration/login",
+          "count": "expanding",
+          "status": "Not all Entity suites in Aug 4 nightly log"
+        },
+        {
+          "name": "Integration / daily suite XMLs",
+          "count": "65 test blocks",
+          "status": "Suite config \u2014 different from nightly method count"
+        },
+        {
+          "name": "UP scoped baseline (Jun 2026)",
+          "count": "379 cases",
+          "status": "Separate TestNG scoped assessment \u2014 not nightly log"
+        }
+      ]
+    },
+    "scorecard_footnote": "592 V2 and 442 V3 are Stage1 nightly snapshots only \u2014 accumulated since Q2 2025, not built in Apr\u2013Aug alone. Smoke (Stage 2/5), integrations, and +33 CSR Actions are additional coverage and are not added to these totals."
   },
   "v3_snapshot": {
     "modules": [
@@ -312,12 +381,12 @@
       "msc_m2_endpoints": "25/25",
       "msc_m1_core": "~25/29"
     },
-    "key_distinction": "Monthly chart = new coverage delivered in each month (period velocity). Scorecard = current nightly inventory snapshot (cumulative, includes pre-Apr foundation).",
+    "key_distinction": "Monthly chart = new coverage delivered in each month (period velocity). Scorecard = Stage1 nightly inventory snapshot (~12 mo since Q2 2025; excludes smoke/Stage 2/5/integrations).",
     "multiplier_rationale": [
       "Perf: transaction labels \u00d7 plan permutations (e.g. IDP \u00d7 7 plans = 105 cases from 15 labels)",
       "V3 UE: scenarios \u00d7 traunch/plan (303 methods = multi-plan enrollment matrix)",
       "API MSC: endpoints \u00d7 branding plans (OKD non-IDP + NYD/NMD IDP)",
-      "V2/V3: positive + negative paths, Stage1 + Stage5 smoke where applicable"
+      "V2/V3 nightly: Stage1 primary job only \u2014 smoke and integration suites are separate jobs"
     ],
     "pre_april_foundation": [
       "Framework architecture and repo structure (Q2\u2013Q3 2025)",
@@ -327,20 +396,21 @@
       "qTest master suite design and automation standards"
     ],
     "leadership_talking_points": [
-      "We are NOT claiming 1,212 + 592 + 442 test cases \u2014 different metrics (period delivery vs inventory).",
-      "~1,212 is estimated new coverage closed in Apr\u2013Aug from 225 Jira stories.",
-      "592 V2 + 442 V3 + 323 perf = what runs in nightly regression today, built over ~1 year.",
-      "Apr\u2013Aug shows acceleration (MSC API sprint Jun\u2013Jul), not greenfield from zero.",
-      "Test case counts include multi-plan, multi-env, and pos/neg permutations \u2014 industry-standard perf/UI counting."
-    ]
+      "592 V2 + 442 V3 = Stage1 nightly snapshots (Aug 4) \u2014 built since Q2 2025, not in Apr\u2013Aug alone.",
+      "Excludes smoke (Stage 2/5), integration suites, and +33 CSR Actions pending wire \u2014 more coverage exists.",
+      "We are NOT claiming 1,212 + 592 + 442 \u2014 period delivery vs inventory are different metrics.",
+      "~1,212 estimated new coverage in Apr\u2013Aug from 225 Jira stories; nightly totals include pre-April foundation.",
+      "Apr\u2013Aug shows acceleration (MSC API sprint Jun\u2013Jul), not greenfield from zero."
+    ],
+    "scorecard_footnote": "592 V2 and 442 V3 are Stage1 nightly snapshots only \u2014 accumulated since Q2 2025, not built in Apr\u2013Aug alone. Smoke (Stage 2/5), integrations, and +33 CSR Actions are additional coverage and are not added to these totals."
   },
   "gitlab": {
-    "total_mrs": 116,
+    "total_mrs": 121,
     "by_month": {
       "2026-04": 24,
       "2026-05": 22,
       "2026-06": 34,
-      "2026-07": 33,
+      "2026-07": 38,
       "2026-08": 3
     },
     "monthly_by_repo": {
@@ -365,8 +435,8 @@
       "2026-07": {
         "V2 Legacy UI": 4,
         "V3 Universal Platform": 2,
-        "API / Unite MSC": 27,
-        "total": 33
+        "API / Unite MSC": 32,
+        "total": 38
       },
       "2026-08": {
         "V2 Legacy UI": 1,

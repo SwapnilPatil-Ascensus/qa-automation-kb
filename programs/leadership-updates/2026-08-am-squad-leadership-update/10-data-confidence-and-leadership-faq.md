@@ -11,11 +11,15 @@
 | Metric | What it measures | Apr–Aug example |
 |--------|------------------|-----------------|
 | **Monthly delivery chart** | New automation coverage **delivered each month** (period velocity) | ~**1,212** estimated test cases across 5 months |
-| **Scorecard / nightly snapshots** | **Current inventory** that runs in nightly regression today | V2 **592** + V3 **442** + Perf **323** |
+| **Scorecard / nightly snapshots** | **Stage1 primary nightly job** inventory today (Aug 4) | V2 **592** + V3 **442** + Perf **323** |
 
-**If asked:** *"Did you add 1,212 test cases on top of 592 + 442?"*
+**If asked:** *"Did you build 592 + 442 test methods in 5 months?"*
 
-**Answer:** No. The monthly chart is **period delivery** (what we closed each month). The scorecard is **cumulative inventory** (what runs nightly now). Much of the nightly inventory was built **before April**; Apr–Aug shows **acceleration**, especially MSC API (Jun–Jul).
+**Answer:** No. The squad started building frameworks and suites in **Q2 2025** with ~1–2 resources. The 592 and 442 numbers are **Aug 4 Stage1 nightly snapshots** of inventory accumulated over ~12 months. Apr–Aug is the **reporting window** for delivery velocity, not when the inventory began.
+
+**If asked:** *"Does 592/442 include smoke, Stage 2, Stage 5, integrations?"*
+
+**Answer:** No. Those numbers count **Stage1 primary nightly jobs only**. Additional coverage exists separately: V2 Stage 5/Stage 2 smoke, +33 CSR Actions (pending nightly wire), V3 Stage 5 smoke (UE + IDP), integration XML profiles, and Entity suites still expanding.
 
 ---
 
@@ -47,7 +51,7 @@ Leadership should expect **test cases > scripts** when we count correctly:
 | **API MSC** | Endpoint × branding plan (OKD + NYD/NMD) | 21 master areas × IDP/non-IDP multipliers |
 | **V2/V3 UI** | Positive + negative paths, multi-module | CSR, enrollment, login variants per plan |
 
-**Environments:** Stage1 (primary nightly), Stage5 (smoke), QC4 (API integration) — not double-counted in monthly chart; reflected in inventory breadth.
+**Environments:** Stage1 (primary nightly — what 592/442 count), Stage5 smoke, Stage2 smoke, QC4 (API integration) — **not double-counted** in scorecard; reflected as separate jobs/suites.
 
 ---
 

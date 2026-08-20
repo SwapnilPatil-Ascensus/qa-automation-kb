@@ -134,6 +134,38 @@ def chart_jira_bugs(m: dict) -> None:
     save(fig, "10-jira-automation-bugs-by-sprint.png")
 
 
+def chart_module_totals(
+    modules: list[str],
+    totals: list[int],
+    title: str,
+    filename: str,
+    bar_color: str = TEAL,
+) -> None:
+    """Bar chart of total test methods per module + share-of-suite line (no pass/fail)."""
+    suite_total = sum(totals)
+    shares = [100 * t / suite_total for t in totals]
+    x = np.arange(len(modules))
+    fig, ax1 = plt.subplots(figsize=(11, 5))
+    bars = ax1.bar(x, totals, 0.62, color=bar_color, alpha=0.92)
+    ax1.set_ylabel("Test methods (total)")
+    ax1.set_title(title)
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(modules, rotation=32, ha="right")
+    ax2 = ax1.twinx()
+    ax2.plot(x, shares, color=NAVY, marker="o", linewidth=2, label="% of suite")
+    ax2.set_ylabel("% of nightly suite")
+    ax2.set_ylim(0, max(shares) * 1.35 if shares else 10)
+    for b, v in zip(bars, totals):
+        ax1.text(b.get_x() + b.get_width() / 2, v + max(totals) * 0.02, str(v),
+                 ha="center", fontsize=8, fontweight="bold")
+    ax1.text(0.99, 0.97, f"Suite total: {suite_total} test methods",
+             transform=ax1.transAxes, ha="right", va="top", fontsize=9, color=GRAY)
+    ax1.spines[["top"]].set_visible(False)
+    ax2.spines[["top"]].set_visible(False)
+    ax1.grid(axis="y", alpha=0.2)
+    save(fig, filename)
+
+
 def chart_v2_regression_modules() -> None:
     modules = [
         "Enrollments", "Acct Maint", "Empower", "Withdrawals", "Contributions",
@@ -141,43 +173,32 @@ def chart_v2_regression_modules() -> None:
     ]
     passed = [59, 67, 54, 63, 45, 29, 35, 24, 14, 7, 4, 7]
     failed = [88, 7, 21, 10, 3, 7, 6, 9, 10, 5, 15, 3]
-    x = np.arange(len(modules))
-    fig, ax = plt.subplots(figsize=(12, 5))
-    ax.bar(x, passed, 0.55, label="Passed", color=PEAK)
-    ax.bar(x, failed, 0.55, bottom=passed, label="Failed", color=ORANGE)
-    ax.set_xticks(x)
-    ax.set_xticklabels(modules, rotation=35, ha="right")
-    ax.set_ylabel("Test methods")
-    ax.set_title("V2 Stage1 Nightly Regression — Module Snapshot (2026-08-04)")
-    ax.legend(loc="upper right")
     totals = [p + f for p, f in zip(passed, failed)]
-    ax.text(len(modules) - 0.5, max(totals) + 5,
-            f"Total: {sum(totals)} methods | Pass rate: {100*sum(passed)/sum(totals):.0f}%",
-            fontsize=9, color=GRAY)
-    ax.spines[["top", "right"]].set_visible(False)
-    save(fig, "04-v2-regression-by-module.png")
+    chart_module_totals(
+        modules, totals,
+        "V2 Stage1 Nightly — Test Methods by Module (Aug 4 snapshot; excludes smoke/Stage 2/5)",
+        "04-v2-regression-by-module.png",
+        bar_color=NAVY,
+    )
 
 
 def chart_v3_regression_modules(m: dict) -> None:
     modules = m["v3_snapshot"]["modules"]
-    names = [mod["module"][:22] for mod in modules]
-    passed = [mod["passed"] for mod in modules]
-    failed = [mod["failed"] for mod in modules]
-    x = np.arange(len(names))
-    fig, ax = plt.subplots(figsize=(11, 5))
-    ax.bar(x, passed, 0.55, label="Passed", color=TEAL)
-    ax.bar(x, failed, 0.55, bottom=passed, label="Failed", color=ORANGE)
-    ax.set_xticks(x)
-    ax.set_xticklabels(names, rotation=30, ha="right")
-    ax.set_ylabel("Test methods")
-    ax.set_title("V3 GitLab Nightly Regression — Module Snapshot (2026-08-04)")
-    ax.legend(loc="upper right")
-    total = m["v3_snapshot"]["total_methods"]
-    pct = m["v3_snapshot"]["pass_pct"]
-    ax.text(len(names) - 0.5, max(p + f for p, f in zip(passed, failed)) + 5,
-            f"Total: {total} methods | Pass rate: {pct}%", fontsize=9, color=GRAY)
-    ax.spines[["top", "right"]].set_visible(False)
-    save(fig, "11-v3-regression-by-module.png")
+    names = []
+    for mod in modules:
+        short = (
+            mod["module"]
+            .replace("Universal Enrollment Stage1 Environment", "Universal Enrollment")
+            .replace(" Stage1 Environment", "")
+        )
+        names.append(short[:24])
+    totals = [mod["methods"] for mod in modules]
+    chart_module_totals(
+        names, totals,
+        "V3 GitLab Stage1 Nightly — Test Methods by Module (Aug 4 snapshot; excludes smoke/integrations)",
+        "11-v3-regression-by-module.png",
+        bar_color=TEAL,
+    )
 
 
 def chart_api_module_snapshot(m: dict) -> None:
@@ -222,19 +243,32 @@ def chart_msc_coverage(m: dict) -> None:
 
 def chart_perf_inventory(m: dict) -> None:
     areas = m["perf_inventory"]["areas"]
-    names = [a["area"][:24] for a in areas]
+    names = [a["area"][:22] for a in areas]
+    labels = [a["labels"] for a in areas]
     cases = [a["cases"] for a in areas]
-    fig, ax = plt.subplots(figsize=(11, 5))
-    y = np.arange(len(names))
-    ax.barh(y, cases, color=ORANGE, height=0.65)
-    ax.set_yticks(y)
-    ax.set_yticklabels(names[::-1])
-    ax.invert_yaxis()
-    ax.set_xlabel("Performance test cases (labels × plans)")
-    ax.set_title(f"Performance Test Inventory — {m['perf_inventory']['total_test_cases']} total test cases")
-    for i, v in enumerate(cases[::-1]):
-        ax.text(v + 2, i, str(v), va="center", fontweight="bold", fontsize=8)
-    ax.spines[["top", "right"]].set_visible(False)
+    x = np.arange(len(names))
+    fig, ax1 = plt.subplots(figsize=(11, 5.2))
+    bars = ax1.bar(x, labels, 0.62, color=ORANGE, alpha=0.9, label="Transaction flows")
+    ax1.set_ylabel("Base transaction flows")
+    ax1.set_title("Performance Coverage — Flows vs Plan-Expanded Test Cases")
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(names, rotation=32, ha="right")
+    ax2 = ax1.twinx()
+    ax2.plot(x, cases, color=NAVY, marker="o", linewidth=2, label="Expanded cases")
+    ax2.set_ylabel("Test cases (× plan permutations)")
+    for b, v in zip(bars, labels):
+        ax1.text(b.get_x() + b.get_width() / 2, v + 0.4, str(v), ha="center", fontsize=7, fontweight="bold")
+    total_cases = m["perf_inventory"]["total_test_cases"]
+    base_flows = sum(labels)
+    ax1.text(
+        0.99, 0.97,
+        f"{base_flows} base flows → {total_cases} test cases across plans\n"
+        f"4 Jenkins scenarios schedule these permutations",
+        transform=ax1.transAxes, ha="right", va="top", fontsize=8, color=GRAY,
+    )
+    ax1.spines[["top"]].set_visible(False)
+    ax2.spines[["top"]].set_visible(False)
+    ax1.grid(axis="y", alpha=0.2)
     save(fig, "12-perf-test-case-inventory.png")
 
 
@@ -250,7 +284,8 @@ def chart_mr_by_area(m: dict) -> None:
     for t in autotexts:
         t.set_fontweight("bold")
         t.set_color("white")
-    ax.set_title(f"{m['gitlab']['total_mrs']} GitLab Merges by Automation Area")
+    total = m["gitlab"]["total_mrs"]
+    ax.set_title(f"{total} GitLab Merges by Automation Area")
     save(fig, "02-gitlab-mrs-by-area.png")
 
 

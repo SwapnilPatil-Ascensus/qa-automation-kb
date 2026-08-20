@@ -40,6 +40,7 @@ SW = Inches(10)
 SH = Inches(7.5)
 HEADER_H = Inches(0.72)
 FOOTER_H = Inches(0.38)
+FOOTER_H_NOTE = Inches(0.62)
 
 
 def load_metrics() -> dict:
@@ -87,19 +88,29 @@ def add_header(slide, title: str, tag: str = "") -> None:
         badge.text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
 
 
-def add_footer(slide, source: str, num: int) -> None:
-    y = SH - FOOTER_H
-    _rect(slide, 0, y, SW, FOOTER_H, CARD)
+def add_footer(slide, source: str, num: int, footnote: str = "") -> None:
+    fh = FOOTER_H_NOTE if footnote else FOOTER_H
+    y = SH - fh
+    _rect(slide, 0, y, SW, fh, CARD)
     _rect(slide, 0, y, SW, Inches(0.02), INSIGHT)
-    tb = slide.shapes.add_textbox(Inches(0.42), y + Inches(0.08), Inches(8.5), Inches(0.25))
+    row_y = y + Inches(0.07)
+    if footnote:
+        fb = slide.shapes.add_textbox(Inches(0.42), row_y, Inches(8.8), Inches(0.28))
+        fp = fb.text_frame.paragraphs[0]
+        fp.text = f"Note: {footnote}"
+        fp.font.size = Pt(7.5)
+        fp.font.italic = True
+        fp.font.color.rgb = MUTED
+        row_y += Inches(0.26)
+    tb = slide.shapes.add_textbox(Inches(0.42), row_y, Inches(8.5), Inches(0.22))
     p = tb.text_frame.paragraphs[0]
     p.text = source
-    p.font.size = Pt(8)
+    p.font.size = Pt(7.5)
     p.font.color.rgb = MUTED
-    nb = slide.shapes.add_textbox(Inches(9.2), y + Inches(0.08), Inches(0.6), Inches(0.25))
+    nb = slide.shapes.add_textbox(Inches(9.2), row_y, Inches(0.6), Inches(0.22))
     np = nb.text_frame.paragraphs[0]
     np.text = str(num)
-    np.font.size = Pt(9)
+    np.font.size = Pt(8)
     np.font.color.rgb = MUTED
     np.alignment = PP_ALIGN.RIGHT
 
@@ -156,6 +167,7 @@ def slide_chart_insight(
     source: str,
     tag: str = "",
     chart_w: float = 5.35,
+    footnote: str = "",
 ) -> None:
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     slide_surface(slide)
@@ -163,8 +175,8 @@ def slide_chart_insight(
     path = CHARTS / chart
     if path.exists():
         slide.shapes.add_picture(str(path), Inches(0.35), Inches(0.95), width=Inches(chart_w))
-    add_insight_panel(slide, Inches(5.85), Inches(0.95), Inches(3.8), Inches(5.85), insight_title, bullets)
-    add_footer(slide, source, num)
+    add_insight_panel(slide, Inches(5.85), Inches(0.95), Inches(3.8), Inches(5.55), insight_title, bullets)
+    add_footer(slide, source, num, footnote)
 
 
 def slide_hero(prs: Presentation, title: str, subtitle: str, kicker: str = "") -> None:
@@ -206,14 +218,15 @@ def slide_kpi_dashboard(prs: Presentation, num: int, m: dict) -> None:
     sc = m["scorecard"]
     j = m["jira"]["totals"]
     dc = m.get("data_confidence", {})
+    ui = m.get("ui_inventory_scope", {})
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     slide_surface(slide)
     add_header(slide, "Executive Scorecard", "Live metrics")
     cards = [
         (Inches(0.35), "GitLab merges", str(sc["gitlab_merges"]), CYAN, "3 repos · Apr–Aug"),
         (Inches(2.55), "Story points", f"{j['story_points']:.0f}", TEAL, "Sprints 26.04–26.12"),
-        (Inches(4.75), "V2 nightly", str(sc["v2_nightly_methods"]), NAVY, "Test methods · Stage1"),
-        (Inches(6.95), "V3 nightly", str(sc["v3_nightly_methods"]), VIOLET, "Test methods · GitLab"),
+        (Inches(4.75), "V2 Stage1 nightly", str(sc["v2_nightly_methods"]), NAVY, "Aug 4 · ~12 mo build"),
+        (Inches(6.95), "V3 Stage1 nightly", str(sc["v3_nightly_methods"]), VIOLET, "GitLab · Aug 4"),
         (Inches(0.35), Inches(2.55), "Perf cases", str(sc["perf_test_cases"]), CORAL, "Labels × plans"),
         (Inches(2.55), Inches(2.55), "MSC M2", sc["msc_m2_endpoints"], TEAL, "Endpoints"),
         (Inches(4.75), Inches(2.55), "MSC M1", sc["msc_m1_core"], CYAN, "Core endpoints"),
@@ -227,20 +240,27 @@ def slide_kpi_dashboard(prs: Presentation, num: int, m: dict) -> None:
             x, y, label, val, accent, sub = item
         add_kpi_card(slide, x, y, Inches(2.05), Inches(1.25), label, val, accent, sub)
     note = (
-        "Monthly delivery chart = period velocity. Scorecard = cumulative nightly inventory (~12 mo since Q2 2025)."
+        "V2/V3 = Stage1 nightly snapshots only (built since Q2 2025). "
+        "Excludes smoke, Stage 2/5, integrations, +33 CSR Actions."
     )
-    nb = slide.shapes.add_textbox(Inches(0.35), Inches(4.0), Inches(9.3), Inches(0.5))
+    nb = slide.shapes.add_textbox(Inches(0.35), Inches(3.95), Inches(9.3), Inches(0.55))
     np = nb.text_frame.paragraphs[0]
     np.text = note
-    np.font.size = Pt(9)
+    np.font.size = Pt(8.5)
     np.font.italic = True
     np.font.color.rgb = MUTED
     add_insight_panel(
-        slide, Inches(0.35), Inches(4.55), Inches(9.3), Inches(2.25),
+        slide, Inches(0.35), Inches(4.5), Inches(9.3), Inches(2.05),
         "How to read these numbers",
-        m.get("data_confidence", {}).get("leadership_talking_points", [])[:4],
+        dc.get("leadership_talking_points", [])[:5],
     )
-    add_footer(slide, "Sources: GitLab MR export · Jira AMSQUAD · Jenkins/GitLab nightly logs", num)
+    footnote = dc.get("scorecard_footnote") or ui.get("scorecard_footnote", "")
+    add_footer(
+        slide,
+        "Sources: GitLab MR export · Jira AMSQUAD · Jenkins/GitLab nightly logs",
+        num,
+        footnote or "Do not add period delivery (~1,212) to nightly inventory — different metrics.",
+    )
 
 
 def slide_section_modern(prs: Presentation, title: str, subtitle: str = "") -> None:
@@ -262,26 +282,26 @@ def slide_section_modern(prs: Presentation, title: str, subtitle: str = "") -> N
 
 
 def slide_bullets_modern(
-    prs: Presentation, num: int, title: str, bullets: list[str], source: str, tag: str = "", note: str = ""
+    prs: Presentation,
+    num: int,
+    title: str,
+    bullets: list[str],
+    source: str,
+    tag: str = "",
+    footnote: str = "",
 ) -> None:
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     slide_surface(slide)
     add_header(slide, title, tag)
-    add_insight_panel(slide, Inches(0.35), Inches(0.95), Inches(9.3), Inches(5.5), "Key points", bullets)
-    if note:
-        nb = slide.shapes.add_textbox(Inches(0.35), Inches(6.55), Inches(9.3), Inches(0.4))
-        np = nb.text_frame.paragraphs[0]
-        np.text = note
-        np.font.size = Pt(9)
-        np.font.italic = True
-        np.font.color.rgb = MUTED
-    add_footer(slide, source, num)
+    add_insight_panel(slide, Inches(0.35), Inches(0.95), Inches(9.3), Inches(5.35), "Key points", bullets)
+    add_footer(slide, source, num, footnote)
 
 
 def build_executive(m: dict) -> None:
     sc = m["scorecard"]
     j = m["jira"]["totals"]
     dc = m.get("data_confidence", {})
+    perf_base = sum(a["labels"] for a in m["perf_inventory"]["areas"])
     prs = Presentation()
     prs.slide_width = SW
     prs.slide_height = SH
@@ -298,11 +318,12 @@ def build_executive(m: dict) -> None:
         "What this shows",
         [
             f"{sc['gitlab_merges']} merges to main across automation, prime-test-automation, and api-test-automation",
-            "Peak Jun–Jul during Unite MSC API sprint (19 + 27 API MRs)",
+            "July peak: 38 merges during Unite MSC API sprint",
             "Code delivery metric — separate from test case counts",
         ],
         "GitLab MR export · Apr 1 – Aug 4, 2026",
         "GitLab",
+        footnote="July = 38 merges (highest month). Counts merged code changes, not test cases or story points.",
     )
 
     slide_chart_insight(
@@ -314,10 +335,11 @@ def build_executive(m: dict) -> None:
             f"~{dc.get('period_delivery_estimate', 1212)} est. new test cases delivered Apr–Aug (not cumulative)",
             "225 Jira stories closed × channel-specific averages",
             "Includes multi-plan, multi-env, pos/neg permutations",
-            "Pre-Apr foundation in nightly inventory — this chart shows when work landed",
+            "Pre-Apr foundation sits in nightly inventory — chart shows when work landed",
         ],
         "Jira AMSQUAD Sprints 26.04–26.12 · period delivery estimate",
         "Automation",
+        footnote="Period velocity only — do not add ~1,212 to scorecard inventory (592+442+323).",
     )
 
     slide_chart_insight(
@@ -332,35 +354,45 @@ def build_executive(m: dict) -> None:
         ],
         "Jira AMSQUAD export · Sprints 26.04–26.12",
         "Jira",
+        footnote="Story points = committed sprint work closed. Bugs = defects found via nightly regression triage.",
     )
 
     slide_chart_insight(
         prs, n := n + 1,
-        "V2 Legacy UI — Nightly Snapshot",
+        "V2 Legacy UI — Stage1 Nightly Snapshot",
         "04-v2-regression-by-module.png",
-        "V2 inventory",
+        "What this counts",
         [
-            f"{sc['v2_nightly_methods']} test methods across 12 modules (Aug 4)",
-            "Jenkins Stage1 nightly Mon–Fri",
-            "CSR maintenance modules added Apr–Jul",
-            "+33 CSR Actions scenarios in next expansion",
+            f"{sc['v2_nightly_methods']} test methods — Jenkins Stage1 nightly only (Aug 4)",
+            "Built since Q2 2025 — not delivered in Apr–Aug alone",
+            "Bars = methods per module; excludes smoke, Stage 2/5, CSR Actions (+33)",
+            "CSR maintenance modules added Apr–Jul on top of earlier foundation",
         ],
-        "Jenkins Stage1 nightly · Aug 4 snapshot",
+        "Jenkins STAGE1-Daily-Unite-Prime-Regression · Aug 4 snapshot",
         "V2",
+        footnote=(
+            "Additional V2 coverage exists outside this snapshot: Stage 5 smoke, Stage 2 smoke, "
+            "+33 CSR Actions (pending nightly wire), on-demand fast smoke."
+        ),
     )
 
     slide_chart_insight(
         prs, n := n + 1,
-        "V3 Universal Platform — Nightly Snapshot",
+        "V3 Universal Platform — Stage1 Nightly Snapshot",
         "11-v3-regression-by-module.png",
-        "V3 inventory",
+        "What this counts",
         [
-            f"{sc['v3_nightly_methods']} test methods · UE 303 · IDP 56",
-            "GitLab CI scheduled regression operational",
-            "Entity suites expanding on separate track",
+            f"{sc['v3_nightly_methods']} test methods — GitLab Stage1 nightly only (Aug 4)",
+            "Built since Q2 2025 — framework, CI/CD, suites accumulated over ~1 year",
+            "UE 303 = scenarios × plan/traunch — not 303 unique scripts",
+            "Entity suites expanding — not all in Aug 4 nightly log",
         ],
-        "GitLab nightly log · Aug 4 snapshot",
+        "GitLab scheduled_regression_job · Aug 4 snapshot",
         "V3",
+        footnote=(
+            "Additional V3 coverage exists outside this snapshot: Stage 5 smoke (UE + IDP), "
+            "integration XML profiles, Entity track — not added to 442."
+        ),
     )
 
     slide_chart_insight(
@@ -369,13 +401,14 @@ def build_executive(m: dict) -> None:
         "05-unite-msc-coverage.png",
         "MSC rescue",
         [
-            f"M2 {sc['msc_m2_endpoints']} endpoints · M1 {sc['msc_m1_core']} core",
+            f"M2 {sc['msc_m2_endpoints']} endpoints · M1 {sc['msc_m1_core']} core categories",
             "Delivered in ~50% of original ETA",
             "AI-assisted migration + canonical TestNG framework",
             "P0: GitLab nightly scheduling (QA-1405)",
         ],
         "api-test-automation repo inventory",
         "API",
+        footnote="M2 = full mobile endpoint catalog. M1 ~86% of 29 core categories — master suite still in progress.",
     )
 
     slide_chart_insight(
@@ -384,13 +417,14 @@ def build_executive(m: dict) -> None:
         "12-perf-test-case-inventory.png",
         "Perf counting model",
         [
-            f"{sc['perf_test_cases']} test cases = labels × plan permutations",
-            "IDP: 15 labels × 7 plans · legacy × 5 plans",
-            "4 Jenkins scenarios — not the same as test case count",
+            f"{perf_base} base transaction flows → {sc['perf_test_cases']} plan-expanded cases",
+            "Bars = flows; line = cases after × plan matrix",
+            "IDP: 15 labels × 7 plans = 105 cases alone",
             "Barcode SYN-443 delivered in ~1 week",
         ],
         "Perf inventory model · Jenkins + BlazeMeter",
         "Perf",
+        footnote="4 Jenkins scenarios schedule runs — not 323 separate jobs. Plan expansion is standard perf counting.",
     )
 
     slide_bullets_modern(
@@ -400,10 +434,11 @@ def build_executive(m: dict) -> None:
             "Roadmap visibility — engage AM Squad at SDLC start, not sign-off deadline",
             "Administrative capacity — free lead for architecture & AI tooling",
             "P0: MSC GitLab nightly · M1 master suite · enrollment API",
-            "~80% release validation automated (17 FTE → 2 FTE equivalent)",
+            f"~{sc['release_automation_pct']}% release validation automated (17 FTE → 2 FTE equivalent)",
         ],
         "Full detail: AM-Squad-Leadership-Detailed-Modern-Aug2026.pptx",
         "Asks",
+        footnote="Team formed Q2 2025; Apr–Aug is the 5-month delivery window on top of ~12 months of build.",
     )
 
     slide = prs.slides.add_slide(prs.slide_layouts[6])
@@ -430,6 +465,7 @@ def build_detailed(m: dict) -> None:
     sc = m["scorecard"]
     j = m["jira"]["totals"]
     dc = m.get("data_confidence", {})
+    perf_base = sum(a["labels"] for a in m["perf_inventory"]["areas"])
     prs = Presentation()
     prs.slide_width = SW
     prs.slide_height = SH
@@ -438,70 +474,241 @@ def build_detailed(m: dict) -> None:
     slide_hero(prs, "QA Automation — AM Squad", f"Detailed Leadership Update · {SUBTITLE}", "Full portfolio view")
     slide_kpi_dashboard(prs, n := n + 1, m)
 
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "Executive Headline",
+        [
+            f"{sc['gitlab_merges']} merged changes to main across 3 automation repositories",
+            f"{j['story_points']:.0f} Jira story points · {j['work_items_in_sprints']} work items · {j['automation_bugs_logged']} bugs found",
+            f"~{sc['release_automation_pct']}% of monthly release validations automated (17 FTE → 2 FTE)",
+            "Unite MSC rescued — Mobile 2 at 25/25 endpoints, ~50% ETA savings",
+            "Six parallel tracks: V2 · V3 · API/MSC · Perf · Pipeline · Standards",
+        ],
+        "Executive summary",
+        "Overview",
+        footnote="Apr–Aug reporting window on a team formed Q2 2025 — acceleration phase, not greenfield.",
+    )
+
     slide_chart_insight(
-        prs, n := n + 1, "GitLab Merges by Repository", "01-gitlab-mrs-by-month.png",
-        "Delivery velocity",
-        [f"{sc['gitlab_merges']} total merges", "Peak Jun–Jul MSC sprint", "V2 + V3 + API repos"],
-        "GitLab MR export", "GitLab",
+        prs, n := n + 1,
+        "GitLab Delivery Velocity",
+        "01-gitlab-mrs-by-month.png",
+        "What this shows",
+        [f"{sc['gitlab_merges']} total merges", "July peak: 38 merges during MSC sprint", "Separate from test case counts"],
+        "GitLab MR export · Apr 1 – Aug 4, 2026",
+        "GitLab",
+        footnote="July = 38 merges (highest month). Merge count ≠ test cases or story points.",
     )
     slide_chart_insight(
-        prs, n := n + 1, "Monthly Automation Delivery", "08-monthly-automation-test-cases-added.png",
+        prs, n := n + 1,
+        "Monthly Automation Delivery",
+        "08-monthly-automation-test-cases-added.png",
         "Period delivery (not inventory)",
-        dc.get("leadership_talking_points", [])[:5],
-        "Jira resolved stories · see 10-data-confidence-and-leadership-faq.md", "Automation",
+        dc.get("leadership_talking_points", [])[:4],
+        "Jira AMSQUAD · period delivery estimate",
+        "Automation",
+        footnote="Estimated from 225 closed Jira stories — period velocity only, not added to nightly inventory.",
     )
     slide_chart_insight(
-        prs, n := n + 1, "Jira Story Points", "09-jira-story-points-by-sprint.png",
-        "Sprint delivery",
-        [f"{j['story_points']:.0f} SP · {j['work_items_in_sprints']} items", f"{j['automation_bugs_logged']} bugs found"],
-        "Jira AMSQUAD", "Jira",
+        prs, n := n + 1,
+        "Jira Sprint Delivery",
+        "09-jira-story-points-by-sprint.png",
+        "Sprint outcomes",
+        [f"{j['work_items_in_sprints']} items · {j['story_points']:.0f} SP", f"{j['automation_bugs_logged']} bugs logged"],
+        "Jira AMSQUAD Sprints 26.04–26.12",
+        "Jira",
+        footnote="Story points = committed sprint work closed across 9 sprints in the reporting window.",
     )
-    slide_chart_insight(prs, n := n + 1, "Automation Bugs Discovered", "10-jira-automation-bugs-by-sprint.png",
-        "Quality signal", ["Defects found via nightly regression triage", "Fed into automation bug lifecycle"],
-        "Jira AMSQUAD", "Quality")
+    slide_chart_insight(
+        prs, n := n + 1,
+        "Automation Defects Discovered",
+        "10-jira-automation-bugs-by-sprint.png",
+        "Quality signal",
+        ["Defects found via nightly regression triage", "Fed into automation bug lifecycle standard"],
+        "Jira AMSQUAD",
+        "Quality",
+        footnote="Bugs logged by automation team from nightly failures — not all production defects.",
+    )
 
-    slide_section_modern(prs, "V2 Legacy UI Automation", "Jenkins Stage1 nightly")
-    slide_chart_insight(prs, n := n + 1, "V2 Module Snapshot", "04-v2-regression-by-module.png",
-        "V2 coverage", [f"{sc['v2_nightly_methods']} methods · 12 modules", "CSR modules Apr–Jul", "+33 CSR Actions next"],
-        "Jenkins nightly", "V2")
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "Beyond the Metrics",
+        [
+            "Framework architecture & canonical repo design",
+            "AI-accelerated docs, Postman, TestNG boilerplate",
+            "qTest master suite & automation bug lifecycle standard",
+            "Pipeline/DevOps co-design & module switches",
+            "Cross-team emergency support & release triage",
+        ],
+        "Additional value not captured in merge or test-count metrics",
+        "Value",
+        footnote="These investments are not fully captured in delivery charts or merge counts.",
+    )
 
-    slide_section_modern(prs, "V3 Universal Platform", "GitLab CI nightly")
-    slide_chart_insight(prs, n := n + 1, "V3 Module Snapshot", "11-v3-regression-by-module.png",
-        "V3 coverage", [f"{sc['v3_nightly_methods']} methods", "UE 303 · IDP 56 · Entity expanding"],
-        "GitLab nightly Aug 4", "V3")
+    slide_section_modern(prs, "V2 Legacy UI Automation", "Jenkins Stage1 nightly · built since Q2 2025")
+    slide_chart_insight(
+        prs, n := n + 1,
+        "V2 Stage1 Nightly Snapshot",
+        "04-v2-regression-by-module.png",
+        "What this counts",
+        [
+            f"{sc['v2_nightly_methods']} methods — Stage1 primary nightly only (Aug 4)",
+            "Built since Q2 2025 — not Apr–Aug alone",
+            "Excludes smoke, Stage 2/5, +33 CSR Actions pending wire",
+            "CSR maintenance added Apr–Jul on earlier foundation",
+        ],
+        "Jenkins STAGE1-Daily-Unite-Prime-Regression · Aug 4",
+        "V2",
+        footnote="Additional V2 coverage: Stage 5 smoke, Stage 2 smoke, on-demand fast smoke, +33 CSR Actions.",
+    )
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "V2 Business Value",
+        [
+            "Core member journeys covered nightly before release",
+            "CSR maintenance gaps closed — high-risk flows automated",
+            "Enrollments/login triage separates env vs product defects",
+        ],
+        "V2 value",
+        "V2",
+    )
+
+    slide_section_modern(prs, "V3 Universal Platform", "GitLab CI nightly · built since Q2 2025")
+    slide_chart_insight(
+        prs, n := n + 1,
+        "V3 Stage1 Nightly Snapshot",
+        "11-v3-regression-by-module.png",
+        "What this counts",
+        [
+            f"{sc['v3_nightly_methods']} methods — GitLab Stage1 nightly only (Aug 4)",
+            "Framework + CI/CD accumulated over ~1 year",
+            "UE 303 = scenarios × plan/traunch matrix",
+            "Entity suites expanding — not all in Aug 4 log",
+        ],
+        "GitLab scheduled_regression_job · Aug 4",
+        "V3",
+        footnote="Additional V3 coverage: Stage 5 smoke (UE + IDP), integration profiles, Entity track — not in 442.",
+    )
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "V3 Delivery Highlights",
+        [
+            "Entity registration/login suites expanded",
+            "IDP open-account and member withdrawal regression",
+            "Flaky-test stabilization and web registration flows",
+            "Stage 5 smoke suites for UE + IDP",
+        ],
+        "V3 highlights",
+        "V3",
+    )
 
     slide_section_modern(prs, "API / Unite MSC", "Rescued · accelerated")
-    slide_chart_insight(prs, n := n + 1, "MSC Endpoint Coverage", "05-unite-msc-coverage.png",
-        "Endpoint coverage", [f"M2 {sc['msc_m2_endpoints']}", f"M1 {sc['msc_m1_core']}", "~50% ETA savings"],
-        "api-test-automation", "MSC")
-    slide_chart_insight(prs, n := n + 1, "API Module Breakdown", "13-api-regression-by-module.png",
-        "M1 categories", ["Auth, profile, biometric, device, bank", "Master suite in progress"],
-        "api-test-automation", "API")
+    slide_chart_insight(
+        prs, n := n + 1,
+        "MSC Endpoint Coverage",
+        "05-unite-msc-coverage.png",
+        "MSC status",
+        [f"M2 {sc['msc_m2_endpoints']}", f"M1 {sc['msc_m1_core']}", "~50% ETA savings", "P0: GitLab nightly (QA-1405)"],
+        "api-test-automation",
+        "MSC",
+        footnote="M2 = full mobile endpoint catalog. M1 ~86% of 29 core categories — master suite in progress.",
+    )
+    slide_chart_insight(
+        prs, n := n + 1,
+        "API Module Breakdown",
+        "13-api-regression-by-module.png",
+        "M1 categories",
+        ["Auth, profile, biometric, device, bank", "Master suite in progress", "Endpoints × branding plans"],
+        "api-test-automation",
+        "API",
+        footnote="OKD non-IDP + NYD/NMD IDP brandings expand endpoint permutations beyond raw count.",
+    )
 
     slide_section_modern(prs, "Performance Testing", "Labels × plans model")
-    slide_chart_insight(prs, n := n + 1, "Perf Test Case Inventory", "12-perf-test-case-inventory.png",
-        "323 test cases", ["IDP × 7 plans", "Legacy × 5", "MSC × 2 brandings", "4 Jenkins scenarios"],
-        "Perf inventory", "Perf")
+    slide_chart_insight(
+        prs, n := n + 1,
+        "Perf Test Case Inventory",
+        "12-perf-test-case-inventory.png",
+        "Why the numbers look large",
+        [
+            f"{perf_base} base transaction flows → {sc['perf_test_cases']} plan-expanded cases",
+            "Bars = flows; line = cases after × plan matrix",
+            "4 Jenkins scenarios schedule these permutations",
+            "IDP alone: 15 labels × 7 plans = 105 cases",
+        ],
+        "Perf inventory",
+        "Perf",
+        footnote="4 Jenkins jobs schedule runs — not 323 separate jobs. Barcode SYN-443 delivered in ~1 week.",
+    )
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "Performance Value",
+        [
+            "Repeatable baselines — no manual re-run each release",
+            "Evidence for platform team pre/post patch comparison",
+            "Department perf DoD and BlazeMeter reporting standard",
+        ],
+        "Perf value",
+        "Perf",
+    )
 
-    slide_chart_insight(prs, n := n + 1, "Investment Allocation", "06-work-allocation-index.png",
-        "Where effort went", ["MSC API 35%", "V2 UI 20%", "V3 UP 15%", "Perf 12%"],
-        "Squad estimate Apr–Jul", "Portfolio")
-    slide_chart_insight(prs, n := n + 1, "Release Automation Impact", "07-release-automation-impact.png",
-        "Business value", ["~80% automated", "17 FTE → 2 FTE equivalent", "Team focuses on triage + net-new"],
-        "Release validation model", "Value")
+    slide_chart_insight(
+        prs, n := n + 1,
+        "Investment Allocation",
+        "06-work-allocation-index.png",
+        "Effort mix",
+        ["MSC API 35%", "V2 UI 20%", "V3 UP 15%", "Perf 12%", "Pipeline/Standards remainder"],
+        "Squad estimate Apr–Jul",
+        "Portfolio",
+        footnote="Relative effort index — not headcount FTE. MSC sprint drove Jun–Jul concentration.",
+    )
+    slide_chart_insight(
+        prs, n := n + 1,
+        "Release Automation Impact",
+        "07-release-automation-impact.png",
+        "Business value",
+        [f"~{sc['release_automation_pct']}% automated", "17 FTE → 2 FTE equivalent", "Team focuses on triage + net-new"],
+        "Release validation model",
+        "Value",
+        footnote="FTE equivalent = manual validation hours replaced by nightly regression, not headcount reduction.",
+    )
 
-    slide_bullets_modern(prs, n := n + 1, "AI Acceleration",
-        ["MSC migration agents — Postman, docs, TestNG", "Automation bug lifecycle skill",
-         "Reproducible leadership metrics pipeline", "Coverage intelligence for monthly dashboard"],
-        "AI tooling portfolio", "AI")
-    slide_bullets_modern(prs, n := n + 1, "Roadmap Q3–Q4 2026",
-        ["P0: MSC GitLab nightly · M1 master suite", "P1: MSC enrollment API · CSR Actions expansion",
-         "P2: Entity V3 nightly · automated dashboard", "Engage at SDLC start"],
-        "Roadmap", "Roadmap")
-    slide_bullets_modern(prs, n := n + 1, "Leadership Asks",
-        ["Roadmap visibility at SDLC start", "Admin capacity for architecture lead",
-         "30-min live walkthrough recommended"],
-        "Asks", "Asks")
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "AI Acceleration",
+        [
+            "MSC migration agents — Postman, docs, TestNG boilerplate",
+            "Automation bug lifecycle — Cursor skill + standardized reporting",
+            "Chart & metrics generators — reproducible leadership packs",
+            "Coverage intelligence foundation for monthly dashboard",
+        ],
+        "AI tooling portfolio",
+        "AI",
+    )
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "Roadmap Q3–Q4 2026",
+        [
+            "P0: MSC GitLab nightly · M1 master suite",
+            "P1: MSC enrollment API · CSR Actions expansion (+33 scenarios)",
+            "P2: Entity V3 nightly · automated dashboard",
+            "Engage AM Squad at SDLC start, not sign-off deadline",
+        ],
+        "Roadmap",
+        "Roadmap",
+    )
+    slide_bullets_modern(
+        prs, n := n + 1,
+        "Leadership Asks",
+        [
+            "Roadmap visibility at SDLC start",
+            "Admin capacity for architecture lead & AI tooling",
+            "30-min live walkthrough recommended for Q&A",
+        ],
+        "Asks",
+        "Asks",
+        footnote="Concise executive view: AM-Squad-Leadership-Executive-Glimpse-Aug2026.pptx",
+    )
 
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     _rect(slide, 0, 0, SW, SH, INK)

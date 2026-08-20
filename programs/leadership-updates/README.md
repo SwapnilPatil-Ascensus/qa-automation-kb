@@ -7,6 +7,7 @@ VP- and director-level visibility packs for QA Automation (AM Squad) delivery ac
 | Pack | Period | Audience |
 |------|--------|----------|
 | [2026-08 AM Squad Leadership Update](./2026-08-am-squad-leadership-update/README.md) | Apr–Aug 2026 (Q2 + July) | Michael Blake, Dhanashree, VPs, Directors |
+| [2026-08-14 Rajib/Henry Biweekly](./2026-08-14-rajib-henry-biweekly/README.md) | Sprint 26.11–26.12 | Rajib, Henry, Persistent DMs |
 
 ## Legacy source material
 

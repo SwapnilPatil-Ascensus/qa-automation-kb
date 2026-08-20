@@ -1,0 +1,12 @@
+repository,path,branch,commit,assessment_date,automation_type,notes
+api-test-automation,mobile/mobile1,main,cee0de9,2026-07-20,Mobile 1 API TestNG,6 endpoint identities; uncommitted suite/SQL changes on working tree
+api-test-automation,mobile/mobile2,main,cee0de9,2026-07-20,Mobile 2 API TestNG,24/24 in-scope endpoints; 41 master regression executions
+api-test-automation,mobile/enrollment,main,cee0de9,2026-07-20,Enrollment pilot,Bootstrap only
+api-test-automation,universal/jsonapi-aws-accountweb,main,cee0de9,2026-07-20,Universal Account API,Documented inventory; manual Maven
+api-test-automation,universal/jsonapi-aws-financialweb,main,cee0de9,2026-07-20,Universal Financial API,Withdrawal-focused tests
+api-test-automation,universal/jsonapi-metadataweb,main,cee0de9,2026-07-20,Universal Metadata API,GitLab scheduled Stage1 job
+api-test-automation,universal/jsonapi-auth,main,cee0de9,2026-07-20,IDP/OAuth tests,Shared auth library + tests
+api-test-automation,universal/jsonapi-aws-riskweb,main,cee0de9,2026-07-20,Risk API,Skeleton - no active tests
+api-test-automation,astro/jsonapi-astro,main,cee0de9,2026-07-20,ASTRO employer,Minimal test footprint
+ags-unitemsc,consumer mobile2-workspace,unknown,unknown,2026-07-20,GitHub Actions Mobile2 Nexus,Workflow not in api-test-automation repo; live run evidence from Chaitanya 2026-07-20
+qa-automation-kb,leadership-updates,unknown,unknown,2026-07-20,Leadership KB,Referenced by runbook; not validated this session

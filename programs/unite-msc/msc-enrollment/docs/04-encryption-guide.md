@@ -148,7 +148,7 @@ The Postman collection computes this automatically in the collection prerequest 
 
 ---
 
-## Java automation (future)
+## Java automation (TestNG)
 
 In `api-test-automation/mobile/enrollment`:
 
@@ -162,3 +162,5 @@ payload.createMobilePayload();
 ```
 
 This replaces manual CLI + Postman for TestNG tests.
+
+**Deep dive (framework internals):** [Mobile AES encryption flow](../../api-test-automation/docs/03-development/07-mobile-aes-encryption-flow.md) — sequence diagrams, `aesKey` vs `encAesKey`, class map, decrypt reuse, troubleshooting.
