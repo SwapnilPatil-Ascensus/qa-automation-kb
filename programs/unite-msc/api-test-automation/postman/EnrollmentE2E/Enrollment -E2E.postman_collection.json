@@ -1,0 +1,1541 @@
+{
+  "info": {
+    "_postman_id": "30d35cca-c6be-4ad1-8a02-814d076c6987",
+    "name": "Enrollment -E2E",
+    "description": "AES-encrypted PII for Stage1/QC4 BFF. Run Step 01-25. Step 03 sets encAesKey. Step 11 returns jwtToken.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48289834"
+  },
+  "item": [
+    {
+      "name": "Module 01 - Health (2)",
+      "item": [
+        {
+          "name": "GET 01 Health Liveness",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/health/liveness",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "health",
+                "liveness"
+              ]
+            },
+            "description": "Kubernetes liveness probe. Confirms enrollment service pod is running."
+          },
+          "response": []
+        },
+        {
+          "name": "GET 02 Ping",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/ping",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "ping"
+              ]
+            },
+            "description": "Simple API health check. Verifies BFF can reach enrollment API."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 02 - Setup & Metadata (3)",
+      "item": [
+        {
+          "name": "GET 03 Get Certificate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/certificate",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "certificate"
+              ]
+            },
+            "description": "Returns RSA public certificate. Client encrypts AES key as encAesKey for PII fields. Plain-text bodies may fail on Stage1/QC4 BFF."
+          },
+          "response": []
+        },
+        {
+          "name": "GET 04 Get US States",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/usstates",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "usstates"
+              ]
+            },
+            "description": "Returns US state codes and names for owner/beneficiary address dropdowns."
+          },
+          "response": []
+        },
+        {
+          "name": "GET 05 Get Countries",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/country",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "country"
+              ]
+            },
+            "description": "Returns country codes and names for beneficiary citizenship fields."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 03 - Plan Selection (2)",
+      "item": [
+        {
+          "name": "GET 06 Get All Plans",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/plans",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "plans"
+              ]
+            },
+            "description": "Lists enrollable 529 plans available to the channel."
+          },
+          "response": []
+        },
+        {
+          "name": "GET 07 Get Plan By Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/plans/{{planId}}",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "plans",
+                "{{planId}}"
+              ]
+            },
+            "description": "Plan metadata, funds, branding for selected plan (e.g. hawaii, upromise, okdirect)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 04 - Content (1)",
+      "item": [
+        {
+          "name": "GET 08 Get Enrollment Content",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/content?branding={{planId}}&language=en&name={{planId}}_enroll_review_page",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "content"
+              ],
+              "query": [
+                {
+                  "key": "branding",
+                  "value": "{{planId}}"
+                },
+                {
+                  "key": "language",
+                  "value": "en"
+                },
+                {
+                  "key": "name",
+                  "value": "enrollment"
+                }
+              ]
+            },
+            "description": "CMS content strings for enrollment screens (labels, disclosures)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 05 - Mobile Login (Optional) (1)",
+      "item": [
+        {
+          "name": "POST 09 Mobile Member Login (optional)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try { var j = pm.response.json(); var t = (j._embedded && j._embedded.item && j._embedded.item.jwtToken) || j.jwtToken; if (t) pm.environment.set('mobileMemberJwt', t); } catch(e) {}",
+                  "pm.test('Login response', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201, 401]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"planId\": \"{{planId}}\",\r\n  \"username\": \"{{loginUsername}}\",\r\n  \"password\": \"{{loginPassword}}\",\r\n  \"rememberMe\": true,\r\n  \"deviceUuid\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{mobileLoginHostUrl}}/mobile1api/v1/mobilemembersession",
+              "host": [
+                "{{mobileLoginHostUrl}}"
+              ],
+              "path": [
+                "mobile1api",
+                "v1",
+                "mobilemembersession"
+              ]
+            },
+            "description": "Logs in existing member. Returns MEMBER jwtToken â€” NOT valid for enrollment event steps 11-20."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 06 - Auth & Prospect (2)",
+      "item": [
+        {
+          "name": "POST 10 Enrollment Started",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"prospect\": {\r\n      \"plan\": \"{{planId}}\"\r\n    },\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"enrollment-started\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\"\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollmentstarted",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollmentstarted"
+              ]
+            },
+            "description": "Web account-owner flow: records enrollment-started event when user opens enroll UI."
+          },
+          "response": []
+        },
+        {
+          "name": "POST 11 Create Prospect",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"prospect\": {\r\n      \"password\": \"{{prospectPassword}}\",\r\n      \"username\": \"{{prospectUsername}}\",\r\n      \"plan\": \"{{planId}}\",\r\n      \"challengeQuestion\": \"What is your favorite color?\",\r\n      \"challengeResponse\": \"blue\",\r\n      \"email\": \"{{prospectEmail}}\",\r\n      \"promoCode\": \"NA\"\r\n    },\r\n    \"owner\": {\r\n      \"firstName\": \"{{ownerFirstName}}\",\r\n      \"middleInitial\": \"B\",\r\n      \"lastName\": \"{{ownerLastName}}\",\r\n      \"ssn\": \"{{ownerSsn}}\",\r\n      \"confirmSsn\": \"{{ownerSsn}}\",\r\n      \"dob\": \"{{ownerDob}}\",\r\n      \"enrollInUpromise\": \"N\",\r\n      \"permAddline1\": \"{{permAddline1}}\",\r\n      \"permAddline2\": \"{{permAddline2}}\",\r\n      \"permCity\": \"{{permCity}}\",\r\n      \"permZipcode\": \"{{permZipcode}}\",\r\n      \"permStatelabel\": \"{{permStatelabel}}\",\r\n      \"isForeignPermaddr\": \"N\",\r\n      \"mlAddline1\": \"{{mlAddline1}}\",\r\n      \"mlAddline2\": \"{{mlAddline2}}\",\r\n      \"mlCity\": \"{{mlCity}}\",\r\n      \"mlZipcode\": \"{{mlZipcode}}\",\r\n      \"mlStatelabel\": \"{{mlStatelabel}}\",\r\n      \"isForeignAddress\": \"N\",\r\n      \"phone\": \"{{ownerPhone}}\",\r\n      \"phoneType\": \"C\"\r\n    },\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/prospects",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "prospects"
+              ]
+            },
+            "description": "Creates prospect username, validates via account API, issues ENROLL_PROSPECT JWT. Critical step â€” saves jwtToken, correlationId, eventId."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 07 - Owner (2)",
+      "item": [
+        {
+          "name": "POST 12 Owner Entered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 0\r\n    },\r\n    \"prospect\": {\r\n      \"username\": \"{{prospectUsername}}\",\r\n      \"plan\": \"{{planId}}\",\r\n      \"email\": \"{{prospectEmail}}\"\r\n    },\r\n    \"owner\": {\r\n      \"firstName\": \"{{ownerFirstName}}\",\r\n      \"middleInitial\": \"B\",\r\n      \"lastName\": \"{{ownerLastName}}\",\r\n      \"ssn\": \"{{ownerSsn}}\",\r\n      \"dob\": \"{{ownerDob}}\",\r\n      \"mlAddline1\": \"{{mlAddline1}}\",\r\n      \"mlCity\": \"{{mlCity}}\",\r\n      \"mlZipcode\": \"{{mlZipcode}}\",\r\n      \"mlStatelabel\": \"{{mlStatelabel}}\",\r\n      \"permAddline1\": \"{{permAddline1}}\",\r\n      \"permCity\": \"{{permCity}}\",\r\n      \"permZipcode\": \"{{permZipcode}}\",\r\n      \"permStatelabel\": \"{{permStatelabel}}\"\r\n    },\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"owner-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 1,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"enrollmentAllocations\": [],\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/owner-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "owner-entered"
+              ]
+            },
+            "description": "Submits owner identity: name, SSN, DOB. Event-sourced step; chains parent/correlationId/seqNum."
+          },
+          "response": []
+        },
+        {
+          "name": "POST 13 Owner Address Entered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 0\r\n    },\r\n    \"prospect\": {\r\n      \"username\": \"{{prospectUsername}}\",\r\n      \"plan\": \"{{planId}}\",\r\n      \"email\": \"{{prospectEmail}}\"\r\n    },\r\n    \"owner\": {\r\n      \"firstName\": \"{{ownerFirstName}}\",\r\n      \"middleInitial\": \"B\",\r\n      \"lastName\": \"{{ownerLastName}}\",\r\n      \"ssn\": \"{{ownerSsn}}\",\r\n      \"dob\": \"{{ownerDob}}\",\r\n      \"mlAddline1\": \"{{mlAddline1}}\",\r\n      \"mlCity\": \"{{mlCity}}\",\r\n      \"mlZipcode\": \"{{mlZipcode}}\",\r\n      \"mlStatelabel\": \"{{mlStatelabel}}\",\r\n      \"permAddline1\": \"{{permAddline1}}\",\r\n      \"permCity\": \"{{permCity}}\",\r\n      \"permZipcode\": \"{{permZipcode}}\",\r\n      \"permStatelabel\": \"{{permStatelabel}}\"\r\n    },\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"owner-address-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 1,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"enrollmentAllocations\": [],\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/owner-address-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "owner-address-entered"
+              ]
+            },
+            "description": "Submits owner mailing and permanent addresses."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 08 - Beneficiary (1)",
+      "item": [
+        {
+          "name": "POST 14 Beneficiary Entered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 1\r\n    },\r\n    \"prospect\": {\r\n      \"username\": \"{{prospectUsername}}\",\r\n      \"plan\": \"{{planId}}\",\r\n      \"email\": \"{{prospectEmail}}\"\r\n    },\r\n    \"owner\": {\r\n      \"firstName\": \"{{ownerFirstName}}\",\r\n      \"lastName\": \"{{ownerLastName}}\",\r\n      \"ssn\": \"{{ownerSsn}}\",\r\n      \"dob\": \"{{ownerDob}}\"\r\n    },\r\n    \"beneficiary\": {\r\n      \"firstName\": \"{{beneficiaryFirstName}}\",\r\n      \"middleInitial\": \"A\",\r\n      \"lastName\": \"{{beneficiaryLastName}}\",\r\n      \"dob\": \"{{beneficiaryDob}}\",\r\n      \"ssn\": \"{{beneficiarySsn}}\",\r\n      \"confirmSsn\": \"{{beneficiarySsn}}\",\r\n      \"isCtznOrResalien\": \"Y\",\r\n      \"countryCode\": \"0\",\r\n      \"mlAddline1\": \"{{mlAddline1}}\",\r\n      \"mlCity\": \"{{mlCity}}\",\r\n      \"mlZipcode\": \"{{mlZipcode}}\",\r\n      \"mlStatelabel\": \"{{mlStatelabel}}\",\r\n      \"isForeignAddress\": \"N\",\r\n      \"relationship\": \"CHILD\"\r\n    },\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"beneficiary-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 2,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"enrollmentAllocations\": [],\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/beneficiary-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "beneficiary-entered"
+              ]
+            },
+            "description": "Submits beneficiary name, SSN, DOB, relationship, address."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 09 - Bank & Funding (3)",
+      "item": [
+        {
+          "name": "POST 15 Verify Routing Number",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"bank\": {\r\n      \"routingNumber\": \"{{routingNumber}}\",\r\n      \"accountNumber\": \"{{accountNumber}}\",\r\n      \"bankName\": \"{{bankName}}\",\r\n      \"accountType\": \"{{accountType}}\",\r\n      \"isDomestic\": \"Y\"\r\n    }\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/verify/routingnumber",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "verify",
+                "routingnumber"
+              ]
+            },
+            "description": "Validates bank routing number and returns bank name. Call before bank-entered."
+          },
+          "response": []
+        },
+        {
+          "name": "POST 16 Bank Entered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 2\r\n    },\r\n    \"prospect\": {\r\n      \"username\": \"{{prospectUsername}}\",\r\n      \"plan\": \"{{planId}}\"\r\n    },\r\n    \"owner\": {\r\n      \"firstName\": \"{{ownerFirstName}}\",\r\n      \"lastName\": \"{{ownerLastName}}\",\r\n      \"ssn\": \"{{ownerSsn}}\",\r\n      \"dob\": \"{{ownerDob}}\"\r\n    },\r\n    \"beneficiary\": {\r\n      \"firstName\": \"{{beneficiaryFirstName}}\",\r\n      \"lastName\": \"{{beneficiaryLastName}}\",\r\n      \"ssn\": \"{{beneficiarySsn}}\",\r\n      \"dob\": \"{{beneficiaryDob}}\"\r\n    },\r\n    \"bank\": {\r\n      \"bankName\": \"{{bankName}}\",\r\n      \"routingNumber\": \"{{routingNumber}}\",\r\n      \"accountNumber\": \"{{accountNumber}}\",\r\n      \"confirmAccountNumber\": \"{{accountNumber}}\",\r\n      \"accountType\": \"{{accountType}}\",\r\n      \"isDomestic\": \"Y\"\r\n    },\r\n    \"oneTimeInstruction\": {\r\n      \"paymentType\": \"{{paymentType}}\",\r\n      \"frequency\": \"O\",\r\n      \"amount\": \"{{paymentAmount}}\"\r\n    },\r\n    \"recurringBankInstruction\": null,\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"bank-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 3,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"enrollmentAllocations\": [],\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/bank-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "bank-entered"
+              ]
+            },
+            "description": "Links bank account and optional one-time contribution (paymentType O). eventType must be bank-entered."
+          },
+          "response": []
+        },
+        {
+          "name": "POST 17 Recurring Contribution (optional)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 3\r\n    },\r\n    \"prospect\": { \"username\": \"{{prospectUsername}}\", \"plan\": \"{{planId}}\" },\r\n    \"owner\": { \"firstName\": \"{{ownerFirstName}}\", \"lastName\": \"{{ownerLastName}}\", \"ssn\": \"{{ownerSsn}}\", \"dob\": \"{{ownerDob}}\" },\r\n    \"beneficiary\": { \"firstName\": \"{{beneficiaryFirstName}}\", \"lastName\": \"{{beneficiaryLastName}}\", \"ssn\": \"{{beneficiarySsn}}\", \"dob\": \"{{beneficiaryDob}}\" },\r\n    \"bank\": {\r\n      \"bankName\": \"{{bankName}}\",\r\n      \"routingNumber\": \"{{routingNumber}}\",\r\n      \"accountNumber\": \"{{accountNumber}}\",\r\n      \"accountType\": \"{{accountType}}\",\r\n      \"isDomestic\": \"Y\"\r\n    },\r\n    \"oneTimeInstruction\": {\r\n      \"paymentType\": \"{{paymentType}}\",\r\n      \"frequency\": \"O\",\r\n      \"amount\": \"{{paymentAmount}}\"\r\n    },\r\n    \"recurringBankInstruction\": {\r\n      \"paymentType\": \"P\",\r\n      \"frequency\": \"M\",\r\n      \"amount\": \"{{recurringAmount}}\",\r\n      \"beginDate\": \"{{recurringBeginDate}}\"\r\n    },\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"recurring-contribution-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 4,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"enrollmentAllocations\": [],\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/recurring-contribution-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "recurring-contribution-entered"
+              ]
+            },
+            "description": "Sets up automatic recurring (AIP) bank instruction. Skip if one-time only."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 10 - Investment (2)",
+      "item": [
+        {
+          "name": "POST 18 Get Allocation Funds By Age",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"planId\": \"{{planId}}\",\r\n    \"age\": \"{{beneficiaryAge}}\"\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollmentallocationfunds/get",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollmentallocationfunds",
+                "get"
+              ]
+            },
+            "description": "Returns age-based fund options for beneficiary before choosing allocations."
+          },
+          "response": []
+        },
+        {
+          "name": "POST 19 Allocations Entered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 4\r\n    },\r\n    \"prospect\": { \"username\": \"{{prospectUsername}}\", \"plan\": \"{{planId}}\" },\r\n    \"owner\": { \"firstName\": \"{{ownerFirstName}}\", \"lastName\": \"{{ownerLastName}}\", \"ssn\": \"{{ownerSsn}}\", \"dob\": \"{{ownerDob}}\" },\r\n    \"beneficiary\": { \"firstName\": \"{{beneficiaryFirstName}}\", \"lastName\": \"{{beneficiaryLastName}}\", \"ssn\": \"{{beneficiarySsn}}\", \"dob\": \"{{beneficiaryDob}}\" },\r\n    \"bank\": {\r\n      \"bankName\": \"{{bankName}}\",\r\n      \"routingNumber\": \"{{routingNumber}}\",\r\n      \"accountNumber\": \"{{accountNumber}}\",\r\n      \"accountType\": \"{{accountType}}\",\r\n      \"isDomestic\": \"Y\"\r\n    },\r\n    \"oneTimeInstruction\": {\r\n      \"paymentType\": \"{{paymentType}}\",\r\n      \"frequency\": \"O\",\r\n      \"amount\": \"{{paymentAmount}}\"\r\n    },\r\n    \"recurringBankInstruction\": null,\r\n    \"enrollmentAllocations\": [\r\n      { \"fundId\": \"{{allocationFundId}}\", \"percentAlloc\": \"{{allocationPercent}}\" }\r\n    ],\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": null,\r\n    \"eventType\": \"allocations-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 5,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/allocations-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "allocations-entered"
+              ]
+            },
+            "description": "Sets fund allocation percentages (must total 100%)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 11 - Submit (1)",
+      "item": [
+        {
+          "name": "POST 20 Review Confirm Entered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"parent\": {\r\n      \"correlationId\": \"{{correlationId}}\",\r\n      \"eventId\": \"{{eventId}}\",\r\n      \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n      \"seqNum\": 5\r\n    },\r\n    \"prospect\": {\r\n      \"password\": \"{{prospectPassword}}\",\r\n      \"username\": \"{{prospectUsername}}\",\r\n      \"plan\": \"{{planId}}\",\r\n      \"challengeQuestion\": \"What is your favorite color?\",\r\n      \"challengeResponse\": \"blue\",\r\n      \"email\": \"{{prospectEmail}}\",\r\n      \"promoCode\": \"NA\"\r\n    },\r\n    \"owner\": {\r\n      \"firstName\": \"{{ownerFirstName}}\",\r\n      \"middleInitial\": \"B\",\r\n      \"lastName\": \"{{ownerLastName}}\",\r\n      \"ssn\": \"{{ownerSsn}}\",\r\n      \"confirmSsn\": \"{{ownerSsn}}\",\r\n      \"dob\": \"{{ownerDob}}\",\r\n      \"permAddline1\": \"{{permAddline1}}\",\r\n      \"permCity\": \"{{permCity}}\",\r\n      \"permZipcode\": \"{{permZipcode}}\",\r\n      \"permStatelabel\": \"{{permStatelabel}}\",\r\n      \"mlAddline1\": \"{{mlAddline1}}\",\r\n      \"mlCity\": \"{{mlCity}}\",\r\n      \"mlZipcode\": \"{{mlZipcode}}\",\r\n      \"mlStatelabel\": \"{{mlStatelabel}}\",\r\n      \"phone\": \"{{ownerPhone}}\",\r\n      \"phoneType\": \"C\"\r\n    },\r\n    \"beneficiary\": {\r\n      \"firstName\": \"{{beneficiaryFirstName}}\",\r\n      \"middleInitial\": \"A\",\r\n      \"lastName\": \"{{beneficiaryLastName}}\",\r\n      \"dob\": \"{{beneficiaryDob}}\",\r\n      \"ssn\": \"{{beneficiarySsn}}\",\r\n      \"confirmSsn\": \"{{beneficiarySsn}}\",\r\n      \"mlAddline1\": \"{{mlAddline1}}\",\r\n      \"mlCity\": \"{{mlCity}}\",\r\n      \"mlZipcode\": \"{{mlZipcode}}\",\r\n      \"mlStatelabel\": \"{{mlStatelabel}}\",\r\n      \"relationship\": \"CHILD\"\r\n    },\r\n    \"member\": {\r\n      \"email\": \"{{memberEmail}}\",\r\n      \"webRegistered\": \"N\",\r\n      \"delivConfirms\": \"E\",\r\n      \"delivStatements\": \"E\",\r\n      \"delivTaxForms\": \"E\"\r\n    },\r\n    \"account\": {\r\n      \"prefix\": \"{{accountPrefix}}\",\r\n      \"ext\": \"01\",\r\n      \"planId\": \"{{planDeprecatedId}}\"\r\n    },\r\n    \"bank\": {\r\n      \"bankName\": \"{{bankName}}\",\r\n      \"routingNumber\": \"{{routingNumber}}\",\r\n      \"accountNumber\": \"{{accountNumber}}\",\r\n      \"accountType\": \"{{accountType}}\",\r\n      \"isDomestic\": \"Y\"\r\n    },\r\n    \"oneTimeInstruction\": {\r\n      \"paymentType\": \"{{paymentType}}\",\r\n      \"frequency\": \"O\",\r\n      \"amount\": \"{{paymentAmount}}\"\r\n    },\r\n    \"enrollmentAllocations\": [\r\n      { \"fundId\": \"{{allocationFundId}}\", \"percentAlloc\": \"{{allocationPercent}}\" }\r\n    ],\r\n    \"usernameHash\": \"{{usernameHash}}\",\r\n    \"status\": \"Active\",\r\n    \"timestamp\": 0,\r\n    \"planId\": \"{{planId}}\",\r\n    \"eventType\": \"review-confirm-entered\",\r\n    \"aggregateType\": \"com.cs529.enrollment.domain.Enrollment\",\r\n    \"eventId\": \"{{newEventId}}\",\r\n    \"causationId\": \"{{eventId}}\",\r\n    \"correlationId\": \"{{correlationId}}\",\r\n    \"seqNum\": 6,\r\n    \"investment\": {},\r\n    \"funding\": {},\r\n    \"errors\": []\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/enrollment/review-confirm-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "enrollment",
+                "review-confirm-entered"
+              ]
+            },
+            "description": "Final review and account creation. Full payload: prospect, owner, beneficiary, member, account, bank, allocations. Returns confirmation."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 12 - Subsequent Enrollment (2)",
+      "item": [
+        {
+          "name": "GET 21 Get Subsequent Enrollment Banks",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/subsequentenrollment/banks?enAesKey={{encAesKey}}",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "subsequentenrollment",
+                "banks"
+              ],
+              "query": [
+                {
+                  "key": "enAesKey",
+                  "value": "{{encAesKey}}"
+                }
+              ]
+            },
+            "description": "Lists member existing banks when adding a subsequent 529 account."
+          },
+          "response": []
+        },
+        {
+          "name": "POST 22 Subsequent Review Confirm",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"beneficiary\": {\r\n      \"firstName\": \"{{beneficiaryFirstName}}\",\r\n      \"lastName\": \"{{beneficiaryLastName}}\",\r\n      \"ssn\": \"{{beneficiarySsn}}\",\r\n      \"dob\": \"{{beneficiaryDob}}\"\r\n    },\r\n    \"bank\": {\r\n      \"routingNumber\": \"{{routingNumber}}\",\r\n      \"accountNumber\": \"{{accountNumber}}\",\r\n      \"bankName\": \"{{bankName}}\",\r\n      \"accountType\": \"{{accountType}}\"\r\n    },\r\n    \"enrollmentAllocations\": [\r\n      { \"fundId\": \"{{allocationFundId}}\", \"percentAlloc\": \"{{allocationPercent}}\" }\r\n    ],\r\n    \"planId\": \"{{planId}}\",\r\n    \"status\": \"Active\"\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/subsequentenrollment/review-confirm-entered",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "subsequentenrollment",
+                "review-confirm-entered"
+              ]
+            },
+            "description": "Submits additional account for logged-in member."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 13 - Partner Integration (2)",
+      "item": [
+        {
+          "name": "POST 23 Vanguard Submit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"planId\": \"{{planId}}\",\r\n    \"prospect\": { \"username\": \"{{prospectUsername}}\", \"plan\": \"{{planId}}\" },\r\n    \"owner\": { \"firstName\": \"{{ownerFirstName}}\", \"lastName\": \"{{ownerLastName}}\" },\r\n    \"status\": \"Active\"\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/enrollments/submit",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "enrollments",
+                "submit"
+              ]
+            },
+            "description": "Partner-specific enrollment submission for Vanguard integration."
+          },
+          "response": []
+        },
+        {
+          "name": "GET 24 Upromise Account Exchange",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/upromiseaccount?memberId={{memberId}}",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "upromiseaccount"
+              ],
+              "query": [
+                {
+                  "key": "memberId",
+                  "value": "{{memberId}}"
+                }
+              ]
+            },
+            "description": "Upromise loyalty account linking during enrollment."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 14 - OAuth (1)",
+      "item": [
+        {
+          "name": "POST 25 OAuth Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  var items = pm.response.json();",
+                  "  if (items && items[0]) {",
+                  "    if (items[0].jwtToken) pm.environment.set('jwtToken', items[0].jwtToken);",
+                  "    if (items[0].correlationId) pm.environment.set('correlationId', items[0].correlationId);",
+                  "    if (items[0].eventId) pm.environment.set('eventId', items[0].eventId);",
+                  "    if (items[0].seqNum !== undefined) pm.environment.set('seqNum', String(items[0].seqNum));",
+                  "  }",
+                  "} catch (e) {}",
+                  "var hdr = pm.response.headers.get('x-enc-jwttoken');",
+                  "if (hdr) pm.environment.set('jwtToken', hdr);",
+                  "pm.test('Status OK', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"grantType\": \"client_credentials\",\r\n  \"clientId\": \"{{oauthClientId}}\",\r\n  \"clientSecret\": \"{{oauthClientSecret}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{enrollmentHostUrl}}/enrollmentapi/v1/oauth/token",
+              "host": [
+                "{{enrollmentHostUrl}}"
+              ],
+              "path": [
+                "enrollmentapi",
+                "v1",
+                "oauth",
+                "token"
+              ]
+            },
+            "description": "OAuth token for partner authentication flows."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwtToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "try { var CryptoJS = require('crypto-js'); var u = pm.environment.get('prospectUsername'); if (u) pm.environment.set('usernameHash', CryptoJS.SHA512(u).toString(CryptoJS.enc.Base64)); } catch(e) {}",
+          "pm.environment.set('newEventId', pm.variables.replaceIn('{{$guid}}'));",
+          "if (!pm.environment.get('correlationId')) {",
+          "  pm.environment.set('correlationId', pm.variables.replaceIn('{{$guid}}'));",
+          "  pm.environment.set('eventId', pm.variables.replaceIn('{{$guid}}'));",
+          "  pm.environment.set('seqNum', '0');",
+          "}"
+        ]
+      }
+    }
+  ]
+}

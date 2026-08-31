@@ -11,6 +11,17 @@ Environments: `api-test-automation/postman/environments/` (QC4, Stage 1, Stage 5
 
 Usage: `api-test-automation/postman/mobile/README.md`
 
-Enrollment E2E: `programs/unite-msc/msc-enrollment/postman/`
+## Enrollment E2E
+
+| Asset | Path |
+|-------|------|
+| Dinesh mapping (source) | [EnrollmentE2E/Enrollment End Points.xlsx](./EnrollmentE2E/Enrollment%20End%20Points.xlsx) |
+| Postman collection | [EnrollmentE2E/Enrollment -E2E.postman_collection.json](./EnrollmentE2E/Enrollment%20-E2E.postman_collection.json) |
+| **Automation coverage matrix** | [EnrollmentE2E/Enrollment-Automation-Coverage-Matrix.xlsx](./EnrollmentE2E/Enrollment-Automation-Coverage-Matrix.xlsx) |
+| Coverage status (markdown) | [EnrollmentE2E/Enrollment-Automation-Coverage-Status.md](./EnrollmentE2E/Enrollment-Automation-Coverage-Status.md) |
+
+Regenerate matrix: `EnrollmentE2E/tools/generate_enrollment_coverage_matrix.py`
+
+Legacy KB: `programs/unite-msc/msc-enrollment/postman/`
 
 When adding automation, update the endpoint CSV in [mappings/](../mappings/).
