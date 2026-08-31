@@ -1,6 +1,6 @@
 # Automation Bug Lifecycle — QA Automation Operating Standard
 
-**Version:** July 24, 2026  
+**Version:** August 3, 2026  
 **Scope:** All QA Automation teams — UI, API, performance, any program  
 **Repository:** `qa-automation-kb` (single source of truth per `qa-knowledge-base/00_SYSTEM/ROLE.md`)
 
@@ -125,7 +125,8 @@ When many tests fail in one run — group by feature/plan, not per test method. 
 
 | File | Purpose |
 |------|---------|
-| `deliverables/Automation-Bug-Lifecycle-Standard.pptx` | Standard overview deck |
+| `WORKFLOW.md` | End-to-end shell guide (detect → resolve) |
+| `deliverables/Automation-Bug-Lifecycle-Standard.pptx` | Presentation deck |
 | `deliverables/Automation-Bug-Lifecycle-Playbook.docx` | Detailed playbook |
 | `prompts/`, `templates/`, `scripts/` | **Workflow kit** — triage through resolution |
 | `tools/generate_deliverables.py` | Regenerate charts + documents |

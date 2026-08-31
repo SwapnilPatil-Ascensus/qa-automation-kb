@@ -1,0 +1,15 @@
+[
+  {
+    "usernameHash": "{{enrollment.usernameHash}}",
+    "prospect": { "plan": "{{enrollment.planId}}" },
+    "bank": {
+      "bankName": "{{enrollment.bank.name}}",
+      "routingNumber": "{{enrollment.bank.routing}}",
+      "accountNumber": "{{enrollment.bank.account}}",
+      "confirmAccountNumber": "{{enrollment.bank.account}}",
+      "accountType": "{{enrollment.bank.accountType}}",
+      "isDomestic": "{{enrollment.bank.isDomestic}}",
+      "changeId": "TEST_ID"
+    }
+  }
+]

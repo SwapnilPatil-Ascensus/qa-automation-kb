@@ -1,0 +1,10 @@
+-- Step 02: GET /enrollmentapi/v1/usstates
+-- Downstream: unite-metadata → UsStatesService
+--
+-- NO DATABASE QUERY — US states are hardcoded in UsStatesService.java (61 entries).
+-- Use static test data for owner/beneficiary address fields:
+--   mlStatelabel / permStatelabel = 'MA'
+--   mlCity = 'Newton'
+--   mlZipcode = '02459'
+--
+-- For zip→state cross-validation (owner-address step), see 07-owner-address-entered.sql

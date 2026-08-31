@@ -16,8 +16,9 @@ Use this module for day-to-day bug handling and for the **Persistent demo**: dro
 | `scripts/` | `new-evidence-folder.ps1` / `.sh` — bootstrap evidence folder |
 | `cursor-kit/` | Cursor skill + JIRA formatting rule (copy to `.cursor/`) |
 | `reference/` | Confluence Bug Handling PDFs, GitLab PM setup |
-| `deliverables/` | Playbook DOCX, standard PPTX |
+| `deliverables/` | Playbook DOCX, standard PPTX (presentation) |
 | `assets/` | Workflow charts, GitLab PM screenshots |
+| `WORKFLOW.md` | **End-to-end shell guide** — detect through resolution |
 | `tools/` | `generate_deliverables.py` — rebuild DOCX/PPTX |
 
 ## Quick start
@@ -28,9 +29,16 @@ Use this module for day-to-day bug handling and for the **Persistent demo**: dro
 4. **Defect:** `prompts/02-bug-report-prompt-h.md` (also in `qa-knowledge-base/00_SYSTEM/PROMPTS.md` § H)
 5. **Change set:** GitLab Project Manager — `reference/gitlab-project-manager-setup.md`
 
-Checklist: [`QUICK-START.md`](QUICK-START.md) · Setup: [`SETUP-GUIDE.md`](SETUP-GUIDE.md)
+Checklist: [`QUICK-START.md`](QUICK-START.md) · Workflow: [`WORKFLOW.md`](WORKFLOW.md) · Setup: [`SETUP-GUIDE.md`](SETUP-GUIDE.md)
 
-## Regenerate leadership deliverables
+## Deliverables (presentation)
+
+| File | Purpose |
+|------|---------|
+| `deliverables/Automation-Bug-Lifecycle-Standard.pptx` | Team / leadership walkthrough deck |
+| `deliverables/Automation-Bug-Lifecycle-Playbook.docx` | Detailed reference playbook |
+| `WORKFLOW.md` | Shell guide — how to run the full flow |
+| `deliverables/archive/` | Superseded versions |
 
 ```bash
 python automation-bug-lifecycle/tools/generate_deliverables.py

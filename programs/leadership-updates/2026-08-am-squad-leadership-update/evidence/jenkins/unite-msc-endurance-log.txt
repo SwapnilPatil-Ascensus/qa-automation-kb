@@ -1,0 +1,147 @@
+http://jenkinsqant1:8080/view/Performance/job/AGSUP_UNITE_MSC_ENDURANCE/configure
+
+mobile/unite-msc/jmeter/unite-msc-non-idp-login-remote.yaml
+mobile/unite-msc/jmeter/unite-msc-idp-login-remote.yaml
+
+
+Script:
+
+stage("Run AGSUP Endurance Test on ${environment}")
+	{
+		node("${server}")
+		{
+		cmd1= "cd /home/devops/agsup-endurance"
+		docker_run="""docker run --rm --privileged \
+                 -e PYTHONWARNINGS="ignore:Unverified HTTPS request" \
+                 -e jmconcurrency="${concurrency}" \
+                 -e jmhold="${duration}" \
+                 -e jmramp="${ramp}" \
+                 -e jencryption="${encrypted}" \
+		         -v /home/devops/agsup-endurance:/bzt-configs \
+				 --memory="4096m" \
+				 --oom-kill-disable	\
+                 --cpu-period="100000" \
+                 --cpu-quota="400000" \
+                 --env-file "setup/${environment}.properties" \
+				 blazemeter/taurus/withplugins:latest setup/base_taurus.yaml ${yaml}"""
+		    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
+				def cmd   ="${cmd1};${docker_run};"		
+				steps.sh script: cmd;					
+			}
+        }
+	}
+
+Log:
+
+Console Output
+Started by user qa_automation
+[Pipeline] Start of Pipeline
+[Pipeline] stage
+[Pipeline] { (Run AGSUP Endurance Test on qc4)
+[Pipeline] node
+Running on loadtestwt1 in /home/devops/jenkins/workspace/AGSUP_UNITE_MSC_ENDURANCE
+[Pipeline] {
+[Pipeline] catchError
+[Pipeline] {
+[Pipeline] sh
++ cd /home/devops/agsup-endurance
++ docker run --rm --privileged -e 'PYTHONWARNINGS=ignore:Unverified HTTPS request' -e jmconcurrency=10 -e jmhold=15s -e jmramp=10s -e jencryption=false -v /home/devops/agsup-endurance:/bzt-configs --memory=4096m --oom-kill-disable --cpu-period=100000 --cpu-quota=400000 --env-file setup/qc4.properties blazemeter/taurus/withplugins:latest setup/base_taurus.yaml mobile/unite-msc/jmeter/unite-msc-non-idp-login-remote.yaml
+09:02:23 INFO: Taurus CLI Tool v1.16.46
+09:02:23 INFO: Starting with configs: ['/root/.bzt-rc', 'setup/base_taurus.yaml', 'mobile/unite-msc/jmeter/unite-msc-non-idp-login-remote.yaml']
+09:02:23 INFO: Configuring...
+09:02:23 INFO: Overriding proxy settings using taurus configuration
+09:02:23 INFO: Using proxy 'http://webproxywt-vip.int.acs529.com:3128'
+09:02:23 INFO: Artifacts dir: /tmp/artifacts
+09:02:23 INFO: Preparing...
+09:02:23 WARNING: Failed to check for updates
+09:02:23 INFO: Using Cgroups1LocalMonitor for engine health monitoring
+09:02:23 WARNING: Guessed location from search paths for unite-msc-non-idp-login.jmx: /bzt-configs/mobile/unite-msc/jmeter/unite-msc-non-idp-login.jmx
+09:02:24 INFO: 1 obsolete CookieManagers are found and fixed
+09:02:28 INFO: Sending of engine metrics to happysocks is disabled. modules.blazemeter.happysocks-address setting was not provided
+09:02:28 INFO: Starting...
+09:02:28 INFO: Waiting for results...
+09:02:28 INFO: Initiating data feeding...
+09:02:29 INFO: Started data feeding: https://a.blazemeter.com/app/#/masters/82728375
+09:02:29 INFO: Public report link: https://a.blazemeter.com/app/?public-token=UTyW2mxtkEbq9mWnG0IKKJ1pitB7rtjJ7retGlafWSyAdEl2Gm#/masters/82728375/summary
+09:02:36 INFO: Current: 2 vu	1 succ	0 fail	0.432 avg rt	/	Cumulative: 0.432 avg rt, 0% failures
+09:02:37 INFO: Changed data analysis delay to 9s
+09:02:37 INFO: Current: 2 vu	1 succ	0 fail	0.131 avg rt	/	Cumulative: 0.281 avg rt, 0% failures
+09:02:45 INFO: Current: 3 vu	1 succ	0 fail	0.126 avg rt	/	Cumulative: 0.230 avg rt, 0% failures
+09:02:46 INFO: Changed data analysis delay to 8s
+09:02:46 INFO: Changed data analysis delay to 7s
+09:02:46 INFO: Changed data analysis delay to 3s
+09:02:46 INFO: Changed data analysis delay to 2s
+09:02:46 INFO: Current: 10 vu	45 succ	0 fail	0.224 avg rt	/	Cumulative: 0.287 avg rt, 0% failures
+09:02:47 INFO: Current: 10 vu	45 succ	0 fail	0.216 avg rt	/	Cumulative: 0.275 avg rt, 0% failures
+09:02:48 INFO: Current: 10 vu	44 succ	0 fail	0.221 avg rt	/	Cumulative: 0.268 avg rt, 0% failures
+09:02:49 INFO: Current: 10 vu	44 succ	0 fail	0.236 avg rt	/	Cumulative: 0.264 avg rt, 0% failures
+09:02:50 INFO: Current: 10 vu	40 succ	0 fail	0.230 avg rt	/	Cumulative: 0.260 avg rt, 0% failures
+09:02:51 INFO: Current: 10 vu	45 succ	0 fail	0.227 avg rt	/	Cumulative: 0.257 avg rt, 0% failures
+09:02:52 INFO: Current: 10 vu	45 succ	0 fail	0.226 avg rt	/	Cumulative: 0.254 avg rt, 0% failures
+09:02:53 INFO: Current: 10 vu	43 succ	0 fail	0.233 avg rt	/	Cumulative: 0.252 avg rt, 0% failures
+09:02:54 INFO: Current: 10 vu	43 succ	0 fail	0.233 avg rt	/	Cumulative: 0.251 avg rt, 0% failures
+09:02:55 INFO: Current: 10 vu	42 succ	0 fail	0.228 avg rt	/	Cumulative: 0.249 avg rt, 0% failures
+09:02:56 INFO: Current: 10 vu	44 succ	0 fail	0.239 avg rt	/	Cumulative: 0.249 avg rt, 0% failures
+09:02:57 INFO: Current: 10 vu	41 succ	0 fail	0.238 avg rt	/	Cumulative: 0.248 avg rt, 0% failures
+09:02:58 WARNING: Please wait for graceful shutdown...
+09:02:58 INFO: Shutting down...
+09:02:58 INFO: Post-processing...
+09:02:58 INFO: Test duration: 0:00:30
+09:02:58 INFO: Samples count: 828, 0.24% failures
+09:02:58 INFO: Average times: total 0.247, latency 0.247, connect 0.001
+09:02:58 INFO: Percentiles:
++---------------+---------------+
+| Percentile, % | Resp. Time, s |
++---------------+---------------+
+|           0.0 |         0.093 |
+|          50.0 |         0.258 |
+|          90.0 |         0.339 |
+|          95.0 |         0.362 |
+|          99.0 |         0.432 |
+|          99.9 |         4.276 |
+|         100.0 |         4.276 |
++---------------+---------------+
+09:02:58 INFO: Request label stats:
++----------------------------------+--------+---------+--------+-----------------------+
+| label                            | status |    succ | avg_rt | error                 |
++----------------------------------+--------+---------+--------+-----------------------+
+| 1. Mobile1 - mobilemembersession |   OK   | 100.00% |  0.154 |                       |
+| 2. Mobile 2 - Dashboard          |  FAIL  |  99.52% |  0.340 | Internal Server Error |
++----------------------------------+--------+---------+--------+-----------------------+
+09:02:58 INFO: Test duration: 0:00:30
+09:02:58 INFO: Samples count: 828, 0.24% failures
+09:02:58 INFO: Average times: total 0.247, latency 0.247, connect 0.001
+09:02:58 INFO: Percentiles:
++---------------+---------------+
+| Percentile, % | Resp. Time, s |
++---------------+---------------+
+|           0.0 |         0.093 |
+|          50.0 |         0.258 |
+|          90.0 |         0.339 |
+|          95.0 |         0.362 |
+|          99.0 |         0.432 |
+|          99.9 |         4.276 |
+|         100.0 |         4.276 |
++---------------+---------------+
+09:02:58 INFO: Request label stats:
++----------------------------------+--------+---------+--------+-----------------------+
+| label                            | status |    succ | avg_rt | error                 |
++----------------------------------+--------+---------+--------+-----------------------+
+| 1. Mobile1 - mobilemembersession |   OK   | 100.00% |  0.154 |                       |
+| 2. Mobile 2 - Dashboard          |  FAIL  |  99.52% |  0.340 | Internal Server Error |
++----------------------------------+--------+---------+--------+-----------------------+
+09:02:58 INFO: Sending remaining KPI data to server...
+09:02:59 INFO: Ending data feeding...
+09:02:59 INFO: Online report link: https://a.blazemeter.com/app/#/masters/82728375
+09:02:59 INFO: Artifacts dir: /tmp/artifacts
+09:02:59 INFO: Done performing with code: 0
+[Pipeline] }
+[Pipeline] // catchError
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+REST API
+Jenkins 2.440.2

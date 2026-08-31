@@ -1,0 +1,17 @@
+[
+    {
+       "prospect":{
+          "plan":"s:upromise",
+          "email":"test@test.com",
+          "username":"mobiletestuser1",
+          "password":"Test@1234",
+          "challengeQuestion":"",
+          "challengeResponse":""
+       },
+       "owner":{
+          "firstName":"Testing",
+          "lastName":"User",
+          "suffix":""
+       }
+    }
+ ]

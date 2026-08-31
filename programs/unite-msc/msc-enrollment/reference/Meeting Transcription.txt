@@ -1,0 +1,982 @@
+AI-generated content may be incorrect
+
+Swapnil Patil started transcription
+DK
+
+Dinesh Kumar
+0 minutes 3 seconds0:03
+Dinesh Kumar 0 minutes 3 seconds
+which we are working. So I found that some endpoints for enrollment and I found like going through that requirement or documentation as I found like to create the prospect on enrollment before that we should have some certificate like.
+Dinesh Kumar 0 minutes 22 seconds
+encrypted ENC key ASCII key generations. So I was going through that. I just created the all the endpoints in Postman and trying to like generate the ASCII keys. It is something like it is giving some response and even though it is saving in the in console like.
+Dinesh Kumar 0 minutes 41 seconds
+Whatever response I'm getting here, and apart from that, when second...
+Dinesh Kumar 0 minutes 50 seconds
+Yeah, and when I'm going to the prospect, the prospect required some encrypted body. So what we are doing, we have written in script, which is prerequisite script, which is generating the encryptions and passing into the body. But since like it is when I'm trying to...
+Dinesh Kumar 1 minute 8 seconds
+Click on the send response, it is giving 500 errors.
+Dinesh Kumar 1 minute 14 seconds
+So, I'm not sure, like it is like ID token issues or something we are missing or we are not following correct or so, just wanted to have some discussions on that team.
+
+Nick Botvinnik
+1 minute 28 seconds1:28
+Nick Botvinnik 1 minute 28 seconds
+Ohh.
+Nick Botvinnik 1 minute 29 seconds
+You have an empty body there?
+Nick Botvinnik 1 minute 35 seconds
+Can't post nothing.
+DK
+
+Dinesh Kumar
+1 minute 40 seconds1:40
+Dinesh Kumar 1 minute 40 seconds
+Sorry, Nick.
+Venkatesh Mallela 8 minutes 27 seconds
+Is there any separate certificate for QG Core Environment, the jobload, the technique?
+Venkatesh Mallela 8 minutes 35 seconds
+Is there any any kind of separate certificate for the QC program?
+
+Nick Botvinnik
+8 minutes 40 seconds8:40
+Nick Botvinnik 8 minutes 40 seconds
+Well, you called the endpoint, right? So if you called the QC4 endpoint for the certificate, that is your certificate.
+VM
+Venkatesh Mallela
+8 minutes 50 seconds8:50
+Venkatesh Mallela 8 minutes 50 seconds
+Play.
+
+Swapnil Patil
+8 minutes 50 seconds8:50
+Swapnil Patil 8 minutes 50 seconds
+Yeah, it's not a physical certificate. I think they create a key. They call the endpoint as a certificate. So that's a dynamic for environment.
+DK
+Dinesh Kumar
+9 minutes 3 seconds9:03
+Dinesh Kumar 9 minutes 3 seconds
+But I, I checked, I double checked the shopping, there is not a repeated encryptions happening.
+
+Luis Fontalvo Romero
+9 minutes 10 seconds9:10
+Luis Fontalvo Romero 9 minutes 10 seconds
+Okay.
+
+Swapnil Patil
+9 minutes 11 seconds9:11
+Swapnil Patil 9 minutes 11 seconds
+Yeah, just, just again, verify, right?
+DK
+Dinesh Kumar
+9 minutes 13 seconds9:13
+Dinesh Kumar 9 minutes 13 seconds
+Yeah.
+
+Swapnil Patil
+9 minutes 14 seconds9:14
+Swapnil Patil 9 minutes 14 seconds
+Just cross-confirm, because what do you had on environment, right? Some of the variables what you are passing from there, those are encrypted ones.
+DK
+Dinesh Kumar
+9 minutes 22 seconds9:22
+Dinesh Kumar 9 minutes 22 seconds
+Mhm.
+
+Swapnil Patil
+9 minutes 25 seconds9:25
+Swapnil Patil 9 minutes 25 seconds
+Because it might be one or two things, right? So, because it has so many parameters here in the payload, so if one of them is not properly done at all, so it will pay.
+DK
+Dinesh Kumar
+9 minutes 31 seconds9:31
+Dinesh Kumar 9 minutes 31 seconds
+Mm.
+
+Swapnil Patil
+9 minutes 36 seconds9:36
+Swapnil Patil 9 minutes 36 seconds
+Yeah, Luis or Nick, do we know what are the like required fields here? So we can try with only sending those, right? At least not sending everything.
+
+Nick Botvinnik
+9 minutes 45 seconds9:45
+Nick Botvinnik 9 minutes 45 seconds
+I think you don't need, I think the, like everything seemed probably right. I think for owner you only need like first last suffix or something. I think there is, you're passing too much on the owner object, but everything else is probably okay.
+
+Swapnil Patil
+10 minutes 2 seconds10:02
+Swapnil Patil 10 minutes 2 seconds
+OK, so the rest of them are like option, right? OK.
+Swapnil Patil 10 minutes 5 seconds
+Peter.
+
+Luis Fontalvo Romero
+10 minutes 6 seconds10:06
+Luis Fontalvo Romero 10 minutes 6 seconds
+Yeah, it seems to be an encryption issue, but padding exception.
+
+Swapnil Patil
+10 minutes 11 seconds10:11
+Swapnil Patil 10 minutes 11 seconds
+Mm.
+Swapnil Patil 10 minutes 13 seconds
+And that too, right? So, Dinesh, the encryption method, what you are using, is it the same thing what we supposed to do it? Because if it's not acceptable, your encryption won't work.
+
+Luis Fontalvo Romero
+10 minutes 14 seconds10:14
+Luis Fontalvo Romero 10 minutes 14 seconds
+SOP.
+DK
+Dinesh Kumar
+10 minutes 26 seconds10:26
+Dinesh Kumar 10 minutes 26 seconds
+I'll recheck.
+
+Swapnil Patil
+10 minutes 27 seconds10:27
+Swapnil Patil 10 minutes 27 seconds
+Is it the same one? Is it the base 64 encryption we use?
+
+Luis Fontalvo Romero
+10 minutes 32 seconds10:32
+Luis Fontalvo Romero 10 minutes 32 seconds
+Oh, base 64 is just encoding, it's AGS.
+
+Nick Botvinnik
+10 minutes 33 seconds10:33
+Nick Botvinnik 10 minutes 33 seconds
+Yeah.
+DK
+Dinesh Kumar
+10 minutes 33 seconds10:33
+Dinesh Kumar 10 minutes 33 seconds
+Because.
+
+Swapnil Patil
+10 minutes 37 seconds10:37
+Swapnil Patil 10 minutes 37 seconds
+Oh, okay, the AGS. Okay.
+
+Luis Fontalvo Romero
+10 minutes 40 seconds10:40
+Luis Fontalvo Romero 10 minutes 40 seconds
+And.
+
+Swapnil Patil
+10 minutes 40 seconds10:40
+Swapnil Patil 10 minutes 40 seconds
+With any key or?
+
+Luis Fontalvo Romero
+10 minutes 43 seconds10:43
+Luis Fontalvo Romero 10 minutes 43 seconds
+It should be that certificate that you get there.
+
+Swapnil Patil
+10 minutes 45 seconds10:45
+Swapnil Patil 10 minutes 45 seconds
+OK, that's the key, OK, for encryption, OK.
+
+Luis Fontalvo Romero
+10 minutes 50 seconds10:50
+Luis Fontalvo Romero 10 minutes 50 seconds
+Remember service to corrupt. Let me see if I can narrow which field it's complaining.
+
+Swapnil Patil
+11 minutes 8 seconds11:08
+Swapnil Patil 11 minutes 8 seconds
+And when we hit this in QC4, right, is there a way that we can check the logs? At least we can see, right, what's happening on the server wide scale, so that we can.
+
+Luis Fontalvo Romero
+11 minutes 19 seconds11:19
+Luis Fontalvo Romero 11 minutes 19 seconds
+Do you have access to Splunk?
+
+
+Priti Choudhary 12 minutes 31 seconds
+Yeah, I could see the query as well.
+
+Swapnil Patil
+12 minutes 34 seconds12:34
+Swapnil Patil 12 minutes 34 seconds
+Okay, that's good. At least we can.
+PC
+Priti Choudhary
+12 minutes 36 seconds12:36
+Priti Choudhary 12 minutes 36 seconds
+Yeah.
+Priti Choudhary 12 minutes 38 seconds
+The.
+
+Swapnil Patil
+12 minutes 39 seconds12:39
+Swapnil Patil 12 minutes 39 seconds
+We can actually not debug that way.
+
+Luis Fontalvo Romero
+12 minutes 39 seconds12:39
+Luis Fontalvo Romero 12 minutes 39 seconds
+Ops.
+VM
+Venkatesh Mallela
+12 minutes 43 seconds12:43
+Venkatesh Mallela 12 minutes 43 seconds
+Bentos.
+
+Luis Fontalvo Romero
+12 minutes 44 seconds12:44
+Luis Fontalvo Romero 12 minutes 44 seconds
+Ohh.
+VM
+Venkatesh Mallela
+12 minutes 45 seconds12:45
+Venkatesh Mallela 12 minutes 45 seconds
+Well, I'm able to see the payload in that console, so can I share my screen so what I'm getting on this screen?
+
+Swapnil Patil
+12 minutes 52 seconds12:52
+Swapnil Patil 12 minutes 52 seconds
+Sure.
+DK
+Dinesh Kumar
+12 minutes 53 seconds12:53
+Dinesh Kumar 12 minutes 53 seconds
+Yes, sir.
+VM
+Venkatesh Mallela
+12 minutes 54 seconds12:54
+Venkatesh Mallela 12 minutes 54 seconds
+Yeah.
+Venkatesh Mallela 13 minutes 15 seconds
+Like this body, I'm able to see here, so, but I'm getting like username exist user is not available or already to take it, so this.
+
+Nick Botvinnik
+13 minutes 26 seconds13:26
+Nick Botvinnik 13 minutes 26 seconds
+But that's reasonable. That's a reasonable error though. That's not a problem. You just need to change the exam.
+
+Swapnil Patil
+13 minutes 32 seconds13:32
+Swapnil Patil 13 minutes 32 seconds
+So it's made because of the same use, same e-mail address, right? So it created because you cannot have duplicate e-mail address for the user, right? So saying it's already created.
+
+Nick Botvinnik
+13 minutes 36 seconds13:36
+Nick Botvinnik 13 minutes 36 seconds
+Yeah.
+VM
+Venkatesh Mallela
+13 minutes 37 seconds13:37
+Venkatesh Mallela 13 minutes 37 seconds
+I.
+
+Luis Fontalvo Romero
+13 minutes 43 seconds13:43
+Luis Fontalvo Romero 13 minutes 43 seconds
+Yeah.
+VM
+Venkatesh Mallela
+13 minutes 43 seconds13:43
+Venkatesh Mallela 13 minutes 43 seconds
+Actually, one thing, so I entered through the script, this username, username, password, and e-mail, but...
+
+Swapnil Patil
+13 minutes 47 seconds13:47
+Swapnil Patil 13 minutes 47 seconds
+Okay.
+Swapnil Patil 13 minutes 50 seconds
+Yep.
+VM
+Venkatesh Mallela
+13 minutes 53 seconds13:53
+Venkatesh Mallela 13 minutes 53 seconds
+But the thing is, like, in the environment, if you go to the environment variable, this...
+Venkatesh Mallela 14 minutes
+This acs key is there, right? This one also is getting updating, so when I'm running for that, so you're saying like it should not be updated, updated key, so whatever we used earlier, we used this key.
+Venkatesh Mallela 14 minutes 22 seconds
+So, if you, if you used to create with that key, then it should not get that existing account, so...
+
+Nick Botvinnik
+14 minutes 30 seconds14:30
+Nick Botvinnik 14 minutes 30 seconds
+That does not matter here. That's just how you're encrypting the username. But if the username is the same as an existing one, you're going to get an error. It doesn't matter what you do with it.
+VM
+Venkatesh Mallela
+14 minutes 39 seconds14:39
+Venkatesh Mallela 14 minutes 39 seconds
+Okay.
+Venkatesh Mallela 14 minutes 43 seconds
+So, to get it.
+
+Swapnil Patil
+14 minutes 44 seconds14:44
+Swapnil Patil 14 minutes 44 seconds
+Yes, so first time you created those variables, right? So first time you run, it worked, right? Now you're hitting again, it's not going to work because that username or e-mail address, right? The combination already exists in the data.
+
+Nick Botvinnik
+14 minutes 45 seconds14:45
+Nick Botvinnik 14 minutes 45 seconds
+Team.
+VM
+Venkatesh Mallela
+14 minutes 50 seconds14:50
+Venkatesh Mallela 14 minutes 50 seconds
+I.
+Venkatesh Mallela 14 minutes 53 seconds
+But.
+Venkatesh Mallela 14 minutes 54 seconds
+Bechar.
+
+Swapnil Patil
+14 minutes 56 seconds14:56
+Swapnil Patil 14 minutes 56 seconds
+So this is valid. That's why he's giving 200, right? This is valid. It is not really. You just update that. That's it.
+VM
+Venkatesh Mallela
+14 minutes 59 seconds14:59
+Venkatesh Mallela 14 minutes 59 seconds
+Okay.
+Venkatesh Mallela 15 minutes 1 second
+But even, but even.
+Venkatesh Mallela 15 minutes 5 seconds
+Yeah, Swapnil, even though if I am giving here, right, the user ID, username and password is there, right? The e-mail ID, if I am giving different one, so it will generate in the different encryption code like this one, enrollment encrypted.
+
+Swapnil Patil
+15 minutes 12 seconds15:12
+Swapnil Patil 15 minutes 12 seconds
+Yeah.
+Swapnil Patil 15 minutes 19 seconds
+That's okay, that doesn't matter. The encryption code is fine because that you are not generating it, right? It's getting from that endpoint, right?
+VM
+Venkatesh Mallela
+15 minutes 21 seconds15:21
+Venkatesh Mallela 15 minutes 21 seconds
+Yeah.
+Venkatesh Mallela 15 minutes 24 seconds
+It's not, yeah, it's generating English.
+
+Swapnil Patil
+15 minutes 27 seconds15:27
+Swapnil Patil 15 minutes 27 seconds
+Yeah, whatever the endpoint gives, that's okay. Yeah.
+VM
+Venkatesh Mallela
+15 minutes 30 seconds15:30
+Venkatesh Mallela 15 minutes 30 seconds
+Yeah.
+
+Nick Botvinnik
+15 minutes 32 seconds15:32
+Nick Botvinnik 15 minutes 32 seconds
+So did you actually update the username and try again?
+VM
+Venkatesh Mallela
+15 minutes 37 seconds15:37
+Venkatesh Mallela 15 minutes 37 seconds
+Okay.
+
+Swapnil Patil
+15 minutes 39 seconds15:39
+Swapnil Patil 15 minutes 39 seconds
+Yeah, try with the e-mail, just put one, but.
+
+
+Swapnil Patil
+23 minutes 56 seconds23:56
+Swapnil Patil 23 minutes 56 seconds
+I see, okay. I don't think because this see here enrollment or username, right? The one you are setting is enroll, this username hash.
+VM
+Venkatesh Mallela
+24 minutes 1 second24:01
+Venkatesh Mallela 24 minutes 1 second
+Okay.
+Venkatesh Mallela 24 minutes 7 seconds
+Yes, open for that one. Actually, I will check my how I did that one, so I just want to run that.
+
+Swapnil Patil
+24 minutes 14 seconds24:14
+Swapnil Patil 24 minutes 14 seconds
+Sure.
+VM
+Venkatesh Mallela
+24 minutes 18 seconds24:18
+Venkatesh Mallela 24 minutes 18 seconds
+What is this?
+Venkatesh Mallela 24 minutes 21 seconds
+Swim.
+Venkatesh Mallela 24 minutes 23 seconds
+As well.
+Venkatesh Mallela 24 minutes 29 seconds
+Yes.
+Venkatesh Mallela 24 minutes 35 seconds
+Message Rajib.
+Venkatesh Mallela 24 minutes 45 seconds
+Play Spaziani.
+Venkatesh Mallela 24 minutes 49 seconds
+The commands which I run, so I need to check that goes through the automation.
+Venkatesh Mallela 24 minutes 57 seconds
+Play me a chip, play song.
+Venkatesh Mallela 25 minutes
+Select: Jodi Sree.
+Venkatesh Mallela 25 minutes 6 seconds
+So.
+Venkatesh Mallela 25 minutes 16 seconds
+And to check that one, but if you change it, if you want to change it manually, so manually is not possible because, so if you go, if you go and see here, if you see a server.
+
+Swapnil Patil
+25 minutes 30 seconds25:30
+Swapnil Patil 25 minutes 30 seconds
+No, no, we get it because of the encryption decryption only possible, and that's why you're getting that it's user limit system, right? So...
+VM
+Venkatesh Mallela
+25 minutes 39 seconds25:39
+Venkatesh Mallela 25 minutes 39 seconds
+Ohh.
+Venkatesh Mallela 25 minutes 40 seconds
+I will show you that command to submit. So just if I get that command, so I need to check that command. So what happening? So when I change these things, right, the user ID, password, and e-mail one. So we are getting all encrypted values with that Postman collection.
+Venkatesh Mallela 26 minutes
+So it's automatically adding into that Postmart collections wherever we are stored in the Postmart, right? So it's all encrypted values we are getting here, like in this environment.
+Venkatesh Mallela 26 minutes 11 seconds
+So, when I am running, I am I cross-checked with the other one.
+
+Swapnil Patil
+26 minutes 12 seconds26:12
+Swapnil Patil 26 minutes 12 seconds
+How?
+Swapnil Patil 26 minutes 15 seconds
+How automatically means how?
+VM
+Venkatesh Mallela
+26 minutes 17 seconds26:17
+Venkatesh Mallela 26 minutes 17 seconds
+Yeah.
+Venkatesh Mallela 26 minutes 19 seconds
+No, so for example, this is my location, right?
+Venkatesh Mallela 26 minutes 23 seconds
+If you go here, so I will show you this thing.
+
+Swapnil Patil
+26 minutes 24 seconds26:24
+Swapnil Patil 26 minutes 24 seconds
+OK, now I get it, I get it. So, you have that collection, I get it. Yeah, you save that enforcement, right? So, like you go to the environment, you update it, and you save it. OK, then.
+
+Nick Botvinnik
+26 minutes 28 seconds26:28
+Nick Botvinnik 26 minutes 28 seconds
+Yeah.
+VM
+Venkatesh Mallela
+26 minutes 30 seconds26:30
+Venkatesh Mallela 26 minutes 30 seconds
+Yeah, people here, yeah, in the connection.
+
+Nick Botvinnik
+26 minutes 31 seconds26:31
+Nick Botvinnik 26 minutes 31 seconds
+Tutika.
+VM
+Venkatesh Mallela
+26 minutes 36 seconds26:36
+Venkatesh Mallela 26 minutes 36 seconds
+If I run my those commands, that automation script commands, it automatically whatever we are given, so here we are seeing, right? So here we are providing them new.
+Venkatesh Mallela 26 minutes 49 seconds
+Let me show.
+
+Swapnil Patil
+26 minutes 49 seconds26:49
+Swapnil Patil 26 minutes 49 seconds
+Yeah, see, no, understand these guys, okay? So these two, they don't talk to each other, okay?
+VM
+Venkatesh Mallela
+26 minutes 51 seconds26:51
+Venkatesh Mallela 26 minutes 51 seconds
+Do this one.
+Venkatesh Mallela 26 minutes 56 seconds
+Yeah.
+
+Swapnil Patil
+26 minutes 56 seconds26:56
+Swapnil Patil 26 minutes 56 seconds
+So, it's called orchestration. OK, if you need to do the orchestration, you need another tool called or something like that, right? So, these tools don't talk to each other. They don't encrypt by themselves. You have to run it.
+Swapnil Patil 27 minutes 10 seconds
+Right.
+VM
+Venkatesh Mallela
+27 minutes 11 seconds27:11
+Venkatesh Mallela 27 minutes 11 seconds
+Mm.
+
+Swapnil Patil
+27 minutes 12 seconds27:12
+Swapnil Patil 27 minutes 12 seconds
+When you run, then it'll recreate it. It automatically does not create anything. Try to understand this. When you guys explain this, right, I see. It doesn't work that way. OK, it doesn't do automatic anything. You have to run it. These agents not running live.
+VM
+Venkatesh Mallela
+27 minutes 12 seconds27:12
+Venkatesh Mallela 27 minutes 12 seconds
+This one, so.
+Venkatesh Mallela 27 minutes 15 seconds
+Mm.
+Venkatesh Mallela 27 minutes 18 seconds
+Ops.
+
+Swapnil Patil
+27 minutes 30 seconds27:30
+Swapnil Patil 27 minutes 30 seconds
+Okay.
+VM
+Venkatesh Mallela
+27 minutes 32 seconds27:32
+Venkatesh Mallela 27 minutes 32 seconds
+Yeah.
+
+
+Swapnil Patil 39 minutes 57 seconds
+So, Lucky, this is for you to legacy walla enrollment, right?
+VM
+Venkatesh Mallela
+39 minutes 59 seconds39:59
+Venkatesh Mallela 39 minutes 59 seconds
+It is.
+Venkatesh Mallela 40 minutes 4 seconds
+No, no, this is the more to ID, right? CAD, I can check with the CAD.
+
+Swapnil Patil
+40 minutes 5 seconds40:05
+Swapnil Patil 40 minutes 5 seconds
+No.
+Swapnil Patil 40 minutes 8 seconds
+Dragos, LED for driver.
+Swapnil Patil 40 minutes 12 seconds
+Get plan.
+VM
+Venkatesh Mallela
+40 minutes 15 seconds40:15
+Venkatesh Mallela 40 minutes 15 seconds
+Okay.
+Venkatesh Mallela 40 minutes 23 seconds
+See you directly in Venkat.
+Venkatesh Mallela 40 minutes 27 seconds
+See you directed.
+Venkatesh Mallela 40 minutes 29 seconds
+Okay.
+
+Swapnil Patil
+40 minutes 30 seconds40:30
+Swapnil Patil 40 minutes 30 seconds
+Thank you.
+VM
+Venkatesh Mallela
+40 minutes 31 seconds40:31
+Venkatesh Mallela 40 minutes 31 seconds
+Go ahead.
+Venkatesh Mallela 40 minutes 33 seconds
+Play songs.
+Venkatesh Mallela 40 minutes 36 seconds
+Two.
+Venkatesh Mallela 40 minutes 38 seconds
+see the better.
+DK
+Dinesh Kumar
+40 minutes 39 seconds40:39
+Dinesh Kumar 40 minutes 39 seconds
+Yes.
+Dinesh Kumar 40 minutes 44 seconds
+Thank you.
+VM
+Venkatesh Mallela
+40 minutes 46 seconds40:46
+Venkatesh Mallela 40 minutes 46 seconds
+Mmh.
+Venkatesh Mallela 40 minutes 52 seconds
+Open.
+Venkatesh Mallela 40 minutes 57 seconds
+Three 100.
+Venkatesh Mallela 41 minutes 1 second
+Repeat.
+Venkatesh Mallela 41 minutes 4 seconds
+Song is to Badi Yada Jain.
+
+Swapnil Patil
+41 minutes 6 seconds41:06
+Swapnil Patil 41 minutes 6 seconds
+And.
+Swapnil Patil 41 minutes 10 seconds
+Plan ID.
+VM
+Venkatesh Mallela
+41 minutes 13 seconds41:13
+Venkatesh Mallela 41 minutes 13 seconds
+Yeah.
+
+Swapnil Patil
+41 minutes 31 seconds41:31
+Swapnil Patil 41 minutes 31 seconds
+How are you?
+Swapnil Patil 41 minutes 36 seconds
+Let's see.
+Swapnil Patil 41 minutes 47 seconds
+Yeah, Nizar.
+VM
+Venkatesh Mallela
+41 minutes 54 seconds41:54
+Venkatesh Mallela 41 minutes 54 seconds
+What?
+
+Swapnil Patil
+42 minutes 1 second42:01
+Swapnil Patil 42 minutes 1 second
+Apkar login?
+DK
+Dinesh Kumar
+42 minutes 4 seconds42:04
+Dinesh Kumar 42 minutes 4 seconds
+Radiator.
+
+Swapnil Patil
+42 minutes 5 seconds42:05
+Swapnil Patil 42 minutes 5 seconds
+Mm.
+PC
+Priti Choudhary
+42 minutes 6 seconds42:06
+Priti Choudhary 42 minutes 6 seconds
+Haha Network ID Password.
+Priti Choudhary 42 minutes 17 seconds
+Play Kannaga Swapnil.
+
+Swapnil Patil
+42 minutes 19 seconds42:19
+Swapnil Patil 42 minutes 19 seconds
+Check out.
+DK
+Dinesh Kumar
+42 minutes 21 seconds42:21
+Dinesh Kumar 42 minutes 21 seconds
+Access me.
+PC
+Priti Choudhary
+42 minutes 28 seconds42:28
+Priti Choudhary 42 minutes 28 seconds
+Abhi link beja nagur mein bho fekaro.
+DK
+Dinesh Kumar
+42 minutes 31 seconds42:31
+Dinesh Kumar 42 minutes 31 seconds
+How was my OSP logging?
+PC
+Priti Choudhary
+42 minutes 37 seconds42:37
+Priti Choudhary 42 minutes 37 seconds
+Ohh, it's a canal.
+DK
+Dinesh Kumar
+42 minutes 39 seconds42:39
+Dinesh Kumar 42 minutes 39 seconds
+So, a matter of, would you access me?
+PC
+Priti Choudhary
+42 minutes 44 seconds42:44
+Priti Choudhary 42 minutes 44 seconds
+Play Pihar Dalal.
+Priti Choudhary 42 minutes 47 seconds
+Yeah.
+Priti Choudhary 42 minutes 49 seconds
+Five minutes ago ke lobstick tune.
+Priti Choudhary 42 minutes 54 seconds
+Yeah.
+Priti Choudhary 42 minutes 58 seconds
+Stage one.
+DK
+Dinesh Kumar
+43 minutes 2 seconds43:02
+Dinesh Kumar 43 minutes 2 seconds
+S.
+PC
+Priti Choudhary
+43 minutes 4 seconds43:04
+Priti Choudhary 43 minutes 4 seconds
+Stage one, right?
+DK
+Dinesh Kumar
+43 minutes 6 seconds43:06
+Dinesh Kumar 43 minutes 6 seconds
+To support.
+
+Swapnil Patil
+43 minutes 6 seconds43:06
+Swapnil Patil 43 minutes 6 seconds
+Thank you, Sree.
+VM
+Venkatesh Mallela
+43 minutes 6 seconds43:06
+Venkatesh Mallela 43 minutes 6 seconds
+No.
+
+PC
+Priti Choudhary
+48 minutes 34 seconds48:34
+Priti Choudhary 48 minutes 34 seconds
+Yeah.
+VM
+Venkatesh Mallela
+48 minutes 37 seconds48:37
+Venkatesh Mallela 48 minutes 37 seconds
+And.
+Venkatesh Mallela 48 minutes 38 seconds
+Yes.
+PC
+Priti Choudhary
+48 minutes 39 seconds48:39
+Priti Choudhary 48 minutes 39 seconds
+Yeah.
+VM
+Venkatesh Mallela
+48 minutes 40 seconds48:40
+Venkatesh Mallela 48 minutes 40 seconds
+D.A. and D.A. and D.A. and D.A.
+
+Swapnil Patil
+48 minutes 43 seconds48:43
+Swapnil Patil 48 minutes 43 seconds
+Ops.
+PC
+Priti Choudhary
+48 minutes 47 seconds48:47
+Priti Choudhary 48 minutes 47 seconds
+Play the song.
+Priti Choudhary 48 minutes 49 seconds
+No.
+
+Swapnil Patil
+48 minutes 52 seconds48:52
+Swapnil Patil 48 minutes 52 seconds
+Send me those postman collections, but only problem is payload.
+PC
+Priti Choudhary
+48 minutes 55 seconds48:55
+Priti Choudhary 48 minutes 55 seconds
+Yeah.
+VM
+Venkatesh Mallela
+48 minutes 56 seconds48:56
+Venkatesh Mallela 48 minutes 56 seconds
+And.
+Venkatesh Mallela 48 minutes 59 seconds
+Ohh.
+DK
+Dinesh Kumar
+49 minutes 2 seconds49:02
+Dinesh Kumar 49 minutes 2 seconds
+Ohh, Venkatesh, we okay, direct.
+VM
+Venkatesh Mallela
+49 minutes 3 seconds49:03
+Venkatesh Mallela 49 minutes 3 seconds
+No.
+Venkatesh Mallela 49 minutes 6 seconds
+Oh.
+
+Swapnil Patil
+49 minutes 7 seconds49:07
+Swapnil Patil 49 minutes 7 seconds
+Then, I'll...
+VM
+Venkatesh Mallela
+49 minutes 10 seconds49:10
+Venkatesh Mallela 49 minutes 10 seconds
+Ops.
+
+Swapnil Patil
+49 minutes 10 seconds49:10
+Swapnil Patil 49 minutes 10 seconds
+Speed.
+VM
+Venkatesh Mallela
+49 minutes 14 seconds49:14
+Venkatesh Mallela 49 minutes 14 seconds
+Book A generator.
+DK
+Dinesh Kumar
+49 minutes 16 seconds49:16
+Dinesh Kumar 49 minutes 16 seconds
+Hi, yeah, okay.
+VM
+Venkatesh Mallela
+49 minutes 20 seconds49:20
+Venkatesh Mallela 49 minutes 20 seconds
+Pratik, Avicii.
+Venkatesh Mallela 49 minutes 23 seconds
+Open Suresh.
+Venkatesh Mallela 49 minutes 25 seconds
+Yes, you do.
+
+Swapnil Patil
+49 minutes 30 seconds49:30
+Swapnil Patil 49 minutes 30 seconds
+American C.S.F. was of the environment is of use Cortana.
+VM
+Venkatesh Mallela
+49 minutes 30 seconds49:30
+Venkatesh Mallela 49 minutes 30 seconds
+Ops.
+
+Swapnil Patil
+49 minutes 38 seconds49:38
+Swapnil Patil 49 minutes 38 seconds
+Postman rather than using.
+VM
+Venkatesh Mallela
+49 minutes 38 seconds49:38
+Venkatesh Mallela 49 minutes 38 seconds
+Ops.
+
+Swapnil Patil
+49 minutes 43 seconds49:43
+Swapnil Patil 49 minutes 43 seconds
+Ohh, so.
+VM
+Venkatesh Mallela
+49 minutes 47 seconds49:47
+Venkatesh Mallela 49 minutes 47 seconds
+Under.
+Venkatesh Mallela 49 minutes 50 seconds
+Yes.
+Venkatesh Mallela 49 minutes 53 seconds
+Create care to encrypt that one, so can I share that one also?
+Venkatesh Mallela 50 minutes 2 seconds
+A jar grid.
+
+Swapnil Patil
+50 minutes 2 seconds50:02
+Swapnil Patil 50 minutes 2 seconds
+Yeah, again.
+VM
+Venkatesh Mallela
+50 minutes 4 seconds50:04
+Venkatesh Mallela 50 minutes 4 seconds
+Which jar file create care to encrypt to the encrypt kernel, so my O.
+
+Swapnil Patil
+50 minutes 9 seconds50:09
+Swapnil Patil 50 minutes 9 seconds
+I don't know. A.S. encryption is very straightforward and simple. That's it.
+VM
+Venkatesh Mallela
+50 minutes 14 seconds50:14
+Venkatesh Mallela 50 minutes 14 seconds
+But then I was.
+Venkatesh Mallela 50 minutes 19 seconds
+Ohh.
+
+Swapnil Patil
+50 minutes 19 seconds50:19
+Swapnil Patil 50 minutes 19 seconds
+This is just too much, right? So it's not open.
+Swapnil Patil 50 minutes 28 seconds
+Bechar, talk to you guys later, OK?
+VM
+Venkatesh Mallela
+50 minutes 30 seconds50:30
+Venkatesh Mallela 50 minutes 30 seconds
+Pratik, I will share, I will share Namgyal.
+
+Swapnil Patil
+50 minutes 32 seconds50:32
+Swapnil Patil 50 minutes 32 seconds
+Right, Arun, it is just issue with the payload. OK, Dinesh, payload issue, nothing else. Payload is complicated, you know, it's too much. He either say or automated.
+VM
+Venkatesh Mallela
+50 minutes 34 seconds50:34
+Venkatesh Mallela 50 minutes 34 seconds
+Alright.
+Venkatesh Mallela 50 minutes 38 seconds
+Ohh.
+
+Swapnil Patil
+50 minutes 51 seconds50:51
+Swapnil Patil 50 minutes 51 seconds
+How many was a new?
+Swapnil Patil 50 minutes 55 seconds
+So.
+Swapnil Patil 50 minutes 58 seconds
+AGS.
+
+Venkatesh Mallela
+50 minutes 59 seconds50:59
+Venkatesh Mallela 50 minutes 59 seconds
+Take it, so I will share the connections.
+
+Swapnil Patil
+51 minutes 2 seconds51:02
+Swapnil Patil 51 minutes 2 seconds
+Yeah.
+SG
+Sunil Godiyal
+51 minutes 2 seconds51:02
+Sunil Godiyal 51 minutes 2 seconds
+So, please, sorry, problem, just one, 4, 5, one ticket, so, push to get issue, change file.
+
+Swapnil Patil
+51 minutes 19 seconds51:19
+Swapnil Patil 51 minutes 19 seconds
+I mean.
+Swapnil Patil 51 minutes 23 seconds
+But taking all that, yeah.
+SG
+Sunil Godiyal
+51 minutes 26 seconds51:26
+Sunil Godiyal 51 minutes 26 seconds
+Push file or push and commit and push.
+
+Swapnil Patil
+51 minutes 43 seconds51:43
+Swapnil Patil 51 minutes 43 seconds
+Blend.
+Swapnil Patil 51 minutes 44 seconds
+Call.
+SG
+Sunil Godiyal
+51 minutes 47 seconds51:47
+Sunil Godiyal 51 minutes 47 seconds
+Okay.
+Sunil Godiyal 51 minutes 49 seconds
+Kevin.
+
+Swapnil Patil
+51 minutes 50 seconds51:50
+Swapnil Patil 51 minutes 50 seconds
+You commit trace, commit to commit checker layer.
+SG
+Sunil Godiyal
+51 minutes 51 seconds51:51
+Sunil Godiyal 51 minutes 51 seconds
+Mhm.
+Sunil Godiyal 51 minutes 52 seconds
+Arun.
+Sunil Godiyal 51 minutes 56 seconds
+Okay, okay.
+Sunil Godiyal 51 minutes 59 seconds
+Okay.
+Sunil Godiyal 52 minutes 4 seconds
+OKOK.
+Sunil Godiyal 52 minutes 7 seconds
+Okay.
+Sunil Godiyal 52 minutes 13 seconds
+Okay.
+Sunil Godiyal 52 minutes 15 seconds
+OK, thank you.
+
+Swapnil Patil
+52 minutes 17 seconds52:17
+Swapnil Patil 52 minutes 17 seconds
+No.
+Swapnil Patil 52 minutes 18 seconds
+So, bye bye.
+SG
+Sunil Godiyal
+52 minutes 20 seconds52:20
+Sunil Godiyal 52 minutes 20 seconds
+Okay, bye-bye.
+
+Swapnil Patil stopped transcription
+

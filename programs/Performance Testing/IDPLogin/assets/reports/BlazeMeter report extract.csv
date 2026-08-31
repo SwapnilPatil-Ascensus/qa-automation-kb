@@ -1,0 +1,11 @@
+Label Id,Element Label,# Samples,Avg. Response Time (ms),Avg. Hits/s,90% line (ms),95% line (ms),99% line (ms),Min Response Time (ms),Max Response Time (ms),Avg. Bandwidth (KBytes/s),Error Percentage,Has Label Passed Thresholds,Concurrency
+ALL,ALL,211514,331,54.32,944,1419,2354,0,300032,935.43,0.44,,
+9b2bcdf59dd64eb7a728c142ecbbb334,1. LoginLanding (CS),23617,53,6.07,64,201,350,19,9808,32.94,0,,
+ad933082b9ba1ad4eedb69e033e327c9,2-1. Authorize (IDP),23617,18,6.07,21,23,32,8,221,4.06,0,,
+5656dc63e53c423626cd631d7ad39250,3. Login (IDP) - GET Login,23616,20,6.07,24,27,37,0,224,464.06,0.03,,
+b1b89e301d5f8ef36cb2fe618c3fb5e4,4-1. Login (IDP) - POST Login,23606,324,6.06,369,400,477,0,765,7.12,0.01,,
+a7770df3890c2e87c2cefc210f959ed9,5. Login (IDP) - GET Authorize Continue,23603,36,6.06,48,55,69,0,279,4.2,0.02,,
+e7786710502079cfa1b309cccc4c364a,6. Callback/Token (CS) - Get Callback,23598,90,6.06,193,269,484,10,11544,41.23,0,,
+913a6a39dfc9f7451b0b108773bbb551,7. Callback/Token (IDP) - Get Access Token,23596,249,6.06,276,294,345,7,824,7.34,0.03,,
+c23623fc7a128f1232880c295518dc39,8. Session/Overview (CS),23588,1653,6.06,2236,2696,8768,6,300032,309.95,3.83,,
+dc33aa5c0e1de31bd5b8f385075fb876,9. Logout (CS),22673,542,5.82,797,936,1369,1,300032,64.53,0.02,,

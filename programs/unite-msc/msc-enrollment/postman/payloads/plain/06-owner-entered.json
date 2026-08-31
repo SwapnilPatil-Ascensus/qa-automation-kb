@@ -1,0 +1,12 @@
+[
+  {
+    "prospect": { "plan": "{{enrollment.planId}}" },
+    "owner": {
+      "firstName": "{{enrollment.owner.firstName}}",
+      "lastName": "{{enrollment.owner.lastName}}",
+      "ssn": "{{enrollment.owner.ssn}}",
+      "dob": "{{enrollment.owner.dob}}",
+      "changeId": "TEST_ID"
+    }
+  }
+]

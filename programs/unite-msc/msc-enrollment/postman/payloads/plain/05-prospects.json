@@ -1,0 +1,21 @@
+[
+  {
+    "planId": null,
+    "usernameHash": "{{enrollment.usernameHash}}",
+    "prospect": {
+      "username": "{{enrollment.username}}",
+      "password": "{{enrollment.password}}",
+      "plan": "{{enrollment.planId}}",
+      "email": "{{enrollment.email}}",
+      "challengeQuestion": "{{enrollment.challengeQuestion}}",
+      "challengeResponse": "{{enrollment.challengeResponse}}"
+    },
+    "owner": {
+      "firstName": "{{enrollment.owner.firstName}}",
+      "lastName": "{{enrollment.owner.lastName}}",
+      "ssn": "{{enrollment.owner.ssn}}",
+      "dob": "{{enrollment.owner.dob}}",
+      "changeId": "TEST_ID"
+    }
+  }
+]

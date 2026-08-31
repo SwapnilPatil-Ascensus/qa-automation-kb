@@ -1,0 +1,261 @@
+{
+  "info": {
+    "_postman_id": "msc-enrollment-e2e-stage1-2026",
+    "name": "MSC Enrollment E2E — Stage1",
+    "description": "MSC mobile enrollment E2E for Stage1.\n\n**GET steps (01-04):** Run as-is.\n**POST steps (05-13):** Encrypt plain payloads from `postman/payloads/plain/` using EncryptHelper CLI before sending. See `docs/10-postman-usage-guide.md`.\n\nSet `enrollment.forceNewRun=true` then send any request to generate unique username/email.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Bootstrap (GET)",
+      "item": [
+        {
+          "name": "01 Ping",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/ping"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "02 GET usstates",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/usstates"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "03 GET Plans",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/plans"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "04 GET Plan by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/plans/{{enrollment.planId}}"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                "const j=pm.response.json();",
+                "function f(n){if(!n||typeof n!=='object')return null;if(n.fundId)return String(n.fundId);if(Array.isArray(n)){for(var i=0;i<n.length;i++){var x=f(n[i]);if(x)return x;}}var k=Object.keys(n);for(var j=0;j<k.length;j++){var y=f(n[k[j]]);if(y)return y;}return null;}",
+                "var fid=f(j);if(fid){pm.environment.set('enrollment.fundId',fid);}"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "02 - Prospect (POST — encrypt body)",
+      "item": [
+        {
+          "name": "05 POST Create Prospect",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "PASTE_ENCRYPTED_JSON_HERE\n\nPlain template: postman/payloads/plain/05-prospects.json\nEncrypt: java -jar jsonapi-encryption.jar -m encrypt -e stage -s enrollment -f 05-prospects.json",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/prospects"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                "const body=pm.response.json();",
+                "if(Array.isArray(body)&&body.length){",
+                "  pm.test('No errors',()=>pm.expect(body[0].errors||[]).to.eql([]));",
+                "  if(body[0].jwtToken){pm.environment.set('enrollment.prospectJwt',body[0].jwtToken);}",
+                "}"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "03 - Wizard (POST — encrypt, Bearer JWT)",
+      "item": [
+        {
+          "name": "06 POST owner-entered",
+          "request": {
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{enrollment.prospectJwt}}", "type": "string" }] },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/06-owner-entered.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/enrollment/owner-entered"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "07 POST owner-address-entered",
+          "request": {
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{enrollment.prospectJwt}}", "type": "string" }] },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/07-owner-address-entered.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/enrollment/owner-address-entered"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "08 POST beneficiary-entered",
+          "request": {
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{enrollment.prospectJwt}}", "type": "string" }] },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/08-beneficiary-entered.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/enrollment/beneficiary-entered"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "09 POST verify routing (optional)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/09-verify-routing.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/verify/routingnumber"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "10 POST bank-entered",
+          "request": {
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{enrollment.prospectJwt}}", "type": "string" }] },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/10-bank-entered.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/enrollment/bank-entered"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        },
+        {
+          "name": "12 POST allocations-entered",
+          "request": {
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{enrollment.prospectJwt}}", "type": "string" }] },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/12-allocations-entered.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/enrollment/allocations-entered"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('HTTP 200', () => pm.response.to.have.status(200));"] } }]
+        }
+      ]
+    },
+    {
+      "name": "04 - Submit (POST — encrypt, Bearer JWT)",
+      "item": [
+        {
+          "name": "13 POST review-confirm-entered",
+          "request": {
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{enrollment.prospectJwt}}", "type": "string" }] },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-app-version", "value": "{{x-app-version}}" }
+            ],
+            "body": { "mode": "raw", "raw": "PASTE_ENCRYPTED_JSON — see payloads/plain/13-review-confirm-entered.json", "options": { "raw": { "language": "json" } } },
+            "url": "{{enrollment.host.url}}/enrollmentapi/v1/enrollments/enrollment/review-confirm-entered"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                "const body=pm.response.json();",
+                "if(Array.isArray(body)&&body.length){",
+                "  pm.test('No errors',()=>pm.expect(body[0].errors||[]).to.eql([]));",
+                "  if(body[0].account&&body[0].account.accountNumber){pm.environment.set('accountNumber',body[0].account.accountNumber);}",
+                "}",
+                "pm.test('Member JWT header present',()=>pm.expect(pm.response.headers.get('x-enc-jwttoken')).to.be.ok);"
+              ]
+            }
+          }]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "function cfg(k){var v=pm.environment.get(k);return(v!==undefined&&v!==null&&String(v).length>0)?v:pm.collectionVariables.get(k);}",
+          "function setCfg(k,v){pm.environment.set(k,v);}",
+          "var host=(cfg('enrollment.host.url')||'').replace(/\\/$/,'');",
+          "var runHost=cfg('enrollment.runHost');",
+          "if(!cfg('enrollment.runId')||runHost!==host||cfg('enrollment.forceNewRun')==='true'){",
+          "  var now=new Date();",
+          "  var pad=n=>String(n).padStart(2,'0');",
+          "  var d=now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate());",
+          "  var t=pad(now.getHours())+pad(now.getMinutes())+pad(now.getSeconds());",
+          "  var r=String(Math.floor(Math.random()*900)+100);",
+          "  var runId=d+'_'+t+'_'+r;",
+          "  setCfg('enrollment.runId',runId);",
+          "  setCfg('enrollment.runHost',host);",
+          "  setCfg('enrollment.username','QAAUTOTEST_ENR_'+runId);",
+          "  setCfg('enrollment.email','qaa.enr.'+runId+'@example.com');",
+          "  setCfg('enrollment.owner.ssn','9'+d.substring(4)+r+'0');",
+          "  setCfg('enrollment.beneficiary.ssn','8'+d.substring(4)+r+'1');",
+          "  setCfg('enrollment.forceNewRun','false');",
+          "}",
+          "var u=cfg('enrollment.username');",
+          "if(u){setCfg('enrollment.usernameHash',CryptoJS.enc.Base64.stringify(CryptoJS.SHA512(u)));}"
+        ]
+      }
+    }
+  ]
+}

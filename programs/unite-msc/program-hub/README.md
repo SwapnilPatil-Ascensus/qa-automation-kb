@@ -79,6 +79,12 @@ See [11-technical-reference-and-cursor-execution-notes.md](./11-technical-refere
 
 Sprint-ready epics and stories: [jira-stories/README.md](./jira-stories/README.md)
 
+## API Test Automation KB
+
+Technical runbooks, migration playbooks, mapping CSVs, and Cursor guides:
+
+[api-test-automation/README.md](../api-test-automation/README.md)
+
 | Artifact | Purpose |
 |----------|---------|
 | [01-epics.md](./jira-stories/01-epics.md) | 6 program epics |

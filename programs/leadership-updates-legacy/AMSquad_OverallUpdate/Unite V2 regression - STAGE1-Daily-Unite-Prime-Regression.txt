@@ -1,0 +1,48 @@
+http://jenkinsqant1:8080/job/STAGE1-Daily-Unite-Prime-Regression/
+
+STAGE1-Daily-Unite-Prime-Regression
+This Jenkins job runs the complete end-to-end regression suite for the Unite/Prime platform against the STAGE1 environment.
+It is configured to execute nightly from Monday through Friday to validate system stability and catch regressions early in the development lifecycle.
+
+🔄 Key Configuration:
+    - Schedule: Runs daily at 12:00 AM EST (Mon–Fri)
+    - 🧪 Test Suites Covered:
+        - login, Registration, Enrollments
+        - Contributions
+        - Withdrawals
+        - Balance Page
+        - CSR or Account Maintenance
+
+    - ⚙️ Build Environment: `seleniumhubnt2_devops`
+    - 📦 Build Tool: Apache Ant (`build.xml` with `stage1` environment variable)
+    - 📁 Environment Setup Script: `/qa-automation/foa/uniteenv.sh`
+    - 🧩 Execution Type: Sequential execution of test modules
+
+Additional Notes:
+    - Report generation and archiving planned for next phase
+    - Job stability and flakiness tracking to be integrated
+    - Contact: `qa_automation` team for access/modifications
+Edit description
+Disable Project
+Permalinks
+Last build (#1237), 15 hr ago
+Last stable build (#1237), 15 hr ago
+Last successful build (#1237), 15 hr ago
+Last completed build (#1237), 15 hr ago
+
+
+Script:
+
+. /qa-automation/foa/uniteenv.sh
+
+ant -f ${PRIME_HOME}bin/build.xml stage1-enrollments-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-web-registration-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-web-login-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-acct-overview-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-csr-acct-maintenance-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-contributions-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-withdrawals-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-transfers-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-investment-options-regression -DENV=stage1
+ant -f ${PRIME_HOME}bin/build.xml stage1-ugift-regression -DENV=stage1
+

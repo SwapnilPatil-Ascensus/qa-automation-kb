@@ -1,0 +1,177 @@
+{
+  "meeting_date": "2026-08-28",
+  "audience": ["Rajib (Chapter Lead / Manager)", "Henry (Director)", "Persistent Delivery Managers"],
+  "sprints": {
+    "scope": "AMSQUAD Sprints 26.13, 26.14, and 26.14 (current)",
+    "previous": "AMSQUAD Sprint 26.13 (8/05 – 8/18)",
+    "current": "AMSQUAD Sprint 26.14 (8/19 – 9/01)",
+    "prior": "AMSQUAD Sprint 26.12 (7/22 – 8/04)"
+  },
+  "pulse": {
+    "sprint_scope": "26.13 – 26.14",
+    "gitlab_merges": 34,
+    "gitlab_merges_note": "Aug 5 – Aug 26 · 3 automation repos",
+    "jira_sprint_items_current": 148,
+    "jira_sprint_items_note": "Board items in Sprint 26.14",
+    "automation_bugs_logged": 6,
+    "automation_bugs_note": "Regression bugs since Sprint 26.13",
+    "msc_in_scope_endpoints": "51/51 + enrollment 95%",
+    "msc_in_scope_note": "M1 26 + M2 25 complete · Enrollment core E2E 19/20",
+    "eta_delivery_rate": "~70% of original ETA"
+  },
+  "unite_msc": {
+    "mobile2": {
+      "automated": 25,
+      "total": 25,
+      "pct": 100,
+      "status": "Complete — sign-off ready"
+    },
+    "mobile1": {
+      "automated": 26,
+      "total": 26,
+      "pct": 100,
+      "in_scope_note": "26 business operations automated; routed to module regression, integration, or smoke per endpoint behavior",
+      "excluded_note": "Optional docs/health endpoints and test-only routes out of scope — not counted",
+      "suite_split": {"module_regression": 19, "smoke_only": 6, "integration_mixed": 1},
+      "status": "Complete — sign-off ready"
+    },
+    "enrollment": {
+      "pct": 95,
+      "core_e2e": "19/20",
+      "catalog": "19/25",
+      "test_classes": 17,
+      "status": "Core E2E nearly complete — submit (review-confirm-entered) in flight; partner/subsequent flows deferred to next sprint (research)",
+      "db_refresh": "Stage1/QC4 test data refreshed this week — team stabilized branding, fund lookup, and disposable account SQL",
+      "remaining_coding": ["POST review-confirm-entered (account creation)"],
+      "deferred_next_sprint": ["Subsequent enrollment (2 endpoints)", "Vanguard submit", "Upromise", "OAuth"]
+    },
+    "pipeline": {
+      "stage1": "IDP + non-IDP paths validated for Mobile 1 and Mobile 2 on Stage1",
+      "qc4": "Hybrid model; DB refresh completed — integration proof continuing",
+      "gitlab_nightly": "Mobile 2 GitLab nightly job delivered (QA-1405)"
+    },
+    "target_completion": "Enrollment coding end Sprint 26.14 · program close-out ~1 sprint with 1 dedicated resource",
+    "footnote": "100% = all in-scope business endpoints automated. Enrollment 95% = core happy-path E2E (19/20); 5 partner/subsequent catalog endpoints deferred with research."
+  },
+  "enrollment_coverage": {
+    "labels": ["Smoke/GET", "Wizard POSTs", "Optional helpers", "Submit", "Deferred"],
+    "coded": [7, 10, 2, 0, 0],
+    "remaining": [0, 0, 0, 1, 5]
+  },
+  "ui_automation": {
+    "scope_note": "Sprints 26.13–26.14 — maintenance and stabilization; capacity shifting to MSC close-out + new priorities",
+    "v2_highlights": [
+      "CSR maintenance modules; legacy enrollment cases under sunset review",
+      "QA-1275: V2 cases removed/updated for plans migrated Non-IDP → IDP",
+      "Plans migrating legacy → universal platform — need decision on which Jenkins suites to retire"
+    ],
+    "v3_highlights": [
+      "Web registration stabilization, entity flows, flaky-test fixes",
+      "V3 is the long-term source of truth on GitLab as direct plans migrate off V2",
+      "IDP login regression flakes — product/env alignment ongoing"
+    ],
+    "maintenance_note": "Small test-case adds for regression stability — team can resume V2/V3 expansion as MSC coding completes",
+    "migration_discussion": "Which plan types stay on V2 Jenkins vs move to V3 GitLab? When do we retire duplicate enrollment coverage?"
+  },
+  "performance": {
+    "scope_note": "Sprints 26.13–26.14 — one resource (Preeti); slightly behind plan due to IDP + emergency barcode work",
+    "sprint_deliverables": [
+      {
+        "name": "MSC IDP Login BlazeMeter analysis",
+        "sprint": "26.13",
+        "status": "Delivered — QA-1429",
+        "jira": "QA-1429"
+      },
+      {
+        "name": "Unite MSC Contribution full-flow JMX",
+        "sprint": "26.14",
+        "status": "In progress — QA-1802",
+        "jira": "QA-1802"
+      },
+      {
+        "name": "MSC Mobile 1 + Enrollment perf scenarios",
+        "sprint": "26.15",
+        "status": "Planned — Preeti; after API E2E stable",
+        "jira": "QA-1229"
+      }
+    ],
+    "ongoing": "IDP login, legacy login baselines in weekday regression; MSC endurance suite in repo — scheduling after M1/enrollment perf scripts"
+  },
+  "sprint_focus_mix": {
+    "labels": ["Unite MSC", "V2/V3 UI", "Performance", "Platform / Pipeline", "Cross-team"],
+    "sprint_26_13": [35, 15, 25, 15, 10],
+    "sprint_26_14": [45, 10, 20, 15, 10],
+    "sprint_26_15_plan": [15, 20, 25, 10, 30]
+  },
+  "recent_bugs": [
+    {"key": "QA-1820", "summary": "V2 IDP-impacted legacy cases — Stage1 daily regression stabilization", "area": "V2", "sprint": "26.14"},
+    {"key": "QA-1694", "summary": "V3 IDP Login regression failure", "area": "V3", "sprint": "26.13"},
+    {"key": "QA-1691", "summary": "V3 Universal Enrollment IDP Login failure", "area": "V3", "sprint": "26.13"},
+    {"key": "QA-1520", "summary": "V3 Member Personal Information validation", "area": "V3", "sprint": "26.12"},
+    {"key": "QA-1519", "summary": "V3 Member Personal Information validation", "area": "V3", "sprint": "26.12"}
+  ],
+  "incoming_work": {
+    "aha": "ACS-5678 — Atlas Traffic Distribution & Load Balancer Rebalancing (QA Automation)",
+    "owner_aha": "Brian Danilczyk",
+    "priority": "#2 on Michael's list",
+    "estimate": "2–3 sprints",
+    "dependency": "Redis session-management initiative",
+    "target": "October 2026 delivery",
+    "status": "Intake pending — Brian sent AHA ~2 weeks ago; awaiting leadership queue confirmation"
+  },
+  "v2_sunset": {
+    "goal": "Retire V2 enrollment from Jenkins; migrate CSR enrollment flows to V3 on GitLab",
+    "driver": "Direct plans migrated to V3; reduce Jenkins footprint as legacy becomes obsolete",
+    "lead": "Wence / Venkatesh (when MSC wrap-up completes)",
+    "discussion": "Need leadership alignment on per-plan migration timeline and which V2 regression cases to retire vs maintain during transition"
+  },
+  "capacity": {
+    "msc_wrap": "1 resource ~1 sprint after enrollment coding (docs, qTest, Bruno, KT, sign-off) — NOT full squad exit",
+    "new_work": "3.5 FTE (incl. Swapnil) available for Atlas + V2/V3/API backlog once enrollment coding lands",
+    "reallocation": [
+      "Sunil → MSC wrap-up: manual qTest cases, Postman→Bruno, coverage matrix, handover docs",
+      "Dinesh / dev → enrollment submit + Stage1 E2E validation (end Sprint 26.14)",
+      "Preeti → perf: MSC contribution JMX (26.14); M1 + enrollment perf next sprint",
+      "Main squad (3.5) → ACS-5678 Atlas intake OR V2/V3/API backlog per leadership priority",
+      "Swapnil → roadmap, sign-off coordination, leadership reporting"
+    ],
+    "closeout_checklist": [
+      "Documentation & KB runbooks (onboarding, nightly job ops, reporting)",
+      "Coverage metrics matrix (M1/M2/enrollment endpoint Excel vs Java)",
+      "qTest manual cases from Postman E2E",
+      "Postman → Bruno collection handover",
+      "GitLab enrollment nightly job",
+      "KT session + sign-off package to named ACM / sustaining owner"
+    ]
+  },
+  "leadership_asks": {
+    "Roadmap & capacity": [
+      "Confirm post-MSC priority queue: ACS-5678 Atlas (Oct delivery) vs V2 sunset vs V3 expansion",
+      "Acknowledge 1-resource MSC wrap-up sprint — coding complete ≠ program closed",
+      "Name sustaining owner (ACM) and sign-off contacts for M1, M2, enrollment, pipeline, perf"
+    ],
+    "Unite MSC / API automation": [
+      "Accept M1 (26/26) and M2 (25/25) as 100% in-scope — ready for formal sign-off",
+      "Enrollment: 95% core E2E — submit step target end Sprint 26.14; partner flows next sprint",
+      "Approve handoff of API automation assets to named sustaining team"
+    ],
+    "V2 regression (Jenkins)": [
+      "Which V2 Jenkins suites retire as plans migrate to universal platform?",
+      "CSR enrollment sunset timing — align with plan migration schedule"
+    ],
+    "V3 universal platform (GitLab)": [
+      "Confirm V3 as source of truth for migrated plans — expansion priority after MSC?",
+      "IDP login regression ownership — recent failures need product/env alignment"
+    ],
+    "Performance & stress testing": [
+      "Route performance requests through SDLC intake — team slightly behind due to emergency work",
+      "Preeti: M1 + enrollment perf scripts planned next sprint after API E2E stable",
+      "We continue owning nightly + perf regression unless leadership redirects to sustaining team"
+    ],
+    "Pipeline & environments": [
+      "Mobile 2 GitLab nightly delivered (QA-1405) — enrollment nightly to follow in wrap-up sprint",
+      "DB refresh complete — QC4 integration proof can proceed",
+      "Confirm Stage1-as-primary until QC4 fully stable"
+    ]
+  }
+}

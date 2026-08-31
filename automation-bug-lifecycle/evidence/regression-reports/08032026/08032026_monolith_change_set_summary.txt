@@ -1,0 +1,8 @@
+===== Project: monolith | Type: Merge Requests | Date Range: 7/27/2026 - 8/3/2026 | Total: 71 | Open: 8, Merged: 58, Closed: 5 =====
+Source: GitLab Project Manager export for QA-995 / 08032026 PAB enrollment failure
+
+PAB-SUSPECT MRs (high confidence):
+- !5840 Added PAB changes for feed retirement (Phani Bandaram, merged 07/28/2026 12:08)
+- !5842 Merge feature/paable_deconversion_july cherry-pick to main (Phani Bandaram, merged 07/28/2026 12:38)
+
+See 08032026_ABLE_Enrollment_PlanNotOpenForEnrollment.md for formatted summary table.
