@@ -1,0 +1,29 @@
+platform,endpoint_id,method,path,test_class,suites,plants,master_regression,implementation_status,as_of
+Enrollment,ENR-01,GET,/enrollmentapi/health/liveness,EnrollmentPingRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-02,GET,/enrollmentapi/v1/ping,EnrollmentPingRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-03,GET,/enrollmentapi/v1/certificate,EnrollmentCertificateRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-04,GET,/enrollmentapi/v1/usstates,EnrollmentUsStatesRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-05,GET,/enrollmentapi/v1/country,EnrollmentCountryRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-06,GET,/enrollmentapi/v1/plans,EnrollmentPlansRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-07,GET,/enrollmentapi/v1/plans/{planId},EnrollmentPlansRequestTest,smoke,okdirect,N,Done,2026-09-02
+Enrollment,ENR-08,GET,/enrollmentapi/v1/content,EnrollmentContentRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-09,POST,/mobile1api/v1/mobilemembersession,MobileMemberSessionRequestTest,smoke (functional group),okdirect,N,Done — not in regression group,2026-09-02
+Enrollment,ENR-10,POST,/enrollmentapi/v1/enrollments/enrollmentstarted,EnrollmentStartedRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-11,POST,/enrollmentapi/v1/enrollments/prospects,ProspectRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-12,POST,/enrollmentapi/v1/enrollments/enrollment/owner-entered,OwnerEnteredTests,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-13,POST,/enrollmentapi/v1/enrollments/enrollment/owner-address-entered,OwnerAddressEnteredRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-14,POST,/enrollmentapi/v1/enrollments/enrollment/beneficiary-entered,BeneficiaryEnteredTests,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-15,POST,/enrollmentapi/v1/verify/routingnumber,VerifyBankRoutingNumberRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-16,POST,/enrollmentapi/v1/enrollments/enrollment/bank-entered,BankEnteredRequestTests,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-17,POST,/enrollmentapi/v1/enrollments/enrollment/recurring-contribution-entered,RecurringContributionEnteredRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-18,POST,/enrollmentapi/v1/enrollmentallocationfunds/get,AllocationFundRequestTest,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-19,POST,/enrollmentapi/v1/enrollments/enrollment/allocations-entered,AllocationsEnteredRequestTests,regression+integration,okdirect+newyork,Y,Done,2026-09-02
+Enrollment,ENR-20,POST,/enrollmentapi/v1/enrollments/enrollment/review-confirm-entered,ReviewConfirmEnteredRequestTest,regression+integration,okdirect+newyork,Y,Done (QA-1604),2026-09-02
+Enrollment,ENR-21,GET,/enrollmentapi/v1/subsequentenrollment/banks,SubsequentEnrollmentBanksRequestTest,regression+integration,okdirect+newyork,Y,Done (QA-1792),2026-09-02
+Enrollment,ENR-22,POST,/enrollmentapi/v1/enrollments/subsequentenrollment/beneficiary-entered,SubsequentBeneficiaryEnteredRequestTest,regression+integration,okdirect+newyork,Y,Done (QA-1853); not in Excel catalog,2026-09-02
+Enrollment,ENR-23,POST,/enrollmentapi/v1/enrollments/subsequentenrollment/bank-entered,SubsequentEnrollmentBankEnteredRequestTest,regression+integration,okdirect+newyork,Y,Done (QA-1854); not in Excel catalog,2026-09-02
+Enrollment,ENR-24,POST,/enrollmentapi/v1/enrollments/subsequentenrollment/recurring-contribution-entered,SubsequentEnrollmentRecurringContributionRequestTest,regression+integration,okdirect+newyork,Y,Done (QA-1855); not in Excel catalog,2026-09-02
+Enrollment,ENR-25,POST,/enrollmentapi/v1/enrollments/subsequentenrollment/review-confirm-entered,SubsequentEnrollmentReviewConfirmEnteredRequestTest,regression+integration,okdirect+newyork,Y,Done (QA-1791),2026-09-02
+Enrollment,ENR-26,POST,/enrollmentapi/v1/enrollments/submit,—,—,—,N,Deferred partner QA-1808,2026-09-02
+Enrollment,ENR-27,GET,/enrollmentapi/v1/upromiseaccount,—,—,—,N,Deferred partner QA-1807,2026-09-02
+Enrollment,ENR-28,POST,/enrollmentapi/v1/oauth/token,—,—,—,N,Deferred not in MSC E2E,2026-09-02

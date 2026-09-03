@@ -4,6 +4,8 @@ Confluence-ready markdown for the **Mobile Automation Program Hub**. Copy pages 
 
 ---
 
+**Upcoming two-sprint backlog (Jira copy-paste):** [programs/upcoming-sprints-2026-09/README.md](../../upcoming-sprints-2026-09/README.md)
+
 ## Confluence Page Hierarchy
 
 ```

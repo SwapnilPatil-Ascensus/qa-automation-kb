@@ -25,3 +25,5 @@ Regenerate matrix: `EnrollmentE2E/tools/generate_enrollment_coverage_matrix.py`
 Legacy KB: `programs/unite-msc/msc-enrollment/postman/`
 
 When adding automation, update the endpoint CSV in [mappings/](../mappings/).
+
+**Sep 2026:** Coverage status regenerated after review-confirm + subsequent classes landed. Unified Postman (M1+M2+Enrollment) and Bruno conversion are upcoming stories — not in repo yet. See `mappings/legacy-new-postman-excel-mapping.md`.

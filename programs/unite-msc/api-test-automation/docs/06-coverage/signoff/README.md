@@ -14,7 +14,7 @@ Formal handover documents for engineering, support, and leadership.
 | File | Purpose |
 |------|---------|
 | [mobile1-signoff-summary.md](./mobile1-signoff-summary.md) | Markdown index — 26 endpoint operations |
-| [mobile2-signoff-summary.md](./mobile2-signoff-summary.md) | Markdown index — 25 endpoints (24 in-scope) |
+| [enrollment-signoff-summary.md](./enrollment-signoff-summary.md) | Markdown draft — Enrollment (Word pack still a story) |
 | [../../mappings/endpoint-signoff-register.csv](../../mappings/endpoint-signoff-register.csv) | Machine-readable full mapping |
 | [../05-code-coverage-metrics.md](../05-code-coverage-metrics.md) | Coverage & test counts |
 | [../../evidence/regression-runs/](../../evidence/regression-runs/) | QC4/Stage1 execution logs |

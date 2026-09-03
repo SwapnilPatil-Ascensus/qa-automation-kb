@@ -1,6 +1,6 @@
 # Enrollment API — Automation Coverage Status
 
-**Generated:** 2026-08-28  
+**Generated:** 2026-09-02  
 **Source of truth:** `Enrollment End Points.xlsx` (tab: API Endpoints - Enrollment)  
 **Repo:** `api-test-automation/mobile/enrollment`  
 **Matrix Excel:** [Enrollment-Automation-Coverage-Matrix.xlsx](./Enrollment-Automation-Coverage-Matrix.xlsx)
@@ -11,13 +11,13 @@
 
 | Metric | Count |
 |--------|-------|
-| Total endpoints in catalog | **25** |
-| **Java automated (Done)** | **19** (76%) |
-| Core E2E wizard + submit | **14/15** (93%) |
-| Not started (in scope) | **1** |
-| Deferred (out of scope) | **5** |
+| Total endpoints in catalog | **28** |
+| **Java automated (Done)** | **25** (89%) |
+| Core E2E wizard + submit | **15/15** (100%) |
+| Not started (in scope) | **0** |
+| Deferred (out of scope) | **3** |
 
-**Blocking gap:** `review-confirm-entered` — Postman passes; **no Java test class yet** → no automated account creation.
+**Coding status (Sep 2026):** Initial wizard including `review-confirm-entered` is Done. Subsequent banks / beneficiary / bank-entered / recurring / review-confirm are Done for **okdirect + newyork**. Remaining is documentation, CI plants (nmdirect), negatives, partner APIs.
 
 ---
 
@@ -27,7 +27,7 @@
 |-------------------|---------|
 | **Done** | TestNG class exists in `mobile/enrollment` |
 | **Not Started** | In scope for current sprint; no Java class |
-| **Deferred** | Out of scope — subsequent/partner/OAuth; next sprint research |
+| **Deferred** | Out of scope — partner submit / Upromise / OAuth |
 
 | Program Scope | Meaning |
 |---------------|---------|
@@ -43,7 +43,7 @@
 
 ---
 
-## Done — Java automated (19 endpoints)
+## Done — Java automated (25 endpoints)
 
 | # | Endpoint | Test Class | Suites | Legacy note |
 |---|----------|------------|--------|-------------|
@@ -66,14 +66,18 @@
 | 17 | `/enrollmentapi/v1/enrollments/enrollment/recurring-cont` | `RecurringContributionEnteredRequestTest` | regression, integration | New in MSC automation; optional skip in Postman |
 | 18 | `/enrollmentapi/v1/enrollmentallocationfunds/get` | `AllocationFundRequestTest` | regression, integration | New in MSC automation; alternative to SQL fund loo |
 | 19 | `/enrollmentapi/v1/enrollments/enrollment/allocations-en` | `AllocationsEnteredRequestTests` | regression, integration | MSC automation done; old collection marked In Prog |
+| 20 | `/enrollmentapi/v1/enrollments/enrollment/review-confirm` | `ReviewConfirmEnteredRequestTest` | regression, integration | New in MSC automation; QA-1604 checked in Sep 2026 |
+| 21 | `/enrollmentapi/v1/subsequentenrollment/banks` | `SubsequentEnrollmentBanksRequestTest` | regression, integration | New in MSC; QA-1792 — not in legacy collection |
+| 22 | `/enrollmentapi/v1/enrollments/subsequentenrollment/revi` | `SubsequentEnrollmentReviewConfirmEnteredRequestTest` | regression, integration | New in MSC; QA-1791 — not in legacy collection |
+| 26 | `/enrollmentapi/v1/enrollments/subsequentenrollment/bene` | `SubsequentBeneficiaryEnteredRequestTest` | regression, integration | New in MSC; QA-1853 — not in Enrollment End Points |
+| 27 | `/enrollmentapi/v1/enrollments/subsequentenrollment/bank` | `SubsequentEnrollmentBankEnteredRequestTest` | regression, integration | New in MSC; QA-1854 — not in Enrollment End Points |
+| 28 | `/enrollmentapi/v1/enrollments/subsequentenrollment/recu` | `SubsequentEnrollmentRecurringContributionRequestTest` | regression, integration | New in MSC; QA-1855 — not in Enrollment End Points |
 
 ---
 
 ## Not started — in scope
 
-| # | Endpoint | Remaining work |
-|---|----------|----------------|
-| 20 | `/enrollmentapi/v1/enrollments/enrollment/review-confirm-entered` | CODE GAP — blocks account creation; QA-1604 / QA-1810 |
+_None._
 
 ---
 
@@ -81,8 +85,6 @@
 
 | # | Endpoint | Postman | Reason |
 |---|----------|---------|--------|
-| 21 | `/enrollmentapi/v1/subsequentenrollment/banks` | Not Working - 401 | QA-1792 — subsequent enrollment research |
-| 22 | `/enrollmentapi/v1/enrollments/subsequentenrollment` | Not Working - 401 | QA-1791 — subsequent enrollment research |
 | 23 | `/enrollmentapi/v1/enrollments/submit` | Not Working - 401 | QA-1808 — partner integration research |
 | 24 | `/enrollmentapi/v1/upromiseaccount` | Authorization Failed | QA-1807 |
 | 25 | `/enrollmentapi/v1/oauth/token` | Not Working - 401 | Not planned for MSC E2E |
@@ -93,11 +95,12 @@
 
 | Suite | What runs |
 |-------|-----------|
-| `enrollment-smoke-testng.xml` | Bootstrap GETs + optional mobile login |
-| `enrollment-regression-testng.xml` | Full wizard (prospect → allocations); **no submit yet** |
+| `enrollment-smoke-testng.xml` | Bootstrap GETs + optional mobile login (okdirect) |
+| `enrollment-regression-testng.xml` | Full wizard + subsequent (okdirect + newyork) |
 | `enrollment-integration-testng.xml` | Same as regression on QC4 |
+| `localhost-testng.xml.example` | Local three-plan shell including nmdirect — not CI |
 
-**Note:** No single suite runs prospect → **submit** end-to-end until `ReviewConfirmEnteredRequestTest` is added.
+**Note:** `MobileMemberSessionRequestTest` is `groups=functional` so it is listed in regression XML but filtered out of regression/integration runs.
 
 ---
 
@@ -125,6 +128,12 @@
 - `/enrollmentapi/v1/enrollments/enrollment/owner-address-entered` → `OwnerAddressEnteredRequestTest`
 - `/enrollmentapi/v1/enrollments/enrollment/recurring-contribution-entered` → `RecurringContributionEnteredRequestTest`
 - `/enrollmentapi/v1/enrollmentallocationfunds/get` → `AllocationFundRequestTest`
+- `/enrollmentapi/v1/enrollments/enrollment/review-confirm-entered` → `ReviewConfirmEnteredRequestTest`
+- `/enrollmentapi/v1/subsequentenrollment/banks` → `SubsequentEnrollmentBanksRequestTest`
+- `/enrollmentapi/v1/enrollments/subsequentenrollment/review-confirm-entered` → `SubsequentEnrollmentReviewConfirmEnteredRequestTest`
+- `/enrollmentapi/v1/enrollments/subsequentenrollment/beneficiary-entered` → `SubsequentBeneficiaryEnteredRequestTest`
+- `/enrollmentapi/v1/enrollments/subsequentenrollment/bank-entered` → `SubsequentEnrollmentBankEnteredRequestTest`
+- `/enrollmentapi/v1/enrollments/subsequentenrollment/recurring-contribution-entered` → `SubsequentEnrollmentRecurringContributionRequestTest`
 
 ---
 

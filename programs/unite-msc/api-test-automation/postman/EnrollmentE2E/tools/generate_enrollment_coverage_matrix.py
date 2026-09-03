@@ -175,28 +175,52 @@ AUTOMATION_MAP = {
         "remaining": "Confirm Stage1 green + update Jira QA-1602",
     },
     "/enrollmentapi/v1/enrollments/enrollment/review-confirm-entered": {
-        "status": "Not Started",
-        "test_class": "(pending) ReviewConfirmEnteredRequestTest",
-        "suites": "—",
-        "scope": "Core E2E — submit (BLOCKER)",
-        "legacy_note": "Not in legacy collection; new MSC deliverable",
-        "remaining": "CODE GAP — blocks account creation; QA-1604 / QA-1810",
+        "status": "Done",
+        "test_class": "ReviewConfirmEnteredRequestTest",
+        "suites": "regression, integration",
+        "scope": "Core E2E — submit",
+        "legacy_note": "New in MSC automation; QA-1604 checked in Sep 2026",
+        "remaining": "Confirm Stage1 green on okdirect + newyork; nmdirect still localhost-only",
     },
     "/enrollmentapi/v1/subsequentenrollment/banks": {
-        "status": "Deferred",
-        "test_class": "—",
-        "suites": "—",
-        "scope": "Out of Scope — subsequent",
-        "legacy_note": "Postman 401; not in legacy; needs research next sprint",
-        "remaining": "QA-1792 — subsequent enrollment research",
+        "status": "Done",
+        "test_class": "SubsequentEnrollmentBanksRequestTest",
+        "suites": "regression, integration",
+        "scope": "Subsequent E2E",
+        "legacy_note": "New in MSC; QA-1792 — not in legacy collection",
+        "remaining": "Add nmdirect to CI suites",
+    },
+    "/enrollmentapi/v1/enrollments/subsequentenrollment/beneficiary-entered": {
+        "status": "Done",
+        "test_class": "SubsequentBeneficiaryEnteredRequestTest",
+        "suites": "regression, integration",
+        "scope": "Subsequent E2E",
+        "legacy_note": "New in MSC; QA-1853 — not in Enrollment End Points.xlsx catalog",
+        "remaining": "Add row to Dinesh Excel catalog",
+    },
+    "/enrollmentapi/v1/enrollments/subsequentenrollment/bank-entered": {
+        "status": "Done",
+        "test_class": "SubsequentEnrollmentBankEnteredRequestTest",
+        "suites": "regression, integration",
+        "scope": "Subsequent E2E",
+        "legacy_note": "New in MSC; QA-1854 — not in Enrollment End Points.xlsx catalog",
+        "remaining": "Add row to Dinesh Excel catalog",
+    },
+    "/enrollmentapi/v1/enrollments/subsequentenrollment/recurring-contribution-entered": {
+        "status": "Done",
+        "test_class": "SubsequentEnrollmentRecurringContributionRequestTest",
+        "suites": "regression, integration",
+        "scope": "Subsequent E2E",
+        "legacy_note": "New in MSC; QA-1855 — not in Enrollment End Points.xlsx catalog",
+        "remaining": "Add row to Dinesh Excel catalog",
     },
     "/enrollmentapi/v1/enrollments/subsequentenrollment/review-confirm-entered": {
-        "status": "Deferred",
-        "test_class": "—",
-        "suites": "—",
-        "scope": "Out of Scope — subsequent",
-        "legacy_note": "Postman 401; not in legacy",
-        "remaining": "QA-1791 — subsequent enrollment research",
+        "status": "Done",
+        "test_class": "SubsequentEnrollmentReviewConfirmEnteredRequestTest",
+        "suites": "regression, integration",
+        "scope": "Subsequent E2E",
+        "legacy_note": "New in MSC; QA-1791 — not in legacy collection",
+        "remaining": "Add nmdirect to CI suites",
     },
     "/enrollmentapi/v1/enrollments/submit": {
         "status": "Deferred",
@@ -282,18 +306,60 @@ def read_source_rows() -> list[dict]:
     return rows
 
 
+def program_scope_for(scope: str) -> str:
+    if scope.startswith("Core E2E") or scope.startswith("Subsequent"):
+        return "In Scope"
+    if scope.startswith("Optional") or scope == "Infrastructure":
+        return "In Scope (optional)"
+    return "Out of Scope (deferred)"
+
+
+EXTRA_CATALOG_ROWS = [
+    {
+        "category": "Subsequent Enrollment (Java only)",
+        "method": "POST",
+        "endpoint": "/enrollmentapi/v1/enrollments/subsequentenrollment/beneficiary-entered",
+        "postman_status": "In Postman E2E as POST 25",
+        "old_collection_status": "",
+        "auth_level": "Member JWT",
+        "description": "Subsequent beneficiary-entered",
+        "use_case": "Add another 529 account for existing member",
+    },
+    {
+        "category": "Subsequent Enrollment (Java only)",
+        "method": "POST",
+        "endpoint": "/enrollmentapi/v1/enrollments/subsequentenrollment/bank-entered",
+        "postman_status": "In Postman E2E as POST 26",
+        "old_collection_status": "",
+        "auth_level": "Member JWT",
+        "description": "Subsequent bank-entered",
+        "use_case": "Add another 529 account for existing member",
+    },
+    {
+        "category": "Subsequent Enrollment (Java only)",
+        "method": "POST",
+        "endpoint": "/enrollmentapi/v1/enrollments/subsequentenrollment/recurring-contribution-entered",
+        "postman_status": "In Postman E2E as POST 27",
+        "old_collection_status": "",
+        "auth_level": "Member JWT",
+        "description": "Subsequent recurring contribution",
+        "use_case": "Add another 529 account for existing member",
+    },
+]
+
+
 def build_matrix_rows(source_rows: list[dict]) -> list[dict]:
     out = []
-    for i, row in enumerate(source_rows, start=1):
+    seen = {normalize_endpoint(str(r["endpoint"])) for r in source_rows}
+    combined = list(source_rows)
+    for extra in EXTRA_CATALOG_ROWS:
+        if extra["endpoint"] not in seen:
+            combined.append(extra)
+    for i, row in enumerate(combined, start=1):
         ep = row["endpoint"]
         auto = AUTOMATION_MAP.get(ep, {})
         scope = auto.get("scope", "TBD")
-        if scope.startswith("Core E2E"):
-            program_scope = "In Scope"
-        elif scope.startswith("Optional") or scope == "Infrastructure":
-            program_scope = "In Scope (optional)"
-        else:
-            program_scope = "Out of Scope (deferred)"
+        program_scope = program_scope_for(scope)
 
         out.append(
             {
@@ -397,8 +463,8 @@ def write_excel(rows: list[dict]) -> None:
         ("Core E2E endpoints", f"{core_done}/{len(core)}"),
         ("Optional helpers automated", optional_done),
         ("", ""),
-        ("Blocking gap", "review-confirm-entered — no Java test yet"),
-        ("Next sprint", "Subsequent + partner flows (research)"),
+        ("Blocking gap", "None for happy-path wizard + subsequent (okdirect + newyork)"),
+        ("Remaining", "nmdirect CI; negatives; partner submit/Upromise/OAuth"),
     ]
     for a, b in summary:
         ws2.append([a, b])
@@ -466,7 +532,7 @@ def write_markdown(rows: list[dict]) -> None:
         f"| Not started (in scope) | **{len(pending)}** |",
         f"| Deferred (out of scope) | **{len(deferred)}** |",
         "",
-        "**Blocking gap:** `review-confirm-entered` — Postman passes; **no Java test class yet** → no automated account creation.",
+        "**Coding status (Sep 2026):** Initial wizard including `review-confirm-entered` is Done. Subsequent banks / beneficiary / bank-entered / recurring / review-confirm are Done for **okdirect + newyork**. Remaining is documentation, CI plants (nmdirect), negatives, partner APIs.",
         "",
         "---",
         "",
@@ -476,7 +542,7 @@ def write_markdown(rows: list[dict]) -> None:
         "|-------------------|---------|",
         "| **Done** | TestNG class exists in `mobile/enrollment` |",
         "| **Not Started** | In scope for current sprint; no Java class |",
-        "| **Deferred** | Out of scope — subsequent/partner/OAuth; next sprint research |",
+        "| **Deferred** | Out of scope — partner submit / Upromise / OAuth |",
         "",
         "| Program Scope | Meaning |",
         "|---------------|---------|",
@@ -539,11 +605,12 @@ def write_markdown(rows: list[dict]) -> None:
         "",
         "| Suite | What runs |",
         "|-------|-----------|",
-        "| `enrollment-smoke-testng.xml` | Bootstrap GETs + optional mobile login |",
-        "| `enrollment-regression-testng.xml` | Full wizard (prospect → allocations); **no submit yet** |",
+        "| `enrollment-smoke-testng.xml` | Bootstrap GETs + optional mobile login (okdirect) |",
+        "| `enrollment-regression-testng.xml` | Full wizard + subsequent (okdirect + newyork) |",
         "| `enrollment-integration-testng.xml` | Same as regression on QC4 |",
+        "| `localhost-testng.xml.example` | Local three-plan shell including nmdirect — not CI |",
         "",
-        "**Note:** No single suite runs prospect → **submit** end-to-end until `ReviewConfirmEnteredRequestTest` is added.",
+        "**Note:** `MobileMemberSessionRequestTest` is `groups=functional` so it is listed in regression XML but filtered out of regression/integration runs.",
         "",
         "---",
         "",

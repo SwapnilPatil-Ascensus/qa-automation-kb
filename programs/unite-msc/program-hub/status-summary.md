@@ -1,6 +1,6 @@
 # Mobile Microservices Automation — Leadership Status Summary
 
-**One-page summary** | Last updated: 2026-05-18 | Status: 🟡 **Planning / not started**
+**One-page summary** | Last updated: 2026-09-02 | Status: 🟢 **API coding largely complete — docs / CI / V2-V3 / perf next**
 
 ---
 
@@ -38,36 +38,28 @@ Migrating **UniteMSC API automation** (Unite Enrollment, Unite Mobile 1, Unite M
 
 ## Current state
 
-- Program documentation hub **created** in repo (`docs/mobile-automation-program-hub/`).
-- **Discovery not started** — scenario inventory TBD per module.
-- Legacy automation in app repos is a **reference baseline**, not trusted regression.
-- Parallel **Path B** proposal exists (TestNG `unite-msc/` module, Mobile 2 pilot, Nexus zip) — **architecture decision pending**.
+- Mobile 1 and Mobile 2 API automation **complete** with sign-off Word packs.
+- Enrollment wizard **including review-confirm** and **subsequent enrollment** implemented for okdirect + newyork (Sep 2026).
+- Remaining Unite MSC: documentation, sign-off, pipeline plants, Postman/Bruno, negatives as enhancement.
+- V2 still owns broad UI daily (~182 TestNG blocks). V3 GitLab runs UE (24) + Unite master (36). CSR enrollment is **V2-only**.
+- Performance: Mobile 2 Jenkins job exists (on-demand). Mobile 1 and Enrollment perf + nightly + docs are next (Preeti: M1 auth then Enrollment E2E).
 
 ## Next 30 days (recommended)
 
 | # | Action | Owner |
 |---|--------|-------|
-| 1 | Resolve pilot order + Cucumber vs Path B track | Leadership / Architecture |
-| 2 | Grant read access to UniteMSC repos; start Enrollment inventory | QA |
-| 3 | Confirm API Automation Framework target path and branch | QA + Dev |
-| 4 | Break down QA-796 epic into sprint stories | QA lead |
-| 5 | Kick off vertical slice (3–5 scenarios) after design sign-off | QA |
-
-## Top risks
-
-| Risk | Mitigation |
-|------|------------|
-| Stale/untrusted legacy tests | Decision matrix; exclude obsolete; prove in QC4 |
-| IDP / env / data blockers | Early config spike; RAID tracking |
-| Dual architecture confusion | Decide DEC-2 (Cucumber migration vs Path B) |
-| Single-QA bandwidth | KT, documentation, phased delivery |
+| 1 | Create Jira stories from `programs/upcoming-sprints-2026-09/` | QA lead |
+| 2 | Enrollment sign-off + GitLab nightly + nmdirect plant | API team |
+| 3 | V3 CSR enrollment + UE stabilize + leftovers | V2/V3 team (bandwidth) |
+| 4 | Perf M1 auth + Enrollment E2E + Jenkins nightly | Preeti |
 
 ## Success looks like
 
-- 3–5 scenarios green in target framework (vertical slice)
-- `@smoke` suite runs in CI on QC4 for pilot module
-- Full migrated regression with documented exclusions
-- Confluence trackers and weekly status current
+- Enrollment sign-off pack matches Mobile 1/2 quality
+- Three target plants evidenced (OK Direct, NY, NM Direct) where in scope
+- Unified Postman + Bruno collection
+- V3 daily includes CSR enrollment vertical slice and leftover `@dailyrun` UE features
+- Perf nightly for MSC login; M1 auth and Enrollment E2E scripts scheduled
 
 ---
 
