@@ -14,7 +14,7 @@ Formal handover documents for engineering, support, and leadership.
 | File | Purpose |
 |------|---------|
 | [mobile1-signoff-summary.md](./mobile1-signoff-summary.md) | Markdown index — 26 endpoint operations |
-| [enrollment-signoff-summary.md](./enrollment-signoff-summary.md) | Markdown draft — Enrollment (Word pack still a story) |
+| [enrollment-signoff-summary.md](./enrollment-signoff-summary.md) | Pointer — full Enrollment pack is QA-893 |
 | [../../mappings/endpoint-signoff-register.csv](../../mappings/endpoint-signoff-register.csv) | Machine-readable full mapping |
 | [../05-code-coverage-metrics.md](../05-code-coverage-metrics.md) | Coverage & test counts |
 | [../../evidence/regression-runs/](../../evidence/regression-runs/) | QC4/Stage1 execution logs |

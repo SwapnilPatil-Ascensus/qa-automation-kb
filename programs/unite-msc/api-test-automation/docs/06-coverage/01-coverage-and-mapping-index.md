@@ -25,7 +25,7 @@ Leadership copies: `programs/government-savings-assessment/01-inventory/` — ke
 - [Enrollment-Automation-Coverage-Status.md](../../postman/EnrollmentE2E/Enrollment-Automation-Coverage-Status.md) — **25/28 catalog rows Done**; remaining 3 are partner/OAuth deferred
 - [Enrollment-Automation-Coverage-Matrix.xlsx](../../postman/EnrollmentE2E/Enrollment-Automation-Coverage-Matrix.xlsx)
 - [05-unite-enrollment-migration-tracker.md](../../../program-hub/05-unite-enrollment-migration-tracker.md)
-- Enrollment **sign-off Word pack is not created yet** (Mobile 1/2 packs exist)
+- Enrollment handover Word pack: `programs/unite-msc/enrollment-handoff-qa-893/deliverables/` (QA-893)
 
 ## Migration docs
 
