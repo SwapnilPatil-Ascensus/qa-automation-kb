@@ -2,7 +2,7 @@
 
 **Source:** `QC4 Enablement Metting Transcript.txt`  
 **Attendees (known):** Kevin Daines, Abhitosh Fani, Luis Fontalvo Romero, Tandabany Anbanandan; Swapnil invited  
-**Related prior call:** [QC4 IDP Setup — 2026-07-21](../programs/unite-msc/api-validation/ISSUES/07212026/QC4-IDP-Setup-Discussion-transcript.txt)
+**Related prior call:** [QC4 IDP Setup — 2026-07-21](../../automation-bug-lifecycle/evidence/program-issues-unite-msc/07212026/QC4-IDP-Setup-Discussion-transcript.txt)
 
 ---
 

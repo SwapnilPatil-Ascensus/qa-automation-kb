@@ -10,31 +10,20 @@ Mobile 2 API automation is **complete at 24/25 business endpoints** (96%) per Ju
 
 **Feature areas to validate:**
 
-| Area | KB reference |
+| Area | Where to look |
 |------|----------------|
-| Dashboard | `programs/unite-msc/api-validation/docs/02-features/mobiledashboard/` |
-| YTD Summary | `02-features/` (mobileytdsummary) |
-| Banks | `02-features/mobilebank/` |
-| Contribution | `02-features/mobilecontribution/` |
-| Content | `02-features/contentservice/` |
-| Activity | `02-features/mobileactivity/` |
-| Investment | `02-features/investment/` |
-| Balance Trends | `02-features/mobileBalanceTrend/` |
-| Transaction History | `02-features/mobileTransactionHistory/` |
-| Performance | `02-features/mobilePerformance/` |
-| Stackup | `02-features/mobileStackup/` |
-| UGift | `02-features/mobileugift/` |
-| Plan Selection | `02-features/planselection/` |
-| E2E | `02-features/e2e/` |
+| Mobile 2 tests | GitLab `api-test-automation/mobile/mobile2` |
+| Endpoint register | `programs/unite-msc/mobile-2/mappings/mobile2-endpoint-current-state.csv` |
+| Sign-off | `programs/unite-msc/mobile-2/signoff/` |
 
 **In scope:**
 - Per-feature validation: test on main, suite wired, last execution evidence, KB overview reviewed
-- Coverage matrix vs `mappings/endpoint-registry.yaml`
+- Coverage matrix vs `programs/unite-msc/mobile-2/mappings/mobile2-endpoint-current-state.csv`
 - L1–L4 validation evidence (HTTP, contract, schema, business assertions) — not L5 SQL
 - Stage 1 execution sample when auth path is healthy
 - Sign-off package refresh (`Mobile-2-API-Automation-Sign-Off` template)
 - Gap log with linked follow-up stories for any failing area
-- Update `programs/unite-msc/api-validation/STATUS.md`
+- Keep `programs/unite-msc/mobile-2/signoff/` current
 
 **Out of scope:**
 - New endpoint implementation

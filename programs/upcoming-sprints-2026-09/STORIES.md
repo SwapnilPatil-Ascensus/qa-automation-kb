@@ -149,7 +149,7 @@ Title
 [UNITE-MSC][Docs] Keep legacy / new repo / Postman / Excel mapping current
 
 Description
-A first mapping document was added at programs/unite-msc/api-test-automation/mappings/legacy-new-postman-excel-mapping.md. Complete any missing Excel rows, confirm Postman request names, and get receiving-team sign-off that the mapping is the handoff artifact.
+Coverage CSVs live under programs/unite-msc/mobile-1/mappings/, mobile-2/mappings/, and enrollment/coverage/. Keep Excel/Postman names aligned and get receiving-team sign-off that those files are the handoff artifacts.
 
 Acceptance Criteria
 Every Java test class maps to Excel row and Postman request (or listed as Java-only).

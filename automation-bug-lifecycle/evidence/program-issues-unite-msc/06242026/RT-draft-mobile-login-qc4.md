@@ -1,6 +1,6 @@
 # RT Draft — QC4 Mobile Login Failure (`mobilemembersession` ECONNRESET)
 
-**Issue folder:** `programs/unite-msc/api-validation/ISSUES/06242026`  
+**Issue folder:** `automation-bug-lifecycle/evidence/program-issues-unite-msc/06242026`  
 **Date reported:** June 24, 2026  
 **Status:** Open — ready to submit via email
 

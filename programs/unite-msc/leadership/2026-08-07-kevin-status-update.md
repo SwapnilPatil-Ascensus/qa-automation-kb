@@ -119,4 +119,4 @@ I can fill out your Friday list — let me know if you want a call before then.
 - Kevin's ask: "what's available **today**" — lead with M2 done, M1 done, enrollment started.
 - Avoid deep technical detail (encryption, SQL, JWT) unless he asks on the Friday list.
 - If pressed on %: M2 = 100%, M1 = ~90%, Enrollment = early / vertical slice this sprint.
-- Enrollment KB: `programs/unite-msc/msc-enrollment/`
+- Enrollment KB: `programs/unite-msc/enrollment/`

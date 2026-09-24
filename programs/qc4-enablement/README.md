@@ -24,7 +24,7 @@ Kevin is driving **QC4 stabilization and enablement** after the next **QC4 refre
 
 | Source | Topic |
 |--------|--------|
-| [QC4-IDP-Setup-Discussion-transcript.txt](../programs/unite-msc/api-validation/ISSUES/07212026/QC4-IDP-Setup-Discussion-transcript.txt) | IDP plans, NMD/NY, mobile MSC 401, metadata gap |
+| [QC4-IDP-Setup-Discussion-transcript.txt](../../automation-bug-lifecycle/evidence/program-issues-unite-msc/07212026/QC4-IDP-Setup-Discussion-transcript.txt) | IDP plans, NMD/NY, mobile MSC 401, metadata gap |
 | RT [514351](https://rt.acs529.com/Ticket/Display.html?id=514351) | QC4 mobile login ECONNRESET (resolved) |
 | RT [511448](https://rt.acs529.com/Ticket/Display.html?id=511448) | Stage 1 refresh — env vs defect pattern |
 

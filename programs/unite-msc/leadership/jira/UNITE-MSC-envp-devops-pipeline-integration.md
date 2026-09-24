@@ -25,7 +25,7 @@
 - Sonar/Fortify/unit gates
 - Modifying `prime-test-automation` Selenium nightly
 
-**Reference:** `programs/unite-msc/leadership/2026-07-17-leadership-update/jira-story-mobile2-nightly-gitlab.md`, `programs/unite-msc/api-validation/JIRA-story-mobile2-qc4-pipeline-dashboard.md`
+**Reference:** `programs/unite-msc/leadership/2026-07-17-leadership-update/jira-story-mobile2-nightly-gitlab.md`
 
 ---
 

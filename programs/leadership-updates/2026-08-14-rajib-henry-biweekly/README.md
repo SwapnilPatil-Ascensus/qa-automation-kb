@@ -42,7 +42,7 @@ Close Word/PowerPoint if files are open before regenerating.
 
 - Jira: [QA AMSQUAD board](https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/2515/backlog)
 - GitLab: 3 automation repos (merges since Jul 8 / Sprint 26.11)
-- MSC endpoint inventory: `programs/unite-msc/api-test-automation/mappings/mobile1-endpoint-current-state.csv`
+- MSC endpoint inventory: `programs/unite-msc/mobile-1/mappings/mobile1-endpoint-current-state.csv`
 
 ## Related packs
 

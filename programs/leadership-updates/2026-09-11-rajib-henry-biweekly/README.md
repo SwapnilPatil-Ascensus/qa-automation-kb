@@ -37,5 +37,5 @@ python generate_biweekly_deliverables.py
 
 - [GitLab MR !265](https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/merge_requests/265)
 - [Jira AMSQUAD board](https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/2515/backlog)
-- [Enrollment endpoint CSV](../../unite-msc/api-test-automation/mappings/enrollment-endpoint-current-state.csv)
+- [Enrollment endpoint CSV](../../unite-msc/enrollment/coverage/enrollment-endpoint-current-state.csv)
 - [Previous biweekly (Aug 28)](../2026-08-28-rajib-henry-biweekly/README.md)

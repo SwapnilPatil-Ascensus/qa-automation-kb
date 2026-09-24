@@ -615,9 +615,9 @@ def build_document() -> None:
         "api-test-automation/.../17-mobile2-api-automation-signoff.md",
         "api-test-automation/.../16-mobile2-coverage-matrix.md",
         "api-test-automation/.../03-document-postman-coverage-matrix.md",
-        "qa-automation-kb/.../unite-msc-performance-testing-tracker.md",
+        "programs/unite-msc/.../unite-msc-performance-testing-tracker.md",
         "api-test-automation/.../17-MOBILE2-NEXUS-GITHUB-ACTIONS-PIPELINE.md",
-        "qa-automation-kb/programs/unite-msc/leadership/2026-07-17-leadership-update/",
+        "programs/unite-msc/leadership/2026-07-17-leadership-update/",
     ]
     for s in sources:
         doc.add_paragraph(s, style="List Bullet")

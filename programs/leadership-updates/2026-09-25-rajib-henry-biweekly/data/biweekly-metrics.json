@@ -1,0 +1,255 @@
+{
+  "meeting_date": "2026-09-25",
+  "audience": ["Rajib (Chapter Lead / Manager)", "Henry (Director)", "Persistent Delivery Managers"],
+  "sprints": {
+    "scope": "AMSQUAD Sprints 26.15 and 26.16 (current)",
+    "previous": "AMSQUAD Sprint 26.15 (9/02 – 9/15)",
+    "current": "AMSQUAD Sprint 26.16 (9/16 – 9/29)",
+    "prior": "AMSQUAD Sprint 26.14 (8/19 – 9/01)"
+  },
+  "pulse": {
+    "sprint_scope": "26.15 – 26.16 (current)",
+    "gitlab_merges": 5,
+    "gitlab_merges_note": "Sep 11 – Sep 21 · api-test-automation (incl. QA-1938 + Bruno)",
+    "jira_sprint_items_current": 180,
+    "jira_sprint_items_note": "Board items in Sprint 26.16",
+    "automation_bugs_logged": 9,
+    "automation_bugs_note": "Known Stage1/IDP bugs tracked across 26.15–26.16",
+    "msc_in_scope_endpoints": "76/79",
+    "msc_in_scope_note": "M1+M2+Enrollment coding 100% · wrap-up in flight",
+    "eta_delivery_rate": "~70% of original ETA"
+  },
+  "team_status": {
+    "preeti_perf": {
+      "owner": "Preeti (Priti Choudhary)",
+      "mobile2": "Done",
+      "mobile1": "Done by tomorrow (Sep 26) — owner/profile, device/push, auth login JMeter (QA-2159–2163)",
+      "enrollment": "Remaining — last MSC perf gap",
+      "jenkins": "Jobs added and ready; not yet scheduled for nightly — scheduling next",
+      "docs": "Perf hub / coverage / SOP docs in flight (QA-2211, QA-2216, QA-2217)"
+    },
+    "he_v3": {
+      "owner": "He (V3)",
+      "note": "On/off last couple weeks due to illness — back and productive",
+      "done": "Fixed several IDP profile issues",
+      "in_progress": "Adding missing V3 profile test cases for IDP plans",
+      "jira": ["QA-1845", "QA-2188", "QA-2190", "QA-2193"]
+    },
+    "venkatesh_v2": {
+      "owner": "Venkatesh Mallela",
+      "enrollment_login_reg": "Almost done — fix / retire / migrate enrollment, login, registration to V3",
+      "member_migration": "Direct plans migrated to universal on Stage1 — member IDP no longer works on V2; migrating member cases to V3",
+      "p0_wiring": "CSR actions daily regression wiring in progress (QA-2187, QA-2194–2198)",
+      "end_of_sprint": "New V2 areas from gap analysis + select migrations to V3"
+    },
+    "dinesh_msc": {
+      "owner": "Dinesh Kumar (+ Swapnil SharePoint)",
+      "coding": "Complete — MR !268 (QA-1938) merged Sep 11; Bruno collections MR !271 merged Sep 21",
+      "wrap_up": [
+        "Postman → Bruno (M1/M2/Enrollment) — merged",
+        "Manual test cases → qTest (QA-2085, QA-2101–2108)",
+        "SharePoint handoff: sign-offs, coverage, troubleshooting, onboarding, QA-usable endpoint docs (QA-2084)",
+        "QC4 E2E proof (QA-2086 series)"
+      ],
+      "target": "Unite MSC automation deliverables 100% by end of Sprint 26.16 — only Enrollment perf remains"
+    },
+    "env_health": {
+      "status": "Much improved",
+      "context": "Stage1 was unstable after DB refresh (IDP + multi-team issues). Squad co-worked with other teams; Stage1 / V2 / V3 now in better shape.",
+      "v2_v3": "Both stable again after Stage1 disturbance"
+    }
+  },
+  "pending_merge": {
+    "mr": "!268",
+    "url": "https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/merge_requests/268",
+    "title": "QA-1938 — Validate E2E coverage & remaining standard-flow gaps (merged)",
+    "author": "Dinesh Kumar",
+    "reviewers": ["Swapnil Patil", "Venkatesh Mallela"],
+    "changes": 110,
+    "status": "Merged Sep 11 — pipeline green",
+    "scope": "M1/M2 suite wiring + enrollment gap closures/negatives",
+    "blocker": "None — closed"
+  },
+  "unite_msc": {
+    "mobile2": {
+      "automated": 25,
+      "total": 25,
+      "pct": 100,
+      "status": "Complete — on main; Bruno migrated"
+    },
+    "mobile1": {
+      "automated": 26,
+      "total": 26,
+      "pct": 100,
+      "in_scope_note": "26 business operations automated",
+      "excluded_note": "Optional docs/health out of scope",
+      "status": "Complete — on main; Bruno migrated"
+    },
+    "enrollment": {
+      "pct": 100,
+      "catalog": "25/28",
+      "core_e2e": "15/15",
+      "subsequent_e2e": "5/5",
+      "test_classes": 25,
+      "status": "Automation coding complete — wrap-up (SharePoint, qTest, QC4) by end Sprint 26.16",
+      "deferred": ["Partner submit (QA-1808)", "Upromise (QA-1807)", "OAuth token"],
+      "remaining_work": [
+        "SharePoint KT + sign-off pack",
+        "qTest manual cases",
+        "QC4 E2E proof",
+        "Enrollment performance (Preeti)"
+      ]
+    },
+    "pipeline": {
+      "stage1": "Stage1 health recovered post DB refresh — V2/V3 stable",
+      "qc4": "QC4 E2E proof in sprint (QA-2086 series)",
+      "gitlab_nightly": "Mobile 2 nightly delivered; enrollment nightly + API suite packaging = leadership decision"
+    },
+    "target_completion": "End Sprint 26.16 — MSC automation + docs 100%; Enrollment perf follows",
+    "footnote": "Coding/design complete. Wrap-up = SharePoint, qTest, Bruno usage docs, QC4 proof. Only Enrollment API performance remains after that."
+  },
+  "enrollment_coverage": {
+    "labels": ["Smoke/GET", "Standard wizard", "Subsequent flow", "Deferred partner"],
+    "coded": [7, 13, 5, 0],
+    "remaining": [0, 0, 0, 3]
+  },
+  "api_suite_ask": {
+    "title": "Universal API — regression & integration suite packaging",
+    "summary": "Not all universal/MSC endpoints are wired into master regression and integration suites for DevOps nightly. Leadership can assign this to Dinesh as the next API automation project.",
+    "owner_proposed": "Dinesh Kumar",
+    "jira": "QA-892 — Validate and Wire Master, Integration, Regression, and Nightly Suites",
+    "decision_needed": true
+  },
+  "v2_regression_gaps": {
+    "analyst": "Venkatesh Mallela",
+    "summary": "Enrollment/login/registration classification nearly done. Member flows must move to V3 as Direct→universal migration broke V2 member IDP. P0 CSR wiring (share adjust, csr-actions daily) underway. More V2 areas land by end of sprint.",
+    "p0_turn_on": [
+      "Enrollment / login / registration — fix, retire, or migrate to V3 (almost done)",
+      "Member-related cases — migrate to V3 (V2 member IDP obsolete for migrated Direct plans)",
+      "stage1-csr-actions.xml → Jenkins daily (QA-2187, QA-2197)",
+      "Share adjustment credit/debit/conversion scenarios (QA-2143–2148)",
+      "Remove obsolete web login from V2 Jenkins where retired (QA-2186)"
+    ],
+    "p1_extend": [
+      "Additional gaps designed but not yet on daily — wiring through end of Sprint 26.16",
+      "Contribution / withdrawal / investment stabilization after Stage1 SEQ_FIN_TXN_ID issues (QA-2199–2203)"
+    ],
+    "p2_build_new": [
+      "YTD bucket, financial history, failed transactions — still backlog after P0/P1"
+    ],
+    "jira_backlog": ["QA-2186", "QA-2187", "QA-2143–2148", "QA-2194–2203"]
+  },
+  "ui_automation": {
+    "scope_note": "Sprint 26.16 — V2 migration + V3 IDP profile expansion; Stage1 recovered",
+    "v2_highlights": [
+      "Venkatesh: enrollment/login/registration retire-or-migrate nearly complete",
+      "Member IDP cases moving to V3 — Direct plans on universal platform in Stage1",
+      "CSR actions + share adjustment daily regression wiring this sprint"
+    ],
+    "v3_highlights": [
+      "He: IDP profile issues fixed; adding missing profile coverage for IDP plans",
+      "V3 stable again after Stage1 DB-refresh disturbance",
+      "Member personal information E2E investigation continues (QA-1845)"
+    ],
+    "maintenance_note": "V2 and V3 both stable — focus is gap closure and plan-migration alignment, not greenfield volume",
+    "migration_discussion": "Confirm: member flows permanently on V3 for migrated Direct plans — retire V2 member IDP suites?"
+  },
+  "performance": {
+    "scope_note": "Sprint 26.16 — Mobile 2 done · Mobile 1 done by Sep 26 · Enrollment next",
+    "sprint_deliverables": [
+      {
+        "name": "Mobile 2 MSC performance",
+        "sprint": "26.15–26.16",
+        "status": "Done",
+        "jira": "Prior MSC M2 perf"
+      },
+      {
+        "name": "Mobile 1 auth / owner-profile / device-push JMeter",
+        "sprint": "26.16",
+        "status": "Done by tomorrow (Sep 26)",
+        "jira": "QA-2159–2163, QA-2160 Done"
+      },
+      {
+        "name": "Enrollment MSC performance + nightly schedule",
+        "sprint": "26.16–26.17",
+        "status": "Remaining — Jenkins jobs ready, nightly schedule pending",
+        "jira": "Schedule API perf jobs"
+      }
+    ],
+    "ongoing": "Jenkins API perf jobs created and ready — need leadership/ops OK to schedule nightly"
+  },
+  "sprint_focus_mix": {
+    "labels": ["Unite MSC wrap-up", "V2/V3 UI", "Performance", "Platform / Pipeline", "Cross-team"],
+    "sprint_26_15": [35, 20, 20, 15, 10],
+    "sprint_26_16": [30, 30, 20, 10, 10],
+    "sprint_26_15_plan": [15, 35, 25, 10, 15]
+  },
+  "recent_bugs": [
+    {"key": "QA-2014", "summary": "V3 Universal Enrollment — unable to create account", "area": "V3", "sprint": "26.15"},
+    {"key": "QA-2013", "summary": "V3 CSR Member Personal Information validation", "area": "V3", "sprint": "26.15"},
+    {"key": "QA-1990", "summary": "V3 withdrawal voucher invalid", "area": "V3", "sprint": "26.15"},
+    {"key": "QA-1989", "summary": "V2 CSR withdrawal voucher invalid", "area": "V2", "sprint": "26.15"},
+    {"key": "QA-2199", "summary": "SEQ_FIN_TXN_ID null — contrib/withdrawal/investment stabilization", "area": "V2", "sprint": "26.16"}
+  ],
+  "incoming_work": {
+    "aha": "ACS-5678 — Atlas Traffic Distribution & Load Balancer Rebalancing",
+    "owner_aha": "Brian Danilczyk",
+    "priority": "#2 on Michael's list",
+    "estimate": "2–3 sprints",
+    "dependency": "Redis session-management initiative",
+    "target": "October 2026 delivery",
+    "status": "Ready after MSC wrap-up — confirm queue vs API suite packaging + V2/V3 gap work"
+  },
+  "v2_sunset": {
+    "goal": "Retire obsolete V2 member/login/enrollment as Direct→universal completes; expand daily with existing automation",
+    "driver": "Stage1 Direct plans on universal — V2 member IDP no longer valid",
+    "lead": "Venkatesh Mallela",
+    "discussion": "Approve permanent retirement of V2 member IDP for migrated plans and V3 as source of truth?"
+  },
+  "capacity": {
+    "msc_wrap": "End Sprint 26.16 — SharePoint + qTest + QC4; then Dinesh available for suite packaging or Atlas",
+    "new_work": "Post wrap-up: V2/V3 gap expansion + Enrollment perf + optional API suite packaging (QA-892)",
+    "reallocation": [
+      "Preeti → finish M1 perf (tomorrow) → Enrollment MSC perf + nightly schedule",
+      "Dinesh → MSC wrap-up (Bruno done; qTest + SharePoint + QC4) then API suite packaging IF leadership confirms",
+      "Venkatesh → V2 enroll/login/reg finish + member→V3 + CSR daily gaps",
+      "He → V3 IDP profile coverage expansion",
+      "Swapnil → SharePoint KT pack, leadership reporting, roadmap"
+    ],
+    "closeout_checklist": [
+      "MR !268 merged (QA-1938) ✓",
+      "Bruno M1/M2/Enrollment merged (MR !271) ✓",
+      "SharePoint handoff pages (QA-2084)",
+      "qTest manual cases M1/M2/Enrollment (QA-2101–2108)",
+      "QC4 E2E proof (QA-2086)",
+      "Enrollment performance + Jenkins nightly schedule"
+    ]
+  },
+  "leadership_asks": {
+    "Roadmap & capacity": [
+      "Confirm post-MSC queue: Atlas (Oct) vs API suite packaging (QA-892) vs V2/V3 gap expansion?",
+      "MSC wrap-up completes end Sprint 26.16 — Dinesh free for next API project after that"
+    ],
+    "Unite MSC / API automation": [
+      "Accept M1/M2/Enrollment coding as complete — wrap-up is docs/qTest/SharePoint/QC4",
+      "Confirm: assign Dinesh to wire remaining universal endpoints into regression + integration + nightly suites (QA-892)?",
+      "Name ACM / sustaining owner for MSC API assets on SharePoint"
+    ],
+    "V2 regression (Jenkins)": [
+      "Approve retirement of V2 member IDP for Direct plans now on universal — migrate to V3",
+      "Confirm P0 daily wiring (csr-actions, share adjust) before P2 new-screen builds"
+    ],
+    "V3 universal platform (GitLab)": [
+      "V3 IDP profile expansion underway — confirm IDP plan coverage priority",
+      "Member personal information / enrollment defects — product/env owners for lingering Stage1 issues?"
+    ],
+    "Performance & stress testing": [
+      "Approve scheduling API/MSC perf Jenkins jobs for nightly (jobs ready, not scheduled)",
+      "Enrollment MSC perf is the last MSC perf gap after M1 lands tomorrow"
+    ],
+    "Pipeline & environments": [
+      "Stage1 health recovered — acknowledge cross-team fix for DB refresh / IDP instability",
+      "QC4 E2E proof this sprint — confirm non-IDP plant contacts if still needed"
+    ]
+  }
+}

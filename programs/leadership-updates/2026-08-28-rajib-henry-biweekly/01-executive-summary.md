@@ -90,5 +90,5 @@ Preeti is **slightly behind** due to IDP issues + prior emergency barcode work. 
 
 - [Post-MSC capacity ask](../../leadership-capacity-planning/2026-08-20-post-msc-capacity-ask.md)  
 - [Kevin status Aug 20](../../unite-msc/leadership/2026-08-20-kevin-status-update.md)  
-- [Enrollment End Points.xlsx](../../unite-msc/api-test-automation/postman/EnrollmentE2E/Enrollment%20End%20Points.xlsx)  
+- [Enrollment End Points.xlsx](../../unite-msc/enrollment/coverage/Enrollment%20End%20Points.xlsx)  
 - [ACS-5678 AHA](https://acscensus.aha.io/features/ACS-5678)

@@ -191,7 +191,7 @@ Happy to fill out the Friday list.
 
 **Repository:** `api-test-automation/mobile/` (GitLab)  
 **KB / docs:** `programs/unite-msc/`  
-**Postman source of truth:** `programs/unite-msc/api-test-automation/postman/EnrollmentE2E/`  
+**Postman copies:** `programs/unite-msc/enrollment/` (coverage) and GitLab `api-test-automation`  
 **Endpoint catalog:** `Enrollment End Points.xlsx` — **25 endpoints** (14 GET, 11 POST)
 
 ### Coverage snapshot
@@ -261,8 +261,8 @@ Note:           Rest of squad can start next priority in parallel — not a full
 
 - Aug 7, 2026: Previous Kevin update — `leadership/2026-08-07-kevin-status-update.md`
 - Aug 14, 2026: Rajib/Henry biweekly — enrollment ~30%, Sprint 26.13 focus
-- Endpoint Excel: `programs/unite-msc/api-test-automation/postman/EnrollmentE2E/Enrollment End Points.xlsx`
-- Implementation plan: `programs/unite-msc/msc-enrollment/docs/08-implementation-plan.md`
+- Endpoint Excel: `programs/unite-msc/enrollment/coverage/Enrollment End Points.xlsx`
+- Handoff pack: `programs/unite-msc/enrollment/`
 - Repo README: `api-test-automation/mobile/enrollment/README.md`
 
 ---

@@ -179,7 +179,7 @@ Test cases ≠ endpoint count. Each endpoint is multiplied by **plan/branding** 
 
 ## Enrollment API (next)
 
-Higher complexity — encrypted payloads, MFA-disabled accounts, dynamic test data utilities. Documented under `programs/unite-msc/msc-enrollment/`. Expected **>1 sprint**.
+Higher complexity — encrypted payloads, MFA-disabled accounts, dynamic test data utilities. Documented under `programs/unite-msc/enrollment/`. Expected **>1 sprint**.
 
 ---
 
@@ -191,4 +191,4 @@ Higher complexity — encrypted payloads, MFA-disabled accounts, dynamic test da
 - M1 module suites: `api-test-automation/mobile/mobile1/testsuites/` (23 XMLs — no master yet)
 - Detailed MSC report: `programs/unite-msc/leadership/2026-07-17-leadership-update/leadership-update-detailed.md`
 - Sign-off pack: `api-test-automation` → `17-mobile2-api-automation-signoff.md`
-- Postman E2E: `programs/unite-msc/msc-enrollment/postman/`
+- Enrollment handoff: `programs/unite-msc/enrollment/`

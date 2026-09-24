@@ -9,6 +9,6 @@ Screenshots and live pipeline exports remain in source locations:
 | V3 TestNG reports | `programs/universal-platform-coverage/00-input-evidence/supplemental/regression-reports/` |
 | Demand planning historical TC counts | `qa-automation-kb/qa-knowledge-base/10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/` |
 | CICD pipeline docs | `qa-automation-kb/qa-knowledge-base/10_IMPORTS_RAW/.../CICD/` |
-| MSC perf Jenkins tracker | `qa-automation-kb/programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md` |
+| MSC coverage CSVs | `qa-automation-kb/programs/unite-msc/mobile-1/mappings/`, `mobile-2/mappings/`, `enrollment/coverage/` |
 
 Refresh live evidence into this folder before final leadership distribution if required.

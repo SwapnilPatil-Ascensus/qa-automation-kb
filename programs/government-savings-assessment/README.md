@@ -47,7 +47,7 @@ Requires: `openpyxl`, `python-docx`, `matplotlib` (optional charts in DOCX).
 |----------|------|
 | Universal Platform coverage (Jun–Jul 2026) | `../programs/universal-platform-coverage/` |
 | Unite MSC leadership pack (2026-07-17) | `../programs/unite-msc/leadership/2026-07-17-leadership-update/` |
-| Mobile 2 API–DB validation KB | `../programs/unite-msc/api-validation/` |
+| Mobile 2 API KB | `../unite-msc/mobile-2/` |
 | Historical imports | `../qa-knowledge-base/10_IMPORTS_RAW/` |
 
 ## Rules applied

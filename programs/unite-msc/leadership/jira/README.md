@@ -10,4 +10,4 @@
 | 3 | Mobile 2 — all features validation | [UNITE-MSC-mobile2-all-features-validation.md](./UNITE-MSC-mobile2-all-features-validation.md) | 8 |
 | 4 | Mobile 1 — all features validation | [UNITE-MSC-mobile1-all-features-validation.md](./UNITE-MSC-mobile1-all-features-validation.md) | 5 |
 
-**References:** `programs/unite-msc/api-validation/`, `programs/unite-msc/leadership/`, `programs/government-savings-assessment/` (coverage register pattern), `docs/mobile-automation-program-hub/jira-stories/09-qa796-verified-backlog-stories.md`
+**References:** `programs/unite-msc/mobile-1/`, `programs/unite-msc/mobile-2/`, `programs/unite-msc/enrollment/`, `programs/government-savings-assessment/`

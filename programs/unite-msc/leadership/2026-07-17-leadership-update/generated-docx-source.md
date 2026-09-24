@@ -201,9 +201,9 @@ Scoped inventory (June 2026 assessment): V2 qTest 268 UP-scoped; V3 TestNG 379 U
 1. api-test-automation/mobile/project-documents/local-mobile-api-audit/17-mobile2-api-automation-signoff.md
 2. api-test-automation/mobile/project-documents/local-mobile-api-audit/16-mobile2-coverage-matrix.md
 3. api-test-automation/mobile/project-documents/local-mobile-api-audit/03-document-postman-coverage-matrix.md
-4. qa-automation-kb/programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md
+4. programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md
 5. api-test-automation/mobile/project-documents/17-MOBILE2-NEXUS-GITHUB-ACTIONS-PIPELINE.md
-6. qa-automation-kb/programs/unite-msc/leadership/2026-07-17-leadership-update/
+6. programs/unite-msc/leadership/2026-07-17-leadership-update/
 
 ---
 

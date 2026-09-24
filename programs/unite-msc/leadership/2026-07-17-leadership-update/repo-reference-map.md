@@ -1,14 +1,16 @@
 # Repository reference map
 
+**Note (Sep 2026):** `api-validation/` was removed from this KB. Live coverage is `../mobile-1/`, `../mobile-2/`, `../enrollment/`. Code remains GitLab `api-test-automation`. Rows below are how the Jul 17 pack was sourced.
+
 | Repo | Local path | Role in leadership update |
 |------|------------|---------------------------|
-| **QA Automation KB** | `C:\Workspace\GitLab\qa-automation-kb` | Reporting hub; SQL/validation docs; perf tracker; this pack |
+| **Local working notes** | `programs/unite-msc/` and `programs/universal-platform-coverage/` | Reporting notes, SQL/validation docs, perf tracker, this pack. Not a shared GitLab project. |
 | **API test automation** | `C:\Workspace\GitLab\api-test-automation` | Canonical Mobile 1/2 TestNG; project-documents audit |
 | **Legacy Mobile 2 Cucumber** | `C:\Workspace\GitLab\MobileAutomation\UniteMSC\unite-mobile2` | Phase A migration reference |
 | **Unite MSC BFF source** | `C:\Workspace\GitLab\MobileAutomation\UniteMSC\unite-mobile2` | Endpoint behavior evidence |
 | **Performance scripts** | `C:\Workspace\GitLab\Automation\performance-test-automation\performance\mobile\unite-msc\` | JMeter/Taurus Unite MSC |
 | **Universal Platform perf** | `.../performance/universal-platform/idp/jmeter/` | IDP perf suite (related) |
-| **Universal Platform coverage** | `qa-automation-kb/programs/universal-platform-coverage/` | V2/V3 scoped inventory |
+| **Universal Platform coverage** | `programs/universal-platform-coverage/` | V2/V3 scoped inventory |
 | **Prime / UI automation** | TBD — path not verified in this run | V2/V3 nightly reference for GitLab job pattern |
 
 ---
@@ -59,6 +61,5 @@
 | Repo | Remote (observed) |
 |------|-------------------|
 | api-test-automation | `gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation` |
-| qa-automation-kb | GitLab (local workspace) |
 
 **GitLab MR export:** TBD — see `metrics-verification-checklist.md` § GitLab data required.

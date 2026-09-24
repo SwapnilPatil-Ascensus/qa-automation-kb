@@ -29,19 +29,9 @@ V3 Unite + Universal Enrollment: GitLab scheduled UE (24) then Unite master (36)
 
 Performance: Mobile 2 JMeter + AGSUP_UNITE_MSC_ENDURANCE exists but not nightly timer. Mobile 1 is auth-only inside those scripts. Enrollment E2E jmx exists (up-enrollment-submission.jmx). Docs are thin.
 
-## Documents updated in this repo (this pass)
+## Current Unite MSC docs in this repo
 
-programs/unite-msc/program-hub/05-unite-enrollment-migration-tracker.md — rewritten to current coding status  
-programs/unite-msc/program-hub/status-summary.md — leadership one-pager  
-programs/unite-msc/program-hub/README.md — link to this folder  
-programs/unite-msc/api-test-automation/postman/EnrollmentE2E/tools/generate_enrollment_coverage_matrix.py — subsequent + review-confirm marked Done  
-programs/unite-msc/api-test-automation/postman/EnrollmentE2E/Enrollment-Automation-Coverage-Status.md — regenerated  
-programs/unite-msc/api-test-automation/postman/EnrollmentE2E/Enrollment-Automation-Coverage-Matrix.xlsx — regenerated (25 Done / 28 catalog)  
-programs/unite-msc/api-test-automation/postman/README.md — Sep note  
-programs/unite-msc/api-test-automation/mappings/README.md — new files  
-programs/unite-msc/api-test-automation/mappings/enrollment-endpoint-current-state.csv — new  
-programs/unite-msc/api-test-automation/mappings/legacy-new-postman-excel-mapping.md — new  
-programs/unite-msc/api-test-automation/docs/06-coverage/01-coverage-and-mapping-index.md  
-programs/unite-msc/api-test-automation/docs/06-coverage/05-code-coverage-metrics.md  
-programs/unite-msc/api-test-automation/docs/06-coverage/signoff/README.md  
-programs/unite-msc/api-test-automation/docs/06-coverage/signoff/enrollment-signoff-summary.md — new draft
+`programs/unite-msc/` now has four folders only: `leadership/`, `mobile-1/`, `mobile-2/`, `enrollment/`.
+
+Enrollment coverage: `programs/unite-msc/enrollment/coverage/` (status MD, matrix XLSX, endpoint CSV).
+Mobile sign-off: `programs/unite-msc/mobile-1/signoff/`, `programs/unite-msc/mobile-2/signoff/`.

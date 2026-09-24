@@ -11,11 +11,11 @@ Unite MSC API automation spans **Mobile 2** (24/25 business endpoints implemente
 **Purpose:** Validate coverage matrices, align with dev SMEs, DevOps, and leadership (Rajib/Henry), resolve blockers, and keep KB and leadership artifacts current so all parties share one view of what is complete, in progress, blocked, and signed off.
 
 **In scope:**
-- Reconcile coverage matrix across sources: `programs/unite-msc/api-validation/mappings/endpoint-registry.yaml`, government-savings coverage registers, Jul 23 scope alignment deck (`programs/unite-msc/leadership/2026-07-23-scope-alignment/`)
+- Reconcile coverage across `programs/unite-msc/mobile-1/mappings/`, `programs/unite-msc/mobile-2/mappings/`, `programs/unite-msc/enrollment/coverage/`, government-savings registers, Jul 23 deck (`programs/unite-msc/leadership/2026-07-23-scope-alignment/`)
 - Cross-team working sessions — dev (endpoint routing, IDP/OTP), DevOps (QC4 stability, pipeline), performance track
-- Document QC4 vs Stage 1 hybrid strategy and known blockers (`programs/unite-msc/api-validation/ISSUES/`)
+- Document QC4 vs Stage 1 hybrid strategy in leadership packs (old ISSUES folder was removed)
 - Align L1–L4 sign-off bar vs L5 SQL program decision with leadership
-- Update `programs/unite-msc/api-validation/STATUS.md`, coverage maps, leadership pointers
+- Keep leadership pointers and module CSVs current
 - Mobile 2 sign-off certificate inputs; identify SME gaps
 - Link related work (QA-1405, QA-615, QA-333) — do not duplicate existing board items (QA-987, QA-1053, etc.)
 

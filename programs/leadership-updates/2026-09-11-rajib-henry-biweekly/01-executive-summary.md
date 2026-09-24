@@ -82,5 +82,5 @@ Jira backlog: **QA-1943–QA-2010**, **QA-1961–QA-1964**.
 - [MR !265](https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/merge_requests/265)  
 - [V2 gap analysis](./03-v2-regression-gaps-venkatesh.md)  
 - [MR !265 brief](./02-mr-265-pending-merge.md)  
-- [Enrollment coverage CSV](../../unite-msc/api-test-automation/mappings/enrollment-endpoint-current-state.csv)  
+- [Enrollment coverage CSV](../../unite-msc/enrollment/coverage/enrollment-endpoint-current-state.csv)  
 - [Previous biweekly (Aug 28)](../2026-08-28-rajib-henry-biweekly/README.md)

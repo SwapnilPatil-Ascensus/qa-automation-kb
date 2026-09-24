@@ -2,7 +2,7 @@
 
 **Meeting:** Friday 9 AM leadership sync (Rajiv/Rajib, Henry, Kevin)  
 **Prepared:** 2026-07-17  
-**Reporting hub:** `qa-automation-kb/programs/unite-msc/leadership/2026-07-17-leadership-update/`  
+**Reporting hub:** `programs/unite-msc/leadership/2026-07-17-leadership-update/`  
 **Primary program:** Unite MSC API automation (Mobile 1 + Mobile 2), performance regression, pipeline readiness, V2/V3 UI support
 
 ---
@@ -15,7 +15,7 @@
 | 2 | Pull verified endpoint coverage metrics | `project-documents/local-mobile-api-audit/16-mobile2-coverage-matrix.md`, `17-mobile2-api-automation-signoff.md` |
 | 3 | Cross-check Mobile 1 scope and auth baseline | `03-document-postman-coverage-matrix.md`, `mobile/mobile1` |
 | 4 | Pipeline / Nexus / DevOps status | `17-MOBILE2-NEXUS-GITHUB-ACTIONS-PIPELINE.md`, `15-devops-mobile2-integration-pipeline-guide.md` |
-| 5 | Performance regression | `programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md` |
+| 5 | Performance regression | GitLab / Jenkins (perf tracker removed from this KB) |
 | 6 | V2/V3 UI context | `programs/universal-platform-coverage/`, `automation-bug-lifecycle/evidence/regression-reports/` |
 | 7 | Team contributions | `git log` on `api-test-automation` (author-filtered) |
 | 8 | Flag unverified / stale metrics | `metrics-verification-checklist.md` |

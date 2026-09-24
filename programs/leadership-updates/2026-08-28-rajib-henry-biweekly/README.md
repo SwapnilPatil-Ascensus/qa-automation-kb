@@ -54,6 +54,6 @@ Close Word/PowerPoint if files are open before regenerating.
 
 - Jira: [QA AMSQUAD board](https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/2515/backlog)
 - Repo: `api-test-automation/mobile/enrollment` (refreshed Aug 2026)
-- KB: `programs/unite-msc/api-test-automation/postman/EnrollmentE2E/`
+- KB: `programs/unite-msc/enrollment/coverage/`
 - Previous pack: [2026-08-14 biweekly](../2026-08-14-rajib-henry-biweekly/README.md)
 - Capacity ask: [2026-08-20 post-MSC ask](../../leadership-capacity-planning/2026-08-20-post-msc-capacity-ask.md)

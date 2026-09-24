@@ -67,7 +67,7 @@ See machine-readable export: [`integration-capability-matrix.csv`](integration-c
 ### Jenkins — partial (exports only)
 
 - No API URL/token in environment.
-- Console extracts and perf tracker in KB: `programs/universal-platform-coverage/00-input-evidence/v2-qtest-jenkins/`, `programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md`.
+- Console extracts in KB: `programs/universal-platform-coverage/00-input-evidence/v2-qtest-jenkins/`.
 
 ### SonarQube / Nexus — not configured for audit
 

@@ -26,7 +26,7 @@ Mobile 1 API automation is **in progress: 6/27 documented business endpoints** o
 - Migration plan — prioritized backlog for remaining endpoints with owners and dependencies
 - QC4 validation — integration/smoke green for each of the 6 implemented endpoints; Extent report evidence
 - Master suite wiring status for implemented tests
-- KB documentation — Mobile 1 track in program hub; cross-links to shared auth (`programs/unite-msc/api-validation/docs/01-shared/auth-and-session.md`)
+- KB documentation — `programs/unite-msc/mobile-1/`
 - Stage 1 portability blockers documented per endpoint
 - Leadership metric: current 6/27 and next sprint target
 

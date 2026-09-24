@@ -203,10 +203,10 @@ See [team-contribution-summary.md](./team-contribution-summary.md).
 | M1/M2 Postman matrix | `.../03-document-postman-coverage-matrix.md` |
 | Sprint 26.11 | `.../06-sprint-26.11-plan.md` |
 | Program backlog | `.../11-complete-program-backlog.md` |
-| Perf tracker | `qa-automation-kb/programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md` |
+| Perf tracker | `programs/unite-msc/api-validation/docs/01-shared/unite-msc-performance-testing-tracker.md` |
 | Nexus/GHA | `api-test-automation/.../17-MOBILE2-NEXUS-GITHUB-ACTIONS-PIPELINE.md` |
 | DevOps guide | `.../15-devops-mobile2-integration-pipeline-guide.md` |
-| V2/V3 assessment | `qa-automation-kb/programs/universal-platform-coverage/` |
+| V2/V3 assessment | `programs/universal-platform-coverage/` |
 
 ## Appendix B — TBD items
 
