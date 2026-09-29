@@ -601,7 +601,7 @@ These are **not** coding defects in the migrated happy path. They are the next-l
 | E-07 | Partner submit / Upromise / OAuth | Excel catalog deferred | QA-1808 / QA-1807 |
 | E-08 | Negatives / contract dump | Lean assertions by design | Receiving-team enhancement |
 | E-09 | Deduplicate `MobileStackupRequestTest` packages | Two Java packages | Cleanup MR |
-| E-10 | qTest manual cases + Jira links | Traceability to test management | Next sprint story already drafted |
+| E-10 | qTest manual cases + Jira links | Traceability to test management | Modules created: Unite-MSC (69212334), MSC-Enrollment (69212335), MSC-Mobile1 (69212337), MSC-Mobile2 (69233940). Per-endpoint deep links still next-sprint. |
 | E-11 | SharePoint publish of this pack | Docs live in Git today | Ride Enrollment SharePoint story |
 | E-12 | IDP QC4 401 on automation JWT | Java exists; env still flakes | Env/DevOps, not missing class |
 

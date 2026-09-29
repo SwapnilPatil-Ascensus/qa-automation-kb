@@ -11,20 +11,37 @@
 
 - [ ] Parent links to every child.
 - [ ] Child pages link back to the parent.
-- [ ] KT path covers setup, first run, report, triage, and DB refresh.
+- [ ] KT path covers JDK/Maven/Git/IDE, clone/build, Oracle overlay, real profiles/commands, report, Bruno, standards, and DoD.
 - [ ] Daily playbook has placeholders rather than a personal host filename.
 - [ ] Mobile 1 page links to its sign-off and endpoint CSV.
 - [ ] Mobile 2 page links to its sign-off and endpoint CSV.
 - [ ] Enrollment page links to QA-893 artifacts and coverage.
 - [ ] Coverage page links to the QA-1942 traceability pack.
 - [ ] Troubleshooting classifies environment, data, automation, and product failures.
-- [ ] Extension page requires human review and suite wiring.
+- [ ] Extension page covers intake, module pattern, code, suite wiring, Bruno/qTest/Jira, prompt library, verification, review, and DoD.
+
+## Diagrams
+
+- [ ] Every diagram renders in a monospace block with its original line breaks and alignment intact.
+- [ ] No diagram was converted to SmartArt, an image, or a prose paragraph.
+- [ ] Page 02 shows both the runtime flow and the BFF-to-downstream-service map.
+- [ ] Page 07 shows the ordered wizard, the per-step service fan-out, subsequent enrollment, and the encryption chain.
+- [ ] Page 05 shows the member session plus the three IDP steps.
+- [ ] Pages 04, 09, 10, and 11 show their loop, triage tree, refresh sequence, and extension workflow.
+- [ ] Diagrams name service roles only; no hostnames, ports, or routes with environment detail.
 
 ## Accuracy
 
 - [ ] Mobile 1 says 26 coded operations.
 - [ ] Mobile 2 says 24 in-scope business APIs and identifies the harness exclusion.
 - [ ] Enrollment says 25 automated of 28 and identifies the 3 deferred partner items.
+- [ ] Executive total says 75 automated business operations from 79 catalog rows (94.9%) with qualifiers.
+- [ ] Traceability says 47 improved + 22 newly added = 69 of 83 rows.
+- [ ] Prerequisites say JDK 17 (modules compile to Java 17 bytecode) and Maven 3.6.3+.
+- [ ] Setup text says the module config folder is populated by the build and is gitignored, not committed.
+- [ ] Current XML branding is described as OK Direct, New York, and NM Direct without claiming an unverified nightly.
+- [ ] Environment profile is documented last in the Maven `-P` list.
+- [ ] Report path is `<module>/target/mobile-ms-report/index.html`.
 - [ ] Stage1/QC4 wording reflects current evidence; no environment is declared green without proof.
 - [ ] L1–L4 is the sign-off boundary.
 - [ ] L5 SQL is described as analysis/future enhancement, not implemented.

@@ -14,6 +14,17 @@ RULES:
 
 APPEND EXACTLY:
 
+## Validation and sign-off bar
+| Layer | Meaning | Sign-off |
+|---|---|---|
+| L1 | HTTP status and transport | Required |
+| L2 | Contract and response shape | Required |
+| L3 | Schema and typed payload | Required where supported |
+| L4 | Business assertions | Required |
+| L5 | API-to-database field reconciliation | Optional enhancement; not the completion gate |
+
+Leadership directed that L5 SQL field reconciliation is not the completion gate. Do not claim L5 is implemented.
+
 ## Authoritative project links
 Render these as a prominent Quick Links web part using labeled tiles.
 
@@ -22,10 +33,17 @@ Render these as a prominent Quick Links web part using labeled tiles.
 | API Test Automation repository | Canonical automation repository | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation |
 | Mobile automation folder | Mobile 1, Mobile 2, Enrollment, and reporting code | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads |
 | Unite MSC Bruno collection | Manual API exploration and testing collection | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads |
-| qTest Test Design | Manual Unite MSC test cases and traceability | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
 | Unite MSC Epic QA-796 | Jira delivery scope and related stories | https://ascensuscollegesavings.atlassian.net/browse/QA-796 |
 
-Informational callout: the manual test cases are in qTest Test Design, not Confluence. SharePoint provides navigation and operating guidance. qTest is the manual-test system of record. Jira is the delivery system of record. GitLab is the executable system of record.
+### Manual test cases (qTest Test Design)
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+Informational callout: the manual test cases live in these four qTest modules, not Confluence. SharePoint provides navigation and operating guidance. qTest is the manual-test system of record. Jira is the delivery system of record. GitLab is the executable system of record.
 
 ## Source-of-truth and security
 Informational callout: SharePoint explains how to use and support the automation. GitLab remains the source of truth for Java, suite XML, Maven profiles, Bruno, Postman, SQL, and pipeline configuration.

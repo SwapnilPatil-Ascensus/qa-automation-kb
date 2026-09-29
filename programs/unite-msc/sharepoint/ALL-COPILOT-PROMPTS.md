@@ -5,7 +5,7 @@ Create the parent at the API Testing Documentation Hub root, then children 01–
 For A/B/C pages, paste A first and each later part against the same page.
 
 ## 00 Unite MSC API Automation - Part A
-Characters: 2646
+Characters: 2704
 
 ```text
 PART A of 4. Create a polished SharePoint Site Page titled "Unite MSC API Automation".
@@ -41,7 +41,7 @@ Purpose: Parent hub for Unite MSC API automation. Anyone who needs to support, r
 ## What this hub is
 This is the parent page for Unite MSC API automation on the API Testing Documentation Hub.
 
-It covers three modules: Mobile 1, Mobile 2, and Enrollment. Canonical automation is Java 17, Maven, TestNG, and Rest Assured in GitLab api-test-automation. This SharePoint page is the published operating guide. It is not the executable source of truth.
+It covers three modules: Mobile 1, Mobile 2, and Enrollment. Canonical automation is JDK 17, Maven, TestNG, Rest Assured, Oracle-backed test data, mobile encryption, and a reusable HTML reporting portal in GitLab api-test-automation. This SharePoint page is the published operating guide, not executable source.
 
 Informational callout: child pages 01 through 11 live under this parent. Do not create extra pages for individual endpoints, suites, SQL files, or Jira stories.
 
@@ -49,7 +49,7 @@ Publish at the API Testing Documentation Hub root as "Unite MSC API Automation",
 ```
 
 ## 00 Unite MSC API Automation - Part B
-Characters: 3439
+Characters: 3745
 
 ```text
 PART B of 4. Edit the existing SharePoint page "Unite MSC API Automation" on API Testing Documentation Hub.
@@ -65,6 +65,7 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
 
 APPEND EXACTLY:
 
@@ -86,40 +87,43 @@ Unite MSC API Automation
 
 | Page | What it is for |
 |---|---|
-| 01 KT and Onboarding | First-week path, KT demonstration, and completion checklist |
-| 02 Architecture and Ownership | Runtime model, GitLab folders, L1-L4 boundary, and who owns what |
-| 03 Access, Setup and Environments | Access tickets, local Maven setup, Stage1 vs QC4 vs localhost |
-| 04 Daily Run Playbook | Before-run checks, Maven examples, and after-run actions |
-| 05 Mobile 1 Automation | Mobile 1 scope, plants, sign-off artifacts, and known considerations |
-| 06 Mobile 2 Automation | Mobile 2 scope, coverage position, artifacts, and known considerations |
-| 07 Enrollment Automation | Enrollment wizard, suites, deferred partner APIs, and QC4 notes |
-| 08 Coverage, Traceability and Sign-off | Registers, endpoint tracing, sign-off bar, and enhancement backlog |
-| 09 Reporting and Troubleshooting | Where reports live and how to classify a first failure |
-| 10 Test Data, DB Refresh and Security | Refresh steps, SQL boundary, and what must never reach SharePoint |
-| 11 Extend the Automation | How to add a scenario, AI prompt pattern, and definition of done |
+| 01 KT and Onboarding | Install, clone, IDE, Oracle overlay, profiles, first runs, Bruno, standards |
+| 02 Architecture and Ownership | Framework, inheritance, config layers, reporting, L1-L5 boundary |
+| 03 Access, Setup and Environments | Access routes, secure local config, environment selection and proof |
+| 04 Daily Run Playbook | Choose/run a suite, inspect report, classify and preserve evidence |
+| 05 Mobile 1 Automation | 26/26 operations, auth/data model, suite split, execution and evidence |
+| 06 Mobile 2 Automation | 24/25 business coverage, fixtures, suite split, execution and evidence |
+| 07 Enrollment Automation | 25/28 catalog, encrypted ordered wizard and subsequent enrollment |
+| 08 Coverage, Traceability and Sign-off | 75 operations, 83-row legacy comparison, evidence and exclusions |
+| 09 Reporting and Troubleshooting | Portal/Surefire outputs, first-failure classifier, safe reruns |
+| 10 Test Data, DB Refresh and Security | Oracle fixtures, refresh recovery, L5 boundary and security |
+| 11 Extend the Automation | New-endpoint implementation playbook and reusable prompt library |
 
-## Start here
-Render this set as a second Quick Links web part in tile or grid layout.
+## Platform at a glance
+Render this diagram as a full-width monospace block, exactly as written:
 
-| I need to… | Open |
-|---|---|
-| Join or take over support | 01 KT and Onboarding |
-| Understand components and ownership | 02 Architecture and Ownership |
-| Get access and configure an environment | 03 Access, Setup and Environments |
-| Run a suite today | 04 Daily Run Playbook |
-| Check Mobile 1 | 05 Mobile 1 Automation |
-| Check Mobile 2 | 06 Mobile 2 Automation |
-| Check Enrollment | 07 Enrollment Automation |
-| Review coverage or sign-off | 08 Coverage, Traceability and Sign-off |
-| Diagnose a failure | 09 Reporting and Troubleshooting |
-| Prepare data after a refresh | 10 Test Data, DB Refresh and Security |
-| Add a scenario safely | 11 Extend the Automation |
+            Unite MSC API automation (one canonical platform)
+                                |
+        +-----------------+-----+-----------+
+        |                 |                 |
+    Mobile 1          Mobile 2          Enrollment
+  auth + session    account exp.    encrypted wizard
+        |                 |                 |
+        +--------+--------+--------+--------+
+                 |                 |
+        jsonapi-core framework   Oracle test data
+                 |
+   TestNG suite XML -> branding: okdirect | newyork | nmdirect
+                 |
+   HTML reporting portal -> evidence for triage and sign-off
+
+Mobile 2 reuses Mobile 1 authentication. Enrollment adds certificate-based encryption and an ordered session chain. Page 02 shows how each module reaches the BFF and the downstream services behind it.
 
 Republish the page when finished.
 ```
 
 ## 00 Unite MSC API Automation - Part C
-Characters: 2966
+Characters: 3873
 
 ```text
 PART C of 4. Edit the existing SharePoint page "Unite MSC API Automation" on API Testing Documentation Hub.
@@ -138,6 +142,23 @@ RULES:
 
 APPEND EXACTLY:
 
+## Start here
+Render this set as a second Quick Links web part in tile or grid layout.
+
+| I need to… | Open |
+|---|---|
+| Join or take over support | 01 KT and Onboarding |
+| Understand components and ownership | 02 Architecture and Ownership |
+| Get access and configure an environment | 03 Access, Setup and Environments |
+| Run a suite today | 04 Daily Run Playbook |
+| Check Mobile 1 | 05 Mobile 1 Automation |
+| Check Mobile 2 | 06 Mobile 2 Automation |
+| Check Enrollment | 07 Enrollment Automation |
+| Review coverage or sign-off | 08 Coverage, Traceability and Sign-off |
+| Diagnose a failure | 09 Reporting and Troubleshooting |
+| Prepare data after a refresh | 10 Test Data, DB Refresh and Security |
+| Add a scenario safely | 11 Extend the Automation |
+
 ## Who should use this hub
 | Audience | Use this hub to |
 |---|---|
@@ -146,12 +167,25 @@ APPEND EXACTLY:
 | Module owner | Confirm Mobile 1, Mobile 2, or Enrollment scope and exclusions |
 | Lead or reviewer | Find sign-off, coverage, and the L1-L4 completion bar |
 
+## Program accomplishment
+| Measure | Result |
+|---|---:|
+| Catalog rows reviewed | 79 |
+| Automated business operations | 75 |
+| Overall catalog coverage | 94.9% |
+| Mobile 1 | 26/26 = 100% |
+| Mobile 2 | 24/25 = 96.0% |
+| Enrollment | 25/28 = 89.3% |
+| Legacy traceability rows improved/new | 69 of 83 |
+
+The result is a canonical, multi-plan TestNG platform—not a one-time script conversion. It includes IDP flows, encrypted Enrollment, dynamic Oracle fixtures, safe destructive-suite separation, Bruno manual collections, endpoint registers, formal sign-off packs, and a reusable reporting portal.
+
 ## Current scope
 | Module | Current documented scope | Primary plants | Child page |
 |---|---|---|---|
-| Mobile 1 | 26 coded endpoint operations | OK Direct; NM Direct on applicable auth/IDP flows | 05 Mobile 1 Automation |
-| Mobile 2 | 24 in-scope business APIs; harness excluded | OK Direct, New York; selected NM Direct smoke | 06 Mobile 2 Automation |
-| Enrollment | 25 automated of 28 catalog rows; 3 partner APIs deferred | OK Direct, New York | 07 Enrollment Automation |
+| Mobile 1 | 26/26 endpoint operations | Current XML: OK Direct, New York, NM Direct | 05 Mobile 1 Automation |
+| Mobile 2 | 24/25 business operations; harness excluded | Current XML: OK Direct, New York, NM Direct | 06 Mobile 2 Automation |
+| Enrollment | 25/28 catalog rows; 3 partner APIs deferred | Current XML: OK Direct, New York, NM Direct | 07 Enrollment Automation |
 
 Enrollment deferred items are partner submit, Upromise account, and OAuth token. They are exclusions, not missing coding in the signed-off MSC happy path.
 
@@ -164,22 +198,11 @@ Enrollment deferred items are partner submit, Upromise account, and OAuth token.
 
 Caution callout: QC4 is not a substitute for Stage1 sign-off evidence. After any database refresh, use page 10 before classifying a product defect.
 
-## Validation and sign-off bar
-| Layer | Meaning | Sign-off |
-|---|---|---|
-| L1 | HTTP status and transport | Required |
-| L2 | Contract and response shape | Required |
-| L3 | Schema and typed payload | Required where supported |
-| L4 | Business assertions | Required |
-| L5 | API-to-database field reconciliation | Optional enhancement; not the completion gate |
-
-Leadership directed that L5 SQL field reconciliation is not the completion gate. Do not claim L5 is implemented.
-
 Republish the page when finished.
 ```
 
 ## 00 Unite MSC API Automation - Part D
-Characters: 3011
+Characters: 3882
 
 ```text
 PART D of 4. Edit the existing SharePoint page "Unite MSC API Automation" on API Testing Documentation Hub.
@@ -198,6 +221,17 @@ RULES:
 
 APPEND EXACTLY:
 
+## Validation and sign-off bar
+| Layer | Meaning | Sign-off |
+|---|---|---|
+| L1 | HTTP status and transport | Required |
+| L2 | Contract and response shape | Required |
+| L3 | Schema and typed payload | Required where supported |
+| L4 | Business assertions | Required |
+| L5 | API-to-database field reconciliation | Optional enhancement; not the completion gate |
+
+Leadership directed that L5 SQL field reconciliation is not the completion gate. Do not claim L5 is implemented.
+
 ## Authoritative project links
 Render these as a prominent Quick Links web part using labeled tiles.
 
@@ -206,10 +240,17 @@ Render these as a prominent Quick Links web part using labeled tiles.
 | API Test Automation repository | Canonical automation repository | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation |
 | Mobile automation folder | Mobile 1, Mobile 2, Enrollment, and reporting code | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads |
 | Unite MSC Bruno collection | Manual API exploration and testing collection | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads |
-| qTest Test Design | Manual Unite MSC test cases and traceability | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
 | Unite MSC Epic QA-796 | Jira delivery scope and related stories | https://ascensuscollegesavings.atlassian.net/browse/QA-796 |
 
-Informational callout: the manual test cases are in qTest Test Design, not Confluence. SharePoint provides navigation and operating guidance. qTest is the manual-test system of record. Jira is the delivery system of record. GitLab is the executable system of record.
+### Manual test cases (qTest Test Design)
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+Informational callout: the manual test cases live in these four qTest modules, not Confluence. SharePoint provides navigation and operating guidance. qTest is the manual-test system of record. Jira is the delivery system of record. GitLab is the executable system of record.
 
 ## Source-of-truth and security
 Informational callout: SharePoint explains how to use and support the automation. GitLab remains the source of truth for Java, suite XML, Maven profiles, Bruno, Postman, SQL, and pipeline configuration.
@@ -223,11 +264,11 @@ Prohibition callout: never paste passwords, JWT, SSN, certificates, host propert
 Republish the page when finished.
 ```
 
-## 01 KT and Onboarding
-Characters: 3923
+## 01 KT and Onboarding - Part A
+Characters: 3034
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "01 KT and Onboarding".
+PART A of 4. Create a polished SharePoint Site Page titled "01 KT and Onboarding".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -243,7 +284,59 @@ DESIGN:
 - End with gray Source and ownership band: QA Automation owner; GitLab api-test-automation is executable source of truth.
 - No emoji, stock photos, or clip art.
 
-Quick links row for this page: Parent: Unite MSC API Automation | Previous: Unite MSC API Automation | Next: 02 Architecture and Ownership
+Quick links row for this page: Parent: Unite MSC API Automation | Next: 02 Architecture and Ownership
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
+
+CONTENT:
+
+# 01 KT and Onboarding
+Purpose: Everything a new engineer needs on day one: install, clone, build, open in an IDE, configure the host overlay, run Mobile 1, Mobile 2, or Enrollment, and find the report.
+
+## 1. Install and access
+| Need | Detail |
+|---|---|
+| JDK | JDK 17. The modules compile to Java 17 bytecode. Verify with java -version |
+| Maven | 3.6+, 3.8+ recommended. Verify with mvn -version |
+| Git | Clone access to api-test-automation |
+| IDE | Eclipse, IntelliJ IDEA, VS Code, or Cursor with Maven support |
+| IDE plugins | Lombok (POJOs use it) and TestNG |
+| Oracle access | Read access for test-data SQL; request via Freshservice |
+| Network | Corporate network reach to Stage1 and QC4 service endpoints |
+| Tracking | Jira Epic QA-796 and qTest modules Unite-MSC / MSC-Enrollment / MSC-Mobile1 / MSC-Mobile2 |
+
+Stack: Java, Maven, TestNG, and Rest Assured on the shared jsonapi-core framework. Test data comes from Oracle. HTML reporting comes from jsonapi-mobile-reporting.
+
+## 2. Clone and build
+Run once, from the repository root:
+
+git clone https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation.git
+cd api-test-automation
+mvn -f mobile/pom.xml clean install -DskipTests
+
+mobile/pom.xml builds four modules: reporting, enrollment, mobile1, mobile2.
+
+Information callout: after this first build use mvn test, not mvn clean test, unless stale stubs remain.
+
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 01 KT and Onboarding - Part B
+Characters: 3566
+
+```text
+PART B of 4. Edit the existing SharePoint page "01 KT and Onboarding" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
 
 RULES:
 - Preserve every row, step, checklist item, and code block.
@@ -251,55 +344,173 @@ RULES:
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
 
-PAGE CONTENT — build the page from exactly this material:
+APPEND EXACTLY:
 
-# 01 KT and Onboarding
-Purpose: A receiving engineer can find the code, run one safe suite, locate a report, and know where to ask for help.
+## 3. Open it in your IDE
+1. Import api-test-automation as an existing Maven project.
+2. Install the Lombok plugin and enable annotation processing; the POJOs will not compile without it.
+3. Install TestNG support so you can run a single class.
+4. In VS Code or Cursor, open the repo folder, add the Java and Maven extensions, and run suites from the integrated terminal.
+5. Maven compiles to target/maven-compile, deliberately separate from the IDE's own output, so IDE auto-build cannot overwrite Maven classes mid-run.
 
-## First-week path
-| Day | Task | Evidence |
+## 4. Create your host overlay (one time)
+Each engineer needs a personal, gitignored host file. Never copy another engineer's file.
+
+1. Build first. The config folder is empty in a fresh clone.
+2. Open src/test/resources/config/ in the module you will run.
+3. Copy config.properties to <COMPUTERNAME>.properties.
+4. Fill in the three keys: UNITEDATABASEURL, UNITEUSERNAME, UNITEPASSWORD.
+5. Pass it on every run with -Dhost.properties=<COMPUTERNAME>.properties
+
+Why the folder looks empty before a build: config.properties and the environment files stage1, qc4, qc1, stage5, and cat are not committed in the module. Maven unpacks them from the shared jsonapi-lib resource artifact during generate-resources, and the module gitignore excludes every *.properties file in that folder. Do not try to commit them.
+
+Name the file after your machine. The build derives the default host file from your COMPUTERNAME on Windows or HOSTNAME on Linux, which is why the convention exists; passing -Dhost.properties explicitly overrides that default.
+
+Prohibition callout: the host overlay holds database credentials. It stays local. Never commit it, attach it, or paste its contents into SharePoint, Jira, or Teams.
+
+## 5. Maven profiles you will actually use
+| Module | Suite profiles | Suite XML folder |
 |---|---|---|
-| 1 | Confirm GitLab, Jira, VPN, Java 17, Maven 3.9+, and approved DB access | Access checklist complete |
-| 2 | Clone api-test-automation; build the mobile parent with tests skipped | Successful Maven build |
-| 3 | Run one smoke profile using a local gitignored host overlay | HTML/Surefire report |
-| 4 | Trace one endpoint from CSV to Java class to suite XML to report | Review notes |
-| 5 | Shadow failure triage and DB-refresh preparation | KT sign-off |
+| mobile1 | mobile1-regression, mobile1-integration, mobile1-smoke, mobile1-localhost | mobile/mobile1/testsuites/ |
+| mobile2 | mobile2-regression, mobile2-integration, mobile2-smoke, mobile2-localhost | mobile/mobile2/testsuites/ |
+| enrollment | mobile-ms-enrollment-regression, mobile-ms-enrollment-integration, mobile-ms-enrollment-smoke, mobile-ms-enrollment-localhost | mobile/enrollment/testsuites/ |
+| Environment overlay | acceptance-stage1, acceptance-qc4 | Applies to all three modules |
 
-## What to read, in order
-1. 02 Architecture and Ownership
-2. 03 Access, Setup and Environments
-3. 04 Daily Run Playbook
-4. The applicable module page: 05, 06, or 07
-5. 09 Reporting and Troubleshooting
-6. 10 Test Data, DB Refresh and Security
-7. Review the Unite MSC Epic: https://ascensuscollegesavings.atlassian.net/browse/QA-796
-8. Review manual cases in qTest Test Design: https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign
-9. Open the manual API collection in Bruno: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
+Caution callout: list the environment profile LAST in -P. It overrides the environment.properties set by the suite profile. mobile1-smoke, mobile2-smoke, and Enrollment suite profiles default to qc4.properties; append acceptance-stage1 to run them against Stage1.
 
-## KT demonstration
-The engineer must demonstrate each of these live:
-- Find a test class from an endpoint ID in the coverage register.
-- Show which XML suite and Maven profile execute it.
-- Run a non-destructive smoke or targeted test.
-- Find the generated report and classify one sample failure.
-- Explain what changes after a Stage1 or QC4 database refresh.
-- Explain the L1-L4 validation boundary and why L5 SQL is not the completion gate.
-
-## Completion checklist
-- [ ] Engineer can run without copying another person's host file.
-- [ ] Engineer knows credentials, JWT, SSN, and environment JSON never go in SharePoint or Git.
-- [ ] Engineer can distinguish environment, data, automation, and product failures.
-- [ ] Engineer knows Mobile 1, Mobile 2, and Enrollment ownership boundaries.
-- [ ] KT reviewer records open questions and owners rather than inventing answers.
-
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
 ```
 
-## 02 Architecture and Ownership
-Characters: 3975
+## 01 KT and Onboarding - Part C
+Characters: 3774
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "02 Architecture and Ownership".
+PART C of 4. Edit the existing SharePoint page "01 KT and Onboarding" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 6. Run your first suite
+Start with the Enrollment smoke suite; it is the least destructive. Replace <COMPUTERNAME> with your own overlay name.
+
+mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-smoke,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+mvn -f mobile/mobile1/pom.xml test "-Pmobile1-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+mvn -f mobile/mobile2/pom.xml test "-Pmobile2-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+For ad-hoc local work, copy the example suite first, then use the localhost profile:
+
+copy mobile\mobile1\testsuites\localhost-testng.xml.example mobile\mobile1\testsuites\localhost-testng.xml
+mvn -f mobile/mobile1/pom.xml test "-Pmobile1-localhost,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties"
+
+Swap acceptance-stage1 for acceptance-qc4 to target QC4.
+
+## 7. Find your report
+| Output | Path |
+|---|---|
+| HTML report | <module>/target/mobile-ms-report/index.html |
+| TestNG and Surefire output | <module>/target/surefire-reports/ |
+
+Open it directly, for example: start mobile\enrollment\target\mobile-ms-report\index.html
+
+Plans run as a TestNG branding parameter: okdirect, newyork, nmdirect.
+
+## 8. Manual API testing: Bruno and Postman
+Use these to explore an endpoint before writing or debugging a TestNG case.
+
+| Tool | Location | Contents |
+|---|---|---|
+| Bruno | bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection | Folders 01 - Enrollment, 02 - Mobile1, 03 - Mobile2 |
+| Bruno environments | Same collection, environments/ | Env-Enrollment-Stage1.yml, Env-Mobile1-Stage1.yml, Env-Mobile2-Stage1.yml |
+| Postman | postman/mobile | Mobile Endpoints (w/ IDP Session) for PKCE, member session, and token exchange |
+
+Bruno collection: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
+
+Manual test cases (qTest):
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+Prohibition callout: treat populated Bruno/Postman environment files as sensitive operational material. Do not paste their values into SharePoint, Jira, Teams, or prompts; use a stripped local demo environment.
+
+Republish the page when finished.
+```
+
+## 01 KT and Onboarding - Part D
+Characters: 2820
+
+```text
+PART D of 4. Edit the existing SharePoint page "01 KT and Onboarding" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 9. Branching, merge requests, and standards
+| Standard | Rule |
+|---|---|
+| Base branch | main |
+| Branch name | feature/QA-####-short-description, matching the Jira key |
+| Merge request | Use the repo template: Summary, Related, Test plan, Risks |
+| Review gate | Local or CI checks pass; new scenarios executed in a test environment; no unintended API or config changes |
+| Never commit | target/, your host overlay, credentials, tokens, certificates, or PII |
+
+Track work under Epic QA-796 and link the Jira key in both the branch name and the merge request.
+
+## 10. Definition of done for onboarding
+- [ ] JDK, Maven, Git, and IDE plugins installed and verified.
+- [ ] Parent build mvn -f mobile/pom.xml clean install -DskipTests succeeds.
+- [ ] Personal host overlay created and confirmed gitignored.
+- [ ] One Enrollment smoke run completed against Stage1.
+- [ ] One Mobile 1 and one Mobile 2 suite run completed.
+- [ ] HTML report located and one failure classified as environment, data, automation, or product.
+- [ ] Bruno collection opened and one request executed manually.
+- [ ] Branch and merge request standards understood; Epic QA-796 reviewed.
+
+## 11. First-day troubleshooting
+| Symptom | Fix |
+|---|---|
+| Surefire reports Unresolved compilation problems | Delete that module's target/maven-compile and rerun |
+| Tests hit the wrong environment | Move acceptance-stage1 or acceptance-qc4 to the END of -P |
+| Lombok or POJO compile errors in the IDE | Install the Lombok plugin and enable annotation processing |
+| No tests ran | Confirm the suite profile name and that the suite XML exists in testsuites/ |
+| Local suite not found | Copy localhost-testng.xml.example to localhost-testng.xml first |
+
+Do not use src/test/resources/user/*.json for login data; authentication users are resolved from SQL at runtime.
+
+Republish the page when finished.
+```
+
+## 02 Architecture and Ownership - Part A
+Characters: 3386
+
+```text
+PART A of 4. Create a polished SharePoint Site Page titled "02 Architecture and Ownership".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -322,60 +533,244 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 02 Architecture and Ownership
-Purpose: How the canonical automation is built, which repository owns what, and where the validation boundary sits.
+Purpose: A practical map of the canonical TestNG architecture, shared framework, module inheritance, test data, reporting, legacy references, and ownership.
 
-## Runtime model
-Render as a preformatted code block:
+## 1. Canonical runtime flow
+Render this diagram as a full-width monospace block, exactly as written:
 
-TestNG test class
-  -> module base test / shared jsonapi framework
-  -> Rest Assured request and L1-L4 assertions
-  -> Unite MSC BFF endpoint
-  -> downstream account, profile, bank, metadata, transaction, auth services
+  [ mvn -P<suite-profile>,<environment-profile> ]
+                    |
+                    v
+  [ TestNG suite XML ] -- branding parameter: okdirect | newyork | nmdirect
+                    |
+                    v
+  [ module test class ]  mobile1 | mobile2 | enrollment
+                    |
+                    v
+  [ module base class ] MobileBaseRequestTest | EnrollmentBaseTest
+       |                                   |
+       |                                   +-- Enrollment only:
+       +-- Oracle: automation user,             GET certificate, AES key,
+           app version, routing, fund,          @MobileEncrypt payloads
+           contribution fixtures
+                    |
+                    v
+  [ jsonapi-core BaseRequestTest + Rest Assured client ]
+                    |
+                    v
+  [ Unite MSC BFF route ] <- environment.properties + host overlay
+                    |
+                    v
+  [ downstream MSC services ] -> [ Oracle ]
+                    |
+                    v
+  [ L1-L4 assertions ] -> [ HTML portal + Surefire ]
 
-The canonical automation is Java 17, Maven, TestNG, and Rest Assured. It is not the legacy Cucumber implementation.
+The canonical stack is JDK 17, Maven, TestNG, Rest Assured, jsonapi-core, Oracle-backed test data, and Extent-based HTML reporting. It replaces the legacy Cucumber implementation; do not add new API coverage to the V2 or V3 UI repositories.
 
-## Repository map
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 02 Architecture and Ownership - Part B
+Characters: 3098
+
+```text
+PART B of 4. Edit the existing SharePoint page "02 Architecture and Ownership" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 2. Service communication map
+Render this diagram as a full-width monospace block, exactly as written:
+
+   mobile app  |  Bruno request  |  Rest Assured test
+                        |
+        +---------------+-------------------+
+        |                                   |
+  [ Mobile BFF route ]              [ Enrollment BFF route ]
+   /mobile1api  /mobile2api              /enrollmentapi
+        |                                   |
+  unite-mobile1 / unite-mobile2      unite-enrollment (gateway)
+        |                                   |
+        +---------------+-------------------+
+                        |
+   +---------+----------+---------+----------+-----------+
+   |         |          |         |          |           |
+  Auth    Account    Profile   Metadata    Bank    Transaction
+ unite-   unite-     unite-    unite-     unite-    gateway
+  auth    account    profile   metadata    bank    (YTD, history)
+   |         |          |         |          |           |
+   +---------+----------+----+----+----------+-----------+
+                             |
+                    [ Oracle schemas ]
+             TA_LOGIN  TU_ACCT  TU_MEMBER  TU_PERSON
+             TU_BENE  TU_BANK  TU_TRAUNCH  TU_FUNDS
+
+A test never calls a downstream service directly. It calls the BFF route for its module; the BFF fans out to the services that own each piece of data.
+
+| Service | Owns |
+|---|---|
+| Auth | prospect and member token issuance |
+| Account | prospects, accounts, balances, allocations, account creation |
+| Profile | owner and beneficiary identity, address lookup |
+| Metadata | plans, funds, prices, states, countries, codes, app version |
+| Bank | routing verification and bank instructions |
+| Transaction | activity and history by plan backend type |
+
+Informational callout: some dashboard bank and withdrawal fields are served by an on-prem account gateway rather than the Oracle MSC tables. That is one reason a universal API-to-database comparison was not adopted as the sign-off gate.
+
+Republish the page when finished.
+```
+
+## 02 Architecture and Ownership - Part C
+Characters: 3529
+
+```text
+PART C of 4. Edit the existing SharePoint page "02 Architecture and Ownership" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 3. Repository and module map
 Mobile root: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads
 
 | Area | GitLab path | Purpose |
 |---|---|---|
-| Mobile parent | mobile/pom.xml | Shared module build |
-| Mobile 1 | mobile/mobile1/ | Authentication, profile, device, biometric, session APIs |
-| Mobile 2 | mobile/mobile2/ | Dashboard, bank, contribution, activity, plans, performance APIs |
-| Enrollment | mobile/enrollment/ | Encrypted enrollment wizard and subsequent enrollment |
-| Shared reporting | mobile/reporting/ or module report wiring | HTML and test evidence |
+| Root parent | pom.xml | Builds jsonapi, universal, astro, mobile |
+| Mobile parent | mobile/pom.xml | Builds reporting, enrollment, mobile1, mobile2 |
+| Shared framework | jsonapi/jsonapi-core | BaseRequestTest, resource loading, SQL, Rest Assured |
+| Mobile 1 | mobile/mobile1 | Authentication/session and member-profile capabilities |
+| Mobile 2 | mobile/mobile2 | Account experience; reuses Mobile 1 auth base |
+| Enrollment | mobile/enrollment | Encrypted wizard + subsequent enrollment |
+| Reporting | mobile/reporting | Static portal + Extent detail + sanitization |
 | Manual API testing | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads | Unite MSC Bruno collection |
 
-## Validation boundary
+## 4. Module inheritance and shared behavior
+| Module | Base and shared behavior |
+|---|---|
+| Mobile 1 | MobileBaseRequestTest extends BaseRequestTest; loads mobile.sql, selects an Oracle-backed automation user, resolves minimum app version, configures mobile/IDP auth |
+| Mobile 2 | Reuses Mobile 1 authentication and account context rather than duplicating login endpoints |
+| Enrollment | EnrollmentBaseTest owns encryption, prospect/member session context, JSON fixtures, and ordered wizard state |
+
+TestNG passes branding as okdirect, newyork, or nmdirect. SQL and JSON placeholders are resolved for that branding. IDP-enabled plans probe for a login-capable automation user; the framework can fall back to mobile-session auth where designed.
+
+## 5. Related automation estates
+| Estate | Technology | Relationship |
+|---|---|---|
+| Canonical API automation | Maven, TestNG, Rest Assured | Extend for Unite MSC API endpoints |
+| Legacy Unite API/mobile reference | Cucumber features and older endpoint flows | Traceability/reference only; do not extend |
+| V2 Unite UI automation | Ant, Selenium, Cucumber | UI regression; not API source of truth |
+| V3 Unite / Universal Enrollment UI | Maven, Selenium/Cucumber | UI journey coverage; complements API tests |
+| Performance automation | JMeter/Taurus performance suites | Load/performance concern; separate from functional L1-L4 |
+
+Do not confuse UI page objects or performance scripts with canonical API coverage. Cross-reference them only when a business journey or pipeline needs layered proof.
+
+Republish the page when finished.
+```
+
+## 02 Architecture and Ownership - Part D
+Characters: 3601
+
+```text
+PART D of 4. Edit the existing SharePoint page "02 Architecture and Ownership" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 6. Configuration layers
+| Layer | Example | Responsibility |
+|---|---|---|
+| Suite profile | mobile1-regression | Selects TestNG XML and groups |
+| Environment profile | acceptance-stage1 / acceptance-qc4 | Overrides environment.properties; must be last in -P |
+| Environment file | stage1.properties / qc4.properties | Service routes and non-secret environment behavior |
+| Host overlay | <COMPUTERNAME>.properties | Personal Oracle URL/user/password; local and gitignored |
+| Suite XML | testsuites/*-testng.xml | Branding blocks, class order, listeners |
+
+The suite XML is executable truth for what runs. A Java class not wired into the intended XML does not count as executed coverage.
+
+## 7. Validation boundary
 | Layer | Meaning | Sign-off |
 |---|---|---|
 | L1 | HTTP status and transport | Required |
 | L2 | Contract and response shape | Required |
 | L3 | Schema and typed payload | Required where supported |
 | L4 | Business assertions | Required |
-| L5 | API-to-database field reconciliation | Optional enhancement; not the completion gate |
+| L5 | API-to-database field reconciliation | Analysis/future enhancement; not the completion gate |
 
-## Ownership
-- QA Automation owns framework patterns, TestNG tests, suite XML, reports, and coverage registers.
-- DevOps owns or partners on runners, schedules, secure files, and pipeline hard gates.
-- Product and development SMEs own service behavior and approve unknown API-to-database mappings.
-- The receiving team owns steady-state runs, triage, test-data upkeep, and approved enhancements after handoff.
+Oracle is actively used for test-data selection, minimum mobile version, routing/fund/contribution fixtures, and Enrollment post-account verification. That is different from universal field-by-field API-to-DB reconciliation, which leadership did not require for sign-off.
+
+## 8. Reporting architecture
+MobileMsHtmlReportListener is registered in suite XML. It creates:
+
+- target/mobile-ms-report/index.html — leadership-friendly portal.
+- target/mobile-ms-report/extent/detail.html — Extent test detail.
+- pages for test details, categories, logs, history, and about.
+- data/summary.json and data/history.json.
+- target/surefire-reports/ — TestNG/JUnit execution detail.
+
+SensitiveDataSanitizer redacts bearer tokens, JWT-like values, passwords, client secrets, and signing keys from report text. Sanitization is a defense, not permission to log secrets.
+
+## 9. Ownership and source-of-truth
+| Area | Owner / source |
+|---|---|
+| Java, POM, TestNG XML, SQL, reporting | GitLab api-test-automation; QA Automation |
+| Manual API requests | Unite MSC Bruno collection |
+| Manual test cases | qTest: Unite-MSC, MSC-Enrollment, MSC-Mobile1, MSC-Mobile2 |
+| Delivery scope and stories | Jira Epic QA-796 |
+| Runner, schedule, secure files, hard gates | DevOps + QA Automation |
+| Service behavior and unknown DB mappings | Product/development SME |
+| Day-to-day run, triage, data upkeep | Receiving automation team after handoff |
 
 Caution callout: named approvers remain required wherever sign-off documents still contain [NEED_INPUT].
 
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
 ```
 
-## 03 Access, Setup and Environments
-Characters: 3513
+## 03 Access, Setup and Environments - Part A
+Characters: 3234
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "03 Access, Setup and Environments".
+PART A of 3. Create a polished SharePoint Site Page titled "03 Access, Setup and Environments".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -398,56 +793,168 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 03 Access, Setup and Environments
-Purpose: Everything needed to get access, build locally, and choose the correct environment.
+Purpose: Access routes and secure configuration reference: tools, GitLab, Oracle, local overlay, environment/profile precedence, Bruno/qTest/Jira, and setup proof.
 
-## Prerequisites
+## 1. Access and tools
 | Need | Route |
 |---|---|
 | GitLab project access | Approved GitLab access request |
-| Java and Maven | Java 17 and Maven 3.9+ |
-| VPN and internal endpoints | Corporate VPN |
+| Java and Maven | JDK 17; Maven 3.6.3+, 3.8+ recommended |
+| IDE | Eclipse, IntelliJ, VS Code, or Cursor with Lombok and TestNG |
+| Oracle test-data access | Freshservice request; used by the SQL fixtures |
 | Linux or runner access | Freshservice Linux User Account Creation |
 | GitLab access changes | Freshservice Gitlab_Users |
-| Frogger / DB relay | Freshservice gwtpsshrelay01 |
+| Oracle DB relay | Team-approved Freshservice relay-access request |
 | Jira and qTest | Team-approved project access |
 
-## Local setup
+## 2. Repository and first build
 Render the commands as a preformatted code block:
 
 git clone https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation.git
 cd api-test-automation
 mvn -f mobile/pom.xml clean install -DskipTests
 
-Prohibition callout: create only a personal, gitignored host overlay under the applicable module test resources. Never upload it to SharePoint and never copy another engineer's credentials.
+The build populates src/test/resources/config/ by unpacking the shared jsonapi-lib resource artifact; that folder is empty in a fresh clone and every *.properties file in it is gitignored. After the build, copy config.properties to <COMPUTERNAME>.properties and fill UNITEDATABASEURL, UNITEUSERNAME, and UNITEPASSWORD. The environment files unpacked beside it are stage1, qc4, qc1, stage5, and cat.
 
-## Environment use
+Prohibition callout: the host overlay is personal and gitignored. Never upload it to SharePoint and never copy another engineer's credentials.
+
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 03 Access, Setup and Environments - Part B
+Characters: 3369
+
+```text
+PART B of 3. Edit the existing SharePoint page "03 Access, Setup and Environments" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 3. How a run resolves its target
+Render this diagram as a full-width monospace block, exactly as written:
+
+  mvn -f mobile/<module>/pom.xml test
+      "-P<suite-profile>,<environment-profile>"
+      "-Dhost.properties=<COMPUTERNAME>.properties"
+                 |
+      +----------+-----------+-------------------+
+      |          |           |                   |
+  suite       environment   host overlay     report label
+  profile      profile      (personal)      -Dmobile.ms.
+      |          |           |               report.environment
+      v          v           v
+  which       stage1 or    Oracle URL,
+  testsuites  qc4 .props   user, password
+  XML + groups (LAST -P
+      |        wins)
+      v
+  suite XML branding parameter
+  okdirect | newyork | nmdirect
+      |
+      v
+  service route from the environment file
+  Mobile BFF (/mobile1api, /mobile2api) or Enrollment BFF (/enrollmentapi)
+
+Caution callout: the environment profile must be last in -P. If it is listed first, the suite profile overwrites it and the run silently targets the wrong environment.
+
+## 4. Configuration precedence
+| Input | Selected by | Example |
+|---|---|---|
+| TestNG suite | Module suite profile | mobile2-regression |
+| Environment properties | Environment profile listed last | acceptance-stage1 |
+| Oracle connection | -Dhost.properties | <COMPUTERNAME>.properties |
+| Report label | System property | -Dmobile.ms.report.environment=Stage1 |
+| Branding | TestNG XML parameter | okdirect/newyork/nmdirect |
+
+Example: "-Pmobile2-regression,acceptance-stage1" means use Mobile 2 regression XML, then force stage1.properties. Reversing profile order can target the wrong environment.
+
+## 5. Environment use
 | Environment | Use | Caveat |
 |---|---|---|
 | Stage1 | Primary regression and sign-off evidence | Refresh can invalidate users and data |
 | QC4 | Integration and environment proof | Stability, IDP/reverse proxy, and refresh dependencies can block runs |
-| Localhost examples | Development templates only | Not CI evidence |
+| Localhost suite | Narrow local class/branding selection | Still points to chosen Stage1/QC4 services unless a local service URI is configured |
 
 Enrollment uses the cloud Enrollment BFF. Mobile login may use a different BFF; do not swap base URIs. Enrollment POST bodies are encrypted; GET calls may be plain.
 
-## Setup verification
-- [ ] Maven parent build succeeds.
-- [ ] Personal host overlay is ignored by Git.
-- [ ] One safe smoke profile starts and reaches the expected environment.
-- [ ] Report directory is created.
-- [ ] No token, password, SSN, or private endpoint is pasted into a ticket or SharePoint.
-
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
 ```
 
-## 04 Daily Run Playbook
-Characters: 3547
+## 03 Access, Setup and Environments - Part C
+Characters: 2852
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "04 Daily Run Playbook".
+PART C of 3. Edit the existing SharePoint page "03 Access, Setup and Environments" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 6. Manual-tool environments
+| Tool | Setup |
+|---|---|
+| Bruno | Open Unite-MSC-Bruno_collection; choose Enrollment, Mobile1, or Mobile2 folder |
+| Bruno Stage1 environments | Env-Enrollment-Stage1.yml, Env-Mobile1-Stage1.yml, Env-Mobile2-Stage1.yml; treat populated values as sensitive |
+| Postman | Use approved Mobile collection for IDP/mobile token exploration |
+| qTest | Open the matching module folder under Test Design |
+
+Bruno: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
+
+qTest modules:
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+Use request folders to explore contracts. Do not paste Bruno/Postman environment contents into SharePoint, Jira, or Teams. Prefer a local stripped environment for demonstrations; treat committed Stage1 environment YAML as sensitive operational material.
+
+## 7. Setup verification
+- [ ] Maven parent build succeeds.
+- [ ] java -version and mvn -version meet repo requirements.
+- [ ] Personal host overlay is outside git status.
+- [ ] acceptance-stage1 / acceptance-qc4 is last in the Maven profile list.
+- [ ] Enrollment smoke reaches the intended environment.
+- [ ] target/mobile-ms-report/index.html opens.
+- [ ] Bruno collection and correct Stage1 environment open.
+- [ ] No token, password, SSN, or private endpoint is pasted into a ticket or SharePoint.
+
+Republish the page when finished.
+```
+
+## 04 Daily Run Playbook - Part A
+Characters: 3391
+
+```text
+PART A of 3. Create a polished SharePoint Site Page titled "04 Daily Run Playbook".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -470,57 +977,188 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 04 Daily Run Playbook
-Purpose: The day-to-day procedure for running a suite and handling the result.
+Purpose: Repeatable daily workflow: choose the safe suite, verify data/environment, run the correct profile, inspect the portal, classify failures, and preserve evidence.
 
-## Before every run
-1. Confirm the intended module, plant, environment, and suite.
-2. Confirm VPN or Frogger connectivity and environment health.
-3. Check whether a database refresh occurred.
-4. Use automation-owned data; do not select arbitrary customer-like records.
-5. Ensure the local host overlay is present and gitignored.
+## 1. The daily loop
+Render this diagram as a full-width monospace block, exactly as written:
 
-## Enrollment run examples
-Render as a preformatted code block:
+              what do you need today?
+                        |
+   +---------+----------+-----------+-------------+
+   |         |          |           |             |
+ is the    broad      proof in   mutating or   debugging
+ service   module     selected     strict      one class
+ healthy?  proof      environment  checks          |
+   |         |          |           |              |
+Enrollment regression integration  smoke     gitignored
+  smoke    (Stage1)    (QC4)     (check owned localhost
+                                  state first)    XML
+   +---------+----------+-----------+-------------+
+                        |
+                        v
+   mvn -f mobile/<module>/pom.xml test
+       "-P<suite>,<environment LAST>"
+                        |
+                        v
+   <module>/target/mobile-ms-report/index.html
+                        |
+                 earliest failure
+                        |
+   +--------+-----------+----------+-----------+
+   |        |           |          |           |
+ green  environment   data    automation    product
+record   no code    restore    fix class   bug lifecycle
+         change     fixtures   or wiring    + evidence
 
-# Stage1 smoke
-mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-smoke,acceptance-stage1" "-Dhost.properties=<YOUR_HOST_FILE>"
+Work top to bottom every day. Pick the suite first, gate the run second, then read the report before changing a single line of test code.
 
-# Stage1 regression: OK Direct and New York
-mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-regression,acceptance-stage1" "-Dhost.properties=<YOUR_HOST_FILE>"
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
 
-# QC4 integration
-mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-integration,acceptance-qc4" "-Denvironment.properties=qc4.properties" "-Dhost.properties=<APPROVED_QC4_FILE>"
+## 04 Daily Run Playbook - Part B
+Characters: 3698
 
-For Mobile 1 and Mobile 2, use the Maven profiles documented in their module POM and suite XML. Do not guess a profile from an old Confluence page.
+```text
+PART B of 3. Edit the existing SharePoint page "04 Daily Run Playbook" on API Testing Documentation Hub.
 
-## After every run
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 2. Choose the suite
+| Goal | Suite |
+|---|---|
+| Service/bootstrap health | Enrollment smoke |
+| Broad read/non-destructive module coverage | regression |
+| Integration proof in selected environment | integration |
+| Mutating/destructive or strict checks | smoke |
+| One class/branding while developing | gitignored localhost XML |
+
+Mobile 1/2 smoke includes mutations; Enrollment smoke is health/reference GETs. Read the module page before treating every smoke suite as harmless.
+
+## 3. Pre-run gate
+1. Pull main and inspect the relevant module README/POM/XML.
+2. Confirm module, suite, branding set, and Stage1 or QC4.
+3. Confirm your personal host overlay exists and is not in git status.
+4. Ask whether an Oracle refresh or service deployment occurred.
+5. Confirm automation-owned auth/data prerequisites.
+6. Put acceptance-stage1 or acceptance-qc4 LAST in -P.
+7. For destructive smoke, inspect current owned state before running.
+
+## 4. Run commands by module
+Render as a preformatted code block. Replace <COMPUTERNAME> with your own host overlay.
+
+# Enrollment
+mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-smoke,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-integration,acceptance-qc4" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=QC4"
+
+# Mobile 1
+mvn -f mobile/mobile1/pom.xml test "-Pmobile1-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+mvn -f mobile/mobile1/pom.xml test "-Pmobile1-integration,acceptance-qc4" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=QC4"
+mvn -f mobile/mobile1/pom.xml test "-Pmobile1-smoke,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+# Mobile 2
+mvn -f mobile/mobile2/pom.xml test "-Pmobile2-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+mvn -f mobile/mobile2/pom.xml test "-Pmobile2-integration,acceptance-qc4" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=QC4"
+mvn -f mobile/mobile2/pom.xml test "-Pmobile2-smoke,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+The environment profile must stay LAST in -P. M1/M2 smoke and Enrollment suite profiles default to QC4 unless an acceptance overlay overrides them.
+
+Republish the page when finished.
+```
+
+## 04 Daily Run Playbook - Part C
+Characters: 3094
+
+```text
+PART C of 3. Edit the existing SharePoint page "04 Daily Run Playbook" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 5. Local targeted workflow
+1. Copy testsuites/localhost-testng.xml.example to localhost-testng.xml.
+2. Keep one intended branding block and the required setup/target classes.
+3. Never edit shared regression XML merely to debug locally.
+4. For Enrollment, preserve the ordered prerequisite chain through the failing step.
+5. Run the module localhost profile with the environment profile last.
+6. Restore or discard only your gitignored localhost file after diagnosis.
+
+## 6. Read the result
+1. Open <module>/target/mobile-ms-report/index.html.
+2. Confirm suite/module/environment labels.
+3. Review pass/fail/skip totals and earliest failure.
+4. Open extent/detail.html for test detail.
+5. Use target/surefire-reports only for compile/setup stack traces or JUnit XML.
+6. In an ordered Enrollment chain, fix the first failure before treating later skips as defects.
+
+## 7. Classify and act
 | Result | Action |
 |---|---|
-| Green | Save the run URL or report when evidence is required |
-| Environment failure | Record endpoint, environment, timestamp, and dependency |
-| Data failure | Refresh only automation-owned fixtures |
-| Automation failure | Reproduce targeted; link class and suite |
-| Product failure | Follow the automation bug lifecycle with sanitized evidence |
+| Green | Record command, environment, branding, commit, report artifact |
+| Environment/service | Record timestamp/status/dependency; do not edit tests |
+| Oracle/test data | Restore only approved automation fixtures |
+| Automation | Reproduce targeted; fix class/XML/profile/reporting wiring |
+| Product/contract | Follow automation bug lifecycle with sanitized evidence |
+| Expected exclusion | Link sign-off/backlog; do not report as missing coverage |
 
-## Run discipline
+## 8. Run record
+Minimum evidence:
+- module and profile command;
+- environment and branding;
+- commit SHA and run timestamp;
+- passed/failed/skipped counts;
+- first failure class/method and endpoint ID;
+- sanitized portal/Surefire or GitLab artifact;
+- classification and Jira link.
+
+Code presence is not fresh execution evidence.
+
+## 9. Run discipline
 Prohibition callout:
 - Do not silently remove classes from XML to make a run green.
 - Quarantine only with a visible tag or exclusion and a linked follow-up.
 - Do not commit target/.
+- Do not loop-retry an environment-wide failure.
+- Do not rerun destructive tests against unknown records.
 - Do not attach raw request or response payloads containing PII or JWT.
 
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
 ```
 
-## 05 Mobile 1 Automation
-Characters: 3168
+## 05 Mobile 1 Automation - Part A
+Characters: 3012
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "05 Mobile 1 Automation".
+PART A of 3. Create a polished SharePoint Site Page titled "05 Mobile 1 Automation".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -543,47 +1181,168 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 05 Mobile 1 Automation
-Purpose: Scope, plants, artifacts, and known considerations for Mobile 1 API automation.
+Purpose: Complete operating guide for Mobile 1: delivered coverage, endpoint families, authentication/data model, suite design, execution, evidence, and safe extension.
 
-## Scope
-Code: api-test-automation/mobile/mobile1/
+## 1. What was delivered
+| Metric | Delivered |
+|---|---|
+| Endpoint operations automated | 26 of 26 documented |
+| TestNG @Test methods | 27 |
+| Validation | L1-L4 lean assertions |
+| Branding in current regression/integration XML | okdirect, newyork, nmdirect |
+| Sign-off | COMPLETE |
 
-Mobile 1 documents 26 coded operations covering member session and authentication, username, owner and profile, beneficiary and account closure, routing information, biometric, phone authentication, device and push tokens, password, CSR-as-member, IDP token exchange, session lookup, biometric validation, and session PIN.
+This is a full canonical migration, not a wrapper around legacy Cucumber. It adds current TestNG, SQL-driven automation users, mobile/IDP authentication, multi-plan XML execution, and the shared HTML reporting portal.
 
-## Plants and suites
-- OK Direct is the primary non-IDP path.
-- NM Direct is used on applicable authentication and IDP paths.
-- Destructive updates and deletes belong in smoke or targeted suites, not an unattended master run unless explicitly designed.
+## 2. Endpoint families
+| Family | Coverage |
+|---|---|
+| Authentication | member session, username, CSR-as-member, IDP exchange, IDP-to-member token |
+| Profile and beneficiary | owner/profile menus, owner update, beneficiary lookup, close-account checks |
+| Security and device | biometric POST/GET/DELETE, phone authentication, devices, push tokens |
+| Session | session by ID, biometric-token validation, session PIN |
+| Account utility | routing-number bank info, password change and re-login |
 
-## Support files
+The register assigns stable IDs M1-01 through M1-26 so an endpoint can be traced from sign-off CSV to Java method, suite, evidence, qTest, and Jira.
+
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 05 Mobile 1 Automation - Part B
+Characters: 3225
+
+```text
+PART B of 3. Edit the existing SharePoint page "05 Mobile 1 Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 3. Suite strategy
+| Suite | Current XML shape | Intent |
+|---|---|---|
+| mobile1-regression-testng.xml | 16 classes per plan; all 3 plans | Broad read/non-destructive coverage |
+| mobile1-integration-testng.xml | Same 16 classes per plan | Environment/integration validation |
+| mobile1-smoke-testng.xml | 5 OKD; 6 NY; 6 NMD classes | Mutating/targeted flows |
+| localhost-testng.xml.example | 16 classes per plan | Gitignored local ad-hoc copy |
+
+Smoke holds owner PUT, actual account close, biometric DELETE, session lookup/biometric validation, and password rotation where applicable. Never move a destructive class into unattended regression merely to increase the count.
+
+## 4. Authentication and IDP token flow
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ Oracle: automation login user for this branding ]
+                    |
+                    v
+  [ POST /mobile1api/v1/mobilemembersession ]  public, plaintext login
+                    |
+             member JWT
+                    |
+        +-----------+-------------------------+
+        |                                     |
+        v                                     v
+  [ Mobile 1 endpoints ]              IDP-enabled branding only
+  [ Mobile 2 endpoints ]                      |
+   Bearer member JWT                          v
+                        [ POST /mobile1api/v1/idptokenexchange ]
+                                              |
+                                   IDP access token
+                                              |
+                                              v
+                        [ POST /mobile1api/v1/mobilememberidptoken ]
+                                              |
+                                              v
+                               [ member session for the IDP user ]
+
+Non-IDP plans stop at the first member JWT. IDP plans continue through exchange and token-to-session. The automation exchange token is often rejected by the final step by design; a real PKCE token can be supplied with -Duse-pkce-idp-token=true, otherwise the test validates the contract fallback and the upstream steps.
+
+Republish the page when finished.
+```
+
+## 05 Mobile 1 Automation - Part C
+Characters: 3081
+
+```text
+PART C of 3. Edit the existing SharePoint page "05 Mobile 1 Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 5. Test data resolution
+MobileBaseRequestTest loads mobile.sql before the suite:
+
+1. Selects an active automation-owned member for the current branding.
+2. Requires the approved MFA-skip condition.
+3. Resolves account extension, member ID, minimum app version, and routing/fixture data from Oracle.
+4. Configures mobile session auth or IDP auth based on plan metadata.
+5. Probes several candidate users for IDP-enabled plans and caches a working user.
+
+Do not hardcode a customer, password, account extension, app version, or src/test/resources/user JSON into a new test.
+
+## 6. Run and read the result
+Regression command:
+
+mvn -f mobile/mobile1/pom.xml test "-Pmobile1-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+Other suite profiles: mobile1-integration, mobile1-smoke, mobile1-localhost. Keep acceptance-stage1 or acceptance-qc4 LAST.
+
+Open target/mobile-ms-report/index.html for the portal and target/surefire-reports/ for TestNG detail.
+
+## 7. Evidence and downloads
 | Artifact | Use |
 |---|---|
 | Mobile 1 API Automation Sign-Off (DOCX) | Formal scope and completion record |
 | mobile1-endpoint-current-state.csv | Endpoint to class to suite mapping |
 | mobile1-signoff-summary.md | Quick status |
-| Coverage chart image | Optional visual |
+| Coverage chart | Optional executive visual |
+| GitLab mobile/mobile1 | Executable source of truth |
+| Bruno 02 - Mobile1 | Manual request exploration |
+| qTest MSC-Mobile1 | Manual test cases: https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
 
-## Known considerations
+## 8. Known boundaries and first checks
 Caution callout:
-- IDP token tests exist in canonical TestNG; legacy Cucumber did not cover the IDP feature.
-- QC4 automation JWT behavior can produce environment-dependent 401 responses.
-- PATCH logout remains an enhancement candidate.
-- L5 SQL analysis is not implemented as the completion gate.
+- Canonical TestNG includes IDP token exchange that legacy Cucumber did not.
+- A QC4 401 can be an environment/IDP automation-JWT issue, not a missing class.
+- PATCH logout remains an enhancement; do not count it as delivered.
+- L5 field-by-field SQL reconciliation was analyzed but is not the sign-off gate.
 
-When a case fails, record endpoint ID, class, method, plant, environment, and report - not only a screenshot.
+When a case fails, capture endpoint ID, Java class/method, suite, branding, environment, HTTP status, and sanitized report link—not only a screenshot.
 
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
 ```
 
-## 06 Mobile 2 Automation
-Characters: 3225
+## 06 Mobile 2 Automation - Part A
+Characters: 2890
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "06 Mobile 2 Automation".
+PART A of 3. Create a polished SharePoint Site Page titled "06 Mobile 2 Automation".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -606,51 +1365,162 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 06 Mobile 2 Automation
-Purpose: Scope, coverage position, artifacts, and known considerations for Mobile 2 API automation.
+Purpose: Complete Mobile 2 guide: 96% signed-off business coverage, endpoint families, Mobile 1 reuse, suite separation, dynamic fixtures, execution, and evidence.
 
-## Scope
-Code: api-test-automation/mobile/mobile2/
-
-Mobile 2 covers activity, transaction history, investments, banks, content, plans, contributions, dashboard and YTD summary, balance trend, performance, stackup, and UGift.
-
-## Coverage position
-| Item | Position |
+## 1. What was delivered
+| Metric | Delivered |
 |---|---|
-| Documented rows | 25, including one acceptance harness endpoint |
-| Business APIs in sign-off numerator | 24 |
-| Intentional exclusion | GET mobilemembers/{planId}/{username} harness |
-| Primary master-regression plants | OK Direct and New York |
-| Additional smoke plant | NM Direct on selected stackup coverage |
+| Catalog rows | 25 |
+| In-scope business operations automated | 24 |
+| Signed-off business coverage | 96.0% |
+| Validation | L1-L4 lean assertions |
+| Current regression/integration branding | okdirect, newyork, nmdirect |
+| Sign-off | COMPLETE |
 
-## Support files
+The only excluded catalog row is the acceptance harness GET mobilemembers/{planId}/{username}; it is not a missing business API. Mobile 2 reuses Mobile 1 authentication instead of duplicating login code.
+
+## 2. Endpoint families
+| Family | Coverage |
+|---|---|
+| Account experience | dashboard, YTD summary, activity, transaction history |
+| Portfolio | investments, balance trend, performance, stackup |
+| Banks | list/detail, add, update, delete |
+| Contributions | options/check/detail, create, update, delete |
+| Reference/content | content and plans/list/detail |
+| Engagement | UGift page and UGift assignment |
+
+IDs M2-01 through M2-25 trace each row to its TestNG class, method, suite, plants, and legacy/Postman source.
+
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 06 Mobile 2 Automation - Part B
+Characters: 3557
+
+```text
+PART B of 3. Edit the existing SharePoint page "06 Mobile 2 Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 3. Suite strategy
+| Suite | Current XML shape | Intent |
+|---|---|---|
+| mobile2-regression-testng.xml | 16 classes per plan; all 3 plans | Broad read/non-destructive coverage |
+| mobile2-integration-testng.xml | Same 16 classes per plan | Environment/integration validation |
+| mobile2-smoke-testng.xml | 6 classes per plan | Mutating and strict checks |
+| localhost-testng.xml.example | 16 classes per plan | Local gitignored copy |
+
+Smoke runs bank mutations, contribution POST/PUT/DELETE, UGift PATCH, and strict stackup. Regression/integration also include the acceptance harness GET mobilemembers/{planId}/{username} for observation; it remains outside the 24/25 business numerator. Its member-JWT 401 is expected until acceptance-harness auth is wired—do not treat that alone as a product or coverage defect.
+
+## 4. Where Mobile 2 data comes from
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ Mobile 2 test ]  auth context inherited from Mobile 1
+              |
+              v
+  [ Mobile BFF /mobile2api ] -> [ unite-mobile2 ]
+              |
+   +----------+-----------------------------+
+   |  Account (unite-account)               |  accounts, balances, YTD
+   |  Profile (unite-profile)               |  owner, beneficiary
+   |  Metadata (unite-metadata)             |  plans, funds, prices
+   |  Bank (unite-bank)                     |  bank list, add, update, delete
+   |  Transaction gateway                   |  activity, transaction history
+   |  On-prem account gateway               |  dashboard banks, withdrawals
+   +----------+-----------------------------+
+              |
+              v
+  [ Oracle MSC schemas ]  +  [ on-prem systems of record ]
+
+Informational callout: dashboard bank and withdrawal fields come from the on-prem gateway, not the Oracle MSC tables, so an Oracle field comparison does not apply to them. Transaction history and YTD depend on the plan's backend type, which is why the same assertion can behave differently across brandings.
+
+Mobile 2 extends MobileBaseRequestTest and gets authentication/account context from Mobile 1. Oracle SQL resolves:
+
+- automation-owned login user and account extension;
+- active recurring-contribution fixture ID;
+- routing number and bank fixture;
+- minimum supported mobile app version.
+
+Contribution DELETE is restricted to automation-owned data. New tests must not hardcode account /01, a bank ID, a contribution ID, a customer username, or a routing number.
+
+Republish the page when finished.
+```
+
+## 06 Mobile 2 Automation - Part C
+Characters: 2670
+
+```text
+PART C of 3. Edit the existing SharePoint page "06 Mobile 2 Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 5. Run and read the result
+Regression command:
+
+mvn -f mobile/mobile2/pom.xml test "-Pmobile2-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+Other profiles: mobile2-integration, mobile2-smoke, mobile2-localhost. Keep the environment profile last. If Mobile 2 compilation is stale, delete mobile/mobile2/target/maven-compile; delete Mobile 1's compiled output too if the inherited auth class is stale.
+
+Report: mobile/mobile2/target/mobile-ms-report/index.html.
+
+## 6. Evidence and downloads
 | Artifact | Use |
 |---|---|
 | Mobile 2 API Automation Sign-Off (DOCX) | Formal scope and completion record |
 | mobile2-endpoint-current-state.csv | Endpoint to class to suite mapping |
 | unite-msc-endpoint-summary.csv | Compact evidence register |
-| Coverage chart image | Optional visual |
+| Coverage chart | Optional executive visual |
+| GitLab mobile/mobile2 | Executable source of truth |
+| Bruno 03 - Mobile2 | Manual request exploration |
+| qTest MSC-Mobile2 | Manual test cases: https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
 
-## Known considerations
+## 7. Known boundaries and enhancements
 Caution callout:
-- Bank PUT and DELETE, and contribution DELETE, are destructive and intentionally separated from master coverage.
-- Dynamic contribution fixtures can be environment-sensitive.
-- POST mobilebanks with planId=upromise is a Postman-only enhancement candidate.
-- Mobile 2 has the mature nightly pattern to reuse when adding other module jobs.
+- Destructive bank/contribution cases stay separated from broad regression.
+- Dynamic fixtures can fail after an Oracle refresh even when the API is healthy.
+- POST mobilebanks?planId=upromise is optional enhancement scope, not part of the 24 signed-off business operations.
+- Two MobileStackupRequestTest package locations are a cleanup candidate; do not duplicate a third.
 
-Use the current GitLab suite XML and POM for commands. SharePoint does not replace executable configuration.
+Use current GitLab POM/XML as executable truth. Capture row ID, class/method, branding, suite, environment, status, and sanitized report during triage.
 
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
 ```
 
-## 07 Enrollment Automation
-Characters: 3239
+## 07 Enrollment Automation - Part A
+Characters: 2382
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "07 Enrollment Automation".
+PART A of 5. Create a polished SharePoint Site Page titled "07 Enrollment Automation".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -673,51 +1543,287 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 07 Enrollment Automation
-Purpose: Scope, wizard flow, suites, and operational notes for Enrollment API automation handed over under QA-893.
+Purpose: End-to-end Enrollment operating guide: delivered coverage, ordered encrypted wizard, subsequent enrollment, suite/plants, data/session design, execution, and handoff evidence.
 
-## Scope and status
-Code: api-test-automation/mobile/enrollment/ | Handoff: Jira QA-893
+## 1. What was delivered
+Handoff: Jira QA-893
 
 | Metric | Position |
 |---|---|
 | Catalog rows | 28 |
 | Automated | 25 |
 | Deferred | 3 |
-| Core wizard | 15 of 15 documented happy-path steps |
-| Primary plants | OK Direct, New York |
-| Local-only plant | NM Direct example; not CI sign-off |
+| Catalog coverage | 89.3% |
+| Ordered regression/integration chain | 17 classes per plant |
+| Current plants in XML | okdirect, newyork, nmdirect |
+| Validation | L1-L4 + targeted post-account SQL verification |
 
-Deferred items are partner submit, Upromise account, and OAuth token. They are exclusions, not missing coding in the signed-off MSC happy path.
+Deferred partner submit, Upromise account, and OAuth token are explicit scope decisions tied to QA-1808/QA-1807—not missing MSC happy-path coding.
 
-## Wizard flow
-Certificate, prospect, enrollment started, owner, address, beneficiary, routing and bank, recurring contribution, allocations, review-confirm, then subsequent enrollment cases.
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
 
-Prohibition callout: Enrollment POST bodies use encryption. Never paste plaintext sensitive payloads, certificate material, JWT, SSN, or environment JSON into SharePoint.
+## 07 Enrollment Automation - Part B
+Characters: 2720
 
-## Suites
-| Profile | Purpose |
+```text
+PART B of 5. Edit the existing SharePoint page "07 Enrollment Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 2. Ordered first-enrollment wizard
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ 1 prospects ]            POST enrollments/prospects     public
+        | issues prospect JWT -> ProspectSessionContext
+        v
+  [ 2 enrollment-started ]   public, same username
+        v
+  [ 3 content ]              GET, Bearer prospect JWT
+        v
+  [ 4 owner-entered ] ----------------+
+        v                             |  carried forward
+  [ 5 owner-address-entered ]         |  through every
+        v                             |  later step:
+  [ 6 beneficiary-entered ] ----------+   prospect JWT
+        v                             |   username + branding
+  [ 7 verify/routingnumber ]          |   AES key + encAesKey
+        v                             |   eventId, correlationId,
+  [ 8 bank-entered ] ----------------+    seqNum
+        | stores bank on session      |   owner, beneficiary,
+        v                             |   bank objects
+  [ 9 recurring-contribution ] ------+
+        | keeps the recurring ciphertext as-is
+        v
+  [ 10 enrollmentallocationfunds/get ]   returns fundIds
+        v
+  [ 11 allocations-entered ]
+        v
+  [ 12 review-confirm-entered ]  + GET plans/{branding}
+        |                          for prefix + deprecatedId
+        v
+  [ 529 account created ]  ext=01
+        v
+  optional post-submit SQL verify: account, login, member rows
+
+Every step depends on state produced earlier, so the chain runs sequentially, never in parallel. A failure at step 4 makes steps 5-12 skip; fix the earliest failure first. Review-confirm logs only sanitized identifiers.
+
+Republish the page when finished.
+```
+
+## 07 Enrollment Automation - Part C
+Characters: 3553
+
+```text
+PART C of 5. Edit the existing SharePoint page "07 Enrollment Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 3. How Enrollment reaches account services
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ enrollment test ]
+        |
+        v
+  [ Enrollment BFF /enrollmentapi ]
+        |
+        v
+  [ unite-enrollment gateway ] -- calls the owning service per step
+        |
+   +----+-------+---------+----------+--------+
+   |    |       |         |          |        |
+  Auth Account Profile  Metadata   Bank   (per step)
+        |
+        v
+  [ Oracle schemas ]
+
+| Wizard step | Downstream service | Main tables |
+|---|---|---|
+| prospects | Auth (token), Account, Metadata | login, fraud-block, traunch |
+| owner, owner address | Profile, Account | person, address, account |
+| beneficiary | Profile, Account | beneficiary, fraud-block |
+| verify routing | Bank | bank info |
+| bank, recurring | Bank, Metadata | bank info, bank, traunch |
+| allocation funds, allocations | Metadata, Account | traunch fund, funds, metadata |
+| review-confirm | Account, Metadata | account, login, member, codes |
+| plans, states, country | Metadata | traunch, country, codes |
+
+The test never calls Account or Profile directly; it always goes through the Enrollment BFF and gateway. That is why a single downstream outage, for example the gateway failing to reach prospect verification in Account, surfaces as a failure on one specific wizard step rather than as a broad automation defect.
+
+Informational callout: SQL is used to prepare fixtures before the run and to verify the created account afterwards. Mid-wizard steps assert the HTTP response only.
+
+## 4. Subsequent enrollment for an existing member
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ Oracle: existing automation member for this branding ]
+        |
+        v
+  [ POST /mobile1api/v1/mobilemembersession ]  public plaintext login
+        | member JWT  (kept separate from the prospect session)
+        v
+  [ GET subsequentenrollment/banks ]
+        v
+  [ subsequentenrollment/beneficiary-entered ]
+        v
+  [ subsequentenrollment/bank-entered ]
+        v
+  [ subsequentenrollment/recurring-contribution-entered ]
+        v
+  [ subsequentenrollment/review-confirm-entered ]  ext=02
+
+Subsequent enrollment adds another account extension for a member who already exists, so it authenticates through the Mobile 1 session endpoint rather than the prospect flow. The prospect context from first enrollment must not be overwritten while this chain runs.
+
+Republish the page when finished.
+```
+
+## 07 Enrollment Automation - Part D
+Characters: 2976
+
+```text
+PART D of 5. Edit the existing SharePoint page "07 Enrollment Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 5. Encryption and session architecture
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ GET /enrollmentapi/v1/certificate ]  -> public key
+        v
+  [ generate one AES key for the whole wizard ]
+        | RSA-wrapped as encAesKey
+        v
+  [ fields marked @MobileEncrypt ] -> encrypted request payload
+        v
+  [ review-confirm ]
+     encrypted : owner, beneficiary, bank, member
+     plaintext : account (prefix, ext, planId, state), terms accepted
+     spliced   : recurring ciphertext from step 9, never re-encrypted
+
+Double-encrypting a payload that is already ciphertext is the most common cause of a decrypt or session error on review-confirm.
+
+- Prospect POST creates the JWT and stores it in ProspectSessionContext.
+- Later steps reuse the JWT, plan, username, AES key, event IDs, and prior business objects.
+- Sensitive POJO fields use @MobileEncrypt; requests go through EnrollmentBaseTest encryption helpers.
+- Review-confirm splices existing recurring ciphertext instead of encrypting ciphertext again.
+- JSON fixtures use generated usernames/SSNs; there is no Enrollment delete API.
+
+Prohibition callout: never paste plaintext payloads, certificate material, AES data, JWT, SSN, bank numbers, or environment JSON into SharePoint or Jira.
+
+## 6. Suites and profiles
+| Profile | Current XML | Purpose |
 |---|---|
-| mobile-ms-enrollment-smoke | Stage1 bootstrap and health |
-| mobile-ms-enrollment-regression | Stage1 OK Direct and New York |
-| mobile-ms-enrollment-integration | QC4 integration |
+| mobile-ms-enrollment-smoke | 5 OK Direct classes | ping, certificate, US states, country, plans |
+| mobile-ms-enrollment-regression | 17 classes x 3 plants | Full first + subsequent enrollment |
+| mobile-ms-enrollment-integration | 17 classes x 3 plants | Same chain for integration validation |
+| mobile-ms-enrollment-localhost | localhost XML copy | Local ad-hoc chain |
 
-## Operational notes
-- QC4 can be blocked by refresh, IDP or reverse proxy, plan metadata, or account and MFA prerequisites.
-- The GitLab Enrollment nightly remains a follow-up unless it has since been implemented and verified.
-- After a database refresh, use page 10 before classifying a product defect.
+The wizard is sequential, not parallel: each class depends on state produced by prior steps. New steps must be inserted in correct order in every branding block.
 
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Republish the page when finished.
+```
+
+## 07 Enrollment Automation - Part E
+Characters: 3052
+
+```text
+PART E of 5. Edit the existing SharePoint page "07 Enrollment Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 7. Run and report
+Smoke:
+mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-smoke,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+Full regression:
+mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties" "-Dmobile.ms.report.environment=Stage1"
+
+Report: mobile/enrollment/target/mobile-ms-report/index.html.
+
+Start with smoke after a refresh. Do not run the full wizard until certificate, metadata, plan, fund, routing, and authentication prerequisites are healthy.
+
+## 8. Evidence, handoff, and boundaries
+| Artifact | Use |
+|---|---|
+| Enrollment API Automation Sign-Off | Scope, exclusions, acceptance |
+| Enrollment coverage matrix/workbook | 28-row catalog and 25 automated rows |
+| enrollment-endpoint-current-state.csv | Endpoint/class/suite/plant register |
+| Architecture and Execution guides | Setup, run, troubleshoot |
+| DB Refresh Checklist | Restore data after refresh |
+| AI Scenario Guide | Extend the ordered wizard |
+| Bruno 01 - Enrollment | Manual endpoint exploration |
+| qTest MSC-Enrollment | Manual test cases: https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+
+Caution callout: QC4 instability, IDP/reverse-proxy behavior, plan metadata, or refreshed data can block proof without indicating an automation defect. Enrollment nightly remains separate delivery scope until a verified job exists.
+
+## 9. Current-vs-historical source rule
+Current executable truth is mobile/enrollment/pom.xml and the current TestNG XML, which contain okdirect, newyork, and nmdirect blocks. Prefer mobile/enrollment/README.md for current commands.
+
+If an older Architecture, Sign-Off, coverage file, or enhancement backlog says Enrollment has only two regression plants, NM Direct is localhost-only, Bruno is missing, or a nightly is live, treat that statement as historical until the attachment is refreshed. Do not claim a GitLab nightly without a verified CI job.
+
+Republish the page when finished.
 ```
 
 ## 08 Coverage, Traceability and Sign-off - Part A
-Characters: 2668
+Characters: 3624
 
 ```text
-PART A of 2. Create a polished SharePoint Site Page titled "08 Coverage, Traceability and Sign-off".
+PART A of 3. Create a polished SharePoint Site Page titled "08 Coverage, Traceability and Sign-off".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -745,9 +1851,61 @@ RULES:
 CONTENT:
 
 # 08 Coverage, Traceability and Sign-off
-Purpose: Where coverage lives, how to trace an endpoint to evidence, and what the sign-off boundary means.
+Purpose: Executive coverage story and reviewer drill-down: what was automated, how much improved over legacy, where every endpoint maps, and what COMPLETE means.
 
-## Coverage sources
+## 1. Coverage at a glance
+| Module | Catalog | Automated business operations | Coverage | Sign-off |
+|---|---:|---:|---:|---|
+| Mobile 1 | 26 | 26 | 100% | COMPLETE |
+| Mobile 2 | 25 | 24 | 96.0% | COMPLETE; one harness excluded |
+| Enrollment | 28 | 25 | 89.3% | COMPLETE for MSC scope; 3 partner APIs deferred |
+| Total | 79 | 75 | 94.9% | L1-L4 completion boundary |
+
+This is 75 canonical business API operations across Mobile 1, Mobile 2, and Enrollment—not merely converted scripts. The work adds multi-plan suites, SQL-driven data, IDP paths, mobile encryption, subsequent enrollment, lean assertions, and reusable reporting.
+
+## 2. Legacy-to-canonical scorecard
+| Delta in the 83-row traceability matrix | Rows |
+|---|---:|
+| Improved | 47 |
+| Newly added | 22 |
+| Unchanged | 6 |
+| Explicitly excluded | 6 |
+| Missing/backlog | 2 |
+
+69 of 83 traced rows are improved or newly added. Improvements include IDP token flows absent from legacy Cucumber, encrypted Enrollment requests, dynamic Oracle fixtures, multi-plan execution, dashboard consolidation from eight scenarios to one lean test, and subsequent Enrollment APIs missing from the early spreadsheet.
+
+## 3. What COMPLETE means
+- Every in-scope operation has a canonical Java class/method and stable endpoint ID.
+- The class is wired into an intended TestNG suite/profile and branding block.
+- L1 HTTP, L2 contract, L3 typed/schema where supported, and L4 business assertions are present.
+- Coverage registers and formal sign-off packs record exclusions and enhancement scope.
+- Code presence is not a current green run; execution evidence remains run-specific.
+- L5 universal API-to-DB reconciliation is documented analysis, not the approved completion gate.
+
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 08 Coverage, Traceability and Sign-off - Part B
+Characters: 3773
+
+```text
+PART B of 3. Edit the existing SharePoint page "08 Coverage, Traceability and Sign-off" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 4. Coverage sources
 | Source | System of record |
 |---|---|
 | Mobile 1 | mobile1-endpoint-current-state.csv |
@@ -756,17 +1914,43 @@ Purpose: Where coverage lives, how to trace an endpoint to evidence, and what th
 | Legacy to canonical | legacy-to-canonical-traceability.csv |
 | Automated implementation | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads |
 | Manual API collection | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads |
-| Manual test cases | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
 | Delivery scope and stories | https://ascensuscollegesavings.atlassian.net/browse/QA-796 |
 
-Publish under "Unite MSC API Automation", then continue with Part B.
+Manual test cases (qTest):
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+## 5. Trace one endpoint end to end
+1. Pick the endpoint ID in the module register.
+2. Confirm method/path, feature area, migration status, validation layers, and branding.
+3. Open the canonical Java class/method in https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads
+4. Confirm its suite XML, Maven profile, groups, and every intended branding block.
+5. Confirm the manual Bruno request where one exists: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
+6. Confirm or create the qTest manual case in the matching module folder (Unite-MSC, MSC-Enrollment, MSC-Mobile1, or MSC-Mobile2).
+7. Link the case and automation evidence to the delivering Jira story under https://ascensuscollegesavings.atlassian.net/browse/QA-796
+8. Open the formal sign-off pack for exclusions/approvals.
+9. Attach a sanitized report or job artifact; never use code presence as run evidence.
+
+qTest modules:
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+Republish the page when finished.
 ```
 
-## 08 Coverage, Traceability and Sign-off - Part B
-Characters: 2634
+## 08 Coverage, Traceability and Sign-off - Part C
+Characters: 2842
 
 ```text
-PART B of 2. Edit the existing SharePoint page "08 Coverage, Traceability and Sign-off" on API Testing Documentation Hub.
+PART C of 3. Edit the existing SharePoint page "08 Coverage, Traceability and Sign-off" on API Testing Documentation Hub.
 
 Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
 
@@ -782,36 +1966,46 @@ RULES:
 
 APPEND EXACTLY:
 
-## How to trace an endpoint
-1. Pick the endpoint ID in the module register.
-2. Open the canonical Java class and method.
-3. Confirm its suite XML and Maven profile.
-4. Confirm the manual request in the Unite MSC Bruno collection where one exists: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
-5. Confirm the manual case in qTest Test Design: https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign
-6. Link the case to the appropriate story under Unite MSC Epic QA-796: https://ascensuscollegesavings.atlassian.net/browse/QA-796
-7. Open the sign-off document for scope and exclusion context.
-8. Link execution evidence; code presence alone is not a fresh green run.
+## 6. Evidence package
+| Evidence | Reviewer use |
+|---|---|
+| Three formal sign-off documents | Scope, metrics, exclusions, approval |
+| Three endpoint current-state registers | Row-level class/method/suite/plant mapping |
+| Enrollment coverage workbook/catalog | Original catalog vs delivered status |
+| Legacy-to-canonical DOCX + CSV | 83-row comparison and improvements |
+| Enhancement backlog | Deferred/non-defect next-layer scope |
+| HTML portal + Surefire/GitLab artifacts | Actual execution result |
 
-## Sign-off boundary
-- Mobile 1 and Mobile 2 have formal Word sign-off packs.
-- Enrollment has a formal QA-893 sign-off and handoff pack.
-- L1-L4 is the approved completion boundary.
-- L5 SQL is documented as analysis and future enhancement, not implemented completion.
-- Approvals marked [NEED_INPUT] remain open until names and dates are provided.
+Approvals marked [NEED_INPUT] remain open until names/dates are supplied. Never manufacture an approval.
 
-## Legacy improvements and open enhancements
-Canonical TestNG added or improved IDP, encryption, dynamic data, lean assertions, multi-plan execution, and several Enrollment subsequent APIs not present in the original Excel catalog.
+## 7. Explicit exclusions and next layer
+Not missing business coverage:
+- Mobile 2 acceptance harness GET mobilemembers/{planId}/{username}.
+- Operations health/OpenAPI utilities outside the business API numerator.
+- Enrollment partner submit, Upromise, and OAuth deferred under separate scope.
 
-Open enhancement categories: broaden Bruno coverage where gaps remain, complete qTest-to-Jira traceability, Enrollment nightly, NM Direct Enrollment CI, selected partner APIs, negative cases, PATCH logout, and optional SQL field reconciliation.
+Enhancement backlog:
+- PATCH logout session and optional Upromise bank variant.
+- Broader negative/contract tests.
+- qTest-to-Jira linkage completion.
+- Verified Enrollment nightly job.
+- Optional L5 SQL field reconciliation only if leadership reopens it.
+
+The original traceability snapshot said no Bruno files existed. The current GitLab repository now contains the Unite MSC Bruno collection; use the current repo, not that historical gap statement.
+
+## 8. Source freshness rule
+For executable behavior and plants, current POM/TestNG XML wins. Some historical sign-off/coverage attachments predate three-plan XML and the Bruno collection. Until refreshed, do not use an older CSV plant column to dispute current okdirect/newyork/nmdirect XML.
+
+Current .gitlab-ci.yml does not prove a Mobile 2 or Enrollment nightly. Describe nightly enablement as unverified/follow-up unless an actual current job and schedule are reviewed.
 
 Republish the page when finished.
 ```
 
-## 09 Reporting and Troubleshooting
-Characters: 3464
+## 09 Reporting and Troubleshooting - Part A
+Characters: 3191
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "09 Reporting and Troubleshooting".
+PART A of 3. Create a polished SharePoint Site Page titled "09 Reporting and Troubleshooting".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -834,49 +2028,168 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 09 Reporting and Troubleshooting
-Purpose: Where to find evidence and how to classify a failure before escalating it.
+Purpose: How to read the generated reporting portal, isolate the first real failure, distinguish environment/data/automation/product issues, rerun safely, and capture useful evidence.
 
-## Where to look
-| Evidence | Use |
+## 1. Reporting outputs
+| Output | Location | Use |
 |---|---|
-| Surefire and TestNG output | Class and assertion failure |
-| Module HTML report | Shareable sanitized run summary |
+| Portal landing page | <module>/target/mobile-ms-report/index.html | Overall status, counts, suite/module/environment |
+| Extent detail | target/mobile-ms-report/extent/detail.html | Per-test steps, duration, sanitized failure |
+| Portal pages | target/mobile-ms-report/pages/ | details, categories, logs, history, about |
+| Summary/history JSON | target/mobile-ms-report/data/ | machine-readable run and trend data |
+| Surefire/TestNG | <module>/target/surefire-reports/ | stack trace, skipped dependency, JUnit XML |
 | GitLab job log and artifacts | CI environment and command |
 | Jira or bug evidence folder | Product or recurring automation defect |
 
-## First-failure classification
-| Symptom | Likely class | First action |
-|---|---|---|
-| 401 or IDP token error | Auth, environment, or data | Confirm plant, account, token path, IDP availability |
-| Enrollment decrypt error | Encryption or session | New certificate and prospect; avoid double encryption |
-| 426 | App-version metadata | Confirm approved x-app-version |
-| Oracle timeout | Access or environment | Confirm VPN, Frogger, and port |
-| Empty SQL fixture | Data refresh | Recreate approved automation data |
-| Class never ran | Suite or group wiring | Check XML, profile, groups, exclusions |
-| 404 or 503 across tests | Environment or routing | Check service health before editing tests |
+## 2. Read the run in this order
+1. Confirm module, suite, environment, and branding are what you intended.
+2. Check passed/failed/skipped counts in index.html.
+3. Open the earliest failed class in the ordered chain.
+4. Read the HTTP status, assertion, sanitized failure reason, and duration.
+5. Treat later Enrollment skips as downstream symptoms until the first failed wizard step is resolved.
+6. Cross-check Surefire only when the portal lacks the compile/setup stack trace.
+7. Check recent deployment or database-refresh timing before changing code.
 
-## Triage steps
-1. Preserve timestamp, environment, plant, endpoint, class, and report.
-2. Re-run targeted once only when safe.
-3. Compare with service health and any recent refresh or deploy.
-4. Classify as environment, data, automation, product, or expected exclusion.
-5. For defects, use the automation bug lifecycle with sanitized evidence.
-
-## Evidence rules
-Prohibition callout: never attach bearer tokens, passwords, SSN, raw personal payloads, host properties, Postman environment JSON, or database credentials. Redact account identifiers unless the approved internal process requires them.
-
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+Publish under "Unite MSC API Automation", then continue with Part B.
 ```
 
-## 10 Test Data, DB Refresh and Security
-Characters: 3301
+## 09 Reporting and Troubleshooting - Part B
+Characters: 3784
 
 ```text
-Create a modern, visually polished SharePoint Site Page titled "10 Test Data, DB Refresh and Security".
+PART B of 3. Edit the existing SharePoint page "09 Reporting and Troubleshooting" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 3. Triage decision tree
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ run failed ]
+        |
+  did the build fail before TestNG started?
+        |-- yes -> local build or stale target/maven-compile
+        |
+       no
+        v
+  is this the earliest failure in an ordered chain?
+        |-- no  -> fix the earlier step first;
+        |          later skips are symptoms, not defects
+       yes
+        v
+  what is the signal?
+        |
+        +-- 401 on the Mobile 2 mobilemembers harness
+        |     -> expected exclusion, record and move on
+        +-- 401 elsewhere
+        |     -> auth, IDP state, or automation user for that branding
+        +-- 426
+        |     -> app-version fixture in Oracle
+        +-- 404 or 503 across unrelated tests
+        |     -> service or route health; check recent deploys
+        +-- Oracle error or empty fixture
+        |     -> host overlay, access, or post-refresh data
+        +-- decrypt or session error in Enrollment
+        |     -> restart a fresh full chain; check double encryption
+        +-- class never ran
+        |     -> suite XML, group, profile, or branding block wiring
+        +-- one stable business assertion fails
+              -> product or changed contract
+        v
+  classify: environment | data | automation | product | expected exclusion
+
+Classification decides who acts next. Never change test code to silence a failure you have not classified.
+
+## 4. First-failure classifier
+| Symptom | Likely class | First action |
+|---|---|---|
+| BUILD FAILURE before TestNG | Local build/dependency | Run mobile parent build; inspect Maven cause |
+| Unresolved compilation problems | Stale compile output | Delete module target/maven-compile and rerun |
+| 401 / IDP token failure | Auth, automation data, or environment | Confirm branding, IDP state, usable automation account |
+| 401 only on M2 mobilemembers harness GET | Expected harness design | Record as excluded observation; do not open product/coverage defect |
+| 426 | App-version metadata | Verify Oracle MIN_MOBILE_VERSION fixture |
+| Oracle connection/empty fixture | Access or refresh/data | Verify host overlay and recreate approved fixtures |
+| Enrollment decrypt/session error | Ordered state/encryption | Start a fresh chain; find first failed step; avoid double encryption |
+| Class never ran | XML/profile/group wiring | Check selected profile, XML, group, and all branding blocks |
+| 404/503 across unrelated tests | Route/service environment | Check service health/deploy before editing tests |
+| One stable L4 assertion fails | Product or changed contract | Reproduce targeted and compare approved expectation |
+
+Republish the page when finished.
+```
+
+## 09 Reporting and Troubleshooting - Part C
+Characters: 2638
+
+```text
+PART C of 3. Edit the existing SharePoint page "09 Reporting and Troubleshooting" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 5. Safe rerun strategy
+| Failure type | Rerun |
+|---|---|
+| Enrollment wizard step | Rerun the full ordered plan chain; do not start at a dependent middle step |
+| Read-only Mobile 1/2 class | Use a gitignored localhost XML containing setup + target class |
+| Destructive smoke test | Inspect existing state first; rerun only with automation-owned data |
+| Multi-plan failure | Reproduce only the failed branding locally, then restore full XML |
+| Environment-wide failure | Do not loop retries; wait for confirmed dependency recovery |
+
+Never delete a class from shared regression XML to create a green result. Any temporary local narrowing stays in a gitignored localhost suite.
+
+## 6. Minimum evidence for escalation
+Capture:
+- Jira story/bug and endpoint ID.
+- Timestamp, environment, branding, suite/profile, commit SHA.
+- Java class/method and HTTP method/path.
+- Expected vs actual status/business assertion.
+- Portal/Surefire artifact and whether targeted rerun reproduced.
+- Recent deploy/refresh/dependency context.
+- Classification: environment, data, automation, product, or expected exclusion.
+
+Use the automation bug lifecycle for product/recurring automation defects.
+
+## 7. Security and report sanitization
+SensitiveDataSanitizer masks bearer tokens, JWT-like strings, passwords, client secrets, and signing keys in report text.
+
+Prohibition callout: sanitization is defense in depth. Never deliberately log or attach passwords, tokens, SSN, bank data, certificates, host overlays, environment JSON, DB credentials/URLs, or raw personal payloads. Redact account identifiers unless the approved internal process requires them.
+
+Republish the page when finished.
+```
+
+## 10 Test Data, DB Refresh and Security - Part A
+Characters: 2939
+
+```text
+PART A of 3. Create a polished SharePoint Site Page titled "10 Test Data, DB Refresh and Security".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -899,50 +2212,163 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
-PAGE CONTENT — build the page from exactly this material:
+CONTENT:
 
 # 10 Test Data, DB Refresh and Security
-Purpose: How to keep automation data valid, what to do after a refresh, and what must never reach SharePoint.
+Purpose: Oracle-backed automation data, post-refresh recovery, safe fixture ownership, targeted SQL use, the L5 boundary, and strict secret/PII handling.
 
-## Test-data principles
-- Use automation-owned users and accounts, for example approved QAAUTOTEST patterns.
-- Generate unique data where the flow supports it.
-- Do not mutate arbitrary records returned by broad random SQL.
-- Record plant and environment with evidence.
+## 1. What Oracle is used for
+| Use | Modules |
+|---|---|
+| Select approved automation member/account and IDP metadata | Mobile 1, Mobile 2, subsequent Enrollment |
+| Resolve minimum supported app version | All mobile modules |
+| Resolve account extension, member ID, routing/bank | Mobile 1 and Mobile 2 |
+| Resolve recurring-contribution fixture ID | Mobile 2 |
+| Resolve active fund/plan data and verify created account | Enrollment |
 
-## After a database refresh
-1. Confirm environment restoration is complete.
-2. Restore or recreate approved automation accounts.
-3. Confirm MFA and IDP prerequisites for the selected plants.
-4. Confirm plan metadata, app version, routing, and fund fixtures.
-5. Validate VPN, Frogger, and database connectivity.
-6. Run the smallest smoke suite.
-7. Run targeted module regression only after smoke is green.
-8. Record remaining environment gaps in RAID or Jira.
+SQL is a controlled fixture/provider layer. It is not permission to browse or mutate arbitrary customer-like data.
 
-## SQL boundary
-Enrollment SQL in Git supports test-data setup and post-account verification. Mobile 1 and Mobile 2 field-level SQL analysis exists for future work. Leadership approved L1-L4 as the completion bar; do not claim L5 is implemented.
+## 2. Data rules
+- Use only approved automation-owned member/account patterns.
+- Generate unique Enrollment username and SSN values through framework placeholders.
+- Never hardcode a password, account extension, member ID, bank/contribution ID, routing number, fund ID, or app version in Java.
+- Mutating/delete cases must prove they own the record.
+- Keep SQL in the module SQL file with a named key and branding placeholder.
+- Record environment and branding with evidence; never publish returned rows.
 
-## Never upload to SharePoint
+Publish under "Unite MSC API Automation", then continue with Part B.
+```
+
+## 10 Test Data, DB Refresh and Security - Part B
+Characters: 3221
+
+```text
+PART B of 3. Edit the existing SharePoint page "10 Test Data, DB Refresh and Security" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
+
+APPEND EXACTLY:
+
+## 3. After a database refresh
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ refresh declared complete ]
+        v
+  [ recreate automation members per branding ]
+        | MFA-skip condition + IDP metadata
+        v
+  [ verify fixtures ]
+    app version | plan and fund | routing and bank | contribution
+        v
+  [ Enrollment smoke ]  ping, certificate, states, country, plans
+        |-- fails -> environment or data gap:
+        |            raise Jira and stop here
+       passes
+        v
+  [ one read-only Mobile 1 auth path ]
+        v
+  [ one read-only Mobile 2 path ]
+        v
+  [ targeted module regression ]
+        v
+  [ full ordered Enrollment chain ]   most dependent, so run it last
+        v
+  [ record any remaining gap in Jira ]
+
+Work in this order. Running the full Enrollment chain first after a refresh produces a wall of skips that hides the real cause.
+
+1. Confirm database and service restoration is declared complete.
+2. Recreate/verify automation-owned members and active accounts for all intended brandings.
+3. Confirm MFA-skip and IDP metadata required by authentication.
+4. Confirm minimum app version, plan metadata, active fund, routing/bank, and contribution fixtures.
+5. Validate your personal Oracle overlay without sharing its values.
+6. Run Enrollment smoke: ping, certificate, states, country, plans.
+7. Run one read-only Mobile 1 authentication path.
+8. Run targeted regression by module; run the full Enrollment chain last.
+9. Record unresolved data/environment gaps in Jira; do not weaken assertions to pass.
+
+## 4. Host overlay and configuration
+The personal <COMPUTERNAME>.properties file supplies UNITEDATABASEURL, UNITEUSERNAME, and UNITEPASSWORD. It lives under the module's src/test/resources/config/ path and is passed with -Dhost.properties.
+
+Environment files such as stage1.properties and qc4.properties select service behavior; Maven acceptance-stage1/acceptance-qc4 profiles select which file wins.
+
+Prohibition callout: never copy another engineer's host overlay or store one in SharePoint, Jira, Teams, qTest, Bruno, Postman, or Git.
+
+Republish the page when finished.
+```
+
+## 10 Test Data, DB Refresh and Security - Part C
+Characters: 2703
+
+```text
+PART C of 3. Edit the existing SharePoint page "10 Test Data, DB Refresh and Security" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Finish with the gray Source and ownership band below.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 5. SQL validation boundary
+| Level | Status |
+|---|---|
+| SQL for fixture selection/setup | Implemented and used |
+| Enrollment account-created verification | Implemented targeted validation |
+| L1-L4 API validation | Approved sign-off requirement |
+| Universal API-field to DB-field reconciliation (L5) | Analysis/SQL handoff only; not implemented completion gate |
+
+Rajib and Henry directed the team not to make L5 universal reconciliation mandatory because mappings require developer/SME involvement and are costly to sustain. Mobile 1/2 analysis and candidate SQL remain a future-team handoff, not a failed deliverable.
+
+## 6. Never upload or log
 Prohibition callout:
 - Postman environment JSON.
-- Local host or property overlays.
-- Passwords, tokens, certificates, private keys, SSN, or raw PII.
+- Local host/property overlays or DB URLs.
+- Passwords, tokens, cookies, certificates, private keys, SSN, bank data, or raw PII.
 - Database connection strings.
 - Raw SQL exports containing customer-like data.
 - target/ reports that include unsanitized payloads.
+- Screenshots showing credentials, tokens, or personal records.
 
 SharePoint links to controlled Git paths and ticketing processes. It is not a secret store or an executable configuration source.
 
-After generating, verify the page title, the breadcrumb, the quick links, and the Source and ownership band, then publish under "Unite MSC API Automation".
+## 7. Refresh-ready definition of done
+- [ ] Automation users exist for all required brandings and satisfy auth prerequisites.
+- [ ] Minimum version, plan/fund, bank/routing, and contribution queries return approved fixtures.
+- [ ] Enrollment health smoke is green.
+- [ ] One read-only Mobile 1 and Mobile 2 path is green.
+- [ ] Full ordered Enrollment chain completes before broad sign-off.
+- [ ] No credentials/PII appear in logs, reports, tickets, or SharePoint.
+- [ ] Remaining environment/data dependency has a Jira owner and evidence.
+
+Republish the page when finished.
 ```
 
 ## 11 Extend the Automation - Part A
-Characters: 2892
+Characters: 2957
 
 ```text
-PART A of 2. Create a polished SharePoint Site Page titled "11 Extend the Automation".
+PART A of 4. Create a polished SharePoint Site Page titled "11 Extend the Automation".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -965,35 +2391,179 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
 - Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
 CONTENT:
 
 # 11 Extend the Automation
-Purpose: How to add a scenario safely, including AI-assisted authoring and the definition of done.
+Purpose: New-endpoint playbook and prompt library: discovery, TestNG implementation, encryption/data, suite wiring, Bruno/qTest/Jira traceability, verification, review, and documentation.
 
-## Add a scenario from an existing pattern
-1. Identify the endpoint row and nearest canonical TestNG class in https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads
-2. Confirm method, path, and plant behavior with approved source evidence.
-3. Review the matching manual request in https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
-4. Review or create the manual case in https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign
-5. Link the manual and automated coverage to the delivering story under https://ascensuscollegesavings.atlassian.net/browse/QA-796
-6. Reuse the module base test and framework helpers.
-7. Use encrypted POST handling for Enrollment.
-8. Add lean L1-L4 assertions; do not dump full PII responses.
-9. Wire the class into every intended XML and Maven profile.
-10. Update the module coverage register.
-11. Run targeted, module, and applicable master suites.
-12. Attach sanitized evidence and obtain review.
+## 1. The new-endpoint workflow
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ intake ]     contract, auth, branding, data, safety, suites
+        v
+  [ discovery ]  reference class, POM, suite XML, fixtures,
+                 Bruno request, qTest case
+        v
+  [ implement ]  POJO -> base-class auth -> request -> L1-L4
+        v
+  [ wire ]       group -> every branding block -> suite XML
+                 -> Maven profile -> report listener
+        v
+  [ verify ]     compile -> targeted -> one branding
+                 -> all brandings -> impacted regression
+        v
+  [ trace ]      Bruno request -> qTest case -> Jira link
+                 -> coverage register
+        v
+  [ review ]     merge request: Summary, Related, Test plan, Risks
+        v
+  [ done ]       wired, evidenced, registers updated
+
+Skipping the wire step is the most common failure: the code compiles and passes locally but never runs in any suite, so it is not delivered coverage.
 
 Publish under "Unite MSC API Automation", then continue with Part B.
 ```
 
 ## 11 Extend the Automation - Part B
-Characters: 2642
+Characters: 3808
 
 ```text
-PART B of 2. Edit the existing SharePoint page "11 Extend the Automation" on API Testing Documentation Hub.
+PART B of 4. Edit the existing SharePoint page "11 Extend the Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 2. Intake before coding
+Capture in the Jira story:
+
+| Field | Required answer |
+|---|---|
+| Module | Mobile 1, Mobile 2, or Enrollment |
+| Contract | method, path, headers, parameters, request/response shape |
+| Auth | public, mobile JWT, IDP, prospect JWT, or member JWT |
+| Branding | okdirect, newyork, nmdirect differences |
+| Data | Oracle query, generated fixture, or prior-step context |
+| Safety | read-only, creates owned data, mutates/deletes |
+| Suites | regression, integration, smoke, localhost |
+| Assertions | L1-L4 expected behavior |
+
+Sources: canonical code https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads, Bruno https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads, qTest modules (Unite-MSC / MSC-Enrollment / MSC-Mobile1 / MSC-Mobile2), and the delivering story under https://ascensuscollegesavings.atlassian.net/browse/QA-796. Do not code from a screenshot or memory.
+
+qTest:
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+## 3. Choose the module pattern
+| Endpoint type | Extend/reuse |
+|---|---|
+| Mobile 1 auth/profile/session/device | MobileBaseRequestTest + nearest mobile1 class |
+| Mobile 2 account experience | Existing Mobile 2 class; reuse Mobile 1 auth/account context |
+| Enrollment wizard POST | EnrollmentBaseTest + ProspectSessionContext + encryption helpers |
+| Enrollment subsequent POST | Existing-member context + encrypted payload |
+| HAL list GET | Existing GenericEmbeddedPOJO pattern; avoid one-off wrappers |
+
+Follow the nearest working endpoint in the same module. Do not change shared framework APIs or unrelated POJOs merely to make one endpoint compile.
+
+## 4. Implement the TestNG case
+1. Add/reuse one request/response POJO per file following Lombok/Jackson conventions.
+2. Put endpoint path and fixture name in the test class.
+3. Use framework loaders/placeholders, not hardcoded IDs or personal data.
+4. Configure auth through the module base class.
+5. Build the request with the framework Rest Assured client.
+6. Assert L1 status, L2 contract, L3 typed/schema where useful, and L4 business outcome.
+7. Keep assertions lean and diagnostic; do not dump full bodies.
+8. For mutation/delete, prove the record is automation-owned and leave deterministic state.
+
+Republish the page when finished.
+```
+
+## 11 Extend the Automation - Part C
+Characters: 3368
+
+```text
+PART C of 4. Edit the existing SharePoint page "11 Extend the Automation" on API Testing Documentation Hub.
+
+Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
+
+Leave the page open for the next part.
+
+Final band: owner QA Automation; GitLab api-test-automation is executable source of truth; credentials, tokens, certificates, host properties, environment files, DB connection strings, and raw PII stay out of SharePoint.
+
+RULES:
+- Preserve every row, step, checklist item, and code block.
+- Invent no metrics, commands, owners, URLs, approvals, status, or availability.
+- Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
+- Keep [NEED_INPUT]. Edit only this page; create no child pages.
+
+APPEND EXACTLY:
+
+## 5. Enrollment-specific rules
+- Extend EnrollmentBaseTest, not BaseRequestTest directly.
+- Load fixture -> apply branding/session data -> encrypt once.
+- Mark encrypted API fields with @MobileEncrypt.
+- Steps after prospect use ProspectSessionContext JWT.
+- Insert the class in business order after its prerequisite.
+- Add it to every intended branding block in regression, integration, and localhost XML.
+- Do not create a new suite XML for one wizard step.
+- Rerun the full chain; a dependent middle step is not standalone proof.
+
+## 6. Wire execution correctly
+| Check | Required |
+|---|---|
+| Test group | Matches suite include: regression, integration, or functional |
+| Suite XML | Class added to every intended branding block |
+| Maven profile | Existing POM profile points to that XML |
+| Local XML | Example updated when local coverage is intended |
+| Reporting | MobileMsHtmlReportListener remains registered |
+| Environment | acceptance-stage1 / acceptance-qc4 stays last in -P |
+
+A Java test not wired into the intended XML is coded but not delivered coverage.
+
+## 7. Manual and management traceability
+1. Add/update the request under the correct Bruno module folder.
+2. Use variables/environment files; strip credentials and personal data.
+3. Create/update the qTest manual case in the matching module folder with preconditions, steps, and expected result.
+4. Link qTest and automation evidence to the delivering Jira story.
+5. Add endpoint ID/class/method/profile/plants to the coverage register; copy plants from the XML branding blocks you changed, not an older CSV value.
+6. Update sign-off/traceability if scope or exclusions changed.
+
+Bruno: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
+Epic: https://ascensuscollegesavings.atlassian.net/browse/QA-796
+
+qTest modules:
+| Module | qTest Test Design |
+|---|---|
+| Unite-MSC (parent) | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
+| MSC-Enrollment | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212335&object=0&tab=testdesign |
+| MSC-Mobile1 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212337&object=0&tab=testdesign |
+| MSC-Mobile2 | https://ascensus.qtestnet.com/p/118829/portal/project#id=69233940&object=0&tab=testdesign |
+
+Republish the page when finished.
+```
+
+## 11 Extend the Automation - Part D
+Characters: 3506
+
+```text
+PART D of 4. Edit the existing SharePoint page "11 Extend the Automation" on API Testing Documentation Hub.
 
 Append below existing content. Match its hero palette, table, section, callout, code, and checklist styling. Do not duplicate the hero, breadcrumb, or existing sections.
 
@@ -1009,34 +2579,45 @@ RULES:
 
 APPEND EXACTLY:
 
-## AI-assisted prompt pattern
-Render as a preformatted code block:
+## 8. Prompt library — discovery
+Render as a copyable preformatted template:
 
-Add a TestNG case for {METHOD} {PATH} in {MODULE}.
-Follow {EXISTING_CLASS}; do not change shared framework APIs.
-Do not log JWT, password, SSN, or full personal payloads.
-Add lean status and key business assertions.
-Wire only the approved plants and suite XMLs.
-Update the endpoint coverage register.
+Analyze {METHOD} {PATH} for {MODULE}. Read {REFERENCE_CLASS}, module POM, suite XML, SQL/JSON fixtures, and matching Bruno request. Return auth, branding, data prerequisites, encryption, POJO needs, L1-L4 assertions, safe suite placement, affected files, and risks. Do not edit. Do not invent fields, IDs, SQL mappings, plants, or credentials.
 
-Caution callout: human review is mandatory. AI must not invent endpoints, expected values, SQL mappings, plants, or credentials.
+## 9. Prompt library — implementation
+Render as a copyable preformatted template:
 
-## Definition of done
-- [ ] Code review complete and pipeline green.
-- [ ] Test is wired to the intended suite, not merely present.
-- [ ] Existing module and master suites show no unintended regression.
-- [ ] Coverage and traceability register updated.
-- [ ] Secrets scan clean.
-- [ ] Operational documentation updated when commands, environments, or ownership change.
+Implement {METHOD} {PATH} in {MODULE} for Jira {KEY}. Follow {REFERENCE_CLASS} and existing base classes. Do not change shared framework APIs without evidence. Use dynamic approved data and lean L1-L4 assertions. Never log JWT, password, SSN, bank data, host properties, or full payloads. Wire every approved branding block and existing suite profile. Update the coverage register and list exact verification commands.
 
-## Reference downloads
-Use the page library for approved sign-off, coverage, and traceability attachments.
+## 10. Prompt library — review and documentation
+Render as two copyable templates:
 
-- Automated code and configuration: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation
-- Mobile implementation: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads
-- Manual API testing in Bruno: https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
-- Manual test cases in qTest Test Design: https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign
-- Unite MSC Jira Epic and related stories: https://ascensuscollegesavings.atlassian.net/browse/QA-796
+REVIEW:
+Review this endpoint change against Jira AC, nearest module pattern, XML/POM wiring, all branding blocks, dynamic data, encryption, L1-L4 assertions, report sanitization, mutation safety, and regression impact. Report gaps with file/line evidence.
+
+DOCUMENT:
+Update endpoint ID, method/path, class/method, profiles, plants, validation layers, Bruno request, qTest case, Jira link, exclusions, and sanitized run evidence. Recalculate source registers before changing metrics.
+
+## 11. Verification ladder
+1. Parent/module compile with tests skipped.
+2. Targeted local test or gitignored localhost suite.
+3. Intended module suite for one branding.
+4. Full suite across all approved brandings.
+5. Impacted master regression when shared code changed.
+6. Inspect HTML portal failures/skips/sanitization.
+7. Review git diff for config, target/, secrets, and unrelated changes.
+8. Record command, environment, commit, result, and artifact in Jira.
+
+## 12. Definition of done
+- [ ] Jira scope and contract evidence are clear.
+- [ ] Correct base/helper and approved dynamic data are used.
+- [ ] L1-L4 assertions are meaningful and sanitized.
+- [ ] Mutation/delete is automation-owned and safe.
+- [ ] Every intended XML/group/branding/profile is wired.
+- [ ] Bruno, qTest, Jira, coverage, and traceability are linked.
+- [ ] Targeted + module + impacted regression pass with report evidence.
+- [ ] MR has Summary, Related, Test plan, Risks.
+- [ ] Review/secrets checks pass; no unrelated files changed.
 
 Republish the page when finished.
 ```

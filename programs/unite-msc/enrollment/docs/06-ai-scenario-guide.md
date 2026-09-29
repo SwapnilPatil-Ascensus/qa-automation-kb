@@ -10,7 +10,7 @@ Use Cursor (or another approved AI) to add a **new Enrollment TestNG case from a
 2. Same package, extend `EnrollmentBaseTest`.
 3. Same groups as siblings (`integration`, `regression` unless smoke-only `functional`).
 4. Encrypted POST if the API requires it.
-5. Wire the class in **all three** suite XMLs if it belongs on CI (smoke / regression / integration). nmdirect only in localhost example until CI story lands.
+5. Wire the class into every intended branding block in regression, integration, and localhost XML. Current ordered suites include okdirect, newyork, and nmdirect.
 
 ## Prompt skeleton (paste in Cursor on `api-test-automation`)
 
@@ -19,7 +19,7 @@ Add a TestNG class for POST {path} in mobile/enrollment.
 Clone the structure of {ExistingClass}. Do not change jsonapi-core.
 Do not log JWT, SSN, or passwords. Do not commit host properties.
 Add the class to enrollment-regression-testng.xml and enrollment-integration-testng.xml
-for okdirect and newyork only.
+for okdirect, newyork, and nmdirect.
 ```
 
 Attach the Postman request **with secrets stripped** (GitLab `api-test-automation` collection, not production data).

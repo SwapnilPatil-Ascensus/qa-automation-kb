@@ -11,6 +11,7 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
 
 APPEND EXACTLY:
 
@@ -32,33 +33,36 @@ Unite MSC API Automation
 
 | Page | What it is for |
 |---|---|
-| 01 KT and Onboarding | First-week path, KT demonstration, and completion checklist |
-| 02 Architecture and Ownership | Runtime model, GitLab folders, L1-L4 boundary, and who owns what |
-| 03 Access, Setup and Environments | Access tickets, local Maven setup, Stage1 vs QC4 vs localhost |
-| 04 Daily Run Playbook | Before-run checks, Maven examples, and after-run actions |
-| 05 Mobile 1 Automation | Mobile 1 scope, plants, sign-off artifacts, and known considerations |
-| 06 Mobile 2 Automation | Mobile 2 scope, coverage position, artifacts, and known considerations |
-| 07 Enrollment Automation | Enrollment wizard, suites, deferred partner APIs, and QC4 notes |
-| 08 Coverage, Traceability and Sign-off | Registers, endpoint tracing, sign-off bar, and enhancement backlog |
-| 09 Reporting and Troubleshooting | Where reports live and how to classify a first failure |
-| 10 Test Data, DB Refresh and Security | Refresh steps, SQL boundary, and what must never reach SharePoint |
-| 11 Extend the Automation | How to add a scenario, AI prompt pattern, and definition of done |
+| 01 KT and Onboarding | Install, clone, IDE, Oracle overlay, profiles, first runs, Bruno, standards |
+| 02 Architecture and Ownership | Framework, inheritance, config layers, reporting, L1-L5 boundary |
+| 03 Access, Setup and Environments | Access routes, secure local config, environment selection and proof |
+| 04 Daily Run Playbook | Choose/run a suite, inspect report, classify and preserve evidence |
+| 05 Mobile 1 Automation | 26/26 operations, auth/data model, suite split, execution and evidence |
+| 06 Mobile 2 Automation | 24/25 business coverage, fixtures, suite split, execution and evidence |
+| 07 Enrollment Automation | 25/28 catalog, encrypted ordered wizard and subsequent enrollment |
+| 08 Coverage, Traceability and Sign-off | 75 operations, 83-row legacy comparison, evidence and exclusions |
+| 09 Reporting and Troubleshooting | Portal/Surefire outputs, first-failure classifier, safe reruns |
+| 10 Test Data, DB Refresh and Security | Oracle fixtures, refresh recovery, L5 boundary and security |
+| 11 Extend the Automation | New-endpoint implementation playbook and reusable prompt library |
 
-## Start here
-Render this set as a second Quick Links web part in tile or grid layout.
+## Platform at a glance
+Render this diagram as a full-width monospace block, exactly as written:
 
-| I need to… | Open |
-|---|---|
-| Join or take over support | 01 KT and Onboarding |
-| Understand components and ownership | 02 Architecture and Ownership |
-| Get access and configure an environment | 03 Access, Setup and Environments |
-| Run a suite today | 04 Daily Run Playbook |
-| Check Mobile 1 | 05 Mobile 1 Automation |
-| Check Mobile 2 | 06 Mobile 2 Automation |
-| Check Enrollment | 07 Enrollment Automation |
-| Review coverage or sign-off | 08 Coverage, Traceability and Sign-off |
-| Diagnose a failure | 09 Reporting and Troubleshooting |
-| Prepare data after a refresh | 10 Test Data, DB Refresh and Security |
-| Add a scenario safely | 11 Extend the Automation |
+            Unite MSC API automation (one canonical platform)
+                                |
+        +-----------------+-----+-----------+
+        |                 |                 |
+    Mobile 1          Mobile 2          Enrollment
+  auth + session    account exp.    encrypted wizard
+        |                 |                 |
+        +--------+--------+--------+--------+
+                 |                 |
+        jsonapi-core framework   Oracle test data
+                 |
+   TestNG suite XML -> branding: okdirect | newyork | nmdirect
+                 |
+   HTML reporting portal -> evidence for triage and sign-off
+
+Mobile 2 reuses Mobile 1 authentication. Enrollment adds certificate-based encryption and an ordered session chain. Page 02 shows how each module reaches the BFF and the downstream services behind it.
 
 Republish the page when finished.

@@ -31,7 +31,7 @@ Purpose: Parent hub for Unite MSC API automation. Anyone who needs to support, r
 ## What this hub is
 This is the parent page for Unite MSC API automation on the API Testing Documentation Hub.
 
-It covers three modules: Mobile 1, Mobile 2, and Enrollment. Canonical automation is Java 17, Maven, TestNG, and Rest Assured in GitLab api-test-automation. This SharePoint page is the published operating guide. It is not the executable source of truth.
+It covers three modules: Mobile 1, Mobile 2, and Enrollment. Canonical automation is JDK 17, Maven, TestNG, Rest Assured, Oracle-backed test data, mobile encryption, and a reusable HTML reporting portal in GitLab api-test-automation. This SharePoint page is the published operating guide, not executable source.
 
 Informational callout: child pages 01 through 11 live under this parent. Do not create extra pages for individual endpoints, suites, SQL files, or Jira stories.
 

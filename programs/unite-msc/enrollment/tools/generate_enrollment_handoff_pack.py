@@ -36,24 +36,24 @@ ENDPOINTS = [
     ("ENR-05", "GET", "/enrollmentapi/v1/country", "Smoke", "EnrollmentCountryRequestTest", "Done", "okdirect"),
     ("ENR-06", "GET", "/enrollmentapi/v1/plans", "Smoke", "EnrollmentPlansRequestTest", "Done", "okdirect"),
     ("ENR-07", "GET", "/enrollmentapi/v1/plans/{planId}", "Smoke", "EnrollmentPlansRequestTest", "Done", "okdirect"),
-    ("ENR-08", "GET", "/enrollmentapi/v1/content", "Wizard", "EnrollmentContentRequestTest", "Done", "okdirect+newyork"),
+    ("ENR-08", "GET", "/enrollmentapi/v1/content", "Wizard", "EnrollmentContentRequestTest", "Done", "okdirect+newyork+nmdirect"),
     ("ENR-09", "POST", "/mobile1api/v1/mobilemembersession", "Optional", "MobileMemberSessionRequestTest", "Done (smoke group)", "okdirect"),
-    ("ENR-10", "POST", ".../enrollmentstarted", "Wizard", "EnrollmentStartedRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-11", "POST", ".../prospects", "Wizard", "ProspectRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-12", "POST", ".../owner-entered", "Wizard", "OwnerEnteredTests", "Done", "okdirect+newyork"),
-    ("ENR-13", "POST", ".../owner-address-entered", "Wizard", "OwnerAddressEnteredRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-14", "POST", ".../beneficiary-entered", "Wizard", "BeneficiaryEnteredTests", "Done", "okdirect+newyork"),
-    ("ENR-15", "POST", ".../verify/routingnumber", "Wizard", "VerifyBankRoutingNumberRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-16", "POST", ".../bank-entered", "Wizard", "BankEnteredRequestTests", "Done", "okdirect+newyork"),
-    ("ENR-17", "POST", ".../recurring-contribution-entered", "Wizard", "RecurringContributionEnteredRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-18", "POST", ".../enrollmentallocationfunds/get", "Wizard", "AllocationFundRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-19", "POST", ".../allocations-entered", "Wizard", "AllocationsEnteredRequestTests", "Done", "okdirect+newyork"),
-    ("ENR-20", "POST", ".../review-confirm-entered", "Wizard", "ReviewConfirmEnteredRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-21", "GET", ".../subsequentenrollment/banks", "Subsequent", "SubsequentEnrollmentBanksRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-22", "POST", ".../subsequent.../beneficiary-entered", "Subsequent", "SubsequentBeneficiaryEnteredRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-23", "POST", ".../subsequent.../bank-entered", "Subsequent", "SubsequentEnrollmentBankEnteredRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-24", "POST", ".../subsequent.../recurring-contribution", "Subsequent", "SubsequentEnrollmentRecurringContributionRequestTest", "Done", "okdirect+newyork"),
-    ("ENR-25", "POST", ".../subsequent.../review-confirm-entered", "Subsequent", "SubsequentEnrollmentReviewConfirmEnteredRequestTest", "Done", "okdirect+newyork"),
+    ("ENR-10", "POST", ".../enrollmentstarted", "Wizard", "EnrollmentStartedRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-11", "POST", ".../prospects", "Wizard", "ProspectRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-12", "POST", ".../owner-entered", "Wizard", "OwnerEnteredTests", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-13", "POST", ".../owner-address-entered", "Wizard", "OwnerAddressEnteredRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-14", "POST", ".../beneficiary-entered", "Wizard", "BeneficiaryEnteredTests", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-15", "POST", ".../verify/routingnumber", "Wizard", "VerifyBankRoutingNumberRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-16", "POST", ".../bank-entered", "Wizard", "BankEnteredRequestTests", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-17", "POST", ".../recurring-contribution-entered", "Wizard", "RecurringContributionEnteredRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-18", "POST", ".../enrollmentallocationfunds/get", "Wizard", "AllocationFundRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-19", "POST", ".../allocations-entered", "Wizard", "AllocationsEnteredRequestTests", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-20", "POST", ".../review-confirm-entered", "Wizard", "ReviewConfirmEnteredRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-21", "GET", ".../subsequentenrollment/banks", "Subsequent", "SubsequentEnrollmentBanksRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-22", "POST", ".../subsequent.../beneficiary-entered", "Subsequent", "SubsequentBeneficiaryEnteredRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-23", "POST", ".../subsequent.../bank-entered", "Subsequent", "SubsequentEnrollmentBankEnteredRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-24", "POST", ".../subsequent.../recurring-contribution", "Subsequent", "SubsequentEnrollmentRecurringContributionRequestTest", "Done", "okdirect+newyork+nmdirect"),
+    ("ENR-25", "POST", ".../subsequent.../review-confirm-entered", "Subsequent", "SubsequentEnrollmentReviewConfirmEnteredRequestTest", "Done", "okdirect+newyork+nmdirect"),
     ("ENR-26", "POST", ".../enrollments/submit", "Partner", "—", "Deferred QA-1808", "—"),
     ("ENR-27", "GET", ".../upromiseaccount", "Partner", "—", "Deferred QA-1807", "—"),
     ("ENR-28", "POST", ".../oauth/token", "Partner", "—", "Deferred", "—"),
@@ -274,24 +274,24 @@ def doc_setup():
     cover(doc, "Architecture, setup, environments", "Local machine through Stage1 and QC4", "GUIDE", TEAL)
     heading(doc, "1. Stack")
     kv_table(doc, [
-        ("Language / build", "Java 17 · Maven 3.9+"),
+        ("Language / build", "JDK 17 · Maven 3.6.3+ (3.8+ recommended)"),
         ("Tests", "TestNG · Rest Assured · EnrollmentBaseTest"),
         ("Not used", "Cucumber (legacy UniteMSC archived)"),
         ("Encryption", "Required on POST for Stage1 and QC4"),
     ])
     heading(doc, "2. First-time setup")
     for b in [
-        "Clone api-test-automation. Do not clone this KB as the test runtime.",
+        "Clone the canonical GitLab api-test-automation repository.",
         "mvn -f mobile/pom.xml clean install -DskipTests",
-        "Create gitignored host file: mobile/enrollment/src/test/resources/config/<COMPUTERNAME>.properties",
-        "Point enrollment URI at unite-bff-cloud (not WTN).",
+        "After the build populates src/test/resources/config/, copy config.properties to <COMPUTERNAME>.properties (gitignored; not committed)",
+        "Use the approved Enrollment BFF route supplied through the environment profile.",
     ]:
         doc.add_paragraph(b, style="List Number")
     heading(doc, "3. Environments")
     grid_table(doc, ["Env", "Enrollment host pattern", "DB", "Use"], [
-        ["Stage1", "unite-bff-cloud.stage1.unite529.com", "Tunnel localhost:41521 typical", "Regression"],
-        ["QC4", "unite-bff-cloud.qc4.unite529.com", "qc4.properties Oracle", "Integration"],
-        ["Plan-branded", "okd.stage1.acs529.com (example)", "Same plant DB rules", "Plant-specific"],
+        ["Stage1", "Approved Enrollment BFF route", "Stage1 profile + personal Oracle overlay", "Regression"],
+        ["QC4", "Approved Enrollment BFF route", "QC4 profile + personal Oracle overlay", "Integration"],
+        ["Plan-branded", "Approved branded route", "Same plant DB rules", "Plant-specific"],
     ])
     heading(doc, "4. Auth and secrets")
     callout(doc, "Never commit JWT, SSN, passwords, or host property files. Prospect JWT is runtime-only.", AMBER_BG)
@@ -307,20 +307,20 @@ def doc_exec():
     cover(doc, "Execution and troubleshooting", "Commands to run suites and classify failures", "GUIDE", TEAL)
     heading(doc, "1. Commands (repo root)")
     grid_table(doc, ["Suite", "Command (edit host file name)"], [
-        ["Smoke Stage1", 'mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-smoke,acceptance-stage1" "-Dhost.properties=LT12800.properties"'],
-        ["Regression Stage1", 'mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-regression,acceptance-stage1" "-Dhost.properties=LT12800.properties"'],
-        ["Integration QC4", 'mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-integration,acceptance-qc4" "-Denvironment.properties=qc4.properties" "-Dhost.properties=qc4.properties"'],
+        ["Smoke Stage1", 'mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-smoke,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties"'],
+        ["Regression Stage1", 'mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-regression,acceptance-stage1" "-Dhost.properties=<COMPUTERNAME>.properties"'],
+        ["Integration QC4", 'mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-integration,acceptance-qc4" "-Dhost.properties=<COMPUTERNAME>.properties"'],
     ])
     heading(doc, "2. Troubleshooting")
     grid_table(doc, ["Symptom", "Cause", "Action"], [
         ["401 / decrypt fail", "Stale JWT or double encrypt", "New prospect; encrypt from plaintext"],
         ["426", "x-app-version", "1.8.0+ or DB min version"],
-        ["DB timeout", "No Frogger", "PuTTY Frogger session"],
+        ["DB timeout", "Oracle relay/access unavailable", "Verify approved relay access and personal overlay"],
         ["Session test skipped", "groups=functional", "Expected in regression filter"],
-        ["nmdirect missing", "Not in CI XML", "Known gap — not a product bug"],
+        ["One branding fails", "Data/IDP/environment or product", "Reproduce that branding; current XML includes all three"],
     ])
     heading(doc, "3. Pipeline")
-    para(doc, "Enrollment GitLab nightly is not in local gitlab-ci yet. Mobile 2 nightly is the pattern to copy (QA-1405). Same Maven profiles locally and in CI.")
+    para(doc, "Enrollment nightly is not verified in current .gitlab-ci.yml. QA-1405 is historical design context, not proof of a live Mobile 2 or Enrollment scheduled job.")
     save(doc, "Enrollment-Execution-Troubleshooting.docx")
 
 
@@ -356,10 +356,10 @@ def doc_signoff():
         ("Version", "1.0"),
         ("Date", SIGNOFF_DATE),
         ("Jira", "QA-893 / QA-2043"),
-        ("Determination", "COMPLETE — happy path + subsequent on OK Direct and New York"),
+        ("Determination", "COMPLETE — defined happy path + subsequent scope"),
     ], last_green=True)
     heading(doc, "2. Executive summary")
-    callout(doc, "25 of 28 catalog endpoints automated (89%). Wizard 15/15. Three partner rows deferred. NM Direct and GitLab nightly are follow-up, not missing wizard code.")
+    callout(doc, "25 of 28 catalog endpoints automated (89.3%). Current regression/integration XML runs 17 ordered classes for OK Direct, New York, and NM Direct. Three partner rows are deferred.")
     p = chart()
     if p.exists():
         doc.add_picture(str(p), width=Inches(6.0))
@@ -369,9 +369,8 @@ def doc_signoff():
         ("Catalog / automated / deferred", "28 / 25 / 3"),
         ("Test classes", "23 + EnrollmentBaseTest"),
         ("@Test methods", "25"),
-        ("CI plants", "okdirect, newyork"),
-        ("Local-only plant", "nmdirect"),
-        ("Enrollment nightly", "Not created"),
+        ("Suite XML plants", "okdirect, newyork, nmdirect"),
+        ("Enrollment nightly", "Not verified in current GitLab CI"),
     ])
     heading(doc, "4. Endpoint register")
     grid_table(
@@ -386,7 +385,6 @@ def doc_signoff():
         ["GET /upromiseaccount", "QA-1807"],
         ["POST /oauth/token", "Not MSC E2E"],
         ["Negatives", "Enhancement for receiving team"],
-        ["nmdirect CI", "Follow-up story"],
         ["GitLab nightly", "Follow-up story"],
     ])
     heading(doc, "6. Approvals")
@@ -406,18 +404,18 @@ def doc_handoff():
     cover(doc, "Post database-refresh checklist", "Operational steps before calling regression green", "CHECKLIST", TEAL)
     heading(doc, "1. After refresh")
     grid_table(doc, ["#", "Task", "Done"], [
-        ["1", "VPN + Frogger/PuTTY (gwtpsshrelay01)", ""],
+        ["1", "Verify team-approved Oracle relay access", ""],
         ["2", "Host properties still valid (not committed)", ""],
         ["3", "Recreate QAAUTOTEST% (or current pattern) accounts", ""],
         ["4", "Re-enroll test MFA devices only", ""],
         ["5", "GET certificate — encrypt with new cert", ""],
         ["6", "Smoke okdirect", ""],
-        ["7", "Wizard regression okdirect + newyork", ""],
+        ["7", "Wizard regression okdirect + newyork + nmdirect", ""],
         ["8", "Allocation fund ids still valid", ""],
         ["9", "Freshservice if Linux/DB access dropped", ""],
     ])
     heading(doc, "2. Minimum bar")
-    callout(doc, "Green smoke + one wizard regression on okdirect = env usable. Two-plant regression = sustainment bar.")
+    callout(doc, "Green smoke + one wizard regression on okdirect = environment usable. Full three-plant regression = current sustainment bar.")
     save(doc, "Enrollment-Handoff-DB-Refresh-Checklist.docx")
 
 
@@ -426,7 +424,7 @@ def doc_ai():
     setup_doc(doc, "Enrollment API  ·  AI scenarios")
     cover(doc, "AI-assisted scenario development", "Cursor pattern with mandatory human review", "GUIDE", TEAL)
     heading(doc, "1. Copy a neighbor class")
-    para(doc, "Clone OwnerEnteredTests (or similar). Extend EnrollmentBaseTest. Same TestNG groups. Wire regression + integration XML for okdirect and newyork only.")
+    para(doc, "Clone the nearest step. Extend EnrollmentBaseTest. Preserve groups and ordered state. Wire regression, integration, and localhost XML for every intended branding block.")
     heading(doc, "2. Prompt rules")
     callout(doc, "Do not put passwords, JWT, or SSN in the prompt. Attach stripped Postman from GitLab api-test-automation (no secrets).", AMBER_BG)
     heading(doc, "3. Human review")

@@ -22,7 +22,7 @@
 Repeat in numeric order:
 
 1. Create a Site Page with the exact title in [README.md](./README.md).
-2. Paste the matching `copilot/*-prompt.md` in full. For 08 and 11, paste A first, then B against the same page.
+2. Paste every matching prompt alphabetically against the same page: A creates/publishes it; later letters append and republish. Pages split as far as E, so check the README for each page's exact file list before starting.
 3. Link approved Word/CSV/XLSX attachments listed in the manifest.
 4. Publish under `Unite MSC API Automation`.
 
@@ -68,6 +68,7 @@ Run [publish-validation-checklist.md](./publish-validation-checklist.md). At min
 - Verify 26 M1, 24 in-scope M2, and 25/28 Enrollment are presented with their scope qualifiers.
 - Verify L5 SQL says analysis/future enhancement, not implemented.
 - Verify `[NEED_INPUT]` approvals were not silently replaced.
+- Verify every workflow diagram kept its monospace alignment and was not redrawn as an image.
 - Ask a second engineer to complete the “find → run → report → troubleshoot” path.
 
 ## 7. Maintenance

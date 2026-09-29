@@ -22,7 +22,7 @@ Integration (QC4):
 mvn -f mobile/enrollment/pom.xml test "-Pmobile-ms-enrollment-integration,acceptance-qc4" "-Denvironment.properties=qc4.properties" "-Dhost.properties=qc4.properties"
 ```
 
-CI uses the **same** profiles; GitLab host file is `gitlab.properties` plus secure DB file. Enrollment **nightly job is not created yet** (Mobile 2 nightly exists).
+CI uses the **same** profiles with controlled secure files. Enrollment nightly is not present in current `.gitlab-ci.yml`; do not claim a Mobile 2 or Enrollment nightly without verifying the current job and schedule.
 
 ## First failure — classify
 
@@ -30,7 +30,7 @@ CI uses the **same** profiles; GitLab host file is `gitlab.properties` plus secu
 |---------|--------------|--------|
 | 401 / decrypt error | Wrong cert, double encrypt, stale JWT | New prospect; encrypt from plaintext |
 | 426 | x-app-version too low | Use 1.8.0+ or plan SQL min version |
-| Timeout to Oracle | Frogger/PuTTY down | Load Frogger, port 41521 |
+| Timeout to Oracle | Relay/access or personal overlay unavailable | Verify approved relay access and local overlay; do not share values |
 | 500 on prospect | Extra owner fields / empty body | Minimum prospect payload |
 | Class skipped in regression | Test group `functional` | `MobileMemberSessionRequestTest` is smoke-only |
 | nmdirect missing | Not in CI XML | Known gap — not a product defect |

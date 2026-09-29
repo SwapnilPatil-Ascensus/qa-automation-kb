@@ -1,4 +1,4 @@
-PART A of 2. Create a polished SharePoint Site Page titled "08 Coverage, Traceability and Sign-off".
+PART A of 3. Create a polished SharePoint Site Page titled "08 Coverage, Traceability and Sign-off".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -26,18 +26,35 @@ RULES:
 CONTENT:
 
 # 08 Coverage, Traceability and Sign-off
-Purpose: Where coverage lives, how to trace an endpoint to evidence, and what the sign-off boundary means.
+Purpose: Executive coverage story and reviewer drill-down: what was automated, how much improved over legacy, where every endpoint maps, and what COMPLETE means.
 
-## Coverage sources
-| Source | System of record |
-|---|---|
-| Mobile 1 | mobile1-endpoint-current-state.csv |
-| Mobile 2 | mobile2-endpoint-current-state.csv |
-| Enrollment | enrollment-endpoint-current-state.csv and the coverage workbook |
-| Legacy to canonical | legacy-to-canonical-traceability.csv |
-| Automated implementation | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads |
-| Manual API collection | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads |
-| Manual test cases | https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign |
-| Delivery scope and stories | https://ascensuscollegesavings.atlassian.net/browse/QA-796 |
+## 1. Coverage at a glance
+| Module | Catalog | Automated business operations | Coverage | Sign-off |
+|---|---:|---:|---:|---|
+| Mobile 1 | 26 | 26 | 100% | COMPLETE |
+| Mobile 2 | 25 | 24 | 96.0% | COMPLETE; one harness excluded |
+| Enrollment | 28 | 25 | 89.3% | COMPLETE for MSC scope; 3 partner APIs deferred |
+| Total | 79 | 75 | 94.9% | L1-L4 completion boundary |
+
+This is 75 canonical business API operations across Mobile 1, Mobile 2, and Enrollment—not merely converted scripts. The work adds multi-plan suites, SQL-driven data, IDP paths, mobile encryption, subsequent enrollment, lean assertions, and reusable reporting.
+
+## 2. Legacy-to-canonical scorecard
+| Delta in the 83-row traceability matrix | Rows |
+|---|---:|
+| Improved | 47 |
+| Newly added | 22 |
+| Unchanged | 6 |
+| Explicitly excluded | 6 |
+| Missing/backlog | 2 |
+
+69 of 83 traced rows are improved or newly added. Improvements include IDP token flows absent from legacy Cucumber, encrypted Enrollment requests, dynamic Oracle fixtures, multi-plan execution, dashboard consolidation from eight scenarios to one lean test, and subsequent Enrollment APIs missing from the early spreadsheet.
+
+## 3. What COMPLETE means
+- Every in-scope operation has a canonical Java class/method and stable endpoint ID.
+- The class is wired into an intended TestNG suite/profile and branding block.
+- L1 HTTP, L2 contract, L3 typed/schema where supported, and L4 business assertions are present.
+- Coverage registers and formal sign-off packs record exclusions and enhancement scope.
+- Code presence is not a current green run; execution evidence remains run-specific.
+- L5 universal API-to-DB reconciliation is documented analysis, not the approved completion gate.
 
 Publish under "Unite MSC API Automation", then continue with Part B.

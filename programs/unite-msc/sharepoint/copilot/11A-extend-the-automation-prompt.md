@@ -1,4 +1,4 @@
-PART A of 2. Create a polished SharePoint Site Page titled "11 Extend the Automation".
+PART A of 4. Create a polished SharePoint Site Page titled "11 Extend the Automation".
 
 Site: API Testing Documentation Hub. Publish it under the parent page "Unite MSC API Automation", not at the hub root.
 
@@ -21,25 +21,37 @@ RULES:
 - Invent no metrics, commands, owners, URLs, approvals, status, or availability.
 - Never add passwords, JWT, SSN, certificates, host properties, environment JSON, DB connection strings, or raw PII.
 - Keep [NEED_INPUT]. Edit only this page; create no child pages.
+- Keep each diagram in one full-width monospace block, character for character; never redraw it.
 - Build only this part. Leave the page ready for the next part; do not add the Source and ownership band.
 
 CONTENT:
 
 # 11 Extend the Automation
-Purpose: How to add a scenario safely, including AI-assisted authoring and the definition of done.
+Purpose: New-endpoint playbook and prompt library: discovery, TestNG implementation, encryption/data, suite wiring, Bruno/qTest/Jira traceability, verification, review, and documentation.
 
-## Add a scenario from an existing pattern
-1. Identify the endpoint row and nearest canonical TestNG class in https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/mobile?ref_type=heads
-2. Confirm method, path, and plant behavior with approved source evidence.
-3. Review the matching manual request in https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/tree/main/bruno/Mobile/mobile-msc/Unite-MSC-Bruno_collection?ref_type=heads
-4. Review or create the manual case in https://ascensus.qtestnet.com/p/118829/portal/project#id=69212334&object=0&tab=testdesign
-5. Link the manual and automated coverage to the delivering story under https://ascensuscollegesavings.atlassian.net/browse/QA-796
-6. Reuse the module base test and framework helpers.
-7. Use encrypted POST handling for Enrollment.
-8. Add lean L1-L4 assertions; do not dump full PII responses.
-9. Wire the class into every intended XML and Maven profile.
-10. Update the module coverage register.
-11. Run targeted, module, and applicable master suites.
-12. Attach sanitized evidence and obtain review.
+## 1. The new-endpoint workflow
+Render this diagram as a full-width monospace block, exactly as written:
+
+  [ intake ]     contract, auth, branding, data, safety, suites
+        v
+  [ discovery ]  reference class, POM, suite XML, fixtures,
+                 Bruno request, qTest case
+        v
+  [ implement ]  POJO -> base-class auth -> request -> L1-L4
+        v
+  [ wire ]       group -> every branding block -> suite XML
+                 -> Maven profile -> report listener
+        v
+  [ verify ]     compile -> targeted -> one branding
+                 -> all brandings -> impacted regression
+        v
+  [ trace ]      Bruno request -> qTest case -> Jira link
+                 -> coverage register
+        v
+  [ review ]     merge request: Summary, Related, Test plan, Risks
+        v
+  [ done ]       wired, evidenced, registers updated
+
+Skipping the wire step is the most common failure: the code compiles and passes locally but never runs in any suite, so it is not delivered coverage.
 
 Publish under "Unite MSC API Automation", then continue with Part B.

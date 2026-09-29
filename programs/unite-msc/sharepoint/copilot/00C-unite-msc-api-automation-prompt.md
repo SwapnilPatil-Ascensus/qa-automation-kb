@@ -14,6 +14,23 @@ RULES:
 
 APPEND EXACTLY:
 
+## Start here
+Render this set as a second Quick Links web part in tile or grid layout.
+
+| I need to… | Open |
+|---|---|
+| Join or take over support | 01 KT and Onboarding |
+| Understand components and ownership | 02 Architecture and Ownership |
+| Get access and configure an environment | 03 Access, Setup and Environments |
+| Run a suite today | 04 Daily Run Playbook |
+| Check Mobile 1 | 05 Mobile 1 Automation |
+| Check Mobile 2 | 06 Mobile 2 Automation |
+| Check Enrollment | 07 Enrollment Automation |
+| Review coverage or sign-off | 08 Coverage, Traceability and Sign-off |
+| Diagnose a failure | 09 Reporting and Troubleshooting |
+| Prepare data after a refresh | 10 Test Data, DB Refresh and Security |
+| Add a scenario safely | 11 Extend the Automation |
+
 ## Who should use this hub
 | Audience | Use this hub to |
 |---|---|
@@ -22,12 +39,25 @@ APPEND EXACTLY:
 | Module owner | Confirm Mobile 1, Mobile 2, or Enrollment scope and exclusions |
 | Lead or reviewer | Find sign-off, coverage, and the L1-L4 completion bar |
 
+## Program accomplishment
+| Measure | Result |
+|---|---:|
+| Catalog rows reviewed | 79 |
+| Automated business operations | 75 |
+| Overall catalog coverage | 94.9% |
+| Mobile 1 | 26/26 = 100% |
+| Mobile 2 | 24/25 = 96.0% |
+| Enrollment | 25/28 = 89.3% |
+| Legacy traceability rows improved/new | 69 of 83 |
+
+The result is a canonical, multi-plan TestNG platform—not a one-time script conversion. It includes IDP flows, encrypted Enrollment, dynamic Oracle fixtures, safe destructive-suite separation, Bruno manual collections, endpoint registers, formal sign-off packs, and a reusable reporting portal.
+
 ## Current scope
 | Module | Current documented scope | Primary plants | Child page |
 |---|---|---|---|
-| Mobile 1 | 26 coded endpoint operations | OK Direct; NM Direct on applicable auth/IDP flows | 05 Mobile 1 Automation |
-| Mobile 2 | 24 in-scope business APIs; harness excluded | OK Direct, New York; selected NM Direct smoke | 06 Mobile 2 Automation |
-| Enrollment | 25 automated of 28 catalog rows; 3 partner APIs deferred | OK Direct, New York | 07 Enrollment Automation |
+| Mobile 1 | 26/26 endpoint operations | Current XML: OK Direct, New York, NM Direct | 05 Mobile 1 Automation |
+| Mobile 2 | 24/25 business operations; harness excluded | Current XML: OK Direct, New York, NM Direct | 06 Mobile 2 Automation |
+| Enrollment | 25/28 catalog rows; 3 partner APIs deferred | Current XML: OK Direct, New York, NM Direct | 07 Enrollment Automation |
 
 Enrollment deferred items are partner submit, Upromise account, and OAuth token. They are exclusions, not missing coding in the signed-off MSC happy path.
 
@@ -39,16 +69,5 @@ Enrollment deferred items are partner submit, Upromise account, and OAuth token.
 | Localhost examples | Development templates only | Not CI evidence |
 
 Caution callout: QC4 is not a substitute for Stage1 sign-off evidence. After any database refresh, use page 10 before classifying a product defect.
-
-## Validation and sign-off bar
-| Layer | Meaning | Sign-off |
-|---|---|---|
-| L1 | HTTP status and transport | Required |
-| L2 | Contract and response shape | Required |
-| L3 | Schema and typed payload | Required where supported |
-| L4 | Business assertions | Required |
-| L5 | API-to-database field reconciliation | Optional enhancement; not the completion gate |
-
-Leadership directed that L5 SQL field reconciliation is not the completion gate. Do not claim L5 is implemented.
 
 Republish the page when finished.

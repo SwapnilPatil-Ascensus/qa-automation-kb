@@ -17,7 +17,7 @@
 | Not started (in scope) | **0** |
 | Deferred (out of scope) | **3** |
 
-**Coding status (Sep 2026):** Initial wizard including `review-confirm-entered` is Done. Subsequent banks / beneficiary / bank-entered / recurring / review-confirm are Done for **okdirect + newyork**. Remaining is documentation, CI plants (nmdirect), negatives, partner APIs.
+**Coding status (Sep 2026):** Initial wizard including `review-confirm-entered` is Done. Subsequent banks / beneficiary / bank-entered / recurring / review-confirm are Done for **okdirect + newyork + nmdirect** in current regression/integration XML. Remaining scope is negatives, deferred partner APIs, and a verified nightly job.
 
 ---
 
@@ -96,7 +96,7 @@ _None._
 | Suite | What runs |
 |-------|-----------|
 | `enrollment-smoke-testng.xml` | Bootstrap GETs + optional mobile login (okdirect) |
-| `enrollment-regression-testng.xml` | Full wizard + subsequent (okdirect + newyork) |
+| `enrollment-regression-testng.xml` | Full wizard + subsequent (okdirect + newyork + nmdirect) |
 | `enrollment-integration-testng.xml` | Same as regression on QC4 |
 | `localhost-testng.xml.example` | Local three-plan shell including nmdirect — not CI |
 

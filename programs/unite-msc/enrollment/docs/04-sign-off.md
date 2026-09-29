@@ -16,7 +16,7 @@
 | Deferred | 3 |
 | Test classes | 23 + EnrollmentBaseTest |
 | @Test methods | 25 |
-| Plants in CI | okdirect, newyork |
+| Plants in current regression/integration XML | okdirect, newyork, nmdirect |
 | Plants local only | nmdirect |
 | GitLab nightly | Not created |
 
@@ -44,7 +44,7 @@
 |-------|--------------------------|
 | OK Direct | Yes — coded in suite XML |
 | New York | Yes — coded in suite XML |
-| NM Direct | localhost example only |
+| GitLab nightly | Not verified in current `.gitlab-ci.yml` |
 
 Store dated HTML in `api-test-automation/evidence/regression-runs/` when a Stage1 run is captured. Independent reviewer must confirm commands (QA-2047).
 

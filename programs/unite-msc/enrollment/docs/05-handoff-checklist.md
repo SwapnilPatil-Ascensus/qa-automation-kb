@@ -13,13 +13,13 @@ Run this after Stage1 / QC4 DB refresh **before** claiming Enrollment regression
 
 | # | Task | Done |
 |---|------|------|
-| 1 | VPN + Frogger/PuTTY tunnel up (`gwtpsshrelay01`, Stage1 DB localhost:41521) | |
+| 1 | Team-approved Oracle relay access and personal host overlay verified | |
 | 2 | Confirm `qc4.properties` / host file still points at live hosts (do not commit secrets) | |
 | 3 | Recreate or verify `QAAUTOTEST%` (or current automation username pattern) | |
 | 4 | MFA / SMS / email OTP: if enrollment or mobile login needs a device, re-enroll **test** devices only | |
 | 5 | GET `/enrollmentapi/v1/certificate` — new cert after env rebuild | |
 | 6 | Smoke: `mobile-ms-enrollment-smoke` on okdirect | |
-| 7 | Regression: wizard through review-confirm on okdirect + newyork | |
+| 7 | Regression: full ordered flow on okdirect + newyork + nmdirect | |
 | 8 | If mobile session step is used: Mobile1 session user still exists | |
 | 9 | Allocation funds GET or SQL fund ids still valid | |
 | 10 | File a Freshservice ticket if Linux/DB access was wiped — not RT | |
@@ -40,4 +40,4 @@ Run this after Stage1 / QC4 DB refresh **before** claiming Enrollment regression
 
 ## Sign-off after refresh
 
-A green smoke + one wizard regression on okdirect is the minimum to call the env usable. Full two-plant regression is the sustainment bar.
+A green smoke + one wizard regression on okdirect is the minimum to call the environment usable. Full three-plant regression is the current sustainment bar.
