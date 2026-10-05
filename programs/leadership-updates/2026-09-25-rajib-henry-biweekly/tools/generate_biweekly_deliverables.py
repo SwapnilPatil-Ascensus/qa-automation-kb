@@ -81,7 +81,7 @@ def chart_msc_progress(m: dict) -> Path:
     ax.set_xlim(0, 110)
     ax.set_yticks(y, labels)
     ax.set_xlabel("Completion %")
-    ax.set_title("Unite MSC — Program Progress (Sprint 26.16)", fontweight="bold", color="#003241")
+    ax.set_title("Unite MSC — Program Progress (Oct 2026)", fontweight="bold", color="#003241")
     for bar, val in zip(bars, values):
         ax.text(val + 2, bar.get_y() + bar.get_height() / 2, f"{val}%", va="center", fontweight="bold")
     ax.spines[["top", "right"]].set_visible(False)
@@ -96,12 +96,13 @@ def chart_sprint_mix(m: dict) -> Path:
     w = 0.25
     fig, ax = plt.subplots(figsize=(9, 4.8))
     ax.bar(x - w, mix["sprint_26_15"], w, label="Sprint 26.15", color="#003241")
-    ax.bar(x, mix["sprint_26_16"], w, label="Sprint 26.16 (current)", color="#00A3E0")
-    ax.bar(x + w, mix["sprint_26_15_plan"], w, label="Next focus", color="#00B388")
+    ax.bar(x, mix["sprint_26_16"], w, label="Sprint 26.16", color="#00A3E0")
+    ax.bar(x + w, mix["sprint_26_15_plan"], w, label="Sprint 26.17 focus", color="#00B388")
     ax.set_xticks(x, labels, rotation=15, ha="right")
     ax.set_ylabel("Relative effort %")
-    ax.set_title("Sprint Focus — 26.15 · 26.16 (current)", fontweight="bold")
+    ax.set_title("Sprint Focus — 26.16 · 26.17 (current)", fontweight="bold")
     ax.legend(fontsize=8, loc="upper right")
+    # fix legend labels in chart_sprint_mix - need to update bar labels too
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", alpha=0.2)
     return save_chart(fig, "02-sprint-focus-mix.png")
@@ -323,6 +324,8 @@ def build_pptx(m: dict) -> Path:
     perf = m["performance"]
     cap = m["capacity"]
     meeting = datetime.strptime(m["meeting_date"], "%Y-%m-%d").strftime("%B %d, %Y")
+    meeting_time = m.get("meeting_time", "")
+    meeting_note = m.get("meeting_note", "")
 
     # 1 Title
     slide = prs.slides.add_slide(prs.slide_layouts[6])
@@ -334,8 +337,13 @@ def build_pptx(m: dict) -> Path:
     t.text_frame.paragraphs[0].font.bold = True
     t.text_frame.paragraphs[0].font.color.rgb = WHITE
     s = slide.shapes.add_textbox(MARGIN, PptInches(3.35), PptInches(11), PptInches(0.6))
-    s.text_frame.paragraphs[0].text = f"Biweekly Status · {meeting}"
-    s.text_frame.paragraphs[0].font.size = PptPt(18)
+    cover_sub = f"Biweekly Status · {meeting}"
+    if meeting_time:
+        cover_sub += f" · {meeting_time}"
+    if meeting_note:
+        cover_sub += f"  ({meeting_note})"
+    s.text_frame.paragraphs[0].text = cover_sub
+    s.text_frame.paragraphs[0].font.size = PptPt(16)
     s.text_frame.paragraphs[0].font.color.rgb = TEAL
     a = slide.shapes.add_textbox(MARGIN, PptInches(4.2), PptInches(11), PptInches(0.5))
     a.text_frame.paragraphs[0].text = "Rajib · Henry · Persistent Delivery Managers"
@@ -358,10 +366,10 @@ def build_pptx(m: dict) -> Path:
         add_kpi_card(slide, x, PptInches(1.55), PptInches(2.55), PptInches(1.35), lb, val, ac, sub)
     pm = m.get("pending_merge", {})
     slide_bullets(slide, "What leadership should know", [
-        "Scope: Sprints 26.15 and 26.16 (current) — MSC API coding 100% on main (MR !268 merged)",
-        "Wrap-up this sprint: SharePoint KT, qTest, QC4 — only Enrollment perf remains after that",
-        "Team: Preeti (M1 perf by tomorrow) · Venkatesh (V2→V3) · He (V3 IDP profile) · Dinesh (MSC handoff)",
-        "Ask: confirm Dinesh packages remaining universal APIs into regression/integration/nightly (QA-892)",
+        "MSC coding 100% · ENVP QA-600 closed · SharePoint hub publishing next",
+        "Perf regression healthy · Enrollment MSC perf is last MSC perf gap",
+        "API GitLab nightly still pending DevOps (batch/job ready — need DB files + owner)",
+        "Critical asks: MFA Stage1 support · Stage5/CAT takeover · V3 IDP/UE sustaining owner",
     ], MARGIN, PptInches(3.2), PptInches(12.1), PptInches(3.6), font_size=9.5)
     slide_footer(slide, "Sources: Jira AMSQUAD board · GitLab (3 repos) · Jenkins/GitLab nightly logs", n := n + 1)
 
@@ -404,12 +412,12 @@ def build_pptx(m: dict) -> Path:
     ts = m.get("team_status", {})
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     slide_bg(slide)
-    slide_header(slide, "Team Status by Owner", "Sprint 26.16 — who is doing what", "Team")
+    slide_header(slide, "Team Status by Owner", "Sprint 26.17 — who is doing what", "Team")
     slide_bullets(slide, "Preeti — Performance", [
         f"Mobile 2: {ts.get('preeti_perf', {}).get('mobile2', 'Done')}",
-        f"Mobile 1: {ts.get('preeti_perf', {}).get('mobile1', 'Done by tomorrow')}",
+        f"Mobile 1: {ts.get('preeti_perf', {}).get('mobile1', 'Done')}",
         f"Enrollment: {ts.get('preeti_perf', {}).get('enrollment', 'Remaining')}",
-        ts.get("preeti_perf", {}).get("jenkins", "Jenkins jobs ready — nightly schedule pending"),
+        ts.get("preeti_perf", {}).get("jenkins", "Perf regression healthy"),
     ], MARGIN, PptInches(1.45), PptInches(6.0), PptInches(2.5), CORAL, font_size=8.5)
     slide_bullets(slide, "Venkatesh — V2", [
         ts.get("venkatesh_v2", {}).get("enrollment_login_reg", ""),
@@ -429,14 +437,55 @@ def build_pptx(m: dict) -> Path:
     if ask:
         slide = prs.slides.add_slide(prs.slide_layouts[6])
         slide_bg(slide)
-        slide_header(slide, "Leadership Decision — API Suite Packaging", ask.get("title", ""), "Ask")
+        slide_header(slide, "Leadership Decision — API Nightly / Regression", ask.get("title", ""), "Ask")
         slide_bullets(slide, "The gap", [
             ask.get("summary", ""),
-            f"Proposed owner: {ask.get('owner_proposed', 'Dinesh')}",
-            f"Jira: {ask.get('jira', 'QA-892')}",
-            "Enables DevOps / nightly jobs to run full universal API regression + integration",
+            f"Proposed owner: {ask.get('owner_proposed', 'DevOps')}",
+            f"Track: {ask.get('jira', 'QA-892')}",
+            "Perf regression already healthy — no change. API regression waits on nightly ownership.",
         ], MARGIN, PptInches(1.5), PptInches(12.1), PptInches(4.5), CORAL, font_size=10)
-        slide_footer(slide, "Please confirm yes/no on this call so we can plan Sprint 26.17", n := n + 1)
+        slide_footer(slide, "Please confirm DevOps owner on this call — API regression waits on nightly", n := n + 1)
+
+    # Support ownership (critical asks)
+    so = m.get("support_ownership_asks", {})
+    if so:
+        slide = prs.slides.add_slide(prs.slide_layouts[6])
+        slide_bg(slide)
+        slide_header(slide, "Support Ownership — Decisions Needed", so.get("intro", "")[:90], "Critical")
+        left = []
+        right = []
+        for i, item in enumerate(so.get("items", [])):
+            line = f"{item['area']}: {item['ask']}"
+            (left if i < 3 else right).append(line)
+        slide_bullets(slide, "Stage1 · Stage5 · V3", left,
+                      MARGIN, PptInches(1.45), PptInches(6.0), PptInches(5.2), CORAL, font_size=8.5)
+        slide_bullets(slide, "API nightly · Perf", right,
+                      PptInches(7.0), PptInches(1.45), PptInches(5.7), PptInches(5.2), TEAL, font_size=8.5)
+        slide_footer(slide, "Today these duties are single-threaded on Swapnil — need named owners", n := n + 1)
+
+    # Monthly TCs snapshot (Dhanashree)
+    mt = m.get("monthly_tcs", {})
+    if mt:
+        slide = prs.slides.add_slide(prs.slide_layouts[6])
+        slide_bg(slide)
+        slide_header(slide, "TCs Added — Jul / Aug / Sep", mt.get("note", ""), "Metrics")
+        v2 = mt.get("v2", {})
+        v3 = mt.get("v3", {})
+        msc = mt.get("msc_x3", {})
+        pe = mt.get("perf", {})
+        slide_bullets(slide, "V2 / V3 (Apr–Jun unchanged)", [
+            f"V2: Jul {v2.get('jul')} · Aug {v2.get('aug')} · Sep {v2.get('sep')}  (Sardine · stabilize · CSR Actions)",
+            f"V3: Jul {v3.get('jul')} · Aug {v3.get('aug')} · Sep {v3.get('sep')}  (WebRereg ×3 · bank/bene ×4)",
+            f"Stage5/CAT Sep +{mt.get('stage5_sep')} (remainder after Apr/May stand-up)",
+        ], MARGIN, PptInches(1.45), PptInches(6.0), PptInches(5.2), NAVY, font_size=9)
+        slide_bullets(slide, "Why Jul–Aug V2/V3 looked lower", [
+            f"MSC API (×3 plans): Jul {msc.get('jul')} · Aug {msc.get('aug')} · Sep {msc.get('sep')}",
+            f"Perf JMeter: Jul {pe.get('jul')} · Aug {pe.get('aug')} · Sep {pe.get('sep')}",
+            "Capacity on MSC + Perf + Stage5/CAT — Sep V2/V3 uptick intentional",
+            "Shared with Dhanashree for QA AUTO monthly chart fill",
+        ], PptInches(7.0), PptInches(1.45), PptInches(5.7), PptInches(5.2), TEAL, font_size=9)
+        slide_footer(slide, "MSC = methods × OKD/NYD/NMD · Removals not counted as negative adds", n := n + 1)
+
     slide_chart_page(prs, n := n + 1, "Unite MSC — Endpoint Coverage",
         "M2 25/25 · M1 26/26 in-scope", "04-msc-endpoint-coverage.png",
         [
@@ -459,9 +508,9 @@ def build_pptx(m: dict) -> Path:
         "Pipeline is not 'done' until QC4 proof passes — design is ready",
     ], MARGIN, PptInches(1.5), PptInches(5.8), PptInches(5.2), CYAN)
     slide_bullets(slide, "What we need", [
-        "DevOps: GitLab nightly job for MSC regression (in progress)",
-        "Leadership: identify non-IDP plan contacts for lower-environment testing",
-        "Sign-off: names for M1/M2 acceptance before we schedule review sessions",
+        "DevOps owner: copy DB files to server · own API GitLab nightly job (setup mostly ready)",
+        "Stage1 MFA / DB update support for offshore (today: Swapnil only)",
+        "Stage5/CAT + V3 IDP/UE sustaining owners so support is not single-threaded",
     ], PptInches(6.7), PptInches(1.5), PptInches(5.9), PptInches(5.2), CORAL)
     slide_footer(slide, "Aligned with Jul 2025 hybrid decision — Stage1 primary until QC4 stabilizes", n := n + 1)
 
@@ -528,9 +577,9 @@ def build_pptx(m: dict) -> Path:
             cap["msc_wrap"],
             f"New work capacity: {cap['new_work']}",
             "Dinesh + Swapnil → SharePoint, qTest, QC4 wrap-up",
-            "Preeti → M1 perf (by tomorrow) then Enrollment MSC perf + nightly schedule",
-            "Ask: QA-892 API suite packaging OR Atlas OR continue V2/V3 gaps",
-        ], "MSC coding done — sign-off + handoff in progress", "Capacity")
+            "Preeti → Enrollment MSC perf (last MSC perf gap)",
+            "Ask: name MFA / Stage5 / V3 / API-nightly owners — then Atlas vs suite packaging",
+        ], "MSC coding done — support handovers unlock capacity", "Capacity")
 
     # 12 V2 sunset
     slide = prs.slides.add_slide(prs.slide_layouts[6])
@@ -577,11 +626,11 @@ def build_pptx(m: dict) -> Path:
     t.text_frame.paragraphs[0].font.bold = True
     t.text_frame.paragraphs[0].font.color.rgb = WHITE
     s = slide.shapes.add_textbox(MARGIN, PptInches(4.1), PptInches(11), PptInches(0.5))
-    s.text_frame.paragraphs[0].text = "Detailed briefing document shared · KB: programs/leadership-updates/2026-09-25-rajib-henry-biweekly/"
+    s.text_frame.paragraphs[0].text = "Detailed briefing + PDF shared · Swapnil Patil · QA Automation AM Squad"
     s.text_frame.paragraphs[0].font.size = PptPt(12)
     s.text_frame.paragraphs[0].font.color.rgb = TEAL
 
-    out = DELIVERABLES / "AM-Squad-Biweekly-Status-Rajib-Henry-Sep25-2026.pptx"
+    out = DELIVERABLES / "AM-Squad-Biweekly-Status-Rajib-Henry-Oct01-2026.pptx"
     DELIVERABLES.mkdir(parents=True, exist_ok=True)
     prs.save(out)
     return out
@@ -646,7 +695,7 @@ def build_docx(m: dict) -> Path:
         ("Prepared by", "Swapnil Patil / QA Automation AM Squad"),
         ("Sprints covered", m["sprints"]["scope"]),
         ("Classification", "Internal — Leadership"),
-        ("Companion deck", "AM-Squad-Biweekly-Status-Rajib-Henry-Sep25-2026.pptx"),
+        ("Companion deck", "AM-Squad-Biweekly-Status-Rajib-Henry-Oct01-2026.pptx"),
     ]
     for i, (label, val) in enumerate(rows_meta):
         meta.rows[i].cells[0].text = label
@@ -657,14 +706,14 @@ def build_docx(m: dict) -> Path:
     doc.add_heading("Executive Summary", level=1)
     pm = m.get("pending_merge", {})
     doc.add_paragraph(
-        "Unite MSC API coding is 100% complete on main (MR !268 / QA-1938 merged; Bruno collections "
-        "MR !271 merged). Sprint 26.16 wrap-up: SharePoint KT pack, qTest manual cases, QC4 E2E proof. "
-        "Only Enrollment performance remains after wrap-up. Preeti finishes Mobile 1 perf by Sep 26; "
-        "Mobile 2 perf done; Jenkins API perf jobs ready but not nightly-scheduled. Venkatesh nearly "
-        "done with V2 enroll/login/registration retire-or-migrate; member flows move to V3 as Direct "
-        "plans are on universal. He is expanding V3 IDP profile coverage after illness. Leadership "
-        "decision needed: assign Dinesh to package remaining universal APIs into regression/integration/"
-        "nightly suites (QA-892) vs Atlas vs continued V2/V3 gap work."
+        "Unite MSC API coding is 100% complete on main (MR !268 / QA-1938; Bruno MR !271). ENVP Epic "
+        "QA-600 closed. SharePoint KT hub (parent + 11 children) is ready to publish under API Testing "
+        "Documentation Hub. Performance regression is healthy; Enrollment MSC perf is the last MSC "
+        "perf gap. API GitLab nightly is still pending DevOps — batch/job/remote mostly ready; need DB "
+        "files on the server and a named owner (API regression waits on that). Critical support asks: "
+        "Stage1 MFA disable for offshore (Swapnil is currently the only update path), Stage5/CAT "
+        "regression takeover (V2+V3 suites running per Brian), and sustaining support for V3 IDP + "
+        "Universal Enrollment. Jul–Sep TCs added shared with Dhanashree (V2 33/8/39 · V3 10/8/16)."
     )
     p = m["pulse"]
     u = m["unite_msc"]
@@ -809,19 +858,30 @@ def build_docx(m: dict) -> Path:
         doc.add_paragraph(item, style="List Bullet")
     doc.add_page_break()
 
+    # Support ownership detail
+    so = m.get("support_ownership_asks", {})
+    if so:
+        doc.add_heading("5. Support Ownership (critical)", level=1)
+        doc.add_paragraph(so.get("intro", ""))
+        add_table(doc, ["Area", "Today", "Ask"], [
+            (i["area"], i["today"], i["ask"]) for i in so.get("items", [])
+        ])
+        doc.add_page_break()
+
     # Leadership asks
-    doc.add_heading("5. Leadership Asks & Decisions", level=1)
+    doc.add_heading("6. Leadership Asks & Decisions", level=1)
     for category, asks in m["leadership_asks"].items():
         doc.add_heading(category, level=2)
         for ask in asks:
             doc.add_paragraph(ask, style="List Bullet")
-    doc.add_heading("Sign-off owners needed (names TBD from leadership)", level=2)
+    doc.add_heading("Owners needed (names TBD on this call)", level=2)
     add_table(doc, ["Area", "What we need", "Suggested role"], [
-        ("Mobile 2 API", "Green signal for 25/25 endpoint coverage", "MSC API SME / product owner"),
-        ("Mobile 1 API", "Accept 26/26 in-scope endpoints (suite-tier routing)", "MSC API SME"),
-        ("MSC Pipeline", "Approve GitLab nightly + ENVP integration", "DevOps + program lead"),
-        ("Performance baselines", "Accept IDP/MSC perf thresholds", "Platform / perf SME"),
-        ("Non-IDP test plans", "Name plans for QC4 lower env", "Product / plan configuration owner"),
+        ("Stage1 MFA / DB updates", "Offshore MFA disable after refresh / new accounts", "Stage1 support / DBA path"),
+        ("Stage5 / CAT regression", "Take over V2 + V3 CAT smoke support", "QA automation owner"),
+        ("V3 IDP + UE", "Sustaining support for defects + suite health", "V3 automation owner"),
+        ("API GitLab nightly", "Copy DB files · own job · schedule nightly", "DevOps + QA contact"),
+        ("Performance regression", "Already healthy — no change", "Preeti (keep)"),
+        ("MSC SharePoint hub", "Sustaining reader after publish", "ACM / program lead"),
     ])
     doc.add_page_break()
 
@@ -838,11 +898,11 @@ def build_docx(m: dict) -> Path:
         doc.add_paragraph(r, style="List Bullet")
     styled(doc, f"Generated {datetime.now().strftime('%B %d, %Y')}.", italic=True, size=9, color=DOCX_GRAY)
 
-    out = DELIVERABLES / "AM-Squad-Biweekly-Status-Rajib-Henry-Sep25-2026.docx"
+    out = DELIVERABLES / "AM-Squad-Biweekly-Status-Rajib-Henry-Oct01-2026.docx"
     try:
         doc.save(out)
     except PermissionError:
-        out = DELIVERABLES / "AM-Squad-Biweekly-Status-Rajib-Henry-Sep25-2026-UPDATED.docx"
+        out = DELIVERABLES / "AM-Squad-Biweekly-Status-Rajib-Henry-Oct01-2026-UPDATED.docx"
         doc.save(out)
         print(f"Note: original DOCX locked — wrote {out.name} instead")
     return out

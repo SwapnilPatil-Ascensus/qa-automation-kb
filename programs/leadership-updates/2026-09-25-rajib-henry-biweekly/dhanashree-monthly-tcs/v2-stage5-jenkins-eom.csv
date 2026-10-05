@@ -1,0 +1,7 @@
+month,v2_stage1_tcs_added,stage5_v2_tcs_added,v2_stage1_eom_inventory,notes
+2026-04,46,0,,Prior Dhanashree chart
+2026-05,25,0,,Prior Dhanashree chart
+2026-06,15,0,508,Prior chart add; EOM inventory from report 20260630
+2026-07,33,0,498,NEW stage1-sardine-regression +33 methods; web-login removed (not counted as add)
+2026-08,0,0,462,No new suites; sardine out of nightly (ignore removal)
+2026-09,39,128,451,NEW stage1-csr-actions +39; Stage5 V2 ~128 methods now in active regression reporting

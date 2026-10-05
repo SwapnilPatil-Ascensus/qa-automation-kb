@@ -1,14 +1,15 @@
-# Executive Summary — Rajib / Henry Biweekly (Sep 25, 2026)
+# Executive Summary — Rajib / Henry Biweekly (Oct 1, 2026 · 3:00 PM ET)
 
-**Presenter:** Swapnil Patil · **Deck:** `deliverables/AM-Squad-Biweekly-Status-Rajib-Henry-Sep25-2026.pptx`  
-**Sprint scope:** 26.15 + **26.16 (current, 9/16–9/29)**  
+**Presenter:** Swapnil Patil · **Deck:** `deliverables/AM-Squad-Biweekly-Status-Rajib-Henry-Oct01-2026.pptx`  
+**Note:** Rescheduled from Fri Sep 25  
+**Sprint scope:** 26.16 closeout + **26.17 (current)**  
 **Board:** [QA AMSQUAD](https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/2515)
 
 ---
 
 ## 30-second opener
 
-> **MSC API coding is 100% done.** M1, M2, Enrollment on main — Bruno collections merged. This sprint we finish **SharePoint KT, qTest, QC4 proof**. Only **Enrollment performance** remains after that. **Preeti:** M2 perf done, **M1 done by tomorrow**, Enrollment next; Jenkins jobs ready — need nightly schedule. **Venkatesh:** V2 enroll/login/reg almost done; **member cases migrating to V3** (Direct→universal). **He:** back on V3 IDP profile gaps. **Ask:** do you want **Dinesh** to package remaining universal APIs into **regression + integration + nightly** suites (**QA-892**)?
+> **MSC coding is done. ENVP QA-600 is closed.** SharePoint KT hub is ready to publish. **Perf regression is healthy** — Enrollment MSC perf is the last MSC perf gap. **API GitLab nightly is still pending DevOps** — batch/job/remote mostly ready; need DB files on the server and a named owner (API regression waits on that). **Critical asks today:** (1) Stage1 **MFA / DB update support** for offshore — I’m the only one with update access; (2) **Stage5/CAT** regression takeover — I’ve been running V2+V3 per Brian; (3) **V3 IDP + Universal Enrollment** sustaining owner.
 
 ---
 
@@ -16,47 +17,42 @@
 
 | Metric | Value |
 |--------|-------|
-| MSC coding | **100%** (MR !268 merged Sep 11) |
-| Bruno migration | **Merged** (MR !271 Sep 21) |
-| Stage1 / V2 / V3 health | **Recovered** after DB refresh |
-| Perf | M2 done · M1 by Sep 26 · Enrollment remaining |
-| Wrap-up target | **End Sprint 26.16** |
+| MSC coding | **100%** on main |
+| ENVP QA-600 | **Closed** |
+| SharePoint hub | Parent + 11 children — **publishing** |
+| Perf regression | **Healthy** (Enrollment MSC perf remaining) |
+| API GitLab nightly | **Pending DevOps** ownership |
+| Stage1 / Stage5 | Recovered · CAT regression **running** (needs owner) |
 
 ---
 
-## Team by owner
+## Leadership asks (need names on this call)
 
-| Owner | Focus | Status |
-|-------|--------|--------|
-| **Preeti** | MSC performance | M2 done; M1 done tomorrow; Enrollment next; Jenkins jobs ready (not nightly yet) |
-| **Venkatesh** | V2 → V3 | Enroll/login/reg almost done; member IDP → V3; CSR daily wiring |
-| **He** | V3 IDP profile | Back after illness; fixed profile issues; adding missing IDP profile cases |
-| **Dinesh + Swapnil** | MSC wrap-up | Bruno done; SharePoint + qTest + QC4 by end of sprint |
+1. **Stage1 MFA / DB updates** — offshore has no update access; MFA disable after refresh / new accounts is single-threaded on me. Arrange support.  
+2. **Stage5 / CAT regression** — name owner to take over V2 + V3 smoke support.  
+3. **V3 IDP + Universal Enrollment** — name sustaining support owner.  
+4. **API GitLab nightly** — confirm DevOps owner; copy DB files; turn on job. API regression pending until then.  
+5. **Perf** — no ask (healthy). Keep Enrollment MSC perf priority.  
+6. **Post-MSC queue** — Atlas vs API suite packaging vs Stage5/V3 support capacity?
 
 ---
 
-## Leadership asks (need answers on call)
+## Jul–Sep TCs (shared with Dhanashree)
 
-1. **QA-892:** Assign Dinesh to wire remaining universal APIs into master regression / integration / nightly?  
-2. **Post-MSC queue:** Atlas (Oct) vs API suite packaging vs continue V2/V3 gaps?  
-3. **Approve** retiring V2 member IDP for Direct plans now on universal (V3 source of truth)?  
-4. **Approve** scheduling API/MSC perf Jenkins jobs for nightly?  
-5. **Name** ACM / SharePoint sustaining owner for MSC handoff?
+| | Jul | Aug | Sep |
+|--|-----|-----|-----|
+| V2 | 33 | 8 | 39 |
+| V3 | 10 | 8 | 16 |
+| Stage5/CAT | — | — | 49 |
+| MSC ×3 plans | 99 | 75 | 6 |
+| Perf | 12 | 22 | 47 |
 
 ---
 
 ## If they ask “what’s left on MSC?”
 
-| Done | This sprint | After wrap-up |
-|------|-------------|---------------|
-| Coding M1/M2/Enrollment | SharePoint, qTest, QC4 | Enrollment **performance** |
-| Bruno collections | KT docs for QAs | Optional: **QA-892** suite packaging |
-| MR !268 | | |
-
----
-
-## References
-
-- Board: https://ascensuscollegesavings.atlassian.net/jira/software/c/projects/QA/boards/2515  
-- [Previous biweekly Sep 11](../2026-09-11-rajib-henry-biweekly/README.md)  
-- QA-892 suite packaging · QA-2084 SharePoint · QA-2101–2108 qTest · QA-2159–2163 M1 perf
+| Done | In flight | Waiting |
+|------|-----------|---------|
+| Coding M1/M2/Enrollment | SharePoint publish | API GitLab nightly (DevOps) |
+| Bruno · qTest links · QA-600 | Enrollment **performance** | API regression schedule |
+| Perf regression healthy | | Named support owners (MFA / CAT / V3) |

@@ -16,6 +16,7 @@
 - [ ] Mobile 1 page links to its sign-off and endpoint CSV.
 - [ ] Mobile 2 page links to its sign-off and endpoint CSV.
 - [ ] Enrollment page links to QA-893 artifacts and coverage.
+- [ ] Manual cases link to the four qTest modules: Unite-MSC (69212334), MSC-Enrollment (69212335), MSC-Mobile1 (69212337), MSC-Mobile2 (69233940).
 - [ ] Coverage page links to the QA-1942 traceability pack.
 - [ ] Troubleshooting classifies environment, data, automation, and product failures.
 - [ ] Extension page covers intake, module pattern, code, suite wiring, Bruno/qTest/Jira, prompt library, verification, review, and DoD.

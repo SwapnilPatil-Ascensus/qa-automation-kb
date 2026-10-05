@@ -1,6 +1,10 @@
 # JIRA Stories — Unite MSC (Swapnil)
 
-**Epic:** [QA-796](https://ascensuscollegesavings.atlassian.net/browse/QA-796) · **ENVP:** [QA-600](https://ascensuscollegesavings.atlassian.net/browse/QA-600)  
+**Epic:** [QA-796](https://ascensuscollegesavings.atlassian.net/browse/QA-796) · **ENVP:** [QA-600](https://ascensuscollegesavings.atlassian.net/browse/QA-600)
+
+| Draft | File |
+|-------|------|
+| SharePoint Copilot publish (parent + 11 children) | [UNITE-MSC-sharepoint-copilot-publish.md](./UNITE-MSC-sharepoint-copilot-publish.md) |  
 **Reporter:** Swapnil Patil
 
 | # | Story | File | Suggested points |
