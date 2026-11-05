@@ -1,6 +1,6 @@
 # JIRA Bug — QC4 Mobile Login Failure (`mobilemembersession` ECONNRESET)
 
-**Issue folder:** `programs/unite-msc/api-validation/ISSUES/06242026`  
+**Issue folder:** `government-savings/programs/unite-msc/api-validation/ISSUES/06242026`  
 **Date reported:** June 24, 2026  
 **RT:** [514351](https://rt.acs529.com/Ticket/Display.html?id=514351)  
 **DevOps channel:** DevOps Request (posted same day)
@@ -123,7 +123,7 @@ Connection reset before any HTTP status is returned.
 
 - RT: https://rt.acs529.com/Ticket/Display.html?id=514351
 - DevOps Request channel — 2026-06-24
-- KB: qa-automation-kb/programs/unite-msc/api-validation/ISSUES/06242026/
+- KB: qa-automation-kb/government-savings/programs/unite-msc/api-validation/ISSUES/06242026/
 
 ## Evidence
 
@@ -314,7 +314,7 @@ RCA: [One paragraph from section 5 — Confirmed root cause]
 
 Corrective action: [From DevOps]
 
-KB: qa-automation-kb/programs/unite-msc/api-validation/ISSUES/06242026/JIRA-bug-QC4-mobile-login-ECONNRESET.md
+KB: qa-automation-kb/government-savings/programs/unite-msc/api-validation/ISSUES/06242026/JIRA-bug-QC4-mobile-login-ECONNRESET.md
 ```
 
 ---

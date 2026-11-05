@@ -2,7 +2,7 @@
 
 The **primary regression documentation** lives under:
 
-`qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/`
+`government-savings/qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/`
 
 This is the most content-rich and frequently updated area of the repo.
 
@@ -169,7 +169,7 @@ suites/v3/
 | Screenshots, `.txt` logs | Evidence |
 | `[date]_[Feature]_[Issue].md` | JIRA + email + Teams package |
 
-**Not the same as** `qa-knowledge-base/04_EXECUTION/regression/` area rollup docs.
+**Not the same as** `government-savings/qa-knowledge-base/04_EXECUTION/regression/` area rollup docs.
 
 ---
 

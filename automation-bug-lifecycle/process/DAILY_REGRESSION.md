@@ -209,7 +209,7 @@ Daily regression tests are executed automatically to verify core functionality r
 
 - `automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md` - Handling flaky tests
 - `automation-bug-lifecycle/process/RCA_PROCESS.md` - Root cause analysis
-- `qa-knowledge-base/06_TEMPLATES/EXEC_REPORT_TEMPLATE.md` - Report template
+- `government-savings/qa-knowledge-base/06_TEMPLATES/EXEC_REPORT_TEMPLATE.md` - Report template
 
 ## Notes
 

@@ -491,7 +491,7 @@ def build_docx(charts: dict[str, Path]) -> None:
         ("Detect", "V2 Jenkins or V3 GitLab regression reports failure. Record last green run timestamp."),
         ("Triage", "Classify per Section 2. Rerun locally. Check environment health (automation-bug-lifecycle/process/DAILY_REGRESSION.md)."),
         ("Evidence", "Folder: automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/ — screenshots, logs, test data."),
-        ("Cursor H", "qa-knowledge-base/00_SYSTEM/PROMPTS.md section H → JIRA block + email + Teams in one .md file."),
+        ("Cursor H", "government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md section H → JIRA block + email + Teams in one .md file."),
         ("JIRA + Notify", "QA board ticket. Leadership-approved To/Cc. Critical legit → lock main (10 AM SLA)."),
         ("Change set", "GitLab Project Manager: MRs + commits between last pass and failure."),
         ("Resolve", "Fix verified → JIRA closed with RCA → resolution email → unlock main."),
@@ -502,7 +502,7 @@ def build_docx(charts: dict[str, Path]) -> None:
         set_cell_text(st.rows[0].cells[i], h, bold=True, color=WHITE_RGB)
     style_table_header(st.rows[0])
     refs = ["automation-bug-lifecycle/process/DAILY_REGRESSION.md", "FLAKINESS_PLAYBOOK.md", "BUG_REPORTING_PROCESS.md",
-            "qa-knowledge-base/00_SYSTEM/PROMPTS.md", "Confluence Bug Handling PDFs", "GitLab Project Manager", "1b Resolution PDF"]
+            "government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md", "Confluence Bug Handling PDFs", "GitLab Project Manager", "1b Resolution PDF"]
     for ri, ((act, det), ref) in enumerate(zip(steps, refs), start=1):
         set_cell_text(st.rows[ri].cells[0], str(ri), bold=True, color=NAVY)
         set_cell_text(st.rows[ri].cells[1], f"{act}: {det}")
@@ -611,11 +611,11 @@ def build_docx(charts: dict[str, Path]) -> None:
         set_cell_text(src.rows[0].cells[i], h, bold=True, color=WHITE_RGB)
     style_table_header(src.rows[0])
     for ri, (topic, path) in enumerate([
-        ("Prompt H", "qa-knowledge-base/00_SYSTEM/PROMPTS.md"),
-        ("Role & constraints", "qa-knowledge-base/00_SYSTEM/ROLE.md, CONSTRAINTS.md"),
-        ("Glossary (triage, flakiness, RCA)", "qa-knowledge-base/00_SYSTEM/GLOSSARY.md"),
+        ("Prompt H", "government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md"),
+        ("Role & constraints", "government-savings/qa-knowledge-base/00_SYSTEM/ROLE.md, CONSTRAINTS.md"),
+        ("Glossary (triage, flakiness, RCA)", "government-savings/qa-knowledge-base/00_SYSTEM/GLOSSARY.md"),
         ("Bug reporting SOP", "automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md"),
-        ("Repetitive tasks guide", "qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md"),
+        ("Repetitive tasks guide", "government-savings/qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md"),
         ("Defect lifecycle", "automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md"),
         ("Triage rules", "automation-bug-lifecycle/process/TRIAGE_RULES.md"),
         ("Flakiness playbook", "automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md"),
@@ -985,7 +985,7 @@ def build_pptx(charts: dict[str, Path]) -> None:
         "prompts/ 01–05 — triage, Prompt H, change set, resolution, rollup",
         "process/ — TRIAGE_RULES, FLAKINESS_PLAYBOOK, DEFECT_LIFECYCLE, RCA",
         "deliverables/ — this deck + Automation-Bug-Lifecycle-Playbook.docx",
-        "qa-knowledge-base/00_SYSTEM/PROMPTS.md — master Prompt H reference",
+        "government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md — master Prompt H reference",
     ], subtitle="If it's not in the repo, treat as unknown — per ROLE.md")
 
     d.content("Key Takeaways", [

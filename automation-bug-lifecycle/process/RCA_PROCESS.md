@@ -227,7 +227,7 @@ See `automation-bug-lifecycle/templates/RCA_TEMPLATE.md` for detailed template.
 
 - `automation-bug-lifecycle/templates/RCA_TEMPLATE.md` - RCA template
 - `automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md` - Flakiness investigation
-- `qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md` - Document decisions
+- `government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md` - Document decisions
 
 ## Notes
 

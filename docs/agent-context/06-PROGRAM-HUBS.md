@@ -4,11 +4,11 @@ Extended documentation beyond the numbered `00`–`11` folders.
 
 ---
 
-## 1. Jira Governance (`docs/jira-governance/`)
+## 1. Jira Governance (`government-savings/docs/jira-governance/`)
 
 **Purpose:** Enforceable Jira/Scrum standards — not optional advice.
 
-**Start:** `docs/jira-governance/README.md`
+**Start:** `government-savings/docs/jira-governance/README.md`
 
 ### Non-negotiable rules (from overview)
 
@@ -101,7 +101,7 @@ Pilot: Unite Enrollment (UE)
 
 ---
 
-## 3. DB Refresh (`docs/DB Refresh/`)
+## 3. DB Refresh (`government-savings/docs/DB Refresh/`)
 
 **Purpose:** SQL scripts for test account maintenance on staging.
 
@@ -114,7 +114,7 @@ Pilot: Unite Enrollment (UE)
 
 ---
 
-## 4. AM Troubleshooting Guide (`qa-knowledge-base/10_IMPORTS_RAW/AM Troubleshooting Guide/`)
+## 4. AM Troubleshooting Guide (`government-savings/qa-knowledge-base/10_IMPORTS_RAW/AM Troubleshooting Guide/`)
 
 **Purpose:** Stage environment workarounds for offshore/manual QA.
 
@@ -127,7 +127,7 @@ Pilot: Unite Enrollment (UE)
 
 ---
 
-## 5. Performance QA snapshot (`qa-knowledge-base/10_IMPORTS_RAW/Performance QA …/`)
+## 5. Performance QA snapshot (`government-savings/qa-knowledge-base/10_IMPORTS_RAW/Performance QA …/`)
 
 **Purpose:** Reference copy of `performance-test-automation` repo structure.
 
@@ -156,9 +156,9 @@ Pilot: Unite Enrollment (UE)
 
 | User need | Hub |
 |-----------|-----|
-| Write/create Jira story with DoR/DoD | `docs/jira-governance/` |
+| Write/create Jira story with DoR/DoD | `government-savings/docs/jira-governance/` |
 | Mobile MSC migration status | `docs/mobile-automation-program-hub/` |
-| IDP test account SQL | `docs/DB Refresh/` |
+| IDP test account SQL | `government-savings/docs/DB Refresh/` |
 | Stage DB schema issues | `AM Troubleshooting Guide/` |
 | JMeter/Taurus reference | Performance QA snapshot |
 | Client leadership update format | Demand Planning Reports + Prompt F2 |

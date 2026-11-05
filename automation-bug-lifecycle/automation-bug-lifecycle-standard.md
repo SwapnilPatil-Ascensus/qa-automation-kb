@@ -2,7 +2,7 @@
 
 **Version:** August 3, 2026  
 **Scope:** All QA Automation teams — UI, API, performance, any program  
-**Repository:** `qa-automation-kb` (single source of truth per `qa-knowledge-base/00_SYSTEM/ROLE.md`)
+**Repository:** `qa-automation-kb` (single source of truth per `government-savings/qa-knowledge-base/00_SYSTEM/ROLE.md`)
 
 ---
 
@@ -55,9 +55,9 @@ This standard is an **operating norm** — applicable to any team going forward.
 
 ## 4. Cursor Prompt H
 
-**Location:** `qa-knowledge-base/00_SYSTEM/PROMPTS.md` → section **H) Bug Report: JIRA + Email + Teams**
+**Location:** `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` → section **H) Bug Report: JIRA + Email + Teams**
 
-**Steps:** (full guide in `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md`)
+**Steps:** (full guide in `government-savings/qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md`)
 
 1. Place artifacts in evidence folder
 2. Copy Prompt H, fill placeholders, attach failure images in Cursor
@@ -107,15 +107,15 @@ When many tests fail in one run — group by feature/plan, not per test method. 
 
 | Topic | Path |
 |-------|------|
-| Prompts | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
-| Role & constraints | `qa-knowledge-base/00_SYSTEM/ROLE.md`, `CONSTRAINTS.md` |
-| Glossary | `qa-knowledge-base/00_SYSTEM/GLOSSARY.md` |
+| Prompts | `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
+| Role & constraints | `government-savings/qa-knowledge-base/00_SYSTEM/ROLE.md`, `CONSTRAINTS.md` |
+| Glossary | `government-savings/qa-knowledge-base/00_SYSTEM/GLOSSARY.md` |
 | Defect lifecycle | `automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md` |
 | Triage rules | `automation-bug-lifecycle/process/TRIAGE_RULES.md` |
 | Flakiness | `automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md` |
 | RCA | `automation-bug-lifecycle/process/RCA_PROCESS.md` |
 | Daily regression | `automation-bug-lifecycle/process/DAILY_REGRESSION.md` |
-| Templates | `qa-knowledge-base/06_TEMPLATES/` |
+| Templates | `government-savings/qa-knowledge-base/06_TEMPLATES/` |
 | Bug SOP | `automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md` |
 | Confluence exports | `automation-bug-lifecycle/reference/confluence-bug-handling/Bug Handling/` |
 

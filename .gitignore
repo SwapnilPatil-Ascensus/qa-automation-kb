@@ -1,7 +1,7 @@
 # Raw TestNG HTML reports and supporting asset folders (large, regenerable from Jenkins)
-qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/reports/
-qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/Regression Test Suite - *
-qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/*_files/
+government-savings/qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/reports/
+government-savings/qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/Regression Test Suite - *
+government-savings/qa-knowledge-base/10_IMPORTS_RAW/AM_Regression_Reports/*_files/
 
 # Temp / OS
 .DS_Store
@@ -23,4 +23,4 @@ __pycache__/
 *.pyc
 
 # Pre-rebuild snapshot has recursive nested copies (Windows MAX_PATH); manifest/tree kept at 99-archive root
-programs/universal-platform-coverage/99-archive/2026-06-29-pre-rebuild-snapshot/
+government-savings/programs/universal-platform-coverage/99-archive/2026-06-29-pre-rebuild-snapshot/

@@ -4,34 +4,35 @@
 
 Single source of truth for QA automation knowledge, operating standards, and time-bounded program work.
 
+## Business units
+
+| Unit | Path | Status |
+|------|------|--------|
+| **Government Savings (GSSD)** | [`government-savings/`](government-savings/) | Active — all current KB and programs |
+| **Retirement** | [`retirement/`](retirement/) | Placeholder for future docs |
+
 ## Top-level layout
 
 ```
 qa-automation-kb/
-├── automation-bug-lifecycle/   # Bug triage → evidence → JIRA/email/Teams → change set → resolution
-├── qa-knowledge-base/          # Evergreen KB spine (00_SYSTEM … 11_BACKLOG)
-├── programs/                   # Initiative / program folders (barcode, GS, Unite MSC, QC4, …)
-└── docs/                       # Agent bootstrap, Jira governance, access requests
+├── automation-bug-lifecycle/   # Shared defect triage → evidence → JIRA → resolution
+├── docs/agent-context/         # Cursor bootstrap after context loss
+├── government-savings/         # GS KB spine, programs, extended docs
+└── retirement/                 # Reserved for Retirement (empty shell today)
 ```
 
 ## Start here
 
 | Goal | Where |
 |------|--------|
-| **Regression failed — triage & log a bug (demo workflow)** | [`automation-bug-lifecycle/README.md`](automation-bug-lifecycle/README.md) |
+| **Government Savings KB & programs** | [`government-savings/README.md`](government-savings/README.md) |
+| **Regression failed — triage & log a bug** | [`automation-bug-lifecycle/README.md`](automation-bug-lifecycle/README.md) |
 | **Cursor / AI session after context loss** | [`docs/agent-context/README.md`](docs/agent-context/README.md) |
-| **New to the team** | [`qa-knowledge-base/05_ONBOARDING/ONBOARDING_7_DAY.md`](qa-knowledge-base/05_ONBOARDING/ONBOARDING_7_DAY.md) |
-| **Standards & architecture** | [`qa-knowledge-base/02_STANDARDS/`](qa-knowledge-base/02_STANDARDS/), [`qa-knowledge-base/03_ARCHITECTURE/`](qa-knowledge-base/03_ARCHITECTURE/) |
-| **Jira / Scrum governance** | [`docs/jira-governance/README.md`](docs/jira-governance/README.md) |
-| **Active program work** | [`programs/README.md`](programs/README.md) |
+| **New to the team (GS)** | [`government-savings/qa-knowledge-base/05_ONBOARDING/ONBOARDING_7_DAY.md`](government-savings/qa-knowledge-base/05_ONBOARDING/ONBOARDING_7_DAY.md) |
+| **Standards & architecture** | [`government-savings/qa-knowledge-base/02_STANDARDS/`](government-savings/qa-knowledge-base/02_STANDARDS/) |
+| **Jira / Scrum governance** | [`government-savings/docs/jira-governance/README.md`](government-savings/docs/jira-governance/README.md) |
 
-## Automation Bug Lifecycle (15-minute demo)
-
-1. Drop failure artifacts into `automation-bug-lifecycle/evidence/regression-reports/MMDDYYYY/`
-2. Run triage + Prompt H from `automation-bug-lifecycle/prompts/`
-3. Cursor skill handles JIRA block, email, Teams, and change-set prompts
-
-Bootstrap a dated folder:
+Bootstrap a dated evidence folder:
 
 ```powershell
 .\automation-bug-lifecycle\scripts\new-evidence-folder.ps1 -Date "07312026" -Feature "YourFeature"
@@ -39,6 +40,6 @@ Bootstrap a dated folder:
 
 ## Maintenance
 
-- Keep [`qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md`](qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md) current
-- Log decisions in [`qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md`](qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md)
+- Keep [`government-savings/qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md`](government-savings/qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md) current
+- Log decisions in [`government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md`](government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md)
 - Bug evidence and SOPs stay in **automation-bug-lifecycle** — not scattered in the KB spine

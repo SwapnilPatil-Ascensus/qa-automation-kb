@@ -3,7 +3,7 @@
 **Naming:** `04072026_NJD_NMD_Enrollment_Page_Unavailable_Intermittent.md`  
 **Location:** `automation-bug-lifecycle/evidence/regression-reports/04072026/`  
 **JIRA:** `[QA-NEED_INPUT]` · **Status:** `[Open]`  
-**Prompt used:** `qa-knowledge-base/00_SYSTEM/PROMPTS.md` — **H) Bug Report: JIRA + Email + Teams**
+**Prompt used:** `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` — **H) Bug Report: JIRA + Email + Teams**
 
 ---
 

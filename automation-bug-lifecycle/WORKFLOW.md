@@ -37,7 +37,7 @@ automation-bug-lifecycle/
 └── WORKFLOW.md                           ← This file
 ```
 
-**KB cross-reference:** `qa-knowledge-base/00_SYSTEM/PROMPTS.md` section **H** (master Prompt H).
+**KB cross-reference:** `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` section **H** (master Prompt H).
 
 ---
 

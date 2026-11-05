@@ -41,7 +41,7 @@
 
 ## Security limits (mandatory)
 
-From `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
+From `government-savings/qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
 
 - **Never** commit secrets, tokens, credentials, customer PII
 - Redact emails, plan participant data, sensitive URLs
@@ -54,13 +54,13 @@ From `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
 
 | Gap | Impact | Agent action |
 |-----|--------|--------------|
-| `qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md` placeholders | Leadership context outdated | Mark `[NEED_INPUT]`; ask user for live values |
+| `government-savings/qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md` placeholders | Leadership context outdated | Mark `[NEED_INPUT]`; ask user for live values |
 | `STACK_AND_TOOLS.md`, `ENVIRONMENTS.md` unfilled | Onboarding incomplete | Same |
-| `qa-knowledge-base/00_SYSTEM/SOURCES.md` says imports "pending" | Import audit inaccurate | Note stale; suggest user update |
-| `qa-knowledge-base/08_MEETINGS_NOTES/2026/` empty | No meeting archive | Use `DECISIONS.md` instead |
-| `qa-knowledge-base/11_BACKLOG/DOC_GAPS.md` template only | No live gap list | Run Prompt D to populate |
+| `government-savings/qa-knowledge-base/00_SYSTEM/SOURCES.md` says imports "pending" | Import audit inaccurate | Note stale; suggest user update |
+| `government-savings/qa-knowledge-base/08_MEETINGS_NOTES/2026/` empty | No meeting archive | Use `DECISIONS.md` instead |
+| `government-savings/qa-knowledge-base/11_BACKLOG/DOC_GAPS.md` template only | No live gap list | Run Prompt D to populate |
 | Duplicate CICD markdown | Confusion about canonical source | Always use `AM_Regression_Reports/docs/CICD/` |
-| `docs/DB Refresh/` no index | Hard to discover SQL scripts | Point user to `SQL Files/` directly |
+| `government-savings/docs/DB Refresh/` no index | Hard to discover SQL scripts | Point user to `SQL Files/` directly |
 | Performance snapshot drift | Scripts may differ from live repo | Warn when referencing perf folder |
 | `NEEDS_VALIDATION` markers in CICD docs | Jenkins job names/schedules unconfirmed | Do not invent; copy existing or flag |
 | 246 markdown files | Maintenance burden | Use indexes (`KT_INDEX`, agent-context) not full scans |
@@ -93,8 +93,8 @@ From `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
 ## Recommended session startup (after wipe)
 
 1. Read `docs/agent-context/00-AGENT-BOOTSTRAP.md`
-2. Read `qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md` (decision memory)
-3. Read `qa-knowledge-base/00_SYSTEM/ROLE.md` + `CONSTRAINTS.md`
+2. Read `government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md` (decision memory)
+3. Read `government-savings/qa-knowledge-base/00_SYSTEM/ROLE.md` + `CONSTRAINTS.md`
 4. Ask user what task they're on → route via `03-DAILY-WORKFLOWS.md`
 
 ---

@@ -289,8 +289,8 @@ Follow `automation-bug-lifecycle/process/RCA_PROCESS.md` for detailed RCA proces
 ## Related Documents
 
 - `automation-bug-lifecycle/process/RCA_PROCESS.md` - Root cause analysis
-- `qa-knowledge-base/02_STANDARDS/CODE_STANDARDS.md` - Coding best practices
-- `qa-knowledge-base/03_ARCHITECTURE/UI_AUTOMATION.md` - Wait strategies
+- `government-savings/qa-knowledge-base/02_STANDARDS/CODE_STANDARDS.md` - Coding best practices
+- `government-savings/qa-knowledge-base/03_ARCHITECTURE/UI_AUTOMATION.md` - Wait strategies
 
 ## Notes
 

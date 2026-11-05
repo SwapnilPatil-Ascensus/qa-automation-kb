@@ -12,7 +12,7 @@ Print or keep open during regression triage.
 - [ ] Create GitLab PAT with `read_api` scope; configure via **Manage Token** in UI
 - [ ] Verify backend: http://localhost:8000/health
 - [ ] Verify frontend: http://localhost:3000
-- [ ] Bookmark `qa-knowledge-base/00_SYSTEM/PROMPTS.md` and `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md`
+- [ ] Bookmark `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` and `government-savings/qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md`
 
 ---
 

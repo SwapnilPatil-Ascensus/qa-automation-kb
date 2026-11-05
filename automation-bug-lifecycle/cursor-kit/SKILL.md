@@ -18,9 +18,9 @@ QA Automation operating standard for regression failures. Applies to any team ru
 ## Non-negotiables
 
 1. **Triage first** — not every failure is a defect (`automation-bug-lifecycle/process/TRIAGE_RULES.md`, `FLAKINESS_PLAYBOOK.md`)
-2. **No secrets/PII** in repo (`qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`)
+2. **No secrets/PII** in repo (`government-savings/qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`)
 3. **Leadership-approved** email/Teams templates — use Prompt H output as-is
-4. **Repo is source of truth** — if not documented here, mark `[NEED_INPUT]` (`qa-knowledge-base/00_SYSTEM/ROLE.md`)
+4. **Repo is source of truth** — if not documented here, mark `[NEED_INPUT]` (`government-savings/qa-knowledge-base/00_SYSTEM/ROLE.md`)
 
 ## Workflow
 
@@ -63,7 +63,7 @@ Output: one file `[MMDDYYYY]_[Feature]_[IssueType].md` containing:
 - Teams message
 - Resolution placeholder
 
-Also in: `qa-knowledge-base/00_SYSTEM/PROMPTS.md` section H.
+Also in: `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` section H.
 
 ### Step 4 — JIRA and notify
 
@@ -103,7 +103,7 @@ Group by feature/plan; not one JIRA per test.
 |-------|------|
 | Module README | `automation-bug-lifecycle/README.md` |
 | Bug SOP | `automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md` |
-| Repetitive tasks | `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
+| Repetitive tasks | `government-savings/qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
 | Defect lifecycle | `automation-bug-lifecycle/process/DEFECT_LIFECYCLE.md` |
 | Example bug doc | `automation-bug-lifecycle/evidence/regression-reports/04202026/` |
 

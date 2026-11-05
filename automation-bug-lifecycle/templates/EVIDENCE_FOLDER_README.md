@@ -30,4 +30,4 @@ Regression failure evidence for **[Feature / area]**.
 2. If defect → `prompts/02-bug-report-prompt-h.md`
 3. Change set → GitLab Project Manager + `prompts/03-gitlab-change-set.md`
 
-**Do not commit secrets, tokens, or customer PII** (`qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`).
+**Do not commit secrets, tokens, or customer PII** (`government-savings/qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`).

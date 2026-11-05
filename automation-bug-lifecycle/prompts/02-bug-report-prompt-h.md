@@ -3,7 +3,7 @@
 **When:** Triage confirmed **functional defect**. Evidence folder exists under `automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/`.
 
 **Templates:** Leadership-approved email/Teams formats per Confluence Bug Handling PDFs.  
-**Master reference:** `qa-knowledge-base/00_SYSTEM/PROMPTS.md` section H.
+**Master reference:** `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` section H.
 
 **Copy everything below the line into Cursor. Attach failure screenshots.**
 

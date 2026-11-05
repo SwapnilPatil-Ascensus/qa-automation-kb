@@ -22,7 +22,7 @@ End-to-end setup for reproducing the QA Automation bug lifecycle workflow.
 
 1. Clone or pull latest `qa-automation-kb`
 2. Open root folder in **Cursor**
-3. Read `qa-knowledge-base/00_SYSTEM/ROLE.md` — repo is single source of truth
+3. Read `government-savings/qa-knowledge-base/00_SYSTEM/ROLE.md` — repo is single source of truth
 
 ### 1.2 Install Cursor skill
 
@@ -49,11 +49,11 @@ Reload Cursor. Trigger with: *"Regression failed"* or *"Use automation bug lifec
 
 | Need | Path |
 |------|------|
-| Master prompts | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
+| Master prompts | `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` |
 | This kit's prompts | `automation-bug-lifecycle/prompts/` |
 | Bug SOP | `automation-bug-lifecycle/evidence/regression-reports/BUG_REPORTING_PROCESS.md` |
 | Evidence root | `automation-bug-lifecycle/evidence/regression-reports/[MMDDYYYY]/` |
-| Step-by-step guide | `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
+| Step-by-step guide | `government-savings/qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
 | Confluence SOPs (PDF) | `automation-bug-lifecycle/reference/confluence-bug-handling/Bug Handling/` |
 | Standard playbook | `automation-bug-lifecycle/automation-bug-lifecycle-standard.md` |
 
@@ -162,7 +162,7 @@ Output: `automation-bug-lifecycle/deliverables/`
 
 ## Security reminders
 
-Per `qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
+Per `government-savings/qa-knowledge-base/00_SYSTEM/CONSTRAINTS.md`:
 
 - Do not commit GitLab tokens, credentials, or customer PII
 - Redact emails/participant data in evidence when required

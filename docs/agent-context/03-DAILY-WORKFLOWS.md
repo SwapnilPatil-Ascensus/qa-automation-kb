@@ -17,7 +17,7 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
    - Exception logs (`*.txt`, `*exception*`)
    - Test case info (`*testcase_information.txt`)
    - TestNG/CI report URL (paste in doc later)
-4. **Run Prompt H** from `qa-knowledge-base/00_SYSTEM/PROMPTS.md`
+4. **Run Prompt H** from `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md`
    - Fill: date, feature, error, report URL, folder path, file list
 5. **Output:** `[MMDDYYYY]_[Feature]_[IssueType].md` in same folder containing:
    - JIRA copy-paste block
@@ -46,7 +46,7 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
    - V2 progress, V3 progress, API/perf, platform support
    - In progress / next focus
    - Risks or leadership asks
-2. **Open Prompt F2** in `qa-knowledge-base/00_SYSTEM/PROMPTS.md`
+2. **Open Prompt F2** in `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md`
 3. **Set placeholders:**
    - `[START]`, `[END]` — 2-week period
    - `[LAST_SHARE_DATE]` — previous share-out
@@ -54,12 +54,12 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
    - `[NEXT_NUMBER]` — next report number (e.g. 17)
 4. **Paste bullets** at `[BRIEF UPDATE PASTE BELOW]`
 5. **Run prompt**
-6. **Output file:** `qa-knowledge-base/10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/[N]. QA Automation Program – Leadership Working Update (As of MMDDYYYY).md`
+6. **Output file:** `government-savings/qa-knowledge-base/10_IMPORTS_RAW/confluence_exports/Demand Planning Reports/[N]. QA Automation Program – Leadership Working Update (As of MMDDYYYY).md`
 7. **Publish:**
    - Part 1 → Confluence detailed page
    - Part 2 "PSL Page Summary" → paste into MAIN - PSL - Persistent Updates
 
-**Template:** `qa-knowledge-base/06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md`  
+**Template:** `government-savings/qa-knowledge-base/06_TEMPLATES/PERSISTENT_LEADERSHIP_UPDATE_TEMPLATE.md`  
 **Example:** `Demand Planning Reports/14. QA Automation Program – Leadership Working Update (As of 02042026).md`
 
 ---
@@ -85,7 +85,7 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
 
 ## Workflow 4: Regression evidence pipeline (Pipeline 1)
 
-**Trigger:** Need structured area docs in `qa-knowledge-base/04_EXECUTION/regression/` (separate from bug reporting).
+**Trigger:** Need structured area docs in `government-savings/qa-knowledge-base/04_EXECUTION/regression/` (separate from bug reporting).
 
 ### Steps
 
@@ -93,7 +93,7 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
    - `test-engine.pdf`
    - `failures.csv`
    - Area screenshots (`enrollment.png`, etc.)
-2. Copy fixed prompt from `qa-knowledge-base/04_EXECUTION/regression/PIPELINE_PROMPT.md`
+2. Copy fixed prompt from `government-savings/qa-knowledge-base/04_EXECUTION/regression/PIPELINE_PROMPT.md`
 3. Run with date — **no improvisation**
 4. Check outputs: `summary.md`, `enrollment.md`, `withdrawals.md`, `login_idp.md`
 
@@ -107,12 +107,12 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
 
 ### Steps
 
-1. **DoR gate:** `docs/jira-governance/03-story-standards/definition-of-ready.md`
+1. **DoR gate:** `government-savings/docs/jira-governance/03-story-standards/definition-of-ready.md`
 2. **Story format:** `jira-story-template.md`, `acceptance-criteria-template.md`
-3. **Pull drafts:** `docs/jira-governance/upcoming-stories/` (MEMCONTRIB, UEPIPE, Sprint_26.05, etc.)
-4. **Backlog seed:** `docs/jira-governance/backlog/epics.md` + `stories.md`
+3. **Pull drafts:** `government-savings/docs/jira-governance/upcoming-stories/` (MEMCONTRIB, UEPIPE, Sprint_26.05, etc.)
+4. **Backlog seed:** `government-savings/docs/jira-governance/backlog/epics.md` + `stories.md`
 5. **DoD gate:** `definition-of-done.md` before closing stories
-6. **Log decisions:** `qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md`
+6. **Log decisions:** `government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/DECISIONS.md`
 
 ---
 
@@ -133,9 +133,9 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
 
 | Issue type | Go to |
 |------------|-------|
-| Stage DB / schema (`$$QA_SCHEMA$$`) | `qa-knowledge-base/10_IMPORTS_RAW/AM Troubleshooting Guide/guides/QA_FIN_TXN_user_schema/` |
+| Stage DB / schema (`$$QA_SCHEMA$$`) | `government-savings/qa-knowledge-base/10_IMPORTS_RAW/AM Troubleshooting Guide/guides/QA_FIN_TXN_user_schema/` |
 | SQL via PuTTY on staging | `…/sql_staging_putty/` |
-| IDP test account reset | `docs/DB Refresh/SQL Files/` |
+| IDP test account reset | `government-savings/docs/DB Refresh/SQL Files/` |
 | Flaky tests | `automation-bug-lifecycle/process/FLAKINESS_PLAYBOOK.md` |
 | Triage classification | `automation-bug-lifecycle/process/TRIAGE_RULES.md` |
 
@@ -145,10 +145,10 @@ Step-by-step for tasks the user runs **day to day**. For copy-paste prompts, see
 
 | Task | How |
 |------|-----|
-| Gap analysis | Prompt **D** → update `qa-knowledge-base/11_BACKLOG/DOC_GAPS.md` |
-| Current state | Refresh `qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md` |
-| Work log | Update `qa-knowledge-base/09_DECISIONS_WORKLOG/WORKLOG.md` |
-| Import tracking | Update `qa-knowledge-base/00_SYSTEM/SOURCES.md` after new imports |
+| Gap analysis | Prompt **D** → update `government-savings/qa-knowledge-base/11_BACKLOG/DOC_GAPS.md` |
+| Current state | Refresh `government-savings/qa-knowledge-base/01_CONTEXT/CURRENT_STATE.md` |
+| Work log | Update `government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/WORKLOG.md` |
+| Import tracking | Update `government-savings/qa-knowledge-base/00_SYSTEM/SOURCES.md` after new imports |
 
 ---
 

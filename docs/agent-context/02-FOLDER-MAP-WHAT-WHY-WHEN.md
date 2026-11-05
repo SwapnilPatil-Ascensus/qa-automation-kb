@@ -4,9 +4,22 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
+## Business units (2026-11 restructure)
+
+| Path | What |
+|------|------|
+| [`government-savings/`](../../government-savings/) | **All active content today** — KB spine (`qa-knowledge-base/`), programs, extended docs |
+| [`retirement/`](../../retirement/) | Placeholder for Retirement portfolio docs (empty except README) |
+| [`automation-bug-lifecycle/`](../../automation-bug-lifecycle/) | Shared defect workflow and evidence (all units) |
+| [`docs/agent-context/`](.) | Repo-wide Cursor bootstrap (this folder) |
+
+Government Savings paths are prefixed with `government-savings/` from the repo root (for example `government-savings/qa-knowledge-base/00_SYSTEM/`).
+
+---
+
 ## Numbered curated folders (`00`–`11`)
 
-### `qa-knowledge-base/00_SYSTEM/` — Core system
+### `government-savings/qa-knowledge-base/00_SYSTEM/` — Core system
 
 | File | What | Why | When |
 |------|------|-----|------|
@@ -18,7 +31,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/01_CONTEXT/` — Current reality
+### `government-savings/qa-knowledge-base/01_CONTEXT/` — Current reality
 
 | File | What | Why | When |
 |------|------|-----|------|
@@ -29,7 +42,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/02_STANDARDS/` — Rules for code and docs
+### `government-savings/qa-knowledge-base/02_STANDARDS/` — Rules for code and docs
 
 | File | What | When |
 |------|------|------|
@@ -40,7 +53,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/03_ARCHITECTURE/` — Technical design (templates + patterns)
+### `government-savings/qa-knowledge-base/03_ARCHITECTURE/` — Technical design (templates + patterns)
 
 | File | What | When |
 |------|------|------|
@@ -54,7 +67,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/04_EXECUTION/` — How tests run and fail get handled
+### `government-savings/qa-knowledge-base/04_EXECUTION/` — How tests run and fail get handled
 
 | File | What | When |
 |------|------|------|
@@ -67,7 +80,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 | `FLAKINESS_PLAYBOOK.md` | Fix intermittent tests | Recurring flaky failures |
 | `regression/` | **Pipeline 1**: evidence → area docs | See `regression/README.md` |
 
-**`qa-knowledge-base/04_EXECUTION/regression/` subfolder:**
+**`government-savings/qa-knowledge-base/04_EXECUTION/regression/` subfolder:**
 
 | File | What | When |
 |------|------|------|
@@ -77,7 +90,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/05_ONBOARDING/` — Getting started + repetitive tasks
+### `government-savings/qa-knowledge-base/05_ONBOARDING/` — Getting started + repetitive tasks
 
 | File | What | When |
 |------|------|------|
@@ -89,7 +102,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/06_TEMPLATES/` — Reusable output structures
+### `government-savings/qa-knowledge-base/06_TEMPLATES/` — Reusable output structures
 
 | File | What | When |
 |------|------|------|
@@ -103,7 +116,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/07_GOVERNANCE_VISIBILITY/` — Metrics and status
+### `government-savings/qa-knowledge-base/07_GOVERNANCE_VISIBILITY/` — Metrics and status
 
 | File | What | When |
 |------|------|------|
@@ -114,7 +127,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/08_MEETINGS_NOTES/` — Meeting archive
+### `government-savings/qa-knowledge-base/08_MEETINGS_NOTES/` — Meeting archive
 
 | Path | What | When |
 |------|------|------|
@@ -122,7 +135,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/09_DECISIONS_WORKLOG/` — Memory replacement
+### `government-savings/qa-knowledge-base/09_DECISIONS_WORKLOG/` — Memory replacement
 
 | File | What | When |
 |------|------|------|
@@ -132,7 +145,7 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-### `qa-knowledge-base/11_BACKLOG/` — Doc gaps and actions
+### `government-savings/qa-knowledge-base/11_BACKLOG/` — Doc gaps and actions
 
 | File | What | When |
 |------|------|------|
@@ -141,13 +154,15 @@ Complete guide to every top-level area. **~780 files total, ~246 markdown.**
 
 ---
 
-## `docs/` — Extended program documentation
+## `docs/` — Extended program documentation (Government Savings)
 
-### `docs/agent-context/` (this folder)
+Paths below live under **`government-savings/docs/`** unless noted.
+
+### `docs/agent-context/` (repo root — this folder)
 
 Agent bootstrap docs for context recovery after chat wipe.
 
-### `docs/jira-governance/` (~45 markdown files)
+### `government-savings/docs/jira-governance/` (~45 markdown files)
 
 | Section | What | When |
 |---------|------|------|
@@ -164,7 +179,7 @@ Agent bootstrap docs for context recovery after chat wipe.
 | `upcoming-stories/` | Copy-paste story drafts (MEMCONTRIB, UEPIPE, etc.) | Pre-Jira writing |
 | `data/` | CSV exports, feature files, meeting notes | Reference data |
 
-**Start:** `docs/jira-governance/README.md`
+**Start:** `government-savings/docs/jira-governance/README.md`
 
 ### `docs/mobile-automation-program-hub/` (18 files)
 
@@ -179,7 +194,7 @@ Mobile MSC API test migration program (UniteMSC → centralized framework).
 
 **Start:** `docs/mobile-automation-program-hub/README.md`
 
-### `docs/DB Refresh/`
+### `government-savings/docs/DB Refresh/`
 
 SQL scripts for test account setup (IDP password, MFA disable). **No markdown index** — harder to discover.
 
@@ -189,7 +204,7 @@ SQL scripts for test account setup (IDP password, MFA disable). **No markdown in
 
 ---
 
-## `qa-knowledge-base/10_IMPORTS_RAW/` — Raw imports and working artifacts (~577 files)
+## `government-savings/qa-knowledge-base/10_IMPORTS_RAW/` — Raw imports and working artifacts (~577 files)
 
 **Purpose:** Preserve originals; hold evidence; host the **primary regression documentation KB**.
 
@@ -200,7 +215,7 @@ SQL scripts for test account setup (IDP password, MFA disable). **No markdown in
 | `AM_Regression_Reports/docs/` | **Canonical regression docs** (V2/V3/CICD) | Confluence-ready suite documentation | Regression doc work, coverage reviews |
 | `AM_Regression_Reports/suites/` | TestNG XML (v2 daily/smoke/release, v3 stage1) | Reference suite definitions | Prompt I, pipeline troubleshooting |
 | `AM_Regression_Reports/reports/` | TestNG HTML exports | Latest run evidence | **Gitignored** — regenerable |
-| `regression_reports/MMDDYYYY/` | Bug evidence + generated bug `.md` | Audit trail per failure | Every regression bug (Prompt H) |
+| `regression_reports/MMDDYYYY/` | *(Deprecated in KB)* — use `automation-bug-lifecycle/evidence/regression-reports/MMDDYYYY/` instead | Bug evidence | Every regression bug (Prompt H) |
 | `confluence_exports/auto-qa-dochub/` | Confluence PDF archive | Historical reference | Finding legacy PDFs |
 | `confluence_exports/Demand Planning Reports/` | Leadership working updates | Format reference for F2 | Bi-weekly updates |
 | `confluence_exports/Bug Handling/` | Bug email process PDFs | Failure/resolution email templates | Bug reporting |
@@ -220,12 +235,12 @@ SQL scripts for test account setup (IDP password, MFA disable). **No markdown in
 
 | Looking for… | Path |
 |--------------|------|
-| Bug prompt + steps | `qa-knowledge-base/00_SYSTEM/PROMPTS.md` § H · `qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
+| Bug prompt + steps | `government-savings/qa-knowledge-base/00_SYSTEM/PROMPTS.md` § H · `government-savings/qa-knowledge-base/05_ONBOARDING/HOW_TO_REPETITIVE_TASKS.md` |
 | Leadership prompt | `PROMPTS.md` § F2 |
 | V2 module list (14 modules) | `AM_Regression_Reports/docs/v2/modules/` |
 | V3 Stage1 (UE + IDP) | `AM_Regression_Reports/docs/v3/modules/` |
 | CI/CD master landscape | `AM_Regression_Reports/docs/CICD/01-master-qa-automation-cicd-landscape.md` |
 | Full regression TOC + mermaid | `AM_Regression_Reports/docs/00-automation-regression-master-overview.md` |
 | TestNG export cleanup guide | `AM_Regression_Reports/docs/GUIDE_TESTNG_REPORT_EXPORT_AND_CLEANUP.md` |
-| Jira DoR/DoD | `docs/jira-governance/03-story-standards/` |
+| Jira DoR/DoD | `government-savings/docs/jira-governance/03-story-standards/` |
 | Mobile migration | `docs/mobile-automation-program-hub/` |
