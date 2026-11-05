@@ -1,0 +1,1382 @@
+{
+  "info": {
+    "_postman_id": "fa37f996-cde2-4bf8-b6ec-19b1dbc38bd5",
+    "name": "Mobile1",
+    "description": "Complete Postman collection for the unite-mobile1 BFF (mobile1api), targeting QC4.\r\n\r\nUSAGE:\r\n1. Select the 'unite-mobile1 QC4' environment.\r\n2. Run '00 - Auth > Login (mobilemembersession)' â€” stores {{jwtToken}}, {{sessionId}}, {{memberId}}.\r\n3. Run remaining folders in order for dynamic chaining (ext from mobileprofilemenu, ownerPutBody from mobileowner).\r\n\r\nScanned from JAX-RS @Path resources in unite-mobile1. DELETE and session logout PATCH are documented but not run in QC verification.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48289834"
+  },
+  "item": [
+    {
+      "name": "00 - Auth",
+      "item": [
+        {
+          "name": "Login (mobilemembersession)",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "pm.test('Login: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "pm.test('Login: jwtToken present', function () { pm.expect(item.jwtToken, 'jwtToken').to.be.a('string').and.to.have.length.above(0); });",
+                  "if (item.jwtToken) { pm.environment.set('jwtToken', item.jwtToken); }",
+                  "if (item.idpJwtToken) { pm.environment.set('idpJwtToken', item.idpJwtToken); }",
+                  "if (item.memberId) { pm.environment.set('memberId', item.memberId); }",
+                  "if (item.id) { pm.environment.set('sessionId', item.id); }",
+                  "if (item.planId) { pm.environment.set('planId', item.planId); }"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"planId\": \"{{planId}}\",\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": {{rememberMe}},\r\n    \"deviceUuid\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilemembersession",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilemembersession"
+              ]
+            },
+            "description": "Member login. Captures jwtToken, memberId, sessionId."
+          },
+          "response": []
+        },
+        {
+          "name": "IDP Token Exchange",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "pm.test('IDP exchange: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "if (item.jwtToken) { pm.environment.set('jwtToken', item.jwtToken); }"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \"planId\": \"{{idpPlanId}}\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/idptokenexchange",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "idptokenexchange"
+              ]
+            },
+            "description": "Exchange member JWT for IDP token (IDP-enabled plans)."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilemembersessionpin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilemembersessionpin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilemembersessionpin"
+              ]
+            },
+            "description": "Create session PIN (1-factor auth)."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilememberusername",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberusername",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberusername"
+              ]
+            },
+            "description": "Retrieve member username from identity."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Session",
+      "item": [
+        {
+          "name": "GET mobilemembersession/{id}",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "if (!pm.environment.get('sessionId')) {",
+                  "    throw new Error('sessionId missing. Run Login first.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "pm.test('Session GET: status is 200', function () { pm.response.to.have.status(200); });"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilemembersession/{{sessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilemembersession",
+                "{{sessionId}}"
+              ]
+            },
+            "description": "Retrieve session by id (captured at login)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Owner & Profile",
+      "item": [
+        {
+          "name": "GET mobileprofilemenu",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "pm.test('Profile menu: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "var keys = item.beneNames ? Object.keys(item.beneNames) : [];",
+                  "if (keys.length) { pm.environment.set('ext', keys[0]); console.log('Stored ext=' + keys[0]); }"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobileprofilemenu",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobileprofilemenu"
+              ]
+            },
+            "description": "Profile menu; captures first beneNames key into ext."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobileOwnerMenu",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobileOwnerMenu",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobileOwnerMenu"
+              ]
+            },
+            "description": "Owner menu branding and metadata."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobileowner",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "pm.test('Owner GET: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "var clean = {};",
+                  "Object.keys(item).forEach(function (k) { if (k.charAt(0) !== '_' && k !== 'encryptedAesKey') { clean[k] = item[k]; } });",
+                  "pm.environment.set('ownerPutBody', JSON.stringify([clean]));"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobileowner",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobileowner"
+              ]
+            },
+            "description": "Owner profile; stores body for PUT round-trip."
+          },
+          "response": []
+        },
+        {
+          "name": "PUT mobileowner",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "pm.test('Owner PUT: status is 200', function () { pm.response.to.have.status(200); });"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{ownerPutBody}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobileowner",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobileowner"
+              ]
+            },
+            "description": "Re-save owner from GET (ownerPutBody set by GET test; HAL fields stripped)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Beneficiary & Account",
+      "item": [
+        {
+          "name": "GET mobilebeneficiaryByExt/{ext}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilebeneficiaryByExt/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilebeneficiaryByExt",
+                "{{ext}}"
+              ]
+            },
+            "description": "Beneficiary by account extension."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilecloseaccount/{ext} (preClosureCheck)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilecloseaccount/{{ext}}?preClosureCheck={{preClosureCheck}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilecloseaccount",
+                "{{ext}}"
+              ],
+              "query": [
+                {
+                  "key": "preClosureCheck",
+                  "value": "{{preClosureCheck}}"
+                }
+              ]
+            },
+            "description": "Safe pre-closure check only (preClosureCheck=true)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bank Info",
+      "item": [
+        {
+          "name": "GET mobilebankinfobyroutingnum/{routingNum}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilebankinfobyroutingnum/{{routingNum}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilebankinfobyroutingnum",
+                "{{routingNum}}"
+              ]
+            },
+            "description": "Bank info lookup by routing number."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Devices & Push",
+      "item": [
+        {
+          "name": "POST mobilememberdevices/{deviceUuid}",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberdevices/{{deviceUuid}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberdevices",
+                "{{deviceUuid}}"
+              ]
+            },
+            "description": "Register member device."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilememberdevices/{deviceUuid}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberdevices/{{deviceUuid}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberdevices",
+                "{{deviceUuid}}"
+              ]
+            },
+            "description": "Get member device by UUID."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilememberpushnotificationtokens",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "pm.test('Push token POST: status is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.environment.set('pushDeviceUuid', pm.environment.get('pushDeviceUuid'));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"deviceUuid\": \"{{pushDeviceUuid}}\",\r\n    \"registrationToken\": \"{{registrationToken}}\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberpushnotificationtokens",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberpushnotificationtokens"
+              ]
+            },
+            "description": "Register push notification token."
+          },
+          "response": []
+        },
+        {
+          "name": "PUT mobilememberpushnotificationtokens",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"deviceUuid\": \"{{pushDeviceUuid}}\",\r\n    \"registrationToken\": \"{{registrationToken}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberpushnotificationtokens",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberpushnotificationtokens"
+              ]
+            },
+            "description": "Update push notification token."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilememberpushnotificationtokens/deviceuuid/{uuid}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberpushnotificationtokens/deviceuuid/{{pushDeviceUuid}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberpushnotificationtokens",
+                "deviceuuid",
+                "{{pushDeviceUuid}}"
+              ]
+            },
+            "description": "Get push token by device UUID."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Biometric",
+      "item": [
+        {
+          "name": "POST mobilememberbiometric",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var item = (pm.response.json()._embedded || {}).item || {};",
+                  "    if (item.biometricToken) { pm.environment.set('biometricToken', item.biometricToken); }",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              },
+              "listen": "test"
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"deviceUuid\": \"{{deviceUuid}}\",\r\n    \"deviceInfo\": \"Postman test device\",\r\n    \"trusted\": \"Y\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberbiometric",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberbiometric"
+              ]
+            },
+            "description": "Create biometric enrollment (may mutate data)."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilememberbiometric (biometric-only)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "x-enc-biotoken",
+                "value": "{{biometricToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberbiometric",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberbiometric"
+              ]
+            },
+            "description": "Requires x-enc-biotoken from POST; skipped in automated run if token empty."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Phone Authentication",
+      "item": [
+        {
+          "name": "POST requestPhoneNumberAuthentication",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"planId\": \"{{planId}}\",\r\n    \"deliveryMode\": \"SMS\",\r\n    \"mobileNumberType\": \"M\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/requestPhoneNumberAuthentication",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "requestPhoneNumberAuthentication"
+              ]
+            },
+            "description": "Request phone number 2FA pin (may send SMS in non-QC)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Core Service Health",
+      "item": [
+        {
+          "name": "GET coreservicehealth/liveness",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/coreservicehealth/liveness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "coreservicehealth",
+                "liveness"
+              ]
+            },
+            "description": "Core service liveness (PermitAll)."
+          },
+          "response": []
+        },
+        {
+          "name": "GET coreservicehealth/readiness",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/coreservicehealth/readiness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "coreservicehealth",
+                "readiness"
+              ]
+            },
+            "description": "Core service readiness (PermitAll)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Docs & Health",
+      "item": [
+        {
+          "name": "GET openapi.json",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/openapi.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "openapi.json"
+              ]
+            },
+            "description": "OpenAPI spec."
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/liveness",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/health/liveness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "health",
+                "liveness"
+              ]
+            },
+            "description": "App liveness at /mobile1api/health/liveness"
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/readiness",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/health/readiness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "health",
+                "readiness"
+              ]
+            },
+            "description": "App readiness"
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/properties",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/health/properties",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "health",
+                "properties"
+              ]
+            },
+            "description": "Build properties"
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/properties/all",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/health/properties/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "health",
+                "properties",
+                "all"
+              ]
+            },
+            "description": "All collaborator service properties"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Not Run (documented)",
+      "item": [
+        {
+          "name": "PATCH mobilemembersession/{id} (logout - skipped)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilemembersession/{{sessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilemembersession",
+                "{{sessionId}}"
+              ]
+            },
+            "description": "Deletes session. Intentionally NOT run in QC verification."
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH mobilemembers (password-change - skipped)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"password\":\"x\",\"newPassword\":\"y\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilemembers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilemembers"
+              ]
+            },
+            "description": "Password change. Intentionally NOT run."
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE mobilememberbiometric (skipped)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberbiometric",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberbiometric"
+              ]
+            },
+            "description": "DELETE intentionally NOT run."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilecsrasmembersession (csr-only)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "x-enc-csrasmemberjwttoken",
+                "value": "{{csrAsMemberJwtToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilecsrasmembersession",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilecsrasmembersession"
+              ]
+            },
+            "description": "Requires CSR-as-member header; acceptance/internal only."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilememberidptoken (idp-login-only)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \"planId\": \"{{planId}}\",\\n  \"idpJwtToken\": \"{{idpJwtToken}}\"\\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilememberidptoken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilememberidptoken"
+              ]
+            },
+            "description": "IDP login flow; needs real IDP token."
+          },
+          "response": []
+        },
+        {
+          "name": "POST validateBiometricToken",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \"biometricToken\": \"{{biometricToken}}\",\\n  \"deviceUuid\": \"{{deviceUuid}}\"\\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{apiApp}}/{{apiVer}}/mobilemembersession/validateBiometricToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{apiApp}}",
+                "{{apiVer}}",
+                "mobilemembersession",
+                "validateBiometricToken"
+              ]
+            },
+            "description": "Validate biometric token from enrollment."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwtToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "script": {
+        "exec": [
+          "var url = pm.request.url.toString();",
+          "var isAnon = /mobilemembersession|mobilememberidptoken|mobilecsrasmembersession|validateBiometricToken|openapi|health|coreservicehealth/.test(url);",
+          "if (!isAnon && !pm.environment.get('jwtToken')) {",
+          "    console.warn('No {{jwtToken}} set yet. Run 00 - Auth > Login first.');",
+          "}"
+        ],
+        "type": "text/javascript"
+      },
+      "listen": "prerequest"
+    },
+    {
+      "script": {
+        "exec": [
+          "pm.test('Responded within 30s', function () { pm.expect(pm.response.responseTime).to.be.below(30000); });",
+          "pm.test('No 5xx server error', function () { pm.expect(pm.response.code).to.be.below(500); });",
+          "var name = (pm.info.requestName || '').toLowerCase();",
+          "var skipSuccess = /acceptance-only|csr-only|biometric-only|idp-login-only|password-change/.test(name);",
+          "if (!skipSuccess) {",
+          "    pm.test('Success status (2xx)', function () { pm.expect(pm.response.code).to.be.oneOf([200, 201, 202, 204]); });",
+          "} else if (/acceptance-only/.test(name)) {",
+          "    pm.test('Acceptance-only endpoint returns 401 as expected', function () { pm.expect(pm.response.code).to.equal(401); });",
+          "}"
+        ],
+        "type": "text/javascript"
+      },
+      "listen": "test"
+    }
+  ]
+}

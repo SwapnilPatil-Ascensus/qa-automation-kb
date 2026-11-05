@@ -1,0 +1,7 @@
+API Test automation: C:\Workspace\GitLab\api-test-automation | https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation
+UI Automation
+	V3: C:\Workspace\GitLab\prime-test-automation | https://gitlab.com/ascensus-gs/products/depot/qa-automation/prime-test-automation
+	V2: C:\Workspace\GitLab\Automation\unite-test-automation| https://gitlab.com/ascensus-gs/products/depot/qa-automation/automation
+
+Performance Test: C:\Workspace\GitLab\Automation\performance-test-automation | https://gitlab.com/ascensus-gs/products/depot/qa-automation/automation/-/tree/main/performance-test-automation?ref_type=heads
+

@@ -1,0 +1,15 @@
+execution:
+  - concurrency: ${jconcurrency}
+    ramp-up: ${jramp}
+    hold-for: ${jhold}
+    write-xml-jtl: none
+    scenario: idp_login
+scenarios:
+  idp_login:
+    script: idp-login-resources.jmx
+reporting:
+  - module: blazemeter
+    report-name: IDP Test - Member Login
+    test: IDP Test - Member Login (CS/API w/ Resources)
+    project: Universal Platform
+    upload-artifacts: false

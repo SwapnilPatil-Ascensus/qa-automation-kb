@@ -1,0 +1,85 @@
+Console Output
+Started by timer
+[Pipeline] Start of Pipeline
+[Pipeline] stage
+[Pipeline] { (Run Regression Suite)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Run IDP Login Resources)
+[Pipeline] parallel
+[Pipeline] { (Branch: loadtestwt1)
+[Pipeline] { (Branch: loadtestwt2)
+[Pipeline] build (Building AGSUP_ENDURANCE_THROUGHPUT)
+Scheduling project: AGSUP_ENDURANCE_THROUGHPUT
+[Pipeline] build (Building AGSUP_ENDURANCE_THROUGHPUT)
+Scheduling project: AGSUP_ENDURANCE_THROUGHPUT
+Starting building: AGSUP_ENDURANCE_THROUGHPUT #603
+Starting building: AGSUP_ENDURANCE_THROUGHPUT #604
+Build AGSUP_ENDURANCE_THROUGHPUT #604 completed: SUCCESS
+[Pipeline] }
+Build AGSUP_ENDURANCE_THROUGHPUT #603 completed: SUCCESS
+[Pipeline] }
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cooldown after IDP Login Resources)
+[Pipeline] sleep
+Sleeping for 1 min 0 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Auth Server Delay)
+[Pipeline] parallel
+[Pipeline] { (Branch: loadtestwt1)
+[Pipeline] { (Branch: loadtestwt2)
+[Pipeline] build (Building AGSUP_ENDURANCE_THROUGHPUT)
+Scheduling project: AGSUP_ENDURANCE_THROUGHPUT
+[Pipeline] build (Building AGSUP_ENDURANCE_THROUGHPUT)
+Scheduling project: AGSUP_ENDURANCE_THROUGHPUT
+Starting building: AGSUP_ENDURANCE_THROUGHPUT #605
+Starting building: AGSUP_ENDURANCE_THROUGHPUT #606
+Build AGSUP_ENDURANCE_THROUGHPUT #606 completed: SUCCESS
+[Pipeline] }
+Build AGSUP_ENDURANCE_THROUGHPUT #605 completed: SUCCESS
+[Pipeline] }
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cooldown after Auth Server Delay)
+[Pipeline] sleep
+Sleeping for 1 min 0 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run IDP forgot username)
+[Pipeline] parallel
+[Pipeline] { (Branch: loadtestwt1)
+[Pipeline] { (Branch: loadtestwt2)
+[Pipeline] build (Building AGSUP_ENDURANCE_THROUGHPUT)
+Scheduling project: AGSUP_ENDURANCE_THROUGHPUT
+[Pipeline] build (Building AGSUP_ENDURANCE_THROUGHPUT)
+Scheduling project: AGSUP_ENDURANCE_THROUGHPUT
+Starting building: AGSUP_ENDURANCE_THROUGHPUT #607
+Starting building: AGSUP_ENDURANCE_THROUGHPUT #608
+Build AGSUP_ENDURANCE_THROUGHPUT #607 completed: SUCCESS
+[Pipeline] }
+Build AGSUP_ENDURANCE_THROUGHPUT #608 completed: SUCCESS
+[Pipeline] }
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cooldown after IDP forgot username)
+[Pipeline] sleep
+Sleeping for 1 min 0 sec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] End of Pipeline
+Finished: SUCCESS

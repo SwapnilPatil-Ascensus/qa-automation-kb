@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - Transfers" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>		  
+	<test name="NYD CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/transactions/transfer/feature/CsrInterPlanTransfer.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+				
+</suite>

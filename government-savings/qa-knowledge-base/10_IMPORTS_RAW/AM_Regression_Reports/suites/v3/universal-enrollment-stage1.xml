@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Universal Enrollment Regression Test Suite - Stage1 Environment" parallel="tests" thread-count="1" data-provider-thread-count="3">
+    <listeners>
+        <listener class-name="core.listener.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- New York Direct (NYD) - Standard Individual Enrollment -->
+    <test name="NYD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Maryland Direct (MDD) - Standard Individual Enrollment -->
+    <test name="MDD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Nevada Direct (NMD) - Standard Individual Enrollment -->
+    <test name="NMD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Idaho Direct (IDD) - Standard Individual Enrollment -->
+    <test name="IDD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="idd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Idaho Direct (IAD) - Standard Individual Enrollment -->
+    <test name="IAD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="iad"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- New Jersey Direct (NJD) - Standard Individual Enrollment -->
+    <test name="NJD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Missouri Direct (MOD) - Standard Individual Enrollment -->
+    <test name="MOD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="mod"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositive.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Ohio Direct (OHD) - Standard Individual Enrollment -->
+    <test name="OHD_Standard_Individual_Enrollment">
+        <parameter name="traunch" value="ohd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositiveOhio.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 2: CONTINUE ENROLLMENT FLOWS - SAVE & RESUME FUNCTIONALITY              -->
+    <!-- Tests partial enrollment completion, save & close, and resume functionality   -->
+
+    <!-- New York Direct (NYD) - Continue Enrollment Flow -->
+    <test name="NYD_Continue_Enrollment_Flow">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalContinueEnrollment.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Maryland Direct (MDD) - Continue Enrollment Flow -->
+    <test name="MDD_Continue_Enrollment_Flow">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalContinueEnrollment.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Nevada Direct (NMD) - Continue Enrollment Flow -->
+    <test name="NMD_Continue_Enrollment_Flow">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalContinueEnrollment.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 3: MULTIPLE BENEFICIARIES - COMPLEX ENROLLMENT SCENARIOS                -->
+    <!-- Tests enrollment flows with multiple beneficiaries and mixed investment options -->
+
+    <!-- New York Direct (NYD) - Multiple Beneficiaries Enrollment -->
+    <test name="NYD_Multiple_Beneficiaries_Enrollment">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentMultipleBeneficiaries.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Maryland Direct (MDD) - Multiple Beneficiaries Enrollment -->
+    <test name="MDD_Multiple_Beneficiaries_Enrollment">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentMultipleBeneficiaries.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 4: UPROMISE INTEGRATION - LOYALTY PROGRAM VALIDATION                   -->
+    <!-- Tests enrollment flows with Upromise loyalty program integration and validation -->
+
+    <!-- New York Direct (NYD) - Upromise Integration -->
+    <test name="NYD_Upromise_Integration_Validation">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentUpromise.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Maryland Direct (MDD) - Upromise Integration -->
+    <test name="MDD_Upromise_Integration_Validation">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentUpromise.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Nevada Direct (NMD) - Upromise Integration -->
+    <test name="NMD_Upromise_Integration_Validation">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentUpromise.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 5: SPECIALIZED STATE PROGRAMS - UNIQUE ENROLLMENT REQUIREMENTS         -->
+    <!-- Tests enrollment flows for specific state programs with unique requirements    -->
+
+    <!-- Pennsylvania GSP (PAG) - State-Specific Enrollment -->
+    <test name="PAG_State_Specific_Enrollment">
+        <parameter name="traunch" value="pag"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPagsp.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Pennsylvania GSP (PAG) - Sub Beneficiary Flow -->
+    <test name="PAG_UE_Sub_Beneficiary_Flow">
+        <parameter name="traunch" value="pag"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPagspSubBene.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- North Dakota Direct (NDD) - Matching Grant Program -->
+    <test name="NDD_Matching_Grant_Program_Enrollment">
+        <parameter name="traunch" value="ndd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentMatchingGrant.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- District of Columbia Direct (DCD) - Promo Code Enrollment -->
+    <test name="DCD_Promo_Code_Enrollment">
+        <parameter name="traunch" value="dcd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentPositivewithPromocode.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 6: UNIVERSAL ENROLLMENT - FIRST STEP AND FIRST STEP SUB BENEFICIARY FLOW            -->
+    <!-- Tests enrollment flows for first step and first step sub beneficiary flow                  -->
+
+    <!-- Illinois Direct (ILD) - Universal Enrollment - First Step -->
+    <test name="ILD_UniversalEnrollment_FirstStep">
+        <parameter name="traunch" value="ild"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStep.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- New Jersey Direct (NJD) - Universal Enrollment - First Step Sub Beneficiary -->
+    <test name="NJD_UniversalEnrollment_FirstStep_SubBene">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStepSubBene.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- New York Direct (NYD) - Universal Enrollment - First Step Sub Beneficiary -->
+    <test name="NYD_UniversalEnrollment_FirstStep_SubBene">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentFirstStepSubBene.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 7: UNIVERSAL ENROLLMENT - SUB BENEFICIARY FLOW                            -->
+    <!-- Tests enrollment flows for sub beneficiary flow                                  -->
+
+    <!-- Nevada Direct (NMD) - Universal Enrollment - Sub Beneficiary -->
+    <test name="NMD_UniversalEnrollment_SubBene">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentSubBene.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- SECTION 8: UNIVERSAL ENROLLMENT - NEGATIVE SCENARIOS                             -->
+    <!-- Tests enrollment flows for negative scenarios                                   -->
+
+    <!-- New York Direct (NYD) - Universal Enrollment - Negative Scenarios -->
+    <test name="NYD_UniversalEnrollment_NegativeScenarios">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentNegativeScenarios.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Illinois Direct (ILD) - Universal Enrollment - Negative Scenarios -->
+    <test name="ILD_UniversalEnrollment_NegativeScenarios">
+        <parameter name="traunch" value="ild"/>
+        <parameter name="features" value="frontoffice/enrollment/common/feature/UniversalEnrollmentNegativeScenarios.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+</suite>

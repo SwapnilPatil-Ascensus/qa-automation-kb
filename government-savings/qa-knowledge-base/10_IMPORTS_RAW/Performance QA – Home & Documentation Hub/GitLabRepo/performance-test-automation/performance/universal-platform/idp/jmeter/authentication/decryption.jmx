@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Key File Decryption Setup">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Decryption"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Load Key File">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64
+    
+// Load the Base64-encoded key from a file
+def loadKeyFromFile(String filePath) {
+	String key = vars.get(&quot;keyPathByJmx&quot;);
+	String encodedKey;
+
+	// Use JMX path for key file
+	if (key.equals(&quot;true&quot;)) {
+		encodedKey = new String(Files.readAllBytes(Paths.get(vars.get(&quot;keyPath&quot;) + File.separator + filePath)), &quot;UTF-8&quot;);
+	}
+
+	// Use JMeter path for key file
+	else if (key.equals(&quot;false&quot;)) {
+		encodedKey = new String(Files.readAllBytes(Paths.get(filePath)), &quot;UTF-8&quot;);
+	}
+
+	// Use path relative to JMX path for key file
+	else {
+		encodedKey = new String(Files.readAllBytes(Paths.get(vars.get(&quot;keyPath&quot;) + File.separator + key + File.separator + filePath)), &quot;UTF-8&quot;);
+	}
+    byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
+    return new SecretKeySpec(decodedKey, 0, decodedKey.length, &quot;AES&quot;);
+}
+
+// Load the key from the file
+String filePath = vars.get(&quot;keyFile&quot;);
+SecretKey key = loadKeyFromFile(filePath);
+props.put(&quot;loadedKey&quot;, key);</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Hide Sampler From Reports" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">prev.setIgnore();
+</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,6 @@
+#JMETER
+*.jtl
+modified*.jmx
+/performance/**/20*/
+secretKey*.txt
+!/performance/setup/secretKey*.txt

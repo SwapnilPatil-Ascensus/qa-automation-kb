@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="Stage2 Regression (Front Office) - Release" parallel="tests" thread-count="1">
+	<listeners>
+		<listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+	</listeners>
+	
+	<test name="IAD Member Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="iad"></parameter>
+		<parameter name="features" value="frontoffice/iad/member/enrollment/feature/IAD_EnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID NextGen Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/mid/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID NextGen Enrollment - Multiple Beneficiaries">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/mid/member/enrollment/feature/T101_NextGenEnrollmentMultipleBeneficiary.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+		
+	<test name="NVU (SSgA) Prefill Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="nvu"></parameter>
+		<parameter name="features" value="frontoffice/nvu/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+		
+					
+	<test name="NYA Member Contribution Test Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MTB Member Contribution Test Cases">
+		<parameter name="traunch" value="mtb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AbleMemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+			
+	<test name="ILB Member Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="ilb"></parameter>
+		<parameter name="features" value="frontoffice/ilb/member/enrollment/feature/T100_EnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="ILB CSR Enrollment - Positive Test Cases">
+		<parameter name="traunch" value="ilb"></parameter>
+		<parameter name="features" value="frontoffice/ilb/csr/enrollment/feature/ILB_CSREnrollmentPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+</suite>

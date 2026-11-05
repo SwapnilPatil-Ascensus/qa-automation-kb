@@ -1,0 +1,527 @@
+[
+    {
+        "Title":  "2025 - Implementation",
+        "Rel":  "06-releases-and-implementation-plans/2025/2025---Implementation.md",
+        "Modified":  "2025-02-14"
+    },
+    {
+        "Title":  "Feb21st 2025- TrkIT 24553: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/Feb21st-2025--TrkIT-24553-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-11-06"
+    },
+    {
+        "Title":  "Sprint 65 - Production Implementation - Infrastructure",
+        "Rel":  "06-releases-and-implementation-plans/2025/Sprint-65---Production-Implementation---Infrastructure.md",
+        "Modified":  "2025-03-01"
+    },
+    {
+        "Title":  "Sprint 66 - Production Implementation",
+        "Rel":  "06-releases-and-implementation-plans/2025/Sprint-66---Production-Implementation.md",
+        "Modified":  "2025-03-01"
+    },
+    {
+        "Title":  "March11th 2025-TrkIT 24647: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/March11th-2025-TrkIT-24647-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-11-06"
+    },
+    {
+        "Title":  "April 8, 2025 TrkIT 24889: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/April-8,-2025-TrkIT-24889-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-04-08"
+    },
+    {
+        "Title":  "April 22nd, 2025 TrkIT 24981: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/April-22nd,-2025-TrkIT-24981-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-04-21"
+    },
+    {
+        "Title":  "May6th, 2025 TrkIT 25072: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/May6th,-2025-TrkIT-25072-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-05-06"
+    },
+    {
+        "Title":  "May20th, 2025 TrkIT 25204: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/May20th,-2025-TrkIT-25204-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-05-19"
+    },
+    {
+        "Title":  "May15th, 2025 TrkIT 25151: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/May15th,-2025-TrkIT-25151-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-05-15"
+    },
+    {
+        "Title":  "2025-04-07 Meeting notes - Salesforce Integration with DOE",
+        "Rel":  "06-releases-and-implementation-plans/2025/2025-04-07-Meeting-notes---Salesforce-Integration-with-DOE.md",
+        "Modified":  "2025-05-29"
+    },
+    {
+        "Title":  "2025-05-28 Meeting notes - Salesforce Integration with DOE",
+        "Rel":  "06-releases-and-implementation-plans/2025/2025-05-28-Meeting-notes---Salesforce-Integration-with-DOE.md",
+        "Modified":  "2025-05-29"
+    },
+    {
+        "Title":  "June3rd, 2025 TrkIT 25304: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/June3rd,-2025-TrkIT-25304-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-06-03"
+    },
+    {
+        "Title":  "2025-06-03 Meeting notes Salesforce Integration with DOE Group-1",
+        "Rel":  "06-releases-and-implementation-plans/2025/2025-06-03-Meeting-notes-Salesforce-Integration-with-DOE-Group-1.md",
+        "Modified":  "2025-06-05"
+    },
+    {
+        "Title":  "June10th 2025 - TrakIT 25358: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/June10th-2025---TrakIT-25358-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-11-06"
+    },
+    {
+        "Title":  "June27th, 2025 TrakIt [25461]: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/June27th,-2025-TrakIt-25461-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-06-30"
+    },
+    {
+        "Title":  "July1st, 2025 TrakIt [25539]: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/July1st,-2025-TrakIt-25539-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-07-01"
+    },
+    {
+        "Title":  "July10th, 2025 TrakIt [25565]: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/July10th,-2025-TrakIt-25565-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-07-09"
+    },
+    {
+        "Title":  "July7th, 2025 TrakIt [25563]: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/July7th,-2025-TrakIt-25563-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-07-03"
+    },
+    {
+        "Title":  "2025-07-14 Meeting notes - Salesforce Integration with DOE Group-2",
+        "Rel":  "06-releases-and-implementation-plans/2025/2025-07-14-Meeting-notes---Salesforce-Integration-with-DOE-Group-2.md",
+        "Modified":  "2025-07-14"
+    },
+    {
+        "Title":  "July21st, 2025 TrakIt [25666]: Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2025/July21st,-2025-TrakIt-25666-Onboarding-Implementation-Plan.md",
+        "Modified":  "2025-07-21"
+    },
+    {
+        "Title":  "June16th2025 -TrkIT 25396: Change ChorusURL for production",
+        "Rel":  "06-releases-and-implementation-plans/2025/June16th2025--TrkIT-25396-Change-ChorusURL-for-production.md",
+        "Modified":  "2025-11-06"
+    },
+    {
+        "Title":  "July29th, 2025 TrakIt [25665]: Fix CRD Dealer Lookup",
+        "Rel":  "06-releases-and-implementation-plans/2025/July29th,-2025-TrakIt-25665-Fix-CRD-Dealer-Lookup.md",
+        "Modified":  "2025-07-29"
+    },
+    {
+        "Title":  "July31st, 2025 TrakIt [25766]: SetUp Plan Api Deployment",
+        "Rel":  "06-releases-and-implementation-plans/2025/July31st,-2025-TrakIt-25766-SetUp-Plan-Api-Deployment.md",
+        "Modified":  "2025-07-30"
+    },
+    {
+        "Title":  "September3rd, 2025 TrakIt [25953]: Onboarding Group2 Commands",
+        "Rel":  "06-releases-and-implementation-plans/2025/September3rd,-2025-TrakIt-25953-Onboarding-Group2-Commands.md",
+        "Modified":  "2025-09-03"
+    },
+    {
+        "Title":  "Sep22nd 2025 [26088] - Document Mapping for DOE Group 2",
+        "Rel":  "06-releases-and-implementation-plans/2025/Sep22nd-2025-26088---Document-Mapping-for-DOE-Group-2.md",
+        "Modified":  "2025-09-22"
+    },
+    {
+        "Title":  "Sep30th 2025 [26213] - Increase SetupPlan Timeout",
+        "Rel":  "06-releases-and-implementation-plans/2025/Sep30th-2025-26213---Increase-SetupPlan-Timeout.md",
+        "Modified":  "2025-09-30"
+    },
+    {
+        "Title":  "Sep25th 2025 [26158] - Chorus LOBs and Documents mappings for Group2",
+        "Rel":  "06-releases-and-implementation-plans/2025/Sep25th-2025-26158---Chorus-LOBs-and-Documents-mappings-for-Group2.md",
+        "Modified":  "2025-09-25"
+    },
+    {
+        "Title":  "Oct3rd 2025 [26229] - OTP and PAS related fixes",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct3rd-2025-26229---OTP-and-PAS-related-fixes.md",
+        "Modified":  "2025-10-03"
+    },
+    {
+        "Title":  "Oct7th 2025 [26269] - Plan Installation Saga Updates",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct7th-2025-26269---Plan-Installation-Saga-Updates.md",
+        "Modified":  "2025-10-07"
+    },
+    {
+        "Title":  "Oct10th 2025 - [26298] Team White DOE Retries/Timeouts Fixes",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct10th-2025---26298-Team-White-DOE-Retries-Timeouts-Fixes.md",
+        "Modified":  "2025-10-10"
+    },
+    {
+        "Title":  "Oct13th 2025 - [26307] OTP Fixes",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct13th-2025---26307-OTP-Fixes.md",
+        "Modified":  "2025-10-14"
+    },
+    {
+        "Title":  "Oct16th 2025 - [26327] OTP and DBContext Enhancements",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct16th-2025---26327-OTP-and-DBContext-Enhancements.md",
+        "Modified":  "2025-10-16"
+    },
+    {
+        "Title":  "Oct27th 2025 - [26385] Write to ARK Additions",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct27th-2025---26385-Write-to-ARK-Additions.md",
+        "Modified":  "2025-10-27"
+    },
+    {
+        "Title":  "Oct17th 2025 - [26339] Security enhancements for DOE",
+        "Rel":  "06-releases-and-implementation-plans/2025/Oct17th-2025---26339-Security-enhancements-for-DOE.md",
+        "Modified":  "2025-10-17"
+    },
+    {
+        "Title":  "Nov3rd 2025 - [26435] BAML Enhancements",
+        "Rel":  "06-releases-and-implementation-plans/2025/Nov3rd-2025---26435-BAML-Enhancements.md",
+        "Modified":  "2025-11-03"
+    },
+    {
+        "Title":  "2025-10-30 Salesforce Integration with DOE Group-2",
+        "Rel":  "06-releases-and-implementation-plans/2025/2025-10-30-Salesforce-Integration-with-DOE-Group-2.md",
+        "Modified":  "2026-04-01"
+    },
+    {
+        "Title":  "Nov17th 2025 - [26564] Onboarding Hardening for Group2 plans",
+        "Rel":  "06-releases-and-implementation-plans/2025/Nov17th-2025---26564-Onboarding-Hardening-for-Group2-plans.md",
+        "Modified":  "2025-11-17"
+    },
+    {
+        "Title":  "Nov20th 2025 - [26596] Onboarding.Portal Updates for BAML",
+        "Rel":  "06-releases-and-implementation-plans/2025/Nov20th-2025---26596-Onboarding.Portal-Updates-for-BAML.md",
+        "Modified":  "2025-11-20"
+    },
+    {
+        "Title":  "Nov7th 2025 - [26495] BAML Welcome Email Fix",
+        "Rel":  "06-releases-and-implementation-plans/2025/Nov7th-2025---26495-BAML-Welcome-Email-Fix.md",
+        "Modified":  "2025-11-07"
+    },
+    {
+        "Title":  "Nov24th 2025 - [26617] BAML Performance Enhancements",
+        "Rel":  "06-releases-and-implementation-plans/2025/Nov24th-2025---26617-BAML-Performance-Enhancements.md",
+        "Modified":  "2025-11-24"
+    },
+    {
+        "Title":  "Dec9th 2025 - [26680] Fix DCADocumentReplication Job in Hangfire",
+        "Rel":  "06-releases-and-implementation-plans/2025/Dec9th-2025---26680-Fix-DCADocumentReplication-Job-in-Hangfire.md",
+        "Modified":  "2025-12-09"
+    },
+    {
+        "Title":  "Dec2nd 2025 - [26640] Expiration emails And Perspective Sales Endpoints",
+        "Rel":  "06-releases-and-implementation-plans/2025/Dec2nd-2025---26640-Expiration-emails-And-Perspective-Sales-Endpoints.md",
+        "Modified":  "2025-12-02"
+    },
+    {
+        "Title":  "Nov26th 2025 - [26637] Trade Setup changes for BAML Reporting and DCA issue Fix",
+        "Rel":  "06-releases-and-implementation-plans/2025/Nov26th-2025---26637-Trade-Setup-changes-for-BAML-Reporting-and-DCA-is.md",
+        "Modified":  "2025-11-26"
+    },
+    {
+        "Title":  "Dec11th 2025 - [26697] Enable Expiration/Reminder emails job in Hangfire",
+        "Rel":  "06-releases-and-implementation-plans/2025/Dec11th-2025---26697-Enable-Expiration-Reminder-emails-job-in-Hangfire.md",
+        "Modified":  "2025-12-11"
+    },
+    {
+        "Title":  "2026-01-12 -[26939] Onboarding Dashboard changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-01-12---26939-Onboarding-Dashboard-changes.md",
+        "Modified":  "2026-01-26"
+    },
+    {
+        "Title":  "2026 - Implementation",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026---Implementation.md",
+        "Modified":  "2026-01-12"
+    },
+    {
+        "Title":  "Dec4th 2025 [26683] - BAML Trade account, Fund setup and PDIO changes",
+        "Rel":  "06-releases-and-implementation-plans/2025/Dec4th-2025-26683---BAML-Trade-account,-Fund-setup-and-PDIO-changes.md",
+        "Modified":  "2025-12-04"
+    },
+    {
+        "Title":  "2026-01-22 -[26996] Onboarding Implementation Plan",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-01-22---26996-Onboarding-Implementation-Plan.md",
+        "Modified":  "2026-01-22"
+    },
+    {
+        "Title":  "2026-01-15 -[26968] Setup Plan Api changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-01-15---26968-Setup-Plan-Api-changes.md",
+        "Modified":  "2026-01-26"
+    },
+    {
+        "Title":  "Sep8th 2025 TrakIT26004 - SalesForce and Audit Tables fixes for Group2",
+        "Rel":  "06-releases-and-implementation-plans/2025/Sep8th-2025-TrakIT26004---SalesForce-and-Audit-Tables-fixes-for-Group2.md",
+        "Modified":  "2025-09-08"
+    },
+    {
+        "Title":  "2026-02-17 -[27009] [Unqork] PAS documents issue with Docu-sign",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-17---27009-Unqork-PAS-documents-issue-with-Docu-sign.md",
+        "Modified":  "2026-02-26"
+    },
+    {
+        "Title":  "2026-02-06 -[27088] [Unqork] Group1 Docusign fixes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-06---27088-Unqork-Group1-Docusign-fixes.md",
+        "Modified":  "2026-02-26"
+    },
+    {
+        "Title":  "2026-01-27 -[27057] Analytics Enhancements for Dashboard",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-01-27---27057-Analytics-Enhancements-for-Dashboard.md",
+        "Modified":  "2026-01-27"
+    },
+    {
+        "Title":  "2026-01-29 -[27089] Team White - Analytics Data Corrections",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-01-29---27089-Team-White---Analytics-Data-Corrections.md",
+        "Modified":  "2026-01-29"
+    },
+    {
+        "Title":  "2026-01-30 -[27104] Partner Filter Fix In Onboarding MFE",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-01-30---27104-Partner-Filter-Fix-In-Onboarding-MFE.md",
+        "Modified":  "2026-01-30"
+    },
+    {
+        "Title":  "2026-02-02 -[27105] DCA Partner Onboarding Dashboard Activation for External Users",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-02---27105-DCA-Partner-Onboarding-Dashboard-Activation-for-Ext.md",
+        "Modified":  "2026-02-02"
+    },
+    {
+        "Title":  "2026-02-02 -[27126] Team White - Fix for InProgress Onboardings showing up as Expired",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-02---27126-Team-White---Fix-for-InProgress-Onboardings-showing.md",
+        "Modified":  "2026-02-03"
+    },
+    {
+        "Title":  "2026-02-04 -[27143] Team Archers - PAS Generation Success but documents Not Visible on DOE",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-04---27143-Team-Archers---PAS-Generation-Success-but-documents.md",
+        "Modified":  "2026-02-04"
+    },
+    {
+        "Title":  "2026-02-05 -[27156] Team White - PEK document missing fix (Group1 and Group2)",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-05---27156-Team-White---PEK-document-missing-fix-(Group1-and-G.md",
+        "Modified":  "2026-02-05"
+    },
+    {
+        "Title":  "2026-02-03 -[27009] [Unqork] Browser back button fix ",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-03---27009-Unqork-Browser-back-button-fix.md",
+        "Modified":  "2026-02-08"
+    },
+    {
+        "Title":  "2026-02-19 -[27153] TeamWhite - Onboarding Dashboard Enhancements for Internal Users",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-19---27153-TeamWhite---Onboarding-Dashboard-Enhancements-for-I.md",
+        "Modified":  "2026-02-19"
+    },
+    {
+        "Title":  "2026-02-11 -[27179]TeamWhite- Enhance CSV Export for Analytics",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-11---27179-TeamWhite--Enhance-CSV-Export-for-Analytics.md",
+        "Modified":  "2026-02-11"
+    },
+    {
+        "Title":  "2026-02-26 -[27285] TeamWhite - Onboarding Dashboard Enhancements (Cancel/Extend/Reactivate/Emails)",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-02-26---27285-TeamWhite---Onboarding-Dashboard-Enhancements-(Canc.md",
+        "Modified":  "2026-02-26"
+    },
+    {
+        "Title":  "2026-03-03 -[27306] TeamWhite - Onboarding Partner Dashboard (Resolve Hardstop)",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-03-03---27306-TeamWhite---Onboarding-Partner-Dashboard-(Resolve-H.md",
+        "Modified":  "2026-03-03"
+    },
+    {
+        "Title":  "2026-03-12 -[27362] TeamWhite - Onboarding Partner Dashboard (Sponsor History)",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-03-12---27362-TeamWhite---Onboarding-Partner-Dashboard-(Sponsor-H.md",
+        "Modified":  "2026-03-12"
+    },
+    {
+        "Title":  "2026-03-17 - [27419] Setup Plan Api changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-03-17---27419-Setup-Plan-Api-changes.md",
+        "Modified":  "2026-03-18"
+    },
+    {
+        "Title":  "2026-03-26 - [27488] Setup Plan Api changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-03-26---27488-Setup-Plan-Api-changes.md",
+        "Modified":  "2026-03-26"
+    },
+    {
+        "Title":  "2026-03-31 -[27491] TeamWhite - Extend DCA Document Integration",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-03-31---27491-TeamWhite---Extend-DCA-Document-Integration.md",
+        "Modified":  "2026-03-31"
+    },
+    {
+        "Title":  "04-01-2026 Salesforce requirements for Group 1 and 2.2 review",
+        "Rel":  "06-releases-and-implementation-plans/2026/04-01-2026-Salesforce-requirements-for-Group-1-and-2.2-review.md",
+        "Modified":  "2026-04-07"
+    },
+    {
+        "Title":  "2026-04-01 - [27533] TeamWhite-Basic Plan Document Replication to DCA",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-04-01---27533-TeamWhite-Basic-Plan-Document-Replication-to-DCA.md",
+        "Modified":  "2026-04-01"
+    },
+    {
+        "Title":  "2026-04-16 - [27594] TeamWhite - Ascensus IK Bal Fwd No Advisor",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-04-16---27594-TeamWhite---Ascensus-IK-Bal-Fwd-No-Advisor.md",
+        "Modified":  "2026-04-16"
+    },
+    {
+        "Title":  "2026-04-09 -[27522] TeamWhite-DCA Partner Dashboard Changes for Ascensus Partner",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-04-09---27522-TeamWhite-DCA-Partner-Dashboard-Changes-for-Ascensu.md",
+        "Modified":  "2026-04-09"
+    },
+    {
+        "Title":  "2026-04-23 -[27673] TeamArchers-Secure2.0 reversal and New Dashboard Changes for Setup Plan API",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-04-23---27673-TeamArchers-Secure2.0-reversal-and-New-Dashboard-Ch.md",
+        "Modified":  "2026-06-12"
+    },
+    {
+        "Title":  "2026-05-14 - [27782] TeamWhite - Security Role User and Ascensus IK Daily Updates",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-05-14---27782-TeamWhite---Security-Role-User-and-Ascensus-IK-Dail.md",
+        "Modified":  "2026-05-12"
+    },
+    {
+        "Title":  "2026-06-16 -[28047] TeamArchers-Secure2.0 ARK Changes for Setup Plan API and Consumer",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-06-16---28047-TeamArchers-Secure2.0-ARK-Changes-for-Setup-Plan-AP.md",
+        "Modified":  "2026-06-15"
+    },
+    {
+        "Title":  "2026-06-25 - [28110] Team White IST Features Pro Deployment",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-06-25---28110-Team-White-IST-Features-Pro-Deployment.md",
+        "Modified":  "2026-06-25"
+    },
+    {
+        "Title":  "2026-07-02 -[28172] Team Archers-Ascensus Essentials GROUP - Commission Based for Setup Plan API and",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-02---28172-Team-Archers-Ascensus-Essentials-GROUP---Commission.md",
+        "Modified":  "2026-07-01"
+    },
+    {
+        "Title":  "2026-07-06 - [28157] Team White: Add fund network path to messaging API",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-06---28157-Team-White-Add-fund-network-path-to-messaging-API.md",
+        "Modified":  "2026-07-06"
+    },
+    {
+        "Title":  "2026-07-07 - [28183] TeamWhite - DirectSold Group and AdvisorSold IK and Group DOE UI",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-07---28183-TeamWhite---DirectSold-Group-and-AdvisorSold-IK-and.md",
+        "Modified":  "2026-07-07"
+    },
+    {
+        "Title":  "2026-07-09 - [28217] TeamWhite - IST Command Center Import Updates",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-09---28217-TeamWhite---IST-Command-Center-Import-Updates.md",
+        "Modified":  "2026-07-09"
+    },
+    {
+        "Title":  "2026-07-10 -[28233] Team Archers - Billing Options \u0026 Automated Forced Out Changes for Write to ARK A",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-10---28233-Team-Archers---Billing-Options-Automated-Forced-Out.md",
+        "Modified":  "2026-07-09"
+    },
+    {
+        "Title":  "2026-08-03 -[28444] Team Archers - for Investments, Ancillary Screen, Drawdown and Money Type changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-03---28444-Team-Archers---for-Investments,-Ancillary-Screen,-D.md",
+        "Modified":  "2026-09-08"
+    },
+    {
+        "Title":  "2026-07-13 - [28253] AdvisorSold Prefill Email Trigger Correction",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-13---28253-AdvisorSold-Prefill-Email-Trigger-Correction.md",
+        "Modified":  "2026-07-13"
+    },
+    {
+        "Title":  "2026-08-03 - [28424] TeamWhite - Onboarding and IST Enhancements",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-03---28424-TeamWhite---Onboarding-and-IST-Enhancements.md",
+        "Modified":  "2026-07-31"
+    },
+    {
+        "Title":  "2026-08-13 - [28531] TeamWhite - One Digital 3(38) Fiduciary Service Provider",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-13---28531-TeamWhite---One-Digital-3(38)-Fiduciary-Service-Pro.md",
+        "Modified":  "2026-08-13"
+    },
+    {
+        "Title":  "2026-08-13 -[28546] Team Archers - for ServiceElection, Billing Option and Waiver Date changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-13---28546-Team-Archers---for-ServiceElection,-Billing-Option.md",
+        "Modified":  "2026-09-08"
+    },
+    {
+        "Title":  "2026-07-16 -[28288] Team Archers - for Loan Fees, Financial Wellness, Drawdown and dealer changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-07-16---28288-Team-Archers---for-Loan-Fees,-Financial-Wellness,-D.md",
+        "Modified":  "2026-07-16"
+    },
+    {
+        "Title":  "2026-08-26 - [28613]  TeamWhite -Report PAS Document signature failures in Chorus",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-26---28613-TeamWhite--Report-PAS-Document-signature-failures-i.md",
+        "Modified":  "2026-08-26"
+    },
+    {
+        "Title":  "2026-09-01 -[28688] Team Archers -for Inve/Contact List,OtherFee, CustomDate,ElapsedTime,Fiduciary changes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-09-01---28688-Team-Archers--for-Inve-Contact-List,OtherFee,-Custo.md",
+        "Modified":  "2026-09-08"
+    },
+    {
+        "Title":  "2026-09-10 -[28776] Team Archers -for Payroll Web Options changes in ARK",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-09-10---28776-Team-Archers--for-Payroll-Web-Options-changes-in-AR.md",
+        "Modified":  "2026-09-09"
+    },
+    {
+        "Title":  "2026-08-31 - [28672] Team White IST PEK Fix",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-31---28672-Team-White-IST-PEK-Fix.md",
+        "Modified":  "2026-09-08"
+    },
+    {
+        "Title":  "2026-09-08 - [28678] Team White -Salesforce Bug Fix",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-09-08---28678-Team-White--Salesforce-Bug-Fix.md",
+        "Modified":  "2026-09-08"
+    },
+    {
+        "Title":  "2026-09-24 -[28896] Team Archers -for BLOANBOB, Money Types, Notices and Fee Disclosures changes in ARK",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-09-24---28896-Team-Archers--for-BLOANBOB,-Money-Types,-Notices-an.md",
+        "Modified":  "2026-09-22"
+    },
+    {
+        "Title":  "2026-08-31 - [28672] Team White IST Hot Fixes",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-31---28672-Team-White-IST-Hot-Fixes.md",
+        "Modified":  "2026-08-31"
+    },
+    {
+        "Title":  "2026-08-31 - [28794] Team White - IST TargetDate Series",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-08-31---28794-Team-White---IST-TargetDate-Series.md",
+        "Modified":  "2026-09-25"
+    },
+    {
+        "Title":  "2026-09-29 - [28934] TeamWhite - Onboarding.Experience.UI",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-09-29---28934-TeamWhite---Onboarding.Experience.UI.md",
+        "Modified":  "2026-09-29"
+    },
+    {
+        "Title":  "2026-09-30 - [28969] TeamWhite - Onboarding.Experience.UI Secure Auth",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-09-30---28969-TeamWhite---Onboarding.Experience.UI-Secure-Auth.md",
+        "Modified":  "2026-10-08"
+    },
+    {
+        "Title":  "2026-10-12 - [28983] TeamWhite-Enhancements to Sales Portal",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-10-12---28983-TeamWhite-Enhancements-to-Sales-Portal.md",
+        "Modified":  "2026-10-09"
+    },
+    {
+        "Title":  "2026-10-22 -[29171] Team Archers -Weboptions, NET upgrade, Removal of Excel dependency for SB",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-10-22---29171-Team-Archers--Weboptions,-NET-upgrade,-Removal-of-E.md",
+        "Modified":  "2026-10-21"
+    },
+    {
+        "Title":  "2026-11-17 [29062] TeamWhite - Sales Bridge and Vanguard SSO Roll to PRO",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-11-17-29062-TeamWhite---Sales-Bridge-and-Vanguard-SSO-Roll-to-PRO.md",
+        "Modified":  "2026-10-13"
+    },
+    {
+        "Title":  "2026-10-08 -[28897] Team Archers -Weboptions, MT Vest changes for IK in ARK",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-10-08---28897-Team-Archers--Weboptions,-MT-Vest-changes-for-IK-in.md",
+        "Modified":  "2026-10-07"
+    },
+    {
+        "Title":  "2026-11-03 [29251] Team White- Onboarding API Platform Migration (New Cluster)",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-11-03-29251-Team-White--Onboarding-API-Platform-Migration-(New-Cl.md",
+        "Modified":  "2026-11-03"
+    },
+    {
+        "Title":  "2026-10-29 [29141] - TeamWhite .NET 10 Upgrade",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-10-29-29141---TeamWhite-.NET-10-Upgrade.md",
+        "Modified":  "2026-10-29"
+    },
+    {
+        "Title":  "2026-10-22 -[TBD] Team Archers -Copy contents, DD Configuration updates, SB Enrollment and Contract-seq update",
+        "Rel":  "06-releases-and-implementation-plans/2026/2026-10-22---TBD-Team-Archers--Copy-contents,-DD-Configuration-updates.md",
+        "Modified":  "2026-11-03"
+    }
+]

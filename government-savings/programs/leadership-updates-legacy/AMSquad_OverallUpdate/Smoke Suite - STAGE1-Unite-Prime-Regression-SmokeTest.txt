@@ -1,0 +1,342 @@
+http://jenkinsqant1:8080/view/Frontoffice/job/STAGE1-Unite-Prime-Regression-SmokeTest/
+
+STAGE1-Unite-Prime-Regression-SmokeTest
+
+Schedule: H 1 * * 1-5
+
+Script:
+. /qa-automation/foa/uniteenv.sh
+
+ant -f ${PRIME_HOME}bin/build.xml stage1-sardine-regression-regression -DENV=stage1
+
+Log:
+Console Output
+Started by timer
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building remotely on seleniumhubnt2_devops (seleniumhubnt2) in workspace /home/devops/jenkins/workspace/STAGE1-Unite-Prime-Regression-SmokeTest
+[STAGE1-Unite-Prime-Regression-SmokeTest] $ /bin/sh -xe /tmp/jenkins15573295161506067581.sh
++ . /qa-automation/foa/uniteenv.sh
+++ JAVA_HOME=/cust/jdk1.8.0_121-x64/
+++ export JAVA_HOME
+++ ANT_HOME=/qa-automation/ant/apache-ant-1.9.4/
+++ export ANT_HOME
+++ GROOVY_HOME=/qa-automation/groovy/groovy-2.4.11/
+++ export GROOVY_HOME
+++ SELENIUM_HOME=/qa-automation/selenium/selenium-4.0/
+++ export SELENIUM_HOME
+++ CUCUMBER_HOME=/qa-automation/cucumber/4.2.0
+++ export CUCUMBER_HOME
+++ PRIME_HOME=/qa-automation/unite/
+++ export PRIME_HOME
+++ TESTNG_HOME=/qa-automation/testng/testng-6.8
+++ export TESTNG_HOME
+++ export HOSTNAME=seleniumhubnt2
+++ HOSTNAME=seleniumhubnt2
+++ M2_HOME=/qa-automation/apache-maven-3.6.1
+++ export M2_HOME
+++ MAVEN_OPTS=-Xmx2024m
+++ export MAVEN_OPTS
+++ PATH=/cust/jdk1.8.0_121-x64/bin:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/qa-automation/ant/apache-ant-1.9.4/bin:/qa-automation/apache-maven-3.6.1/bin
+++ export PATH
+++ export PRIME_DEVOPS
+++ PRIME_DEVOPS=/home/devops/.credentials/stage1_db.properties
+++ MAVEN_CONFIG=/qa-automation/.m2
+++ export MAVEN_CONFIG
++ ant -f /qa-automation/unite/bin/build.xml stage1-sardine-regression-regression -DENV=stage1
+Buildfile: /qa-automation/unite/bin/build.xml
+
+stage1-sardine-regression-regression:
+
+runinit:
+
+runtest:
+    [mkdir] Created dir: /qa-automation/reports/unite/20260804/stage1-sardine-regression
+     [java] PRIME Resource Manager: Now rolling out...
+     [java] Loading configuration file: /qa-automation/unite/config/stage1.properties
+     [java] Loading configuration file: /qa-automation/unite/config/seleniumhubnt2.properties
+     [java] Loading configuration file: /home/devops/.credentials/stage1_db.properties
+     [java] [TestNG] Running:
+     [java]   /qa-automation/unite/bin/regression/daily/stage1-sardine-regression.xml
+     [java] 
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:38<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:37<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:34<br/>
+     [java] Starting scenario: NextGen Enrollment with Full enrollment options for Non-CAD Individual without CAD Employer<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:35<br/>
+     [java] Starting scenario: NextGen Enrollment with Full enrollment options for CAD UGMA with AIP<br/>
+     [java] Starting scenario: NextGen Enrollment with Full enrollment options with owner beneficiary<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:75<br/>
+     [java] Starting scenario: NextGen Enrollment with Full enrollment options for FUNDID 1068001<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:36<br/>
+     [java] Starting scenario: NextGen Enrollment with Full enrollment options for Non-CAD Individual with CAD Employer<br/>
+     [java] Starting scenario: NextGen Enrollment with Full enrollment options for CAD Individual with AIP 1068001<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:190<br/>
+     [java] Starting scenario: NextGen Enrollment with Trusted Contact<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/cad/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature:136<br/>
+     [java] Starting scenario: NextGen Enrollment by Payroll<br/>
+     [java] Aug 04, 2026 8:02:22 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:02:37 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:02:52 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:03:07 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:03:22 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:03:37 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:03:52 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 8:04:07 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] cad.20260804071140014.T100_NextGenEnrollmentPositive.feature.136: Test case execution time exceeds 5 minutes - 9.0 minutes, 33.60799999999995 seconds<br/>
+     [java] cad.20260804071159524.T100_NextGenEnrollmentPositive.feature.37: Test case execution time exceeds 5 minutes - 9.0 minutes, 53.061000000000035 seconds<br/>
+     [java] cad.20260804071222145.T100_NextGenEnrollmentPositive.feature.75: Test case execution time exceeds 5 minutes - 10.0 minutes, 15.691000000000031 seconds<br/>
+     [java] cad.20260804071228878.T100_NextGenEnrollmentPositive.feature.36: Test case execution time exceeds 5 minutes - 10.0 minutes, 22.426000000000045 seconds<br/>
+     [java] cad.20260804071314215.T100_NextGenEnrollmentPositive.feature.34: Test case execution time exceeds 5 minutes - 11.0 minutes, 7.759999999999991 seconds<br/>
+     [java] cad.20260804071404818.T100_NextGenEnrollmentPositive.feature.190: Test case execution time exceeds 5 minutes - 11.0 minutes, 58.35299999999995 seconds<br/>
+     [java] cad.20260804071616515.T100_NextGenEnrollmentPositive.feature.38: Test case execution time exceeds 5 minutes - 14.0 minutes, 10.086999999999989 seconds<br/>
+     [java] cad.20260804071619836.T100_NextGenEnrollmentPositive.feature.35: Test case execution time exceeds 5 minutes - 14.0 minutes, 13.42999999999995 seconds<br/>
+     [java] 
+     [java] 8 Scenarios ([32m8 passed[0m)
+     [java] 173 Steps ([32m173 passed[0m)
+     [java] 14m14.762s
+     [java] 
+     [java] Successfully created call for feature: T100_NextGenEnrollmentPositive - ID: 296791588<br/>
+     [java] 
+     [java] 0 Scenarios
+     [java] 0 Steps
+     [java] 0m0.001s
+     [java] 
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:33<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE Individual with FUNDID Y1<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:35<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE Authorized Legal<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:34<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE Parent with Power of Attorney<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:36<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE AI with Conservator<br/>
+     [java] Non NAA RB3
+     [java] 0741
+     [java] 6732
+     [java] 4607
+     [java] tnb.20260804072319026.T100_NAA_EnrollmentPositive.feature.34: Test case execution time exceeds 5 minutes - 6.0 minutes, 55.072 seconds<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:35 [0m# NAA/Non-NAA Enrollment with Full enrollment options for ABLE Authorized Legal
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:36 [0m# NAA/Non-NAA Enrollment with Full enrollment options for ABLE AI with Conservator
+     [java] 
+     [java] 4 Scenarios ([31m2 failed[0m, [32m2 passed[0m)
+     [java] 88 Steps ([31m2 failed[0m, [36m24 skipped[0m, [32m62 passed[0m)
+     [java] 6m55.714s
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: respIndivInfo.fname (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.fillElement(ScenarioManipulator.java:967)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.enrollment.MemberEnrollmentStepDefs.completeParentAuthorized(MemberEnrollmentStepDefs.java:1159)
+     [java] 	at ?.user completes ABLE parent-authorized info and submit page for Full enrollment options for ABLE Authorized Legal(/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:19)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: custodianTypeId3 (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.enrollment.MemberEnrollmentStepDefs.completeMemberWhoIsOpeningTheAccount(MemberEnrollmentStepDefs.java:541)
+     [java] 	at ?.user completes who is opening the account section for Full enrollment options for ABLE AI with Conservator(/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:13)
+     [java] 
+     [java] Successfully created call for feature: T100_NAA_EnrollmentPositive - ID: 296791594<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:34<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE Parent with Power of Attorney<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:33<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE Individual with FUNDID Y1<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:35<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE Authorized Legal<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:36<br/>
+     [java] Starting scenario: NAA/Non-NAA Enrollment with Full enrollment options for ABLE AI with Conservator<br/>
+     [java] Aug 04, 2026 8:23:37 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:33 [0m# NAA/Non-NAA Enrollment with Full enrollment options for ABLE Individual with FUNDID Y1
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:34 [0m# NAA/Non-NAA Enrollment with Full enrollment options for ABLE Parent with Power of Attorney
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:35 [0m# NAA/Non-NAA Enrollment with Full enrollment options for ABLE Authorized Legal
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:36 [0m# NAA/Non-NAA Enrollment with Full enrollment options for ABLE AI with Conservator
+     [java] 
+     [java] 4 Scenarios ([31m4 failed[0m)
+     [java] 88 Steps ([31m4 failed[0m, [36m76 skipped[0m, [32m8 passed[0m)
+     [java] 0m18.787s
+     [java] 
+     [java] java.lang.AssertionError: Failed to load page or confirmation text not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.navigateToStartPage(ScenarioManipulator.java:1282)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.setScenarioData(ScenarioManipulator.java:40)
+     [java] 	at com.cs529.qa.prime.core.BaseClass.getBrowser(BaseClass.java:419)
+     [java] 	at com.cs529.qa.prime.core.EnvironmentStepDefs.obtainBrowserWithViewport(EnvironmentStepDefs.java:36)
+     [java] 	at ?.using browser(/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:6)
+     [java] 
+     [java] java.lang.AssertionError: Failed to load page or confirmation text not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.navigateToStartPage(ScenarioManipulator.java:1282)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.setScenarioData(ScenarioManipulator.java:40)
+     [java] 	at com.cs529.qa.prime.core.BaseClass.getBrowser(BaseClass.java:419)
+     [java] 	at com.cs529.qa.prime.core.EnvironmentStepDefs.obtainBrowserWithViewport(EnvironmentStepDefs.java:36)
+     [java] 	at ?.using browser(/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:6)
+     [java] 
+     [java] java.lang.AssertionError: Failed to load page or confirmation text not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.navigateToStartPage(ScenarioManipulator.java:1282)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.setScenarioData(ScenarioManipulator.java:40)
+     [java] 	at com.cs529.qa.prime.core.BaseClass.getBrowser(BaseClass.java:419)
+     [java] 	at com.cs529.qa.prime.core.EnvironmentStepDefs.obtainBrowserWithViewport(EnvironmentStepDefs.java:36)
+     [java] 	at ?.using browser(/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:6)
+     [java] 
+     [java] java.lang.AssertionError: Failed to load page or confirmation text not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.navigateToStartPage(ScenarioManipulator.java:1282)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.setScenarioData(ScenarioManipulator.java:40)
+     [java] 	at com.cs529.qa.prime.core.BaseClass.getBrowser(BaseClass.java:419)
+     [java] 	at com.cs529.qa.prime.core.EnvironmentStepDefs.obtainBrowserWithViewport(EnvironmentStepDefs.java:36)
+     [java] 	at ?.using browser(/qa-automation/unite/testsuite/frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature:6)
+     [java] 
+     [java] Successfully created call for feature: T100_NAA_EnrollmentPositive - ID: 296791595<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/gsp/member/enrollment/feature/T100_GSPEnrollmentPositive.feature:160<br/>
+     [java] Starting scenario: GSP Enrollment Check options with Full enrollment options for GSP - Check<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/gsp/member/enrollment/feature/T100_GSPEnrollmentPositive.feature:38<br/>
+     [java] Starting scenario: GSP Enrollment AIP options with Full enrollment options for GSP - AO Resident Alien<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/gsp/member/enrollment/feature/T100_GSPEnrollmentPositive.feature:107<br/>
+     [java] Starting scenario: GSP Enrollment EBT option with Full enrollment options for GSP - EBT Savings Account<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/gsp/member/enrollment/feature/T100_GSPEnrollmentPositive.feature:37<br/>
+     [java] Starting scenario: GSP Enrollment AIP options with Full enrollment options for GSP - Same AO Addresses<br/>
+     [java] 5231
+     [java] 4410
+     [java] 8389
+     [java] 7496
+     [java] pag.20260804073017052.T100_GSPEnrollmentPositive.feature.37: Test case execution time exceeds 5 minutes - 6.0 minutes, 33.69799999999998 seconds<br/>
+     [java] pag.20260804073042942.T100_GSPEnrollmentPositive.feature.38: Test case execution time exceeds 5 minutes - 6.0 minutes, 59.589 seconds<br/>
+     [java] 
+     [java] 4 Scenarios ([32m4 passed[0m)
+     [java] 76 Steps ([32m76 passed[0m)
+     [java] 7m0.190s
+     [java] 
+     [java] Successfully created call for feature: T100_GSPEnrollmentPositive - ID: 296791615<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:26<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment Individual ROLLOVER<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:24<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment Individual EBT<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:25<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment UGMA/UTMA CHECK<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:24 [0m# CSR Pre-fill Enrollment with Pre-fill Enrollment Individual EBT
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:25 [0m# CSR Pre-fill Enrollment with Pre-fill Enrollment UGMA/UTMA CHECK
+     [java] 
+     [java] 3 Scenarios ([31m2 failed[0m, [32m1 passed[0m)
+     [java] 39 Steps ([31m2 failed[0m, [36m14 skipped[0m, [32m23 passed[0m)
+     [java] 1m16.669s
+     [java] 
+     [java] java.lang.AssertionError: Failed to load page or confirmation text not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.navigateToPage(ScenarioManipulator.java:908)
+     [java] 	at com.cs529.qa.unite.frontoffice.csr.prefillenroll.PrefillEnrollmentStepDefs.prefillEnrollmentScreen(PrefillEnrollmentStepDefs.java:46)
+     [java] 	at ?.user lands on Pre-fill enrollment screen for Pre-fill Enrollment Individual EBT(/qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:12)
+     [java] 
+     [java] java.lang.AssertionError: Failed to load page or confirmation text not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.navigateToPage(ScenarioManipulator.java:908)
+     [java] 	at com.cs529.qa.unite.frontoffice.csr.prefillenroll.PrefillEnrollmentStepDefs.prefillEnrollmentScreen(PrefillEnrollmentStepDefs.java:46)
+     [java] 	at ?.user lands on Pre-fill enrollment screen for Pre-fill Enrollment UGMA/UTMA CHECK(/qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:12)
+     [java] 
+     [java] Successfully created call for feature: PrefillEnrollmentPositive - ID: 296791626<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:26<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment Individual ROLLOVER<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:24<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment Individual EBT<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:25<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment UGMA/UTMA CHECK<br/>
+     [java] 
+     [java] 3 Scenarios ([32m3 passed[0m)
+     [java] 39 Steps ([32m39 passed[0m)
+     [java] 1m14.308s
+     [java] 
+     [java] Successfully created call for feature: PrefillEnrollmentPositive - ID: 296791627<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:25<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment UGMA/UTMA CHECK<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:24<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment Individual EBT<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature:26<br/>
+     [java] Starting scenario: CSR Pre-fill Enrollment with Pre-fill Enrollment Individual ROLLOVER<br/>
+     [java] 
+     [java] 3 Scenarios ([32m3 passed[0m)
+     [java] 39 Steps ([32m39 passed[0m)
+     [java] 1m15.699s
+     [java] 
+     [java] Successfully created call for feature: PrefillEnrollmentPositive - ID: 296791629<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature:42<br/>
+     [java] Starting scenario: Perform member distribution for Non-Qualified to Distribution AO by Bank with Partial and Prorated<br/>
+     [java] nyd.20260804074050383.QandNQDistribution.feature.42: Test case execution time exceeds 5 minutes - 6.0 minutes, 10.288999999999987 seconds<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature:43<br/>
+     [java] Starting scenario: Perform member distribution for Qualified Distribution to AO by Bank with Partial and Prorated<br/>
+     [java] Aug 04, 2026 8:41:07 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] seqFinTxnIDs  :634219878
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature:42 [0m# Perform member distribution for Non-Qualified to Distribution AO by Bank with Partial and Prorated
+     [java] 
+     [java] 2 Scenarios ([31m1 failed[0m, [32m1 passed[0m)
+     [java] 26 Steps ([31m1 failed[0m, [36m3 skipped[0m, [32m22 passed[0m)
+     [java] 10m25.458s
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.xpath: //button[text()='Next'] | //button[@value='next'] | //button[@value='Next'] | //*[@id='nextButton'] | //button[contains(text(),'Next')] | //input[@id='nextButton'] | //input[@value='Next'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.memberWithdrawalHowMuchWouldYouLikeToWithdraw(MakeDistribution.java:389)
+     [java] 	at ?.user selects how much would you like to withdraw for Non-Qualified to Distribution AO by Bank with Partial and Prorated(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature:26)
+     [java] 
+     [java] Successfully created call for feature: QandNQDistribution - ID: 296791636<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature:42<br/>
+     [java] Starting scenario: Perform member distribution for Non-Qualified to Distribution AO by Bank with Partial and Prorated<br/>
+     [java] seqFinTxnIDs  :634219879
+     [java] mid.20260804075545808.QandNQDistribution.feature.42: Test case execution time exceeds 5 minutes - 10.0 minutes, 37.78399999999999 seconds<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature:43<br/>
+     [java] Starting scenario: Perform member distribution for Qualified Distribution to AO by Bank with Partial and Prorated<br/>
+     [java] Aug 04, 2026 8:55:52 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] seqFinTxnIDs  :634219880
+     [java] 
+     [java] 2 Scenarios ([32m2 passed[0m)
+     [java] 26 Steps ([32m26 passed[0m)
+     [java] 14m45.731s
+     [java] 
+     [java] Successfully created call for feature: QandNQDistribution - ID: 296791644<br/>
+     [java] 
+     [java] ===============================================
+     [java] Stage1 Sardine Regression Suite
+     [java] Total tests run: 33, Failures: 9, Skips: 0
+     [java] ===============================================
+     [java] 
+     [java] Java Result: 1
+
+BUILD SUCCESSFUL
+Total time: 57 minutes 51 seconds
+Finished: SUCCESS
+REST API
+Jenkins 2.440.2

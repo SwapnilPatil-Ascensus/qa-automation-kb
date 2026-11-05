@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Flywire Regression Test (Front Office) in Stage1" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+
+	<test name="IND Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="ind"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="MOD Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="mod"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="IAD Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="iad"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="WVA Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="wva"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+		 		
+	<test name="WVS Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="wvs"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+		<test name="PAD Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="pad"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+		 	
+	
+	<test name="WVD Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="wvd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="OHD Flywire Withdrawal Test Case">
+		<parameter name="traunch" value="ohd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>	 
+		 	
+</suite>

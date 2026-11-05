@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="Unitefeedwts11 Regression (Backoffice) - ACH Debit" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  
+  <test name="Mellon ACH Debit - Cycle A Logic">
+	<parameter name="features" value="backoffice/mellon/ach/feature/AchACycleVerification.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon ACH Debit - Cycle B Logic">
+	<parameter name="features" value="backoffice/mellon/ach/feature/AchBCycleVerification.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon ACH Debit - Cycle B1 Logic">
+	<parameter name="features" value="backoffice/mellon/ach/feature/AchB1CycleVerification.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon ACH Debit - File">
+	<parameter name="features" value="backoffice/mellon/ach/feature/UII_Mellon_ACHDebit_Request.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+</suite>

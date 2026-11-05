@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOE 6 - Exploration log</title>
+<base href="../../team-ravens/02-doe-product/">
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 20px; line-height: 1.65; max-width: 880px; margin: 0 auto; padding: 0 24px 80px; color: #1f1f1f; }
+  .bar { position: sticky; top: 0; background: #fff8e1; border-bottom: 1px solid #f0d98a; padding: 10px 0; font-size: 15px; }
+  h1 { font-size: 1.9em; margin-top: 0.8em; }
+  h2 { margin-top: 1.6em; border-bottom: 2px solid #e5e5e5; padding-bottom: 4px; }
+  h3 { margin-top: 1.3em; }
+  table { border-collapse: collapse; font-size: 0.85em; margin: 12px 0; }
+  th, td { border: 1px solid #cfcfcf; padding: 6px 10px; vertical-align: top; text-align: left; }
+  th { background: #f3f6fa; }
+  code { background: #f2f2f2; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f5f5f5; padding: 12px; white-space: pre-wrap; }
+  img { max-width: 100%; border: 1px solid #ddd; margin: 8px 0; }
+  blockquote { border-left: 4px solid #9ecbff; margin-left: 0; padding-left: 14px; color: #444; }
+</style>
+</head>
+<body>
+<div class="bar"><b>Listen mode:</b> press <b>Ctrl+Shift+U</b> in Microsoft Edge to read this page aloud (Read aloud). Pick a Natural voice in the Read aloud settings. Diagrams are skipped in audio.</div>
+<main id="content"><p>Loading document...</p></main>
+<script id="md" type="application/json">"# 06 - Exploration log (2026-11-05, QA only)\r\n\r\nScope respected: only `retsupport-qax`, `secure-qa`, `demo-merrilledge` QA links from Group 1 and Group 2. No PRO links opened. No shared test credentials were typed anywhere. No submit/e-sign actions.\r\n\r\n## What worked\r\n- All 10 Group 1 QA links load **without login** and render the right partner landing page.\r\n- URL pattern: `eapp-1737642567136?style=\u003cbrand\u003e#/display/\u003cappId\u003e?partner=\u003cp\u003e\u0026product=\u003cofferingKey\u003e`; Unqork rewrites the hash to internal IDs after load.\r\n- Advisor start -\u003e **Firm Information** screen works with name + email.\r\n- BAML IK and Group entries work end to end up to the landing screen (creates an `onboardingId`).\r\n- ShareBuilder Purchase Site Simulator and Sales Portal QA load without login.\r\n\r\n## Observations / possible defects (to confirm with Ravens)\r\n\r\n| # | Observation | Where | Severity guess |\r\n| - | --- | --- | --- |\r\n| 1 | **CRD lookup did not prefill** advisor details after entering sample CRD `6249274` and tabbing out (doc says it should populate on blur) | Victory landing | Medium - maybe QA backend/VPN or CRD not in QA data |\r\n| 2 | **Dealer information step did not advance** with dealer number `12345` on Continue (twice) | Victory, Firm Information | Medium - probably needs a valid dealer lookup; cannot tell without network trace |\r\n| 3 | Sales Flow landing shows **blank fee values** (\"$\" with no number) | Sales Flow preview | Low - expected before product selection, but looks unfinished |\r\n| 4 | Onboarding Portal interstitial contains an **\"Error\" heading** in the DOM while redirecting (\"Hang tight...\") | secure-qa BAML initialize | Low - hidden error container, but check it is not visible on slow networks |\r\n| 5 | Dashboard shows skeleton + \"Not found / Page 1 of 0\" without a user | Dashboard | Info - needs signed-in partner |\r\n| 6 | QA pages expose **debug fields** (Onboarding ID, planId) and a Preview bar (\"Preview as\", \"Preview Style\") | all eapp pages | Info - QA only, confirm absent in PRO |\r\n| 7 | Page text still says **\"(c) 2025 Ascensus, LLC\"** in November 2026 | footer | Low - copyright year |\r\n| 8 | `logRocketPanel` heading present on every page (LogRocket integration active in QA) | eapp | Info |\r\n\r\n## Not explored (needs login/approval)\r\n- Newport Test Boss and partner dashboard (login required).\r\n- DEV2 and QA Sales Portal \"Generate welcome email\" (would send email).\r\n- ShareBuilder real QA site (third party).\r\n- Plan Details, Confirmation, sponsor-side screens, DocuSign.\r\n\r\n## Next steps\r\n1. Pair with Aashay/Ema for a real walkthrough (CRD, dealer, plan details).\r\n2. Open network tab / LogRocket QA sessions to see the API calls behind CRD lookup and dealer validation.\r\n3. Add the observations above as questions in the Ravens action items ([`../05-open-items/action-items.md`](../05-open-items/action-items.md)).\r\n"</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  var raw = JSON.parse(document.getElementById('md').textContent);
+  var cleaned = raw.replace(/```mermaid[\s\S]*?```/g, '\n_(Diagram in the Markdown version. Skipped in audio.)_\n');
+  var el = document.getElementById('content');
+  if (window.marked) {
+    el.innerHTML = marked.parse(cleaned);
+  } else {
+    el.innerHTML = '';
+    var pre = document.createElement('pre');
+    pre.textContent = cleaned;
+    el.appendChild(pre);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+ 
+frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature
+can you run this file in your local once Swapnil if it is working fine in your local that may be the DB access issue ..
+ 
+java.lang.AssertionError: ORA-01400: cannot insert NULL into ("UII0"."QA_FIN_INSTRUCTION"."SEQ_QA_FIN_TXN_ID")
+ 
+this is the issue i am getting 
+ 

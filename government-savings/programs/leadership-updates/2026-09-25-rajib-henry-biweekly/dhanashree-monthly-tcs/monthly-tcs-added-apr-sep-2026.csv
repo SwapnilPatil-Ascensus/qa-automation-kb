@@ -1,0 +1,7 @@
+month,v2_tcs_added,v3_tcs_added,stage5_tcs_added,perf_httpsampler_added,msc_m1_x3,msc_m2_x3,msc_enrollment_x3,msc_total_x3,notes
+2026-04,46,48,76,0,0,0,0,0,Prior Dhanashree chart; Stage5 CAT stand-up
+2026-05,25,18,3,54,0,0,0,0,Prior chart; Stage5 finalize +3; Perf expansion
+2026-06,15,12,0,30,1,28,1,30,Prior chart kept for Jun MSC row
+2026-07,33,10,0,12,60,39,0,99,V2=+33 Sardine; V3=MR197 WebRereg 2x3=6 +~4 other; MSC M1 20x3 M2 13x3
+2026-08,8,8,0,22,6,0,69,75,V2=+8 flaky/stabilize; V3=+8 educated (ODY/WVD/GSP feature commits); MSC Enrollment 23x3
+2026-09,39,16,49,47,0,0,6,6,V2=+39 CSR Actions; V3=MR235 bank 3+bene 1 x4 plans=16; Stage5 CAT remainder 49; Enrollment finish 2x3

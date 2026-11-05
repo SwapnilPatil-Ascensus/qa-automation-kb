@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - CSR" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  
+	<test name="NYD CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="NYA CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/AdvisorFeeEntry.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="NYB CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/AbleFeeEntry.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	  
+  	<test name="NYD Principal and Earning Update Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/PandE/feature/CSR_PandE.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYA Principal and Earning Update Test Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/PandE/feature/CSR_PandE.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB Principal and Earning Update Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/PandE/feature/CSR_PandE.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+		
+	
+	<test name="Creation Systematic Rebalance - Positive Cases">
+		<parameter name="traunch" value="nma"></parameter>
+		<parameter name="features" value="frontoffice/nma/csr/member/transactions/investments/feature/SystematicRebalance.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+		<test name="NYD CSR ShareAdjustment">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+		<test name="NYA CSR ShareAdjustment">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+		<test name="NYB CSR ShareAdjustment">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment_NYB.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB CSR Restrictions and Freezes - 'ABLE - No Checking Option Freeze', 'Stop Mail'">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/application/feature/CSRRestrictionsAndFreezes.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Restrictions and Freezes - 'Direct - No Checking Option Freeze', 'Stop Mail'">
+		<parameter name="traunch" value="wid"></parameter>
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/application/feature/CSRRestrictionsAndFreezes.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+
+	<test name="NYD CSR Email Status failure Check">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/application/feature/CSREmailStatusCheck.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+	<test name="NYD CSR Username update positive and negative test">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/application/feature/CSRUsernameUpdate.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+	<test name="NYD CSR Update security Question Answer feature test">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/application/feature/CSRUpdateSecurityQueAns.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Password update positive and negative test">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/application/feature/CSRPasswordUpdate.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner" />
+		</classes>
+	</test>
+	
+	<test name="CSR Partner PA tests-Email, Username, Password, Security and QA Answers Update">
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/csrpartner/feature/CSRPAPartnerUpdates.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+	
+	<test name="CSR Partner JPM tests-Email, Username, Password, Security and QA Answers Update">
+		<parameter name="features" value="/frontoffice/csr/csr-greenscreen/csrpartner/feature/CSRJPMPartnerUpdates.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner" />
+		</classes>
+	</test>
+	
+</suite>

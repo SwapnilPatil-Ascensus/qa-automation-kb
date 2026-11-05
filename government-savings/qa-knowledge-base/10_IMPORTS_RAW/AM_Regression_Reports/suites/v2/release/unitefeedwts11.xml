@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="Unitefeedwts11 Regression (Backoffice) - Release" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  
+  <test name="Mellon ACH Credit">
+	<parameter name="features" value="backoffice/mellon/ach/feature/UII_Mellon_ACHCredit_Request.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon ACH Returns">
+	<parameter name="features" value="backoffice/mellon/achreturns/feature/MellonAchReturns.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon Check">
+	<parameter name="features" value="backoffice/mellon/check/feature/MellonCheck.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon ECC Returns">
+	<parameter name="features" value="backoffice/mellon/ecc/feature/MellonEccReturns.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon EPay">
+	<parameter name="features" value="backoffice/mellon/epay/feature/UII_Mellon_ACHePay_Request.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon Positive Pay">
+	<parameter name="features" value="backoffice/mellon/positivepay/feature/MellonPositivePay.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Mellon Price">
+	<parameter name="features" value="backoffice/mellon/price/feature/MellonPrice.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Vanguard Price">
+	<parameter name="features" value="backoffice/vanguard/price/feature/Vanguard_UII_Pricing_Request.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+</suite>

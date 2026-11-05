@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test (Front Office) in Stage1 - IDP Login" parallel="tests" thread-count="1" data-provider-thread-count="4">
+    <listeners>
+        <listener class-name="core.listener.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- ============================================ -->
+    <!-- POSITIVE TEST CASES - IDP Login Flows       -->
+    <!-- ============================================ -->
+
+    <!-- NMD IDP Login Flow -->
+    <test name="NMD IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- New York Direct (NYD) - IDP Login Flow -->
+    <test name="NYD IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NJD IDP Login Flow -->
+    <test name="NJD IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- MDD IDP Login Flow -->
+    <test name="MDD IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Ohio Direct (OHD) - IDP Login Flow -->
+    <test name="OHD IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="ohd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- Pennsylvania GSP (PAG) - IDP Login Flow -->
+    <test name="PAG IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="pag"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- North Dakota Direct (NDD) - IDP Login Flow -->
+    <test name="NDD IDP Login Flow - Positive Cases">
+        <parameter name="traunch" value="ndd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NYD IDP MFA Login Flow - disabled: requires valid MFA test user in stage1 -->
+    <!--
+    <test name="NYD IDP MFA Login Flow - Positive Cases">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPMFALogin.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    -->
+
+    <!-- ============================================ -->
+    <!-- NEGATIVE TEST CASES - IDP Login Flows       -->
+    <!-- ============================================ -->
+
+    <!-- NMD IDP Lock User Flow -->
+    <test name="NMD IDP Lock User Login Flow - Negative Cases">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLockUser.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NMD IDP Locked User Flow -->
+    <test name="NMD IDP Locked User Login Flow - Negative Cases">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLockedUser.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- NMD IDP Forgot Username Unregistered Flow -->
+    <test name="NMD IDP Forgot Username Unregistered Flow - Negative Cases">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPForgotUsernameUnregisteredNegative.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- IDP Login With Empty Field - Multiple Traunches -->
+    <test name="NMD IDP Login With Empty Field Flow - Negative Cases">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLoginWithEmptyField.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="MDD IDP Login With Empty Field Flow - Negative Cases">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPLoginWithEmptyField.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="NMD IDP Member Forgot Password Negative Flows - Negative Cases">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="features" value="frontoffice/login/common/feature/IDPForgotPasswordNegative.feature"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <classes>
+            <class name="core.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+</suite>

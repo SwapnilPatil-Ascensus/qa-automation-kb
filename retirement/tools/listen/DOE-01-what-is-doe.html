@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOE 1 - What is DOE</title>
+<base href="../../team-ravens/02-doe-product/">
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 20px; line-height: 1.65; max-width: 880px; margin: 0 auto; padding: 0 24px 80px; color: #1f1f1f; }
+  .bar { position: sticky; top: 0; background: #fff8e1; border-bottom: 1px solid #f0d98a; padding: 10px 0; font-size: 15px; }
+  h1 { font-size: 1.9em; margin-top: 0.8em; }
+  h2 { margin-top: 1.6em; border-bottom: 2px solid #e5e5e5; padding-bottom: 4px; }
+  h3 { margin-top: 1.3em; }
+  table { border-collapse: collapse; font-size: 0.85em; margin: 12px 0; }
+  th, td { border: 1px solid #cfcfcf; padding: 6px 10px; vertical-align: top; text-align: left; }
+  th { background: #f3f6fa; }
+  code { background: #f2f2f2; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f5f5f5; padding: 12px; white-space: pre-wrap; }
+  img { max-width: 100%; border: 1px solid #ddd; margin: 8px 0; }
+  blockquote { border-left: 4px solid #9ecbff; margin-left: 0; padding-left: 14px; color: #444; }
+</style>
+</head>
+<body>
+<div class="bar"><b>Listen mode:</b> press <b>Ctrl+Shift+U</b> in Microsoft Edge to read this page aloud (Read aloud). Pick a Natural voice in the Read aloud settings. Diagrams are skipped in audio.</div>
+<main id="content"><p>Loading document...</p></main>
+<script id="md" type="application/json">"# 01 - What is the Digital Onboarding Experience (DOE)?\r\n\r\n\u003e Confidence tags used in this folder: **[Doc]** = stated on SharePoint, **[Seen]** = observed in the QA app on 2026-11-05, **[Guess]** = reverse-engineered best guess.\r\n\r\n## One-paragraph summary\r\n\r\nDOE is a **self-service web experience** that lets a financial **advisor** (and then the **plan sponsor / business owner**) set up a small-business **401(k)** (a Solo(k) / Individual(k) or a multi-participant Group plan) without paper or phone calls. It is built on **Unqork** (no-code) screens, backed by **Ascensus APIs (Team White)** that write the plan into the **recordkeeping system (ARK)**, generate plan documents (**PAS**), file them (**Cliff**), open a work item for operations (**Chorus**), and create CRM records (**Salesforce**). Goal **[Doc]**: cut NIGOs (Not In Good Order submissions) and the time it takes a plan to go live (target about 5 business days).\r\n\r\n## Who does what\r\n\r\n| Team | Role in DOE | Source |\r\n| --- | --- | --- |\r\n| **White** | Middle tier: Onboarding.Api, Sales.Api, saga/orchestration, Chorus/Cliff/Salesforce/DCA integrations | [Doc] Handoff document |\r\n| **Archers** | ARK plan setup (Setup Plan API, steps 1-5), plan defaults | [Doc] |\r\n| **Yellow Jackets** | DocuSign integration | [Doc] |\r\n| **Qonnectors (Auxo)** | Unqork vendor build; handed off to Ravens Sep 2026 | [Doc] Qonnectors handoff page |\r\n| **Ravens** | Support/enhancement for Group 1, 2, 2.2; fund changes, document generation, new partners (One Digital, ShareBuilder, BAML) | [Doc] Ravens home page |\r\n\r\n## The four groups (release waves)\r\n\r\n```mermaid\r\ntimeline\r\n    title DOE delivery groups\r\n    Group 1 (live 2025-07-16) : Individual(k) only : 8 partner products : Advisor-led\r\n    Group 2 (live 2025-10-21) : IK + Group plans : ShareBuilder + BAML (Merrill) : New plan + Transfer plan\r\n    Group 2.2 (2026) : Sales Portal (welcome-email generator) : One Digital 3(38) : Ascensus Essentials (CoPilot rebrand)\r\n    IST (2026) : IST features / modules : Dashboard enhancements\r\n```\r\n\r\n## The four logical stages of every onboarding [Doc]\r\n\r\n```mermaid\r\nflowchart LR\r\n    A[1. Sales\u003cbr/\u003eadvisor finds right plan\u003cbr/\u003eor partner sends purchase] --\u003e B[2. Plan Initiation\u003cbr/\u003eadvisor + sponsor details\u003cbr/\u003eCRD / dealer lookup]\r\n    B --\u003e C[3. Plan Design\u003cbr/\u003efunds, defaults,\u003cbr/\u003eeligibility, fees, bank]\r\n    C --\u003e D[4. Completion and Activation\u003cbr/\u003edocuments, e-sign,\u003cbr/\u003ewrite to ARK, go live]\r\n    style A fill:#e8f1ff,stroke:#3b6ea8\r\n    style B fill:#e8f1ff,stroke:#3b6ea8\r\n    style C fill:#e8f1ff,stroke:#3b6ea8\r\n    style D fill:#e6f7ea,stroke:#2e8b57\r\n```\r\n\r\n## Partner / product matrix\r\n\r\n| Group | Partner (UI label) | Offering key (URL `product=`) | Plan type | Notes |\r\n| --- | --- | --- | --- | --- |\r\n| 1 | Victory (Amundi) | `AmundiDailyIk` | Individual(k) | Victory Funds branding, \"Include Amundi funds only\" in early prototype |\r\n| 1 | Ameriprise | `AmeripriseBalFwdIk` | Individual(k) | Balance Forward |\r\n| 1 | Pershing (BNY) | `PershingBalFwdIk` | Individual(k) | Balance Forward |\r\n| 1 | J.P. Morgan | `JPMorganBalFwdIk` | Individual(k) | Balance Forward; \"Add Roth\" requested for Q3 |\r\n| 1 | Ascensus Balance Forward | `AscensusBalFwdIk` | Individual(k) | Direct Ascensus |\r\n| 1 | Ascensus Daily Level Comp | `AscensusDailyLCIk` | Individual(k) | Needs Common Remitter Agreement for 5-day SLA |\r\n| 1 | Ascensus Daily Fee Based | `AscensusDailyFBIk` | Individual(k) | \"Direct Fee Based Individual(k)\" |\r\n| 1 | State Farm | `StateFarmDailyIk` | Individual(k) | Captive \"Agent\" model (no CRD number on landing) |\r\n| 2 | BAML (Merrill Edge) | `BAMLDailyIKNoAdv`, `BAMLDailyGroup` | IK + Group | Entry from Merrill Edge site -\u003e Onboarding Portal -\u003e Unqork |\r\n| 2 | ShareBuilder | `ShareBuilderDailyIKNoAdv`, `ShareBuilderDailyGroup` | IK + Group | Purchase happens on ShareBuilder site; QA simulator exists |\r\n| 2.2 | Sales Portal | n/a | IK + Group | Internal tool to generate welcome emails per partner/installation type |\r\n\r\nPlan products behind the scenes **[Doc]**: `ARKPlan4One` (P4O, Individual(k)) and `ARKPlan4Most` (P4M, Group).\r\n\r\n## Where the code and docs live\r\n\r\n- Product links (source of truth): [`DOE-Product-Links-source.md`](DOE-Product-Links-source.md)\r\n- Team White technical pages: [`../../team-white/`](../../team-white/README.md)\r\n- All Unqork material across SharePoint: [`../../unqork/`](../../unqork/README.md)\r\n- Next: [02 QA links and partner matrix](02-qa-links-and-partner-matrix.md)\r\n"</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  var raw = JSON.parse(document.getElementById('md').textContent);
+  var cleaned = raw.replace(/```mermaid[\s\S]*?```/g, '\n_(Diagram in the Markdown version. Skipped in audio.)_\n');
+  var el = document.getElementById('content');
+  if (window.marked) {
+    el.innerHTML = marked.parse(cleaned);
+  } else {
+    el.innerHTML = '';
+    var pre = document.createElement('pre');
+    pre.textContent = cleaned;
+    el.appendChild(pre);
+  }
+</script>
+</body>
+</html>

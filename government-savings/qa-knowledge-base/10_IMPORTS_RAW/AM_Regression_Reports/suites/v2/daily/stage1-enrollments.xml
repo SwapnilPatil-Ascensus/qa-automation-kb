@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Enrollments" parallel="tests" thread-count="3">
+    <!-- ****************** Release 1 *********************** -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <test name="MI Direct Member - NextGen Enrollment Flow - Positive Test Cases">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/mid/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="MI Direct Member - NextGen Enrollment - Multiple Beneficiaries">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/mid/member/enrollment/feature/T101_NextGenEnrollmentMultipleBeneficiary.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!--    <test name="MI Direct Member - NextGen Enrollment - Negative Test Cases">-->
+    <!--        <parameter name="traunch" value="mid"/>-->
+    <!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+    <!--        <parameter name="features" value="frontoffice/mid/member/enrollment/feature/T102_NextGenEnrollmentNegative.feature"/>-->
+    <!--        <classes>-->
+    <!--            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <test name="PA Able Member - Legacy ABLE Enrollment - Negative Test Cases">
+        <parameter name="traunch" value="pab"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="WVD - Direct  Legacy  Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="wvd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/LegacyEnrollmentSpecificDirectPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="OKD - Direct  Legacy  Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="okd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/LegacyEnrollmentSpecificDirectPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="MND - Direct  Legacy  Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="mnd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/LegacyEnrollmentSpecificDirectPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="MI Direct CSR Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="MID CSR Subsequent Enrollment Test Cases - Positive Cases">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrSubsequentEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYA - Advisor CSR NextGen Enrollment - Single and Subsequent Enrollment">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="COA - Advisor CSR Legacy Specific Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="coa"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="RIA - Advisor CSR Legacy Specific Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="ria"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NMA - Advisor CSR Legacy Specific Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="nma"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="AKA - Advisor CSR Legacy Specific Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="aka"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="KSD - Direct  Legacy Specific Enrollment - Single  Enrollment beneficiary">
+        <parameter name="traunch" value="ksd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/LegacyEnrollmentSpecificDirectPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ############################ Able NAA and Non-NAA Enrollment  ############################ -->
+    <test name="AKB NAA ABLE Enrollment Flow - Positive Cases per custodian">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun-naa"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="RIB Legacy ABLE Enrollment Flow - Positive Flow for SingleEnrollment beneficiary">
+        <parameter name="traunch" value="rib"/>
+        <parameter name="tags" value="@regression and @dailyrun-naa"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="PAB Legacy ABLE Enrollment Flow - Positive Flow for SingleEnrollment beneficiary">
+        <parameter name="traunch" value="pab"/>
+        <parameter name="tags" value="@regression and @dailyrun-naa"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="AKB NAA ABLE Enrollment Flow - Save as a Draft - Self Positive">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentSaveAsDraft.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="RIB NAA LEGACY ABLE Enrollment Flow - Save as a Draft - Self anf parent  Positive">
+        <parameter name="traunch" value="rib"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentSaveAsDraft.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="PAB NAA LEGACY ABLE Enrollment Flow - Save as a Draft - Self and parent  Positive">
+        <parameter name="traunch" value="pab"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentSaveAsDraft.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="TNB NAA LEGACY ABLE Enrollment Flow - Save as a Draft - Self  Positive">
+        <parameter name="traunch" value="tnb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/tnb/member/enrollment/feature/T100_EnrollmentSaveAsDraft.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="TND LEGACY DIRECT Enrollment Flow - Save as a Draft - Self  Positive">
+        <parameter name="traunch" value="tnd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/LegacyEnrollmentSaveAsDraftDirectPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="NYB Non-NAA ABLE Enrollment Flow - Positive Cases per custodian">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun-non-naa"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYB Non-NAA ABLE Enrollment Flow - Save as a Draft - Self Positive">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EnrollmentSaveAsDraft.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ############################ Entity Management Enrollment  ############################ -->
+    <!--    FLAKY TEST CASE - ONCE FIXED WE WILL INCLUDE IT TO SUITE-->
+    <!--<test name="NHB ABLE NAA Entity Magement Enrollment Flow - Positive Cases with custodians">
+        <parameter name="traunch" value="nhb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/member/enrollment/feature/T100_NAA_EntityEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>-->
+    <!-- ****************************************************************** Prefill Enrollment ******************************************************************** -->
+    <test name="Wealthfront Prefill Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="wfd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="PAD Prefill Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="pad"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Vanguard Prefill Enrollment - Positive Test Cases">
+        <parameter name="traunch" value="vgi"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="NVU (SSgA) Prefill Enrollment - Negative Test Cases">
+        <parameter name="traunch" value="nvu" />
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/prefillenroll/feature/PrefillEnrollmentNegative.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+</suite>

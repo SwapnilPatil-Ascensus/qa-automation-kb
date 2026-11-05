@@ -1,0 +1,20 @@
+settings:
+  proxy:
+    ssl-cert: false
+modules:
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+execution:
+- scenario: 
+    script: broker.jmx
+- scenario: 
+    script: csr_search.jmx  
+- scenario: 
+    script: modified_member_ebt_cntrb-12.jmx 
+reporting:
+  - module: blazemeter
+    report-name: Blazemeter-UE-Local
+    test: Test Test Test
+    project: Universal Enrollment
+    upload-artifacts: true
+    

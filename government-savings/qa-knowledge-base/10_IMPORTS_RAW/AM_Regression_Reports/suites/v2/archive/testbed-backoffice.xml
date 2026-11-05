@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="TestNG Feature Runner" parallel="tests" thread-count="1" data-provider-thread-count="1">
+	<listeners>
+		<listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+	</listeners>
+	
+<!-- 	****** KOFAX ENROLL ******* -->
+
+	
+	<test name="ILB Kofax ABLE Enrollment - Negative Cases">
+		<parameter name="traunch" value="ilb"></parameter>
+		<parameter name="features" value="backoffice/kofax/able/enrollment/feature/ILB_EnrollmentRequestNegative.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+		
+	<test name="NYD Kofax Enrollment - Negative Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="backoffice/kofax/529/enrollment/feature/NYD_EnrollmentRequestNegative.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test> 
+	
+	<test name="ILB Kofax ABLE Enrollment - Positive Cases">
+		<parameter name="traunch" value="ilb"></parameter>
+		<parameter name="features" value="backoffice/kofax/able/enrollment/feature/ILB_EnrollmentRequestPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD Kofax Enrollment - Positive Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="backoffice/kofax/529/enrollment/feature/NYD_EnrollmentRequestPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="OHD Kofax Enrollment - Positive Cases">
+		<parameter name="traunch" value="ohd"></parameter>
+		<parameter name="features" value="backoffice/kofax/529/enrollment/feature/OHD_EnrollmentRequestPositive.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="OHD Kofax Enrollment - Negative Cases">
+		<parameter name="traunch" value="ohd"></parameter>
+		<parameter name="features" value="backoffice/kofax/529/enrollment/feature/OHD_EnrollmentRequestNegative.feature"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test> 
+
+</suite>

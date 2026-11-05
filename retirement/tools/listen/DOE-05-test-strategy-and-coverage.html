@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOE 5 - Test strategy and coverage</title>
+<base href="../../team-ravens/02-doe-product/">
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 20px; line-height: 1.65; max-width: 880px; margin: 0 auto; padding: 0 24px 80px; color: #1f1f1f; }
+  .bar { position: sticky; top: 0; background: #fff8e1; border-bottom: 1px solid #f0d98a; padding: 10px 0; font-size: 15px; }
+  h1 { font-size: 1.9em; margin-top: 0.8em; }
+  h2 { margin-top: 1.6em; border-bottom: 2px solid #e5e5e5; padding-bottom: 4px; }
+  h3 { margin-top: 1.3em; }
+  table { border-collapse: collapse; font-size: 0.85em; margin: 12px 0; }
+  th, td { border: 1px solid #cfcfcf; padding: 6px 10px; vertical-align: top; text-align: left; }
+  th { background: #f3f6fa; }
+  code { background: #f2f2f2; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f5f5f5; padding: 12px; white-space: pre-wrap; }
+  img { max-width: 100%; border: 1px solid #ddd; margin: 8px 0; }
+  blockquote { border-left: 4px solid #9ecbff; margin-left: 0; padding-left: 14px; color: #444; }
+</style>
+</head>
+<body>
+<div class="bar"><b>Listen mode:</b> press <b>Ctrl+Shift+U</b> in Microsoft Edge to read this page aloud (Read aloud). Pick a Natural voice in the Read aloud settings. Diagrams are skipped in audio.</div>
+<main id="content"><p>Loading document...</p></main>
+<script id="md" type="application/json">"# 05 - Test strategy and coverage (starter plan)\r\n\r\n## Existing assets you inherit [Doc]\r\n\r\n| Asset | Where |\r\n| --- | --- |\r\n| Manual results (Group 1 QA, 2025-07-18, incl. Cliff + Chorus output per partner) | Test Results folder on Team White SharePoint (see Access page) |\r\n| TFS test suites: Onboarding API (plan 647787), Workflow API (plan 658093), ARK integration (plan 656891) | [`04-testing-and-qa/Onboarding-Project-Access...`](../../team-white/04-testing-and-qa/Onboarding-Project-Access-and-Application-Testing-References.md) |\r\n| Playwright UI: Group 1 ([DOE - PlayWright Testing](../../team-white/04-testing-and-qa/DOE---PlayWright-Testing.md)), Group 2 EndToEnd (`Onboarding.UI.DOE.Group2.EndToEnd` in repo `Onboarding`), `DCA.Partner.Dashboard.UI` tests (repo `DCA`) | TFS |\r\n| API test strategy, performance (JMeter/Taurus, Rancher), test coverage | [`team-white/04-testing-and-qa/`](../../team-white/04-testing-and-qa/) |\r\n| Archers QA notes, BAT feedback (Group 1 tests 2-4), DB verification pages | [`unqork/sharepoint-pages/TeamArchersSatellite/`](../../unqork/sharepoint-pages/TeamArchersSatellite/) |\r\n| Session replay | LogRocket project `SmallBusinessOnboarding` (QA) - see [`../01-logrocket/`](../01-logrocket/README.md) |\r\n\r\n## Coverage map (what to test, per layer)\r\n\r\n```mermaid\r\nmindmap\r\n  root((DOE QA))\r\n    UI - Unqork\r\n      Landing per partner\r\n        fees and copy per offering\r\n        branding per style\r\n      Advisor flow\r\n        CRD lookup and manual entry\r\n        required-field validation\r\n        dealer info\r\n        plan details and funds\r\n        save and resume\r\n      Sponsor flow\r\n        OTP sign-in\r\n        DocuSign\r\n      Dashboard\r\n        filters and tabs\r\n        hardstop and duplicate EIN\r\n        cancel extend reactivate\r\n    API\r\n      Onboarding.Api via Kong\r\n      Setup Plan API steps 1-5\r\n      OTP endpoints\r\n      Sales.Api\r\n    Integrations\r\n      ARK and Sybase tables\r\n      PAS documents\r\n      Cliff\r\n      Chorus\r\n      Salesforce\r\n      DCA\r\n      Email and notifications\r\n    Non-functional\r\n      performance JMeter\r\n      security Fortify\r\n      accessibility\r\n      LogRocket privacy masking\r\n```\r\n\r\n## Partner x scenario matrix (tick as you cover)\r\n\r\n| Scenario | Victory | Ameriprise | Pershing | JPM | Asc BalFwd | Asc DailyLC | Asc DailyFB | State Farm | BAML IK | BAML Grp | SB IK | SB Grp |\r\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\r\n| Landing copy + fees correct | seen | seen | seen | seen | seen | seen | seen | seen | seen | seen | | |\r\n| Branding / logo correct | seen | seen | seen | seen | seen | seen | seen | seen | seen | seen | | |\r\n| Advisor start (CRD) | | | | | | | | n/a | n/a | n/a | n/a | n/a |\r\n| Manual advisor start | partial | | | | | | | | | | | |\r\n| Plan details + funds | | | | | | | | | | | | |\r\n| Transfer vs startup | | | | | | | | | | | | |\r\n| Sponsor OTP + e-sign | | | | | | | | | | | | |\r\n| ARK data check | | | | | | | | | | | | |\r\n| PAS docs complete | | | | | | | | | | | | |\r\n| Cliff + Chorus + Salesforce | | | | | | | | | | | | |\r\n\r\n## High-value test ideas (from risks already found by Archers/White) [Doc]\r\n\r\n1. **Dates**: Setup API accepts `yyyy-MM-dd` or `yyyy-MM-dd 00:00:00`; `...T00:00:00Z` shifts one day back; times are dropped. Test date formats and time zones from the UI.\r\n2. **Defaults not overridden**: `PlanAgeRequirement` stays 21 and `PlanSvcRequirement` stays 12 for IK regardless of input.\r\n3. **Boolean strictness**: `AutomaticFundingElection` must be `true/false`, not Yes/No; when true ARK also sets TradeSameDay and HoldAchUntilPayrollDate.\r\n4. **Fund list edge cases**: duplicate funds -\u003e unique funds closed; repeated EstablishPlan calls can leave 2 default funds at 100% each (total 200%) - UI must prevent.\r\n5. **PAS mock behaviour** (`MockEndpointBehaviour`): 0 real, 1 forced success, 2 forced failure, other values -\u003e failure; use it to test failure paths without real PAS.\r\n6. **Offering-specific defaults**: BAML (directed trustee, Ascensus Trust Company) vs others (discretionary / custodian).\r\n7. **Participants for fee-based IK plans**: a synthetic \"ADMINISTRATIVE / FEE CREDIT ACCOUNT\" participant must exist (AFAC2 for some groups).\r\n8. **Hardstops / duplicate EIN / expiry**: reminder and \"last chance\" emails, extend and reactivate.\r\n9. **LogRocket**: verify sensitive fields are sanitized in recordings (SSN, bank, EIN).\r\n\r\n## Data to use\r\n- Sample CRD in QA notes: `6249274` (lookup did **not** prefill in our run - see exploration log).\r\n- Test bank account for ShareBuilder: `333555222`, routing any 9 digits.\r\n- Use `@example.com` emails unless you want real notification emails.\r\n- Do not use PRO links or real client data.\r\n\r\n## Suggested first week for QA lead (you)\r\n1. Request access tickets (Cliff QA, Chorus QA, ARK/Sybase QA, SQL `Msvc_Onboarding`, TeamCity/Octopus, TFS repos) - see Access page.\r\n2. Re-run Group 1 landing checks for all 8 partners and capture baseline screenshots (done once here).\r\n3. Walk one full advisor flow with Ravens/Aashay to confirm the dealer step and CRD lookup behaviour.\r\n4. Pull the Playwright suites and run Group 1 locally.\r\n5. Agree a quality KPI list with Emma/Aashay (defect leakage, regression pass rate, flow completion time via LogRocket).\r\n\r\nNext: [06 Exploration log](06-exploration-log.md)\r\n"</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  var raw = JSON.parse(document.getElementById('md').textContent);
+  var cleaned = raw.replace(/```mermaid[\s\S]*?```/g, '\n_(Diagram in the Markdown version. Skipped in audio.)_\n');
+  var el = document.getElementById('content');
+  if (window.marked) {
+    el.innerHTML = marked.parse(cleaned);
+  } else {
+    el.innerHTML = '';
+    var pre = document.createElement('pre');
+    pre.textContent = cleaned;
+    el.appendChild(pre);
+  }
+</script>
+</body>
+</html>

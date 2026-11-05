@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Unitefeedwts11 Smoke Test (Front Office)" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+    
+  <test verbose="2" name="NextGen Enrollment Smoke Test - Michigan Direct">
+	<parameter name="traunch" value="mid"></parameter> 
+	<parameter name="features" value="frontoffice/mid/smoke/member/enrollment/feature/S100_NextGenEnrollmentSmoke.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+    </classes>
+  </test>
+  	
+   <test name="NYB Member Contribution Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AbleMemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+  </test>
+  
+  <test name="WID Multiple Contribution - CSR Multiple Contribution  - Positive Cases">
+		<parameter name="traunch" value="wid"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/contributions/feature/CSRMultipleContributions.feature:20"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+<!-- 	<test name="NYB CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CsrTransferAblePlans.feature:20"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CsrTransfer.feature:20"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="RIA CSR Transfer - Positive Test Cases">
+		<parameter name="traunch" value="ria"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/transfer/feature/CSR_TransferAdvisorPlans.feature:20"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+		
+   <test name="CSR 529 Ugift Contribution - NYD">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/ugift/feature/CSR529UgiftContribution.feature:21"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+   </test>
+   
+   <test name="CSR ABLE Ugift Contribution - NYB">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/ugift/feature/CSRABLEUgiftContribution.feature:22"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+   </test>
+   
+   
+   <test name="NYD UGIFT 529 Portal - Positive Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/nyd/ugift/feature/Ugift.feature:35"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	 
+	<test name="NYB UGIFT ABLE Portal - Positive Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/nyb/ugift/feature/UgiftAble.feature:20"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	
+	<test name="NYD CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature:29"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="NYA CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/AdvisorFeeEntry.feature:34"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="NYB CSR FEE Creation - Positive Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/fee/feature/AbleFeeEntry.feature:34"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="PAD  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="pad"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature:28"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	
+	<test name="NYA  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Advisor_Distribution.feature:27"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYD CSR Member Annual Exchange">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AnnualExchange.feature:19"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB ABLE CSR Member Annual Exchange">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AbleAnnualExchange.feature:19"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYA Advisor CSR Member Annual Exchange">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/investments/feature/AdvisorAnnualExchange.feature:20"></parameter>
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYB  CSR-Withdrawal - Positive Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Able_Distribution.feature:26"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	 -->
+	
+	
+	
+   
+<!--    <test verbose="2" name="NextGen Enrollment Smoke Test - WID">
+	<parameter name="traunch" value="wid"></parameter> 
+  <parameter name="features" value="/frontoffice/csr/csr-greenscreen/transactions/contributions/feature/CSRSingleContributionRandom.feature"></parameter>
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+    </classes>
+  </test> -->
+  
+</suite>

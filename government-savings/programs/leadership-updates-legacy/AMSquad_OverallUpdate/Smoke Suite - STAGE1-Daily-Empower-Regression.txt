@@ -1,0 +1,604 @@
+http://jenkinsqant1:8080/job/STAGE1-Daily-Empower-Regression/
+
+STAGE1-Daily-Empower-Regression
+This Jenkins job runs the complete end-to-end regression suite for the plan conversion - currently configured for Empower plan specific
+
+🔄 Key Configuration:
+    - Schedule: Runs daily at 2:00 AM EST (Mon–Fri)
+    - Test Suites Covered:
+        - login, Registration, Enrollments
+        - Contributions
+        - Withdrawals
+        - Balance Page
+        - CSR or Account Maintenance
+
+    - Build Environment: `seleniumhubnt2_devops`
+    - Build Tool: Apache Ant (`build.xml` with `stage1` environment variable)
+    - Environment Setup Script: `/qa-automation/foa/uniteenv.sh`
+    - Execution Type: Sequential execution of test modules
+
+Schedule: H 2 * * 1-5
+
+Script:
+
+. /qa-automation/foa/uniteenv.sh
+
+ant -f ${PRIME_HOME}bin/build.xml stage1-empower-plan-regression -DENV=stage1
+
+
+
+Log:
+Console Output
+Started by timer
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building remotely on seleniumhubnt2_devops (seleniumhubnt2) in workspace /home/devops/jenkins/workspace/STAGE1-Daily-Empower-Regression
+[STAGE1-Daily-Empower-Regression] $ /bin/sh -xe /tmp/jenkins8695316829520825033.sh
++ . /qa-automation/foa/uniteenv.sh
+++ JAVA_HOME=/cust/jdk1.8.0_121-x64/
+++ export JAVA_HOME
+++ ANT_HOME=/qa-automation/ant/apache-ant-1.9.4/
+++ export ANT_HOME
+++ GROOVY_HOME=/qa-automation/groovy/groovy-2.4.11/
+++ export GROOVY_HOME
+++ SELENIUM_HOME=/qa-automation/selenium/selenium-4.0/
+++ export SELENIUM_HOME
+++ CUCUMBER_HOME=/qa-automation/cucumber/4.2.0
+++ export CUCUMBER_HOME
+++ PRIME_HOME=/qa-automation/unite/
+++ export PRIME_HOME
+++ TESTNG_HOME=/qa-automation/testng/testng-6.8
+++ export TESTNG_HOME
+++ export HOSTNAME=seleniumhubnt2
+++ HOSTNAME=seleniumhubnt2
+++ M2_HOME=/qa-automation/apache-maven-3.6.1
+++ export M2_HOME
+++ MAVEN_OPTS=-Xmx2024m
+++ export MAVEN_OPTS
+++ PATH=/cust/jdk1.8.0_121-x64/bin:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/qa-automation/ant/apache-ant-1.9.4/bin:/qa-automation/apache-maven-3.6.1/bin
+++ export PATH
+++ export PRIME_DEVOPS
+++ PRIME_DEVOPS=/home/devops/.credentials/stage1_db.properties
+++ MAVEN_CONFIG=/qa-automation/.m2
+++ export MAVEN_CONFIG
++ ant -f /qa-automation/unite/bin/build.xml stage1-empower-plan-regression -DENV=stage1
+Buildfile: /qa-automation/unite/bin/build.xml
+
+stage1-empower-plan-regression:
+
+runinit:
+
+runtest:
+    [mkdir] Created dir: /qa-automation/reports/unite/20260804/stage1-empower-plan
+     [java] PRIME Resource Manager: Now rolling out...
+     [java] Loading configuration file: /qa-automation/unite/config/stage1.properties
+     [java] Loading configuration file: /qa-automation/unite/config/seleniumhubnt2.properties
+     [java] Loading configuration file: /home/devops/.credentials/stage1_db.properties
+     [java] [TestNG] Running:
+     [java]   /qa-automation/unite/bin/regression/daily/stage1-empower-plan.xml
+     [java] 
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature:23<br/>
+     [java] Starting scenario: Perform AIP contribution for Add and Edit AIP Instruction<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature:31<br/>
+     [java] Starting scenario: Perform member single contribution for EBT - Existing Bank<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature:40<br/>
+     [java] Starting scenario: Perform CSR AIP contribution for AIP w/ New Bank - Checking<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:34<br/>
+     [java] Starting scenario: Electronically Radio button validation for Electronically Radio button<br/>
+     [java] Aug 04, 2026 9:00:07 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 9:00:22 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Before getting account ID
+     [java] Aug 04, 2026 9:00:37 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 9:00:52 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:48<br/>
+     [java] Starting scenario: Beneficiary account selection validation for Which beneficiary account<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:62<br/>
+     [java] Starting scenario: Dollar amount entry validation for No Dollar Amount<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:76<br/>
+     [java] Starting scenario: Contribution type selection validation for one-time or recurring Radio<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature:32<br/>
+     [java] Starting scenario: Perform member single contribution for EBT w/ New Bank - Savings<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature:41<br/>
+     [java] Starting scenario: Perform CSR AIP contribution for AIP w/ New Bank - Savings<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:90<br/>
+     [java] Starting scenario: EBT Initiated Date entry validation for EBT Initiated Date<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature:33<br/>
+     [java] Starting scenario: Perform member single contribution for EBT - Multiple Beneficiaries<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature:42<br/>
+     [java] Starting scenario: Perform CSR AIP contribution for AIP - Existing Bank<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:104<br/>
+     [java] Starting scenario: Recurring frequency selection validation for AIP Specify Frequency<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:48 [0m# Beneficiary account selection validation for Which beneficiary account
+     [java] 
+     [java] 6 Scenarios ([31m1 failed[0m, [32m5 passed[0m)
+     [java] 54 Steps ([31m1 failed[0m, [36m1 skipped[0m, [32m52 passed[0m)
+     [java] 8m15.425s
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.xpath: //input[@id='form_selectAll'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.contributions.ContributionsStepDefs.NegativeMemberContributionSelectBeni(ContributionsStepDefs.java:335)
+     [java] 	at ?.user completes How would you like to contribute step Which beneficiary account(/qa-automation/unite/testsuite/frontoffice/common/csr/transactions/contributions/feature/MemberContributionNegative.feature:42)
+     [java] 
+     [java] Successfully created call for feature: MemberContributionNegative - ID: 296791844<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MNDWithdrawal.feature:31<br/>
+     [java] Starting scenario: Perform Member CSR Distribution Qualified  K-12 w/d to AO with Partial and Prorated<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature:43<br/>
+     [java] Starting scenario: Perform CSR AIP contribution for AIP - Multiple Beneficiaries<br/>
+     [java] 
+     [java] 1 Scenarios ([32m1 passed[0m)
+     [java] 12 Steps ([32m12 passed[0m)
+     [java] 0m23.684s
+     [java] 
+     [java] Successfully created call for feature: MNDWithdrawal - ID: 296791904<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/common/member/transactions/withdrawal/feature/MemberWithdrawal.feature:23<br/>
+     [java] Starting scenario: User Login using Web Registered Accounts for Qualified withdrawal to AO with with partial balance opted<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/common/member/transactions/withdrawal/feature/MemberWithdrawal.feature:23 [0m# User Login using Web Registered Accounts for Qualified withdrawal to AO with with partial balance opted
+     [java] 
+     [java] 1 Scenarios ([31m1 failed[0m)
+     [java] 12 Steps ([31m1 failed[0m, [36m11 skipped[0m)
+     [java] 0m0.958s
+     [java] 
+     [java] java.lang.AssertionError: Property coe_member_login_url not found
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.frontoffice.LoginStepDefs.defineStartingURL(LoginStepDefs.java:208)
+     [java] 	at ?.starting "login" URL for "member"(/qa-automation/unite/testsuite/frontoffice/common/member/transactions/withdrawal/feature/MemberWithdrawal.feature:4)
+     [java] 
+     [java] Successfully created call for feature: MemberWithdrawal - ID: 296791905<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:23<br/>
+     [java] Starting scenario: Negative - Missing "To Whom" Option for Qualified Withdrawal To Whom Option Not Opted Negative<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:24<br/>
+     [java] Starting scenario: Negative - Missing "To Whom" Option for Non Qualified Withdrawal To Whom Option Not Opted Negative<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:25<br/>
+     [java] Starting scenario: Negative - Missing "To Whom" Option for Qualified Withdrawal To Member For Apprenticeship To Whom Option Not Opted Negative<br/>
+     [java] coe.20260804080937168.AIPAddEditDeleteNonCustom.feature.23: Test case execution time exceeds 5 minutes - 9.0 minutes, 39.13300000000004 seconds<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature:38<br/>
+     [java] Starting scenario: Perform AIP contribution for Add and Delete AIP Instruction<br/>
+     [java] Before getting account ID
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:26<br/>
+     [java] Starting scenario: Negative - Missing "To Whom" Option for Qualified Withdrawal To Member For Student Loan To Whom Option Not Opted Negative<br/>
+     [java] 
+     [java] 3 Scenarios ([32m3 passed[0m)
+     [java] 30 Steps ([32m30 passed[0m)
+     [java] 10m21.490s
+     [java] 
+     [java] Successfully created call for feature: MemberSingleContribution - ID: 296791906<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature:32<br/>
+     [java] Starting scenario: Perform CSR Distribution Qualified to Account Owner - Partial Dollar<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:45<br/>
+     [java] Starting scenario: Negative - Missing "How Much" Option for Qualified Withdrawal To Ao With To How Much Option Not Opted Negative<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:46<br/>
+     [java] Starting scenario: Negative - Missing "How Much" Option for Qualified Withdrawal To Member For Apprenticeship With To How Much Option Not Opted Negative<br/>
+     [java] 
+     [java] 4 Scenarios ([32m4 passed[0m)
+     [java] 36 Steps ([32m36 passed[0m)
+     [java] 12m14.417s
+     [java] 
+     [java] Successfully created call for feature: AIPContribution - ID: 296791946<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:34<br/>
+     [java] Starting scenario: Create new SWP and validate auto notation for EBT to Account Owner<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/withdrawal/feature/CSR_Distribution.feature:33<br/>
+     [java] Starting scenario: Perform CSR Distribution Non-Qualified to Account Owner - Partial Dollar<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:47<br/>
+     [java] Starting scenario: Negative - Missing "How Much" Option for Qualified Withdrawal For Student Loan With To How Much Option Not Opted Negative<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:48<br/>
+     [java] Starting scenario: Negative - Missing "How Much" Option for Non Qualified Withdrawal To Ao With To How Much Option Not Opted Negative<br/>
+     [java] 
+     [java] 2 Scenarios ([32m2 passed[0m)
+     [java] 20 Steps ([32m20 passed[0m)
+     [java] 4m47.156s
+     [java] 
+     [java] Successfully created call for feature: CSR_Distribution - ID: 296792060<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:37<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution AO by Bank with Partial and Prorated<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:68<br/>
+     [java] Starting scenario: Negative - Invalid Withdrawal Amount Format for Partial Withdrawal With Blank Amount Negative<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:38<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution AO by Bank with Partial and Fund Specific<br/>
+     [java] coe.20260804081801519.AIPAddEditDeleteNonCustom.feature.38: Test case execution time exceeds 5 minutes - 8.0 minutes, 23.75200000000001 seconds<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature:23 [0m# Perform AIP contribution for Add and Edit AIP Instruction
+     [java] 
+     [java] 2 Scenarios ([31m1 failed[0m, [32m1 passed[0m)
+     [java] 24 Steps ([31m1 failed[0m, [32m23 passed[0m)
+     [java] 18m4.506s
+     [java] 
+     [java] java.lang.AssertionError: Failure validating test case to database - Check output log
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:100)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.contributions.AIPStepDefs.validateeditRecurringinformation(AIPStepDefs.java:174)
+     [java] 	at ?.validate edit Recurring information for Add and Edit AIP Instruction(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature:18)
+     [java] 
+     [java] Successfully created call for feature: AIPAddEditDeleteNonCustom - ID: 296792733<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature:33<br/>
+     [java] Starting scenario: Perform CSR Standing Alloc FEE Standing Alloc - Annual Account Fee<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:69<br/>
+     [java] Starting scenario: Negative - Invalid Withdrawal Amount Format for Partial Withdrawal With $ Sign Amount Negative<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:39<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution Bene by Check with Partial and Prorated<br/>
+     [java] coe.20260804082025584.SWPAutoNotation.feature.34: Test case execution time exceeds 5 minutes - 8.0 minutes, 11.216999999999985 seconds<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:35<br/>
+     [java] Starting scenario: Create new SWP and validate auto notation for Check to Account Owner<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature:34<br/>
+     [java] Starting scenario: Perform CSR Standing Alloc FEE Standing Alloc - Low Balance Fee<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:70<br/>
+     [java] Starting scenario: Negative - Invalid Withdrawal Amount Format for Partial Withdrawal With ! Sign Amount Negative<br/>
+     [java] seqFinTxnIDs  :634219885
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:40<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution by Bank Prorated with Phone and Notification<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:92<br/>
+     [java] Starting scenario: Negative - Withdrawal from Zero Balance Account for Partial Withdrawal With Zero Balance Negative<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:25 [0m# Negative - Missing "To Whom" Option for Qualified Withdrawal To Member For Apprenticeship To Whom Option Not Opted Negative
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:26 [0m# Negative - Missing "To Whom" Option for Qualified Withdrawal To Member For Student Loan To Whom Option Not Opted Negative
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:46 [0m# Negative - Missing "How Much" Option for Qualified Withdrawal To Member For Apprenticeship With To How Much Option Not Opted Negative
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:47 [0m# Negative - Missing "How Much" Option for Qualified Withdrawal For Student Loan With To How Much Option Not Opted Negative
+     [java] 
+     [java] 12 Scenarios ([31m4 failed[0m, [32m8 passed[0m)
+     [java] 115 Steps ([31m4 failed[0m, [36m6 skipped[0m, [32m105 passed[0m)
+     [java] 16m44.727s
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: form_wdTypeAPPRWD (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElementJS(ScenarioManipulator.java:878)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.plansWithdrawalProcess(MakeDistribution.java:129)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.usermakesadistributionWithdrawalInformation(MakeDistribution.java:67)
+     [java] 	at ?.user makes a distribution - Withdrawal Information Qualified Withdrawal To Member For Apprenticeship To Whom Option Not Opted Negative(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:17)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: form_wdTypeSTDLOANWD (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElementJS(ScenarioManipulator.java:878)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.plansWithdrawalProcess(MakeDistribution.java:125)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.usermakesadistributionWithdrawalInformation(MakeDistribution.java:67)
+     [java] 	at ?.user makes a distribution - Withdrawal Information Qualified Withdrawal To Member For Student Loan To Whom Option Not Opted Negative(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:17)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: form_wdTypeAPPRWD (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElementJS(ScenarioManipulator.java:878)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.plansWithdrawalProcess(MakeDistribution.java:129)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.usermakesadistributionWithdrawalInformation(MakeDistribution.java:67)
+     [java] 	at ?.user makes a distribution - Withdrawal Information Qualified Withdrawal To Member For Apprenticeship With To How Much Option Not Opted Negative(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:38)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: form_wdTypeSTDLOANWD (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElementJS(ScenarioManipulator.java:878)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.plansWithdrawalProcess(MakeDistribution.java:125)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.usermakesadistributionWithdrawalInformation(MakeDistribution.java:67)
+     [java] 	at ?.user makes a distribution - Withdrawal Information Qualified Withdrawal For Student Loan With To How Much Option Not Opted Negative(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/MemberWithdrawalNegativeScenarios.feature:38)
+     [java] 
+     [java] Successfully created call for feature: MemberWithdrawalNegativeScenarios - ID: 296792995<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/PandE/feature/CSR_PandE.feature:20<br/>
+     [java] Starting scenario: Perform CSR P and E Update Update Principal and Earning<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature:65<br/>
+     [java] Starting scenario: Perform CSR Specified Fund FEE Specifed Fund - Annual Account Fee<br/>
+     [java] 
+     [java] 1 Scenarios ([32m1 passed[0m)
+     [java] 9 Steps ([32m9 passed[0m)
+     [java] 0m16.407s
+     [java] 
+     [java] Successfully created call for feature: CSR_PandE - ID: 296792996<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature:30<br/>
+     [java] Starting scenario: Perform CSR Share Adjustment as Share Adjustment Credit - Single Fund<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:41<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to K-12 Tution AO by Bank with Partial and Prorated<br/>
+     [java] coe.20260804082818429.SWPAutoNotation.feature.35: Test case execution time exceeds 5 minutes - 7.0 minutes, 52.297000000000025 seconds<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:36<br/>
+     [java] Starting scenario: Create new SWP and validate auto notation for EBT to Beneficiary<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/fee/feature/FeeEntry.feature:66<br/>
+     [java] Starting scenario: Perform CSR Specified Fund FEE Specifed Fund - Low Balance Fee<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:42<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Non-Qualified to Distribution AO by Bank with Partial and Prorated<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature:31<br/>
+     [java] Starting scenario: Perform CSR Share Adjustment as Share Adjustment Debit - Single Fund<br/>
+     [java] seqFinTxnIDs  :634219890
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:43<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Non-Qualified to Distribution AO by Check with Partial and Prorated<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:37<br/>
+     [java] Starting scenario: Create new SWP and validate auto notation for Check to Beneficiary<br/>
+     [java] 
+     [java] 4 Scenarios ([32m4 passed[0m)
+     [java] 46 Steps ([32m46 passed[0m)
+     [java] 15m9.656s
+     [java] 
+     [java] Successfully created call for feature: FeeEntry - ID: 296793326<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature:32<br/>
+     [java] Starting scenario: Perform adding Personal information as csr for Update Phone Number and Address<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature:32 [0m# Perform adding Personal information as csr for Update Phone Number and Address
+     [java] 
+     [java] 1 Scenarios ([31m1 failed[0m)
+     [java] 11 Steps ([31m1 failed[0m, [36m3 skipped[0m, [32m7 passed[0m)
+     [java] 0m10.024s
+     [java] 
+     [java] java.lang.AssertionError: element not interactable
+     [java]   (Session info: headless chrome=106.0.5249.91)
+     [java] Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+     [java] System info: host: 'seleniumhubnt2', ip: '172.25.166.42', os.name: 'Linux', os.arch: 'amd64', os.version: '3.10.0-1160.42.2.el7.x86_64', java.version: '1.8.0_121'
+     [java] Driver info: org.openqa.selenium.remote.RemoteWebDriver
+     [java] Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 106.0.5249.91, chrome: {chromedriverVersion: 106.0.5249.61 (511755355844..., userDataDir: /tmp/.com.google.Chrome.dAly8t}, goog:chromeOptions: {debuggerAddress: localhost:42141}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), se:cdp: ws://10.88.34.221:4444/sess..., se:cdpVersion: 106.0.5249.91, se:vnc: ws://10.88.34.221:4444/sess..., se:vncEnabled: true, se:vncLocalAddress: ws://10.88.34.221:7900, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+     [java] Session ID: 32d2e1322c3d13853f876864e77d12ec
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.fillElement(ScenarioManipulator.java:967)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.PersonalInformationStepDefs.fillPhoneFields(PersonalInformationStepDefs.java:79)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.PersonalInformationStepDefs.updateAddressAndPhone(PersonalInformationStepDefs.java:67)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.PersonalInformationStepDefs.completeUpdateAddressAndPhoneInformation(PersonalInformationStepDefs.java:59)
+     [java] 	at ?.user completes the update Address and phone number section for Update Phone Number and Address(/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature:24)
+     [java] 
+     [java] Successfully created call for feature: PersonalInformation - ID: 296793327<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature:49<br/>
+     [java] Starting scenario: Perform Delete bank information as csr for Add and Delete Bank Account<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature:30<br/>
+     [java] Starting scenario: Perform adding bank information as csr for Add Bank Account<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature:63<br/>
+     [java] Starting scenario: Perform Edit operation on bank information as csr for Add and Edit Bank Information<br/>
+     [java] Aug 04, 2026 9:33:37 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 9:33:52 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature:32<br/>
+     [java] Starting scenario: Perform CSR Share Adjustment as Share Adjustment Credit - Multiple Fund<br/>
+     [java] seqFinTxnIDs  :634219892
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:44<br/>
+     [java] Starting scenario: CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Non-Qualified to Distribution Bene by Check with Partial and Prorated<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature:33<br/>
+     [java] Starting scenario: Perform CSR Share Adjustment as Share Adjustment Debit - Multiple Fund<br/>
+     [java] 
+     [java] 3 Scenarios ([32m3 passed[0m)
+     [java] 29 Steps ([32m29 passed[0m)
+     [java] 5m2.071s
+     [java] 
+     [java] Successfully created call for feature: BankInformation - ID: 296793361<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/Beneficiary.feature:29<br/>
+     [java] Starting scenario: Update beneficiary information as CSR for Update Beneficiary<br/>
+     [java] seqFinTxnIDs  :634219894
+     [java] coe.20260804084043111.SWPAutoNotation.feature.37: Test case execution time exceeds 5 minutes - 7.0 minutes, 30.41500000000002 seconds<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:65<br/>
+     [java] Starting scenario: Update existing SWP and validate auto notation for Edit Monthly<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:37 [0m# CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution AO by Bank with Partial and Prorated
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:38 [0m# CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution AO by Bank with Partial and Fund Specific
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:40 [0m# CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to Edu Institution by Bank Prorated with Phone and Notification
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:41 [0m# CSR Member Distribution Workflow (Partial / Prorated / Fund Specific) for Qualified to K-12 Tution AO by Bank with Partial and Prorated
+     [java] 
+     [java] 8 Scenarios ([31m4 failed[0m, [32m4 passed[0m)
+     [java] 112 Steps ([31m4 failed[0m, [36m14 skipped[0m, [32m94 passed[0m)
+     [java] 25m42.449s
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.xpath: //input[@id='form_wdAmountType2'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.memberWithdrawalHowMuchWouldYouLikeToWithdraw(MakeDistribution.java:316)
+     [java] 	at ?.user selects how much would you like to withdraw for Qualified to Edu Institution AO by Bank with Partial and Prorated(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:29)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.xpath: //div//input[@id='form_transChannelPrimary Account Owner'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.memberWithdrawalHowMuchWouldYouLikeToWithdraw(MakeDistribution.java:429)
+     [java] 	at ?.user selects how much would you like to withdraw for Qualified to Edu Institution AO by Bank with Partial and Fund Specific(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:29)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.xpath: //div//input[@id='form_transChannelPrimary Account Owner'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.memberWithdrawalHowMuchWouldYouLikeToWithdraw(MakeDistribution.java:429)
+     [java] 	at ?.user selects how much would you like to withdraw for Qualified to Edu Institution by Bank Prorated with Phone and Notification(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:29)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: form_wdK12TutionExpTypeIN_STATE (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElementJS(ScenarioManipulator.java:878)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.plansWithdrawalProcess(MakeDistribution.java:116)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.MakeDistribution.usermakesadistributionWithdrawalInformation(MakeDistribution.java:67)
+     [java] 	at ?.user makes a distribution - Withdrawal Information Qualified to K-12 Tution AO by Bank with Partial and Prorated(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/withdrawal/feature/INDMODDistribution.feature:27)
+     [java] 
+     [java] Successfully created call for feature: INDMODDistribution - ID: 296793375<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/DeliveryPreference.feature:27<br/>
+     [java] Starting scenario: Update delivery preferences as CSR for Update Delivery preference to mail<br/>
+     [java] 
+     [java] 1 Scenarios ([32m1 passed[0m)
+     [java] 9 Steps ([32m9 passed[0m)
+     [java] 3m14.679s
+     [java] 
+     [java] Successfully created call for feature: Beneficiary - ID: 296793392<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/PayrollDeduction.feature:27<br/>
+     [java] Starting scenario: Update payroll deduction as CSR for Update Payroll Deduction<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature:34<br/>
+     [java] Starting scenario: Perform CSR Share Adjustment as Share Adjustment Conversion In - Single Fund<br/>
+     [java] 
+     [java] 1 Scenarios ([32m1 passed[0m)
+     [java] 9 Steps ([32m9 passed[0m)
+     [java] 2m46.542s
+     [java] 
+     [java] Successfully created call for feature: DeliveryPreference - ID: 296793431<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/InterestedParty.feature:28<br/>
+     [java] Starting scenario: Perform CSR Member add Interested Party for Add Interested Party Investment Advisor<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/InterestedParty.feature:76<br/>
+     [java] Starting scenario: Perform CSR Member Edit Interested Party for Edit Interested Party Other<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/InterestedParty.feature:29<br/>
+     [java] Starting scenario: Perform CSR Member add Interested Party for Add Interested Party Parent/Guardian<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/InterestedParty.feature:26<br/>
+     [java] Starting scenario: Perform CSR Member add Interested Party for Add Interested Party Other<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/InterestedParty.feature:27<br/>
+     [java] Starting scenario: Perform CSR Member add Interested Party for Add Interested Party Compliance<br/>
+     [java] Aug 04, 2026 9:43:52 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] Aug 04, 2026 9:44:07 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+     [java] INFO: Detected dialect: W3C
+     [java] 
+     [java] 1 Scenarios ([32m1 passed[0m)
+     [java] 9 Steps ([32m9 passed[0m)
+     [java] 2m42.687s
+     [java] 
+     [java] Successfully created call for feature: PayrollDeduction - ID: 296793441<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:33<br/>
+     [java] Starting scenario: Perform CSR Member Edit Successor Authorized Individual for Edit Successor Authorized Individual Person<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:19<br/>
+     [java] Starting scenario: Perform CSR Member Add Successor Authorized Individual for Add Successor Authorized Individual Person<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:47<br/>
+     [java] Starting scenario: Perform CSR Member Delete Successor AuthorizedIndividual for Delete Successor Authorized Individual Person<br/>
+     [java] 
+     [java] 5 Scenarios ([32m5 passed[0m)
+     [java] 47 Steps ([32m47 passed[0m)
+     [java] 1m39.172s
+     [java] 
+     [java] Successfully created call for feature: InterestedParty - ID: 296793464<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:53<br/>
+     [java] Starting scenario: Perform CSR Member validate Authorized Agent daytime phone for Validate Authorized Agent Day Phone<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:27<br/>
+     [java] Starting scenario: Perform CSR Member verify Authorized Agents for Verify Authorized Agent<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:66<br/>
+     [java] Starting scenario: Perform CSR Member validate Authorized Agent evening phone for Validate Authorized Agent Eve Phone<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:40<br/>
+     [java] Starting scenario: Perform CSR Member Update Authorized Agent for Update Authorized Agent<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:19 [0m# Perform CSR Member Add Successor Authorized Individual for Add Successor Authorized Individual Person
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:33 [0m# Perform CSR Member Edit Successor Authorized Individual for Edit Successor Authorized Individual Person
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:47 [0m# Perform CSR Member Delete Successor AuthorizedIndividual for Delete Successor Authorized Individual Person
+     [java] 
+     [java] 3 Scenarios ([31m3 failed[0m)
+     [java] 29 Steps ([31m3 failed[0m, [36m11 skipped[0m, [32m15 passed[0m)
+     [java] 0m51.478s
+     [java] 
+     [java] java.lang.AssertionError: Failed to find account with transaction type of AIAccount that match expected criteria for traunch 100089
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.unite.backoffice.shared.transactions.creation.CreationStepDefs.findAccountForTestCase(CreationStepDefs.java:141)
+     [java] 	at ?.user pulls account information for Add Successor Authorized Individual Person(/qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:11)
+     [java] 
+     [java] java.lang.AssertionError: Failed to find account with transaction type of AIAccount that match expected criteria for traunch 100089
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.unite.backoffice.shared.transactions.creation.CreationStepDefs.findAccountForTestCase(CreationStepDefs.java:141)
+     [java] 	at ?.user pulls account information for Edit Successor Authorized Individual Person(/qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:24)
+     [java] 
+     [java] java.lang.AssertionError: Failed to find account with transaction type of AIAccount that match expected criteria for traunch 100089
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.unite.backoffice.shared.transactions.creation.CreationStepDefs.findAccountForTestCase(CreationStepDefs.java:141)
+     [java] 	at ?.user pulls account information for Delete Successor Authorized Individual Person(/qa-automation/unite/testsuite/frontoffice/csr/successor/feature/SuccessorAuthorizedIndividualPerson.feature:38)
+     [java] 
+     [java] Successfully created call for feature: SuccessorAuthorizedIndividualPerson - ID: 296793466<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:80<br/>
+     [java] Starting scenario: Delete SWP and validate removal for Delete Monthly<br/>
+     [java] Starting scenario file: /qa-automation/unite/testsuite/frontoffice/csr/csr-greenscreen/transactions/Shareadjustment/feature/CSR_ShareAdjustment.feature:35<br/>
+     [java] Starting scenario: Perform CSR Share Adjustment as Share Adjustment Conversion In - Multiple Fund<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:27 [0m# Perform CSR Member verify Authorized Agents for Verify Authorized Agent
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:40 [0m# Perform CSR Member Update Authorized Agent for Update Authorized Agent
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:53 [0m# Perform CSR Member validate Authorized Agent daytime phone for Validate Authorized Agent Day Phone
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:66 [0m# Perform CSR Member validate Authorized Agent evening phone for Validate Authorized Agent Eve Phone
+     [java] 
+     [java] 4 Scenarios ([31m4 failed[0m)
+     [java] 36 Steps ([31m4 failed[0m, [36m4 skipped[0m, [32m28 passed[0m)
+     [java] 1m44.013s
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.cssSelector: input[name='selAcctMap(6321385401)'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.AuthorizedAgent.navigateToAuthorizedAgents(AuthorizedAgent.java:37)
+     [java] 	at ?.user navigates to Authorized Agents for Verify Authorized Agent(/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:21)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.cssSelector: input[name='selAcctMap(6473446711)'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.AuthorizedAgent.navigateToAuthorizedAgents(AuthorizedAgent.java:37)
+     [java] 	at ?.user navigates to Authorized Agents for Update Authorized Agent(/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:34)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.cssSelector: input[name='selAcctMap(6473446714)'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.AuthorizedAgent.navigateToAuthorizedAgents(AuthorizedAgent.java:37)
+     [java] 	at ?.user navigates to Authorized Agents for Validate Authorized Agent Day Phone(/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:47)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.cssSelector: input[name='selAcctMap(6453416701)'] (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.profileanddocuments.AuthorizedAgent.navigateToAuthorizedAgents(AuthorizedAgent.java:37)
+     [java] 	at ?.user navigates to Authorized Agents for Validate Authorized Agent Eve Phone(/qa-automation/unite/testsuite/frontoffice/csr/member/profileanddocuments/feature/AuthorizedAgent.feature:60)
+     [java] 
+     [java] Successfully created call for feature: AuthorizedAgent - ID: 296793496<br/>
+     [java] 
+     [java] [31mFailed scenarios:[0m
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:36 [0m# Create new SWP and validate auto notation for EBT to Beneficiary
+     [java] [31m/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:80 [0m# Delete SWP and validate removal for Delete Monthly
+     [java] 
+     [java] 6 Scenarios ([31m2 failed[0m, [32m4 passed[0m)
+     [java] 70 Steps ([31m2 failed[0m, [36m4 skipped[0m, [32m64 passed[0m)
+     [java] 35m30.113s
+     [java] 
+     [java] java.lang.AssertionError: SWP payee option BENE_EFT is not available on the current page
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.SWPStepDefs.setUpASystematicWithdrawalPlanInformation(SWPStepDefs.java:199)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.SWPStepDefs.fillCSRMemberSWPFlow(SWPStepDefs.java:70)
+     [java] 	at ?.user completes CSR member SWP for EBT to Beneficiary(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:25)
+     [java] 
+     [java] java.lang.AssertionError: Expected condition failed: waiting for presence of element located by: By.id: addSwp (tried for 30 second(s) with 500 milliseconds interval)
+     [java] 	at org.testng.Assert.fail(Assert.java:94)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCase(Logger.java:120)
+     [java] 	at com.cs529.qa.prime.core.Logger.failTestCaseWithScreenShot(Logger.java:45)
+     [java] 	at com.cs529.qa.prime.core.ScenarioManipulator.clickElement(ScenarioManipulator.java:863)
+     [java] 	at com.cs529.qa.unite.frontoffice.member.transactions.withdrawal.SWPStepDefs.fillCSRMemberSWPFlow(SWPStepDefs.java:69)
+     [java] 	at ?.user completes CSR member SWP for Delete Monthly(/qa-automation/unite/testsuite/frontoffice/csr/member/transactions/systematicwithdrawal/feature/SWPAutoNotation.feature:73)
+     [java] 
+     [java] Successfully created call for feature: SWPAutoNotation - ID: 296793539<br/>
+     [java] 
+     [java] 6 Scenarios ([32m6 passed[0m)
+     [java] 66 Steps ([32m66 passed[0m)
+     [java] 25m36.411s
+     [java] 
+     [java] Successfully created call for feature: CSR_ShareAdjustment - ID: 296793874<br/>
+     [java] 
+     [java] ===============================================
+     [java] Regression Test Suite - Empower Plan
+     [java] Total tests run: 75, Failures: 21, Skips: 0
+     [java] ===============================================
+     [java] 
+     [java] Java Result: 1
+
+BUILD SUCCESSFUL
+Total time: 51 minutes 34 seconds
+Finished: SUCCESS
+REST API
+Jenkins 2.440.2

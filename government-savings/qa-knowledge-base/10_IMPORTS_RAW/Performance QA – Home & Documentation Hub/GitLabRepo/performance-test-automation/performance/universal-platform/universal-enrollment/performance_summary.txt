@@ -1,0 +1,64 @@
+Blazemeter/Reporting
+  Pro:
+    1. Enterprise license already setup via Retirement
+    2. Support multiple test scripts including SELENIUM/JAVA or YAML which can be created (with some changes) via the Blazemeter browser plugin
+
+  Con:
+    1. Blazemeter reporting can be misleading as response times on flows includes all steps (user form inputs, etc.)
+    2. Selenium scripts can cause more work even though they can handle better data generation
+
+Blazemeter (Created via GUI and executed by Blazemeter)
+  Pro:
+    1. Use of YAML/Apiritif format which is easier to setup and write out in full flows
+    2. Provides access to more options for data generation without having to create data files (CSV)
+    3. Allows much higher user load (potentially up to license restrictions)
+    4. Supports test execution via different locations
+      a. SELENIUM/JAVA supports numerous locations, the number of each, and percent of traffic to each
+      b. YAML supports numerous locations and the number of each only
+    5. Provides an additional End User Experience Monitoring option which can execute a user related test during the load test (including the option to record video)
+    6. Offers additional APM integrations (such as New Relic)
+
+  Con:
+    1. URLs need to be accessible (public or Blazemeter)
+    2. Whitelisting Blazemeter as-is seems impossible (https://guide.blazemeter.com/hc/en-us/articles/207420645?utm_term=trendemon)
+    3. Will require additional setup and/or cost to be able to support internal websites
+      a. Other options can be found at: https://www.blazemeter.com/blog/firewall-performance-testing
+    4. Endurance testing would be limited to 24 hours and may end up using a lot of users from license
+
+Taurus (Local)
+  Pro:
+    1. Easier to setup test scripts and make sure they are functioning correctly
+    2. Access to internal URLs
+
+  Con:
+    1. Very low user load
+
+Taurus (AGS Selenium Grid)
+  Pro:
+    1. Internal grid which can more easily support load and endurance testing
+    2. Relies on same script/setup as other executions (with minor changes)
+    3. Access to internal URLs
+
+  Con:
+    1. Limited user load (currently running for 30 users with possiblity to go up to 150 users but may lead to stability issues)
+    2. May require some additional setup or fixes on seleniumhubnt1/2 in order to support URLs (network traffic, etc.)
+    3. Will share resources with other executions that will run on the grid
+
+Taurus (Ran through Apiritif format)
+  Pro:
+    1. Easy to write and setup (https://gettaurus.org/docs/Apiritif/)
+    2. Blazemeter browser plugin can provide a general template
+    3. Can more easily create custom steps for Blazemeter reporting
+
+  Con:
+    1. Data generation is limited to file load (and likely will require a separate script to generate/create)
+
+Taurus (Ran through Selenium format)
+  Pro:
+    1. More selenium related control
+    2. Program language will allow more control of data generation without having to create CSV data files
+    3. Blazemeter browser plugin can provide a general template
+
+  Con:
+    1. Less Blazemeter reporting control
+    2. Will require re-writing full selenium tests (PRIME tests will not be re-usable here)

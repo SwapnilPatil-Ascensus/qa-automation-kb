@@ -1,0 +1,134 @@
+Received: from SA2PR16MB4314.namprd16.prod.outlook.com (2603:10b6:806:14a::14)
+ by PH7PR16MB5696.namprd16.prod.outlook.com with HTTPS; Fri, 1 Aug 2025
+ 17:00:28 +0000
+Received: from MN0PR04CA0030.namprd04.prod.outlook.com (2603:10b6:208:52d::29)
+ by SA2PR16MB4314.namprd16.prod.outlook.com (2603:10b6:806:14a::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.11; Fri, 1 Aug
+ 2025 17:00:27 +0000
+Received: from BL6PEPF0002256F.namprd02.prod.outlook.com
+ (2603:10b6:208:52d:cafe::5e) by MN0PR04CA0030.outlook.office365.com
+ (2603:10b6:208:52d::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.16 via Frontend Transport; Fri,
+ 1 Aug 2025 17:00:27 +0000
+Authentication-Results: spf=none (sender IP is 205.166.36.109)
+ smtp.mailfrom=rt.acs529.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=rt.acs529.com;
+Received-SPF: None (protection.outlook.com: rt.acs529.com does not designate
+ permitted sender hosts)
+Received: from mail.ascensus.com (205.166.36.109) by
+ BL6PEPF0002256F.mail.protection.outlook.com (10.167.249.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9009.8 via Frontend Transport; Fri, 1 Aug 2025 17:00:26 +0000
+Received: from SWTPEXCH01.rsd.crumprsd.com (172.18.4.236) by
+ SWTPEXCH01.rsd.crumprsd.com (172.18.4.236) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Fri, 1 Aug 2025 13:00:10 -0400
+Received: from rtwt1.int.uprinv.com (172.18.7.248) by
+ SWTPEXCH01.rsd.crumprsd.com (172.18.4.236) with Microsoft SMTP Server id
+ 15.2.1544.4 via Frontend Transport; Fri, 1 Aug 2025 13:00:10 -0400
+Received: by rtwt1.int.uprinv.com (Postfix, from userid 48)
+	id 4C9773FF; Fri,  1 Aug 2025 13:00:10 -0400 (EDT)
+X-RT-Template: Correspondence
+X-RT-Owner: Nobody
+Subject: [AGS #500647] Stage DB  Schema_ Access
+From: Tory.Spaziani via RT <uii-access@rt.acs529.com>
+Reply-To: <uii-access@rt.acs529.com>
+In-Reply-To: <SJ0PR16MB506006D39AEF876F6B59B1DC8D26A@SJ0PR16MB5060.namprd16.prod.outlook.com>
+References: <RT-Ticket-500647@upromise.com>
+ <SJ0PR16MB506006D39AEF876F6B59B1DC8D26A@SJ0PR16MB5060.namprd16.prod.outlook.com>
+Message-ID: <rt-4.4.3-15328-1754067610-1368.500647-5-0@upromise.com>
+X-RT-Loop-Prevention: AGS
+X-RT-Ticket: AGS #500647
+X-Managed-BY: RT 4.4.3 (http://www.bestpractical.com/rt/)
+X-RT-Originator: Tory.Spaziani@ascensus.com
+To: <Venkatesh.Mallela@ascensus.com>
+CC: <Swapnil.Patil@ascensus.com>, <arun.dash@ascensus.com>,
+	<christian.yordy@ascensus.com>, <jeremy.krafchin@ascensus.com>,
+	<jesse.mars@ascensus.com>, <susan.delgado@ascensus.com>,
+	<winnie.gitonga@ascensus.com>
+Content-Type: text/plain; charset="utf-8"
+X-RT-Original-Encoding: utf-8
+Precedence: bulk
+Date: Fri, 1 Aug 2025 13:00:10 -0400
+Content-Transfer-Encoding: 8bit
+Return-Path: apache@rt.acs529.com
+X-OrganizationHeadersPreserved: SWTPEXCH01.rsd.crumprsd.com
+X-MS-Exchange-Organization-ExpirationStartTime: 01 Aug 2025 17:00:26.7221
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 69ac583a-8196-4f3c-a1f7-08ddd11ce9bc
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-Organization-AuthSource: SWTPEXCH01.rsd.crumprsd.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 10
+X-CrossPremisesHeadersPromoted: BL6PEPF0002256F.namprd02.prod.outlook.com
+X-CrossPremisesHeadersFiltered: BL6PEPF0002256F.namprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0002256F:EE_|SA2PR16MB4314:EE_|PH7PR16MB5696:EE_
+X-OriginatorOrg: ascensus.com
+X-MS-Office365-Filtering-Correlation-Id: 69ac583a-8196-4f3c-a1f7-08ddd11ce9bc
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|82310400026|41050700001;
+X-Forefront-Antispam-Report: CIP:205.166.36.109;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.ascensus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(366016)(82310400026)(41050700001);DIR:INT;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Aug 2025 17:00:26.2481
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 69ac583a-8196-4f3c-a1f7-08ddd11ce9bc
+X-MS-Exchange-CrossTenant-Id: 1d3bed01-6d09-498e-ab05-f1e2fdb1b138
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1d3bed01-6d09-498e-ab05-f1e2fdb1b138;Ip=[205.166.36.109];Helo=[mail.ascensus.com]
+X-MS-Exchange-CrossTenant-AuthSource: SWTPEXCH01.rsd.crumprsd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR16MB4314
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.4454882
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8989.013
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	foTn+hdKSu5cTMYGiTgElkRf9SrbPmOrTFLX0nnS5YDO8dKqgrAjNFpWnpEJ7uLFBVtjMPtzPtSw+H4FIgCgKJf60k344wMI3AOLZDc/dAuraQvWKIyl+RAf1AEXjk+2cXtagdd0/rMcWSVR3O7MM14VvlmHbhzSW78LkhXBF93O3ZshXC94OQmFIR4aa3SiU+9ORHUzOYFJg3/F3inQt0RvI25Qaw+HzDZk5V0U4t0oG10icF5+Z1Ajy4XksN6pN/XSEHNTaQ30Lvwkf0dbx7waooUcmFaJbD/aBt2cf8w+70GxQTrVeGaixv5iiy50NWhrUgCl5dWBMuQ9eOEdVUFCOd+1PkePOvexoeLMBev1KLaqyhBcUEyiryPybJnuMwHqaivuL9pElYTXcvJKmng0GXSUPZyn2zGORn+slYw8Hi/LPvKwCvRbAUuHx0ah/JSAs3zKMY25oYHzoGN6eqlSpbMAgJumQXCz2UQCo+BHt80s4k9c0Yt4HmtzDIUi06bvdDzXEVclOFzkLuP+l6p7TLjq593WbAyLedChxwHoKEYPhB52W1z4dYaIrucY5Cu+dpuqZf6cT2jN6B/AM6vReKRMk9RvetFOM2LU146fWpq67HCF+qsFyaChcWVWbfJITn2WyqQtULY0R1fhnWtW5R/eYXNfMLiqzjsDnNB5+GHbgYV+TkSjgko2ybH4vJX2w5Kx6i+enNbiseUz/SaHM/Q3ydKFLcyMNTL5JuWA+F/7ly/6yDQEMTOxmTK+T7r7DrtfTUieI1QCle1iroRHxTjv058C5Qc/dyUtsXfJqWyeZ5ZOC9M2xfguBpyg1MVq8tOZapYk7pNQL2mOAw==
+MIME-Version: 1.0
+
+Ticket <URL: https://rt.acs529.com/Ticket/Display.html?id=500647 >
+
+Hello Arun,
+
+Can you please approve the access request below since Anuj is OOO and because the user is offshore?
+
+Thanks,
+Tory Spaziani
+
+
+On Fri Aug 01 09:43:34 2025, Venkatesh.Mallela@ascensus.com wrote:
+> Hi Team,
+> 
+> I'm requesting read/write access to specific transaction-related
+> tables in the Stage 1 environment under the UII0 schema to support
+> automation scripts for contributions, withdrawals, and general
+> transaction flows.
+> 
+> Access Requested:
+> 
+> *   Schema: UII
+> *   Tables:
+>    *   QA_FIN_TXN
+>    *   QA_FIN_INSTRUCTION
+> 
+> Purpose:
+> To enable automated data setup, validations, and teardown activities
+> for:
+> 
+> *   Contribution-related scenarios
+> *   Withdrawal and Distribution flows
+> *   General financial transaction tests
+> *
+> Mirror user: Swapnil Patil
+> 
+> Permissions Request:
+> Please grant the same permissions as currently assigned to Swapnil
+> Patil under the UII schema in Stage 1.
+> 
+> Thanks,
+> Venkatesh Mallela

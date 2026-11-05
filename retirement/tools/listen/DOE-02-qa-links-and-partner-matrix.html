@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOE 2 - QA links and partner matrix</title>
+<base href="../../team-ravens/02-doe-product/">
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 20px; line-height: 1.65; max-width: 880px; margin: 0 auto; padding: 0 24px 80px; color: #1f1f1f; }
+  .bar { position: sticky; top: 0; background: #fff8e1; border-bottom: 1px solid #f0d98a; padding: 10px 0; font-size: 15px; }
+  h1 { font-size: 1.9em; margin-top: 0.8em; }
+  h2 { margin-top: 1.6em; border-bottom: 2px solid #e5e5e5; padding-bottom: 4px; }
+  h3 { margin-top: 1.3em; }
+  table { border-collapse: collapse; font-size: 0.85em; margin: 12px 0; }
+  th, td { border: 1px solid #cfcfcf; padding: 6px 10px; vertical-align: top; text-align: left; }
+  th { background: #f3f6fa; }
+  code { background: #f2f2f2; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f5f5f5; padding: 12px; white-space: pre-wrap; }
+  img { max-width: 100%; border: 1px solid #ddd; margin: 8px 0; }
+  blockquote { border-left: 4px solid #9ecbff; margin-left: 0; padding-left: 14px; color: #444; }
+</style>
+</head>
+<body>
+<div class="bar"><b>Listen mode:</b> press <b>Ctrl+Shift+U</b> in Microsoft Edge to read this page aloud (Read aloud). Pick a Natural voice in the Read aloud settings. Diagrams are skipped in audio.</div>
+<main id="content"><p>Loading document...</p></main>
+<script id="md" type="application/json">"# 02 - QA links and partner matrix (QA only - never PRO)\r\n\r\n\u003e **Rule from the team lead:** only QA (Group 1 and Group 2). **Do not open PRO links.** PRO links are intentionally not repeated in this file; they exist only in the raw source page.\r\n\u003e Shared test-account passwords are **not** stored in this repo. Ask the team (they are on the Useful Links page) or use the team password vault.\r\n\r\n## Environment map\r\n\r\n| Env | Unqork host | Used for |\r\n| --- | --- | --- |\r\n| DEV | `retsupport-devx.unqork.io` | developer testing |\r\n| DEV2 (\"QA\") | `retsupport-dev2x.unqork.io` | Sales Portal dev copy |\r\n| **QA** | `retsupport-qax.unqork.io` | **our test target** |\r\n| PRO | `retsupport.unqork.io` | do not touch |\r\n\r\nUnqork builder/designer sign-in is separate (`retsupport-qa.unqork.io`, SSO via `mfaqa.ascensus.com/secureauth21`).\r\n\r\n## Group 1 (Individual(k)) - QA links\r\n\r\nAll use one Unqork app `eapp-1737642567136`; the partner is selected by URL parameters, then the app rewrites the URL to internal IDs. **[Seen]**\r\n\r\n| # | Partner | `style=` | `product=` | Landing page seen | Employer fees seen (setup / 1st ppt / each extra) | Participant fee seen |\r\n| - | --- | --- | --- | --- | --- | --- |\r\n| 1 | Victory | `amundi` (rewrites to `victory`) | `AmundiDailyIk` | \"Get started with Victory - Individual(k)\" | $125 / $150 / $150 | 0% asset based |\r\n| 2 | Ameriprise | `ascensus` | `AmeripriseBalFwdIk` | \"Get started with an Ameriprise - Individual(k)\" | $125 / $375 / $150 | none shown |\r\n| 3 | Pershing | `bny-pershing` | `PershingBalFwdIk` | \"Get started with Pershing\" (BNY Pershing logo) | $125 / $375 / $150 | none shown |\r\n| 4 | J.P. Morgan | `jpm` | `JPMorganBalFwdIk` | \"Get started with JP Morgan\" | $125 / $345 / $150 | none shown |\r\n| 5 | Ascensus Balance Forward | `ascensus` | `AscensusBalFwdIk` | \"Balance Forward Individual(k)\" | $125 / $425 / $150 | none shown |\r\n| 6 | Ascensus Daily LC | `ascensus` | `AscensusDailyLCIk` | \"Daily Level Comp 50 Individual(k)\" (+ Common Remitter Agreement note) | $125 / $425 / $150 | 0.07% |\r\n| 7 | Ascensus Daily Fee Based | `ascensus` | `AscensusDailyFBIk` | \"Direct Fee Based Individual(k)\" | $125 / $425 / $150 | 0.07% |\r\n| 8 | State Farm | `statefarm` | `StateFarmDailyIk` | \"Get started with State Farm\" - **Agent** first/last/email, **no CRD field** | $125 / $235 / $150 | none shown |\r\n| 9 | Sales Flow | `ascensus` (+ `preview=true`) | n/a | \"Let us help you find the right Individual(k) plan\" (questionnaire entry); fee values render blank | blank | blank |\r\n| 10 | Dashboard | `ascensus` | n/a | \"Onboarding Plans\" with Follow up / Individual(k) tabs; shows loading skeleton, \"Not found / Page 1 of 0\" without a signed-in user | n/a | n/a |\r\n\r\nScreenshots: [`assets/screenshots/`](assets/screenshots/) (`g1-*.png`).\r\n\r\n## Group 2 - QA links\r\n\r\n| Partner | Link purpose | What happens **[Seen]** | Not tested here |\r\n| --- | --- | --- | --- |\r\n| ShareBuilder | **Purchase Site Simulator** `.../app/partner-site` | Loads an Unqork form that imitates ShareBuilder\u0027s \"purchase submitted\" call: name, email, phone, business, address, EIN, group vs IK, transfer (Y/N), safe harbor, bank routing/account, model portfolio, profit sharing, partner discount fields, **Submit Purchase**, redirect URL | Submit (would create a QA onboarding + emails) |\r\n| ShareBuilder | Real ShareBuilder QA site (third party) | not opened (third-party site) | pick **SoloK Plus** (loans or multiple owners); a credit-card prompt means wrong product; test bank acct 333555222, any routing |\r\n| BAML | Merrill Edge demo (IK + Group) | Redirects through `secure-qa.ascensus.com/onboarding/portal/baml/initialize?plandesigntype=ik` (or `=group`) (brief \"Hang tight\" + an \"Error\" heading in markup), creates an `onboardingId`, then lands on Unqork `sign-in/landingpagebaml` with Merrill branding | Phone OTP step, rest of flow |\r\n| BAML | Fees shown | IK: $0 setup, $67.50 billed quarterly; Group: $0 setup, $285 billed quarterly; participant $15 quarterly + 0.70% asset costs | |\r\n| Newport Group | Test Boss (`testboss.newportgroup.com`) -\u003e Test Sponsor Access -\u003e swap URL to partner dashboard | requires login | everything |\r\n| Sales Portal (2.2) | QA Sales Portal | Loads without login: Plan type (IK/Group), Partner dropdown (default Ascensus), Installation type (Startup/Transfer), **Generate welcome email** | Generating an email |\r\n\r\n## Related internal QA systems (access by service ticket)\r\n\r\nCliff QA (`cliff.qa.internal.ascensus.com`), Chorus QA (SS\u0026C beta), ARK QA (`ark-qa.ascensus.com`), Sybase QA (`bps_test`), SQL `Msvc_Onboarding` (QA server listed on the Access page), TeamCity/Octopus \"Onboarding\" projects, TFS repos `Onboarding` and `DCA`. Details: [`../../team-white/04-testing-and-qa/Onboarding-Project-Access-and-Application-Testing-References.md`](../../team-white/04-testing-and-qa/Onboarding-Project-Access-and-Application-Testing-References.md).\r\n\r\nNext: [03 Workflows and diagrams](03-workflows-and-diagrams.md)\r\n"</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  var raw = JSON.parse(document.getElementById('md').textContent);
+  var cleaned = raw.replace(/```mermaid[\s\S]*?```/g, '\n_(Diagram in the Markdown version. Skipped in audio.)_\n');
+  var el = document.getElementById('content');
+  if (window.marked) {
+    el.innerHTML = marked.parse(cleaned);
+  } else {
+    el.innerHTML = '';
+    var pre = document.createElement('pre');
+    pre.textContent = cleaned;
+    el.appendChild(pre);
+  }
+</script>
+</body>
+</html>

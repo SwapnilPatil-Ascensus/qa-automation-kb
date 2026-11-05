@@ -1,0 +1,28 @@
+settings:
+  proxy:
+    ssl-cert: false
+    #address: http://webproxywt-vip.int.acs529.com:3128
+modules:
+  jmeter:
+    gui: false
+    path: 'C:\jmeter\apache-jmeter-5.6.2'
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+execution:
+  - concurrency: 600
+    ramp-up: 1s
+    iterations: 5
+    scenario: with_script
+scenarios:
+  with_script:
+    script: database-flow-multi.jmx
+reporting:
+  - module: passfail
+    criteria:
+    - fail > 0%, continue as failed
+  - module: blazemeter
+    browser-open: start #none
+    report-name: Member - Advisor
+    test: Member - Advisor
+    project: Database Performance
+    upload-artifacts: false

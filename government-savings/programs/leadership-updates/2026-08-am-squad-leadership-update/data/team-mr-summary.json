@@ -1,0 +1,43 @@
+{
+  "total_mrs": 116,
+  "by_month": {
+    "2026-04": 24,
+    "2026-05": 22,
+    "2026-06": 34,
+    "2026-07": 33,
+    "2026-08": 3
+  },
+  "by_author": {
+    "Sunil Godiyal": 28,
+    "Venkatesh Mallela": 27,
+    "Dinesh Kumar": 26,
+    "Swapnil Patil": 25,
+    "Priti Choudhary": 10
+  },
+  "by_repo": {
+    "api-test-automation": 48,
+    "automation": 42,
+    "prime-test-automation": 26
+  },
+  "by_area": {
+    "API / Unite MSC": 48,
+    "V2 Legacy UI + Performance": 42,
+    "V3 Universal Platform": 26
+  },
+  "by_month_author": {
+    "2026-04": {"Dinesh Kumar": 5, "Swapnil Patil": 6, "Sunil Godiyal": 6, "Priti Choudhary": 1, "Venkatesh Mallela": 6},
+    "2026-05": {"Dinesh Kumar": 7, "Venkatesh Mallela": 6, "Sunil Godiyal": 4, "Swapnil Patil": 4, "Priti Choudhary": 1},
+    "2026-06": {"Dinesh Kumar": 6, "Sunil Godiyal": 6, "Swapnil Patil": 13, "Priti Choudhary": 5, "Venkatesh Mallela": 4},
+    "2026-07": {"Venkatesh Mallela": 10, "Sunil Godiyal": 11, "Dinesh Kumar": 8, "Swapnil Patil": 2, "Priti Choudhary": 2},
+    "2026-08": {"Venkatesh Mallela": 1, "Priti Choudhary": 1, "Sunil Godiyal": 1}
+  },
+  "by_month_repo": {
+    "2026-04": {"prime-test-automation": 9, "automation": 15},
+    "2026-05": {"prime-test-automation": 11, "automation": 11},
+    "2026-06": {"api-test-automation": 19, "prime-test-automation": 4, "automation": 11},
+    "2026-07": {"api-test-automation": 27, "prime-test-automation": 2, "automation": 4},
+    "2026-08": {"api-test-automation": 2, "automation": 1}
+  },
+  "source": "GitLab export AM Squad Merge to main - 04012026-0804-2026.csv",
+  "generated": "2026-08-05"
+}

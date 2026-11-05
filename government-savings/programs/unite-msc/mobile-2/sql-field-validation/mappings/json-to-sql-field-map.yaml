@@ -1,0 +1,100 @@
+# JSON field → SQL column mapping (incremental)
+
+# Format:
+#   json_path:
+#     sql_file: path under sql/
+#     column: result column
+#     transform: optional
+#     computed: true if BFF-only
+#     skip_db: true if on-prem/CMS
+
+mobiledashboard:
+  ownerFirstName:
+    sql_file: profile/get-owner-by-id.sql
+    column: first_name
+    source_id: seq_part_id from tu_acct
+  ownerLastName:
+    sql_file: profile/get-owner-by-id.sql
+    column: last_name
+  ownerDob:
+    sql_file: profile/get-owner-by-id.sql
+    column: dob
+    transform: "format yyyy-MM-dd HH:mm:ss"
+  totalBalance:
+    sql_file: composite/mobiledashboard/total-balance-calculation.sql
+    column: total_balance
+    transform: "scale 2 HALF_UP"
+    computed: true
+    notes: "Sum of filtered account balances; validate via component query"
+  asOfDate:
+    sql_file: metadata/get-plan-by-traunch.sql
+    column: asof_date
+    transform: "MM/dd/yyyy"
+  planId:
+    sql_file: metadata/get-plan-by-traunch.sql
+    column: plan_id
+
+  mobileAccounts[].prefix:
+    sql_file: account/get-accounts-by-member.sql
+    column: uii_acct_id
+  mobileAccounts[].ext:
+    sql_file: account/get-accounts-by-member.sql
+    column: uii_acct_ext
+  mobileAccounts[].traunchId:
+    sql_file: account/get-accounts-by-member.sql
+    column: traunch_id
+  mobileAccounts[].acctState:
+    sql_file: account/get-accounts-by-member.sql
+    column: acct_state
+  mobileAccounts[].seqAcctId:
+    sql_file: account/get-accounts-by-member.sql
+    column: seq_acct_id
+  mobileAccounts[].seqBeneId:
+    sql_file: account/get-accounts-by-member.sql
+    column: seq_bene_id
+  mobileAccounts[].seqPersonId:
+    sql_file: account/get-accounts-by-member.sql
+    column: seq_part_id
+  mobileAccounts[].beneFirstName:
+    sql_file: profile/get-beneficiary-by-id.sql
+    column: first_name
+  mobileAccounts[].beneLastName:
+    sql_file: profile/get-beneficiary-by-id.sql
+    column: last_name
+  mobileAccounts[].acctBalance:
+    sql_file: composite/mobiledashboard/total-balance-calculation.sql
+    column: acct_balance
+    transform: "scale 2 HALF_UP per fund then sum"
+  mobileAccounts[].regType:
+    sql_file: account/get-accounts-by-member.sql
+    column: reg_type
+    transform: "MobileAccount.getAccountTypeDisplayLongName"
+    notes: "DB code T → API Trust"
+  mobileAccounts[].displayInStackup:
+    computed: true
+    notes: "BFF logic from acctState + regType"
+
+  mobileUgifts[].ext:
+    sql_file: account/get-accounts-by-member.sql
+    column: uii_acct_ext
+    computed: true
+  mobileUgifts[].ugiftId:
+    sql_file: account/get-accounts-by-member.sql
+    column: ugift_id
+
+  mobileBanks[]:
+    skip_db: true
+    notes: "OnPremAccountGateway"
+
+  mobileAccounts[].availBalanceForWithdrawal:
+    skip_db: true
+  mobileAccounts[].uuidBeneId:
+    skip_db: true
+  mobileAccounts[].mgAccountNumber:
+    skip_db: true
+
+mobileytdsummary:
+  currentYrContribution:
+    sql_file: transaction/get-contribution-summary-jett.sql
+    column: cyrcontrib
+    notes: "Backend-specific: JETT / OMNI / ENV query selection"

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Cross Browser Testing using BrowserStack in Stage1" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+
+  <test name="Chrome Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows11-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature:15"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="CHROME Test 2">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows10-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature:25"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  
+  <test name="CHROME Test 3">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows10-chrome-latest-1"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+   
+  <test name="FIREFOX Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows11-firefox-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+   <test name="FIREFOX Test 2">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows10-firefox-latest-1"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+    
+   <test name="Edge Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows11-edge-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Edge Test 2">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows10-edge-latest-1"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+    <test name="IE Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windows10-ie-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+    
+  <!--  <test name="Opera Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="windowsxp-opera-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test> -->
+  
+   <test name="MAC Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="mac1-safari-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <!--<test name="MAC Test 2">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="mac2-safari-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test> -->
+  
+  <test name="iOS iphone13 Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="iphone13-safari-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+   <test name="iOS ipadpro12 Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="ipadpro12-safari-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+    
+   <test name="Android Galaxy Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="galaxys21-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+   <test name="Android Galaxy Ultra Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="galaxys22ultra-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+   
+   <test name="Android Pixel Pro Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="pixel6pro-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Android Pixel 5 Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="pixel5-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+  
+  <test name="Android Moto Test 1">
+	<parameter name="traunch" value="nyd"></parameter> 
+	<parameter name="capability" value="motog715g-chrome-latest"></parameter>
+	<parameter name="features" value="frontoffice/nyd/member/smoke/feature/NYDMemberCrossBrowserTest.feature"></parameter>	
+    <classes>
+    	<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+    </classes>
+  </test>
+    
+</suite>

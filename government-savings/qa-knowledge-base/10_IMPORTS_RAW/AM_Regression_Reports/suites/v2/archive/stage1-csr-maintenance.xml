@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  
+   	<test name="NYB Bank Profile">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/profile/bank/feature/BankInformation.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="KSA Bank Profile">
+		<parameter name="traunch" value="ksa"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/profile/bank/feature/BankInformation.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="KSD Bank Profile">
+		<parameter name="traunch" value="ksd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/profile/bank/feature/BankInformation.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+		<test name="NYB Edit Authorized Individual Profile">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/profile/authorized_individual/feature/AuthorizedIndividual.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+
+	<test name="AKB Edit Authorized Individual Profile">
+		<parameter name="traunch" value="akb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/profile/authorized_individual/feature/AuthorizedIndividual.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MIB Additional Authorized Individual">
+		<parameter name="traunch" value="mib"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/profile/authorized_individual/feature/AdditionalAuthorizedIndividual.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="WID CSR Member Investment Allocations Updates">
+		<parameter name="traunch" value="wid"></parameter>
+		<parameter name="features" value="frontoffice/wid/csr/member/transactions/investments/feature/InvestmentAllocations.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MIA CSR Member Investment Allocations Updates">
+		<parameter name="traunch" value="mia"></parameter>
+		<parameter name="features" value="frontoffice/mia/csr/member/transactions/investments/feature/InvestmentAllocations.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+		<test name="ILB CSR Member Investment Allocations Updates">
+		<parameter name="traunch" value="ilb"></parameter>
+		<parameter name="features" value="frontoffice/ilb/csr/member/transactions/investments/feature/InvestmentAllocations.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>			
+			
+</suite>

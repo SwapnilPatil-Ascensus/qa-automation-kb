@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: perf-taurus-docker-pod-db-5
+  namespace: ags-qa
+spec:
+  restartPolicy: Never
+  containers:
+  - name: perf-taurus-docker-container-db-5
+    image: blazemeter/taurus:1.16.32
+    command: ["/bin/sh"]
+    envFrom:
+      - configMapRef:
+          name: proxy-settings
+    args:
+    - "-c"
+    #- "wget -P ~/.bzt/jmeter-taurus/5.5/lib/ https://download.oracle.com/otn-pub/otn_software/jdbc/234/ojdbc8.jar; cp /bzt-configs-mount/TestRunDB.yml /bzt-configs-mount/db_flow_main.jmx /bzt-configs-mount/member_login.csv /bzt-configs-mount/ojdbc8.jar /bzt-configs/; ls /bzt-configs; pwd; bzt -l /tmp/artifacts/bzt.log -report TestRunDB.yml db_flow_main.jmx"
+    - "wget https://download.oracle.com/otn-pub/otn_software/jdbc/234/ojdbc8.jar -O ~/.bzt/jmeter-taurus/5.5/lib/ojdbc8.jar; cp /bzt-configs-mount/TestRunDB.yml /bzt-configs-mount/db_flow_main.jmx /bzt-configs-mount/member_login.csv /bzt-configs-mount/ojdbc8.jar /bzt-configs/; ls /bzt-configs; pwd; bzt -l /tmp/artifacts/bzt.log -report TestRunDB.yml db_flow_main.jmx"
+    #- "cp /bzt-configs-mount/TestRunDB.yml /bzt-configs-mount/db_flow_main.jmx /bzt-configs-mount/member_login.csv /bzt-configs-mount/ojdbc8.jar /bzt-configs/; ls /bzt-configs; pwd; bzt -l /tmp/artifacts/bzt.log -report TestRunDB.yml db_flow_main.jmx"
+  # /root/.bzt/jmeter-taurus/5.5/lib
+    resources:
+      limits:
+        cpu: "1"
+        memory: "1Gi"
+      requests:
+        cpu: "100m"
+        memory: "256Mi"
+    volumeMounts:
+      - name: perf-config
+        mountPath: /bzt-configs-mount
+      - name: test-data
+        mountPath: /bzt-configs/data
+      - name: test-artifacts
+        mountPath: /bzt-configs/TestArtifacts
+      - name: kube-api-access-4x7vn
+        mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+  volumes:
+    - name: perf-config
+      configMap:
+        name: ags-performance-testing-db
+    - name: test-data
+      emptyDir: {}
+    - name: test-artifacts
+      emptyDir: {}
+    - name: kube-api-access-4x7vn
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace

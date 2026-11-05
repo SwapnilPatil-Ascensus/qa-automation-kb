@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test (Front Office) in Stage1 - Contributions" parallel="tests" thread-count="1">
+  <listeners>
+    <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+  </listeners>
+  	
+	
+	<test name="NYD CSR Member Contribution Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYA CSR Member Contribution Test Cases">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<!-- Disabled, this test is already present in smoke test -->
+<!-- 	<test name="NYB Member Contribution Test Cases">
+		<parameter name="traunch" value="nyb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AbleMemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test> -->
+		
+	<test name="MTB CSR Member Contribution Test Cases">
+		<parameter name="traunch" value="mtb"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AbleMemberSingleContribution.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="MID CSR Single Contribution Test Cases">
+		<parameter name="traunch" value="mid"></parameter>
+		<parameter name="features" value="frontoffice/csr/csr-greenscreen/transactions/contributions/feature/CSRSingleContributionRandom.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+		</classes>
+	</test>
+	
+		
+	<test name="Post Nightly Contribution Validation Test Cases">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice\csr\member\transactions\contributions\feature\PostNightlyValidation.feature"></parameter>
+	<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+		<test name="NYD AIPAddEditDelete">
+		<parameter name="traunch" value="nyd"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDeleteNonCustom.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	<test name="NYA AIPAddEditDelete">
+		<parameter name="traunch" value="nya"></parameter>
+		<parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPAddEditDelete.feature"></parameter>	
+		<classes>
+			<class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+		</classes>
+	</test>
+	
+	
+</suite>

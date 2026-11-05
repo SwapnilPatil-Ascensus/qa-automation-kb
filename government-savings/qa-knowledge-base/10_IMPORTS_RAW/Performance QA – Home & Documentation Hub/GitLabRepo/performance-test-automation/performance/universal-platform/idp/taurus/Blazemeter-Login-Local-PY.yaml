@@ -1,0 +1,27 @@
+settings:
+  proxy:
+    ssl-cert: false
+modules:
+  local:
+    sequential: true  
+  nose:
+    ignore-unknown-actions: true
+  selenium:
+    chromedriver:
+      path: 'C:\work\prime\selenium\selenium-3.141.59'
+  blazemeter:
+    token: ec6b172a6343f1b8c6ec51c9:2669ad44e8cd889f6480f68fecd06d94c1163d5d1ea71610a1eff2c8156fb3861386e8c2
+execution:
+  - executor: apiritif
+    scenario: 
+      script: test_requests-local.py
+    concurrency: 1
+    iterations: 1
+    capabilities:
+      browserName: chrome
+reporting:
+  - module: blazemeter
+    report-name: Blazemeter-IDP-Login-Local
+    test: IDP Login Test
+    project: Universal Platform
+    upload-artifacts: true

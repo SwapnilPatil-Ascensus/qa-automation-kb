@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test Suite - Account or Profile Maintenance" verbose="1" parallel="tests" thread-count="1">
+    <!-- Listener to manage resources during test execution -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- *********** Test: Update Personal Information for NYD CSR-Member Profile Maintenance *********** -->
+    <!-- *********** Direct Plans *********** -->
+<!--    Profile Update Not Updated for IDP Plans-->
+<!--    <test name="IDP Plans - NY Direct CSR-Member Profile Maintenance - Update Personal Information">-->
+<!--        <parameter name="traunch" value="nyd"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    Profile Update Not Updated for IDP Plans-->
+<!--    <test name="IDP Plans - NJ Direct CSR-Member Profile Maintenance - Update Personal Information">-->
+<!--        <parameter name="traunch" value="njd"/>-->
+<!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+<!--        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>-->
+<!--        <classes>-->
+<!--            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Non-IDP Plans - KS Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="ksd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- *********** Able Plans *********** -->
+    <test name="Non IDP Plans - NY Able CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plans - IL Able CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="ilb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plans - AK Able CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- *********** Advisor Plans *********** -->
+    <test name="non IDP Plan - NY Advisor CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ********** Test: Add/Edit/Delete Bank Profile for IDP or Non IDP Direct/Able/Advisor plans ********** -->
+    <test name="IDP - NY Direct CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Non IDP - RI Direct CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="rid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP - AK Able CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Non IDP - NY Able CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NY Advisor CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- *********** Test: Maintain Beneficiary Information for NYD CSR-Member Profile Maintenance *********** -->
+    <test name="NYD CSR-Member Profile Maintenance - Maintain Beneficiary Information">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/Beneficiary.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Test: Update Delivery Preferences for NYD CSR-Member Profile Maintenance *********** -->
+    <test name="NYD CSR-Member Profile Maintenance - Update Delivery Preferences">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/DeliveryPreference.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Test: Maintain Security Questions for NYD CSR-Member Profile Maintenance *********** -->
+    <test name="NYD CSR-Member Profile Maintenance - Maintain Security Questions">
+        <parameter name="traunch" value="ksd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/SecurityQuestions.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Test: Maintain Payroll Deduction for NYD CSR-Member Profile Maintenance *********** -->
+    <test name="NYD CSR-Member Profile Maintenance - Maintain Payroll Deduction">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PayrollDeduction.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+</suite>

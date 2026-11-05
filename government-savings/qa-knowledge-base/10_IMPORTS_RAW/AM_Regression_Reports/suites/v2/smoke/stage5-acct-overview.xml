@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Regression Test Suite - Account Balance Page" parallel="tests" thread-count="4">
+    <!-- Purpose: Validate Account Balance page via CSR/Member Portal across plan traunches.
+         Naming Convention: "Account Balance Validation via CSR - <State> <PlanType> (<IDP|Non-IDP>)".
+         Advisor plans exclude IDP qualifier. Stage5 uses Non-IDP direct plans (e.g. NY, RI) instead of KSD.
+         Do NOT modify feature or parameter values without product approval. -->
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- ===== IDP Direct Plans ===== -->
+    <test name="Account Balance Validation via CSR - NJ Direct (IDP)">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="Account Balance Validation via CSR - NM Direct (IDP)">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ===== Non-IDP Direct Plans ===== -->
+    <test name="Account Balance Validation via CSR - NY Direct (Non-IDP)">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="Account Balance Validation via CSR - RI Direct (Non-IDP)">
+        <parameter name="traunch" value="rid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ===== IDP Able Plans ===== -->
+    <test name="Account Balance Validation via CSR - AK Able (IDP)">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ===== Advisor Plans ===== -->
+    <test name="Account Balance Validation via CSR - NY Advisor">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+</suite>

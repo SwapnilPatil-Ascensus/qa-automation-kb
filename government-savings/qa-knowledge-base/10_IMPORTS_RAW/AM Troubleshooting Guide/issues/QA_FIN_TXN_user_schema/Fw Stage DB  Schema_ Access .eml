@@ -1,0 +1,209 @@
+From: Swapnil Patil <Swapnil.Patil@ascensus.com>
+To: Sagar Rath <Sagar.Rath@ascensus.com>
+Subject: Fw: Stage DB  Schema_ Access 
+Thread-Topic: Stage DB  Schema_ Access 
+Thread-Index: AdwC6eGOAPZdixKeRCqZb16TjOsdmwAAKcb6
+Date: Fri, 1 Aug 2025 13:45:36 +0000
+Message-ID:
+	<PH7PR16MB5696EC91C9BDE183E4B787F08A26A@PH7PR16MB5696.namprd16.prod.outlook.com>
+References:
+	<SJ0PR16MB506006D39AEF876F6B59B1DC8D26A@SJ0PR16MB5060.namprd16.prod.outlook.com>
+In-Reply-To:
+	<SJ0PR16MB506006D39AEF876F6B59B1DC8D26A@SJ0PR16MB5060.namprd16.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-SupervisoryReview-OcrResultLocation:
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+msip_labels:
+Content-Type: multipart/alternative;
+	boundary="_000_PH7PR16MB5696EC91C9BDE183E4B787F08A26APH7PR16MB5696namp_"
+MIME-Version: 1.0
+
+--_000_PH7PR16MB5696EC91C9BDE183E4B787F08A26APH7PR16MB5696namp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+FYI
+
+
+Thanks,
+
+Swapnil Patil
+
+SSDET | Government Savings
+
+
+
+________________________________
+From: Venkatesh Mallela <Venkatesh.Mallela@ascensus.com>
+Sent: Friday, August 1, 2025 9:43 AM
+To: uii-access@rt.acs529.com <uii-access@rt.acs529.com>
+Cc: Swapnil Patil <Swapnil.Patil@ascensus.com>
+Subject: Stage DB Schema_ Access
+
+
+Hi Team,
+
+
+
+I=92m requesting read/write access to specific transaction-related tables i=
+n the Stage 1 environment under the UII0 schema to support automation scrip=
+ts for contributions, withdrawals, and general transaction flows.
+
+
+
+Access Requested:
+
+  *   Schema: UII
+  *   Tables:
+     *   QA_FIN_TXN
+     *   QA_FIN_INSTRUCTION
+
+
+
+Purpose:
+
+To enable automated data setup, validations, and teardown activities for:
+
+  *   Contribution-related scenarios
+  *   Withdrawal and Distribution flows
+  *   General financial transaction tests
+  *
+
+Mirror user: Swapnil Patil
+
+
+
+Permissions Request:
+
+Please grant the same permissions as currently assigned to Swapnil Patil un=
+der the UII schema in Stage 1.
+
+
+
+Thanks,
+
+Venkatesh Mallela
+
+
+
+--_000_PH7PR16MB5696EC91C9BDE183E4B787F08A26APH7PR16MB5696namp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+FYI</div>
+<div class=3D"elementToProof" id=3D"Signature">
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+<br>
+</div>
+<p class=3D"elementToProof"><span style=3D"font-family: &quot;Amasis MT Pro=
+&quot;, serif; color: rgb(118, 113, 113);">Thanks,</span></p>
+<p class=3D"elementToProof"><span style=3D"font-family: &quot;Dreaming Outl=
+oud Script Pro&quot;; font-size: 16pt; color: rgb(79, 117, 139);"><b>Swapni=
+l Patil</b></span></p>
+<p class=3D"elementToProof"><span style=3D"font-family: &quot;Amasis MT Pro=
+&quot;, serif; font-size: 10pt;">SSDET
+</span><span style=3D"font-family: &quot;Amasis MT Pro&quot;, serif; font-s=
+ize: 10pt; color: rgb(83, 129, 53);">|</span><span style=3D"font-family: &q=
+uot;Amasis MT Pro&quot;, serif; font-size: 10pt;">
+</span><span style=3D"font-family: &quot;Amasis MT Pro&quot;, serif; font-s=
+ize: 10pt; color: rgb(118, 113, 113);">Government Savings</span></p>
+<p class=3D"elementToProof">&nbsp;</p>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Venkatesh Mallela &lt=
+;Venkatesh.Mallela@ascensus.com&gt;<br>
+<b>Sent:</b> Friday, August 1, 2025 9:43 AM<br>
+<b>To:</b> uii-access@rt.acs529.com &lt;uii-access@rt.acs529.com&gt;<br>
+<b>Cc:</b> Swapnil Patil &lt;Swapnil.Patil@ascensus.com&gt;<br>
+<b>Subject:</b> Stage DB Schema_ Access </font>
+<div>&nbsp;</div>
+</div>
+<style>
+<!--
+@font-face
+	{font-family:Wingdings}
+@font-face
+	{font-family:"Cambria Math"}
+@font-face
+	{font-family:Aptos}
+p.x_MsoNormal, li.x_MsoNormal, div.x_MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif}
+span.x_EmailStyle17
+	{font-family:"Aptos",sans-serif;
+	color:windowtext}
+.x_MsoChpDefault
+	{}
+@page WordSection1
+	{margin:1.0in 1.0in 1.0in 1.0in}
+div.x_WordSection1
+	{}
+ol
+	{margin-bottom:0in}
+ul
+	{margin-bottom:0in}
+-->
+</style>
+<div lang=3D"EN-US" link=3D"#467886" vlink=3D"#96607D" style=3D"word-wrap:b=
+reak-word">
+<div class=3D"x_WordSection1">
+<p class=3D"x_MsoNormal">Hi Team,</p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal">I=92m requesting <b>read/write access</b> to speci=
+fic transaction-related tables in the
+<b>Stage 1 environment</b> under the <b>UII0 schema</b> to support automati=
+on scripts for contributions, withdrawals, and general transaction flows.</=
+p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><b>Access Requested:</b></p>
+<ul type=3D"disc" style=3D"margin-top:0in">
+<li class=3D"x_MsoNormal" style=3D""><b>Schema</b>: UII</li><li class=3D"x_=
+MsoNormal" style=3D""><b>Tables</b>: </li><ul type=3D"circle" style=3D"marg=
+in-top:0in">
+<li class=3D"x_MsoNormal" style=3D"">QA_FIN_TXN</li><li class=3D"x_MsoNorma=
+l" style=3D"">QA_FIN_INSTRUCTION</li></ul>
+</ul>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><b>Purpose:</b></p>
+<p class=3D"x_MsoNormal">To enable automated data setup, validations, and t=
+eardown activities for:</p>
+<ul type=3D"disc" style=3D"margin-top:0in">
+<li class=3D"x_MsoNormal" style=3D"">Contribution-related scenarios</li><li=
+ class=3D"x_MsoNormal" style=3D"">Withdrawal and Distribution flows</li><li=
+ class=3D"x_MsoNormal" style=3D"">General financial transaction tests</li><=
+li class=3D"x_MsoNormal" style=3D"">&nbsp;</li></ul>
+<p class=3D"x_MsoNormal">Mirror user: Swapnil Patil </p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><b>Permissions Request:</b></p>
+<p class=3D"x_MsoNormal">Please <b>grant the same permissions as currently =
+assigned to Swapnil Patil</b> under the UII schema in Stage 1.</p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal">Thanks,</p>
+<p class=3D"x_MsoNormal">Venkatesh Mallela</p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+</div>
+</div>
+</body>
+</html>
+
+--_000_PH7PR16MB5696EC91C9BDE183E4B787F08A26APH7PR16MB5696namp_--

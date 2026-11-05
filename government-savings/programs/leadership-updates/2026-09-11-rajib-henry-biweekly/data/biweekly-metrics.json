@@ -1,0 +1,219 @@
+{
+  "meeting_date": "2026-09-11",
+  "audience": ["Rajib (Chapter Lead / Manager)", "Henry (Director)", "Persistent Delivery Managers"],
+  "sprints": {
+    "scope": "AMSQUAD Sprints 26.14, 26.15 (current), and wrap-up focus",
+    "previous": "AMSQUAD Sprint 26.14 (8/19 – 9/01)",
+    "current": "AMSQUAD Sprint 26.15 (9/02 – 9/15)",
+    "prior": "AMSQUAD Sprint 26.13 (8/05 – 8/18)"
+  },
+  "pulse": {
+    "sprint_scope": "26.14 – 26.15 (current)",
+    "gitlab_merges": 14,
+    "gitlab_merges_note": "Aug 27 – Sep 10 · api-test-automation repo",
+    "jira_sprint_items_current": 165,
+    "jira_sprint_items_note": "Board items in Sprint 26.15",
+    "automation_bugs_logged": 8,
+    "automation_bugs_note": "Regression bugs in Sprints 26.14–26.15",
+    "msc_in_scope_endpoints": "76/79",
+    "msc_in_scope_note": "M1 26 + M2 25 + Enrollment 25/28 (3 partner deferred)",
+    "eta_delivery_rate": "~70% of original ETA"
+  },
+  "pending_merge": {
+    "mr": "!265",
+    "url": "https://gitlab.com/ascensus-gs/products/depot/qa-automation/api-test-automation/-/merge_requests/265",
+    "title": "QA-1938 — Validate E2E coverage & automate remaining standard-flow gaps",
+    "author": "Dinesh Kumar",
+    "reviewers": ["Swapnil Patil", "Venkatesh Mallela"],
+    "changes": 110,
+    "status": "Open — can merge; pipeline canceled (Snyk/security gate)",
+    "scope": "M1/M2 suite wiring (integration + regression TestNG XML), enrollment README, gap closures + negatives from QA-1938 subtasks",
+    "blocker": "Snyk scan / security gate — merge when pipeline green + approval"
+  },
+  "unite_msc": {
+    "mobile2": {
+      "automated": 25,
+      "total": 25,
+      "pct": 100,
+      "status": "Complete — sign-off ready; on main"
+    },
+    "mobile1": {
+      "automated": 26,
+      "total": 26,
+      "pct": 100,
+      "in_scope_note": "26 business operations automated; routed to module regression, integration, or smoke",
+      "excluded_note": "Optional docs/health endpoints out of scope",
+      "status": "Complete — sign-off ready; suite wiring in MR !265"
+    },
+    "enrollment": {
+      "pct": 89,
+      "catalog": "25/28",
+      "core_e2e": "15/15",
+      "subsequent_e2e": "5/5",
+      "test_classes": 25,
+      "status": "Coding complete for MSC E2E — standard + subsequent flows on main; negatives + suite params in MR !265",
+      "deferred": ["Partner submit (QA-1808)", "Upromise (QA-1807)", "OAuth token"],
+      "remaining_work": ["Sign-off docs (QA-2043)", "GitLab enrollment nightly", "nmdirect CI plant", "qTest + Bruno handover"]
+    },
+    "pipeline": {
+      "stage1": "IDP + non-IDP paths validated for M1/M2/Enrollment on Stage1",
+      "qc4": "Hybrid model — integration proof continuing post DB refresh",
+      "gitlab_nightly": "Mobile 2 nightly delivered (QA-1405); enrollment nightly in wrap-up"
+    },
+    "target_completion": "Sprint 26.15 close — coding done; sign-off + handoff sprint in progress",
+    "footnote": "Coding/design complete for M1, M2, and enrollment MSC scope. MR !265 finalizes suite wiring + validation gaps. Program close = docs, traceability, sign-off owners."
+  },
+  "enrollment_coverage": {
+    "labels": ["Smoke/GET", "Standard wizard", "Subsequent flow", "Deferred partner"],
+    "coded": [7, 13, 5, 0],
+    "remaining": [0, 0, 0, 3]
+  },
+  "v2_regression_gaps": {
+    "analyst": "Venkatesh Mallela",
+    "summary": "Daily regression covers contrib, fees, withdrawals, investments, G100, profile maintenance — but misses reversal, plan transfer/rollover, share adjust/conversion, P&E on core NYD/NYA, and several CSR history screens.",
+    "p0_turn_on": [
+      "Reversal — Reversal.feature exists; add @dailyrun to stage1-csr-actions (1–2 scenarios first)",
+      "Plan transfer / rollover — add @dailyrun for Rollover In + Plan Transfer from Partner on Direct/Advisor",
+      "Inter-plan transfer — restore one daily test from Archive (e.g. NYD); confirm traunch valid",
+      "Share adjustment / Conversion — add Direct/Advisor to CSR_ShareAdjustment.feature @dailyrun",
+      "Principal update (P&E) — add one daily row for Direct (CSR_PandE.feature)",
+      "Advisor fee — wire AdvisorFeeEntry if NYA needs advisor-specific fee UI",
+      "Upromise contribution — one @dailyrun on NYD if plan supports",
+      "Rollover from another 529 — one @dailyrun on Advisor if Stage1 data supports"
+    ],
+    "p1_extend": [
+      "stage1-acct-overview — optional ABLE (NYB) balance row",
+      "stage1-csr-acct-maintenance — invalid contact, authorized individual, bank negatives, trusted contact",
+      "stage1-csr-actions — advisor greenscreen fees; optional ABLE contrib/fees",
+      "stage1-enrollments — expand Advisor CSR enrollment if needed",
+      "stage1-transfers — beneficiary transfer on Advisor (and ABLE if supported)",
+      "stage1-ugift — optional Advisor CSR uGift"
+    ],
+    "p2_build_new": [
+      "YTD bucket adjustment — new feature + Stage1 data",
+      "Financial history — new read-only UI scenario",
+      "Failed transactions — same pattern",
+      "Bank instruction history — separate from BankInformation maintenance",
+      "Aggregation / OFAC history — new CSR screen or defer to compliance",
+      "CSR Information — if distinct screen",
+      "Change beneficiary image — implement commented SharedStepDefs step",
+      "Tell a friend — new automation or defer if retired"
+    ],
+    "jira_backlog": ["QA-1943–QA-2010", "QA-1961–QA-1964"]
+  },
+  "ui_automation": {
+    "scope_note": "Sprint 26.15 — V2 gap analysis (Venkatesh) + V3 maintenance; MSC wrap-up parallel",
+    "v2_highlights": [
+      "Venkatesh completed V2 regression suite inventory — 8 P0 gaps are 'turn on what we already have'",
+      "Jira epic QA-1943–QA-2010 tracks suite inventory, classification, and adding missing daily coverage",
+      "Active bugs: voucher invalid on withdrawal (QA-1989 V2, QA-1990 V3), PAB enrollment allocation (QA-1988)"
+    ],
+    "v3_highlights": [
+      "Universal enrollment account creation failures (QA-2014)",
+      "Member personal information validation flakes (QA-2012, QA-2013)",
+      "V3 is source of truth for migrated plans — invalid contact scenarios may move from V2"
+    ],
+    "maintenance_note": "V2 focus: wire existing features to daily regression before building new automation",
+    "migration_discussion": "Classify each V2 test retain/migrate/replace/retire (QA-1962) before suite changes — do not retire solely because failing (QA-1963)"
+  },
+  "performance": {
+    "scope_note": "Sprint 26.15 — Mobile 1 perf scripts in progress; contribution JMX delivered",
+    "sprint_deliverables": [
+      {
+        "name": "MSC contribution full-flow JMX",
+        "sprint": "26.14",
+        "status": "Delivered",
+        "jira": "QA-1802"
+      },
+      {
+        "name": "Mobile 1 auth/login JMeter scripts",
+        "sprint": "26.15",
+        "status": "In progress — NY, NMD, OKD parameterized",
+        "jira": "QA-1983–QA-1986"
+      },
+      {
+        "name": "Perf governance process + intake template",
+        "sprint": "26.15",
+        "status": "In progress",
+        "jira": "QA-1965–QA-1969"
+      }
+    ],
+    "ongoing": "IDP login, legacy login, MSC login baselines in weekday regression"
+  },
+  "sprint_focus_mix": {
+    "labels": ["Unite MSC", "V2/V3 UI", "Performance", "Platform / Pipeline", "Cross-team"],
+    "sprint_26_14": [40, 15, 20, 15, 10],
+    "sprint_26_15": [30, 25, 15, 15, 15],
+    "sprint_26_15_plan": [20, 30, 20, 10, 20]
+  },
+  "recent_bugs": [
+    {"key": "QA-2014", "summary": "V3 Universal Enrollment — unable to create account", "area": "V3", "sprint": "26.15"},
+    {"key": "QA-2013", "summary": "V3 CSR Member Personal Information validation", "area": "V3", "sprint": "26.15"},
+    {"key": "QA-1990", "summary": "V3 withdrawal voucher invalid on Review and Submit", "area": "V3", "sprint": "26.15"},
+    {"key": "QA-1989", "summary": "V2 CSR withdrawal voucher invalid (MND, NYD, MID, WVD, IND)", "area": "V2", "sprint": "26.15"},
+    {"key": "QA-1988", "summary": "V2 PAB legacy enrollment — allocation field blocks Step 6", "area": "V2", "sprint": "26.15"}
+  ],
+  "incoming_work": {
+    "aha": "ACS-5678 — Atlas Traffic Distribution & Load Balancer Rebalancing",
+    "owner_aha": "Brian Danilczyk",
+    "priority": "#2 on Michael's list",
+    "estimate": "2–3 sprints",
+    "dependency": "Redis session-management initiative",
+    "target": "October 2026 delivery",
+    "status": "Ready for intake once MSC sign-off closes"
+  },
+  "v2_sunset": {
+    "goal": "Retire obsolete V2 Jenkins cases as plans migrate to V3; expand daily regression with existing automation first",
+    "driver": "Venkatesh gap analysis shows 8 P0 items need @dailyrun wiring — not new code",
+    "lead": "Venkatesh Mallela / Wence",
+    "discussion": "Leadership: approve P0 daily regression additions before P2 new-screen builds?"
+  },
+  "capacity": {
+    "msc_wrap": "Coding complete — Sunil + docs stories (QA-2039–2047) for sign-off package",
+    "new_work": "3+ FTE pivoting to V2 gap closure + Atlas intake post MR !265 merge",
+    "reallocation": [
+      "Dinesh → MR !265 merge + enrollment negatives/validation (QA-1938)",
+      "Sunil → sign-off docs, qTest, Bruno, coverage matrix (QA-893, QA-2039–2047)",
+      "Venkatesh → V2 regression gap analysis → suite wiring (QA-1943–QA-2010)",
+      "Preeti → M1 perf JMX (QA-1983–1986); enrollment perf after sign-off",
+      "Swapnil → leadership reporting, MR review, roadmap"
+    ],
+    "closeout_checklist": [
+      "MR !265 merged (suite wiring + negatives)",
+      "Sign-off Word pack with coverage matrix (QA-2043)",
+      "Traceability matrix legacy → TestNG (QA-2048–2053)",
+      "GitLab enrollment nightly job",
+      "qTest manual cases + Postman→Bruno",
+      "KT + named ACM sustaining owner"
+    ]
+  },
+  "leadership_asks": {
+    "Roadmap & capacity": [
+      "MSC coding is done — confirm sign-off sprint + sustaining owner (ACM) this week",
+      "Post-MSC queue: Atlas (Oct) vs V2 P0 daily regression vs V3 expansion?",
+      "Approve merge of MR !265 once Snyk gate clears"
+    ],
+    "Unite MSC / API automation": [
+      "Formal sign-off for M1 (26/26), M2 (25/25), Enrollment (25/28 MSC scope)",
+      "Accept 3 deferred partner endpoints (submit, Upromise, OAuth) as out of scope",
+      "Name sign-off contacts for pipeline and perf baselines"
+    ],
+    "V2 regression (Jenkins)": [
+      "Approve P0 daily regression additions from Venkatesh gap analysis (8 items — mostly @dailyrun wiring)",
+      "Confirm plan-migration rules before retiring legacy direct-plan cases (QA-1961–1964)",
+      "Prioritize P0 turn-on vs P2 new-screen builds for Q4 capacity"
+    ],
+    "V3 universal platform (GitLab)": [
+      "IDP enrollment account creation failures (QA-2014) — product/env owner?",
+      "Invalid contact / security-question scenarios — confirm V3 ownership vs V2 maintenance"
+    ],
+    "Performance & stress testing": [
+      "M1 perf scripts in progress (QA-1983–1986) — confirm NY/NMD/OKD priority",
+      "Approve perf intake template + SDLC gate (QA-1965–1969)"
+    ],
+    "Pipeline & environments": [
+      "Enrollment GitLab nightly — schedule in wrap-up sprint",
+      "QC4 integration proof — env stability + non-IDP plant contacts"
+    ]
+  }
+}

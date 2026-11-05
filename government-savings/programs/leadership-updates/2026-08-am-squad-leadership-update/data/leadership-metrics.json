@@ -1,0 +1,555 @@
+{
+  "generated": "2026-08-10",
+  "period": "April 1 \u2013 August 2026",
+  "scorecard": {
+    "v2_nightly_methods": 592,
+    "v3_nightly_methods": 442,
+    "perf_test_cases": 323,
+    "msc_m2_endpoints": "25/25",
+    "msc_m1_core": "~25/29",
+    "release_automation_pct": 80,
+    "gitlab_merges": 121
+  },
+  "ui_inventory_scope": {
+    "build_timeline": "Framework and suites built since Q2 2025 (started with ~1\u20132 resources). Apr\u2013Aug 2026 is the reporting window \u2014 not when inventory began.",
+    "v2": {
+      "scorecard_number": 592,
+      "label": "V2 Stage1 nightly snapshot",
+      "source": "Jenkins STAGE1-Daily-Unite-Prime-Regression \u00b7 Aug 4, 2026",
+      "environment": "Stage1 primary nightly only",
+      "modules_in_snapshot": 12,
+      "what_this_counts": "Test methods in the Mon\u2013Fri Jenkins nightly job (inventory snapshot)",
+      "excluded_not_in_scorecard": [
+        {
+          "name": "CSR Actions suite",
+          "count": "+33 scenarios",
+          "status": "Built \u2014 pending Jenkins nightly wire"
+        },
+        {
+          "name": "Stage 5 smoke",
+          "count": "separate job",
+          "status": "On-demand Jenkins (QA-773)"
+        },
+        {
+          "name": "Stage 2 smoke",
+          "count": "separate job",
+          "status": "Release validation \u2014 not in Stage1 nightly"
+        },
+        {
+          "name": "Stage1 fast smoke",
+          "count": "subset",
+          "status": "On-demand smoke \u2014 not added to 592"
+        },
+        {
+          "name": "Empower dedicated nightly",
+          "count": "75 methods",
+          "status": "Separate Jenkins job; Empower also appears inside main nightly snapshot"
+        }
+      ]
+    },
+    "v3": {
+      "scorecard_number": 442,
+      "label": "V3 Stage1 GitLab nightly snapshot",
+      "source": "GitLab scheduled_regression_job \u00b7 Aug 4, 2026",
+      "environment": "Stage1 GitLab CI nightly only",
+      "modules_in_snapshot": 6,
+      "what_this_counts": "Test methods in GitLab scheduled nightly regression log",
+      "excluded_not_in_scorecard": [
+        {
+          "name": "Stage 5 smoke (UE + IDP)",
+          "count": "separate suites",
+          "status": "Merged May 2026 (QA-632, QA-773)"
+        },
+        {
+          "name": "Entity registration/login",
+          "count": "expanding",
+          "status": "Not all Entity suites in Aug 4 nightly log"
+        },
+        {
+          "name": "Integration / daily suite XMLs",
+          "count": "65 test blocks",
+          "status": "Suite config \u2014 different from nightly method count"
+        },
+        {
+          "name": "UP scoped baseline (Jun 2026)",
+          "count": "379 cases",
+          "status": "Separate TestNG scoped assessment \u2014 not nightly log"
+        }
+      ]
+    },
+    "scorecard_footnote": "592 V2 and 442 V3 are Stage1 nightly snapshots only \u2014 accumulated since Q2 2025, not built in Apr\u2013Aug alone. Smoke (Stage 2/5), integrations, and +33 CSR Actions are additional coverage and are not added to these totals."
+  },
+  "v3_snapshot": {
+    "modules": [
+      {
+        "module": "Universal Enrollment Stage1 Environment",
+        "methods": 303,
+        "passed": 225,
+        "failed": 78
+      },
+      {
+        "module": "IDP Login",
+        "methods": 56,
+        "passed": 18,
+        "failed": 38
+      },
+      {
+        "module": "IDP Web Registration",
+        "methods": 12,
+        "passed": 11,
+        "failed": 1
+      },
+      {
+        "module": "CSR Account Maintenance",
+        "methods": 15,
+        "passed": 9,
+        "failed": 6
+      },
+      {
+        "module": "Contributions",
+        "methods": 36,
+        "passed": 27,
+        "failed": 9
+      },
+      {
+        "module": "Member Withdrawal",
+        "methods": 20,
+        "passed": 17,
+        "failed": 3
+      }
+    ],
+    "total_methods": 442,
+    "total_passed": 307,
+    "pass_pct": 69.5,
+    "source": "GitLab nightly regression log 2026-08-04"
+  },
+  "v3_suite_config": {
+    "suites": [
+      {
+        "project": "Unite",
+        "suite": "Contributions",
+        "test_blocks": 12
+      },
+      {
+        "project": "Unite",
+        "suite": "Csr Acct Maintenance",
+        "test_blocks": 6
+      },
+      {
+        "project": "Unite",
+        "suite": "Idp Login",
+        "test_blocks": 8
+      },
+      {
+        "project": "Unite",
+        "suite": "Unite Regression Master",
+        "test_blocks": 0
+      },
+      {
+        "project": "Unite",
+        "suite": "Web Registration",
+        "test_blocks": 4
+      },
+      {
+        "project": "Unite",
+        "suite": "Withdrawals",
+        "test_blocks": 5
+      },
+      {
+        "project": "Entity",
+        "suite": "Entity Registration",
+        "test_blocks": 3
+      },
+      {
+        "project": "Entity",
+        "suite": "Idp Entitydashboard Login",
+        "test_blocks": 3
+      },
+      {
+        "project": "Universal Enrollment",
+        "suite": "Ue Regression Master",
+        "test_blocks": 0
+      },
+      {
+        "project": "Universal Enrollment",
+        "suite": "Universal Enrollment Stage1",
+        "test_blocks": 24
+      }
+    ],
+    "total_test_blocks": 65,
+    "source": "prime-test-automation daily regression suite XMLs"
+  },
+  "api_snapshot": {
+    "categories": [
+      {
+        "name": "M2 Endpoints",
+        "count": 25,
+        "denominator": 25
+      },
+      {
+        "name": "M1 Core Endpoints",
+        "count": 25,
+        "denominator": 29
+      }
+    ],
+    "note": "Endpoint coverage from api-test-automation inventory"
+  },
+  "api_module_snapshot": {
+    "categories": [
+      {
+        "name": "M2 Endpoints",
+        "automated": 25,
+        "target": 25
+      },
+      {
+        "name": "Auth & Session",
+        "automated": 7,
+        "target": 9
+      },
+      {
+        "name": "Owner & Profile",
+        "automated": 4,
+        "target": 5
+      },
+      {
+        "name": "Beneficiary & Close",
+        "automated": 2,
+        "target": 2
+      },
+      {
+        "name": "Password",
+        "automated": 1,
+        "target": 1
+      },
+      {
+        "name": "Phone 2FA",
+        "automated": 1,
+        "target": 2
+      },
+      {
+        "name": "Biometric",
+        "automated": 4,
+        "target": 4
+      },
+      {
+        "name": "Device & Push",
+        "automated": 4,
+        "target": 5
+      },
+      {
+        "name": "Bank Lookup",
+        "automated": 1,
+        "target": 1
+      }
+    ],
+    "source": "api-test-automation repo inventory Aug 2026"
+  },
+  "perf_inventory": {
+    "areas": [
+      {
+        "area": "IDP Login Resources",
+        "labels": 15,
+        "plans": 7,
+        "cases": 105
+      },
+      {
+        "area": "Auth Server Delay",
+        "labels": 5,
+        "plans": 7,
+        "cases": 35
+      },
+      {
+        "area": "IDP Forgot Username",
+        "labels": 6,
+        "plans": 7,
+        "cases": 42
+      },
+      {
+        "area": "IDP Forgot Password",
+        "labels": 6,
+        "plans": 7,
+        "cases": 42
+      },
+      {
+        "area": "Legacy Non-IDP Login",
+        "labels": 10,
+        "plans": 5,
+        "cases": 50
+      },
+      {
+        "area": "MSC Non-IDP Login",
+        "labels": 8,
+        "plans": 2,
+        "cases": 16
+      },
+      {
+        "area": "MSC IDP Login",
+        "labels": 8,
+        "plans": 2,
+        "cases": 16
+      },
+      {
+        "area": "Barcode SYN-443 (load profiles)",
+        "labels": 3,
+        "plans": 2,
+        "cases": 6
+      },
+      {
+        "area": "Pipeline \u2014 Enrollment API",
+        "labels": 6,
+        "plans": 1,
+        "cases": 6
+      },
+      {
+        "area": "Pipeline \u2014 Metadata API",
+        "labels": 2,
+        "plans": 1,
+        "cases": 2
+      },
+      {
+        "area": "Pipeline \u2014 Account / Financial",
+        "labels": 3,
+        "plans": 1,
+        "cases": 3
+      }
+    ],
+    "total_test_cases": 323,
+    "scheduled_regression_scenarios": 4
+  },
+  "monthly_test_cases_added": [
+    {
+      "month": "2026-04",
+      "label": "Apr",
+      "V2 Legacy UI": 72,
+      "V3 Universal Platform": 56,
+      "Performance Testing": 60,
+      "API / Unite MSC": 0,
+      "Standards / Pipeline": 40,
+      "total": 228
+    },
+    {
+      "month": "2026-05",
+      "label": "May",
+      "V2 Legacy UI": 90,
+      "V3 Universal Platform": 120,
+      "Performance Testing": 108,
+      "API / Unite MSC": 12,
+      "Standards / Pipeline": 20,
+      "total": 350
+    },
+    {
+      "month": "2026-06",
+      "label": "Jun",
+      "V2 Legacy UI": 24,
+      "V3 Universal Platform": 40,
+      "Performance Testing": 72,
+      "API / Unite MSC": 120,
+      "Standards / Pipeline": 16,
+      "total": 272
+    },
+    {
+      "month": "2026-07",
+      "label": "Jul",
+      "V2 Legacy UI": 6,
+      "V3 Universal Platform": 16,
+      "Performance Testing": 36,
+      "API / Unite MSC": 180,
+      "Standards / Pipeline": 12,
+      "total": 250
+    },
+    {
+      "month": "2026-08",
+      "label": "Aug",
+      "V2 Legacy UI": 6,
+      "V3 Universal Platform": 0,
+      "Performance Testing": 60,
+      "API / Unite MSC": 40,
+      "Standards / Pipeline": 6,
+      "total": 112
+    }
+  ],
+  "monthly_test_cases_method": "Jira resolved stories \u00d7 channel avg test cases per story",
+  "data_confidence": {
+    "team_formed": "Q2 2025 (AMSQUAD); most hires Nov 2025 \u2013 Mar 2026",
+    "reporting_window": "Apr 1 \u2013 Aug 2026 (5-month delivery slice of ~12-month build)",
+    "period_delivery_estimate": 1212,
+    "jira_stories_in_period": 225,
+    "cumulative_inventory": {
+      "v2_nightly_methods": 592,
+      "v3_nightly_methods": 442,
+      "perf_test_cases": 323,
+      "msc_m2_endpoints": "25/25",
+      "msc_m1_core": "~25/29"
+    },
+    "key_distinction": "Monthly chart = new coverage delivered in each month (period velocity). Scorecard = Stage1 nightly inventory snapshot (~12 mo since Q2 2025; excludes smoke/Stage 2/5/integrations).",
+    "multiplier_rationale": [
+      "Perf: transaction labels \u00d7 plan permutations (e.g. IDP \u00d7 7 plans = 105 cases from 15 labels)",
+      "V3 UE: scenarios \u00d7 traunch/plan (303 methods = multi-plan enrollment matrix)",
+      "API MSC: endpoints \u00d7 branding plans (OKD non-IDP + NYD/NMD IDP)",
+      "V2/V3 nightly: Stage1 primary job only \u2014 smoke and integration suites are separate jobs"
+    ],
+    "pre_april_foundation": [
+      "Framework architecture and repo structure (Q2\u2013Q3 2025)",
+      "V2 baseline nightly suites and Jenkins wiring",
+      "V3 Universal Enrollment and IDP suite foundations",
+      "Perf IDP/legacy login baselines and Jenkins scheduling",
+      "qTest master suite design and automation standards"
+    ],
+    "leadership_talking_points": [
+      "592 V2 + 442 V3 = Stage1 nightly snapshots (Aug 4) \u2014 built since Q2 2025, not in Apr\u2013Aug alone.",
+      "Excludes smoke (Stage 2/5), integration suites, and +33 CSR Actions pending wire \u2014 more coverage exists.",
+      "We are NOT claiming 1,212 + 592 + 442 \u2014 period delivery vs inventory are different metrics.",
+      "~1,212 estimated new coverage in Apr\u2013Aug from 225 Jira stories; nightly totals include pre-April foundation.",
+      "Apr\u2013Aug shows acceleration (MSC API sprint Jun\u2013Jul), not greenfield from zero."
+    ],
+    "scorecard_footnote": "592 V2 and 442 V3 are Stage1 nightly snapshots only \u2014 accumulated since Q2 2025, not built in Apr\u2013Aug alone. Smoke (Stage 2/5), integrations, and +33 CSR Actions are additional coverage and are not added to these totals."
+  },
+  "gitlab": {
+    "total_mrs": 121,
+    "by_month": {
+      "2026-04": 24,
+      "2026-05": 22,
+      "2026-06": 34,
+      "2026-07": 38,
+      "2026-08": 3
+    },
+    "monthly_by_repo": {
+      "2026-04": {
+        "V2 Legacy UI": 15,
+        "V3 Universal Platform": 9,
+        "API / Unite MSC": 0,
+        "total": 24
+      },
+      "2026-05": {
+        "V2 Legacy UI": 11,
+        "V3 Universal Platform": 11,
+        "API / Unite MSC": 0,
+        "total": 22
+      },
+      "2026-06": {
+        "V2 Legacy UI": 11,
+        "V3 Universal Platform": 4,
+        "API / Unite MSC": 19,
+        "total": 34
+      },
+      "2026-07": {
+        "V2 Legacy UI": 4,
+        "V3 Universal Platform": 2,
+        "API / Unite MSC": 32,
+        "total": 38
+      },
+      "2026-08": {
+        "V2 Legacy UI": 1,
+        "V3 Universal Platform": 0,
+        "API / Unite MSC": 2,
+        "total": 3
+      }
+    }
+  },
+  "jira": {
+    "sprints": [
+      {
+        "sprint": "AMSQUAD Sprint 26.04",
+        "stories": 18,
+        "tasks": 0,
+        "spikes": 1,
+        "bugs": 2,
+        "story_points": 72.0,
+        "work_items": 21
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.05",
+        "stories": 22,
+        "tasks": 1,
+        "spikes": 3,
+        "bugs": 4,
+        "story_points": 57.0,
+        "work_items": 30
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.06",
+        "stories": 26,
+        "tasks": 1,
+        "spikes": 1,
+        "bugs": 1,
+        "story_points": 64.0,
+        "work_items": 29
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.07",
+        "stories": 17,
+        "tasks": 1,
+        "spikes": 5,
+        "bugs": 1,
+        "story_points": 42.0,
+        "work_items": 24
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.08",
+        "stories": 19,
+        "tasks": 1,
+        "spikes": 2,
+        "bugs": 7,
+        "story_points": 46.0,
+        "work_items": 29
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.09",
+        "stories": 26,
+        "tasks": 1,
+        "spikes": 1,
+        "bugs": 0,
+        "story_points": 74.0,
+        "work_items": 28
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.10",
+        "stories": 22,
+        "tasks": 1,
+        "spikes": 1,
+        "bugs": 5,
+        "story_points": 58.0,
+        "work_items": 29
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.11",
+        "stories": 24,
+        "tasks": 1,
+        "spikes": 0,
+        "bugs": 0,
+        "story_points": 62.0,
+        "work_items": 25
+      },
+      {
+        "sprint": "AMSQUAD Sprint 26.12",
+        "stories": 27,
+        "tasks": 2,
+        "spikes": 1,
+        "bugs": 0,
+        "story_points": 70.0,
+        "work_items": 30
+      }
+    ],
+    "totals": {
+      "work_items_in_sprints": 245,
+      "stories_tasks_spikes": 225,
+      "automation_bugs_logged": 20,
+      "story_points": 545.0,
+      "total_issues_exported": 245
+    },
+    "by_issue_type": {
+      "Spike": 15,
+      "Story": 201,
+      "Bug": 20,
+      "Task": 9
+    }
+  },
+  "qtest": {
+    "note": "qTest reflects primarily V2/V3 UI \u2014 API and perf not fully reported",
+    "total_execution_rows": 710,
+    "unique_test_cases_by_month": {
+      "2026-08": 288
+    },
+    "project": "Automation Unite (90985)"
+  }
+}

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="Smoke Test in Stage 2 (Front Office)" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="com.cs529.qa.prime.core.PrimeResourceManager"/>
+    </listeners>
+
+    <!-- ***************************** 1. Balance Page Validation *********************************************** -->
+    <!-- ===== IDP Direct Plans ===== -->
+    <test name="Account Balance Validation via CSR - NJ Direct (IDP)">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Account Balance Validation via CSR - NY Direct (Non-IDP)">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ===== Non-IDP Direct Plans ===== -->
+    <test name="Account Balance Validation via CSR - RI Direct (Non-IDP)">
+        <parameter name="traunch" value="rid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Account Balance Validation via CSR - MI Direct (Non-IDP)">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ===== IDP Able Plans ===== -->
+    <test name="Account Balance Validation via CSR - AK Able (IDP)">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ===== Non-IDP Able Plans ===== -->
+    <test name="Account Balance Validation via CSR - RI Able (Non-IDP)">
+        <parameter name="traunch" value="rib"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ===== Advisor Plan ===== -->
+    <test name="Account Balance Validation via CSR - NY Advisor">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/balancepage/feature/BalancePageValidation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ***************************** Account Maintenance - Profile Updates *********************************************** -->
+    <test name="IDP Plans - NY Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plans - NJ Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="Non-IDP Plans - KS Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="ksd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Able Plans *********** -->
+    <test name="Non IDP Plans - NY Able CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Advisor Plans *********** -->
+    <test name="non IDP Plan - NY Advisor CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <test name="IDP - AK Able CSR-Member Profile - Bank Profile Maintenance">
+        <parameter name="traunch" value="akb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/BankInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ***************************** Next Gen Enrollment *********************************************** -->
+    <test name="MI Direct Member - NextGen Enrollment Flow - Positive Test Cases">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/mid/member/enrollment/feature/T100_NextGenEnrollmentPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>
+        </classes>
+    </test>
+    <!--    <test name="WVD - Direct Specific Legacy  Enrollment - Single  Enrollment beneficiary">-->
+    <!--        <parameter name="traunch" value="wvd"/>-->
+    <!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+    <!--        <parameter name="features" value="frontoffice/common/member/enrollment/feature/LegacyEnrollmentSpecificDirectPositive.feature"/>-->
+    <!--        <classes>-->
+    <!--            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <!--    <test name="MI Direct CSR Enrollment - Positive Test Cases">-->
+    <!--        <parameter name="traunch" value="mid"/>-->
+    <!--        <parameter name="tags" value="@regression and @dailyrun"/>-->
+    <!--        <parameter name="features" value="frontoffice/csr/enrollment/feature/G100_CsrEnrollmentPositive.feature"/>-->
+    <!--        <classes>-->
+    <!--            <class name="com.cs529.qa.prime.runner.ParallelFeatureRunner"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <!-- ***************************** Account Maintenance - Profile Update *********************************************** -->
+    <test name="Non-IDP Plans - KS Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="ksd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** Able Plans *********** -->
+    <test name="Non IDP Plans - NY Able CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- *********** IDP Plans *********** -->
+    <test name="IDP Plans - NJ Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="njd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plans - NM Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="nmd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plans - Nd Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="ndd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plans - MD Direct CSR-Member Profile Maintenance - Update Personal Information">
+        <parameter name="traunch" value="mdd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/profileanddocuments/feature/PersonalInformation.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ***************************** Legacy Web Registration *********************************************** -->
+    <test name="MID - Legacy Web Registration and login - Existing, remove registered Accounts, re-reg and login">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/webregistration/feature/Web_Reregistration_Existing_Account.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ***************************** Legacy Member Login *********************************************** -->
+    <test name="Legacy(Non-IDP) MID - Member Login - Positive Scenarios">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/common/login/feature/T101_LoginPositive.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+
+    <!-- ***************************** Contribution *********************************************** -->
+    <test name="Non-IDP plan - MI Direct CSR Member Single AIP Contribution">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AIPContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="IDP Plan NYD - Direct CSR Member Single Contribution">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYA - Advisor CSR Member Single Contribution">
+        <parameter name="traunch" value="nya"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/MemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="NYB - Able CSR Member Single Contribution">
+        <parameter name="traunch" value="nyb"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/csr/member/transactions/contributions/feature/AbleMemberSingleContribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <!-- ===== CSR-Member Withdrawals (Positive Scenarios) ===== -->
+    <test name="CSR Member Withdrawal - MID Direct (Qualified/Non-Qualified)">
+        <parameter name="traunch" value="mid"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="frontoffice/mid/csr/member/transactions/withdrawal/feature/QandNQDistribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+    <test name="CSR Member Withdrawal - NYD K-12 (EBT Prorated)">
+        <parameter name="traunch" value="nyd"/>
+        <parameter name="tags" value="@regression and @dailyrun"/>
+        <parameter name="features" value="/frontoffice/csr/member/transactions/withdrawal/feature/K12Distribution.feature"/>
+        <classes>
+            <class name="com.cs529.qa.prime.runner.FeatureRunner"/>
+        </classes>
+    </test>
+</suite>

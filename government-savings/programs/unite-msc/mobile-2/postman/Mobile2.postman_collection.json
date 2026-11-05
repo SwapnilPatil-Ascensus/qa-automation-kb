@@ -1,0 +1,1654 @@
+{
+  "info": {
+    "_postman_id": "908a883a-bc4b-4491-85d8-dd7843a93f73",
+    "name": "Mobile2",
+    "description": "Complete Postman collection for the unite-mobile2 BFF, targeting the QC4 environment.\n\nBase URL: https://unite-bff-wtn.qc4.unite529.com\nAll business endpoints are under /mobile2api/v1 and require a member JWT (2-factor).\n\nUSAGE:\n1. Select the 'unite-mobile2 QC4' environment.\n2. Run '00 - Auth > Login (mobile member session)'. It stores {{jwtToken}} automatically.\n3. Run any other request (they inherit Bearer {{jwtToken}} + X-App-Version).\n\nLogin flow (from the api-test-automation framework):\nPOST /mobile1api/v1/mobilemembersession with { planId, username, password } and header X-App-Version -> returns _embedded.item.jwtToken.\n\nQC4 verified credentials (non-IDP, proven working): planId hawaii / username lromero / password Test@123 / X-App-Version 3.1.0.\n\nVERIFICATION (run against QC4 on 2026-06-26): Login + all 19 GET endpoints returned 200 OK. The only non-200 is 'GET mobilemembers/{planId}/{username}', which requires the internal ACCEPTANCE_TEST role and returns 401 with a member JWT by design (not a defect).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48289834"
+  },
+  "item": [
+    {
+      "name": "00 - Auth",
+      "item": [
+        {
+          "name": "Login (mobile member session)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Validates login and stores the member session for downstream requests.",
+                  "pm.test('Login: status is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "pm.test('Login: jwtToken present', function () {",
+                  "    pm.expect(item.jwtToken, 'jwtToken').to.be.a('string').and.to.have.length.above(0);",
+                  "});",
+                  "if (item.jwtToken) {",
+                  "    pm.environment.set('jwtToken', item.jwtToken);",
+                  "    console.log('Stored jwtToken (len ' + item.jwtToken.length + ').');",
+                  "}",
+                  "if (item.idpJwtToken) { pm.environment.set('idpJwtToken', item.idpJwtToken); }",
+                  "if (item.memberId) { pm.environment.set('memberId', item.memberId); }",
+                  "if (item.planId) { pm.environment.set('planId', item.planId); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planId\": \"{{planId}}\",\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\",\n  \"rememberMe\": {{rememberMe}},\n  \"deviceUuid\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile1api/v1/mobilemembersession",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile1api",
+                "v1",
+                "mobilemembersession"
+              ]
+            },
+            "description": "Member login. Returns member JWT in _embedded.item.jwtToken. The test script stores it in {{jwtToken}}."
+          },
+          "response": []
+        },
+        {
+          "name": "IDP Token Exchange (mobile1api)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// For IDP-enabled plans, exchanges the member JWT for an IDP-backed token.",
+                  "pm.test('IDP exchange: status is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "if (item.jwtToken) {",
+                  "    pm.environment.set('jwtToken', item.jwtToken);",
+                  "    console.log('jwtToken refreshed from idptokenexchange.');",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planId\": \"{{idpPlanId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile1api/v1/idptokenexchange",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile1api",
+                "v1",
+                "idptokenexchange"
+              ]
+            },
+            "description": "Exchange the member JWT for an IDP token (IDP-enabled plans only). Requires a valid {{jwtToken}} from login. Returns 200 for IDP plans; non-IDP plans may return a non-200."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "GET mobiledashboard",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Dashboard: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "pm.test('Dashboard: has mobileAccounts array', function () {",
+                  "    pm.expect(item.mobileAccounts).to.be.an('array');",
+                  "});",
+                  "var acct = (item.mobileAccounts || [])[0];",
+                  "if (acct) {",
+                  "    pm.environment.set('ext', acct.ext);",
+                  "    pm.environment.set('seqAcctId', acct.seqAcctId);",
+                  "    console.log('Stored ext=' + acct.ext + ', seqAcctId=' + acct.seqAcctId);",
+                  "}",
+                  "var ug = (item.mobileUgifts || [])[0];",
+                  "if (ug) {",
+                  "    pm.environment.set('ugiftExt', ug.ext);",
+                  "    pm.environment.set('ugiftId', ug.ugiftId);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobiledashboard",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobiledashboard"
+              ]
+            },
+            "description": "Full member dashboard: owner, totalBalance, asOfDate, mobileAccounts, mobileUgifts, mobileBanks. Stores {{ext}}, {{seqAcctId}}, {{ugiftExt}}, {{ugiftId}}."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobileytdsummary/{ext}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobileytdsummary/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobileytdsummary",
+                "{{ext}}"
+              ]
+            },
+            "description": "Year-to-date contribution summary for the account ext."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilemembers/{planId}/{username} (acceptance role)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilemembers/{{planId}}/{{username}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilemembers",
+                "{{planId}}",
+                "{{username}}"
+              ]
+            },
+            "description": "Lookup member by plan and username. Requires the internal ACCEPTANCE_TEST role and is NOT callable with a normal member JWT (returns 401 by design). Kept here for reference only - excluded from the standard pass criteria."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "UGift",
+      "item": [
+        {
+          "name": "GET mobileugift",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('UGift: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "pm.test('UGift: has mobileUgifts array', function () {",
+                  "    pm.expect(item.mobileUgifts).to.be.an('array');",
+                  "});",
+                  "var ug = (item.mobileUgifts || [])[0];",
+                  "if (ug) {",
+                  "    pm.environment.set('ugiftExt', ug.ext);",
+                  "    pm.environment.set('ugiftId', ug.ugiftId);",
+                  "    console.log('Stored ugiftExt=' + ug.ext + ', ugiftId=' + ug.ugiftId);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobileugift",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobileugift"
+              ]
+            },
+            "description": "List UGift info (ext, ugiftId, ugiftStatus, seqAcctId) for all member accounts. Stores {{ugiftExt}}, {{ugiftId}}."
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH mobileugift/{ext}",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Fall back to {{ugiftExt}} (or '01') if {{ext}} was not captured yet.",
+                  "if (!pm.environment.get('ext')) {",
+                  "    pm.environment.set('ext', pm.environment.get('ugiftExt') || '01');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('PATCH ugift: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "var ug = (item.mobileUgifts || [])[0];",
+                  "if (ug && ug.ugiftId) {",
+                  "    pm.environment.set('ugiftId', ug.ugiftId);",
+                  "    console.log('UGift activated, ugiftId=' + ug.ugiftId);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobileugift/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobileugift",
+                "{{ext}}"
+              ]
+            },
+            "description": "Create/activate a UGift ID for the account ext (server sends generateUgiftId=true downstream)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Banks",
+      "item": [
+        {
+          "name": "GET mobilebanks",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Banks: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var items = (pm.response.json()._embedded || {}).item;",
+                  "pm.test('Banks: list returned', function () { pm.expect(items).to.be.an('array'); });",
+                  "if (Array.isArray(items) && items.length) {",
+                  "    pm.environment.set('bankId', items[0].id);",
+                  "    pm.environment.set('bnkId', items[0].id);",
+                  "    if (items[0].uuidBnkId) { pm.environment.set('uuidBnkId', items[0].uuidBnkId); }",
+                  "    console.log('Stored bankId/bnkId=' + items[0].id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks"
+              ]
+            },
+            "description": "List linked bank accounts. Stores {{bankId}}, {{bnkId}}, {{uuidBnkId}} from the first bank."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilebanks?filterDomesticBanks=true",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks?filterDomesticBanks={{filterDomesticBanks}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks"
+              ],
+              "query": [
+                {
+                  "key": "filterDomesticBanks",
+                  "value": "{{filterDomesticBanks}}"
+                }
+              ]
+            },
+            "description": "List only domestic bank accounts."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilebanks/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks/{{bankId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks",
+                "{{bankId}}"
+              ]
+            },
+            "description": "Get a single bank by id. Set {{bankId}} first."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilebanks",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('POST banks: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var created = ((pm.response.json()._embedded || {}).item || [])[0] || {};",
+                  "if (created.id) { pm.environment.set('createdBankId', created.id); console.log('Stored createdBankId=' + created.id); }",
+                  "if (created.errors && created.errors.length) {",
+                  "    console.log('POST banks business validation: ' + JSON.stringify(created.errors));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"{{bankName}}\",\n    \"acctNum\": \"{{bankAcctNum}}\",\n    \"confirmAcctNum\": \"{{confirmAcctNum}}\",\n    \"routingNum\": \"{{bankRoutingNum}}\",\n    \"acctType\": \"{{bankAcctType}}\",\n    \"isDomestic\": \"{{bankIsDomestic}}\",\n    \"sessionId\": \"{{sessionId}}\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks"
+              ]
+            },
+            "description": "Add a bank account. Body is an array of bank objects. Server returns 200; any business validation is surfaced in the response 'errors' array (a real add needs a valid bank-verification {{sessionId}})."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilebanks?planId=upromise",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('POST banks (planId): status is 200', function () { pm.response.to.have.status(200); });",
+                  "var created = ((pm.response.json()._embedded || {}).item || [])[0] || {};",
+                  "if (created.errors && created.errors.length) {",
+                  "    console.log('POST banks business validation: ' + JSON.stringify(created.errors));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"{{bankName}}\",\n    \"acctNum\": \"{{bankAcctNum}}\",\n    \"confirmAcctNum\": \"{{confirmAcctNum}}\",\n    \"routingNum\": \"{{bankRoutingNum}}\",\n    \"acctType\": \"{{bankAcctType}}\",\n    \"isDomestic\": \"{{bankIsDomestic}}\",\n    \"sessionId\": \"{{sessionId}}\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks?planId={{bankPlanId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks"
+              ],
+              "query": [
+                {
+                  "key": "planId",
+                  "value": "{{bankPlanId}}"
+                }
+              ]
+            },
+            "description": "Add a bank account for the cross-plan (upromise) flow. Uses {{bankPlanId}} (default 'upromise'); passing the member's own plan here causes a 500."
+          },
+          "response": []
+        },
+        {
+          "name": "PUT mobilebanks",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Auto-resolve {{bankId}} from the bank list if it has not been captured yet.",
+                  "if (!pm.environment.get('bankId')) {",
+                  "    pm.sendRequest({",
+                  "        url: pm.environment.get('baseUrl') + '/mobile2api/v1/mobilebanks',",
+                  "        method: 'GET',",
+                  "        header: {",
+                  "            'Authorization': 'Bearer ' + pm.environment.get('jwtToken'),",
+                  "            'X-App-Version': pm.environment.get('appVersion'),",
+                  "            'Accept': 'application/json'",
+                  "        }",
+                  "    }, function (err, res) {",
+                  "        if (!err && res.code === 200) {",
+                  "            var b = ((res.json()._embedded || {}).item || [])[0];",
+                  "            if (b) { pm.environment.set('bankId', b.id); pm.environment.set('bnkId', b.id); console.log('Auto-resolved bankId=' + b.id); }",
+                  "        }",
+                  "    });",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('PUT banks: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = ((pm.response.json()._embedded || {}).item || [])[0] || {};",
+                  "if (item.errors && item.errors.length) {",
+                  "    console.log('PUT banks validation: ' + JSON.stringify(item.errors));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": {{bankId}},\n    \"name\": \"{{bankName}}\",\n    \"acctNum\": \"{{bankAcctNum}}\",\n    \"routingNum\": \"{{bankRoutingNum}}\",\n    \"acctType\": \"{{bankAcctType}}\",\n    \"isDomestic\": \"{{bankIsDomestic}}\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks"
+              ]
+            },
+            "description": "Edit a bank account. Body must include the bank id. Set {{bankId}} first."
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE mobilebanks",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": {{bankId}},\n    \"routingNum\": \"{{bankRoutingNum}}\",\n    \"acctNum\": \"{{bankAcctNum}}\",\n    \"acctType\": \"{{bankAcctType}}\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebanks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebanks"
+              ]
+            },
+            "description": "Delete a bank account. Body identifies the bank to remove."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Contribution",
+      "item": [
+        {
+          "name": "GET mobilecontribution",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Contribution: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "var acct = (item.mobileAccounts || [])[0];",
+                  "if (acct) {",
+                  "    pm.environment.set('ext', acct.ext);",
+                  "    pm.environment.set('seqAcctId', acct.seqAcctId);",
+                  "    console.log('Stored ext=' + acct.ext + ', seqAcctId=' + acct.seqAcctId);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilecontribution",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilecontribution"
+              ]
+            },
+            "description": "Contribution page data (accounts, frequency, amounts, ugiftMobileAccounts). Stores {{ext}}, {{seqAcctId}}."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilecontributioncheck",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilecontributioncheck",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilecontributioncheck"
+              ]
+            },
+            "description": "Pre-check contribution eligibility for member accounts."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilecontribution/{ext}/{id}",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Auto-resolve {{contributionId}} from mobileactivity if it has not been captured yet.",
+                  "if (!pm.environment.get('contributionId')) {",
+                  "    var ext = pm.environment.get('ext') || '01';",
+                  "    pm.sendRequest({",
+                  "        url: pm.environment.get('baseUrl') + '/mobile2api/v1/mobileactivity/' + ext,",
+                  "        method: 'GET',",
+                  "        header: {",
+                  "            'Authorization': 'Bearer ' + pm.environment.get('jwtToken'),",
+                  "            'X-App-Version': pm.environment.get('appVersion'),",
+                  "            'Accept': 'application/json'",
+                  "        }",
+                  "    }, function (err, res) {",
+                  "        if (!err && res.code === 200) {",
+                  "            var rc = (((res.json()._embedded || {}).item || {}).recurringContribution || [])[0];",
+                  "            if (rc) {",
+                  "                pm.environment.set('contributionId', rc.id);",
+                  "                pm.environment.set('bnkId', rc.bnkId);",
+                  "                pm.environment.set('seqAcctId', rc.seqAcctId);",
+                  "                console.log('Auto-resolved contributionId=' + rc.id);",
+                  "            }",
+                  "        }",
+                  "    });",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('GET contribution by id: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "pm.test('Returned contribution has matching id', function () {",
+                  "    pm.expect(String(item.id)).to.eql(String(pm.environment.get('contributionId')));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilecontribution/{{ext}}/{{contributionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilecontribution",
+                "{{ext}}",
+                "{{contributionId}}"
+              ]
+            },
+            "description": "Get a single recurring contribution for editing. {{contributionId}} is auto-resolved from mobileactivity's recurringContribution list if not already set."
+          },
+          "response": []
+        },
+        {
+          "name": "POST mobilecontribution",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('POST contribution: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var created = ((pm.response.json()._embedded || {}).item || [])[0] || {};",
+                  "if (created.id) {",
+                  "    pm.environment.set('contributionId', created.id);",
+                  "    console.log('Stored contributionId=' + created.id);",
+                  "}",
+                  "if (created.errors && created.errors.length) {",
+                  "    console.log('POST contribution validation: ' + JSON.stringify(created.errors));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"paymentType\": \"{{paymentType}}\",\n    \"frequency\": \"{{frequency}}\",\n    \"amount\": {{amount}},\n    \"bnkId\": {{bnkId}},\n    \"seqAcctId\": {{seqAcctId}},\n    \"beginDate\": \"{{beginDate}}\",\n    \"validate\": \"{{validate}}\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilecontribution",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilecontribution"
+              ]
+            },
+            "description": "Create recurring contribution(s). Body is an array using dynamic {{bnkId}}/{{seqAcctId}}. {{validate}} defaults to 'true' (safe dry-run validation). Set {{validate}} to '' (empty) in the environment to actually create the contribution."
+          },
+          "response": []
+        },
+        {
+          "name": "PUT mobilecontribution/{ext}/{id}",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Auto-resolve {{contributionId}} from mobileactivity if it has not been captured yet.",
+                  "if (!pm.environment.get('contributionId')) {",
+                  "    var ext = pm.environment.get('ext') || '01';",
+                  "    pm.sendRequest({",
+                  "        url: pm.environment.get('baseUrl') + '/mobile2api/v1/mobileactivity/' + ext,",
+                  "        method: 'GET',",
+                  "        header: {",
+                  "            'Authorization': 'Bearer ' + pm.environment.get('jwtToken'),",
+                  "            'X-App-Version': pm.environment.get('appVersion'),",
+                  "            'Accept': 'application/json'",
+                  "        }",
+                  "    }, function (err, res) {",
+                  "        if (!err && res.code === 200) {",
+                  "            var rc = (((res.json()._embedded || {}).item || {}).recurringContribution || [])[0];",
+                  "            if (rc) {",
+                  "                pm.environment.set('contributionId', rc.id);",
+                  "                pm.environment.set('bnkId', rc.bnkId);",
+                  "                pm.environment.set('seqAcctId', rc.seqAcctId);",
+                  "                console.log('Auto-resolved contributionId=' + rc.id);",
+                  "            }",
+                  "        }",
+                  "    });",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('PUT contribution: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "if (item.errors && item.errors.length) {",
+                  "    console.log('PUT contribution validation: ' + JSON.stringify(item.errors));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {{contributionId}},\n  \"paymentType\": \"{{paymentType}}\",\n  \"frequency\": \"{{frequency}}\",\n  \"amount\": {{amount}},\n  \"bnkId\": {{bnkId}},\n  \"seqAcctId\": {{seqAcctId}},\n  \"validate\": \"{{validate}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilecontribution/{{ext}}/{{contributionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilecontribution",
+                "{{ext}}",
+                "{{contributionId}}"
+              ]
+            },
+            "description": "Update a recurring contribution. {{contributionId}} auto-resolves from mobileactivity. {{validate}} defaults to 'true' (dry-run); set it to '' to actually update."
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE mobilecontribution/{ext}/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {{contributionId}},\n  \"paymentType\": \"{{paymentType}}\",\n  \"frequency\": \"{{frequency}}\",\n  \"amount\": {{amount}},\n  \"bnkId\": {{bnkId}},\n  \"seqAcctId\": {{seqAcctId}},\n  \"validate\": \"true\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilecontribution/{{ext}}/{{contributionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilecontribution",
+                "{{ext}}",
+                "{{contributionId}}"
+              ]
+            },
+            "description": "Stop/delete a recurring contribution. Body is a single object."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Performance & Balance",
+      "item": [
+        {
+          "name": "GET mobilebalancetrend/{ext}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilebalancetrend/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilebalancetrend",
+                "{{ext}}"
+              ]
+            },
+            "description": "Balance trend over time for the account ext."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobileperformance/{ext}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobileperformance/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobileperformance",
+                "{{ext}}"
+              ]
+            },
+            "description": "Performance + balance summary (principal, earnings, totalBalance) for the account ext."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobilestackup/{planId}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobilestackup/{{planId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobilestackup",
+                "{{planId}}"
+              ]
+            },
+            "description": "Stack-up comparison data for the plan."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Activity & Transactions",
+      "item": [
+        {
+          "name": "GET mobileactivity/{ext}",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Activity: status is 200', function () { pm.response.to.have.status(200); });",
+                  "var item = (pm.response.json()._embedded || {}).item || {};",
+                  "// recurringContribution[].id is the contribution id used by GET/PUT/DELETE mobilecontribution/{ext}/{id}.",
+                  "var rc = (item.recurringContribution || [])[0];",
+                  "if (rc && rc.id) {",
+                  "    pm.environment.set('contributionId', rc.id);",
+                  "    if (rc.bnkId) { pm.environment.set('bnkId', rc.bnkId); }",
+                  "    if (rc.seqAcctId) { pm.environment.set('seqAcctId', rc.seqAcctId); }",
+                  "    console.log('Stored contributionId=' + rc.id + ' (bnkId=' + rc.bnkId + ', seqAcctId=' + rc.seqAcctId + ')');",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobileactivity/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobileactivity",
+                "{{ext}}"
+              ]
+            },
+            "description": "Recent activity + contribution summary for the account ext. Stores {{contributionId}}, {{bnkId}}, {{seqAcctId}} from the first recurringContribution."
+          },
+          "response": []
+        },
+        {
+          "name": "GET mobiletransactionhistory/{ext}?duration&page",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/mobiletransactionhistory/{{ext}}?duration={{duration}}&page={{page}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "mobiletransactionhistory",
+                "{{ext}}"
+              ],
+              "query": [
+                {
+                  "key": "duration",
+                  "value": "{{duration}}"
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}"
+                }
+              ]
+            },
+            "description": "Paged transaction history. duration in days/months; page is optional."
+          },
+          "response": []
+        },
+        {
+          "name": "GET investments/{ext}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/investments/{{ext}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "investments",
+                "{{ext}}"
+              ]
+            },
+            "description": "Investment holdings for the account ext."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Content & Plans",
+      "item": [
+        {
+          "name": "GET content",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/content?id={{planId}}&lang={{lang}}&name={{contentName}}&overlay={{overlay}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "content"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "{{planId}}"
+                },
+                {
+                  "key": "lang",
+                  "value": "{{lang}}"
+                },
+                {
+                  "key": "name",
+                  "value": "{{contentName}}"
+                },
+                {
+                  "key": "overlay",
+                  "value": "{{overlay}}"
+                }
+              ]
+            },
+            "description": "CMS content. id=branding/plan, lang, name (content key), overlay."
+          },
+          "response": []
+        },
+        {
+          "name": "GET plans (anonymous)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "X-App-Build",
+                "value": "{{appBuild}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/plans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "plans"
+              ]
+            },
+            "description": "Public plan list for plan-selection widget. No auth required."
+          },
+          "response": []
+        },
+        {
+          "name": "GET plans/{id} (anonymous)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-App-Version",
+                "value": "{{appVersion}}"
+              },
+              {
+                "key": "X-App-Build",
+                "value": "{{appBuild}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/plans/{{planId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "plans",
+                "{{planId}}"
+              ]
+            },
+            "description": "Public single plan by id. No auth required."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Docs & Health",
+      "item": [
+        {
+          "name": "GET openapi.json",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/v1/openapi.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "v1",
+                "openapi.json"
+              ]
+            },
+            "description": "OpenAPI 3 spec (JSON)."
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/liveness",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/health/liveness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "health",
+                "liveness"
+              ]
+            },
+            "description": "Liveness probe."
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/readiness",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/health/readiness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "health",
+                "readiness"
+              ]
+            },
+            "description": "Readiness probe."
+          },
+          "response": []
+        },
+        {
+          "name": "GET health/properties",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/health/properties",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "health",
+                "properties"
+              ]
+            },
+            "description": "Service configuration properties."
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE health/cache",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mobile2api/health/cache",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mobile2api",
+                "health",
+                "cache"
+              ]
+            },
+            "description": "Clear service cache."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwtToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Runs before every request. Warns (does not block) if a member token is missing.",
+          "var url = pm.request.url.toString();",
+          "var isAnon = /mobilemembersession|\\/plans|openapi|health/.test(url);",
+          "if (!isAnon && !pm.environment.get('jwtToken')) {",
+          "    console.warn('No {{jwtToken}} set yet. Run \"00 - Auth > Login\" first so dynamic chaining works.');",
+          "}"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Baseline checks applied to every request.",
+          "pm.test('Responded within 30s', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(30000);",
+          "});",
+          "pm.test('No 5xx server error', function () {",
+          "    pm.expect(pm.response.code).to.be.below(500);",
+          "});",
+          "// The mobilemembers lookup needs the internal ACCEPTANCE_TEST role => 401 by design; skip it.",
+          "var name = (pm.info.requestName || '');",
+          "var isAcceptanceOnly = /mobilemembers\\//.test(name);",
+          "if (!isAcceptanceOnly) {",
+          "    pm.test('Success status (2xx)', function () {",
+          "        pm.expect(pm.response.code).to.be.oneOf([200, 201, 202, 204]);",
+          "    });",
+          "} else {",
+          "    pm.test('Acceptance-only endpoint returns 401 as expected', function () {",
+          "        pm.expect(pm.response.code).to.equal(401);",
+          "    });",
+          "}"
+        ]
+      }
+    }
+  ]
+}
